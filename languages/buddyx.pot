@@ -1,0 +1,372 @@
+# Copyright (C) 2019 buddyx
+# This file is distributed under the same license as the buddyx package.
+msgid ""
+msgstr ""
+"Project-Id-Version: buddyx\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: brndle\n"
+"Report-Msgid-Bugs-To: buddyx\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. translators: 1: title.
+#: ../buddyx/comments.php:38
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: ../buddyx/comments.php:44
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../buddyx/comments.php:60
+msgid "Comments are closed."
+msgstr ""
+
+#: ../buddyx/header.php:36
+msgid "Skip to content"
+msgstr ""
+
+#: ../buddyx/inc/Accessibility/Component.php:69
+msgid "Expand child menu"
+msgstr ""
+
+#: ../buddyx/inc/Accessibility/Component.php:70
+msgid "Collapse child menu"
+msgstr ""
+
+#. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
+#: ../buddyx/inc/back-compat.php:25
+msgid "buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %3$s respectively. Please update and try again."
+msgstr ""
+
+#. translators: 1: required WP version number, 2: available WP version number
+#: ../buddyx/inc/back-compat.php:30
+msgid "buddyx requires at least WordPress version %1$s. You are running version %2$s. Please update and try again."
+msgstr ""
+
+#. translators: 1: required PHP version number, 2: available PHP version number
+#: ../buddyx/inc/back-compat.php:35
+msgid "buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
+msgstr ""
+
+#: ../buddyx/inc/Comments/Component.php:132
+msgid "New comment(s)"
+msgstr ""
+
+#: ../buddyx/inc/Customizer/Component.php:77
+msgid "Theme Options"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:68
+msgid "Primary"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:70
+msgid "Secondary"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:75
+msgid "Red"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:80
+msgid "Green"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:85
+msgid "Blue"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:90
+msgid "Yellow"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:95
+msgid "Black"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:100
+msgid "Grey"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:105
+msgid "White"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:110
+msgid "Dusty daylight"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:115
+msgid "Dusty sun"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:132
+msgid "Small"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:133
+msgid "S"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:138
+msgid "Medium"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:139
+msgid "M"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:144
+msgid "Large"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:145
+msgid "L"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:150
+msgid "Larger"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:151
+msgid "XL"
+msgstr ""
+
+#: ../buddyx/inc/Lazyload/Component.php:89
+msgid "Lazy-load on (default)"
+msgstr ""
+
+#: ../buddyx/inc/Lazyload/Component.php:90
+msgid "Lazy-load off"
+msgstr ""
+
+#: ../buddyx/inc/Lazyload/Component.php:111
+msgid "Lazy-load images"
+msgstr ""
+
+#: ../buddyx/inc/Lazyload/Component.php:114
+msgid "Lazy-loading images means images are loaded only when they are in view. Improves performance, but can result in content jumping around on slower connections."
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:69
+msgid "Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:71
+msgid "Add widgets here."
+msgstr ""
+
+#. translators: %s: stylesheet handle
+#: ../buddyx/inc/Styles/Component.php:235
+msgid "Invalid theme stylesheet handle: %s"
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: ../buddyx/inc/Template_Tags.php:54
+msgid "The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: template tag name
+#: ../buddyx/inc/Template_Tags.php:81
+msgid "The template tag %s does not exist."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: ../buddyx/inc/Template_Tags.php:110
+msgid "The template tag method %1$s registered by theme component %2$s must either be a callable or an array."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: ../buddyx/inc/Template_Tags.php:121
+msgid "The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name."
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: ../buddyx/inc/Theme.php:57
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: slug
+#: ../buddyx/inc/Theme.php:120
+msgid "No theme component with the slug %s exists."
+msgstr ""
+
+#: ../buddyx/template-parts/content/entry-attachment.php:33, ../buddyx/template-parts/content/entry.php:32
+msgid "Previous:"
+msgstr ""
+
+#: ../buddyx/template-parts/content/entry-attachment.php:43, ../buddyx/template-parts/content/entry.php:33
+msgid "Next:"
+msgstr ""
+
+#: ../buddyx/template-parts/content/entry-attachment.php:49
+msgid "Post navigation"
+msgstr ""
+
+#. translators: %s: post title
+#: ../buddyx/template-parts/content/entry_actions.php:21
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: post title
+#: ../buddyx/template-parts/content/entry_actions.php:40
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content/entry_content.php:18
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: ../buddyx/template-parts/content/entry_content.php:31
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: post date
+#: ../buddyx/template-parts/content/entry_meta.php:63
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#. translators: %s: post author
+#: ../buddyx/template-parts/content/entry_meta.php:76
+msgctxt "post author"
+msgid "By %s"
+msgstr ""
+
+#. translators: %s: post author
+#: ../buddyx/template-parts/content/entry_meta.php:79
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: ../buddyx/template-parts/content/entry_meta.php:95
+msgctxt "post parent"
+msgid "In %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: ../buddyx/template-parts/content/entry_meta.php:98
+msgctxt "post parent"
+msgid "in %s"
+msgstr ""
+
+#. translators: separator between taxonomy terms
+#: ../buddyx/template-parts/content/entry_taxonomies.php:24
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#. translators: %s: list of taxonomy terms
+#: ../buddyx/template-parts/content/entry_taxonomies.php:31
+msgid "Posted in %s"
+msgstr ""
+
+#. translators: %s: list of taxonomy terms
+#: ../buddyx/template-parts/content/entry_taxonomies.php:37
+msgid "Tagged %s"
+msgstr ""
+
+#. translators: %s: taxonomy name
+#: ../buddyx/template-parts/content/entry_taxonomies.php:44
+msgid "%s:"
+msgstr ""
+
+#: ../buddyx/template-parts/content/error-404.php:16
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: ../buddyx/template-parts/content/error-404.php:27
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: ../buddyx/template-parts/content/error-404.php:45
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: ../buddyx/template-parts/content/error-500.php:14
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: ../buddyx/template-parts/content/error-offline.php:14
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: ../buddyx/template-parts/content/error.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../buddyx/template-parts/content/error.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: ../buddyx/template-parts/content/error.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: ../buddyx/template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../buddyx/template-parts/content/page_header.php:22
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: %s: search query
+#: ../buddyx/template-parts/content/page_header.php:41
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../buddyx/template-parts/content/pagination.php:13
+msgctxt "previous set of search results"
+msgid "Previous"
+msgstr ""
+
+#: ../buddyx/template-parts/content/pagination.php:14
+msgctxt "next set of search results"
+msgid "Next"
+msgstr ""
+
+#: ../buddyx/template-parts/content/pagination.php:15
+msgid "Page navigation"
+msgstr ""
+
+#: ../buddyx/template-parts/footer/info.php:13
+msgid "https://wordpress.org/"
+msgstr ""
+
+#. translators: %s: CMS name, i.e. WordPress.
+#: ../buddyx/template-parts/footer/info.php:16
+msgid "Proudly powered by %s"
+msgstr ""
+
+#. translators: Theme name.
+#: ../buddyx/template-parts/footer/info.php:22
+msgid "Theme: %s by the contributors."
+msgstr ""
+
+#: ../buddyx/template-parts/header/navigation.php:16
+msgid "Main menu"
+msgstr ""
+
+#: ../buddyx/template-parts/header/navigation.php:39
+msgid "Open menu"
+msgstr ""
+
+#: ../buddyx/template-parts/header/navigation.php:49
+msgid "Menu"
+msgstr ""
