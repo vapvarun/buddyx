@@ -19,7 +19,7 @@ namespace Brndle\Brndle;
 	<span class="sep"> | </span>
 	<?php
 	/* translators: Theme name. */
-	printf( esc_html__( 'Theme: %s by the contributors.', 'buddyx' ), '<a href="' . esc_url( 'https://github.com/wprig/wprig/' ) . '">buddyx</a>' );
+	printf( esc_html__( 'Theme: %s by the contributors.', 'buddyx' ), '<a href="' . esc_url( 'https://github.com/wprig/wprig/' ) . '">Buddyx</a>' );
 
 	if ( function_exists( 'the_privacy_policy_link' ) ) {
 		the_privacy_policy_link( '<span class="sep"> | </span>' );

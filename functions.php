@@ -1,6 +1,6 @@
 <?php
 /**
- * buddyx functions and definitions
+ * Buddyx functions and definitions
  *
  * This file must be parseable by PHP 5.2.
  *
@@ -64,3 +64,6 @@ require get_template_directory() . '/inc/functions.php';
 
 // Initialize the theme.
 call_user_func( 'Brndle\Brndle\buddyx' );
+
+// Load theme extra function.
+require get_template_directory() . '/inc/extra.php';
