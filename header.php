@@ -35,10 +35,14 @@ namespace Brndle\Brndle;
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'buddyx' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<?php get_template_part( 'template-parts/header/custom_header' ); ?>
+	<div class="site-header-wrapper">
+		<div class="container">
+			<header id="masthead" class="site-header">
+				<?php get_template_part( 'template-parts/header/custom_header' ); ?>
 
-		<?php get_template_part( 'template-parts/header/branding' ); ?>
+				<?php get_template_part( 'template-parts/header/branding' ); ?>
 
-		<?php get_template_part( 'template-parts/header/navigation' ); ?>
-	</header><!-- #masthead -->
+				<?php get_template_part( 'template-parts/header/navigation' ); ?>
+			</header><!-- #masthead -->
+		</div>
+    </div>

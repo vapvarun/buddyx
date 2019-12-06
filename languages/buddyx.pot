@@ -173,6 +173,14 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
+#: ../buddyx/inc/Kirki/Component.php:47
+msgid "Typography"
+msgstr ""
+
+#: ../buddyx/inc/Kirki/Component.php:60
+msgid "Body Typography"
+msgstr ""
+
 #: ../buddyx/inc/Lazyload/Component.php:89
 msgid "Lazy-load on (default)"
 msgstr ""
