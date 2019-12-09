@@ -50,6 +50,10 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	</button>
 
 	<div class="primary-menu-container">
+		<div class="mobile-menu-heading">
+			<h3 class="menu-title"><?php esc_attr_e( 'Menu', 'buddyx' ); ?></h3>
+			<a href="#" class="menu-close">close</a>
+		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 	</div>
 </nav><!-- #site-navigation -->

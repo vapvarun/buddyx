@@ -375,6 +375,6 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:49
+#: ../buddyx/template-parts/header/navigation.php:49, ../buddyx/template-parts/header/navigation.php:54
 msgid "Menu"
 msgstr ""

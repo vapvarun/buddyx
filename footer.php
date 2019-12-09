@@ -18,6 +18,7 @@ namespace Brndle\Brndle;
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<div class="mobile-menu-close"></div>
 <?php wp_footer(); ?>
 
 </body>
