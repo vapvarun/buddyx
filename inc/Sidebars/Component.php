@@ -28,6 +28,7 @@ use function dynamic_sidebar;
 class Component implements Component_Interface, Templating_Component_Interface {
 
 	const PRIMARY_SIDEBAR_SLUG = 'sidebar-1';
+	const SECONDARY_SIDEBAR_SLUG = 'sidebar-left';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -57,6 +58,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return [
 			'is_primary_sidebar_active' => [ $this, 'is_primary_sidebar_active' ],
 			'display_primary_sidebar'   => [ $this, 'display_primary_sidebar' ],
+			'is_left_sidebar_active' => [ $this, 'is_left_sidebar_active' ],
+			'display_left_sidebar'   => [ $this, 'display_left_sidebar' ],
 		];
 	}
 
@@ -66,8 +69,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_sidebars() {
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Sidebar', 'buddyx' ),
+				'name'          => esc_html__( 'Sidebar Right', 'buddyx' ),
 				'id'            => static::PRIMARY_SIDEBAR_SLUG,
+				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Sidebar Left', 'buddyx' ),
+				'id'            => static::SECONDARY_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
@@ -92,6 +106,22 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
+		if ( $this->is_left_sidebar_active() ) {
+			global $template;
+
+			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+				$classes[] = 'has-sidebar-left';
+			}
+		}
+
+		if ( $this->is_primary_sidebar_active() && $this->is_left_sidebar_active() ) {
+			global $template;
+
+			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+				$classes[] = 'has-sidebar-both';
+			}
+		}
+
 		return $classes;
 	}
 
@@ -105,9 +135,25 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
+	 * Checks whether the left sidebar is active.
+	 *
+	 * @return bool True if the left sidebar is active, false otherwise.
+	 */
+	public function is_left_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::SECONDARY_SIDEBAR_SLUG );
+	}
+
+	/**
 	 * Displays the primary sidebar.
 	 */
 	public function display_primary_sidebar() {
 		dynamic_sidebar( static::PRIMARY_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the left sidebar.
+	 */
+	public function display_left_sidebar() {
+		dynamic_sidebar( static::SECONDARY_SIDEBAR_SLUG );
 	}
 }

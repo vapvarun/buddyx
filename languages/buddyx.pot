@@ -173,14 +173,6 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
-#: ../buddyx/inc/Kirki/Component.php:47
-msgid "Typography"
-msgstr ""
-
-#: ../buddyx/inc/Kirki/Component.php:60
-msgid "Body Typography"
-msgstr ""
-
 #: ../buddyx/inc/Lazyload/Component.php:89
 msgid "Lazy-load on (default)"
 msgstr ""
@@ -197,17 +189,29 @@ msgstr ""
 msgid "Lazy-loading images means images are loaded only when they are in view. Improves performance, but can result in content jumping around on slower connections."
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:69
-msgid "Sidebar"
+#: ../buddyx/inc/Sidebars/Component.php:72
+msgid "Sidebar Right"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:71
+#: ../buddyx/inc/Sidebars/Component.php:74, ../buddyx/inc/Sidebars/Component.php:85
 msgid "Add widgets here."
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:83
+msgid "Sidebar Left"
 msgstr ""
 
 #. translators: %s: stylesheet handle
 #: ../buddyx/inc/Styles/Component.php:235
 msgid "Invalid theme stylesheet handle: %s"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:44
+msgid "Typography"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:58
+msgid "Body Font"
 msgstr ""
 
 #: ../buddyx/template-parts/content/entry-attachment.php:33, ../buddyx/template-parts/content/entry.php:32
