@@ -153,6 +153,7 @@ class Theme {
 			new Customizer\Component(),
 			new Styles\Component(),
 			new Kirki\Component(),
+			new Custom_Js\Component(),
 		];
 
 		if ( defined( 'JETPACK__VERSION' ) ) {
