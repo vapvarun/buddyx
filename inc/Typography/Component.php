@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Brndle\Brndle\Typography_Options\Component class
  *
@@ -22,7 +23,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'typography_option';
 	}
 
@@ -33,14 +34,13 @@ class Component implements Component_Interface {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
-		add_filter( 'body_class', [ $this, 'sidebar_body_classes' ] );
 	}
 
 	/**
 	 * Adds body class for site layout.
 	 */
-	public function site_width_body_classes( array $classes ) : array {
-		$classes[] = 'layout-' . get_theme_mod( 'site-layout');
+	public function site_width_body_classes( array $classes ): array {
+		$classes[] = 'layout-' . get_theme_mod( 'site-layout' );
 
 		return $classes;
 	}
@@ -50,53 +50,48 @@ class Component implements Component_Interface {
 	 */
 	public function add_panels_and_sections( $wp_customize ) {
 		$wp_customize->add_section(
-			'typography_section',
-			array(
-				'title'       => esc_html__( 'Typography', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-			)
+		'typography_section', array(
+			'title'			 => esc_html__( 'Typography', 'buddyx' ),
+			'priority'		 => 10,
+			'description'	 => '',
+		)
 		);
 
 		// Site Layout
 		$wp_customize->add_panel(
-			'site_layout_panel',
-			array(
-				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-			)
+		'site_layout_panel', array(
+			'title'			 => esc_html__( 'Site Layout', 'buddyx' ),
+			'priority'		 => 10,
+			'description'	 => '',
+		)
 		);
 
 		$wp_customize->add_section(
-			'site_layout',
-			array(
-				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_layout_panel',
-			)
+		'site_layout', array(
+			'title'			 => esc_html__( 'Site Layout', 'buddyx' ),
+			'priority'		 => 10,
+			'description'	 => '',
+			'panel'			 => 'site_layout_panel',
+		)
 		);
-		
+
 		// Site Loader
 		$wp_customize->add_section(
-			'site_loader',
-			array(
-				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_layout_panel',
-			)
+		'site_loader', array(
+			'title'			 => esc_html__( 'Site Loader', 'buddyx' ),
+			'priority'		 => 10,
+			'description'	 => '',
+			'panel'			 => 'site_layout_panel',
+		)
 		);
 
 		// Site Sidebar Layout
 		$wp_customize->add_section(
-			'site_sidebar_layout',
-			array(
-				'title'       => esc_html__( 'Sidebar Layout', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-			)
+		'site_sidebar_layout', array(
+			'title'			 => esc_html__( 'Sidebar Layout', 'buddyx' ),
+			'priority'		 => 10,
+			'description'	 => '',
+		)
 		);
 	}
 
@@ -105,72 +100,72 @@ class Component implements Component_Interface {
 	 */
 	public function add_fields( $fields ) {
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'typography_option',
-			'label'       => esc_attr__( 'Body Font', 'buddyx' ),
-			'section'     => 'typography_section',
-			'default'     => array(
-				'font-family'    => 'Roboto',
-				'variant'        => 'regular',
-				'font-size'      => '14px',
-				'line-height'    => '1.5',
+			'type'		 => 'typography',
+			'settings'	 => 'typography_option',
+			'label'		 => esc_attr__( 'Body Font', 'buddyx' ),
+			'section'	 => 'typography_section',
+			'default'	 => array(
+				'font-family'	 => 'Roboto',
+				'variant'		 => 'regular',
+				'font-size'		 => '14px',
+				'line-height'	 => '1.5',
 				'letter-spacing' => '0',
-				'color'          => '#333333',
+				'color'			 => '#333333',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'	 => 'left',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority'	 => 10,
+			'output'	 => array(
 				array(
 					'element' => 'body',
 				),
 			),
-			'transport'   => 'postMessage',
-			'js_vars'     => array(
+			'transport'	 => 'postMessage',
+			'js_vars'	 => array(
 				array(
-					'choice'   => 'font-family',
-					'element'  => 'body',
-					'property' => 'font-family',
+					'choice'	 => 'font-family',
+					'element'	 => 'body',
+					'property'	 => 'font-family',
 				),
 				array(
-					'choice'   => 'variant',
-					'element'  => 'body',
-					'property' => 'font-weight',
+					'choice'	 => 'variant',
+					'element'	 => 'body',
+					'property'	 => 'font-weight',
 				),
 				array(
-					'choice'   => 'font-size',
-					'element'  => 'body',
-					'property' => 'font-size',
+					'choice'	 => 'font-size',
+					'element'	 => 'body',
+					'property'	 => 'font-size',
 				),
 				array(
-					'choice'   => 'line-height',
-					'element'  => 'body',
-					'property' => 'line-height',
+					'choice'	 => 'line-height',
+					'element'	 => 'body',
+					'property'	 => 'line-height',
 				),
 				array(
-					'choice'   => 'text-transform',
-					'element'  => 'body',
-					'property' => 'text-transform',
-                ),
-                array(
-					'choice'   => 'color',
-					'element'  => 'body',
-					'property' => 'color',
+					'choice'	 => 'text-transform',
+					'element'	 => 'body',
+					'property'	 => 'text-transform',
+				),
+				array(
+					'choice'	 => 'color',
+					'element'	 => 'body',
+					'property'	 => 'color',
 				),
 			),
 		);
 
 		// Site Layout
 		$fields[] = array(
-			'type'     => 'radio-image',
-			'settings' => 'site-layout',
-			'label'    => esc_attr__( 'Site Layout', 'buddyx' ),
-			'section'  => 'site_layout',
-			'priority' => 10,
-			'default'  => 'wide',
-			'choices'  => [
-				'boxed' => get_template_directory_uri() . '/assets/images/src/site-layout/boxed.png',
-				'wide'  => get_template_directory_uri() . '/assets/images/src/site-layout/wide.png',
+			'type'		 => 'radio-image',
+			'settings'	 => 'site-layout',
+			'label'		 => esc_attr__( 'Site Layout', 'buddyx' ),
+			'section'	 => 'site_layout',
+			'priority'	 => 10,
+			'default'	 => 'wide',
+			'choices'	 => [
+				'boxed'	 => get_template_directory_uri() . '/assets/images/src/site-layout/boxed.png',
+				'wide'	 => get_template_directory_uri() . '/assets/images/src/site-layout/wide.png',
 			],
 		);
 
@@ -195,7 +190,7 @@ class Component implements Component_Interface {
 
 		// Site Loader
 		$fields[] = array(
-			'type' => 'switch',
+			'type'		 => 'switch',
 			'settings'	 => 'site-loader',
 			'label'		 => esc_html__( 'Site Loader', 'directory24' ),
 			'section'	 => 'site_loader',
@@ -207,37 +202,38 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type' => 'color',
+			'type'		 => 'color',
 			'settings'	 => 'site-loader-bg',
 			'label'		 => esc_html__( 'Site Loader Background', 'directory24' ),
 			'section'	 => 'site_loader',
 			'default'	 => '#00b7f1',
-			'priority'    => 10,
-			'transport'		 => 'auto',
-			'output'      => array(
+			'priority'	 => 10,
+			'transport'	 => 'auto',
+			'output'	 => array(
 				array(
-					'element' => '.loader',
-					'property' => 'background-color',
+					'element'	 => '.loader',
+					'property'	 => 'background-color',
 				),
 			),
 		);
 
 		// Site Sidebar Layout
 		$fields[] = array(
-			'type'     => 'radio-image',
-			'settings' => 'sidebar-layout',
-			'label'    => esc_attr__( 'Sidebar Layout', 'buddyx' ),
-			'section'  => 'site_sidebar_layout',
-			'priority' => 10,
-			'default'  => 'with-right-sidebar',
-			'choices'  => [
+			'type'		 => 'radio-image',
+			'settings'	 => 'sidebar-layout',
+			'label'		 => esc_attr__( 'Sidebar Layout', 'buddyx' ),
+			'section'	 => 'site_sidebar_layout',
+			'priority'	 => 10,
+			'default'	 => 'with-right-sidebar',
+			'choices'	 => [
 				'content-full-width' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/without-sidebar.png',
-				'with-left-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/left-sidebar.png',
+				'with-left-sidebar'	 => get_template_directory_uri() . '/assets/images/src/sidebar-layout/left-sidebar.png',
 				'with-right-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/right-sidebar.png',
-				'with-both-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/both-sidebar.png',
+				'with-both-sidebar'	 => get_template_directory_uri() . '/assets/images/src/sidebar-layout/both-sidebar.png',
 			],
 		);
 
 		return $fields;
 	}
+
 }
