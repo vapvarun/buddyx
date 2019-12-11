@@ -20,15 +20,15 @@ use function dynamic_sidebar;
  * Class for managing sidebars.
  *
  * Exposes template tags:
- * * `buddyx()->is_primary_sidebar_active()`
+ * * `buddyx()->is_right_sidebar_active()`
  * * `buddyx()->display_primary_sidebar()`
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
-	const PRIMARY_SIDEBAR_SLUG = 'sidebar-1';
-	const SECONDARY_SIDEBAR_SLUG = 'sidebar-left';
+	const LEFT_SIDEBAR_SLUG  = 'sidebar-left';
+	const RIGHT_SIDEBAR_SLUG = 'sidebar-right';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -56,10 +56,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function template_tags() : array {
 		return [
-			'is_primary_sidebar_active' => [ $this, 'is_primary_sidebar_active' ],
-			'display_primary_sidebar'   => [ $this, 'display_primary_sidebar' ],
-			'is_left_sidebar_active' => [ $this, 'is_left_sidebar_active' ],
-			'display_left_sidebar'   => [ $this, 'display_left_sidebar' ],
+			'is_left_sidebar_active'  => [ $this, 'is_left_sidebar_active' ],
+			'display_left_sidebar'    => [ $this, 'display_left_sidebar' ],
+			'is_right_sidebar_active' => [ $this, 'is_right_sidebar_active' ],
+			'display_right_sidebar'   => [ $this, 'display_right_sidebar' ],
 		];
 	}
 
@@ -69,8 +69,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_sidebars() {
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Sidebar Right', 'buddyx' ),
-				'id'            => static::PRIMARY_SIDEBAR_SLUG,
+				'name'          => esc_html__( 'Left Sidebar', 'buddyx' ),
+				'id'            => static::LEFT_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
@@ -80,8 +80,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Sidebar Left', 'buddyx' ),
-				'id'            => static::SECONDARY_SIDEBAR_SLUG,
+				'name'          => esc_html__( 'Right Sidebar', 'buddyx' ),
+				'id'            => static::RIGHT_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
@@ -98,40 +98,28 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function filter_body_classes( array $classes ) : array {
-		if ( $this->is_primary_sidebar_active() ) {
-			global $template;
+		$sidebar = get_theme_mod( 'sidebar_option' );
+		if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
 
-			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-				$classes[] = 'has-sidebar';
-			}
-		}
-
-		if ( $this->is_left_sidebar_active() ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-left';
 			}
-		}
+		} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
+			global $template;
 
-		if ( $this->is_primary_sidebar_active() && $this->is_left_sidebar_active() ) {
+			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+				$classes[] = 'has-sidebar-right';
+			}
+		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-both';
 			}
 		}
-
 		return $classes;
-	}
-
-	/**
-	 * Checks whether the primary sidebar is active.
-	 *
-	 * @return bool True if the primary sidebar is active, false otherwise.
-	 */
-	public function is_primary_sidebar_active() : bool {
-		return (bool) is_active_sidebar( static::PRIMARY_SIDEBAR_SLUG );
 	}
 
 	/**
@@ -140,20 +128,29 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return bool True if the left sidebar is active, false otherwise.
 	 */
 	public function is_left_sidebar_active() : bool {
-		return (bool) is_active_sidebar( static::SECONDARY_SIDEBAR_SLUG );
-	}
-
-	/**
-	 * Displays the primary sidebar.
-	 */
-	public function display_primary_sidebar() {
-		dynamic_sidebar( static::PRIMARY_SIDEBAR_SLUG );
+		return (bool) is_active_sidebar( static::LEFT_SIDEBAR_SLUG );
 	}
 
 	/**
 	 * Displays the left sidebar.
 	 */
 	public function display_left_sidebar() {
-		dynamic_sidebar( static::SECONDARY_SIDEBAR_SLUG );
+		dynamic_sidebar( static::LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the right sidebar is active.
+	 *
+	 * @return bool True if the right sidebar is active, false otherwise.
+	 */
+	public function is_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the right sidebar.
+	 */
+	public function display_right_sidebar() {
+		dynamic_sidebar( static::RIGHT_SIDEBAR_SLUG );
 	}
 }

@@ -17,31 +17,41 @@ namespace Brndle\Brndle;
 get_header();
 
 buddyx()->print_styles( 'buddyx-content' );
+buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
 	<?php do_action( 'buddy_before_content' ); ?>
-	
-		<main id="primary" class="site-main">
-			<?php
-			if ( have_posts() ) {
 
-				get_template_part( 'template-parts/content/page_header' );
+	<?php if ( get_theme_mod( 'sidebar_option' ) == 'left' || get_theme_mod( 'sidebar_option' ) == 'both'  ) : ?>
+		<aside id="secondary" class="left-sidebar widget-area">
+			<?php buddyx()->display_left_sidebar(); ?>
+		</aside>
+	<?php endif; ?>
+	<main id="primary" class="site-main">
+		<?php
+		if ( have_posts() ) {
 
-				while ( have_posts() ) {
-					the_post();
+			get_template_part( 'template-parts/content/page_header' );
 
-					get_template_part( 'template-parts/content/entry', get_post_type() );
-				}
+			while ( have_posts() ) {
+				the_post();
 
-				if ( ! is_singular() ) {
-					get_template_part( 'template-parts/content/pagination' );
-				}
-			} else {
-				get_template_part( 'template-parts/content/error' );
+				get_template_part( 'template-parts/content/entry', get_post_type() );
 			}
-			?>
-		</main><!-- #primary -->
-		<?php get_sidebar();?>
+
+			if ( ! is_singular() ) {
+				get_template_part( 'template-parts/content/pagination' );
+			}
+		} else {
+			get_template_part( 'template-parts/content/error' );
+		}
+		?>
+	</main><!-- #primary -->
+	<?php if ( get_theme_mod( 'sidebar_option' ) == 'right' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
+		<aside id="secondary" class="primary-sidebar widget-area">
+			<?php buddyx()->display_right_sidebar(); ?>
+		</aside>
+	<?php endif; ?>
 
 	<?php do_action( 'buddy_after_content' ); ?>
 <?php

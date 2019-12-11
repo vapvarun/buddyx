@@ -36,9 +36,6 @@ class Component implements Component_Interface {
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
 	}
 
-	/**
-	 * Adds body class for site layout.
-	 */
 	public function site_width_body_classes( array $classes ): array {
 		$classes[] = 'layout-' . get_theme_mod( 'site-layout' );
 
@@ -110,7 +107,7 @@ class Component implements Component_Interface {
 				'font-size'		 => '14px',
 				'line-height'	 => '1.5',
 				'letter-spacing' => '0',
-				'color'			 => '#333333',
+				'color'			 => '#525252',
 				'text-transform' => 'none',
 				'text-align'	 => 'left',
 			),
@@ -164,8 +161,8 @@ class Component implements Component_Interface {
 			'priority'	 => 10,
 			'default'	 => 'wide',
 			'choices'	 => [
-				'boxed'	 => get_template_directory_uri() . '/assets/images/src/site-layout/boxed.png',
-				'wide'	 => get_template_directory_uri() . '/assets/images/src/site-layout/wide.png',
+				'boxed'	 => get_template_directory_uri() . '/assets/images/site-layout/boxed.png',
+				'wide'	 => get_template_directory_uri() . '/assets/images/site-layout/wide.png',
 			],
 		);
 
@@ -220,16 +217,16 @@ class Component implements Component_Interface {
 		// Site Sidebar Layout
 		$fields[] = array(
 			'type'		 => 'radio-image',
-			'settings'	 => 'sidebar-layout',
+			'settings'	 => 'sidebar_option',
 			'label'		 => esc_attr__( 'Sidebar Layout', 'buddyx' ),
 			'section'	 => 'site_sidebar_layout',
 			'priority'	 => 10,
-			'default'	 => 'with-right-sidebar',
+			'default'	 => 'right',
 			'choices'	 => [
-				'content-full-width' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/without-sidebar.png',
-				'with-left-sidebar'	 => get_template_directory_uri() . '/assets/images/src/sidebar-layout/left-sidebar.png',
-				'with-right-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/right-sidebar.png',
-				'with-both-sidebar'	 => get_template_directory_uri() . '/assets/images/src/sidebar-layout/both-sidebar.png',
+				'none'	 => get_template_directory_uri() . '/assets/images/sidebar-layout/without-sidebar.png',
+				'left'	 => get_template_directory_uri() . '/assets/images/sidebar-layout/left-sidebar.png',
+				'right'	 => get_template_directory_uri() . '/assets/images/sidebar-layout/right-sidebar.png',
+				'both'	 => get_template_directory_uri() . '/assets/images/sidebar-layout/both-sidebar.png',
 			],
 		);
 

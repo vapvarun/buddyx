@@ -294,14 +294,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'buddyx-sidebar'    => [
 				'file'             => 'sidebar.min.css',
 				'preload_callback' => function() {
-					return buddyx()->is_primary_sidebar_active();
+					return buddyx()->is_right_sidebar_active();
 					return buddyx()->is_left_sidebar_active();
 				},
 			],
 			'buddyx-widgets'    => [
 				'file'             => 'widgets.min.css',
 				'preload_callback' => function() {
-					return buddyx()->is_primary_sidebar_active();
+					return buddyx()->is_right_sidebar_active();
 					return buddyx()->is_left_sidebar_active();
 				},
 			],

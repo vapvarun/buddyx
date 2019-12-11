@@ -607,7 +607,7 @@ msgid "Lazy-loading images means images are loaded only when they are in view. I
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:72
-msgid "Sidebar Right"
+msgid "Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:74, ../buddyx/inc/Sidebars/Component.php:85
@@ -615,7 +615,7 @@ msgid "Add widgets here."
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:83
-msgid "Sidebar Left"
+msgid "Right Sidebar"
 msgstr ""
 
 #. translators: %s: stylesheet handle
@@ -623,23 +623,23 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:55
+#: ../buddyx/inc/Typography/Component.php:51
 msgid "Typography"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:65, ../buddyx/inc/Typography/Component.php:74, ../buddyx/inc/Typography/Component.php:167
+#: ../buddyx/inc/Typography/Component.php:61, ../buddyx/inc/Typography/Component.php:70, ../buddyx/inc/Typography/Component.php:163
 msgid "Site Layout"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:85
+#: ../buddyx/inc/Typography/Component.php:81
 msgid "Site Loader"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:96, ../buddyx/inc/Typography/Component.php:229
+#: ../buddyx/inc/Typography/Component.php:92, ../buddyx/inc/Typography/Component.php:225
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:110
+#: ../buddyx/inc/Typography/Component.php:106
 msgid "Body Font"
 msgstr ""
 
