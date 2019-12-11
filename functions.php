@@ -22,8 +22,8 @@ if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) |
 require get_template_directory() . '/inc/wordpress-shims.php';
 
 //Include Kirki
-require get_template_directory() . '/external/kirki/kirki.php';
-//require get_template_directory() . '/inc/customizer_css.php';
+require get_template_directory() . '/external/require_plugins.php';
+require_once get_template_directory() . '/external/include-kirki.php';
 
 // Setup autoloader (via Composer or custom).
 if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {

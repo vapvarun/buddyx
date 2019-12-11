@@ -17,18 +17,18 @@ use function add_filter;
  */
 class Component implements Component_Interface {
 
-		/**
-		 * Gets the unique identifier for the theme component.
-		 *
-		 * @return string Component slug.
-		 */
+	/**
+	 * Gets the unique identifier for the theme component.
+	 *
+	 * @return string Component slug.
+	 */
 	public function get_slug() : string {
 		return 'typography_option';
 	}
 
-		/**
-		 * Adds the action and filter hooks to integrate with WordPress.
-		 */
+	/**
+	 * Adds the action and filter hooks to integrate with WordPress.
+	 */
 	public function initialize() {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
@@ -82,6 +82,16 @@ class Component implements Component_Interface {
 				'priority'    => 10,
 				'description' => '',
 				'panel' => 'site_layout_panel',
+			)
+		);
+
+		// Site Sidebar Layout
+		$wp_customize->add_section(
+			'site_sidebar_layout',
+			array(
+				'title'       => esc_html__( 'Sidebar Layout', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
 			)
 		);
 	}
@@ -155,9 +165,28 @@ class Component implements Component_Interface {
 			'priority' => 10,
 			'default'  => 'wide',
 			'choices'  => [
-				'boxed' => get_template_directory_uri() . '/assets/images/boxed.png',
-				'wide'  => get_template_directory_uri() . '/assets/images/wide.png',
+				'boxed' => get_template_directory_uri() . '/assets/images/site-layout/boxed.png',
+				'wide'  => get_template_directory_uri() . '/assets/images/site-layout/wide.png',
 			],
+		);
+
+		// Site Container Width
+		$fields[] = array(
+			'type'			 => 'dimension',
+			'settings'		 => 'site_container_width',
+			'label'			 => esc_attr__( 'Site Container Width', 'reign' ),
+			'description'	 => esc_attr__( 'Set the width of the container that holds the site area ( px or % ). Default is 1170px.' ),
+			'section'		 => 'site_layout',
+			'default'		 => '1170px',
+			'priority'		 => 10,
+			'transport'		 => 'auto',
+			'output'		 => array(
+				array(
+					'element'	 => '.container',
+					'function'	 => 'css',
+					'property'	 => 'max-width',
+				),
+			),
 		);
 
 		// Site Loader
@@ -180,18 +209,29 @@ class Component implements Component_Interface {
 			'section'	 => 'site_loader',
 			'default'	 => '#00b7f1',
 			'priority'    => 10,
+			'transport'		 => 'auto',
 			'output'      => array(
 				array(
 					'element' => '.loader',
 					'property' => 'background-color',
 				),
 			),
-			'js_vars'     => array(
-				array(
-					'element'  => '.loader',
-					'property' => 'background-color',
-				),
-			),
+		);
+
+		// Site Sidebar Layout
+		$fields[] = array(
+			'type'     => 'radio-image',
+			'settings' => 'sidebar-layout',
+			'label'    => esc_attr__( 'Sidebar Layout', 'buddyx' ),
+			'section'  => 'site_sidebar_layout',
+			'priority' => 10,
+			'default'  => 'with-right-sidebar',
+			'choices'  => [
+				'content-full-width' => get_template_directory_uri() . '/assets/images/sidebar-layout/without-sidebar.png',
+				'with-left-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/left-sidebar.png',
+				'with-right-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/right-sidebar.png',
+				'with-both-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/both-sidebar.png',
+			],
 		);
 
 		return $fields;
