@@ -623,23 +623,23 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:51
+#: ../buddyx/inc/Typography/Component.php:55
 msgid "Typography"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:61, ../buddyx/inc/Typography/Component.php:70, ../buddyx/inc/Typography/Component.php:163
+#: ../buddyx/inc/Typography/Component.php:65, ../buddyx/inc/Typography/Component.php:74, ../buddyx/inc/Typography/Component.php:167
 msgid "Site Layout"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:81
+#: ../buddyx/inc/Typography/Component.php:85
 msgid "Site Loader"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:92, ../buddyx/inc/Typography/Component.php:225
+#: ../buddyx/inc/Typography/Component.php:96, ../buddyx/inc/Typography/Component.php:229
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:106
+#: ../buddyx/inc/Typography/Component.php:110
 msgid "Body Font"
 msgstr ""
 

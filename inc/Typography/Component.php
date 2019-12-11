@@ -33,8 +33,12 @@ class Component implements Component_Interface {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
+		add_filter( 'body_class', [ $this, 'sidebar_body_classes' ] );
 	}
 
+	/**
+	 * Adds body class for site layout.
+	 */
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site-layout');
 
@@ -165,8 +169,8 @@ class Component implements Component_Interface {
 			'priority' => 10,
 			'default'  => 'wide',
 			'choices'  => [
-				'boxed' => get_template_directory_uri() . '/assets/images/site-layout/boxed.png',
-				'wide'  => get_template_directory_uri() . '/assets/images/site-layout/wide.png',
+				'boxed' => get_template_directory_uri() . '/assets/images/src/site-layout/boxed.png',
+				'wide'  => get_template_directory_uri() . '/assets/images/src/site-layout/wide.png',
 			],
 		);
 
@@ -174,8 +178,8 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'			 => 'dimension',
 			'settings'		 => 'site_container_width',
-			'label'			 => esc_attr__( 'Site Container Width', 'reign' ),
-			'description'	 => esc_attr__( 'Set the width of the container that holds the site area ( px or % ). Default is 1170px.' ),
+			'label'			 => esc_attr__( 'Max Content Layout Width', 'reign' ),
+			'description'	 => esc_attr__( 'Select the maximum content width for your website (px)' ),
 			'section'		 => 'site_layout',
 			'default'		 => '1170px',
 			'priority'		 => 10,
@@ -227,10 +231,10 @@ class Component implements Component_Interface {
 			'priority' => 10,
 			'default'  => 'with-right-sidebar',
 			'choices'  => [
-				'content-full-width' => get_template_directory_uri() . '/assets/images/sidebar-layout/without-sidebar.png',
-				'with-left-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/left-sidebar.png',
-				'with-right-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/right-sidebar.png',
-				'with-both-sidebar' => get_template_directory_uri() . '/assets/images/sidebar-layout/both-sidebar.png',
+				'content-full-width' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/without-sidebar.png',
+				'with-left-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/left-sidebar.png',
+				'with-right-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/right-sidebar.png',
+				'with-both-sidebar' => get_template_directory_uri() . '/assets/images/src/sidebar-layout/both-sidebar.png',
 			],
 		);
 
