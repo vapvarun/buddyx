@@ -295,12 +295,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'             => 'sidebar.min.css',
 				'preload_callback' => function() {
 					return buddyx()->is_primary_sidebar_active();
+					return buddyx()->is_left_sidebar_active();
 				},
 			],
 			'buddyx-widgets'    => [
 				'file'             => 'widgets.min.css',
 				'preload_callback' => function() {
 					return buddyx()->is_primary_sidebar_active();
+					return buddyx()->is_left_sidebar_active();
 				},
 			],
 			'buddyx-front-page' => [
@@ -309,6 +311,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					global $template;
 					return 'front-page.php' === basename( $template );
 				},
+			],
+			'buddyx-site-loader' => [
+				'file' => 'loaders.min.css',
+				'global' => true,
 			],
 		];
 

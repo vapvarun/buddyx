@@ -23,7 +23,7 @@ require get_template_directory() . '/inc/wordpress-shims.php';
 
 //Include Kirki
 require get_template_directory() . '/external/kirki/kirki.php';
-require get_template_directory() . '/inc/customizer_css.php';
+//require get_template_directory() . '/inc/customizer_css.php';
 
 // Setup autoloader (via Composer or custom).
 if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {

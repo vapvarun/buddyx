@@ -32,6 +32,13 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
+		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
+	}
+
+	public function site_width_body_classes( array $classes ) : array {
+		$classes[] = 'layout-' . get_theme_mod( 'site-layout');
+
+		return $classes;
 	}
 
 	/**
@@ -44,6 +51,37 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Typography', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
+			)
+		);
+
+		// Site Layout
+		$wp_customize->add_panel(
+			'site_layout_panel',
+			array(
+				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_layout',
+			array(
+				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_layout_panel',
+			)
+		);
+		
+		// Site Loader
+		$wp_customize->add_section(
+			'site_loader',
+			array(
+				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_layout_panel',
 			)
 		);
 	}
@@ -104,6 +142,54 @@ class Component implements Component_Interface {
 					'choice'   => 'color',
 					'element'  => 'body',
 					'property' => 'color',
+				),
+			),
+		);
+
+		// Site Layout
+		$fields[] = array(
+			'type'     => 'radio-image',
+			'settings' => 'site-layout',
+			'label'    => esc_attr__( 'Site Layout', 'buddyx' ),
+			'section'  => 'site_layout',
+			'priority' => 10,
+			'default'  => 'wide',
+			'choices'  => [
+				'boxed' => get_template_directory_uri() . '/assets/images/boxed.png',
+				'wide'  => get_template_directory_uri() . '/assets/images/wide.png',
+			],
+		);
+
+		// Site Loader
+		$fields[] = array(
+			'type' => 'switch',
+			'settings'	 => 'site-loader',
+			'label'		 => esc_html__( 'Site Loader', 'directory24' ),
+			'section'	 => 'site_loader',
+			'default'	 => '2',
+			'choices'	 => array(
+				'on'	 => esc_attr__( 'Yes', 'directory24' ),
+				'off'	 => esc_attr__( 'No', 'directory24' )
+			),
+		);
+
+		$fields[] = array(
+			'type' => 'color',
+			'settings'	 => 'site-loader-bg',
+			'label'		 => esc_html__( 'Site Loader Background', 'directory24' ),
+			'section'	 => 'site_loader',
+			'default'	 => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.loader',
+					'property' => 'background-color',
+				),
+			),
+			'js_vars'     => array(
+				array(
+					'element'  => '.loader',
+					'property' => 'background-color',
 				),
 			),
 		);

@@ -32,7 +32,7 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: ../buddyx/header.php:36
+#: ../buddyx/header.php:37
 msgid "Skip to content"
 msgstr ""
 
@@ -206,11 +206,19 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:44
+#: ../buddyx/inc/Typography/Component.php:51
 msgid "Typography"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:58
+#: ../buddyx/inc/Typography/Component.php:61, ../buddyx/inc/Typography/Component.php:70, ../buddyx/inc/Typography/Component.php:153
+msgid "Site Layout"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:81
+msgid "Site Loader"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:96
 msgid "Body Font"
 msgstr ""
 
