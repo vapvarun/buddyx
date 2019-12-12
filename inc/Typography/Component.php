@@ -36,7 +36,7 @@ class Component implements Component_Interface {
 	}
 
 	public function site_width_body_classes( array $classes ) : array {
-		$classes[] = 'layout-' . get_theme_mod( 'site-layout');
+		$classes[] = 'layout-' . get_theme_mod( 'site_layout');
 
 		return $classes;
 	}
@@ -45,15 +45,6 @@ class Component implements Component_Interface {
 	 * Add Customizer Section
 	 */
 	public function add_panels_and_sections( $wp_customize ) {
-		$wp_customize->add_section(
-			'typography_section',
-			array(
-				'title'       => esc_html__( 'Typography', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-			)
-		);
-
 		// Site Layout
 		$wp_customize->add_panel(
 			'site_layout_panel',
@@ -71,6 +62,56 @@ class Component implements Component_Interface {
 				'priority'    => 10,
 				'description' => '',
 				'panel' => 'site_layout_panel',
+			)
+		);
+
+		// Typography
+		$wp_customize->add_panel(
+			'typography_panel',
+			array(
+				'title'       => esc_html__( 'Typography', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_title_typography_section',
+			array(
+				'title'       => esc_html__( 'Site Title', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'typography_panel',
+			)
+		);
+
+		$wp_customize->add_section(
+			'headings_typography_section',
+			array(
+				'title'       => esc_html__( 'Headings', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'typography_panel',
+			)
+		);
+
+		$wp_customize->add_section(
+			'menu_typography_section',
+			array(
+				'title'       => esc_html__( 'Menu', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'typography_panel',
+			)
+		);
+
+		$wp_customize->add_section(
+			'body_typography_section',
+			array(
+				'title'       => esc_html__( 'Body', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'typography_panel',
 			)
 		);
 		
@@ -95,71 +136,14 @@ class Component implements Component_Interface {
 			)
 		);
 	}
-
-	/**
-	 *  Add Body Typography Option
-	 */
+	
 	public function add_fields( $fields ) {
-		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'typography_option',
-			'label'       => esc_attr__( 'Body Font', 'buddyx' ),
-			'section'     => 'typography_section',
-			'default'     => array(
-				'font-family'    => 'Roboto',
-				'variant'        => 'regular',
-				'font-size'      => '14px',
-				'line-height'    => '1.5',
-				'letter-spacing' => '0',
-				'color'          => '#525252',
-				'text-transform' => 'none',
-				'text-align'     => 'left',
-			),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'body',
-				),
-			),
-			'transport'   => 'postMessage',
-			'js_vars'     => array(
-				array(
-					'choice'   => 'font-family',
-					'element'  => 'body',
-					'property' => 'font-family',
-				),
-				array(
-					'choice'   => 'variant',
-					'element'  => 'body',
-					'property' => 'font-weight',
-				),
-				array(
-					'choice'   => 'font-size',
-					'element'  => 'body',
-					'property' => 'font-size',
-				),
-				array(
-					'choice'   => 'line-height',
-					'element'  => 'body',
-					'property' => 'line-height',
-				),
-				array(
-					'choice'   => 'text-transform',
-					'element'  => 'body',
-					'property' => 'text-transform',
-                ),
-                array(
-					'choice'   => 'color',
-					'element'  => 'body',
-					'property' => 'color',
-				),
-			),
-		);
-
-		// Site Layout
+		/**
+		 *  Site Layout
+		 */
 		$fields[] = array(
 			'type'     => 'radio-image',
-			'settings' => 'site-layout',
+			'settings' => 'site_layout',
 			'label'    => esc_attr__( 'Site Layout', 'buddyx' ),
 			'section'  => 'site_layout',
 			'priority' => 10,
@@ -170,7 +154,9 @@ class Component implements Component_Interface {
 			],
 		);
 
-		// Site Container Width
+		/**
+		 *  Site Container Width
+		 */
 		$fields[] = array(
 			'type'			 => 'dimension',
 			'settings'		 => 'site_container_width',
@@ -189,10 +175,12 @@ class Component implements Component_Interface {
 			),
 		);
 
-		// Site Loader
+		/**
+		 *  Site Loader
+		 */
 		$fields[] = array(
 			'type' => 'switch',
-			'settings'	 => 'site-loader',
+			'settings'	 => 'site_loader',
 			'label'		 => esc_html__( 'Site Loader', 'directory24' ),
 			'section'	 => 'site_loader',
 			'default'	 => '2',
@@ -204,12 +192,11 @@ class Component implements Component_Interface {
 
 		$fields[] = array(
 			'type' => 'color',
-			'settings'	 => 'site-loader-bg',
+			'settings'	 => 'site_loader_bg',
 			'label'		 => esc_html__( 'Site Loader Background', 'directory24' ),
 			'section'	 => 'site_loader',
 			'default'	 => '#00b7f1',
 			'priority'    => 10,
-			'transport'		 => 'auto',
 			'output'      => array(
 				array(
 					'element' => '.loader',
@@ -218,7 +205,296 @@ class Component implements Component_Interface {
 			),
 		);
 
-		// Site Sidebar Layout
+		/**
+		 *  Site Title Typography
+		 */
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_title_typography_option',
+			'label'       => esc_attr__( 'Site Title Settings', 'buddyx' ),
+			'section'     => 'site_title_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '38px',
+				'line-height'    => '1.2',
+				'letter-spacing' => '0',
+				'color'          => '#333332',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-title a',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_title_hover_color',
+			'label'       => esc_attr__( 'Site Title Hover Color', 'buddyx' ),
+			'section'     => 'site_title_typography_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-title a:hover',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_tagline_typography_option',
+			'label'       => esc_attr__( 'Site Tagline Settings', 'buddyx' ),
+			'section'     => 'site_title_typography_section',
+			'default'     => array(
+				'font-family'    => 'Roboto',
+				'variant'        => 'regular',
+				'font-size'      => '14px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#757575',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-description',
+				),
+			),
+		);
+
+		/**
+		 *  Headings Typography
+		 */
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h1_typography_option',
+			'label'       => esc_attr__( 'H1 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '30px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h1',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h2_typography_option',
+			'label'       => esc_attr__( 'H2 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '24px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h2',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h3_typography_option',
+			'label'       => esc_attr__( 'H3 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '22px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h3',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h4_typography_option',
+			'label'       => esc_attr__( 'H4 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '20px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h4',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h5_typography_option',
+			'label'       => esc_attr__( 'H5 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '18px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h5',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'h6_typography_option',
+			'label'       => esc_attr__( 'H6 Tag Settings', 'buddyx' ),
+			'section'     => 'headings_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '16px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'h6',
+				),
+			),
+		);
+
+		/**
+		 *  Menu Typography
+		 */
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'menu_typography_option',
+			'label'       => esc_attr__( 'Menu Settings', 'buddyx' ),
+			'section'     => 'menu_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '14px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0.02em',
+				'color'          => '#252525',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.main-navigation ul li a',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'menu_hover_color',
+			'label'       => esc_attr__( 'Menu Hover Color', 'buddyx' ),
+			'section'     => 'menu_typography_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.main-navigation ul li a:hover',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'menu_active_color',
+			'label'       => esc_attr__( 'Menu Active Color', 'buddyx' ),
+			'section'     => 'menu_typography_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.main-navigation ul li.current-menu-item a',
+					'property' => 'color',
+				),
+			),
+		);
+
+		/**
+		 * Body Typography
+		 */
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'typography_option',
+			'label'       => esc_attr__( 'Settings', 'buddyx' ),
+			'section'     => 'body_typography_section',
+			'default'     => array(
+				'font-family'    => 'Roboto',
+				'variant'        => 'regular',
+				'font-size'      => '14px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '0',
+				'color'          => '#525252',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'body:not(.block-editor-page):not(.wp-core-ui), body:not(.block-editor-page):not(.wp-core-ui) pre',
+				),
+			),
+		);
+
+		/**
+		 *  Site Sidebar Layout
+		 */
 		$fields[] = array(
 			'type'     => 'radio-image',
 			'settings' => 'sidebar_option',
