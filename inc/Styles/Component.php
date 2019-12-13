@@ -316,6 +316,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file' => 'loaders.min.css',
 				'global' => true,
 			],
+			'buddyx-load-fontawesome' => [
+				'file' => 'fontawesome.min.css',
+				'global' => true,
+			],
 		];
 
 		/**

@@ -36,6 +36,14 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
+#: ../buddyx/searchform.php:2
+msgid "Enter Keyword"
+msgstr ""
+
+#: ../buddyx/searchform.php:9
+msgid "Go"
+msgstr ""
+
 #: ../buddyx/external/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
 msgstr ""
@@ -468,6 +476,10 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
+#: ../buddyx/inc/extra.php:47
+msgid "View Shopping Cart"
+msgstr ""
+
 #. translators: 1: classname/type of the variable, 2: interface name
 #: ../buddyx/inc/Template_Tags.php:54
 msgid "The theme templating component %1$s does not implement the %2$s interface."
@@ -623,131 +635,163 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:52, ../buddyx/inc/Typography/Component.php:61, ../buddyx/inc/Typography/Component.php:157
+#: ../buddyx/inc/Typography/Component.php:52, ../buddyx/inc/Typography/Component.php:61, ../buddyx/inc/Typography/Component.php:167
 msgid "Site Layout"
 msgstr ""
 
 #: ../buddyx/inc/Typography/Component.php:72
-msgid "Typography"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:81
-msgid "Site Title"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:91
-msgid "Headings"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:101, ../buddyx/template-parts/header/navigation.php:49, ../buddyx/template-parts/header/navigation.php:54
-msgid "Menu"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:111
-msgid "Body"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:122
-msgid "Site Skin"
-msgstr ""
-
-#: ../buddyx/inc/Typography/Component.php:132
 msgid "Site Loader"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:143, ../buddyx/inc/Typography/Component.php:674
+#: ../buddyx/inc/Typography/Component.php:83
+msgid "Typography"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:92
+msgid "Site Title"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:102
+msgid "Headings"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:112, ../buddyx/template-parts/header/navigation.php:49, ../buddyx/template-parts/header/navigation.php:54
+msgid "Menu"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:122
+msgid "Body"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:133
+msgid "Site Header"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:143
+msgid "Site Skin"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:153, ../buddyx/inc/Typography/Component.php:731
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:224
+#: ../buddyx/inc/Typography/Component.php:204
+msgid "Site Loader ?"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:208, ../buddyx/inc/Typography/Component.php:543, ../buddyx/inc/Typography/Component.php:556
+msgid "Yes"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:209, ../buddyx/inc/Typography/Component.php:544, ../buddyx/inc/Typography/Component.php:557
+msgid "No"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:216
+msgid "Site Loader Background"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:234
 msgid "Site Title Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:247
+#: ../buddyx/inc/Typography/Component.php:257
 msgid "Site Title Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:262
+#: ../buddyx/inc/Typography/Component.php:272
 msgid "Site Tagline Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:288
+#: ../buddyx/inc/Typography/Component.php:298
 msgid "H1 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:311
+#: ../buddyx/inc/Typography/Component.php:321
 msgid "H2 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:334
+#: ../buddyx/inc/Typography/Component.php:344
 msgid "H3 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:357
+#: ../buddyx/inc/Typography/Component.php:367
 msgid "H4 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:380
+#: ../buddyx/inc/Typography/Component.php:390
 msgid "H5 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:403
+#: ../buddyx/inc/Typography/Component.php:413
 msgid "H6 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:429
+#: ../buddyx/inc/Typography/Component.php:439
 msgid "Menu Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:452
+#: ../buddyx/inc/Typography/Component.php:462
 msgid "Menu Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:467
+#: ../buddyx/inc/Typography/Component.php:477
 msgid "Menu Active Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:485
+#: ../buddyx/inc/Typography/Component.php:495
 msgid "Settings"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:511
+#: ../buddyx/inc/Typography/Component.php:521
+msgid "Header Header Background Color"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:539
+msgid "Site Search ?"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:552
+msgid "Site Cart ?"
+msgstr ""
+
+#: ../buddyx/inc/Typography/Component.php:568
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:526
+#: ../buddyx/inc/Typography/Component.php:583
 msgid "Link Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:541
+#: ../buddyx/inc/Typography/Component.php:598
 msgid "Link Active Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:556
+#: ../buddyx/inc/Typography/Component.php:613
 msgid "Link Focus/Visited Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:579
+#: ../buddyx/inc/Typography/Component.php:636
 msgid "Button Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:595
+#: ../buddyx/inc/Typography/Component.php:652
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:611
+#: ../buddyx/inc/Typography/Component.php:668
 msgid "Button Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:626
+#: ../buddyx/inc/Typography/Component.php:683
 msgid "Button Text Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:641
+#: ../buddyx/inc/Typography/Component.php:698
 msgid "Button Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Typography/Component.php:656
+#: ../buddyx/inc/Typography/Component.php:713
 msgid "Button Border Hover Color"
 msgstr ""
 

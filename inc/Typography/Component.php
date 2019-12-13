@@ -65,6 +65,17 @@ class Component implements Component_Interface {
 			)
 		);
 
+		// Site Loader
+		$wp_customize->add_section(
+			'site_loader',
+			array(
+				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_layout_panel',
+			)
+		);
+
 		// Typography
 		$wp_customize->add_panel(
 			'typography_panel',
@@ -115,6 +126,16 @@ class Component implements Component_Interface {
 			)
 		);
 
+		// Site Header
+		$wp_customize->add_section(
+			'site_header_section',
+			array(
+				'title'       => esc_html__( 'Site Header', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
+
 		// Site Skin
 		$wp_customize->add_section(
 			'site_skin_section',
@@ -122,17 +143,6 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Site Skin', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-			)
-		);
-		
-		// Site Loader
-		$wp_customize->add_section(
-			'site_loader',
-			array(
-				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_layout_panel',
 			)
 		);
 
@@ -191,19 +201,19 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type' => 'switch',
 			'settings'	 => 'site_loader',
-			'label'		 => esc_html__( 'Site Loader', 'directory24' ),
+			'label'		 => esc_html__( 'Site Loader ?', 'buddyx' ),
 			'section'	 => 'site_loader',
 			'default'	 => '2',
 			'choices'	 => array(
-				'on'	 => esc_attr__( 'Yes', 'directory24' ),
-				'off'	 => esc_attr__( 'No', 'directory24' )
+				'on'	 => esc_attr__( 'Yes', 'buddyx' ),
+				'off'	 => esc_attr__( 'No', 'buddyx' )
 			),
 		);
 
 		$fields[] = array(
 			'type' => 'color',
 			'settings'	 => 'site_loader_bg',
-			'label'		 => esc_html__( 'Site Loader Background', 'directory24' ),
+			'label'		 => esc_html__( 'Site Loader Background', 'buddyx' ),
 			'section'	 => 'site_loader',
 			'default'	 => '#00b7f1',
 			'priority'    => 10,
@@ -503,6 +513,53 @@ class Component implements Component_Interface {
 		);
 
 		/**
+		 * Site Header
+		 */
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_header_bg_color',
+			'label'       => esc_attr__( 'Header Header Background Color', 'buddyx' ),
+			'section'     => 'site_header_section',
+			'default'     => '#fff',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-header-wrapper',
+					'property' => 'background-color',
+				),
+			),
+		);
+
+		/**
+		 *  Site Search
+		 */
+		$fields[] = array(
+			'type' => 'switch',
+			'settings'	 => 'site_search',
+			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
+			'section'	 => 'site_header_section',
+			'default'	 => '2',
+			'choices'	 => array(
+				'on'	 => esc_attr__( 'Yes', 'buddyx' ),
+				'off'	 => esc_attr__( 'No', 'buddyx' )
+			),
+		);
+
+		if( function_exists( 'is_woocommerce' ) ):
+			$fields[] = array(
+				'type' => 'switch',
+				'settings'	 => 'site_cart',
+				'label'		 => esc_html__( 'Site Cart ?', 'buddyx' ),
+				'section'	 => 'site_header_section',
+				'default'	 => '2',
+				'choices'	 => array(
+					'on'	 => esc_attr__( 'Yes', 'buddyx' ),
+					'off'	 => esc_attr__( 'No', 'buddyx' )
+				),
+			);
+	    endif;
+
+		/**
 		 * Site Skin
 		 */
 		$fields[] = array(
@@ -583,7 +640,7 @@ class Component implements Component_Interface {
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
-					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'element' => 'button:not(.menu-toggle), input[type="button"], input[type="reset"], input[type="submit"]',
 					'property' => 'background',
 				),
 			),
@@ -599,7 +656,7 @@ class Component implements Component_Interface {
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
-					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'element' => 'button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
 					'property' => 'background',
 				),
 			),
@@ -614,7 +671,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'element' => 'button:not(.menu-toggle), input[type="button"], input[type="reset"], input[type="submit"]',
 					'property' => 'color',
 				),
 			),
@@ -629,7 +686,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'element' => 'button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
 					'property' => 'color',
 				),
 			),
@@ -644,7 +701,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'element' => 'button:not(.menu-toggle), input[type="button"], input[type="reset"], input[type="submit"]',
 					'property' => 'border-color',
 				),
 			),
@@ -659,7 +716,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'element' => 'button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
 					'property' => 'border-color',
 				),
 			),
