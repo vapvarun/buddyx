@@ -32,6 +32,10 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
+#: ../buddyx/footer.php:19
+msgid "Footer"
+msgstr ""
+
 #: ../buddyx/header.php:37
 msgid "Skip to content"
 msgstr ""
@@ -622,12 +626,28 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:74, ../buddyx/inc/Sidebars/Component.php:85
+#: ../buddyx/inc/Sidebars/Component.php:74, ../buddyx/inc/Sidebars/Component.php:85, ../buddyx/inc/Sidebars/Component.php:97, ../buddyx/inc/Sidebars/Component.php:109, ../buddyx/inc/Sidebars/Component.php:121, ../buddyx/inc/Sidebars/Component.php:133
 msgid "Add widgets here."
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:83
 msgid "Right Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:95
+msgid "Footer 1"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:107
+msgid "Footer 2"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:119
+msgid "Footer 3"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:131
+msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle

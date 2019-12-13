@@ -89,6 +89,54 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'after_title'   => '</h2>',
 			]
 		);
+
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer 1', 'buddyx' ),
+				'id'            => 'footer-1',
+				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
+
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer 2', 'buddyx' ),
+				'id'            => 'footer-2',
+				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
+
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer 3', 'buddyx' ),
+				'id'            => 'footer-3',
+				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
+
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer 4', 'buddyx' ),
+				'id'            => 'footer-4',
+				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
 	}
 
 	/**
