@@ -114,6 +114,16 @@ class Component implements Component_Interface {
 				'panel' => 'typography_panel',
 			)
 		);
+
+		// Site Skin
+		$wp_customize->add_section(
+			'site_skin_section',
+			array(
+				'title'       => esc_html__( 'Site Skin', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
 		
 		// Site Loader
 		$wp_customize->add_section(
@@ -226,7 +236,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-title a',
+					'element' => '.site-title a, .site-title a:visited',
 				),
 			),
 		);
@@ -492,6 +502,169 @@ class Component implements Component_Interface {
 			),
 		);
 
+		/**
+		 * Site Skin
+		 */
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_links_color',
+			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#111',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'a',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_links_hover_color',
+			'label'       => esc_attr__( 'Link Hover Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'a:hover',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_links_active_color',
+			'label'       => esc_attr__( 'Link Active Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'a:active',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_links_focus_visited_color',
+			'label'       => esc_attr__( 'Link Focus/Visited Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'a:focus, a:visited',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'=> 'custom',
+			'settings' => 'custom-skin-divider',
+			'section'     => 'site_skin_section',
+			'default'     => '<hr>',
+		);
+
+		// Site Buttons
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_background_color',
+			'label'       => esc_attr__( 'Button Background Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
+			'output'      => array(
+				array(
+					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'property' => 'background',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_background_hover_color',
+			'label'       => esc_attr__( 'Button Background Hover Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#0099ca',
+			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
+			'output'      => array(
+				array(
+					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'property' => 'background',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_text_color',
+			'label'       => esc_attr__( 'Button Text Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#fff',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_text_hover_color',
+			'label'       => esc_attr__( 'Button Text Hover Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#fff',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_border_color',
+			'label'       => esc_attr__( 'Button Border Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'button, input[type="button"], input[type="reset"], input[type="submit"]',
+					'property' => 'border-color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_buttons_border_hover_color',
+			'label'       => esc_attr__( 'Button Border Hover Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#0099ca',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus',
+					'property' => 'border-color',
+				),
+			),
+		);
+		
 		/**
 		 *  Site Sidebar Layout
 		 */
