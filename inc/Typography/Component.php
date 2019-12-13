@@ -155,6 +155,36 @@ class Component implements Component_Interface {
 				'description' => '',
 			)
 		);
+
+		// Site Copyright
+		$wp_customize->add_panel(
+			'site_copyright_panel',
+			array(
+				'title'       => esc_html__( 'Site Copyright', 'buddyx' ),
+				'priority'    => 11,
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_copyright_section',
+			array(
+				'title'       => esc_html__( 'Copyright', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_copyright_panel',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_copyright_typography',
+			array(
+				'title'       => esc_html__( 'Typography', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_copyright_panel',
+			)
+		);
 	}
 	
 	public function add_fields( $fields ) {
@@ -738,6 +768,116 @@ class Component implements Component_Interface {
 				'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
 				'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
 			],
+		);
+
+		/**
+		 *  Site Copyright
+		 */
+		$fields[] = array(
+			'type'        => 'textarea',
+			'settings'    => 'site_copyright_text',
+			'label'       => esc_attr__( 'Add Content', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="https://brndle.com/">Brndle</a>',
+			'priority'    => 10,
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_copyright_background_color',
+			'label'       => esc_attr__( 'Background Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#fff',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info',
+					'property' => 'background-color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_copyright_border_color',
+			'label'       => esc_attr__( 'Border Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#e8e8e8',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info',
+					'property' => 'border-color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_copyright_links_color',
+			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#111',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info a',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_copyright_links_hover_color',
+			'label'       => esc_attr__( 'Link Hover Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info a:hover',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_copyright_links_active_color',
+			'label'       => esc_attr__( 'Link Active/Focus/Visited Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info a:active, .site-info a:focus, .site-info a:visited',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_copyright_text_typography',
+			'label'       => esc_attr__( 'Text Typography', 'buddyx' ),
+			'section'     => 'site_copyright_typography',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '14px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '1px',
+				'color'          => '#525252',
+				'text-transform' => 'none',
+				'text-align'     => 'center',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info',
+				),
+			),
 		);
 
 		return $fields;

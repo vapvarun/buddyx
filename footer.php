@@ -13,7 +13,7 @@ namespace Brndle\Brndle;
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer">		
 		<?php get_template_part( 'template-parts/footer/info' ); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
