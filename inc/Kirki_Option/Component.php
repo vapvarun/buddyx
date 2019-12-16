@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Typography;
+namespace Brndle\Brndle\Kirki_Option;
 
 use Brndle\Brndle\Component_Interface;
 use Brndle\Brndle\Kirki;
@@ -23,7 +23,7 @@ class Component implements Component_Interface {
 	 * @return string Component slug.
 	 */
 	public function get_slug() : string {
-		return 'typography_option';
+		return 'kirki_option';
 	}
 
 	/**
@@ -153,6 +153,36 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Sidebar Layout', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
+			)
+		);
+
+		// Site Footer
+		$wp_customize->add_panel(
+			'site_footer_panel',
+			array(
+				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
+				'priority'    => 11,
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_footer_background_section',
+			array(
+				'title'       => esc_html__( 'Background', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_footer_panel',
+			)
+		);
+
+		$wp_customize->add_section(
+			'site_footer_typography_section',
+			array(
+				'title'       => esc_html__( 'Typography', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel' => 'site_footer_panel',
 			)
 		);
 
@@ -609,44 +639,14 @@ class Component implements Component_Interface {
 
 		$fields[] = array(
 			'type'        => 'color',
-			'settings'    => 'site_links_hover_color',
-			'label'       => esc_attr__( 'Link Hover Color', 'buddyx' ),
+			'settings'    => 'site_links_focus_hover_color',
+			'label'       => esc_attr__( 'Link Hover/Focus/Visited Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'a:hover',
-					'property' => 'color',
-				),
-			),
-		);
-
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_links_active_color',
-			'label'       => esc_attr__( 'Link Active Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'a:active',
-					'property' => 'color',
-				),
-			),
-		);
-
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_links_focus_visited_color',
-			'label'       => esc_attr__( 'Link Focus/Visited Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'a:focus, a:visited',
+					'element' => 'a:hover, a:active, a:focus, a:visited',
 					'property' => 'color',
 				),
 			),
@@ -768,6 +768,122 @@ class Component implements Component_Interface {
 				'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
 				'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
 			],
+		);
+
+		/**
+		 *  Site Footer
+		 */
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'site_footer_bg',
+			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+			'section'  => 'site_footer_background_section',
+			'default'  => 'off',
+			'choices'  => array(
+				'on'  => esc_attr__( 'Yes','buddyx' ),
+				'off' => esc_attr__( 'No', 'buddyx' )
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'background',
+			'settings'    => 'background_setting',
+			'label'       => esc_html__( 'Background Control', 'kirki' ),
+			'description' => esc_html__( 'Background conrols are pretty complex - but extremely useful if properly used.', 'kirki' ),
+			'section'     => 'site_footer_background_section',
+			'default'     => [
+				'background-color'      => 'rgba(255,255,255,0.8)',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'cover',
+				'background-attachment' => 'scroll',
+			],
+			'transport'   => 'auto',
+			'output'      => [
+				[
+					'element' => '.site-footer-wrapper',
+				],
+			],
+			'active_callback' => array(
+				array( 'setting' => 'site_footer_bg', 'operator' => '==', 'value' => '1' )
+			)
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_footer_title_typography',
+			'label'       => esc_attr__( 'Title Typography', 'buddyx' ),
+			'section'     => 'site_footer_typography_section',
+			'default'     => array(
+				'font-family'    => 'Rubik',
+				'variant'        => '500',
+				'font-size'      => '24px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '1px',
+				'color'          => '#111',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-footer .widget-title',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_footer_content_typography',
+			'label'       => esc_attr__( 'Content Typography', 'buddyx' ),
+			'section'     => 'site_footer_typography_section',
+			'default'     => array(
+				'font-family'    => 'Roboto',
+				'variant'        => '400',
+				'font-size'      => '14px',
+				'line-height'    => '1.4',
+				'letter-spacing' => '1px',
+				'color'          => '#525252',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-footer',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_footer_links_color',
+			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'section'     => 'site_footer_typography_section',
+			'default'     => '#111',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-footer a',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
+			'settings'    => 'site_footer_links_hover_color',
+			'label'       => esc_attr__( 'Link Hover/Focus/Visited Color', 'buddyx' ),
+			'section'     => 'site_footer_typography_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-footer a:hover, .site-footer a:focus, .site-footer a:active, .site-footer a:visited',
+					'property' => 'color',
+				),
+			),
 		);
 
 		/**

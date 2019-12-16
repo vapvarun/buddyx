@@ -153,7 +153,7 @@ class Theme {
 			new Customizer\Component(),
 			new Styles\Component(),
 			new Kirki\Component(),
-			new Typography\Component(),
+			new Kirki_Option\Component(),
 			new Custom_Js\Component(),
 		];
 
