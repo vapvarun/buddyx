@@ -82,16 +82,13 @@ if ( is_user_logged_in() ) {
       }
       ?>
   <div class="bp-icon-wrap">
-    <a href="<?php echo $login_page_url; ?>" class="btn-login" title="Login"> <span class="fa fa-user"></span>
-    Log in</a>
+    <a href="<?php echo $login_page_url; ?>" class="btn-login" title="Login"> <span class="fa fa-user"></span>Log in</a>
   </div>
   <?php
   if ( get_option( 'users_can_register' ) ) {
     ?>
     <div class="bp-icon-wrap">
-      <a href="<?php echo $registration_page_url; ?>" class="btn-register" title="Register">
-        <span class="fa fa-address-book"></span>
-      </a>
+      <a href="<?php echo $registration_page_url; ?>" class="btn-register" title="Register"><span class="fa fa-address-book"></span>Register</a>
     </div>
     <?php }
 }
