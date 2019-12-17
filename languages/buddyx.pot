@@ -530,7 +530,7 @@ msgstr ""
 msgid "Theme Options"
 msgstr ""
 
-#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:68
+#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:69
 msgid "Primary"
 msgstr ""
 
@@ -826,6 +826,10 @@ msgstr ""
 msgid "Lazy-loading images means images are loaded only when they are in view. Improves performance, but can result in content jumping around on slower connections."
 msgstr ""
 
+#: ../buddyx/inc/Nav_Menus/Component.php:74
+msgid "Buddypress"
+msgstr ""
+
 #: ../buddyx/inc/Sidebars/Component.php:72
 msgid "Left Sidebar"
 msgstr ""
@@ -1000,6 +1004,10 @@ msgstr ""
 
 #: ../buddyx/template-parts/content/pagination.php:15
 msgid "Page navigation"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:45
+msgid "View all notifications"
 msgstr ""
 
 #: ../buddyx/template-parts/header/navigation.php:16

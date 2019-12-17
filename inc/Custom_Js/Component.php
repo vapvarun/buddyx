@@ -59,5 +59,16 @@ class Component implements Component_Interface {
 		);
 		wp_script_add_data( 'buddyx-custom', 'async', true );
 		wp_script_add_data( 'buddyx-custom', 'precache', true );
+
+		// Enqueue the doubletabgo script.
+		wp_enqueue_script(
+			'buddyx-doubletabgo',
+			get_theme_file_uri( '/assets/js/doubletabgo.min.js' ),
+			[],
+			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/doubletabgo.min.js' ) ),
+			false
+		);
+		wp_script_add_data( 'buddyx-doubletabgo', 'async', true );
+		wp_script_add_data( 'buddyx-doubletabgo', 'precache', true );
 	}
 }

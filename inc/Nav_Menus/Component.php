@@ -27,6 +27,7 @@ use function wp_nav_menu;
 class Component implements Component_Interface, Templating_Component_Interface {
 
 	const PRIMARY_NAV_MENU_SLUG = 'primary';
+	const BUDDYPRESS_NAV_MENU_SLUG = 'user_menu';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -66,6 +67,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		register_nav_menus(
 			[
 				static::PRIMARY_NAV_MENU_SLUG => esc_html__( 'Primary', 'buddyx' ),
+			]
+		);
+		register_nav_menus(
+			[
+				static::BUDDYPRESS_NAV_MENU_SLUG => esc_html__( 'Buddypress', 'buddyx' ),
 			]
 		);
 	}

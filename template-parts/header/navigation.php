@@ -55,6 +55,9 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 			<a href="#" class="menu-close">close</a>
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+		<div class="buddypress-icons-wrapper">
+			<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
+		</div>
 		<?php site_menu_icon(); ?>
 	</div>
 </nav><!-- #site-navigation -->
