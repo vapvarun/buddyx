@@ -626,7 +626,7 @@ msgstr ""
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:112, ../buddyx/template-parts/header/navigation.php:49, ../buddyx/template-parts/header/navigation.php:54
+#: ../buddyx/inc/Kirki_Option/Component.php:112, ../buddyx/template-parts/header/navigation.php:54
 msgid "Menu"
 msgstr ""
 

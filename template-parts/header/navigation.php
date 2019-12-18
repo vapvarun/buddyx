@@ -46,7 +46,7 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 		}
 		?>
 	>
-		<?php esc_html_e( 'Menu', 'buddyx' ); ?>
+	<i class="fa fa-bars" aria-hidden="true"></i>
 	</button>
 
 	<div class="primary-menu-container">
@@ -55,9 +55,9 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 			<a href="#" class="menu-close">close</a>
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
-		<div class="buddypress-icons-wrapper">
-			<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
-		</div>
 		<?php site_menu_icon(); ?>
+	</div>
+	<div class="buddypress-icons-wrapper">
+		<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
 	</div>
 </nav><!-- #site-navigation -->
