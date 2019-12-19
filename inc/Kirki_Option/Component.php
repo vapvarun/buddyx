@@ -791,6 +791,9 @@ class Component implements Component_Interface {
 				'max'  => '4',
 				'step' => '1',
 			),
+			'active_callback'	 => array(
+				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
+			)
 		);
 		
 		/**
