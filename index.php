@@ -19,6 +19,9 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
+$post_layout = get_theme_mod( 'blog_layout_option');
+$post_per_row = 'column-' . get_theme_mod( 'post_per_row');
+
 ?>
 	<?php do_action( 'buddy_before_content' ); ?>
 
@@ -28,15 +31,30 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		</aside>
 	<?php endif; ?>
 	<main id="primary" class="site-main">
+		
 		<?php
 		if ( have_posts() ) {
 
 			get_template_part( 'template-parts/content/page_header' );
 
-			while ( have_posts() ) {
-				the_post();
-
-				get_template_part( 'template-parts/content/entry', get_post_type() );
+			$classes = get_body_class();
+			if(in_array('blog',$classes) || in_array('archive',$classes) || in_array('search',$classes)){ ?>
+			<div class="post-layout <?php echo $post_layout . " " . $post_per_row ?>">
+			<div class="grid-sizer"></div>
+			<?php 
+				while ( have_posts() ) {
+					the_post();
+	
+					get_template_part( 'template-parts/content/entry', 'layout' );
+				} ?>
+				</div>
+			<?php 
+			} else {
+				while ( have_posts() ) {
+					the_post();
+	
+					get_template_part( 'template-parts/content/entry', get_post_type() );
+				}
 			}
 
 			if ( ! is_singular() ) {
@@ -46,6 +64,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 			get_template_part( 'template-parts/content/error' );
 		}
 		?>
+
 	</main><!-- #primary -->
 	<?php if ( get_theme_mod( 'sidebar_option' ) == 'right' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">

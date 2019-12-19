@@ -146,6 +146,16 @@ class Component implements Component_Interface {
 			)
 		);
 
+		// Site Blog Layout
+		$wp_customize->add_section(
+			'site_blog_section',
+			array(
+				'title'       => esc_html__( 'Site Blog', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
+
 		// Site Sidebar Layout
 		$wp_customize->add_section(
 			'site_sidebar_layout',
@@ -749,6 +759,37 @@ class Component implements Component_Interface {
 					'element' => 'button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus, a.read-more.button:hover',
 					'property' => 'border-color',
 				),
+			),
+		);
+
+		/**
+		 *  Site Blog Layout
+		 */
+		$fields[] = array(
+			'type'     => 'radio-image',
+			'settings' => 'blog_layout_option',
+			'label'    => esc_attr__( 'Blog Layout', 'buddyx' ),
+			'section'  => 'site_blog_section',
+			'priority' => 10,
+			'default'  => 'default-layout',
+			'choices'  => [
+				'default-layout' => get_template_directory_uri() . '/assets/images/one-column.png',
+				'grid-layout' => get_template_directory_uri() . '/assets/images/one-half-column.png',
+				'masonry-layout' => get_template_directory_uri() . '/assets/images/one-third-column.png',
+			],
+		);
+
+		$fields[] = array(
+			'type'        => 'slider',
+			'settings'    => 'post_per_row',
+			'label'       => esc_attr__( 'Post Per Row', 'reign' ),
+			'section'     => 'site_blog_section',
+			'default'     => 3,
+			'priority'    => 10,
+			'choices'     => array(
+				'min'  => '1',
+				'max'  => '4',
+				'step' => '1',
 			),
 		);
 		
