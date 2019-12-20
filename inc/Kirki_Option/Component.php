@@ -380,7 +380,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'h1',
+					'element' => 'h1, body.buddypress article.page>.entry-header .entry-title',
 				),
 			),
 		);
