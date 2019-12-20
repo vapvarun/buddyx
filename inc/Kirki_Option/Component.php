@@ -316,7 +316,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-title a, .site-title a:visited',
+					'element' => '.site-title a',
 				),
 			),
 		);
@@ -650,13 +650,13 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_links_focus_hover_color',
-			'label'       => esc_attr__( 'Link Hover/Focus/Visited Color', 'buddyx' ),
+			'label'       => esc_attr__( 'Link Hover/Focus', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'a:hover, a:active, a:focus, a:visited',
+					'element' => 'a:hover, a:active, a:focus',
 					'property' => 'color',
 				),
 			),
@@ -918,13 +918,13 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_hover_color',
-			'label'       => esc_attr__( 'Link Hover/Focus/Visited Color', 'buddyx' ),
+			'label'       => esc_attr__( 'Link Hover/Focus/', 'buddyx' ),
 			'section'     => 'site_footer_typography_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-footer a:hover, .site-footer a:focus, .site-footer a:active, .site-footer a:visited',
+					'element' => '.site-footer a:hover, .site-footer a:active',
 					'property' => 'color',
 				),
 			),
@@ -1005,13 +1005,13 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_links_active_color',
-			'label'       => esc_attr__( 'Link Active/Focus/Visited Color', 'buddyx' ),
+			'label'       => esc_attr__( 'Link Active/Focus', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-info a:active, .site-info a:focus, .site-info a:visited',
+					'element' => '.site-info a:active, .site-info a:focus',
 					'property' => 'color',
 				),
 			),

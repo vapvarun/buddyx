@@ -750,8 +750,8 @@ msgstr ""
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:653, ../buddyx/inc/Kirki_Option/Component.php:921
-msgid "Link Hover/Focus/Visited Color"
+#: ../buddyx/inc/Kirki_Option/Component.php:653
+msgid "Link Hover/Focus"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:676
@@ -794,6 +794,10 @@ msgstr ""
 msgid "Content Typography"
 msgstr ""
 
+#: ../buddyx/inc/Kirki_Option/Component.php:921
+msgid "Link Hover/Focus/"
+msgstr ""
+
 #: ../buddyx/inc/Kirki_Option/Component.php:939
 msgid "Add Content"
 msgstr ""
@@ -811,7 +815,7 @@ msgid "Link Hover Color"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1008
-msgid "Link Active/Focus/Visited Color"
+msgid "Link Active/Focus"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1023
