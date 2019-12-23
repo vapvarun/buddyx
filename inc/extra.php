@@ -56,3 +56,24 @@ function site_menu_icon () {
 		</div><?php
 	endif;
 }
+
+// bp_get_activity_css_first_class
+function bp_get_activity_css_first_class() {
+	global $activities_template;
+	/**
+	 * Filters the available mini activity actions available as CSS classes.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param array $value Array of classes used to determine classes applied to HTML element.
+	 */
+	$mini_activity_actions = apply_filters( 'bp_activity_mini_activity_types', array(
+		'friendship_accepted',
+		'friendship_created',
+		'new_blog',
+		'joined_group',
+		'created_group',
+		'new_member'
+	) );
+	return apply_filters( 'bp_get_activity_css_first_class', $activities_template->activity->component );
+}
