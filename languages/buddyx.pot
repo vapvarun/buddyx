@@ -646,7 +646,7 @@ msgstr ""
 msgid "Site Blog"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:163, ../buddyx/inc/Kirki_Option/Component.php:811
+#: ../buddyx/inc/Kirki_Option/Component.php:163, ../buddyx/inc/Kirki_Option/Component.php:834
 msgid "Sidebar Layout"
 msgstr ""
 
@@ -670,11 +670,11 @@ msgstr ""
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:278, ../buddyx/inc/Kirki_Option/Component.php:613, ../buddyx/inc/Kirki_Option/Component.php:626, ../buddyx/inc/Kirki_Option/Component.php:833
+#: ../buddyx/inc/Kirki_Option/Component.php:278, ../buddyx/inc/Kirki_Option/Component.php:613, ../buddyx/inc/Kirki_Option/Component.php:626, ../buddyx/inc/Kirki_Option/Component.php:856
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:279, ../buddyx/inc/Kirki_Option/Component.php:614, ../buddyx/inc/Kirki_Option/Component.php:627, ../buddyx/inc/Kirki_Option/Component.php:834
+#: ../buddyx/inc/Kirki_Option/Component.php:279, ../buddyx/inc/Kirki_Option/Component.php:614, ../buddyx/inc/Kirki_Option/Component.php:627, ../buddyx/inc/Kirki_Option/Component.php:857
 msgid "No"
 msgstr ""
 
@@ -746,79 +746,79 @@ msgstr ""
 msgid "Site Cart ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:638, ../buddyx/inc/Kirki_Option/Component.php:912, ../buddyx/inc/Kirki_Option/Component.php:984
+#: ../buddyx/inc/Kirki_Option/Component.php:638
+msgid "Theme Color"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:661, ../buddyx/inc/Kirki_Option/Component.php:935, ../buddyx/inc/Kirki_Option/Component.php:1007
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:653
-msgid "Link Hover/Focus"
+#: ../buddyx/inc/Kirki_Option/Component.php:676, ../buddyx/inc/Kirki_Option/Component.php:950
+msgid "Link Hover"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:676
+#: ../buddyx/inc/Kirki_Option/Component.php:699
 msgid "Button Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:693
+#: ../buddyx/inc/Kirki_Option/Component.php:716
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:710
+#: ../buddyx/inc/Kirki_Option/Component.php:733
 msgid "Button Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:726
+#: ../buddyx/inc/Kirki_Option/Component.php:749
 msgid "Button Text Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:742
+#: ../buddyx/inc/Kirki_Option/Component.php:765
 msgid "Button Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:758
+#: ../buddyx/inc/Kirki_Option/Component.php:781
 msgid "Button Border Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:777
+#: ../buddyx/inc/Kirki_Option/Component.php:800
 msgid "Blog Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:829
+#: ../buddyx/inc/Kirki_Option/Component.php:852
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:866
+#: ../buddyx/inc/Kirki_Option/Component.php:889
 msgid "Title Typography"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:889
+#: ../buddyx/inc/Kirki_Option/Component.php:912
 msgid "Content Typography"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:927
-msgid "Link Hover/Focus/"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:945
+#: ../buddyx/inc/Kirki_Option/Component.php:968
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:954
+#: ../buddyx/inc/Kirki_Option/Component.php:977
 msgid "Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:969
+#: ../buddyx/inc/Kirki_Option/Component.php:992
 msgid "Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:999
+#: ../buddyx/inc/Kirki_Option/Component.php:1022
 msgid "Link Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1014
+#: ../buddyx/inc/Kirki_Option/Component.php:1037
 msgid "Link Active/Focus"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1029
+#: ../buddyx/inc/Kirki_Option/Component.php:1052
 msgid "Text Typography"
 msgstr ""
 

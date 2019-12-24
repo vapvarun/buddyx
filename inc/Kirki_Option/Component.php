@@ -634,6 +634,29 @@ class Component implements Component_Interface {
 		 */
 		$fields[] = array(
 			'type'        => 'color',
+			'settings'    => 'site_primary_color',
+			'label'       => esc_attr__( 'Theme Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#00b7f1',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus',
+					'property' => 'color',
+				),
+				array(
+					'element' => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count',
+					'property' => 'background-color',
+				),
+				array(
+					'element' => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a',
+					'property' => 'border-color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
 			'settings'    => 'site_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
@@ -650,13 +673,13 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_links_focus_hover_color',
-			'label'       => esc_attr__( 'Link Hover/Focus', 'buddyx' ),
+			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'a:hover, a:active, a:focus',
+					'element' => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover',
 					'property' => 'color',
 				),
 			),
@@ -924,7 +947,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_hover_color',
-			'label'       => esc_attr__( 'Link Hover/Focus/', 'buddyx' ),
+			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_footer_typography_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
