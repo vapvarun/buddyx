@@ -27,7 +27,9 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 
 	<?php if ( get_theme_mod( 'sidebar_option' ) == 'left' || get_theme_mod( 'sidebar_option' ) == 'both'  ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
-			<?php buddyx()->display_left_sidebar(); ?>
+			<div class="sticky-sidebar">
+				<?php buddyx()->display_left_sidebar(); ?>
+			</div>
 		</aside>
 	<?php endif; ?>
 	<main id="primary" class="site-main">
@@ -68,7 +70,9 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 	</main><!-- #primary -->
 	<?php if ( get_theme_mod( 'sidebar_option' ) == 'right' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
-			<?php buddyx()->display_right_sidebar(); ?>
+			<div class="sticky-sidebar">
+				<?php buddyx()->display_right_sidebar(); ?>
+			</div>
 		</aside>
 	<?php endif; ?>
 

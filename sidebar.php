@@ -17,16 +17,18 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
 <aside id="secondary" class="primary-sidebar widget-area">
-<?php
-$sidebar = get_theme_mod( 'sidebar_option' );
-switch ( $sidebar ) {
-	case 'left':
-		buddyx()->display_left_sidebar();
-		break;
-	case 'right':
-		buddyx()->display_right_sidebar();
-		break;
-	default:
-}
-?>
+	<div class="sticky-sidebar">
+		<?php
+		$sidebar = get_theme_mod( 'sidebar_option' );
+		switch ( $sidebar ) {
+			case 'left':
+				buddyx()->display_left_sidebar();
+				break;
+			case 'right':
+				buddyx()->display_right_sidebar();
+				break;
+			default:
+		}
+		?>
+	</div>
 </aside><!-- #secondary -->

@@ -33,10 +33,21 @@ class Component implements Component_Interface {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
+		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
 	}
 
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout');
+
+		return $classes;
+	}
+
+	public function site_sticky_sidebar_body_classes( array $classes ) : array {
+
+		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', true );
+		if ( $sticky_sidebar ) {
+			$classes[] = 'sticky-sidebar-enable';
+		}
 
 		return $classes;
 	}
@@ -840,6 +851,18 @@ class Component implements Component_Interface {
 				'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
 				'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
 				'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+			],
+		);
+
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'sticky_sidebar_option',
+			'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
+			'section'  => 'site_sidebar_layout',
+			'default'  => 'unsticky',
+			'choices'  => [
+				'on' => esc_attr__( 'Yes','buddyx' ),
+				'off'  => esc_attr__( 'No','buddyx' ),
 			],
 		);
 
