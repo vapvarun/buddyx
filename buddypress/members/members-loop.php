@@ -58,8 +58,6 @@ bp_nouveau_before_loop(); ?>
 
 				</div><!-- // .item -->
 
-
-
 			</div>
 		</li>
 
