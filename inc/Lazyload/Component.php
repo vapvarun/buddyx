@@ -86,14 +86,14 @@ class Component implements Component_Interface {
 	 */
 	public function action_customize_register_lazyload( WP_Customize_Manager $wp_customize ) {
 		$lazyload_choices = [
-			'lazyload'    => __( 'Lazy-load on (default)', 'buddyx' ),
-			'no-lazyload' => __( 'Lazy-load off', 'buddyx' ),
+			'lazyload'    => __( 'Lazy-load on', 'buddyx' ),
+			'no-lazyload' => __( 'Lazy-load off (default)', 'buddyx' ),
 		];
 
 		$wp_customize->add_setting(
 			'lazy_load_media',
 			[
-				'default'           => 'lazyload',
+				'default'           => 'no-lazyload',
 				'transport'         => 'postMessage',
 				'sanitize_callback' => function( $input ) use ( $lazyload_choices ) : string {
 					if ( array_key_exists( $input, $lazyload_choices ) ) {

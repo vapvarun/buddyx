@@ -8,7 +8,7 @@
 namespace Brndle\Brndle;
 
 ?>
-
+<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() ) : ?>
 <header class="entry-header">
 	<?php
 	get_template_part( 'template-parts/content/entry_title', get_post_type() );
@@ -20,3 +20,4 @@ namespace Brndle\Brndle;
 	}
 	?>
 </header><!-- .entry-header -->
+<?php endif; ?>

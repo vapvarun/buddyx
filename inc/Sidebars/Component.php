@@ -146,25 +146,27 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function filter_body_classes( array $classes ) : array {
-		$sidebar = get_theme_mod( 'sidebar_option' );
-		if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
+		if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() ) {
+			$sidebar = get_theme_mod( 'sidebar_option' );
+			if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
 
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-left';
 			}
-		} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
-			global $template;
+			} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
+				global $template;
 
-			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-				$classes[] = 'has-sidebar-right';
-			}
-		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
-			global $template;
+				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+					$classes[] = 'has-sidebar-right';
+				}
+			} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
+				global $template;
 
-			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-				$classes[] = 'has-sidebar-both';
+				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+					$classes[] = 'has-sidebar-both';
+				}
 			}
 		}
 		return $classes;

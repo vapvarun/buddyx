@@ -1,22 +1,26 @@
 <?php 
 // Content wrapper
 if ( !function_exists( 'buddy_content_top' ) ) {
-
 	function buddy_content_top() { ?>
+	<?php if ( ! bp_is_user() && ! bp_is_group_single() ) : ?>
 		<div class="container">
-			<div class="site-wrapper">
+		<div class="site-wrapper">
+	<?php endif; ?>
 	<?php }
-
 }
+
 add_action( 'buddy_before_content', 'buddy_content_top' );
 
 if ( !function_exists( 'buddy_content_bottom' ) ) {
-
-	function buddy_content_bottom() { ?>
-		</div></div>
-	<?php }
-
+	if ( ! bp_is_user() && ! bp_is_group_single() ) {
+		function buddy_content_bottom() { ?>
+		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() ) : ?>
+			</div></div>
+		<?php endif; ?>
+		<?php }
+	}
 }
+
 add_action( 'buddy_after_content', 'buddy_content_bottom' );
 
 // Site Loader 

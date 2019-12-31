@@ -480,7 +480,7 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:47
+#: ../buddyx/inc/extra.php:51
 msgid "View Shopping Cart"
 msgstr ""
 
@@ -827,11 +827,11 @@ msgid "Text Typography"
 msgstr ""
 
 #: ../buddyx/inc/Lazyload/Component.php:89
-msgid "Lazy-load on (default)"
+msgid "Lazy-load on"
 msgstr ""
 
 #: ../buddyx/inc/Lazyload/Component.php:90
-msgid "Lazy-load off"
+msgid "Lazy-load off (default)"
 msgstr ""
 
 #: ../buddyx/inc/Lazyload/Component.php:111
@@ -902,19 +902,20 @@ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content/entry_content.php:19
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content/entry_buddypress.php:19, ../buddyx/template-parts/content/entry_content.php:19
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_content.php:36
+#: ../buddyx/template-parts/content/entry_buddypress.php:36, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_content.php:43
+#: ../buddyx/template-parts/content/entry_buddypress.php:43, ../buddyx/template-parts/content/entry_content.php:43
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_content.php:43
+#: ../buddyx/template-parts/content/entry_buddypress.php:43, ../buddyx/template-parts/content/entry_content.php:43
 msgid "Read More"
 msgstr ""
 
