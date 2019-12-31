@@ -77,3 +77,46 @@ function bp_get_activity_css_first_class() {
 	) );
 	return apply_filters( 'bp_get_activity_css_first_class', $activities_template->activity->component );
 }
+
+/**
+ * Is the current user online
+ * 
+ * @param $user_id
+ *
+ * @return bool
+ */
+if ( !function_exists( 'buddyx_is_user_online' ) ) {
+
+	function buddyx_is_user_online( $user_id ) {
+
+		if( !function_exists( 'bp_get_user_last_activity' ) ) {
+			return;
+		}
+
+		$last_activity = strtotime( bp_get_user_last_activity( $user_id ) );
+
+		if ( empty( $last_activity ) ) {
+			return false;
+		}
+
+		// the activity timeframe is 5 minutes
+		$activity_timeframe = 5 * MINUTE_IN_SECONDS;
+		return ( time() - $last_activity <= $activity_timeframe );
+	}
+
+}
+
+/**
+ * BuddyPress user status
+ *
+ * @param $user_id
+ *
+ */
+if ( !function_exists( 'buddyx_user_status' ) ) {
+
+	function buddyx_user_status( $user_id ) {
+		if( buddyx_is_user_online( $user_id ) ) {
+			echo '<span class="member-status online"></span>';
+		}
+	}
+}
