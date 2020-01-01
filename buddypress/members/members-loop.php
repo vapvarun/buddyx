@@ -41,7 +41,7 @@ bp_nouveau_before_loop(); ?>
                                     <?php bp_nouveau_member_meta(); ?>
                                 </p><!-- #item-meta -->
                             <?php endif; ?>
-                        </div>
+                        </div><!-- .member-info-wrapper -->
 
                         <div class="member-action-wrapper">
                             <?php
@@ -52,7 +52,7 @@ bp_nouveau_before_loop(); ?>
                                 )
                             );
                             ?>
-                        </div>
+                        </div><!-- .member-action-wrapper -->
 
 					</div>
 

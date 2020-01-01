@@ -19,11 +19,6 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-
-
-$post_layout = get_theme_mod( 'blog_layout_option');
-$post_per_row = 'column-' . get_theme_mod( 'post_per_row');
-
 ?>
 	<?php do_action( 'buddy_before_content' ); ?>
 
