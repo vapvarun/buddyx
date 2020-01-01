@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Buddyx
+# Copyright (C) 2020 Buddyx
 # This file is distributed under the same license as the Buddyx package.
 msgid ""
 msgstr ""
