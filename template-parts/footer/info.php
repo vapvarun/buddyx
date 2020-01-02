@@ -6,13 +6,19 @@
  */
 
 namespace Brndle\Brndle;
-$copyright	 = get_theme_mod( 'site_copyright_text' );
+$copyright = get_theme_mod( 'site_copyright_text' );
 
 ?>
 
 	<div class="site-info">
 		<div class="container">
-			<?php echo ( $copyright ); ?>
+			
+
+			<?php if ( $copyright ) {
+				echo ( $copyright );
+			} else {
+				 echo 'Copyright © 2019. All rights reserved by, <a href="https://brndle.com/">Brndle</a>';
+			} ?>
 		</div>
 
 	<?php
