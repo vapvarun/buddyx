@@ -652,7 +652,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a',
+					'element' => '.pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus',
 					'property' => 'color',
 				),
 				array(
@@ -690,7 +690,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover',
+					'element' => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:hover',
 					'property' => 'color',
 				),
 			),

@@ -16,7 +16,7 @@
     </div><!-- #item-header -->
     
     <div class="container">
-        <div class="site-wrapper">
+        <div class="site-wrapper member-home">
             <div class="bp-wrap">
                 <?php if ( ! bp_nouveau_is_object_nav_in_sidebar() ) : ?>
 
@@ -30,6 +30,7 @@
 
                 </div><!-- #item-body -->
             </div><!-- // .bp-wrap -->
+            <?php echo get_sidebar('buddypress'); ?>
         </div><!-- .site-wrapper -->
     </div><!-- .container -->
 
