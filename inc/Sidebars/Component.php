@@ -29,6 +29,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 	const LEFT_SIDEBAR_SLUG  = 'sidebar-left';
 	const RIGHT_SIDEBAR_SLUG = 'sidebar-right';
+	const BUDDYPRESS_LEFT_SIDEBAR_SLUG = 'buddypress-sidebar-left';
+	const BUDDYPRESS_RIGHT_SIDEBAR_SLUG = 'buddypress-sidebar-right';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -60,6 +62,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'display_left_sidebar'    => [ $this, 'display_left_sidebar' ],
 			'is_right_sidebar_active' => [ $this, 'is_right_sidebar_active' ],
 			'display_right_sidebar'   => [ $this, 'display_right_sidebar' ],
+			
+			'display_buddypress_left_sidebar'    => [ $this, 'display_buddypress_left_sidebar' ],
+			'is_buddypress_left_sidebar_active'  => [ $this, 'is_buddypress_left_sidebar_active' ],
+			'display_buddypress_right_sidebar'    => [ $this, 'display_buddypress_right_sidebar' ],
+			'is_buddypress_right_sidebar_active'  => [ $this, 'is_buddypress_right_sidebar_active' ],
 		];
 	}
 
@@ -78,6 +85,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'after_title'   => '</h2>',
 			]
 		);
+
 		register_sidebar(
 			[
 				'name'          => esc_html__( 'Right Sidebar', 'buddyx' ),
@@ -89,6 +97,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'after_title'   => '</h2>',
 			]
 		);
+
+		if ( function_exists('bp_is_active') ) {
+			register_sidebar(
+				[
+					'name'          => esc_html__( 'BuddyPress Left Sidebar', 'buddyx' ),
+					'id'            => static::BUDDYPRESS_LEFT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+
+			register_sidebar(
+				[
+					'name'          => esc_html__( 'BuddyPress Right Sidebar', 'buddyx' ),
+					'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+		}
 
 		register_sidebar(
 			[
@@ -146,29 +180,53 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function filter_body_classes( array $classes ) : array {
-		if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() ) {
-			$sidebar = get_theme_mod( 'sidebar_option' );
-			if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
-
+		$sidebar = get_theme_mod( 'sidebar_option' );
+		if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-left';
 			}
-			} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
-				global $template;
+		} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
+			global $template;
 
-				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-					$classes[] = 'has-sidebar-right';
-				}
-			} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
-				global $template;
+			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+				$classes[] = 'has-sidebar-right';
+			}
+		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
+			global $template;
 
-				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-					$classes[] = 'has-sidebar-both';
+			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+				$classes[] = 'has-sidebar-both';
+			}
+		}
+
+		//Buddypress
+		if ( class_exists( 'BuddyPress' ) ) {
+			if ( bp_current_component() ) {
+				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option' );
+				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'left' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-buddypress-sidebar-left';
+					}
+				} elseif ( $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'right' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-buddypress-sidebar-right';
+					}
+				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-buddypress-sidebar-both';
+					}
 				}
 			}
 		}
+
 		return $classes;
 	}
 
@@ -202,5 +260,37 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function display_right_sidebar() {
 		dynamic_sidebar( static::RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the buddypress left sidebar is active.
+	 *
+	 * @return bool True if the buddypress left sidebar is active, false otherwise.
+	 */
+	public function is_buddypress_left_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BUDDYPRESS_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the buddypress left sidebar.
+	 */
+	public function display_buddypress_left_sidebar() {
+		dynamic_sidebar( static::BUDDYPRESS_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the buddypress right sidebar is active.
+	 *
+	 * @return bool True if the buddypress right sidebar is active, false otherwise.
+	 */
+	public function is_buddypress_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the buddypress right sidebar.
+	 */
+	public function display_buddypress_right_sidebar() {
+		dynamic_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
 	}
 }

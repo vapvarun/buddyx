@@ -2,21 +2,30 @@
 // Content wrapper
 if ( !function_exists( 'buddy_content_top' ) ) {
 	function buddy_content_top() { ?>
+	<?php if ( class_exists( 'BuddyPress' ) ) { ?>
 		<?php if ( ! bp_is_user() && ! bp_is_group_single() ) : ?>
 			<div class="container">
 			<div class="site-wrapper">
 		<?php endif; ?>
+	<?php }else { ?>
+		<div class="container">
+		<div class="site-wrapper">
 	<?php }
+	}
 }
 
 add_action( 'buddy_before_content', 'buddy_content_top' );
 
 if ( !function_exists( 'buddy_content_bottom' ) ) {
 	function buddy_content_bottom() { ?>
+	<?php if ( class_exists( 'BuddyPress' ) ) { ?>
 		<?php if ( ! bp_is_user() && ! bp_is_group_single() ) : ?>
 			</div></div>
 		<?php endif; ?>
+	<?php }else { ?>
+		</div></div>
 	<?php }
+	}
 }
 
 add_action( 'buddy_after_content', 'buddy_content_bottom' );
