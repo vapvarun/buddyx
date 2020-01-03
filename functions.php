@@ -71,3 +71,22 @@ call_user_func( 'Brndle\Brndle\buddyx' );
 
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
+
+// bp_nouveau_appearance default option
+$optionKey = "buddyx_theme_is_activated";
+if ( !get_option( $optionKey ) ) {
+
+	$bp_nouveau_appearance = array(
+		'members_layout'		 => 3,
+		'members_friends_layout' => 3,
+		'groups_layout'			 => 3,
+		'members_group_layout'	 => 3,
+		'group_front_page'		 => 0,
+		'group_front_boxes'		 => 0,
+		'user_front_page'		 => 0,
+		'user_nav_display'		 => 1,
+		'group_nav_display'		 => 1,
+	);
+	update_option( 'bp_nouveau_appearance', $bp_nouveau_appearance );
+	update_option( $optionKey, 1 );
+}
