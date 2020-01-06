@@ -320,8 +320,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file' => 'fontawesome.min.css',
 				'global' => true,
 			],
-			'buddyx-load-buddypress' => [
+			'buddyx-buddypress' => [
 				'file' => 'buddypress.min.css',
+				'global' => true,
+			],
+			'buddyx-woocommerce' => [
+				'file' => 'woocommerce.min.css',
 				'global' => true,
 			],
 		];

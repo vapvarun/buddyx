@@ -561,7 +561,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.main-navigation ul li.current-menu-item a',
+					'element' => '.main-navigation ul li.current-menu-item>a',
 					'property' => 'color',
 				),
 			),
