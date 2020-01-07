@@ -31,6 +31,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	const RIGHT_SIDEBAR_SLUG = 'sidebar-right';
 	const BUDDYPRESS_LEFT_SIDEBAR_SLUG = 'buddypress-sidebar-left';
 	const BUDDYPRESS_RIGHT_SIDEBAR_SLUG = 'buddypress-sidebar-right';
+	const WOOCOMMERCE_LEFT_SIDEBAR_SLUG  = 'woocommerce-sidebar-left';
+	const WOOCOMMERCE_RIGHT_SIDEBAR_SLUG = 'woocommerce-sidebar-right';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -67,6 +69,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'is_buddypress_left_sidebar_active'  => [ $this, 'is_buddypress_left_sidebar_active' ],
 			'display_buddypress_right_sidebar'    => [ $this, 'display_buddypress_right_sidebar' ],
 			'is_buddypress_right_sidebar_active'  => [ $this, 'is_buddypress_right_sidebar_active' ],
+
+			'display_woocommerce_left_sidebar'    => [ $this, 'display_woocommerce_left_sidebar' ],
+			'is_woocommerce_left_sidebar_active'  => [ $this, 'is_woocommerce_left_sidebar_active' ],
+			'display_woocommerce_right_sidebar'    => [ $this, 'display_woocommerce_right_sidebar' ],
+			'is_woocommerce_right_sidebar_active'  => [ $this, 'is_woocommerce_right_sidebar_active' ],
 		];
 	}
 
@@ -115,6 +122,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				[
 					'name'          => esc_html__( 'BuddyPress Right Sidebar', 'buddyx' ),
 					'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+		}
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			register_sidebar(
+				[
+					'name'          => esc_html__( 'WooCommerce Left Sidebar', 'buddyx' ),
+					'id'            => static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+
+			register_sidebar(
+				[
+					'name'          => esc_html__( 'WooCommerce Right Sidebar', 'buddyx' ),
+					'id'            => static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG,
 					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</section>',
@@ -227,6 +260,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
+		//WooCommerce
+		if ( class_exists( 'WooCommerce' ) ) {
+			if ( is_woocommerce() ) {
+				$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option' );
+				if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-woocommerce-sidebar-left';
+					}
+				} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'right' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-woocommerce-sidebar-right';
+					}
+				} elseif ( $this->is_woocommerce_right_sidebar_active() && $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						$classes[] = 'has-woocommerce-sidebar-both';
+					}
+				}
+			}
+		}
+
 		return $classes;
 	}
 
@@ -292,5 +351,37 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function display_buddypress_right_sidebar() {
 		dynamic_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the woocommerce left sidebar is active.
+	 *
+	 * @return bool True if the woocommerce left sidebar is active, false otherwise.
+	 */
+	public function is_woocommerce_left_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the woocommerce left sidebar.
+	 */
+	public function display_woocommerce_left_sidebar() {
+		dynamic_sidebar( static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the woocommerce right sidebar is active.
+	 *
+	 * @return bool True if the woocommerce right sidebar is active, false otherwise.
+	 */
+	public function is_woocommerce_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the woocommerce right sidebar.
+	 */
+	public function display_woocommerce_right_sidebar() {
+		dynamic_sidebar( static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG );
 	}
 }

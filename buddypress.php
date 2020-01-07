@@ -49,6 +49,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 			get_template_part( 'template-parts/content/error' );
 		}
 		?>
+		
 	</main><!-- #primary -->
 	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
