@@ -131,3 +131,9 @@ if ( !function_exists( 'buddyx_user_status' ) ) {
 		}
 	}
 }
+
+/**
+ * woocommerce_cart_collaterals
+ */
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+add_action( 'woocommerce_after_cart_form', 'woocommerce_cross_sell_display', 10 );
