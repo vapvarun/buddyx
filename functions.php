@@ -90,3 +90,4 @@ if ( !get_option( $optionKey ) ) {
 	update_option( 'bp_nouveau_appearance', $bp_nouveau_appearance );
 	update_option( $optionKey, 1 );
 }
+	

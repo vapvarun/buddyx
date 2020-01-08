@@ -30,7 +30,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		</aside>
 	<?php endif; ?>
 	<main id="primary" class="site-main">
-
+	
 		<?php
 		if ( have_posts() ) {
 
@@ -39,7 +39,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 			while ( have_posts() ) {
 				the_post();
 
-				get_template_part( 'template-parts/content/entry', 'buddypress' );
+				get_template_part( 'template-parts/content-buddypress' );
 			}
 
 			if ( ! is_singular() ) {

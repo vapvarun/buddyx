@@ -514,6 +514,16 @@ msgstr ""
 msgid "No theme component with the slug %s exists."
 msgstr ""
 
+#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry_content.php:19
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry_content.php:36
+msgid "Pages:"
+msgstr ""
+
 #: ../buddyx/inc/Accessibility/Component.php:69
 msgid "Expand child menu"
 msgstr ""
@@ -925,21 +935,11 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content/entry_buddypress.php:19, ../buddyx/template-parts/content/entry_content.php:19
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry_buddypress.php:36, ../buddyx/template-parts/content/entry_content.php:36
-msgid "Pages:"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry_buddypress.php:43, ../buddyx/template-parts/content/entry_content.php:43
+#: ../buddyx/template-parts/content/entry_content.php:43
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_buddypress.php:43, ../buddyx/template-parts/content/entry_content.php:43
+#: ../buddyx/template-parts/content/entry_content.php:43
 msgid "Read More"
 msgstr ""
 
