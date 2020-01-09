@@ -857,7 +857,7 @@ class Component implements Component_Interface {
 			'label'    => esc_attr__( 'Sidebar Layout', 'buddyx' ),
 			'section'  => 'site_sidebar_layout',
 			'priority' => 10,
-			'default'  => 'right',
+			'default'  => 'none',
 			'choices'  => [
 				'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 				'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
@@ -873,7 +873,7 @@ class Component implements Component_Interface {
 				'label'    => esc_attr__( 'BuddyPress Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
-				'default'  => 'right',
+				'default'  => 'none',
 				'choices'  => [
 					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
@@ -890,7 +890,7 @@ class Component implements Component_Interface {
 				'label'    => esc_attr__( 'WooCommerce Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
-				'default'  => 'right',
+				'default'  => 'none',
 				'choices'  => [
 					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',

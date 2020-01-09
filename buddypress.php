@@ -22,7 +22,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 ?>
 	<?php do_action( 'buddy_before_content' ); ?>
 
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option', 'right' ) == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option', 'right' ) == 'both'  ) : ?>
+	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'both'  ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_buddypress_left_sidebar(); ?>
@@ -51,7 +51,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		?>
 		
 	</main><!-- #primary -->
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option', 'right' ) == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option', 'right' ) == 'both' ) : ?>
+	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_buddypress_right_sidebar(); ?>

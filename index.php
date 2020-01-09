@@ -26,7 +26,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 	<?php do_action( 'buddy_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option', 'right' ) == 'left' && ! is_cart() && get_theme_mod( 'sidebar_option', 'right' ) == 'left' && ! is_checkout() && get_theme_mod( 'sidebar_option', 'right' ) == 'left' && ! is_account_page() && get_theme_mod( 'sidebar_option', 'right' ) == 'left' || ! is_woocommerce() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'left' || ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 			<aside id="secondary" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_left_sidebar(); ?>
@@ -34,7 +34,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 			</aside>
 		<?php endif; ?>
 	<?php }else {
-		if ( get_theme_mod( 'sidebar_option', 'right' ) == 'left' || get_theme_mod( 'sidebar_option', 'right' ) == 'both' ) : ?>
+		if ( get_theme_mod( 'sidebar_option' ) == 'left' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
@@ -44,7 +44,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 	<?php } ?>
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
 		<?php if ( is_woocommerce() ) { ?>
-			<?php if ( get_theme_mod( 'woocommerce_sidebar_option', 'right' ) == 'left' || get_theme_mod( 'woocommerce_sidebar_option', 'right' ) == 'both'  ) : ?>
+			<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'left' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both'  ) : ?>
 				<aside id="secondary" class="woo-left-sidebar widget-area">
 					<div class="sticky-sidebar">
 						<?php buddyx()->display_woocommerce_left_sidebar(); ?>
@@ -91,7 +91,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 
 	</main><!-- #primary -->
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option', 'right' ) == 'right' && ! is_cart() && get_theme_mod( 'sidebar_option', 'right' ) == 'right' && ! is_checkout() && get_theme_mod( 'sidebar_option', 'right' ) == 'right' && ! is_account_page() && get_theme_mod( 'sidebar_option', 'right' ) == 'right' || ! is_woocommerce() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option', 'right' ) == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'right' || ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -99,7 +99,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 			</aside>
 		<?php endif; ?>
 		<?php }else { ?>
-			<?php if ( get_theme_mod( 'sidebar_option', 'right' ) == 'right' || get_theme_mod( 'sidebar_option', 'right' ) == 'both' ) : ?>
+			<?php if ( get_theme_mod( 'sidebar_option' ) == 'right' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -109,7 +109,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 		<?php } ?>
 		<?php if ( class_exists( 'WooCommerce' ) ) { ?>
 			<?php if ( is_woocommerce() ) { ?>
-				<?php if ( get_theme_mod( 'woocommerce_sidebar_option', 'right' ) == 'right' || get_theme_mod( 'woocommerce_sidebar_option', 'right' ) == 'both' ) : ?>
+				<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'right' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both' ) : ?>
 					<aside id="secondary" class="woo-primary-sidebar widget-area">
 						<div class="sticky-sidebar">
 							<?php buddyx()->display_woocommerce_right_sidebar(); ?>
