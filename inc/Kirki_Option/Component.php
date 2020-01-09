@@ -304,6 +304,9 @@ class Component implements Component_Interface {
 					'property' => 'background-color',
 				),
 			),
+			'active_callback'	 => array(
+				array( 'setting' => 'site_loader', 'operator' => '==', 'value' => '1' ),
+			)
 		);
 
 		/**
