@@ -49,17 +49,6 @@ class Component implements Component_Interface {
 			return;
 		}
 
-		// Enqueue the custom script.
-		wp_enqueue_script(
-			'buddyx-custom',
-			get_theme_file_uri( '/assets/js/custom.min.js' ),
-			[],
-			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
-			false
-		);
-		wp_script_add_data( 'buddyx-custom', 'async', true );
-		wp_script_add_data( 'buddyx-custom', 'precache', true );
-
 		// Enqueue the isotope script.
 		wp_enqueue_script(
 			'buddyx-isotope-pkgd',
@@ -83,16 +72,25 @@ class Component implements Component_Interface {
 		wp_script_add_data( 'buddyx-fitvids', 'precache', true );
 
 		// Enqueue the sticky kit script.
-		if( get_theme_mod( 'sticky_sidebar_option') == 'on' ) :
-			wp_enqueue_script(
-				'buddyx-sticky-kit',
-				get_theme_file_uri( '/assets/js/sticky-kit.min.js' ),
-				[],
-				buddyx()->get_asset_version( get_theme_file_path( '/assets/js/sticky-kit.min.js' ) ),
-				false
-			);
-			wp_script_add_data( 'buddyx-sticky-kit', 'async', true );
-			wp_script_add_data( 'buddyx-sticky-kit', 'precache', true );
-		endif;
+		wp_enqueue_script(
+			'buddyx-sticky-kit',
+			get_theme_file_uri( '/assets/js/sticky-kit.min.js' ),
+			[],
+			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/sticky-kit.min.js' ) ),
+			false
+		);
+		wp_script_add_data( 'buddyx-sticky-kit', 'async', true );
+		wp_script_add_data( 'buddyx-sticky-kit', 'precache', true );
+		
+		// Enqueue the custom script.
+		wp_enqueue_script(
+			'buddyx-custom',
+			get_theme_file_uri( '/assets/js/custom.min.js' ),
+			[],
+			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
+			false
+		);
+		wp_script_add_data( 'buddyx-custom', 'async', true );
+		wp_script_add_data( 'buddyx-custom', 'precache', true );
 	}
 }

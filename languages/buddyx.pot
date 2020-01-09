@@ -40,7 +40,7 @@ msgstr ""
 msgid "Full-Width-No-Title"
 msgstr ""
 
-#: ../buddyx/header.php:37
+#: ../buddyx/header.php:39
 msgid "Skip to content"
 msgstr ""
 
@@ -465,7 +465,7 @@ msgstr ""
 msgid "Activate Now"
 msgstr ""
 
-#: ../buddyx/external/require_plugins.php:62
+#: ../buddyx/external/require_plugins.php:63
 msgid "Kirki Toolkit"
 msgstr ""
 
