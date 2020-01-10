@@ -12,6 +12,7 @@ namespace Brndle\Brndle;
 get_header();
 
 buddyx()->print_styles( 'buddyx-content' );
+buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
 	<main id="primary" class="site-main">
