@@ -1101,21 +1101,6 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_links_active_color',
-			'label'       => esc_attr__( 'Link Active/Focus', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#00b7f1',
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info a:active, .site-info a:focus',
-					'property' => 'color',
-				),
-			),
-		);
-
-		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'site_copyright_text_typography',
 			'label'       => esc_attr__( 'Text Typography', 'buddyx' ),

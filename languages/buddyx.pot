@@ -841,10 +841,6 @@ msgid "Link Hover Color"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1106
-msgid "Link Active/Focus"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1121
 msgid "Text Typography"
 msgstr ""
 
