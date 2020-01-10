@@ -57,7 +57,9 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 		<?php site_menu_icon(); ?>
 	</div>
-	<div class="buddypress-icons-wrapper">
-		<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
-	</div>
+	<?php if ( class_exists( 'BuddyPress' ) ) { ?>
+		<div class="buddypress-icons-wrapper">
+			<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
+		</div>
+	<?php } ?>
 </nav><!-- #site-navigation -->

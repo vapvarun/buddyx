@@ -622,7 +622,7 @@ class Component implements Component_Interface {
 			'settings'	 => 'site_search',
 			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
 			'section'	 => 'site_header_section',
-			'default'	 => '2',
+			'default'	 => '1',
 			'choices'	 => array(
 				'on'	 => esc_attr__( 'Yes', 'buddyx' ),
 				'off'	 => esc_attr__( 'No', 'buddyx' )
