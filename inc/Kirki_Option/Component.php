@@ -389,7 +389,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
@@ -412,7 +412,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
@@ -435,7 +435,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
@@ -458,7 +458,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
@@ -481,7 +481,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
@@ -504,7 +504,7 @@ class Component implements Component_Interface {
 				'letter-spacing' => '0',
 				'color'          => '#252525',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
+				'text-align'     => '',
 			),
 			'priority'    => 10,
 			'output'      => array(
