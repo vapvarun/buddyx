@@ -20,6 +20,8 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
+	<?php //do_action( 'buddyx_sub_header' ); ?>
+
 	<?php do_action( 'buddy_before_content' ); ?>
 
 	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && get_theme_mod( 'buddypress_sidebar_option' ) == 'both'  ) : ?>
@@ -34,7 +36,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		<?php
 		if ( have_posts() ) {
 
-			get_template_part( 'template-parts/content/page_header' );
+			//get_template_part( 'template-parts/content/page_header' );
 
 			while ( have_posts() ) {
 				the_post();

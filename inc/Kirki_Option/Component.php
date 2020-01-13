@@ -147,6 +147,16 @@ class Component implements Component_Interface {
 			)
 		);
 
+		// Site Sub Header
+		$wp_customize->add_section(
+			'site_sub_header_section',
+			array(
+				'title'       => esc_html__( 'Site Sub Header', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+			)
+		);
+
 		// Site Skin
 		$wp_customize->add_section(
 			'site_skin_section',
@@ -641,7 +651,69 @@ class Component implements Component_Interface {
 					'off'	 => esc_attr__( 'No', 'buddyx' )
 				),
 			);
-	    endif;
+		endif;
+		
+		/**
+		 *  Site Sub Header
+		 */
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'site_sub_header_bg',
+			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+			'section'  => 'site_sub_header_section',
+			'default'  => 'off',
+			'choices'  => array(
+				'on'  => esc_attr__( 'Yes','buddyx' ),
+				'off' => esc_attr__( 'No', 'buddyx' )
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'background',
+			'settings'    => 'sub_header_background_setting',
+			'label'       => esc_html__( 'Background Control', 'buddyx' ),
+			'section'     => 'site_sub_header_section',
+			'default'     => [
+				'background-color'      => 'rgba(0,0,0,0)',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'cover',
+				'background-attachment' => 'scroll',
+			],
+			'transport'   => 'auto',
+			'output'      => [
+				[
+					'element' => '.site-sub-header',
+				],
+			],
+			'active_callback' => array(
+				array( 'setting' => 'site_sub_header_bg', 'operator' => '==', 'value' => '1' )
+			)
+		);
+
+		$fields[] = array(
+			'type'        => 'typography',
+			'settings'    => 'site_sub_header_typography',
+			'label'       => esc_attr__( 'Content Typography', 'buddyx' ),
+			'section'     => 'site_sub_header_section',
+			'default'     => array(
+				'font-family'    => '',
+				'variant'        => '',
+				'font-size'      => '',
+				'line-height'    => '',
+				'letter-spacing' => '',
+				'color'          => '#fff',
+				'text-transform' => 'none',
+				'text-align'     => 'left',
+			),
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
+				),
+			),
+		);
 
 		/**
 		 * Site Skin
@@ -930,8 +1002,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'background',
 			'settings'    => 'background_setting',
-			'label'       => esc_html__( 'Background Control', 'kirki' ),
-			'description' => esc_html__( 'Background conrols are pretty complex - but extremely useful if properly used.', 'kirki' ),
+			'label'       => esc_html__( 'Background Control', 'buddyx' ),
 			'section'     => 'site_footer_background_section',
 			'default'     => [
 				'background-color'      => 'rgba(255,255,255,0.8)',

@@ -23,6 +23,9 @@ $post_layout = get_theme_mod( 'blog_layout_option');
 $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 
 ?>
+
+	<?php do_action( 'buddyx_sub_header' ); ?>
+	
 	<?php do_action( 'buddy_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
@@ -59,7 +62,7 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 		<?php
 		if ( have_posts() ) {
 
-			get_template_part( 'template-parts/content/page_header' );
+			//get_template_part( 'template-parts/content/page_header' );
 
 			$classes = get_body_class();
 			if(in_array('blog',$classes) || in_array('archive',$classes) || in_array('search',$classes)){ ?>

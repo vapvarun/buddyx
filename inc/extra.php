@@ -30,6 +30,28 @@ if ( !function_exists( 'buddy_content_bottom' ) ) {
 
 add_action( 'buddy_after_content', 'buddy_content_bottom' );
 
+// Site Sub Header 
+if ( !function_exists( 'buddyx_sub_header' ) ) {
+	function buddyx_sub_header() { ?>
+		<div class="site-sub-header">
+			<div class="container">
+				<?php if (get_post_type() === 'post' || is_single()) {
+					// POST
+					get_template_part( 'template-parts/content/page_header' );
+				}
+
+				if (get_post_type() === 'page' || is_single()) {
+					// PAGE
+					get_template_part( 'template-parts/content/entry_title', get_post_type() );
+				} ?>
+			</div>
+		</div>
+	<?php } 
+}
+
+add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
+
+
 // Site Loader 
 function site_loader() {
 	$loader	 = get_theme_mod( 'site_loader');
