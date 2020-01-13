@@ -20,7 +20,7 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
-	<?php //do_action( 'buddyx_sub_header' ); ?>
+	<?php do_action( 'buddyx_sub_header' ); ?>
 
 	<?php do_action( 'buddy_before_content' ); ?>
 
