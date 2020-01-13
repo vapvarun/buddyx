@@ -525,8 +525,8 @@ class Component implements Component_Interface {
 			'default'     => array(
 				'font-family'    => 'Rubik',
 				'variant'        => '500',
-				'font-size'      => '14px',
-				'line-height'    => '1.4',
+				'font-size'      => '16px',
+				'line-height'    => '1.6',
 				'letter-spacing' => '0.02em',
 				'color'          => '#252525',
 				'text-transform' => 'none',
@@ -535,7 +535,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.main-navigation ul li a',
+					'element' => '.main-navigation a, .main-navigation ul li a',
 				),
 			),
 		);
@@ -549,7 +549,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.main-navigation ul li a:hover',
+					'element' => '.main-navigation a:hover, .main-navigation ul li a:hover',
 					'property' => 'color',
 				),
 			),
@@ -581,8 +581,8 @@ class Component implements Component_Interface {
 			'default'     => array(
 				'font-family'    => 'Roboto',
 				'variant'        => 'regular',
-				'font-size'      => '14px',
-				'line-height'    => '1.4',
+				'font-size'      => '16px',
+				'line-height'    => '1.6',
 				'letter-spacing' => '0',
 				'color'          => '#525252',
 				'text-transform' => 'none',
@@ -983,8 +983,8 @@ class Component implements Component_Interface {
 			'default'     => array(
 				'font-family'    => 'Roboto',
 				'variant'        => '400',
-				'font-size'      => '14px',
-				'line-height'    => '1.4',
+				'font-size'      => '16px',
+				'line-height'    => '1.6',
 				'letter-spacing' => '1px',
 				'color'          => '#525252',
 				'text-transform' => 'none',
@@ -1108,8 +1108,8 @@ class Component implements Component_Interface {
 			'default'     => array(
 				'font-family'    => 'Rubik',
 				'variant'        => '500',
-				'font-size'      => '14px',
-				'line-height'    => '1.4',
+				'font-size'      => '16px',
+				'line-height'    => '1.6',
 				'letter-spacing' => '1px',
 				'color'          => '#525252',
 				'text-transform' => 'none',
