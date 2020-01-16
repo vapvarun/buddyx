@@ -188,62 +188,22 @@ class Component implements Component_Interface {
 		);
 
 		// Site Footer
-		$wp_customize->add_panel(
-			'site_footer_panel',
+		$wp_customize->add_section(
+			'site_footer_section',
 			array(
 				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
-				'priority'    => 11,
-				'description' => '',
-			)
-		);
-
-		$wp_customize->add_section(
-			'site_footer_background_section',
-			array(
-				'title'       => esc_html__( 'Background', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'site_footer_panel',
-			)
-		);
-
-		$wp_customize->add_section(
-			'site_footer_typography_section',
-			array(
-				'title'       => esc_html__( 'Typography', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_footer_panel',
 			)
 		);
 
 		// Site Copyright
-		$wp_customize->add_panel(
-			'site_copyright_panel',
+		$wp_customize->add_section(
+			'site_copyright_section',
 			array(
 				'title'       => esc_html__( 'Site Copyright', 'buddyx' ),
 				'priority'    => 11,
 				'description' => '',
-			)
-		);
-
-		$wp_customize->add_section(
-			'site_copyright_section',
-			array(
-				'title'       => esc_html__( 'Copyright', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_copyright_panel',
-			)
-		);
-
-		$wp_customize->add_section(
-			'site_copyright_typography',
-			array(
-				'title'       => esc_html__( 'Typography', 'buddyx' ),
-				'priority'    => 10,
-				'description' => '',
-				'panel' => 'site_copyright_panel',
 			)
 		);
 	}
@@ -991,7 +951,7 @@ class Component implements Component_Interface {
 			'type'     => 'switch',
 			'settings' => 'site_footer_bg',
 			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
-			'section'  => 'site_footer_background_section',
+			'section'  => 'site_footer_section',
 			'default'  => 'off',
 			'choices'  => array(
 				'on'  => esc_attr__( 'Yes','buddyx' ),
@@ -1003,7 +963,7 @@ class Component implements Component_Interface {
 			'type'        => 'background',
 			'settings'    => 'background_setting',
 			'label'       => esc_html__( 'Background Control', 'buddyx' ),
-			'section'     => 'site_footer_background_section',
+			'section'     => 'site_footer_section',
 			'default'     => [
 				'background-color'      => 'rgba(255,255,255,0.8)',
 				'background-image'      => '',
@@ -1024,47 +984,31 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_footer_title_typography',
-			'label'       => esc_attr__( 'Title Typography', 'buddyx' ),
-			'section'     => 'site_footer_typography_section',
-			'default'     => array(
-				'font-family'    => 'Rubik',
-				'variant'        => '500',
-				'font-size'      => '24px',
-				'line-height'    => '1.4',
-				'letter-spacing' => '1px',
-				'color'          => '#111',
-				'text-transform' => 'none',
-				'text-align'     => 'left',
-			),
+			'type'        => 'color',
+			'settings'    => 'site_footer_title_color',
+			'label'       => esc_attr__( 'Title Color', 'buddyx' ),
+			'section'     => 'site_footer_section',
+			'default'     => '#111',
 			'priority'    => 10,
 			'output'      => array(
 				array(
 					'element' => '.site-footer .widget-title',
+					'property' => 'color',
 				),
 			),
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_footer_content_typography',
-			'label'       => esc_attr__( 'Content Typography', 'buddyx' ),
-			'section'     => 'site_footer_typography_section',
-			'default'     => array(
-				'font-family'    => 'Roboto',
-				'variant'        => '400',
-				'font-size'      => '16px',
-				'line-height'    => '1.6',
-				'letter-spacing' => '1px',
-				'color'          => '#525252',
-				'text-transform' => 'none',
-				'text-align'     => 'left',
-			),
+			'type'        => 'color',
+			'settings'    => 'site_footer_content_color',
+			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
+			'section'     => 'site_footer_section',
+			'default'     => '#525252',
 			'priority'    => 10,
 			'output'      => array(
 				array(
 					'element' => '.site-footer',
+					'property' => 'color',
 				),
 			),
 		);
@@ -1073,7 +1017,7 @@ class Component implements Component_Interface {
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
-			'section'     => 'site_footer_typography_section',
+			'section'     => 'site_footer_section',
 			'default'     => '#111',
 			'priority'    => 10,
 			'output'      => array(
@@ -1088,7 +1032,7 @@ class Component implements Component_Interface {
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_hover_color',
 			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
-			'section'     => 'site_footer_typography_section',
+			'section'     => 'site_footer_section',
 			'default'     => '#00b7f1',
 			'priority'    => 10,
 			'output'      => array(
@@ -1143,6 +1087,21 @@ class Component implements Component_Interface {
 
 		$fields[] = array(
 			'type'        => 'color',
+			'settings'    => 'site_copyright_content_color',
+			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
+			'section'     => 'site_copyright_section',
+			'default'     => '#525252',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => '.site-info',
+					'property' => 'color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
 			'settings'    => 'site_copyright_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
@@ -1167,29 +1126,6 @@ class Component implements Component_Interface {
 				array(
 					'element' => '.site-info a:hover',
 					'property' => 'color',
-				),
-			),
-		);
-
-		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_copyright_text_typography',
-			'label'       => esc_attr__( 'Text Typography', 'buddyx' ),
-			'section'     => 'site_copyright_typography',
-			'default'     => array(
-				'font-family'    => 'Rubik',
-				'variant'        => '500',
-				'font-size'      => '16px',
-				'line-height'    => '1.6',
-				'letter-spacing' => '1px',
-				'color'          => '#525252',
-				'text-transform' => 'none',
-				'text-align'     => 'center',
-			),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info',
 				),
 			),
 		);
