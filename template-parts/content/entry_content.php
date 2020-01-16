@@ -38,8 +38,4 @@ namespace Brndle\Brndle;
 		)
 	);
 	?>
-	<?php
-	if ( ! is_singular() ) { ?>
-		<p class="read-more"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'buddyx' ), the_title_attribute( 'echo=0' ) ) ); ?>" class="read-more button"><?php _e( 'Read More', 'buddyx' ); ?></a></p>
-	<?php } ?>
 </div><!-- .entry-content -->

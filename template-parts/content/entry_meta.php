@@ -52,27 +52,15 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 }
 
 ?>
+
 <div class="entry-meta">
 	<?php
-	if ( ! empty( $time_string ) ) {
-		?>
-		<span class="posted-on">
-			<?php
-			printf(
-				/* translators: %s: post date */
-				esc_html_x( 'Posted on %s', 'post date', 'buddyx' ),
-				$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			);
-			?>
-		</span>
-		<?php
-	}
-
 	if ( ! empty( $author_string ) ) {
 		?>
 		<span class="posted-by">
 			<?php
 			/* translators: %s: post author */
+			echo get_avatar( get_the_author_meta('user_email'), $size = '26');
 			$author_byline = _x( 'By %s', 'post author', 'buddyx' );
 			if ( ! empty( $time_string ) ) {
 				/* translators: %s: post author */
@@ -100,6 +88,20 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			printf(
 				esc_html( $parent_note ),
 				$parent_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+			?>
+		</span>
+		<?php
+	}
+
+	if ( ! empty( $time_string ) ) {
+		?>
+		<span class="posted-on">
+			<?php
+			printf(
+				/* translators: %s: post date */
+				esc_html_x( ': %s', 'post date', 'buddyx' ),
+				$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 			?>
 		</span>

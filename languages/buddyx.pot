@@ -935,42 +935,34 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_content.php:43
-msgid "Permalink to %s"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry_content.php:43
-msgid "Read More"
-msgstr ""
-
-#. translators: %s: post date
-#: ../buddyx/template-parts/content/entry_meta.php:63
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
 #. translators: %s: post author
-#: ../buddyx/template-parts/content/entry_meta.php:76
+#: ../buddyx/template-parts/content/entry_meta.php:64
 msgctxt "post author"
 msgid "By %s"
 msgstr ""
 
 #. translators: %s: post author
-#: ../buddyx/template-parts/content/entry_meta.php:79
+#: ../buddyx/template-parts/content/entry_meta.php:67
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:95
+#: ../buddyx/template-parts/content/entry_meta.php:83
 msgctxt "post parent"
 msgid "In %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:98
+#: ../buddyx/template-parts/content/entry_meta.php:86
 msgctxt "post parent"
 msgid "in %s"
+msgstr ""
+
+#. translators: %s: post date
+#: ../buddyx/template-parts/content/entry_meta.php:103
+msgctxt "post date"
+msgid ": %s"
 msgstr ""
 
 #. translators: separator between taxonomy terms
