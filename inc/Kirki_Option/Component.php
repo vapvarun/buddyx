@@ -188,12 +188,22 @@ class Component implements Component_Interface {
 		);
 
 		// Site Footer
+		$wp_customize->add_panel(
+			'site_footer_panel',
+			array(
+				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
+				'priority'    => 11,
+				'description' => '',
+			)
+		);
+
 		$wp_customize->add_section(
 			'site_footer_section',
 			array(
-				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
+				'title'       => esc_html__( 'Footer Section', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
+				'panel' => 'site_footer_panel',
 			)
 		);
 
@@ -201,9 +211,10 @@ class Component implements Component_Interface {
 		$wp_customize->add_section(
 			'site_copyright_section',
 			array(
-				'title'       => esc_html__( 'Site Copyright', 'buddyx' ),
+				'title'       => esc_html__( 'Copyright Section', 'buddyx' ),
 				'priority'    => 11,
 				'description' => '',
+				'panel' => 'site_footer_panel',
 			)
 		);
 	}
@@ -270,7 +281,7 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.loader',
+					'element' => '.site-loader',
 					'property' => 'background-color',
 				),
 			),
