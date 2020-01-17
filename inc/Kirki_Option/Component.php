@@ -516,7 +516,11 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.main-navigation a, .main-navigation ul li a',
+					'element' => '.main-navigation a, .main-navigation ul li a, .nav--toggle-sub li.menu-item-has-children, .nav--toggle-small .menu-toggle',
+				),
+				array(
+					'element' => '.nav--toggle-small .menu-toggle',
+					'property' => 'border-color',
 				),
 			),
 		);
@@ -530,8 +534,12 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.main-navigation a:hover, .main-navigation ul li a:hover',
+					'element' => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
 					'property' => 'color',
+				),
+				array(
+					'element' => '.nav--toggle-small .menu-toggle:hover',
+					'property' => 'border-color',
 				),
 			),
 		);
@@ -589,8 +597,12 @@ class Component implements Component_Interface {
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-header-wrapper',
+					'element' => '.site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container',
 					'property' => 'background-color',
+				),
+				array(
+					'element' => '.site-header-wrapper',
+					'property' => 'border-color',
 				),
 			),
 		);
