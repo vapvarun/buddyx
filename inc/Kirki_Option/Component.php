@@ -277,7 +277,7 @@ class Component implements Component_Interface {
 			'settings'	 => 'site_loader_bg',
 			'label'		 => esc_html__( 'Site Loader Background', 'buddyx' ),
 			'section'	 => 'site_loader',
-			'default'	 => '#00b7f1',
+			'default'	 => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -299,12 +299,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'Site Title Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
-				'variant'        => '500',
+				'font-family'    => 'Source Sans Pro',
+				'variant'        => '600',
 				'font-size'      => '38px',
 				'line-height'    => '1.2',
 				'letter-spacing' => '0',
-				'color'          => '#333332',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
@@ -321,7 +321,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_title_hover_color',
 			'label'       => esc_attr__( 'Site Title Hover Color', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -337,7 +337,7 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'Site Tagline Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
-				'font-family'    => 'Roboto',
+				'font-family'    => 'Lato',
 				'variant'        => 'regular',
 				'font-size'      => '14px',
 				'line-height'    => '1.4',
@@ -363,12 +363,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H1 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '30px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -386,12 +386,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H2 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '24px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -409,12 +409,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H3 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '22px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -432,12 +432,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H4 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '20px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -455,12 +455,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H5 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '18px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -478,12 +478,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'H6 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '16px',
 				'line-height'    => '1.4',
 				'letter-spacing' => '0',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
@@ -504,12 +504,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'Menu Settings', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => array(
-				'font-family'    => 'Rubik',
+				'font-family'    => 'Source Sans Pro',
 				'variant'        => '500',
 				'font-size'      => '16px',
 				'line-height'    => '1.6',
 				'letter-spacing' => '0.02em',
-				'color'          => '#252525',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
@@ -530,7 +530,7 @@ class Component implements Component_Interface {
 			'settings'    => 'menu_hover_color',
 			'label'       => esc_attr__( 'Menu Hover Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -549,7 +549,7 @@ class Component implements Component_Interface {
 			'settings'    => 'menu_active_color',
 			'label'       => esc_attr__( 'Menu Active Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -568,12 +568,12 @@ class Component implements Component_Interface {
 			'label'       => esc_attr__( 'Settings', 'buddyx' ),
 			'section'     => 'body_typography_section',
 			'default'     => array(
-				'font-family'    => 'Roboto',
+				'font-family'    => 'Lato',
 				'variant'        => 'regular',
 				'font-size'      => '16px',
 				'line-height'    => '1.6',
 				'letter-spacing' => '0',
-				'color'          => '#525252',
+				'color'          => '#505050',
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
@@ -593,7 +593,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_header_bg_color',
 			'label'       => esc_attr__( 'Header Header Background Color', 'buddyx' ),
 			'section'     => 'site_header_section',
-			'default'     => '#fff',
+			'default'     => '#ffffff',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -686,7 +686,7 @@ class Component implements Component_Interface {
 				'font-size'      => '',
 				'line-height'    => '',
 				'letter-spacing' => '',
-				'color'          => '#fff',
+				'color'          => '#ffffff',
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
@@ -703,10 +703,25 @@ class Component implements Component_Interface {
 		 */
 		$fields[] = array(
 			'type'        => 'color',
+			'settings'    => 'body_background_color',
+			'label'       => esc_attr__( 'Body Background Color', 'buddyx' ),
+			'section'     => 'site_skin_section',
+			'default'     => '#f7f7f9',
+			'priority'    => 10,
+			'output'      => array(
+				array(
+					'element' => 'body',
+					'property' => 'background-color',
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'        => 'color',
 			'settings'    => 'site_primary_color',
 			'label'       => esc_attr__( 'Theme Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -716,7 +731,7 @@ class Component implements Component_Interface {
 				),
 				array(
 					'element' => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span,
-					.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after',
+					.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a',
 					'property' => 'background-color',
 				),
 				array(
@@ -731,7 +746,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#111',
+			'default'     => '#111111',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -746,7 +761,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_links_focus_hover_color',
 			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -770,7 +785,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_background_color',
 			'label'       => esc_attr__( 'Button Background Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
@@ -788,7 +803,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_background_hover_color',
 			'label'       => esc_attr__( 'Button Background Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#0099ca',
+			'default'     => '#f83939',
 			'priority'    => 10,
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
@@ -806,7 +821,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_text_color',
 			'label'       => esc_attr__( 'Button Text Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#fff',
+			'default'     => '#ffffff',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -823,7 +838,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_text_hover_color',
 			'label'       => esc_attr__( 'Button Text Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#fff',
+			'default'     => '#ffffff',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -840,7 +855,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_border_color',
 			'label'       => esc_attr__( 'Button Border Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -857,7 +872,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_buttons_border_hover_color',
 			'label'       => esc_attr__( 'Button Border Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
-			'default'     => '#0099ca',
+			'default'     => '#f83939',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1011,7 +1026,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_footer_title_color',
 			'label'       => esc_attr__( 'Title Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
-			'default'     => '#111',
+			'default'     => '#111111',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1026,7 +1041,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_footer_content_color',
 			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
-			'default'     => '#525252',
+			'default'     => '#505050',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1041,7 +1056,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_footer_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
-			'default'     => '#111',
+			'default'     => '#111111',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1056,7 +1071,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_footer_links_hover_color',
 			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_footer_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1083,7 +1098,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_background_color',
 			'label'       => esc_attr__( 'Background Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => '#fff',
+			'default'     => '#ffffff',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1113,7 +1128,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_content_color',
 			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => '#525252',
+			'default'     => '#505050',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1128,7 +1143,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_links_color',
 			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => '#111',
+			'default'     => '#111111',
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1143,7 +1158,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_links_hover_color',
 			'label'       => esc_attr__( 'Link Hover Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => '#00b7f1',
+			'default'     => '#ef5455',
 			'priority'    => 10,
 			'output'      => array(
 				array(
