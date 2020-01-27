@@ -465,7 +465,7 @@ msgstr ""
 msgid "Activate Now"
 msgstr ""
 
-#: ../buddyx/external/require_plugins.php:63
+#: ../buddyx/external/require_plugins.php:74
 msgid "Kirki Toolkit"
 msgstr ""
 
