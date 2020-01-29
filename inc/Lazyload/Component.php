@@ -121,12 +121,14 @@ class Component implements Component_Interface {
 	 * Adds filters to enable lazy-loading of images.
 	 */
 	public function action_add_lazyload_filters() {
-		add_filter( 'the_content', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
-		add_filter( 'post_thumbnail_html', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
-		add_filter( 'get_avatar', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
-		add_filter( 'widget_text', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
-		add_filter( 'get_image_tag', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
-		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'filter_lazyload_attributes' ], PHP_INT_MAX );
+		if ( ! class_exists( 'Buddypress' ) ) {
+			add_filter( 'the_content', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
+			add_filter( 'post_thumbnail_html', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
+			add_filter( 'get_avatar', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
+			add_filter( 'widget_text', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
+			add_filter( 'get_image_tag', [ $this, 'filter_add_lazyload_placeholders' ], PHP_INT_MAX );
+			add_filter( 'wp_get_attachment_image_attributes', [ $this, 'filter_lazyload_attributes' ], PHP_INT_MAX );
+		}
 	}
 
 	/**
