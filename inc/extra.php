@@ -1,4 +1,10 @@
 <?php 
+// buddy_excerpt_length
+function buddy_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'buddy_excerpt_length', 999 );
+
 // Content wrapper
 if ( !function_exists( 'buddy_content_top' ) ) {
 	function buddy_content_top() { ?>
@@ -162,3 +168,28 @@ if ( !function_exists( 'buddyx_user_status' ) ) {
  */
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 add_action( 'woocommerce_after_cart_form', 'woocommerce_cross_sell_display', 10 );
+
+
+/* Ensure cart contents update when products are added to the cart via AJAX */
+add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
+
+function my_header_add_to_cart_fragment( $fragments ) {
+	$count = WC()->cart->get_cart_contents_count();
+	ob_start();
+	?>
+	<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'reign' ); ?>">
+		<span class="fa fa-shopping-cart"></span>
+		<sup><?php echo esc_html( $count ); ?></sup>
+	</a>
+	<?php
+	$fragments[ '.menu-icons-wrapper .cart a' ] = ob_get_clean();
+	return $fragments;
+}
+
+/**
+ * disable_woo_commerce_sidebar
+ */
+function disable_woo_commerce_sidebar() {
+	remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+}
+add_action('init', 'disable_woo_commerce_sidebar');

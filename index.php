@@ -45,17 +45,6 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 		</aside>
 	<?php endif; ?>
 	<?php } ?>
-	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( is_woocommerce() ) { ?>
-			<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'left' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both'  ) : ?>
-				<aside id="secondary" class="woo-left-sidebar widget-area">
-					<div class="sticky-sidebar">
-						<?php buddyx()->display_woocommerce_left_sidebar(); ?>
-					</div>
-				</aside>
-			<?php endif; ?>
-		<?php } ?>
-	<?php } ?>
 	
 	<main id="primary" class="site-main">
 		
@@ -110,18 +99,6 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 			</aside>
 		<?php endif; ?>
 		<?php } ?>
-		<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-			<?php if ( is_woocommerce() ) { ?>
-				<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'right' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both' ) : ?>
-					<aside id="secondary" class="woo-primary-sidebar widget-area">
-						<div class="sticky-sidebar">
-							<?php buddyx()->display_woocommerce_right_sidebar(); ?>
-						</div>
-					</aside>
-				<?php endif; ?>
-			<?php } ?>
-		<?php } ?>
-	
 
 	<?php do_action( 'buddy_after_content' ); ?>
 <?php

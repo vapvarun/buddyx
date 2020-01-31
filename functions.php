@@ -90,4 +90,26 @@ if ( !get_option( $optionKey ) ) {
 	update_option( 'bp_nouveau_appearance', $bp_nouveau_appearance );
 	update_option( $optionKey, 1 );
 }
-	
+
+//
+// Add WooCommerce Support
+// ------------------------------------------------------------------------------
+if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
+
+	function buddyx_woocommerce_support() {
+		add_theme_support( 'woocommerce' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
+	}
+
+	add_action( 'after_setup_theme', 'buddyx_woocommerce_support' );
+}
+
+/**
+ * Remove WooCommerce the breadcrumbs 
+ */
+add_action( 'init', 'woo_remove_wc_breadcrumbs' );
+function woo_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
