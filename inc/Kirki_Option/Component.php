@@ -242,8 +242,8 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'			 => 'dimension',
 			'settings'		 => 'site_container_width',
-			'label'			 => esc_attr__( 'Max Content Layout Width', 'reign' ),
-			'description'	 => esc_attr__( 'Select the maximum content width for your website (px)' ),
+			'label'			 => esc_attr__( 'Max Content Layout Width', 'buddyx' ),
+			'description'	 => esc_attr__( 'Select the maximum content width for your website (px)', 'buddyx' ),
 			'section'		 => 'site_layout',
 			'default'		 => '1170px',
 			'priority'		 => 10,
@@ -904,7 +904,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'slider',
 			'settings'    => 'post_per_row',
-			'label'       => esc_attr__( 'Post Per Row', 'reign' ),
+			'label'       => esc_attr__( 'Post Per Row', 'buddyx' ),
 			'section'     => 'site_blog_section',
 			'default'     => 3,
 			'priority'    => 10,
@@ -1089,7 +1089,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_text',
 			'label'       => esc_attr__( 'Add Content', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="https://brndle.com/">Brndle</a>',
+			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="#">Brndle</a>',
 			'priority'    => 10,
 		);
 

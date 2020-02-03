@@ -17,7 +17,7 @@ $copyright = get_theme_mod( 'site_copyright_text' );
 			<?php if ( $copyright ) {
 				echo ( $copyright );
 			} else {
-				 echo 'Copyright © 2019. All rights reserved by, <a href="https://brndle.com/">Brndle</a>';
+				 echo 'Copyright &copy; 2020. All rights reserved by, <a href="#">Brndle</a>';
 			} ?>
 		</div>
 

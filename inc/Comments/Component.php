@@ -21,7 +21,7 @@ use function wp_list_comments;
 use function the_comments_navigation;
 use function add_filter;
 use function remove_filter;
-use function esc_html_e;
+//use function esc_html_e;
 
 /**
  * Class for managing comments UI.

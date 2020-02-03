@@ -177,7 +177,7 @@ function my_header_add_to_cart_fragment( $fragments ) {
 	$count = WC()->cart->get_cart_contents_count();
 	ob_start();
 	?>
-	<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'reign' ); ?>">
+	<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
 		<span class="fa fa-shopping-cart"></span>
 		<sup><?php echo esc_html( $count ); ?></sup>
 	</a>

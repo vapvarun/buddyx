@@ -23,7 +23,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
   global $bp;
   ?>
   <div class="user-notifications">
-    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php _e( esc_attr( 'Notifications' ), 'buddyx' ); ?>">
+    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_html( esc_attr( 'Notifications' ), 'buddyx' ); ?>">
         <span class="fa fa-bell"></span>
         <?php
         if ( function_exists( 'bp_notifications_get_unread_notification_count' ) ) {
@@ -42,12 +42,12 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
                 <li><?php echo $notification; ?></li><?php
             } ?>
             <li class="bp-view-all">
-                <a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php _e( 'View all notifications', 'buddyx' ); ?></a>
+                <a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html( 'View all notifications', 'buddyx' ); ?></a>
             </li>
         </ul>
     <?php } else { ?>
       <ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
-        <li><a href="<?php bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ?>"><?php _e( "No new notifications", "buddypress" ); ?></a></li>
+        <li><a href="<?php bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ?>"><?php esc_html( "No new notifications", 'buddyx' ); ?></a></li>
       </ul>
     <?php }
     ?>
