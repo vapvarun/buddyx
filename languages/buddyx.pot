@@ -1073,6 +1073,14 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
+#: ../buddyx/template-parts/header/buddypress-profile.php:45
+msgid "View all notifications"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:50
+msgid "No new notifications"
+msgstr ""
+
 #: ../buddyx/template-parts/header/navigation.php:16
 msgid "Main menu"
 msgstr ""
