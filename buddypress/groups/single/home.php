@@ -36,7 +36,7 @@ if ( bp_has_groups() ) :
                     </div><!-- #item-body -->
 
                 </div><!-- // .bp-wrap -->
-                <?php echo get_sidebar('buddypress'); ?>
+                <?php echo get_sidebar('buddyx'); ?>
         </div><!-- .site-wrapper -->
     </div><!-- .container -->
 

@@ -12,7 +12,7 @@ use Brndle\Brndle\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;
-use function esc_html__;
+//use function esc_html__;
 use function is_active_sidebar;
 use function dynamic_sidebar;
 

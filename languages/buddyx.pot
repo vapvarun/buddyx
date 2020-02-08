@@ -465,10 +465,6 @@ msgstr ""
 msgid "Activate Now"
 msgstr ""
 
-#: ../buddyx/external/require_plugins.php:74
-msgid "Kirki Toolkit"
-msgstr ""
-
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
 #: ../buddyx/inc/back-compat.php:25
 msgid "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %3$s respectively. Please update and try again."
@@ -486,6 +482,10 @@ msgstr ""
 
 #: ../buddyx/inc/extra.php:89
 msgid "View Shopping Cart"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:180
+msgid "View your shopping cart"
 msgstr ""
 
 #. translators: 1: classname/type of the variable, 2: interface name
@@ -526,6 +526,12 @@ msgstr ""
 
 #: ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
+msgstr ""
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#: ../buddyx/buddypress/groups/groups-loop.php:51, ../buddyx/buddypress/groups/single/cover-image-header.php:36
+msgid "active %s"
 msgstr ""
 
 #: ../buddyx/inc/Accessibility/Component.php:69
@@ -680,6 +686,14 @@ msgstr ""
 msgid "Copyright Section"
 msgstr ""
 
+#: ../buddyx/inc/Kirki_Option/Component.php:245
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:246
+msgid "Select the maximum content width for your website (px)"
+msgstr ""
+
 #: ../buddyx/inc/Kirki_Option/Component.php:266
 msgid "Site Loader ?"
 msgstr ""
@@ -814,6 +828,10 @@ msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:893
 msgid "Blog Layout"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:907
+msgid "Post Per Row"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:943
@@ -1059,6 +1077,10 @@ msgstr ""
 msgid "View all notifications"
 msgstr ""
 
+#: ../buddyx/template-parts/header/buddypress-profile.php:50
+msgid "No new notifications"
+msgstr ""
+
 #: ../buddyx/template-parts/header/navigation.php:16
 msgid "Main menu"
 msgstr ""
@@ -1066,3 +1088,54 @@ msgstr ""
 #: ../buddyx/template-parts/header/navigation.php:39
 msgid "Open menu"
 msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:79
+msgid "Product"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:99
+msgid "Price"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:105
+msgid "Quantity"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:127
+msgid "Subtotal"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:58
+msgid "Remove this item"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:94
+msgid "Available on backorder"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:145
+msgid "Coupon:"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:145
+msgid "Coupon code"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:145, ../buddyx/woocommerce/cart/cart.php:145
+msgid "Apply coupon"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:150, ../buddyx/woocommerce/cart/cart.php:150
+msgid "Update cart"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/groups/invites.php:10
+msgid "Group Invites"
+msgstr ""
+
+#. translators: %s = number of members
+#: ../buddyx/buddypress/members/single/groups/invites.php:41
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] ""
+msgstr[1] ""

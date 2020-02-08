@@ -70,7 +70,7 @@ function buddyx_register_required_plugins() {
 		),
 		// Kirki Toolkit
 		array(
-			'name'		 => esc_html__( 'Kirki Toolkit', 'buddyx' ),
+			'name'		 => 'Kirki Toolkit', 'buddyx',
 			'slug'		 => 'kirki',
 			'required'	 => true,
 		),

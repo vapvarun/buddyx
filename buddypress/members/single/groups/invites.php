@@ -7,7 +7,7 @@
  */
 ?>
 
-<h2 class="screen-heading group-invites-screen"><?php esc_html_e( 'Group Invites', 'buddypress' ); ?></h2>
+<h2 class="screen-heading group-invites-screen"><?php esc_html_e( 'Group Invites', 'buddyx' ); ?></h2>
 
 <?php bp_nouveau_group_hook( 'before', 'invites_content' ); ?>
 
@@ -42,7 +42,7 @@
                                         '%s member',
                                         '%s members',
                                         bp_get_group_total_members( false ),
-                                        'buddypress'
+                                        'buddyx'
                                     ),
                                     number_format_i18n( bp_get_group_total_members( false ) )
                                 );
