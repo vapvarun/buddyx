@@ -7,7 +7,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 if ( ! buddyx()->is_buddypress_right_sidebar_active() ) {
 	return;

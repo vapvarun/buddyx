@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 // Audio or video attachments can have featured images, so they need to be specifically checked.
 $support_slug = get_post_type();

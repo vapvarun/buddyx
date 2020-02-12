@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\Post_Thumbnails\Component class
+ * WbcomDesigns\WbcomDesigns\Post_Thumbnails\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Post_Thumbnails;
+namespace WbcomDesigns\WbcomDesigns\Post_Thumbnails;
 
-use Brndle\Brndle\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function add_image_size;

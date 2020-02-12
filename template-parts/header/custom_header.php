@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 if ( ! has_header_image() ) {
 	return;

@@ -5,9 +5,9 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Kirki;
+namespace WbcomDesigns\WbcomDesigns\Kirki;
 
-use Brndle\Brndle\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
 use Kirki;
 use function add_filter;
 

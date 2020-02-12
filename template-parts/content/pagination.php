@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 the_posts_pagination(
 	[

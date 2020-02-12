@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Custom_Js\Component class
+ * WbcomDesigns\WbcomDesigns\Custom_Js\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Custom_Js;
+namespace WbcomDesigns\WbcomDesigns\Custom_Js;
 
-use Brndle\Brndle\Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use WP_Post;
 use function add_action;
 use function add_filter;

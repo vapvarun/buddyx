@@ -7,7 +7,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 get_header();
 

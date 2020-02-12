@@ -1,15 +1,15 @@
 <?php
 /**
- * Brndle\Brndle\Comments\Component class
+ * WbcomDesigns\WbcomDesigns\Comments\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Comments;
+namespace WbcomDesigns\WbcomDesigns\Comments;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use function add_action;
 use function is_singular;
 use function comments_open;

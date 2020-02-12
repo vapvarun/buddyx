@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\Custom_Header\Component class
+ * WbcomDesigns\WbcomDesigns\Custom_Header\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Custom_Header;
+namespace WbcomDesigns\WbcomDesigns\Custom_Header;
 
-use Brndle\Brndle\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;

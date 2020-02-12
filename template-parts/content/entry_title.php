@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 if ( is_singular( get_post_type() ) ) {
 	the_title( '<h1 class="entry-title">', '</h1>' );

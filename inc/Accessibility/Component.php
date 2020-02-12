@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Accessibility\Component class
+ * WbcomDesigns\WbcomDesigns\Accessibility\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Accessibility;
+namespace WbcomDesigns\WbcomDesigns\Accessibility;
 
-use Brndle\Brndle\Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use WP_Post;
 use function add_action;
 use function add_filter;

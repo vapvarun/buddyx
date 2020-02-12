@@ -1,15 +1,15 @@
 <?php
 /**
- * Brndle\Brndle\Styles\Component class
+ * WbcomDesigns\WbcomDesigns\Styles\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Styles;
+namespace WbcomDesigns\WbcomDesigns\Styles;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_style;

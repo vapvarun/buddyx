@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\Localization\Component class
+ * WbcomDesigns\WbcomDesigns\Localization\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Localization;
+namespace WbcomDesigns\WbcomDesigns\Localization;
 
-use Brndle\Brndle\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
 use function add_action;
 use function load_theme_textdomain;
 use function get_template_directory;

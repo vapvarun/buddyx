@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	return;

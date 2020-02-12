@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Typography_Options\Component class
+ * WbcomDesigns\WbcomDesigns\Typography_Options\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Kirki_Option;
+namespace WbcomDesigns\WbcomDesigns\Kirki_Option;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Kirki;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Kirki;
 use function add_action;
 use function add_filter;
 

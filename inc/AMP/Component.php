@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\AMP\Component class
+ * WbcomDesigns\WbcomDesigns\AMP\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\AMP;
+namespace WbcomDesigns\WbcomDesigns\AMP;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function get_theme_support;

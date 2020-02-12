@@ -7,7 +7,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace WbcomDesigns\WbcomDesigns;
 
 // Prevent showing nav menus.
 add_filter( 'has_nav_menu', '__return_false' );

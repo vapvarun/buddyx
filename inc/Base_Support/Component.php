@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Base_Support\Component class
+ * WbcomDesigns\WbcomDesigns\Base_Support\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Base_Support;
+namespace WbcomDesigns\WbcomDesigns\Base_Support;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function add_theme_support;

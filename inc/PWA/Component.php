@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\PWA\Component class
+ * WbcomDesigns\WbcomDesigns\PWA\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\PWA;
+namespace WbcomDesigns\WbcomDesigns\PWA;
 
-use Brndle\Brndle\Component_Interface;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
 use function add_action;
 use function add_theme_support;
 

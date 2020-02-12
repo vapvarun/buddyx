@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Lazyload\Component class
+ * WbcomDesigns\WbcomDesigns\Lazyload\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Lazyload;
+namespace WbcomDesigns\WbcomDesigns\Lazyload;
 
-use Brndle\Brndle\Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use WP_Customize_Manager;
 use function add_action;
 use function add_filter;

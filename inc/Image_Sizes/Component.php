@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Image_Sizes\Component class
+ * WbcomDesigns\WbcomDesigns\Image_Sizes\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Image_Sizes;
+namespace WbcomDesigns\WbcomDesigns\Image_Sizes;
 
-use Brndle\Brndle\Component_Interface;
-use function Brndle\Brndle\buddyx;
+use WbcomDesigns\WbcomDesigns\Component_Interface;
+use function WbcomDesigns\WbcomDesigns\buddyx;
 use WP_Post;
 use function add_filter;
 use function is_active_sidebar;
