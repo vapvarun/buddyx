@@ -9,7 +9,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 ?>
 

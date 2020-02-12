@@ -1,13 +1,13 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\PWA\Component class
+ * BuddyX\Buddyx\PWA\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\PWA;
+namespace BuddyX\Buddyx\PWA;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_theme_support;
 

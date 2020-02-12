@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 /**
  * Provides access to all available template tags of the theme.

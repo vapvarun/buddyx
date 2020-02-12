@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 $copyright = get_theme_mod( 'site_copyright_text' );
 
 ?>

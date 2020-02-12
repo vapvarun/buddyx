@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	return;

@@ -1,15 +1,15 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Styles\Component class
+ * BuddyX\Buddyx\Styles\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Styles;
+namespace BuddyX\Buddyx\Styles;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
-use function WbcomDesigns\WbcomDesigns\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_style;

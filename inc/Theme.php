@@ -1,11 +1,11 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Theme class
+ * BuddyX\Buddyx\Theme class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 use InvalidArgumentException;
 

@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Customizer\Component class
+ * BuddyX\Buddyx\Customizer\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Customizer;
+namespace BuddyX\Buddyx\Customizer;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use function WbcomDesigns\WbcomDesigns\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use WP_Customize_Manager;
 use function add_action;
 use function bloginfo;

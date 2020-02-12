@@ -1,15 +1,15 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Comments\Component class
+ * BuddyX\Buddyx\Comments\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Comments;
+namespace BuddyX\Buddyx\Comments;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
-use function WbcomDesigns\WbcomDesigns\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function is_singular;
 use function comments_open;

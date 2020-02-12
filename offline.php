@@ -7,7 +7,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 // Prevent showing nav menus.
 add_filter( 'has_nav_menu', '__return_false' );

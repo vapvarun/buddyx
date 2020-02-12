@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Sidebars\Component class
+ * BuddyX\Buddyx\Sidebars\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Sidebars;
+namespace BuddyX\Buddyx\Sidebars;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;

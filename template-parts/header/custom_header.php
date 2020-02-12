@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 if ( ! has_header_image() ) {
 	return;

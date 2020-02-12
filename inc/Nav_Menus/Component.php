@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Nav_Menus\Component class
+ * BuddyX\Buddyx\Nav_Menus\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Nav_Menus;
+namespace BuddyX\Buddyx\Nav_Menus;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
 use WP_Post;
 use function add_action;
 use function add_filter;

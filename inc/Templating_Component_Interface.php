@@ -1,11 +1,11 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Templating_Component_Interface interface
+ * BuddyX\Buddyx\Templating_Component_Interface interface
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 /**
  * Interface for a theme component that exposes template tags.

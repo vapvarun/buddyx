@@ -15,7 +15,7 @@
  * @version 3.4.0
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 defined( 'ABSPATH' ) || exit;
 

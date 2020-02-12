@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Custom_Js\Component class
+ * BuddyX\Buddyx\Custom_Js\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Custom_Js;
+namespace BuddyX\Buddyx\Custom_Js;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use function WbcomDesigns\WbcomDesigns\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use WP_Post;
 use function add_action;
 use function add_filter;

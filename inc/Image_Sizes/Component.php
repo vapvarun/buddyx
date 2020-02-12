@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Image_Sizes\Component class
+ * BuddyX\Buddyx\Image_Sizes\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Image_Sizes;
+namespace BuddyX\Buddyx\Image_Sizes;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use function WbcomDesigns\WbcomDesigns\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use WP_Post;
 use function add_filter;
 use function is_active_sidebar;

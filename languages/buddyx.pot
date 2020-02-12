@@ -670,8 +670,8 @@ msgstr ""
 msgid "Site Blog"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:184, ../buddyx/inc/Kirki_Option/Component.php:927
-msgid "Sidebar Layout"
+#: ../buddyx/inc/Kirki_Option/Component.php:184
+msgid "Site Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:194
@@ -832,6 +832,10 @@ msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:907
 msgid "Post Per Row"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:927
+msgid "Sidebar Layout"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:943

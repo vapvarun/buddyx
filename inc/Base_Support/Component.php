@@ -1,14 +1,14 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Base_Support\Component class
+ * BuddyX\Buddyx\Base_Support\Component class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns\Base_Support;
+namespace BuddyX\Buddyx\Base_Support;
 
-use WbcomDesigns\WbcomDesigns\Component_Interface;
-use WbcomDesigns\WbcomDesigns\Templating_Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function add_theme_support;

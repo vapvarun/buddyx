@@ -1,11 +1,11 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Template_Tags class
+ * BuddyX\Buddyx\Template_Tags class
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 use InvalidArgumentException;
 use BadMethodCallException;

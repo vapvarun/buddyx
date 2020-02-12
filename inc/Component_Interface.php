@@ -1,11 +1,11 @@
 <?php
 /**
- * WbcomDesigns\WbcomDesigns\Component_Interface interface
+ * BuddyX\Buddyx\Component_Interface interface
  *
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 /**
  * Interface for a theme component.

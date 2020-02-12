@@ -10,7 +10,7 @@
  * @package buddyx
  */
 
-namespace WbcomDesigns\WbcomDesigns;
+namespace BuddyX\Buddyx;
 
 /*
  * If the current post is protected by a password and
