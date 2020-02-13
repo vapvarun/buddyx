@@ -21,5 +21,17 @@ An answer to that question.
 
 == Changelog ==
 
-= 1.0 =
+= 2.0.0= 
+* Fix: Updated namespace
+* Fix: Managed single group sidebar option
+* Fix: Update buddypress-profile.php file
+* Fix: Theme check issues fixes
+* Fix: woocommerce css file update
+* Fix: woocommerce pages fixes
+* Fix: Update files and profile pic upload issue fix
+* Fix: Update footer widget title font size
+* Fix: Update theme font and color scheme and theme fixes
+* Fix: (#8) Header dropdown toggle issue fixed
+
+= 1.0.0 =
 * Initial Release
