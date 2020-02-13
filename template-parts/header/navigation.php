@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	return;

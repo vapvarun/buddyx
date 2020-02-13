@@ -1,11 +1,11 @@
 <?php
 /**
- * Brndle\Brndle\Theme class
+ * BuddyX\Buddyx\Theme class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 use InvalidArgumentException;
 

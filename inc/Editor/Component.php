@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\Editor\Component class
+ * BuddyX\Buddyx\Editor\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Editor;
+namespace BuddyX\Buddyx\Editor;
 
-use Brndle\Brndle\Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_theme_support;
 

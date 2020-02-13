@@ -5,9 +5,9 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Kirki;
+namespace BuddyX\Buddyx\Kirki;
 
-use Brndle\Brndle\Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
 use Kirki;
 use function add_filter;
 

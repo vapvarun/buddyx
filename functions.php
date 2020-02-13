@@ -38,7 +38,7 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 	 * @return bool True if the class was loaded, false otherwise.
 	 */
 	function _buddyx_autoload( $class_name ) {
-		$namespace = 'Brndle\Brndle';
+		$namespace = 'BuddyX\Buddyx';
 
 		if ( strpos( $class_name, $namespace . '\\' ) !== 0 ) {
 			return false;
@@ -67,7 +67,7 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 require get_template_directory() . '/inc/functions.php';
 
 // Initialize the theme.
-call_user_func( 'Brndle\Brndle\buddyx' );
+call_user_func( 'BuddyX\Buddyx\buddyx' );
 
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';

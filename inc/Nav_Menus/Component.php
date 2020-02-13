@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Nav_Menus\Component class
+ * BuddyX\Buddyx\Nav_Menus\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Nav_Menus;
+namespace BuddyX\Buddyx\Nav_Menus;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
 use WP_Post;
 use function add_action;
 use function add_filter;

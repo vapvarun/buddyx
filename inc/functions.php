@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 /**
  * Provides access to all available template tags of the theme.

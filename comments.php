@@ -10,7 +10,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 /*
  * If the current post is protected by a password and

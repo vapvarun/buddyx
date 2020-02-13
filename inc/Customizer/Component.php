@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Customizer\Component class
+ * BuddyX\Buddyx\Customizer\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Customizer;
+namespace BuddyX\Buddyx\Customizer;
 
-use Brndle\Brndle\Component_Interface;
-use function Brndle\Brndle\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use WP_Customize_Manager;
 use function add_action;
 use function bloginfo;

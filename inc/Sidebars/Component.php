@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Sidebars\Component class
+ * BuddyX\Buddyx\Sidebars\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Sidebars;
+namespace BuddyX\Buddyx\Sidebars;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;

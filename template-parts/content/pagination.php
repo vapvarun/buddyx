@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 the_posts_pagination(
 	[

@@ -1,15 +1,15 @@
 <?php
 /**
- * Brndle\Brndle\Styles\Component class
+ * BuddyX\Buddyx\Styles\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Styles;
+namespace BuddyX\Buddyx\Styles;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Templating_Component_Interface;
-use function Brndle\Brndle\buddyx;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Templating_Component_Interface;
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_style;

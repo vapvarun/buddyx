@@ -15,7 +15,7 @@
  * @version     1.6.4
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly

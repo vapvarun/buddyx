@@ -36,7 +36,9 @@ if ( bp_has_groups() ) :
                     </div><!-- #item-body -->
 
                 </div><!-- // .bp-wrap -->
-                <?php echo get_sidebar('buddyx'); ?>
+                <?php if ( get_theme_mod( 'buddypress_sidebar_option' ) == 'right' || get_theme_mod( 'buddypress_sidebar_option' ) == 'both' ) : ?>
+                    <?php echo get_sidebar('buddypress'); ?>
+                <?php endif; ?>
         </div><!-- .site-wrapper -->
     </div><!-- .container -->
 

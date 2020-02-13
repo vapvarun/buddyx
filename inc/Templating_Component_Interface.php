@@ -1,11 +1,11 @@
 <?php
 /**
- * Brndle\Brndle\Templating_Component_Interface interface
+ * BuddyX\Buddyx\Templating_Component_Interface interface
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 /**
  * Interface for a theme component that exposes template tags.

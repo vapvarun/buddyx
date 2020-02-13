@@ -1,14 +1,14 @@
 <?php
 /**
- * Brndle\Brndle\Typography_Options\Component class
+ * BuddyX\Buddyx\Typography_Options\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Kirki_Option;
+namespace BuddyX\Buddyx\Kirki_Option;
 
-use Brndle\Brndle\Component_Interface;
-use Brndle\Brndle\Kirki;
+use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Buddyx\Kirki;
 use function add_action;
 use function add_filter;
 
@@ -181,7 +181,7 @@ class Component implements Component_Interface {
 		$wp_customize->add_section(
 			'site_sidebar_layout',
 			array(
-				'title'       => esc_html__( 'Sidebar Layout', 'buddyx' ),
+				'title'       => esc_html__( 'Site Sidebar', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
 			)

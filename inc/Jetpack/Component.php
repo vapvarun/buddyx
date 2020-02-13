@@ -1,13 +1,13 @@
 <?php
 /**
- * Brndle\Brndle\Jetpack\Component class
+ * BuddyX\Buddyx\Jetpack\Component class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle\Jetpack;
+namespace BuddyX\Buddyx\Jetpack;
 
-use Brndle\Brndle\Component_Interface;
+use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function have_posts;

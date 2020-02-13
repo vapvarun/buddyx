@@ -15,7 +15,7 @@
  * @version 3.4.0
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 defined( 'ABSPATH' ) || exit;
 

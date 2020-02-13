@@ -1,11 +1,11 @@
 <?php
 /**
- * Brndle\Brndle\Template_Tags class
+ * BuddyX\Buddyx\Template_Tags class
  *
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 use InvalidArgumentException;
 use BadMethodCallException;

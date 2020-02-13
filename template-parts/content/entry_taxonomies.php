@@ -5,7 +5,7 @@
  * @package buddyx
  */
 
-namespace Brndle\Brndle;
+namespace BuddyX\Buddyx;
 
 $taxonomies = wp_list_filter(
 	get_object_taxonomies( $post, 'objects' ),

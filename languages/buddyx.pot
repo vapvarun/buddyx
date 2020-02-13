@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Brndle\n"
+"Last-Translator: wbcomdesigns\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -670,8 +670,8 @@ msgstr ""
 msgid "Site Blog"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:184, ../buddyx/inc/Kirki_Option/Component.php:927
-msgid "Sidebar Layout"
+#: ../buddyx/inc/Kirki_Option/Component.php:184
+msgid "Site Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:194
@@ -832,6 +832,10 @@ msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:907
 msgid "Post Per Row"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:927
+msgid "Sidebar Layout"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:943
