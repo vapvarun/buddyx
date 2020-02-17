@@ -591,7 +591,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_header_bg_color',
-			'label'       => esc_attr__( 'Header Header Background Color', 'buddyx' ),
+			'label'       => esc_attr__( 'Header Background Color', 'buddyx' ),
 			'section'     => 'site_header_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
