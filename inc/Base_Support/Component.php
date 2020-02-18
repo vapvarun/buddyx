@@ -93,8 +93,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_theme_support( 'responsive-embeds' );
 
 		// Add support custom-header, custom-background.
-		add_theme_support( "custom-header", $args );
-		add_theme_support('custom-background', $args);
+		add_theme_support( 'custom-header' );
+		add_theme_support( 'custom-background' );
 	}
 
 	/**
