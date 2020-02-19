@@ -107,43 +107,9 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 }
 
 /**
- * Remove WooCommerce the breadcrumbs
+ * Remove WooCommerce the breadcrumbs 
  */
 add_action( 'init', 'woo_remove_wc_breadcrumbs' );
 function woo_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-}
-if ( ! function_exists( 'buddyx_fs' ) ) {
-    // Create a helper function for easy SDK access.
-    function buddyx_fs() {
-        global $buddyx_fs;
-
-        if ( ! isset( $buddyx_fs ) ) {
-            // Include Freemius SDK.
-            require_once dirname(__FILE__) . '/freemius/start.php';
-
-            $buddyx_fs = fs_dynamic_init( array(
-                'id'                  => '5570',
-                'slug'                => 'buddyx',
-                'type'                => 'theme',
-                'public_key'          => 'pk_814977757afd53eec90838d48ea28',
-                'is_premium'          => false,
-                'has_addons'          => false,
-                'has_paid_plans'      => false,
-                'is_org_compliant'    => false,
-                'menu'                => array(
-                    'first-path'     => 'themes.php',
-                    'account'        => false,
-                    'support'        => false,
-                ),
-            ) );
-        }
-
-        return $buddyx_fs;
-    }
-
-    // Init Freemius.
-    buddyx_fs();
-    // Signal that SDK was initiated.
-    do_action( 'buddyx_fs_loaded' );
 }
