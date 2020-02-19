@@ -520,11 +520,12 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry_content.php:19
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry-full-width.php:18, ../buddyx/template-parts/content/entry_content.php:19
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry_content.php:36
+#: ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr ""
 
@@ -891,7 +892,7 @@ msgid "Lazy-loading images means images are loaded only when they are in view. I
 msgstr ""
 
 #: ../buddyx/inc/Nav_Menus/Component.php:74
-msgid "Buddypress"
+msgid "BuddyPress"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:86
