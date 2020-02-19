@@ -107,9 +107,14 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 }
 
 /**
- * Remove WooCommerce the breadcrumbs 
+ * Remove WooCommerce the breadcrumbs
  */
 add_action( 'init', 'woo_remove_wc_breadcrumbs' );
 function woo_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
+
+function buddyx_theme_updater() {
+	require( get_template_directory() . '/updater/theme-updater.php' );
+}
+add_action( 'after_setup_theme', 'buddyx_theme_updater' );
