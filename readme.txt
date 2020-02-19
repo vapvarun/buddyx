@@ -20,7 +20,10 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
-
+= 2.1.0=
+* Fix:(#23) Update entry-full-width.php file code
+* Fix: Added freemius
+* Fix: Managed string repetition and Fixed undefined variable warning 
 = 2.0.0= 
 * Fix: Updated namespace
 * Fix: Managed single group sidebar option
