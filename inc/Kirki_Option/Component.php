@@ -218,7 +218,7 @@ class Component implements Component_Interface {
 			)
 		);
 	}
-	
+
 	public function add_fields( $fields ) {
 		/**
 		 *  Site Layout
@@ -635,7 +635,7 @@ class Component implements Component_Interface {
 				),
 			);
 		endif;
-		
+
 		/**
 		 *  Site Sub Header
 		 */
@@ -917,7 +917,7 @@ class Component implements Component_Interface {
 				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
 			)
 		);
-		
+
 		/**
 		 *  Site Sidebar Layout
 		 */
@@ -1089,7 +1089,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_text',
 			'label'       => esc_attr__( 'Add Content', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="#">WbcomDesigns</a>',
+			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="https://wbcomdesigns.com/">Wbcom Designs</a>',
 			'priority'    => 10,
 		);
 
