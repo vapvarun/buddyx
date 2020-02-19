@@ -76,19 +76,7 @@ function buddyx_register_required_plugins() {
 			'name'		 => 'BuddyPress',
 			'slug'		 => 'buddypress',
 			'required'	 => false,
-		),
-		// rtMedia Plugin
-		array(
-			'name'		 => 'rtMedia for WordPress, BuddyPress and bbPress',
-			'slug'		 => 'buddypress-media',
-			'required'	 => false,
-		),
-		// WooCommerce
-		array(
-			'name'		 => 'WooCommerce',
-			'slug'		 => 'woocommerce',
-			'required'	 => false,
-		),
+		)
 	);
 
 	/*
@@ -103,6 +91,7 @@ function buddyx_register_required_plugins() {
 	$config = array(
 		'id'			 => 'buddyx', // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path'	 => '', // Default absolute path to bundled plugins.
+		'parent_slug'	=> 'themes.php',
 		'menu'			 => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'	 => true, // Show admin notices or not.
 		'dismissable'	 => true, // If false, a user cannot dismiss the nag message.
