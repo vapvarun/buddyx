@@ -290,15 +290,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'buddyx-content'    => [
 				'file'             => 'content.min.css',
 				'preload_callback' => '__return_true',
-				'global' => true,
 			],
 			'buddyx-sidebar'    => [
 				'file'             => 'sidebar.min.css',
-				'global' => true,
 			],
 			'buddyx-widgets'    => [
 				'file'             => 'widgets.min.css',
-				'global' => true,
 			],
 			'buddyx-front-page' => [
 				'file' => 'front-page.min.css',
