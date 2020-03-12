@@ -37,14 +37,14 @@ class Component implements Component_Interface {
 	}
 
 	public function site_width_body_classes( array $classes ) : array {
-		$classes[] = 'layout-' . get_theme_mod( 'site_layout');
+		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
 	}
 
 	public function site_sticky_sidebar_body_classes( array $classes ) : array {
 
-		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', true );
+		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
 		if ( $sticky_sidebar ) {
 			$classes[] = 'sticky-sidebar-enable';
 		}
@@ -975,7 +975,7 @@ class Component implements Component_Interface {
 			'settings' => 'sticky_sidebar_option',
 			'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
 			'section'  => 'site_sidebar_layout',
-			'default'  => '2',
+			'default'  => '1',
 			'choices'  => [
 				'on' => esc_attr__( 'Yes','buddyx' ),
 				'off'  => esc_attr__( 'No','buddyx' ),

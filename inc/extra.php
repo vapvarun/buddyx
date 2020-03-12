@@ -63,7 +63,7 @@ add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 
 // Site Loader 
 function site_loader() {
-	$loader	 = get_theme_mod( 'site_loader');
+	$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
 	if ( !empty( $loader ) )
 		echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
 }
@@ -71,8 +71,8 @@ function site_loader() {
 // Site Search and Woo icon
 function site_menu_icon () {
 	// menu icons
-	$searchicon = (int) get_theme_mod( 'site_search' );
-	$carticon = (int) get_theme_mod( 'site_cart' );
+	$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
+	$carticon = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
 	if( !empty($searchicon) || !empty($carticon) ) : ?>
 		<div class="menu-icons-wrapper"><?php
 			if( !empty($searchicon) ): ?>

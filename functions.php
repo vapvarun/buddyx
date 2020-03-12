@@ -24,6 +24,7 @@ require get_template_directory() . '/inc/wordpress-shims.php';
 //Include Kirki
 require get_template_directory() . '/external/require_plugins.php';
 require_once get_template_directory() . '/external/include-kirki.php';
+require_once get_template_directory() . '/external/kirki-utils.php';
 
 // Setup autoloader (via Composer or custom).
 if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
