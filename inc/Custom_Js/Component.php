@@ -49,7 +49,7 @@ class Component implements Component_Interface {
 			return;
 		}
 
-		// Enqueue the moby script.
+		// Enqueue the doubletap script.
 		wp_enqueue_script(
 			'buddyx-doubletap',
 			get_theme_file_uri( '/assets/js/doubletap.min.js' ),
