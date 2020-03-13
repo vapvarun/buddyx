@@ -23,7 +23,7 @@ $copyright = get_theme_mod( 'site_copyright_text' );
 
 	<?php
 	if ( function_exists( 'the_privacy_policy_link' ) ) {
-		the_privacy_policy_link( '<span class="sep"> | </span>' );
+		the_privacy_policy_link();
 	}
 	?>
 </div><!-- .site-info -->
