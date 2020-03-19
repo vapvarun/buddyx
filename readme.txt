@@ -20,6 +20,12 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.3.1=
+* Improvement: Dropdown menu with display name for users profile.
+* Improvement: Widget Title font 
+* Improvement: De and Fr Language files
+
 = 2.3.0=
 * Fix: Managed active links color without kirki plugin activated
 * Fix: Set default customize option for some components
