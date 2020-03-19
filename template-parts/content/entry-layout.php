@@ -7,9 +7,17 @@
 
 namespace BuddyX\Buddyx;
 
+$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
+
+$classes = [
+    'entry',
+    'entry-layout',
+    $post_per_row
+];
+
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 	<?php
 	get_template_part( 'template-parts/content/entry_header', get_post_type() );
 

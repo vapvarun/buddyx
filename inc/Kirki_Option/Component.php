@@ -902,17 +902,18 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'slider',
+			'type'        => 'select', 
 			'settings'    => 'post_per_row',
 			'label'       => esc_attr__( 'Post Per Row', 'buddyx' ),
 			'section'     => 'site_blog_section',
-			'default'     => 3,
+			'default'     => '4',
 			'priority'    => 10,
-			'choices'     => array(
-				'min'  => '1',
-				'max'  => '4',
-				'step' => '1',
-			),
+			'choices'     => array( 
+				'12' => esc_attr__( 'Column 1', 'buddyx' ), 
+				'6' => esc_attr__( 'Column 2', 'buddyx' ),
+				'4' => esc_attr__( 'Column 3', 'buddyx' ),  
+				'3' => esc_attr__( 'Column 4', 'buddyx' ),
+			), 
 			'active_callback'	 => array(
 				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
 			)

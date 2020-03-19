@@ -20,7 +20,7 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 $post_layout = get_theme_mod( 'blog_layout_option');
-$post_per_row = 'column-' . get_theme_mod( 'post_per_row');
+$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
 
 ?>
 
@@ -55,8 +55,8 @@ $post_per_row = 'column-' . get_theme_mod( 'post_per_row');
 
 			$classes = get_body_class();
 			if(in_array('blog',$classes) || in_array('archive',$classes) || in_array('search',$classes)){ ?>
-			<div class="post-layout <?php echo $post_layout . " " . $post_per_row ?>">
-			<div class="grid-sizer"></div>
+			<div class="post-layout row <?php echo $post_layout ?>">
+			<div class="grid-sizer <?php echo $post_per_row ?>"></div>
 			<?php 
 				while ( have_posts() ) {
 					the_post();
