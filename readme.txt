@@ -20,6 +20,15 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+= 2.3.0=
+* Fix: Managed active links color without kirki plugin activated
+* Fix: Set default customize option for some components
+* Fix: Console error fixes and update sub menu toggle icon
+* Fix: (#17) Fixed warning and notices
+* Fix: (#27) Managed buddypress reaction and status plugin popup icon alignment
+* Fix: (#27) Managed buddypress member reaction on single member page
+* Fix: (#24) Managed UI with BuddyPress Member Reviews plugin
+
 = 2.2.0=
 * Fix: updated links for plugin install at admin notice
 * Added: Auto updater with EDD
