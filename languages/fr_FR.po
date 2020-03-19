@@ -1,17 +1,17 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Buddyx\n"
-"POT-Creation-Date: 2020-03-19 22:43+0530\n"
-"PO-Revision-Date: 2020-03-19 22:43+0530\n"
+"POT-Creation-Date: 2020-03-19 22:44+0530\n"
+"PO-Revision-Date: 2020-03-19 22:44+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -26,24 +26,24 @@ msgstr ""
 #: buddypress/groups/single/cover-image-header.php:36
 #, php-format
 msgid "active %s"
-msgstr ""
+msgstr "actif %s"
 
 #: buddypress/members/single/groups/invites.php:10
 msgid "Group Invites"
-msgstr ""
+msgstr "Invitations au groupe"
 
 #: buddypress/members/single/groups/invites.php:42
 #, php-format
 msgid "%s member"
 msgid_plural "%s members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "membre %s"
+msgstr[1] "%s membres"
 
 #. translators: 1: title.
 #: comments.php:38
 #, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
+msgstr "Une pensée sur &ldquo;%1$s&rdquo;"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:44
@@ -51,52 +51,52 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s commentaire sur &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s réactions sur &ldquo;%2$s&rdquo;"
 
 #: comments.php:60
 msgid "Comments are closed."
-msgstr ""
+msgstr "Les commentaires sont fermés."
 
 #: external/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
-msgstr ""
+msgstr "Installer les extensions requises"
 
 #: external/class-tgm-plugin-activation.php:328
 msgid "Install Plugins"
-msgstr ""
+msgstr "Installer les extensions"
 
 #. translators: %s: plugin name.
 #: external/class-tgm-plugin-activation.php:330
 #, php-format
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installation de l'extension : %s"
 
 #. translators: %s: plugin name.
 #: external/class-tgm-plugin-activation.php:332
 #, php-format
 msgid "Updating Plugin: %s"
-msgstr ""
+msgstr "Mise à jour de l'extension : %s"
 
 #: external/class-tgm-plugin-activation.php:333
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Une erreur s'est produite avec l'API du plugin."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:336
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ce thème nécessite l’extension suivante : %1$s."
+msgstr[1] "Ce thème nécessite les extensions suivantes : %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:340
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ce thème recommande l’extension suivante : %1$s."
+msgstr[1] "Ce thème recommande les extensions suivantes : %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:344
@@ -108,78 +108,84 @@ msgid_plural ""
 "The following plugins need to be updated to their latest version to ensure "
 "maximum compatibility with this theme: %1$s."
 msgstr[0] ""
+"L’extensions suivante doit être mise à jour vers sa dernière version afin "
+"d’assurer une compatibilité maximale avec ce thème : %1$s."
 msgstr[1] ""
+"Les extensions suivantes doivent être mises à jour vers leur dernière "
+"version afin d’assurer une compatibilité maximale avec ce thème : %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:348
 #, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Une mise à jour est disponible pour: %1$s."
+msgstr[1] "Des mises à jour sont disponibles pour : %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:352
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "L’extension requise suivante est actuellement inactive : %1$s."
 msgstr[1] ""
+"Les extensions requises suivantes sont actuellement inactives : %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:356
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "L’extension recommandée suivante est actuellement inactive :%1$s."
 msgstr[1] ""
+"Les extensions recommandées suivantes sont actuellement inactives :%1$s."
 
 #: external/class-tgm-plugin-activation.php:359
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Commencer l’installation de l’extension"
+msgstr[1] "Commencer l’installation des extentions"
 
 #: external/class-tgm-plugin-activation.php:362
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Commencer la mise à jour de l’extension"
+msgstr[1] "Commencer la mise à jour des extensions"
 
 #: external/class-tgm-plugin-activation.php:365
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Commencer l’activation de l’extension"
+msgstr[1] "Commencer l’activation des extensions"
 
 #: external/class-tgm-plugin-activation.php:367
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Retourner à l'installateur de plugins requis"
 
 #: external/class-tgm-plugin-activation.php:368
 #: external/class-tgm-plugin-activation.php:794
 #: external/class-tgm-plugin-activation.php:2469
 #: external/class-tgm-plugin-activation.php:3517
 msgid "Return to the Dashboard"
-msgstr ""
+msgstr "Retour au tableau de bord"
 
 #: external/class-tgm-plugin-activation.php:369
 #: external/class-tgm-plugin-activation.php:3094
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Extension activée avec succès."
 
 #: external/class-tgm-plugin-activation.php:370
 #: external/class-tgm-plugin-activation.php:2881
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "L’extension suivante a été activée avec succès :"
+msgstr[1] "Les extensions suivantes ont été activées avec succès :"
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:372
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
-msgstr ""
+msgstr "Aucune mesure prise. L'extension %1$s était déjà active."
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:374
@@ -188,40 +194,46 @@ msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
+"Le plugin n’est pas activée. Une version plus récente de %s est nécessaire "
+"pour ce thème. Veuillez mettre à jour le plugin."
 
 #. translators: 1: dashboard link.
 #: external/class-tgm-plugin-activation.php:376
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
+msgstr "Toutes les extensions ont été installées et activées avec succès. %1$s"
 
 #: external/class-tgm-plugin-activation.php:377
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Ignorer cet avertissement"
 
 #: external/class-tgm-plugin-activation.php:378
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr ""
+"Il y a une ou plusieurs extensions requises ou recommandées à installer, "
+"mettre à jour ou activer."
 
 #: external/class-tgm-plugin-activation.php:379
 msgid "Please contact the administrator of this site for help."
-msgstr ""
+msgstr "Veuillez contacter l’administrateur du site pour obtenir de l’aide."
 
 #: external/class-tgm-plugin-activation.php:496
 msgid "This plugin needs to be updated to be compatible with your theme."
-msgstr ""
+msgstr "Ce plugin doit être mis à jour pour être compatible avec votre thème."
 
 #: external/class-tgm-plugin-activation.php:496
 msgid "Update Required"
-msgstr ""
+msgstr "Mise à jour requise"
 
 #: external/class-tgm-plugin-activation.php:901
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
 msgstr ""
+"Le package de plugin distant ne contient pas de dossier avec le slug "
+"souhaité et le renommage n'a pas fonctionné."
 
 #: external/class-tgm-plugin-activation.php:901
 #: external/class-tgm-plugin-activation.php:904
@@ -229,75 +241,79 @@ msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr ""
+"Veuillez contacter le fournisseur de l'extension et demandez-lui de "
+"conditionner son extension selon les lignes directrices de WordPress."
 
 #: external/class-tgm-plugin-activation.php:904
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
 msgstr ""
+"Le package de plugin distant se compose de plusieurs fichiers, mais les "
+"fichiers ne sont pas emballés dans un dossier."
 
 #: external/class-tgm-plugin-activation.php:1086
 #: external/class-tgm-plugin-activation.php:2878
 msgctxt "plugin A *and* plugin B"
 msgid "and"
-msgstr ""
+msgstr "et"
 
 #. translators: %s: version number
 #: external/class-tgm-plugin-activation.php:1930
 #, php-format
 msgid "TGMPA v%s"
-msgstr ""
+msgstr "TGMPA v%s"
 
 #: external/class-tgm-plugin-activation.php:2226
 msgid "Required"
-msgstr ""
+msgstr "Requis"
 
 #: external/class-tgm-plugin-activation.php:2229
 msgid "Recommended"
-msgstr ""
+msgstr "Recommandé"
 
 #: external/class-tgm-plugin-activation.php:2245
 msgid "WordPress Repository"
-msgstr ""
+msgstr "Dépôt WordPress"
 
 #: external/class-tgm-plugin-activation.php:2248
 msgid "External Source"
-msgstr ""
+msgstr "Source externe"
 
 #: external/class-tgm-plugin-activation.php:2251
 msgid "Pre-Packaged"
-msgstr ""
+msgstr "Pre-Packaged"
 
 #: external/class-tgm-plugin-activation.php:2268
 msgid "Not Installed"
-msgstr ""
+msgstr "Non installé"
 
 #: external/class-tgm-plugin-activation.php:2272
 msgid "Installed But Not Activated"
-msgstr ""
+msgstr "Installé mais non activé"
 
 #: external/class-tgm-plugin-activation.php:2274
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #: external/class-tgm-plugin-activation.php:2280
 msgid "Required Update not Available"
-msgstr ""
+msgstr "Mise à jour requise non disponible"
 
 #: external/class-tgm-plugin-activation.php:2282
 msgid "Requires Update"
-msgstr ""
+msgstr "Nécessite une mise à jour"
 
 #: external/class-tgm-plugin-activation.php:2284
 msgid "Update recommended"
-msgstr ""
+msgstr "Mise à jour recommandée"
 
 #. translators: 1: install status, 2: update status
 #: external/class-tgm-plugin-activation.php:2293
 #, php-format
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
-msgstr ""
+msgstr "%1$s, %2$s"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2337
@@ -305,295 +321,309 @@ msgstr ""
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tous <span class=\"count\">(%s)</span>"
+msgstr[1] "Tous <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2341
 #, php-format
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pour installer <span class=\"count\">(%s)</span>"
+msgstr[1] "Pour installer <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2345
 #, php-format
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mise à jour disponible <span class=\"count\">(%s)</span>"
+msgstr[1] "Mise à jour disponible <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2349
 #, php-format
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Activer <span class=\"count\">(%s)</span>"
+msgstr[1] "Activer <span class=\"count\">(%s)</span>"
 
 #: external/class-tgm-plugin-activation.php:2423
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
-msgstr ""
+msgstr "inconnu"
 
 #: external/class-tgm-plugin-activation.php:2431
 msgid "Installed version:"
-msgstr ""
+msgstr "Version installée :"
 
 #: external/class-tgm-plugin-activation.php:2437
 msgid "Minimum required version:"
-msgstr ""
+msgstr "Version minimum requise :"
 
 #: external/class-tgm-plugin-activation.php:2448
 msgid "Available version:"
-msgstr ""
+msgstr "Version disponible :"
 
 #: external/class-tgm-plugin-activation.php:2469
 msgid "No plugins to install, update or activate."
-msgstr ""
+msgstr "Pas de plugins à installer, à mettre à jour ou à activer."
 
 #: external/class-tgm-plugin-activation.php:2483
 msgid "Plugin"
-msgstr ""
+msgstr "Extension"
 
 #: external/class-tgm-plugin-activation.php:2484
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
 #: external/class-tgm-plugin-activation.php:2485
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: external/class-tgm-plugin-activation.php:2489
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: external/class-tgm-plugin-activation.php:2490
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2539
 #, php-format
 msgid "Install %2$s"
-msgstr ""
+msgstr "Installer %2$s"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2544
 #, php-format
 msgid "Update %2$s"
-msgstr ""
+msgstr "Mettre à jour %2$s"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2550
 #, php-format
 msgid "Activate %2$s"
-msgstr ""
+msgstr "Activer %2$s"
 
 #: external/class-tgm-plugin-activation.php:2616
 msgid "Upgrade message from the plugin author:"
-msgstr ""
+msgstr "Message de mise à niveau de l’auteur de l’extension :"
 
 #: external/class-tgm-plugin-activation.php:2649
 msgid "Install"
-msgstr ""
+msgstr "Installer"
 
 #: external/class-tgm-plugin-activation.php:2655
 msgid "Update"
-msgstr ""
+msgstr "Mettre à jour"
 
 #: external/class-tgm-plugin-activation.php:2658
 msgid "Activate"
-msgstr ""
+msgstr "Activer"
 
 #: external/class-tgm-plugin-activation.php:2689
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
+"Aucune extension n’a été sélectionnée pour être installée. Aucune mesure "
+"prise."
 
 #: external/class-tgm-plugin-activation.php:2691
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
+"Aucune extension n’a été sélectionnée pour être mise à jour. Aucune mesure "
+"prise."
 
 #: external/class-tgm-plugin-activation.php:2732
 msgid "No plugins are available to be installed at this time."
-msgstr ""
+msgstr "Aucune extension n’est disponible pour être installée pour le moment."
 
 #: external/class-tgm-plugin-activation.php:2734
 msgid "No plugins are available to be updated at this time."
-msgstr ""
+msgstr "Aucune extension n'est disponible pour être mise à jour en ce moment."
 
 #: external/class-tgm-plugin-activation.php:2838
 msgid "No plugins were selected to be activated. No action taken."
-msgstr ""
+msgstr "Aucun plugin n'a été sélectionné pour être activé. Pas d'action prise."
 
 #: external/class-tgm-plugin-activation.php:2864
 msgid "No plugins are available to be activated at this time."
-msgstr ""
+msgstr "Aucune extension n'est disponible pour être activée en ce moment."
 
 #: external/class-tgm-plugin-activation.php:3093
 msgid "Plugin activation failed."
-msgstr ""
+msgstr "L’activation du plugin a échoué."
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3436
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "Mise à jour de l’extension %1$s (%2$d/%3$d)"
 
 #. translators: 1: plugin name, 2: error message.
 #: external/class-tgm-plugin-activation.php:3439
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
+"Une erreur s'est produite lors de l'installation de %1$s: <strong>%2$s</"
+"strong>."
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3441
 #, php-format
 msgid "The installation of %1$s failed."
-msgstr ""
+msgstr "L'installation de %1$s a échoué."
 
 #: external/class-tgm-plugin-activation.php:3445
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
+"Le processus d’installation et d’activation commence… Ce processus peut "
+"prendre un certain temps sur certains serveurs, soyez patients."
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3447
 #, php-format
 msgid "%1$s installed and activated successfully."
-msgstr ""
+msgstr "%1$s installé et activé avec succès."
 
 #: external/class-tgm-plugin-activation.php:3447
 #: external/class-tgm-plugin-activation.php:3455
 msgid "Show Details"
-msgstr ""
+msgstr "Afficher les détails"
 
 #: external/class-tgm-plugin-activation.php:3447
 #: external/class-tgm-plugin-activation.php:3455
 msgid "Hide Details"
-msgstr ""
+msgstr "Masquer les détails"
 
 #: external/class-tgm-plugin-activation.php:3448
 msgid "All installations and activations have been completed."
-msgstr ""
+msgstr "Toutes les installations et activations ont été effectuées."
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3450
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "Installation et activation du plugin %1$s (%2$d/%3$d)"
 
 #: external/class-tgm-plugin-activation.php:3453
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
+"Le processus d'installation démarre. Ce processus peut prendre un certain "
+"temps sur certains hôtes, alors soyez patient."
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3455
 #, php-format
 msgid "%1$s installed successfully."
-msgstr ""
+msgstr "%1$s installé avec succès."
 
 #: external/class-tgm-plugin-activation.php:3456
 msgid "All installations have been completed."
-msgstr ""
+msgstr "Toutes les installations sont terminées."
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3458
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "Installation du plugin %1$s (%2$d/%3$d)"
 
 #: external/include-kirki.php:54
 msgid ""
 "A plugin is required to take advantage of this theme's features in the "
 "customizer."
 msgstr ""
+"Un plugin est nécessaire pour tirer parti des caractéristiques de ce thème "
+"dans le customizer."
 
 #: external/include-kirki.php:55
 msgid "Install Kirki Toolkit now"
-msgstr ""
+msgstr "Installer Kirki Toolkit maintenant"
 
 #: external/include-kirki.php:56
 msgid "Install Now"
-msgstr ""
+msgstr "Installer maintenant"
 
 #: external/include-kirki.php:59
 msgid ""
 "You have installed Kirki. Activate it to take advantage of this theme's "
 "features in the customizer."
 msgstr ""
+"Vous avez installé Kirki. Activez le plugin pour tirer parti des "
+"fonctionnalités de ce thème dans le personnaliseur."
 
 #: external/include-kirki.php:60
 msgid "Activate Kirki Toolkit now"
-msgstr ""
+msgstr "Activer Kirki Toolkit maintenant"
 
 #: external/include-kirki.php:61
 msgid "Activate Now"
-msgstr ""
+msgstr "Activer maintenant"
 
 #: footer.php:20
 msgid "Footer"
-msgstr ""
+msgstr "Pied de page"
 
 #: header.php:39
 msgid "Skip to content"
-msgstr ""
+msgstr "Aller au contenu"
 
 #: inc/Accessibility/Component.php:69
 msgid "Expand child menu"
-msgstr ""
+msgstr "Développer le menu enfant"
 
 #: inc/Accessibility/Component.php:70
 msgid "Collapse child menu"
-msgstr ""
+msgstr "Masquer le sous-menu"
 
 #: inc/Comments/Component.php:132
 msgid "New comment(s)"
-msgstr ""
+msgstr "Nouveau commentaire (s)"
 
 #: inc/Customizer/Component.php:79
 msgid "Theme Options"
-msgstr ""
+msgstr "Options du thème"
 
 #: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
 msgid "Primary"
-msgstr ""
+msgstr "Primaire"
 
 #: inc/Editor/Component.php:70
 msgid "Secondary"
-msgstr ""
+msgstr "Secondaire"
 
 #: inc/Editor/Component.php:75
 msgid "Red"
-msgstr ""
+msgstr "Rouge"
 
 #: inc/Editor/Component.php:80
 msgid "Green"
-msgstr ""
+msgstr "Vert"
 
 #: inc/Editor/Component.php:85
 msgid "Blue"
-msgstr ""
+msgstr "Bleu"
 
 #: inc/Editor/Component.php:90
 msgid "Yellow"
-msgstr ""
+msgstr "Jaune"
 
 #: inc/Editor/Component.php:95
 msgid "Black"
-msgstr ""
+msgstr "Noir"
 
 #: inc/Editor/Component.php:100
 msgid "Grey"
-msgstr ""
+msgstr "Gris"
 
 #: inc/Editor/Component.php:105
 msgid "White"
-msgstr ""
+msgstr "Blanc"
 
 #: inc/Editor/Component.php:110
 msgid "Dusty daylight"
@@ -605,68 +635,68 @@ msgstr ""
 
 #: inc/Editor/Component.php:132
 msgid "Small"
-msgstr ""
+msgstr "Petit"
 
 #: inc/Editor/Component.php:133
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: inc/Editor/Component.php:138
 msgid "Medium"
-msgstr ""
+msgstr "Moyen"
 
 #: inc/Editor/Component.php:139
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #: inc/Editor/Component.php:144
 msgid "Large"
-msgstr ""
+msgstr "Grand"
 
 #: inc/Editor/Component.php:145
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #: inc/Editor/Component.php:150
 msgid "Larger"
-msgstr ""
+msgstr "Largeur"
 
 #: inc/Editor/Component.php:151
 msgid "XL"
-msgstr ""
+msgstr "XL"
 
 #: inc/Kirki_Option/Component.php:63 inc/Kirki_Option/Component.php:72
 #: inc/Kirki_Option/Component.php:229
 msgid "Site Layout"
-msgstr ""
+msgstr "Mise en page du site"
 
 #: inc/Kirki_Option/Component.php:83
 msgid "Site Loader"
-msgstr ""
+msgstr "Chargeur du site"
 
 #: inc/Kirki_Option/Component.php:94
 msgid "Typography"
-msgstr ""
+msgstr "Typographie"
 
 #: inc/Kirki_Option/Component.php:103
 msgid "Site Title"
-msgstr ""
+msgstr "Titre du site"
 
 #: inc/Kirki_Option/Component.php:113
 msgid "Headings"
-msgstr ""
+msgstr "En-têtes"
 
 #: inc/Kirki_Option/Component.php:123 template-parts/header/navigation.php:54
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: inc/Kirki_Option/Component.php:133
 msgid "Body"
-msgstr ""
+msgstr "Corps"
 
 #: inc/Kirki_Option/Component.php:144
 msgid "Site Header"
-msgstr ""
+msgstr "En-tête du site"
 
 #: inc/Kirki_Option/Component.php:154
 msgid "Site Sub Header"
@@ -674,7 +704,7 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:164
 msgid "Site Skin"
-msgstr ""
+msgstr "Peau du site"
 
 #: inc/Kirki_Option/Component.php:174
 msgid "Site Blog"
@@ -686,15 +716,15 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:194
 msgid "Site Footer"
-msgstr ""
+msgstr "Pied de page"
 
 #: inc/Kirki_Option/Component.php:203
 msgid "Footer Section"
-msgstr ""
+msgstr "Section de pied de page"
 
 #: inc/Kirki_Option/Component.php:214
 msgid "Copyright Section"
-msgstr ""
+msgstr "Section Copyright"
 
 #: inc/Kirki_Option/Component.php:245
 msgid "Max Content Layout Width"
@@ -702,7 +732,7 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:246
 msgid "Select the maximum content width for your website (px)"
-msgstr ""
+msgstr "Sélectionnez la largeur de contenu maximale pour votre site Web (PX)"
 
 #: inc/Kirki_Option/Component.php:266
 msgid "Site Loader ?"
@@ -712,13 +742,13 @@ msgstr ""
 #: inc/Kirki_Option/Component.php:633 inc/Kirki_Option/Component.php:649
 #: inc/Kirki_Option/Component.php:981 inc/Kirki_Option/Component.php:996
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: inc/Kirki_Option/Component.php:271 inc/Kirki_Option/Component.php:621
 #: inc/Kirki_Option/Component.php:634 inc/Kirki_Option/Component.php:650
 #: inc/Kirki_Option/Component.php:982 inc/Kirki_Option/Component.php:997
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: inc/Kirki_Option/Component.php:278
 msgid "Site Loader Background"
@@ -730,7 +760,7 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:322
 msgid "Site Title Hover Color"
-msgstr ""
+msgstr "Couleur au survol du titre du site"
 
 #: inc/Kirki_Option/Component.php:337
 msgid "Site Tagline Settings"
@@ -738,47 +768,47 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:363
 msgid "H1 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H1"
 
 #: inc/Kirki_Option/Component.php:386
 msgid "H2 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H2"
 
 #: inc/Kirki_Option/Component.php:409
 msgid "H3 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H3"
 
 #: inc/Kirki_Option/Component.php:432
 msgid "H4 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H4"
 
 #: inc/Kirki_Option/Component.php:455
 msgid "H5 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H5"
 
 #: inc/Kirki_Option/Component.php:478
 msgid "H6 Tag Settings"
-msgstr ""
+msgstr "Paramètres de balise H6"
 
 #: inc/Kirki_Option/Component.php:504
 msgid "Menu Settings"
-msgstr ""
+msgstr "Réglages Menu"
 
 #: inc/Kirki_Option/Component.php:531
 msgid "Menu Hover Color"
-msgstr ""
+msgstr "Menu Hover couleur"
 
 #: inc/Kirki_Option/Component.php:550
 msgid "Menu Active Color"
-msgstr ""
+msgstr "Menu couleur active"
 
 #: inc/Kirki_Option/Component.php:568
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: inc/Kirki_Option/Component.php:594
 msgid "Header Background Color"
-msgstr ""
+msgstr "Couleur d'arrière-plan de l'en-tête"
 
 #: inc/Kirki_Option/Component.php:616
 msgid "Site Search ?"
@@ -790,60 +820,60 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:645 inc/Kirki_Option/Component.php:992
 msgid "Customize Background ?"
-msgstr ""
+msgstr "Personnaliser l’arrière-plan?"
 
 #: inc/Kirki_Option/Component.php:657 inc/Kirki_Option/Component.php:1004
 msgid "Background Control"
-msgstr ""
+msgstr "Contrôle d’arrière-plan"
 
 #: inc/Kirki_Option/Component.php:681
 msgid "Content Typography"
-msgstr ""
+msgstr "Typographie du contenu"
 
 #: inc/Kirki_Option/Component.php:707
 msgid "Body Background Color"
-msgstr ""
+msgstr "Couleur de l'arrière-plan principal"
 
 #: inc/Kirki_Option/Component.php:722
 msgid "Theme Color"
-msgstr ""
+msgstr "Couleur du thème"
 
 #: inc/Kirki_Option/Component.php:747 inc/Kirki_Option/Component.php:1058
 #: inc/Kirki_Option/Component.php:1145
 msgid "Link Color"
-msgstr ""
+msgstr "Couleur du lien"
 
 #: inc/Kirki_Option/Component.php:762 inc/Kirki_Option/Component.php:1073
 msgid "Link Hover"
-msgstr ""
+msgstr "Lien au survol"
 
 #: inc/Kirki_Option/Component.php:786
 msgid "Button Background Color"
-msgstr ""
+msgstr "Couleur d’arrière plan du bouton"
 
 #: inc/Kirki_Option/Component.php:804
 msgid "Button Background Hover Color"
-msgstr ""
+msgstr "Couleur d’arrière-plan du bouton au survol"
 
 #: inc/Kirki_Option/Component.php:822
 msgid "Button Text Color"
-msgstr ""
+msgstr "Couleur du texte du bouton"
 
 #: inc/Kirki_Option/Component.php:839
 msgid "Button Text Hover Color"
-msgstr ""
+msgstr "Couleur du texte d’en-tête"
 
 #: inc/Kirki_Option/Component.php:856
 msgid "Button Border Color"
-msgstr ""
+msgstr "Couleur de bordure"
 
 #: inc/Kirki_Option/Component.php:873
 msgid "Button Border Hover Color"
-msgstr ""
+msgstr "Couleur de bordure au survol du bouton"
 
 #: inc/Kirki_Option/Component.php:893
 msgid "Blog Layout"
-msgstr ""
+msgstr "Mise en page du blog"
 
 #: inc/Kirki_Option/Component.php:907
 msgid "Post Per Row"
@@ -851,23 +881,23 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:912
 msgid "Column 1"
-msgstr ""
+msgstr "Colonne 1"
 
 #: inc/Kirki_Option/Component.php:913
 msgid "Column 2"
-msgstr ""
+msgstr "Colonne 2"
 
 #: inc/Kirki_Option/Component.php:914
 msgid "Column 3"
-msgstr ""
+msgstr "Colonne 3"
 
 #: inc/Kirki_Option/Component.php:915
 msgid "Column 4"
-msgstr ""
+msgstr "Colonne 4"
 
 #: inc/Kirki_Option/Component.php:928
 msgid "Sidebar Layout"
-msgstr ""
+msgstr "Mise en page de la barre latérale"
 
 #: inc/Kirki_Option/Component.php:944
 msgid "BuddyPress Sidebar Layout"
@@ -879,31 +909,31 @@ msgstr ""
 
 #: inc/Kirki_Option/Component.php:977
 msgid "Sticky Sidebar ?"
-msgstr ""
+msgstr "Barre latérale collante ?"
 
 #: inc/Kirki_Option/Component.php:1028
 msgid "Title Color"
-msgstr ""
+msgstr "Couleur du titre"
 
 #: inc/Kirki_Option/Component.php:1043 inc/Kirki_Option/Component.php:1130
 msgid "Content Color"
-msgstr ""
+msgstr "Couleur du contenu"
 
 #: inc/Kirki_Option/Component.php:1091
 msgid "Add Content"
-msgstr ""
+msgstr "Ajouter du contenu"
 
 #: inc/Kirki_Option/Component.php:1100
 msgid "Background Color"
-msgstr ""
+msgstr "Couleur d’arrière-plan"
 
 #: inc/Kirki_Option/Component.php:1115
 msgid "Border Color"
-msgstr ""
+msgstr "Couleur de la bordure"
 
 #: inc/Kirki_Option/Component.php:1160
 msgid "Link Hover Color"
-msgstr ""
+msgstr "Couleur des liens au survol de la souris"
 
 #: inc/Lazyload/Component.php:89
 msgid "Lazy-load on"
@@ -915,7 +945,7 @@ msgstr ""
 
 #: inc/Lazyload/Component.php:111
 msgid "Lazy-load images"
-msgstr ""
+msgstr "Différer le chargement des images"
 
 #: inc/Lazyload/Component.php:114
 msgid ""
@@ -923,14 +953,17 @@ msgid ""
 "Improves performance, but can result in content jumping around on slower "
 "connections."
 msgstr ""
+"Les images de chargement différé signifient que les images sont chargées "
+"uniquement lorsqu'elles sont en vue. Améliore les performances, mais peut "
+"entraîner un saut de contenu autour de connexions plus lentes."
 
 #: inc/Nav_Menus/Component.php:74
 msgid "BuddyPress"
-msgstr ""
+msgstr "BuddyPress"
 
 #: inc/Sidebars/Component.php:86
 msgid "Left Sidebar"
-msgstr ""
+msgstr "Barre latérale gauche"
 
 #: inc/Sidebars/Component.php:88 inc/Sidebars/Component.php:100
 #: inc/Sidebars/Component.php:113 inc/Sidebars/Component.php:125
@@ -938,11 +971,11 @@ msgstr ""
 #: inc/Sidebars/Component.php:164 inc/Sidebars/Component.php:176
 #: inc/Sidebars/Component.php:188 inc/Sidebars/Component.php:200
 msgid "Add widgets here."
-msgstr ""
+msgstr "Ajouter des widgets ici."
 
 #: inc/Sidebars/Component.php:98
 msgid "Right Sidebar"
-msgstr ""
+msgstr "Barre latérale droite"
 
 #: inc/Sidebars/Component.php:111
 msgid "BuddyPress Left Sidebar"
@@ -950,31 +983,31 @@ msgstr ""
 
 #: inc/Sidebars/Component.php:123
 msgid "BuddyPress Right Sidebar"
-msgstr ""
+msgstr "BuddyPress droite Sidebar"
 
 #: inc/Sidebars/Component.php:137
 msgid "WooCommerce Left Sidebar"
-msgstr ""
+msgstr "WooCommerce gauche Sidebar"
 
 #: inc/Sidebars/Component.php:149
 msgid "WooCommerce Right Sidebar"
-msgstr ""
+msgstr "WooCommerce droite Sidebar"
 
 #: inc/Sidebars/Component.php:162
 msgid "Footer 1"
-msgstr ""
+msgstr "Pied de page 1"
 
 #: inc/Sidebars/Component.php:174
 msgid "Footer 2"
-msgstr ""
+msgstr "Pied de page 2"
 
 #: inc/Sidebars/Component.php:186
 msgid "Footer 3"
-msgstr ""
+msgstr "Pied de page 3"
 
 #: inc/Sidebars/Component.php:198
 msgid "Footer 4"
-msgstr ""
+msgstr "Pied de page 4"
 
 #. translators: %s: stylesheet handle
 #: inc/Styles/Component.php:235
@@ -1049,19 +1082,19 @@ msgstr ""
 
 #: inc/extra.php:89
 msgid "View Shopping Cart"
-msgstr ""
+msgstr "Voir mon Panier"
 
 #: inc/extra.php:180
 msgid "View your shopping cart"
-msgstr ""
+msgstr "Voir votre panier"
 
 #: searchform.php:2
 msgid "Enter Keyword"
-msgstr ""
+msgstr "Entrez un mot-clé"
 
 #: searchform.php:9
 msgid "Go"
-msgstr ""
+msgstr "Aller"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content-buddypress.php:18
@@ -1070,120 +1103,124 @@ msgstr ""
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
+"Poursuivre la lecture <span class=\"screen-reader-text”> \"%s\" </span>"
 
 #: template-parts/content-buddypress.php:31
 #: template-parts/content/entry-full-width.php:31
 #: template-parts/content/entry_content.php:36
 msgid "Pages:"
-msgstr ""
+msgstr "Pages :"
 
 #: template-parts/content/entry-attachment.php:33
 #: template-parts/content/entry.php:32
 msgid "Previous:"
-msgstr ""
+msgstr "Précédent:"
 
 #: template-parts/content/entry-attachment.php:43
 #: template-parts/content/entry.php:33
 msgid "Next:"
-msgstr ""
+msgstr "Suivant :"
 
 #: template-parts/content/entry-attachment.php:49
 msgid "Post navigation"
-msgstr ""
+msgstr "Navigation des articles"
 
 #. translators: %s: post title
 #: template-parts/content/entry_actions.php:21
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
+"Laisser un commentaire <span class=\"screen-reader-text\">sur %s</span>"
 
 #. translators: %s: post title
 #: template-parts/content/entry_actions.php:40
 #, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
+msgstr "Modifier <span class=\"screen-reader-text\">%s</span>"
 
 #: template-parts/content/entry_meta.php:64
 #, php-format
 msgctxt "post author"
 msgid "By %s"
-msgstr ""
+msgstr "Par %s"
 
 #. translators: %s: post author
 #: template-parts/content/entry_meta.php:67
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "par %s"
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:83
 #, php-format
 msgctxt "post parent"
 msgid "In %s"
-msgstr ""
+msgstr "Dans %s"
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:86
 #, php-format
 msgctxt "post parent"
 msgid "in %s"
-msgstr ""
+msgstr "dans %s"
 
 #. translators: %s: post date
 #: template-parts/content/entry_meta.php:103
 #, php-format
 msgctxt "post date"
 msgid ": %s"
-msgstr ""
+msgstr ": %s"
 
 #. translators: separator between taxonomy terms
 #: template-parts/content/entry_taxonomies.php:24
 msgctxt "list item separator"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. translators: %s: list of taxonomy terms
 #: template-parts/content/entry_taxonomies.php:31
 #, php-format
 msgid "Posted in %s"
-msgstr ""
+msgstr "Publié dans %s"
 
 #. translators: %s: list of taxonomy terms
 #: template-parts/content/entry_taxonomies.php:37
 #, php-format
 msgid "Tagged %s"
-msgstr ""
+msgstr "Etiqueté %s"
 
 #. translators: %s: taxonomy name
 #: template-parts/content/entry_taxonomies.php:44
 #, php-format
 msgid "%s:"
-msgstr ""
+msgstr "%s :"
 
 #: template-parts/content/error-404.php:16
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
+"Il semble qu'il n'y ait rien par ici, essayez peut-être un des liens ci-"
+"dessous ou une recherche ?"
 
 #: template-parts/content/error-404.php:27
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Catégories les plus utilisées"
 
 #. translators: %1$s: smiley
 #: template-parts/content/error-404.php:45
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "Tentez de regarder dans les archives mensuelles. %1$s"
 
 #: template-parts/content/error-500.php:14
 msgid "Oops! Something went wrong."
-msgstr ""
+msgstr "Oops! Un problème s'est produit."
 
 #: template-parts/content/error-offline.php:14
 msgid "Oops! It looks like you&#8217;re offline."
-msgstr ""
+msgstr "Oups! On dirait que vous êtes déconnecté."
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content/error.php:23
@@ -1191,178 +1228,185 @@ msgstr ""
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Prêt à publier votre premier article ? <a href=\"%1$s\">Commencez ici</a>."
 
 #: template-parts/content/error.php:38
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Désolé, mais rien ne correspond à vos termes de recherche. Veuillez "
+"réessayer avec d'autres mots-clés."
 
 #: template-parts/content/error.php:44
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Il semble que ce que vous cherchez est introuvable. Essayez une autre "
+"recherche."
 
 #: template-parts/content/page_header.php:14
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Oups ! Cette page est introuvable."
 
 #: template-parts/content/page_header.php:22
 msgid "Nothing Found"
-msgstr ""
+msgstr "Aucun résultat"
 
 #. translators: %s: search query
 #: template-parts/content/page_header.php:41
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Résultats de recherche pour : %s"
 
 #: template-parts/content/pagination.php:13
 msgctxt "previous set of search results"
 msgid "Previous"
-msgstr ""
+msgstr "Précédent"
 
 #: template-parts/content/pagination.php:14
 msgctxt "next set of search results"
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: template-parts/content/pagination.php:15
 msgid "Page navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: template-parts/header/buddypress-profile.php:45
 msgid "View all notifications"
-msgstr ""
+msgstr "Voir toutes les notifications"
 
 #: template-parts/header/buddypress-profile.php:50
 msgid "No new notifications"
-msgstr ""
+msgstr "Pas de nouvelle notifications"
 
 #: template-parts/header/navigation.php:16
 msgid "Main menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: template-parts/header/navigation.php:39
 msgid "Open menu"
-msgstr ""
+msgstr "Ouvrir le menu"
 
 #: updater/theme-updater-admin.php:276 updater/theme-updater-admin.php:330
 #: updater/theme-updater-admin.php:383
 msgid "An error occurred, please try again."
-msgstr ""
+msgstr "Une erreur est survenue, veuillez réessayer."
 
 #: updater/theme-updater-admin.php:296
 #, php-format
 msgid "Your license key expired on %s."
-msgstr ""
+msgstr "Votre clé de licence a expiré le %s."
 
 #: updater/theme-updater-admin.php:304
 msgid "Your license key has been disabled."
-msgstr ""
+msgstr "Votre clé de licence a été désactivée."
 
 #: updater/theme-updater-admin.php:309
 msgid "Invalid license."
-msgstr ""
+msgstr "Licence invalide."
 
 #: updater/theme-updater-admin.php:315
 msgid "Your license is not active for this URL."
-msgstr ""
+msgstr "Votre licence n'est pas active pour cette URL."
 
 #: updater/theme-updater-admin.php:320
 #, php-format
 msgid "This appears to be an invalid license key for %s."
-msgstr ""
+msgstr "Cette clé de licence semble être invalide pour %s."
 
 #: updater/theme-updater-admin.php:325
 msgid "Your license key has reached its activation limit."
-msgstr ""
+msgstr "Votre clé de licence a atteint sa limite d'activation."
 
 #: updater/theme-updater.php:31
 msgid "Theme License"
-msgstr ""
+msgstr "Licence du thème"
 
 #: updater/theme-updater.php:32
 msgid "Enter your theme license key."
-msgstr ""
+msgstr "Entrer la clé de licence de votre thème."
 
 #: updater/theme-updater.php:33
 msgid "License Key"
-msgstr ""
+msgstr "Clé de licence"
 
 #: updater/theme-updater.php:34
 msgid "License Action"
-msgstr ""
+msgstr "Action sur la licence"
 
 #: updater/theme-updater.php:35
 msgid "Deactivate License"
-msgstr ""
+msgstr "Désactiver la licence"
 
 #: updater/theme-updater.php:36
 msgid "Activate License"
-msgstr ""
+msgstr "Activer la licence"
 
 #: updater/theme-updater.php:37 updater/theme-updater.php:50
 msgid "License status is unknown."
-msgstr ""
+msgstr "Le status de la licence est inconnu."
 
 #: updater/theme-updater.php:38
 msgid "Renew?"
-msgstr ""
+msgstr "Renouveler?"
 
 #: updater/theme-updater.php:39
 msgid "unlimited"
-msgstr ""
+msgstr "illimité"
 
 #: updater/theme-updater.php:40
 msgid "License key is active."
-msgstr ""
+msgstr "La clé de licence est active."
 
 #: updater/theme-updater.php:41
 #, php-format
 msgid "Expires %s."
-msgstr ""
+msgstr "Expire %s."
 
 #: updater/theme-updater.php:42
 msgid "Lifetime License."
-msgstr ""
+msgstr "Licence à vie."
 
 #: updater/theme-updater.php:43
 #, php-format
 msgid "You have %1$s / %2$s sites activated."
-msgstr ""
+msgstr "Vous avez %1$s / %2$s sites activé(s)."
 
 #: updater/theme-updater.php:44
 #, php-format
 msgid "License key expired %s."
-msgstr ""
+msgstr "La clé de licence a expiré %s."
 
 #: updater/theme-updater.php:45
 msgid "License key has expired."
-msgstr ""
+msgstr "La clé de licence a expiré."
 
 #: updater/theme-updater.php:46
 msgid "License keys do not match."
-msgstr ""
+msgstr "Les clés de licence ne correspondent pas."
 
 #: updater/theme-updater.php:47
 msgid "License is inactive."
-msgstr ""
+msgstr "La licence est inactive."
 
 #: updater/theme-updater.php:48
 msgid "License key is disabled."
-msgstr ""
+msgstr "La clé de licence est désactivée."
 
 #: updater/theme-updater.php:49
 msgid "Site is inactive."
-msgstr ""
+msgstr "Le site est inactif."
 
 #: updater/theme-updater.php:51
 msgid ""
 "Updating this theme will lose any customizations you have made. 'Cancel' to "
 "stop, 'OK' to update."
 msgstr ""
+"Mettre à jour ce thème vous fera perdre toutes les modifications que vous y "
+"avez apportées. ‘Annuler’ pour arrêter, ‘OKAY’ pour mettre à jour."
 
 #: updater/theme-updater.php:52
 #, php-format
@@ -1371,46 +1415,49 @@ msgid ""
 "title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</"
 "a>."
 msgstr ""
+"<strong>%1$s %2$s</strong> est disponible. <a href=\"%3$s\" class=\"thickbox"
+"\" title=\"%4s\">Découvrez les nouveautés</a> ou <a href=\"%5$s\"%6$s>mettre "
+"à jour maintenant</a>."
 
 #: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:79
 msgid "Product"
-msgstr ""
+msgstr "Produit"
 
 #: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:99
 msgid "Price"
-msgstr ""
+msgstr "Prix"
 
 #: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:105
 msgid "Quantity"
-msgstr ""
+msgstr "Quantité"
 
 #: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:127
 msgid "Subtotal"
-msgstr ""
+msgstr "Sous-total"
 
 #: woocommerce/cart/cart.php:58
 msgid "Remove this item"
-msgstr ""
+msgstr "Enlever cet article"
 
 #: woocommerce/cart/cart.php:94
 msgid "Available on backorder"
-msgstr ""
+msgstr "Disponible sur commande"
 
 #: woocommerce/cart/cart.php:145
 msgid "Coupon:"
-msgstr ""
+msgstr "Code promo:"
 
 #: woocommerce/cart/cart.php:145
 msgid "Coupon code"
-msgstr ""
+msgstr "Code promo"
 
 #: woocommerce/cart/cart.php:145
 msgid "Apply coupon"
-msgstr ""
+msgstr "Appliquer le code promo"
 
 #: woocommerce/cart/cart.php:150
 msgid "Update cart"
-msgstr ""
+msgstr "Mettre à jour le panier"
 
 #. Theme Name of the plugin/theme
 msgid "Buddyx"
