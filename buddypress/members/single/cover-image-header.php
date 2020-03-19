@@ -25,7 +25,7 @@
             <div id="item-header-content">
 
                 <?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
-                <h2 class="user-nicename"><?php echo bp_core_get_user_displayname( bp_displayed_user_id() ); ?></h2>
+                    <h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
                 <?php endif; ?>
 
                 <?php bp_nouveau_member_hook( 'before', 'header_meta' ); ?>

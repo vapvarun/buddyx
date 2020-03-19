@@ -24,6 +24,7 @@ require get_template_directory() . '/inc/wordpress-shims.php';
 //Include Kirki
 require get_template_directory() . '/external/require_plugins.php';
 require_once get_template_directory() . '/external/include-kirki.php';
+require_once get_template_directory() . '/external/kirki-utils.php';
 
 // Setup autoloader (via Composer or custom).
 if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
@@ -114,6 +115,20 @@ function woo_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
+/**
+ * Remove WooCommerce CSS if WooCommerce not activated
+ */
+function woo_dequeue_styles() {
+    wp_dequeue_style( 'buddyx-woocommerce' );
+        wp_deregister_style( 'buddyx-woocommerce' );
+}
+if ( !class_exists( 'WooCommerce' ) ) {
+add_action( 'wp_print_styles', 'woo_dequeue_styles' );
+}
+
+/**
+ * Added function for theme updater
+ */
 function buddyx_theme_updater() {
 	require( get_template_directory() . '/updater/theme-updater.php' );
 }
