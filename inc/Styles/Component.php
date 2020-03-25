@@ -127,6 +127,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 			wp_style_add_data( $handle, 'precache', true );
 		}
+
+		// Enqueue RTL CSS
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'buddyx-rtl', $css_uri . '/rtl.min.css');
+		}
 	}
 
 	/**
