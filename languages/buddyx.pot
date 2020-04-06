@@ -960,6 +960,18 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:20
+msgid "Show Logged in user Profile Completion Progress."
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:25
+msgid "(BuddyPress) Profile Completion"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:64
+msgid "%s Complete"
+msgstr ""
+
 #: ../buddyx/template-parts/content/entry-attachment.php:33, ../buddyx/template-parts/content/entry.php:32
 msgid "Previous:"
 msgstr ""
