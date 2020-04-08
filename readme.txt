@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.3.2
+Tested up to: 5.4.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -21,9 +21,15 @@ An answer to that question.
 
 == Changelog ==
 
+= 2.4.0 =
+* Improvement: (#35) Added buddypress profile completion widget
+* Fix: (#34) Theme RTL fixes
+* Fix: (#33) Update main navigation sub menu UI
+
+
 = 2.3.1=
 * Improvement: Dropdown menu with display name for users profile.
-* Improvement: Widget Title font 
+* Improvement: Widget Title font
 * Improvement: De and Fr Language files
 
 = 2.3.0=
@@ -42,9 +48,9 @@ An answer to that question.
 = 2.1.0=
 * Fix:(#23) Update entry-full-width.php file code
 * Fix: Added freemius
-* Fix: Managed string repetition and Fixed undefined variable warning 
+* Fix: Managed string repetition and Fixed undefined variable warning
 
-= 2.0.0= 
+= 2.0.0=
 * Fix: Updated namespace
 * Fix: Managed single group sidebar option
 * Fix: Update buddypress-profile.php file
