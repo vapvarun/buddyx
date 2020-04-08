@@ -115,6 +115,9 @@ function woo_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
+// Load BuddyPress PRofile Completion widget.
+require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
+
 /**
  * Remove WooCommerce CSS if WooCommerce not activated
  */
