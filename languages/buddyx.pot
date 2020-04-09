@@ -480,11 +480,11 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:89
+#: ../buddyx/inc/extra.php:92
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:180
+#: ../buddyx/inc/extra.php:187
 msgid "View your shopping cart"
 msgstr ""
 

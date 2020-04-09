@@ -71,7 +71,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			if ( ! empty( $time_string ) ) {
 				/* translators: %s: post author */
 				if ( !class_exists( 'BuddyPress' ) ) {
-				$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+					$author_byline = _x( 'by %s', 'post author', 'buddyx' );
 				}
 			}
 			printf(
