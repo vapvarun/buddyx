@@ -23,6 +23,7 @@ An answer to that question.
 
 = 2.4.0 =
 * Improvement: (#35) Added buddypress profile completion widget
+* Improvement: (#36) BuddyPress profile links for author profile.
 * Fix: (#34) Theme RTL fixes
 * Fix: (#33) Update main navigation sub menu UI
 
