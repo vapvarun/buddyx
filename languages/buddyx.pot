@@ -972,6 +972,46 @@ msgstr ""
 msgid "%s Complete"
 msgstr ""
 
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:86
+msgid "Complete"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:185, ../buddyx/inc/widgets/bp-profile-completion-widget.php:415
+msgid "Profile Photo"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:206, ../buddyx/inc/widgets/bp-profile-completion-widget.php:418
+msgid "Cover Photo"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:286
+msgid "Profile Fields"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:399
+msgid "Complete Your Profile"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:424
+msgid "Title:"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:427
+msgid "Profile field sets:"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:449
+msgid "Profile photos:"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:469
+msgid "Hide widget once progress hits 100%"
+msgstr ""
+
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:475
+msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+
 #: ../buddyx/template-parts/content/entry-attachment.php:33, ../buddyx/template-parts/content/entry.php:32
 msgid "Previous:"
 msgstr ""
