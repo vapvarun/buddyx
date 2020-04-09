@@ -60,11 +60,19 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<span class="posted-by">
 			<?php
 			/* translators: %s: post author */
-			echo get_avatar( get_the_author_meta('user_email'), $size = '26');
-			$author_byline = _x( 'By %s', 'post author', 'buddyx' );
+			if ( class_exists( 'BuddyPress' ) ) {
+				echo get_avatar( get_the_author_meta( 'user_email' ), '26' );
+				printf( _x( 'by %s', 'post author', 'buddyx' ), bp_core_get_userlink( $post->post_author ) );
+			}else {
+				echo get_avatar( get_the_author_meta('user_email'), $size = '26');
+				$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+			}
+			
 			if ( ! empty( $time_string ) ) {
 				/* translators: %s: post author */
-				$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+				if ( !class_exists( 'BuddyPress' ) ) {
+					$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+				}
 			}
 			printf(
 				esc_html( $author_byline ),

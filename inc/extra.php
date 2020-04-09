@@ -62,62 +62,68 @@ add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 
 
 // Site Loader 
-function site_loader() {
-	$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-	if ( !empty( $loader ) )
-		echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+if ( !function_exists( 'site_loader' ) ) {
+	function site_loader() {
+		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
+		if ( !empty( $loader ) )
+			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+	}
 }
 
 // Site Search and Woo icon
-function site_menu_icon () {
-	// menu icons
-	$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
-	$carticon = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
-	if( !empty($searchicon) || !empty($carticon) ) : ?>
-		<div class="menu-icons-wrapper"><?php
-			if( !empty($searchicon) ): ?>
-				<div class="search">
-					<a href="javascript:void(0)" id="overlay-search" class="search-icon"> <span class="fa fa-search"> </span> </a>
-					<div class="top-menu-search-container">
-						<?php get_search_form(); ?>
+if ( !function_exists( 'site_menu_icon' ) ) {
+	function site_menu_icon () {
+		// menu icons
+		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
+		$carticon = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+		if( !empty($searchicon) || !empty($carticon) ) : ?>
+			<div class="menu-icons-wrapper"><?php
+				if( !empty($searchicon) ): ?>
+					<div class="search">
+						<a href="javascript:void(0)" id="overlay-search" class="search-icon"> <span class="fa fa-search"> </span> </a>
+						<div class="top-menu-search-container">
+							<?php get_search_form(); ?>
+						</div>
 					</div>
-				</div>
-				<?php
-			endif;
-			if( !empty($carticon) && function_exists("is_woocommerce")) : ?>
-				<div class="cart">
-					<a href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e( 'View Shopping Cart', 'buddyx' ); ?>">
-						<span class="fa fa-shopping-cart"> </span><?php
-						$count = WC()->cart->cart_contents_count;
-						if( $count > 0 ) : ?>
-							<sup><?php echo "{$count}";?></sup><?php
-						endif;?>
-					</a>
-				</div><?php
-			endif; ?>
-		</div><?php
-	endif;
+					<?php
+				endif;
+				if( !empty($carticon) && function_exists("is_woocommerce")) : ?>
+					<div class="cart">
+						<a href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e( 'View Shopping Cart', 'buddyx' ); ?>">
+							<span class="fa fa-shopping-cart"> </span><?php
+							$count = WC()->cart->cart_contents_count;
+							if( $count > 0 ) : ?>
+								<sup><?php echo "{$count}";?></sup><?php
+							endif;?>
+						</a>
+					</div><?php
+				endif; ?>
+			</div><?php
+		endif;
+	}
 }
 
 // bp_get_activity_css_first_class
-function bp_get_activity_css_first_class() {
-	global $activities_template;
-	/**
-	 * Filters the available mini activity actions available as CSS classes.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @param array $value Array of classes used to determine classes applied to HTML element.
-	 */
-	$mini_activity_actions = apply_filters( 'bp_activity_mini_activity_types', array(
-		'friendship_accepted',
-		'friendship_created',
-		'new_blog',
-		'joined_group',
-		'created_group',
-		'new_member'
-	) );
-	return apply_filters( 'bp_get_activity_css_first_class', $activities_template->activity->component );
+if ( !function_exists( 'bp_get_activity_css_first_class' ) ) {
+	function bp_get_activity_css_first_class() {
+		global $activities_template;
+		/**
+		 * Filters the available mini activity actions available as CSS classes.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param array $value Array of classes used to determine classes applied to HTML element.
+		 */
+		$mini_activity_actions = apply_filters( 'bp_activity_mini_activity_types', array(
+			'friendship_accepted',
+			'friendship_created',
+			'new_blog',
+			'joined_group',
+			'created_group',
+			'new_member'
+		) );
+		return apply_filters( 'bp_get_activity_css_first_class', $activities_template->activity->component );
+	}
 }
 
 /**
@@ -171,25 +177,29 @@ add_action( 'woocommerce_after_cart_form', 'woocommerce_cross_sell_display', 10 
 
 
 /* Ensure cart contents update when products are added to the cart via AJAX */
-add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
+add_filter( 'woocommerce_add_to_cart_fragments', 'buddyx_header_add_to_cart_fragment' );
 
-function my_header_add_to_cart_fragment( $fragments ) {
-	$count = WC()->cart->get_cart_contents_count();
-	ob_start();
-	?>
-	<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
-		<span class="fa fa-shopping-cart"></span>
-		<sup><?php echo esc_html( $count ); ?></sup>
-	</a>
-	<?php
-	$fragments[ '.menu-icons-wrapper .cart a' ] = ob_get_clean();
-	return $fragments;
+if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
+	function buddyx_header_add_to_cart_fragment( $fragments ) {
+		$count = WC()->cart->get_cart_contents_count();
+		ob_start();
+		?>
+		<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
+			<span class="fa fa-shopping-cart"></span>
+			<sup><?php echo esc_html( $count ); ?></sup>
+		</a>
+		<?php
+		$fragments[ '.menu-icons-wrapper .cart a' ] = ob_get_clean();
+		return $fragments;
+	}
 }
 
 /**
  * disable_woo_commerce_sidebar
  */
-function disable_woo_commerce_sidebar() {
-	remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+if ( !function_exists( 'disable_woo_commerce_sidebar' ) ) {
+	function disable_woo_commerce_sidebar() {
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+	}
 }
 add_action('init', 'disable_woo_commerce_sidebar');

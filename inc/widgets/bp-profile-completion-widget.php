@@ -67,7 +67,25 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 			<div class="wb-bp-progress-wrap">
 				<div class="wb-bp-progress-text">
-					<span class="wb-bp-progress-label"><?php echo esc_html( $progress_label ); ?></span>
+					<div class="wb-bp-user-avatar-wrap">
+						<div class="wb-bp-user-avatar">
+							<?php
+							$current_user	 = wp_get_current_user();
+							if ( ($current_user instanceof WP_User ) ) {
+								$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
+								echo '<a class="wb-bp-user-link" href="' . $user_link . '">';
+								?>
+								<?php
+								echo get_avatar( $current_user->user_email, 200 );
+								echo '</a>';
+							}
+							?>
+						</div>
+						<div class="wb-bp-progress-label">
+							<span class="wb-bp-completion"><?php echo $user_progress[ 'completion_percentage' ] . '%'; ?></span>
+							<span><?php echo esc_html__( 'Complete', 'buddyx' ); ?></span>
+						</div>
+					</div>
 				</div>
 				<div class="wb-bp-progress-container">
 					<div class="wb-bp-progress" style="width: <?php echo esc_attr( $user_progress[ 'completion_percentage' ] ); ?>%;"></div>
@@ -76,7 +94,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 			<div class="wb-bp-detailed-progress-container">
 
-				<ul class="wb-bp-detailed-progress">
+		<ul class="wb-bp-detailed-progress">
 
 		<?php
 		foreach ( $user_progress[ 'groups' ] as $single_section_details ) :
@@ -84,28 +102,28 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			$user_progress_status = ( 0 === $single_section_details[ 'completed' ] && $single_section_details[ 'total' ] > 0 ) ? 'progress_not_started' : '';
 			?>
 
-						<li class="wb-bp-single-section-wrap
-						<?php
-						echo ( $single_section_details[ 'is_group_completed' ] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
-						echo esc_attr( $user_progress_status );
-						?>
-							">
-							<span class="wb-bp-section-number">
-						<?php echo esc_html( $single_section_details[ 'number' ] ); ?>
-							</span>
-							<span class="wb-bp-section-name">
-								<a href="<?php echo esc_url( $single_section_details[ 'link' ] ); ?>" class="group-link"><?php echo esc_html( $single_section_details[ 'label' ] ); ?></a>
-							</span>
-							<span class="wb-bp-progress">
-								<span class="wb-bp-completed-staus">
-									<span class="wb-bp-completed-steps"><?php echo absint( $single_section_details[ 'completed' ] ); ?></span>/<span class="wb-bp-total-steps"><?php echo absint( $single_section_details[ 'total' ] ); ?></span>
-								</span>
-							</span>
-						</li>
+				<li class="wb-bp-single-section-wrap
+				<?php
+				echo ( $single_section_details[ 'is_group_completed' ] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
+				echo esc_attr( $user_progress_status );
+				?>
+					">
+					<span class="wb-bp-section-number">
+				<?php echo esc_html( $single_section_details[ 'number' ] ); ?>
+					</span>
+					<span class="wb-bp-section-name">
+						<a href="<?php echo esc_url( $single_section_details[ 'link' ] ); ?>" class="group-link"><?php echo esc_html( $single_section_details[ 'label' ] ); ?></a>
+					</span>
+					<span class="wb-bp-progress">
+						<span class="wb-bp-completed-staus">
+							<span class="wb-bp-completed-steps"><?php echo absint( $single_section_details[ 'completed' ] ); ?></span>/<span class="wb-bp-total-steps"><?php echo absint( $single_section_details[ 'total' ] ); ?></span>
+						</span>
+					</span>
+				</li>
 			<?php
 		endforeach;
 		?>
-				</ul>
+		</ul>
 			</div>
 
 		</div>
@@ -164,7 +182,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 			$progress_details[ 'photo_type' ][ 'profile_photo' ] = array(
 				'is_uploaded'	 => $is_profile_photo_uploaded,
-				'name'			 => __( 'Profile Photo', 'reign-theme' ),
+				'name'			 => __( 'Profile Photo', 'buddyx' ),
 			);
 		}
 
@@ -185,7 +203,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 			$progress_details[ 'photo_type' ][ 'cover_photo' ] = array(
 				'is_uploaded'	 => $is_cover_photo_uploaded,
-				'name'			 => __( 'Cover Photo', 'reign-theme' ),
+				'name'			 => __( 'Cover Photo', 'buddyx' ),
 			);
 		}
 
@@ -265,7 +283,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			
 		}
 		
-		$progress_details[ 'groups' ][] = array( 'group_name'=> __('Profile Fields', 'reign-theme' ),
+		$progress_details[ 'groups' ][] = array( 'group_name'=> __('Profile Fields', 'buddyx' ),
 												'group_total_fields' 	=> $total_fields,
 												'group_completed_fields'=> $completed_fields
 										);
@@ -277,7 +295,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		$progress_details[ 'completed_fields' ]	 = $grand_completed_fields;
 
 
-		return apply_filters( 'BP_reign_user_progress', $progress_details );
+		return apply_filters( 'BP_buddyx_user_progress', $progress_details );
 	}
 
 	/**
@@ -363,7 +381,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		/**
 		 * Filter returns User Progress array in the template friendly format.
 		 */
-		return apply_filters( 'BP_reign_user_progress_formatted', $user_prgress_formatted );
+		return apply_filters( 'BP_buddyx_user_progress_formatted', $user_prgress_formatted );
 	}
 
 	/**
@@ -378,7 +396,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 	 */
 	function form( $instance ) {
 
-		$instance = wp_parse_args( (array) $instance, array( 'title' => __( 'Complete Your Profile', 'reign-theme' ), ) );
+		$instance = wp_parse_args( (array) $instance, array( 'title' => __( 'Complete Your Profile', 'buddyx' ), ) );
 
 		/*
 		 * Profile Groups and Profile Cover Photo.
@@ -394,19 +412,19 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		 */
 
 		if ( !$is_profile_photo_disabled ) {
-			$photos_enabled_arr[ 'profile_photo' ] = __( 'Profile Photo', 'reign-theme' );
+			$photos_enabled_arr[ 'profile_photo' ] = __( 'Profile Photo', 'buddyx' );
 		}
 		if ( !$is_cover_photo_disabled ) {
-			$photos_enabled_arr[ 'cover_photo' ] = __( 'Cover Photo', 'reign-theme' );
+			$photos_enabled_arr[ 'cover_photo' ] = __( 'Cover Photo', 'buddyx' );
 		}
 
 		/* Widget Form HTML */
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reign-theme' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'buddyx' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance[ 'title' ] ); ?>"/>
 		</p>        <p>
-			<label><?php esc_html_e( 'Profile field sets:', 'reign-theme' ); ?></label>
+			<label><?php esc_html_e( 'Profile field sets:', 'buddyx' ); ?></label>
 
 		<ul>
 		<?php
@@ -428,7 +446,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 						   <?php if ( !empty( $photos_enabled_arr ) ) : ?>
 			<p>
-				<label><?php esc_html_e( 'Profile photos:', 'reign-theme' ); ?></label>
+				<label><?php esc_html_e( 'Profile photos:', 'buddyx' ); ?></label>
 
 			<ul>
 			<?php foreach ( $photos_enabled_arr as $photos_value => $photos_label ) : ?>
@@ -448,13 +466,13 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		<p>
 			<label>
 				<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_hide_widget' ) ); ?>" value="hide_widget" <?php checked( (!empty( $instance[ 'profile_hide_widget' ] ) && 'hide_widget' == $instance[ 'profile_hide_widget' ] ) ); ?>/>
-			<?php echo __( 'Hide widget once progress hits 100%', 'reign-theme' ); ?>
+			<?php echo __( 'Hide widget once progress hits 100%', 'buddyx' ); ?>
 			</label>
 
 		</p>
 		<p>
 			<small>
-		<?php esc_html_e( 'Note: This widget is only displayed if a member is logged in.', 'reign-theme' ); ?>
+		<?php esc_html_e( 'Note: This widget is only displayed if a member is logged in.', 'buddyx' ); ?>
 			</small>
 		</p>
 
