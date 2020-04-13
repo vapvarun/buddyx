@@ -65,8 +65,9 @@ add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 if ( !function_exists( 'site_loader' ) ) {
 	function site_loader() {
 		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-		if ( !empty( $loader ) )
+		if ( $loader == "1" ) {
 			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+		}
 	}
 }
 
