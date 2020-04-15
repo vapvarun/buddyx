@@ -480,11 +480,11 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:92
+#: ../buddyx/inc/extra.php:93
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:187
+#: ../buddyx/inc/extra.php:188
 msgid "View your shopping cart"
 msgstr ""
 
@@ -956,7 +956,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:240
+#: ../buddyx/inc/Styles/Component.php:245
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
