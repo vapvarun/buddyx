@@ -31,6 +31,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	const RIGHT_SIDEBAR_SLUG = 'sidebar-right';
 	const BUDDYPRESS_LEFT_SIDEBAR_SLUG = 'buddypress-sidebar-left';
 	const BUDDYPRESS_RIGHT_SIDEBAR_SLUG = 'buddypress-sidebar-right';
+	const BBPRESS_LEFT_SIDEBAR_SLUG = 'bbpress-sidebar-left';
+	const BBPRESS_RIGHT_SIDEBAR_SLUG = 'bbpress-sidebar-right';
 	const WOOCOMMERCE_LEFT_SIDEBAR_SLUG  = 'woocommerce-sidebar-left';
 	const WOOCOMMERCE_RIGHT_SIDEBAR_SLUG = 'woocommerce-sidebar-right';
 
@@ -69,6 +71,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'is_buddypress_left_sidebar_active'  => [ $this, 'is_buddypress_left_sidebar_active' ],
 			'display_buddypress_right_sidebar'    => [ $this, 'display_buddypress_right_sidebar' ],
 			'is_buddypress_right_sidebar_active'  => [ $this, 'is_buddypress_right_sidebar_active' ],
+
+			'display_bbpress_left_sidebar'    => [ $this, 'display_bbpress_left_sidebar' ],
+			'is_bbpress_left_sidebar_active'  => [ $this, 'is_bbpress_left_sidebar_active' ],
+			'display_bbpress_right_sidebar'    => [ $this, 'display_bbpress_right_sidebar' ],
+			'is_bbpress_right_sidebar_active'  => [ $this, 'is_bbpress_right_sidebar_active' ],
 
 			'display_woocommerce_left_sidebar'    => [ $this, 'display_woocommerce_left_sidebar' ],
 			'is_woocommerce_left_sidebar_active'  => [ $this, 'is_woocommerce_left_sidebar_active' ],
@@ -130,6 +137,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				]
 			);
 		}
+
+		if ( function_exists('is_bbpress') ) {
+    		register_sidebar(
+				[
+					'name'          => esc_html__( 'bbPress Left Sidebar', 'buddyx' ),
+					'id'            => static::BBPRESS_LEFT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+
+			register_sidebar(
+				[
+					'name'          => esc_html__( 'bbPress Right Sidebar', 'buddyx' ),
+					'id'            => static::BBPRESS_RIGHT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+        }
 
 		if ( class_exists( 'WooCommerce' ) ) {
 			register_sidebar(
@@ -260,6 +293,30 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
+		//bbPress
+		if ( function_exists('is_bbpress') ) {
+			$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option' );
+			if ( $this->is_bbpress_left_sidebar_active() && $bbpress_sidebar == 'left' ) {
+				global $template;
+
+				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+					$classes[] = 'has-bbpress-sidebar-left';
+				}
+			} elseif ( $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'right' ) {
+				global $template;
+
+				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+					$classes[] = 'has-bbpress-sidebar-right';
+				}
+			} elseif ( $this->is_bbpress_right_sidebar_active() && $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'both' ) {
+				global $template;
+
+				if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+					$classes[] = 'has-bbpress-sidebar-both';
+				}
+			}
+		}
+
 		//WooCommerce
 		if ( class_exists( 'WooCommerce' ) ) {
 			if ( is_woocommerce() ) {
@@ -351,6 +408,38 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function display_buddypress_right_sidebar() {
 		dynamic_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the bbpress left sidebar is active.
+	 *
+	 * @return bool True if the bbpress left sidebar is active, false otherwise.
+	 */
+	public function is_bbpress_left_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BBPRESS_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the bbpress left sidebar.
+	 */
+	public function display_bbpress_left_sidebar() {
+		dynamic_sidebar( static::BBPRESS_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the bbpress right sidebar is active.
+	 *
+	 * @return bool True if the buddypress right sidebar is active, false otherwise.
+	 */
+	public function is_bbpress_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BBPRESS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the bbpress right sidebar.
+	 */
+	public function display_bbpress_right_sidebar() {
+		dynamic_sidebar( static::BBPRESS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**

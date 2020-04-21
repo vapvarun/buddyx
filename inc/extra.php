@@ -51,7 +51,11 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 				if (get_post_type() === 'page' || is_single()) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
-				} ?>
+				} 
+				if ( function_exists('is_bbpress') && !is_search() ) {
+					get_template_part( 'template-parts/content/page_header' );
+				}
+				?>
 			</div>
 		</div>
 		<?php }

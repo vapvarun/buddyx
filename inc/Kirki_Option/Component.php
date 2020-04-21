@@ -954,6 +954,23 @@ class Component implements Component_Interface {
 			);
 		}
 
+		if ( function_exists('is_bbpress') ) {
+			$fields[] = array(
+				'type'     => 'radio-image',
+				'settings' => 'bbpress_sidebar_option',
+				'label'    => esc_attr__( 'bbPress Sidebar Layout', 'buddyx' ),
+				'section'  => 'site_sidebar_layout',
+				'priority' => 10,
+				'default'  => 'right',
+				'choices'  => [
+					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+					'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+				],
+			);
+		}
+
 		if ( class_exists( 'WooCommerce' ) ) {
 			$fields[] = array(
 				'type'     => 'radio-image',
