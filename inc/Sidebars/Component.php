@@ -246,20 +246,21 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function filter_body_classes( array $classes ) : array {
-		$sidebar = get_theme_mod( 'sidebar_option' );
-		if ( $this->is_left_sidebar_active() && $sidebar == 'left' ) {
+		$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
+
+		if ( $this->is_left_sidebar_active() && $default_sidebar == 'left' ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-left';
 			}
-		} elseif ( $this->is_right_sidebar_active() && $sidebar == 'right' ) {
+		} elseif ( $this->is_right_sidebar_active() && $default_sidebar == 'right' ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
 				$classes[] = 'has-sidebar-right';
 			}
-		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $sidebar == 'both' ) {
+		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $default_sidebar == 'both' ) {
 			global $template;
 
 			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
@@ -270,7 +271,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		//Buddypress
 		if ( class_exists( 'BuddyPress' ) ) {
 			if ( bp_current_component() ) {
-				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option' );
+				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
+
 				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'left' ) {
 					global $template;
 
@@ -295,7 +297,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		//bbPress
 		if ( function_exists('is_bbpress') ) {
-			$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option' );
+			$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bbpress-sidebar-option' ) );
+
 			if ( $this->is_bbpress_left_sidebar_active() && $bbpress_sidebar == 'left' ) {
 				global $template;
 
@@ -320,7 +323,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		//WooCommerce
 		if ( class_exists( 'WooCommerce' ) ) {
 			if ( is_woocommerce() ) {
-				$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option' );
+				$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
+				
 				if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
 					global $template;
 

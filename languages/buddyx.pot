@@ -1048,25 +1048,25 @@ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
 #. translators: %s: post author
-#: ../buddyx/template-parts/content/entry_meta.php:65, ../buddyx/template-parts/content/entry_meta.php:68, ../buddyx/template-parts/content/entry_meta.php:74
+#: ../buddyx/template-parts/content/entry_meta.php:65, ../buddyx/template-parts/content/entry_meta.php:68, ../buddyx/template-parts/content/entry_meta.php:73
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:91
+#: ../buddyx/template-parts/content/entry_meta.php:92
 msgctxt "post parent"
 msgid "In %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:94
+#: ../buddyx/template-parts/content/entry_meta.php:95
 msgctxt "post parent"
 msgid "in %s"
 msgstr ""
 
 #. translators: %s: post date
-#: ../buddyx/template-parts/content/entry_meta.php:111
+#: ../buddyx/template-parts/content/entry_meta.php:112
 msgctxt "post date"
 msgid ": %s"
 msgstr ""

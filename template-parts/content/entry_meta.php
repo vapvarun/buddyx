@@ -67,17 +67,18 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 				echo get_avatar( get_the_author_meta('user_email'), $size = '26');
 				$author_byline = _x( 'by %s', 'post author', 'buddyx' );
 			}
-			
 			if ( ! empty( $time_string ) ) {
 				/* translators: %s: post author */
-				if ( !class_exists( 'BuddyPress' ) ) {
+				if ( ! class_exists( 'BuddyPress' ) ) {
 					$author_byline = _x( 'by %s', 'post author', 'buddyx' );
 				}
 			}
-			printf(
-				esc_html( $author_byline ),
-				$author_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			);
+			if ( ! class_exists( 'BuddyPress' ) ) {
+				printf(
+					esc_html( $author_byline ),
+					$author_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
+			}
 			?>
 		</span>
 		<?php
