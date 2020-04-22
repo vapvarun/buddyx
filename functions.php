@@ -116,7 +116,7 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 }
 
 /**
- * Remove WooCommerce the breadcrumbs 
+ * Remove WooCommerce the breadcrumbs
  */
 add_action( 'init', 'woo_remove_wc_breadcrumbs' );
 function woo_remove_wc_breadcrumbs() {
@@ -133,3 +133,11 @@ function woo_dequeue_styles() {
 if ( !class_exists( 'WooCommerce' ) ) {
 	add_action( 'wp_print_styles', 'woo_dequeue_styles' );
 }
+
+/**
+ * Added function for theme updater
+ */
+function buddyx_theme_updater() {
+		require( get_template_directory() . '/updater/theme-updater.php' );
+}
+add_action( 'after_setup_theme', 'buddyx_theme_updater' );
