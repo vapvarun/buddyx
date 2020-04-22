@@ -70,6 +70,10 @@ require get_template_directory() . '/inc/functions.php';
 // Initialize the theme.
 call_user_func( 'BuddyX\Buddyx\buddyx' );
 
+// Require plugin.php to use is_plugin_active() below.
+if ( ! function_exists( 'is_plugin_active' ) ) {
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
 
