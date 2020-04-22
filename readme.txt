@@ -21,6 +21,19 @@ An answer to that question.
 
 == Changelog ==
 
+= 2.5.0 =
+* Improvement: Update plugin check condition
+* Improvement: bbPress support extended
+* Improvement: Update blocks gallery style 
+* Improvement: Managed default sidebar layout and theme fixes
+* Improvement: (#60) Added bbpress support and managed buddyboss platform forum page
+* Fix: (#52) Fixed error when buddyboss platform plugin not activate, css fixes
+* Fix: Fixed span html visible on group detail page
+* Improvement: (#51) Added buddyboss platform support and theme fixes
+* Improvement: (#50) Set site loader by default disabled
+* Improvement: Added function exists conditions
+* Improvement: Blog Author link redirect to bp profile page
+
 = 2.4.0 =
 * Improvement: (#35) Added buddypress profile completion widget
 * Improvement: (#36) BuddyPress profile links for author profile.
