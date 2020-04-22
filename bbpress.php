@@ -19,20 +19,21 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
+$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bbpress-sidebar-option' ) );
 
 ?>
 	<?php do_action( 'buddyx_sub_header' ); ?>
 
 	<?php do_action( 'buddy_before_content' ); ?>
 
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both'  ) : ?>
+	<?php if ( $bbpress_sidebar == 'left' || $bbpress_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
-				<?php buddyx()->display_buddypress_left_sidebar(); ?>
+				<?php buddyx()->display_bbpress_left_sidebar(); ?>
 			</div>
 		</aside>
 	<?php endif; ?>
+	
 	<main id="primary" class="site-main">
 	
 		<?php
@@ -43,7 +44,7 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 			while ( have_posts() ) {
 				the_post();
 
-				get_template_part( 'template-parts/content-buddypress' );
+				get_template_part( 'template-parts/content-bbpress' );
 			}
 
 			if ( ! is_singular() ) {
@@ -55,10 +56,11 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 		?>
 		
 	</main><!-- #primary -->
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
+	
+	<?php if ( $bbpress_sidebar == 'right' || $bbpress_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
-				<?php buddyx()->display_buddypress_right_sidebar(); ?>
+				<?php buddyx()->display_bbpress_right_sidebar(); ?>
 			</div>
 		</aside>
 	<?php endif; ?>

@@ -15,8 +15,20 @@ function buddyx_defaults( $key = '' ) {
     # site cart
     $defaults[ 'site-cart' ] = '1';
 
+    # site sidebar
+    $defaults[ 'sidebar-option' ] = 'right';
+    $defaults[ 'buddypress-sidebar-option' ] = 'right';
+    $defaults[ 'bbpress-sidebar-option' ] = 'right';
+    $defaults[ 'woocommerce-sidebar-option' ] = 'right';
+
     # sticky sidebar
     $defaults[ 'sticky-sidebar' ] = '1';
+
+     # blog layout option
+     $defaults[ 'blog-layout-option' ] = 'default-layout';
+
+     # post per view
+     $defaults[ 'post-per-row' ] = '3';
 
 
 	if ( !empty( $key ) && array_key_exists( $key, $defaults ) ) {

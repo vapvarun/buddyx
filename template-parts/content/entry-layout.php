@@ -7,7 +7,7 @@
 
 namespace BuddyX\Buddyx;
 
-$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
+$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'post-per-row' ) );
 
 $classes = [
     'entry',

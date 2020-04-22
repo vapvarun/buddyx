@@ -480,11 +480,11 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:92
+#: ../buddyx/inc/extra.php:97
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:187
+#: ../buddyx/inc/extra.php:192
 msgid "View your shopping cart"
 msgstr ""
 
@@ -521,11 +521,12 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry-full-width.php:18, ../buddyx/template-parts/content/entry_content.php:19
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content-bbpress.php:18, ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry-full-width.php:18, ../buddyx/template-parts/content/entry_content.php:19
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry_content.php:36
+#: ../buddyx/template-parts/content-bbpress.php:31, ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr ""
 
@@ -699,11 +700,11 @@ msgstr ""
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:270, ../buddyx/inc/Kirki_Option/Component.php:620, ../buddyx/inc/Kirki_Option/Component.php:633, ../buddyx/inc/Kirki_Option/Component.php:649, ../buddyx/inc/Kirki_Option/Component.php:981, ../buddyx/inc/Kirki_Option/Component.php:996
+#: ../buddyx/inc/Kirki_Option/Component.php:270, ../buddyx/inc/Kirki_Option/Component.php:620, ../buddyx/inc/Kirki_Option/Component.php:633, ../buddyx/inc/Kirki_Option/Component.php:649, ../buddyx/inc/Kirki_Option/Component.php:998, ../buddyx/inc/Kirki_Option/Component.php:1013
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:271, ../buddyx/inc/Kirki_Option/Component.php:621, ../buddyx/inc/Kirki_Option/Component.php:634, ../buddyx/inc/Kirki_Option/Component.php:650, ../buddyx/inc/Kirki_Option/Component.php:982, ../buddyx/inc/Kirki_Option/Component.php:997
+#: ../buddyx/inc/Kirki_Option/Component.php:271, ../buddyx/inc/Kirki_Option/Component.php:621, ../buddyx/inc/Kirki_Option/Component.php:634, ../buddyx/inc/Kirki_Option/Component.php:650, ../buddyx/inc/Kirki_Option/Component.php:999, ../buddyx/inc/Kirki_Option/Component.php:1014
 msgid "No"
 msgstr ""
 
@@ -775,11 +776,11 @@ msgstr ""
 msgid "Site Cart ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:645, ../buddyx/inc/Kirki_Option/Component.php:992
+#: ../buddyx/inc/Kirki_Option/Component.php:645, ../buddyx/inc/Kirki_Option/Component.php:1009
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:657, ../buddyx/inc/Kirki_Option/Component.php:1004
+#: ../buddyx/inc/Kirki_Option/Component.php:657, ../buddyx/inc/Kirki_Option/Component.php:1021
 msgid "Background Control"
 msgstr ""
 
@@ -795,11 +796,11 @@ msgstr ""
 msgid "Theme Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:747, ../buddyx/inc/Kirki_Option/Component.php:1058, ../buddyx/inc/Kirki_Option/Component.php:1145
+#: ../buddyx/inc/Kirki_Option/Component.php:747, ../buddyx/inc/Kirki_Option/Component.php:1075, ../buddyx/inc/Kirki_Option/Component.php:1162
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:762, ../buddyx/inc/Kirki_Option/Component.php:1073
+#: ../buddyx/inc/Kirki_Option/Component.php:762, ../buddyx/inc/Kirki_Option/Component.php:1090
 msgid "Link Hover"
 msgstr ""
 
@@ -860,34 +861,38 @@ msgid "BuddyPress Sidebar Layout"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:961
+msgid "bbPress Sidebar Layout"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:978
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:977
+#: ../buddyx/inc/Kirki_Option/Component.php:994
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1028
+#: ../buddyx/inc/Kirki_Option/Component.php:1045
 msgid "Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1043, ../buddyx/inc/Kirki_Option/Component.php:1130
+#: ../buddyx/inc/Kirki_Option/Component.php:1060, ../buddyx/inc/Kirki_Option/Component.php:1147
 msgid "Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1091
+#: ../buddyx/inc/Kirki_Option/Component.php:1108
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1100
+#: ../buddyx/inc/Kirki_Option/Component.php:1117
 msgid "Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1115
+#: ../buddyx/inc/Kirki_Option/Component.php:1132
 msgid "Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1160
+#: ../buddyx/inc/Kirki_Option/Component.php:1177
 msgid "Link Hover Color"
 msgstr ""
 
@@ -911,52 +916,60 @@ msgstr ""
 msgid "BuddyPress"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:86
+#: ../buddyx/inc/Sidebars/Component.php:93
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:88, ../buddyx/inc/Sidebars/Component.php:100, ../buddyx/inc/Sidebars/Component.php:113, ../buddyx/inc/Sidebars/Component.php:125, ../buddyx/inc/Sidebars/Component.php:139, ../buddyx/inc/Sidebars/Component.php:151, ../buddyx/inc/Sidebars/Component.php:164, ../buddyx/inc/Sidebars/Component.php:176, ../buddyx/inc/Sidebars/Component.php:188, ../buddyx/inc/Sidebars/Component.php:200
+#: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:120, ../buddyx/inc/Sidebars/Component.php:132, ../buddyx/inc/Sidebars/Component.php:146, ../buddyx/inc/Sidebars/Component.php:158, ../buddyx/inc/Sidebars/Component.php:172, ../buddyx/inc/Sidebars/Component.php:184, ../buddyx/inc/Sidebars/Component.php:197, ../buddyx/inc/Sidebars/Component.php:209, ../buddyx/inc/Sidebars/Component.php:221, ../buddyx/inc/Sidebars/Component.php:233
 msgid "Add widgets here."
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:98
+#: ../buddyx/inc/Sidebars/Component.php:105
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:111
+#: ../buddyx/inc/Sidebars/Component.php:118
 msgid "BuddyPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:123
+#: ../buddyx/inc/Sidebars/Component.php:130
 msgid "BuddyPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:137
+#: ../buddyx/inc/Sidebars/Component.php:144
+msgid "bbPress Left Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:156
+msgid "bbPress Right Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:170
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:149
+#: ../buddyx/inc/Sidebars/Component.php:182
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:162
+#: ../buddyx/inc/Sidebars/Component.php:195
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:174
+#: ../buddyx/inc/Sidebars/Component.php:207
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:186
+#: ../buddyx/inc/Sidebars/Component.php:219
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:198
+#: ../buddyx/inc/Sidebars/Component.php:231
 msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:240
+#: ../buddyx/inc/Styles/Component.php:250
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -1035,25 +1048,25 @@ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
 #. translators: %s: post author
-#: ../buddyx/template-parts/content/entry_meta.php:65, ../buddyx/template-parts/content/entry_meta.php:68, ../buddyx/template-parts/content/entry_meta.php:74
+#: ../buddyx/template-parts/content/entry_meta.php:65, ../buddyx/template-parts/content/entry_meta.php:68, ../buddyx/template-parts/content/entry_meta.php:73
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:91
+#: ../buddyx/template-parts/content/entry_meta.php:92
 msgctxt "post parent"
 msgid "In %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:94
+#: ../buddyx/template-parts/content/entry_meta.php:95
 msgctxt "post parent"
 msgid "in %s"
 msgstr ""
 
 #. translators: %s: post date
-#: ../buddyx/template-parts/content/entry_meta.php:111
+#: ../buddyx/template-parts/content/entry_meta.php:112
 msgctxt "post date"
 msgid ": %s"
 msgstr ""

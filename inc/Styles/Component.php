@@ -130,7 +130,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'buddyx-rtl', $css_uri . '/rtl.min.css');
+			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
+		}
+
+		// Enqueue Platform CSS
+		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css');
+		}
+
+		// Enqueue bbPress CSS
+		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css');
 		}
 	}
 

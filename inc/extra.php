@@ -51,7 +51,11 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 				if (get_post_type() === 'page' || is_single()) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
-				} ?>
+				} 
+				if ( function_exists('is_bbpress') && !is_search() ) {
+					get_template_part( 'template-parts/content/page_header' );
+				}
+				?>
 			</div>
 		</div>
 		<?php }
@@ -65,8 +69,9 @@ add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 if ( !function_exists( 'site_loader' ) ) {
 	function site_loader() {
 		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-		if ( !empty( $loader ) )
+		if ( $loader == "1" ) {
 			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+		}
 	}
 }
 

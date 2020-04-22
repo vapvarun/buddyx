@@ -21,6 +21,8 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 
+$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
+
 ?>
 
 <div class="site-sub-header">
@@ -49,7 +51,7 @@ do_action( 'buddy_before_content' );
 
 if ( class_exists( 'WooCommerce' ) ) { ?>
 	<?php if ( is_woocommerce() ) { ?>
-		<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'left' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both'  ) : ?>
+		<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both'  ) : ?>
 			<aside id="secondary" class="woo-left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_woocommerce_left_sidebar(); ?>
@@ -127,7 +129,7 @@ do_action( 'woocommerce_after_main_content' );
 ?>
 <?php if ( class_exists( 'WooCommerce' ) ) { ?>
 	<?php if ( is_woocommerce() ) { ?>
-		<?php if ( get_theme_mod( 'woocommerce_sidebar_option' ) == 'right' || get_theme_mod( 'woocommerce_sidebar_option' ) == 'both' ) : ?>
+		<?php if ( $woocommerce_sidebar == 'right' || $woocommerce_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="woo-primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_woocommerce_right_sidebar(); ?>

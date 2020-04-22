@@ -19,8 +19,10 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-$post_layout = get_theme_mod( 'blog_layout_option');
-$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
+$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
+
+$post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layout-option' ) );
+$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'post-per-row' ) );
 
 ?>
 
@@ -29,7 +31,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
 	<?php do_action( 'buddy_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'left' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'left' || ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && $default_sidebar == 'left' && ! is_cart() && $default_sidebar == 'left' && ! is_checkout() && $default_sidebar == 'left' && ! is_account_page() && $default_sidebar == 'left' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_left_sidebar(); ?>
@@ -37,7 +39,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
 			</aside>
 		<?php endif; ?>
 	<?php }else {
-		if ( get_theme_mod( 'sidebar_option' ) == 'left' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
+		if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
@@ -83,7 +85,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
 
 	</main><!-- #primary -->
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'right' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'right' || ! is_woocommerce() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_cart() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_checkout() && get_theme_mod( 'sidebar_option' ) == 'both' && ! is_account_page() && get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && $default_sidebar == 'right' && ! is_cart() && $default_sidebar == 'right' && ! is_checkout() && $default_sidebar == 'right' && ! is_account_page() && $default_sidebar == 'right' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -91,14 +93,14 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row');
 			</aside>
 		<?php endif; ?>
 		<?php }else { ?>
-			<?php if ( get_theme_mod( 'sidebar_option' ) == 'right' || get_theme_mod( 'sidebar_option' ) == 'both' ) : ?>
+			<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
 				</div>
 			</aside>
 		<?php endif; ?>
-		<?php } ?>
+	<?php } ?>
 
 	<?php do_action( 'buddy_after_content' ); ?>
 <?php
