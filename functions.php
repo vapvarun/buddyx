@@ -12,8 +12,24 @@
 define( 'BUDDYX_MINIMUM_WP_VERSION', '4.5' );
 define( 'BUDDYX_MINIMUM_PHP_VERSION', '7.0' );
 
+/**
+ * Checks if the BP Template pack is Nouveau when BuddyPress is active.
+ *
+ * @return boolean False if BuddyPress is not active or Nouveau is the active Template Pack.
+ *                 True otherwise.
+ */
+function buddyx_template_pack_check() {
+	$retval = false;
+
+	if ( function_exists( 'buddypress' ) ) {
+		$retval = 'nouveau' !== bp_get_theme_compat_id();
+	}
+
+	return $retval;
+}
+
 // Bail if requirements are not met.
-if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), BUDDYX_MINIMUM_PHP_VERSION, '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), BUDDYX_MINIMUM_PHP_VERSION, '<' ) || buddyx_template_pack_check() ) {
 	require get_template_directory() . '/inc/back-compat.php';
 	return;
 }

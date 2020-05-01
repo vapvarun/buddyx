@@ -480,6 +480,10 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
+#: ../buddyx/inc/back-compat.php:39
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
+msgstr ""
+
 #: ../buddyx/inc/extra.php:97
 msgid "View Shopping Cart"
 msgstr ""
