@@ -1057,8 +1057,16 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:250
+#: ../buddyx/inc/Styles/Component.php:261
 msgid "Invalid theme stylesheet handle: %s"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:44, ../buddyx/inc/Welcome/Component.php:45
+msgid "Getting Started"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:54
+msgid "Getting started with BuddyX Pro"
 msgstr ""
 
 #: ../buddyx/inc/widgets/bp-profile-completion-widget.php:20

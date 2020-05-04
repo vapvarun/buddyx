@@ -73,6 +73,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'buddyx_enqueue_admin_style' ] );
 		add_action( 'wp_head', [ $this, 'action_preload_styles' ] );
 		add_action( 'after_setup_theme', [ $this, 'action_add_editor_styles' ] );
 		add_filter( 'wp_resource_hints', [ $this, 'filter_resource_hints' ], 10, 2 );
@@ -142,6 +143,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css');
 		}
+	}
+
+	/**
+	 * Register and enqueue a custom stylesheet in the WordPress admin.
+	 */
+	public function buddyx_enqueue_admin_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
 	}
 
 	/**
