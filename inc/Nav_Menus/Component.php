@@ -71,7 +71,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 		register_nav_menus(
 			[
-				static::BUDDYPRESS_NAV_MENU_SLUG => esc_html__( 'BuddyPress', 'buddyx' ),
+				static::BUDDYPRESS_NAV_MENU_SLUG => esc_html__( 'User Menu', 'buddyx' ),
 			]
 		);
 	}
