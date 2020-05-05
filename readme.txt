@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -20,6 +20,11 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.6.0 =
+* Fix: Condition Checkl for BuddyPress Nouveau theme support
+* Improvement: Added Getting started page
+* Improvement: Added Demo Data Importer
 
 = 2.5.0 =
 * Improvement: Update plugin check condition
