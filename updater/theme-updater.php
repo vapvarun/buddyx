@@ -28,7 +28,7 @@ $updater = new EDD_Buddyx_Theme_Updater_Admin(
 
 	// Strings
 	$strings = array(
-		'theme-license'             => __( 'Theme License', 'buddyx' ),
+		'theme-license'             => __( 'BuddyX Theme License', 'buddyx' ),
 		'enter-key'                 => __( 'Enter your theme license key.', 'buddyx' ),
 		'license-key'               => __( 'License Key', 'buddyx' ),
 		'license-action'            => __( 'License Action', 'buddyx' ),

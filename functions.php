@@ -86,10 +86,14 @@ require get_template_directory() . '/inc/functions.php';
 // Initialize the theme.
 call_user_func( 'BuddyX\Buddyx\buddyx' );
 
-// Require plugin.php to use is_plugin_active() below.
-if ( ! function_exists( 'is_plugin_active' ) ) {
+// Require plugin.php to use is_plugin_active() below
+if ( !function_exists( 'is_plugin_active' ) ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
+
+// Load BuddyPress PRofile Completion widget.
+require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
+
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
 
@@ -127,26 +131,35 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 	add_action( 'after_setup_theme', 'buddyx_woocommerce_support' );
 }
 
+//
+// force add theme support for BP nouveau
+// ------------------------------------------------------------------------------
+if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
+
+	function buddyx_buddypress_nouveau_support() {
+		add_theme_support('buddypress-use-nouveau');
+	}
+
+	add_action( 'after_setup_theme', 'buddyx_buddypress_nouveau_support' );
+}
+
 /**
- * Remove WooCommerce the breadcrumbs
+ * Remove WooCommerce the breadcrumbs 
  */
 add_action( 'init', 'woo_remove_wc_breadcrumbs' );
 function woo_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
-// Load BuddyPress PRofile Completion widget.
-require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
-
 /**
  * Remove WooCommerce CSS if WooCommerce not activated
  */
 function woo_dequeue_styles() {
     wp_dequeue_style( 'buddyx-woocommerce' );
-        wp_deregister_style( 'buddyx-woocommerce' );
+    wp_deregister_style( 'buddyx-woocommerce' );
 }
 if ( !class_exists( 'WooCommerce' ) ) {
-add_action( 'wp_print_styles', 'woo_dequeue_styles' );
+	add_action( 'wp_print_styles', 'woo_dequeue_styles' );
 }
 
 /**

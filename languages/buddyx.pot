@@ -480,6 +480,10 @@ msgstr ""
 msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
+#: ../buddyx/inc/back-compat.php:39
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
+msgstr ""
+
 #: ../buddyx/inc/extra.php:97
 msgid "View Shopping Cart"
 msgstr ""
@@ -528,6 +532,90 @@ msgstr ""
 
 #: ../buddyx/template-parts/content-bbpress.php:31, ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:31
+msgid "BuddyX Theme License"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:32
+msgid "Enter your theme license key."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:33
+msgid "License Key"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:34
+msgid "License Action"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:35
+msgid "Deactivate License"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:36
+msgid "Activate License"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:37, ../buddyx/updater/theme-updater.php:50
+msgid "License status is unknown."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:38
+msgid "Renew?"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:39
+msgid "unlimited"
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:40
+msgid "License key is active."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:41
+msgid "Expires %s."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:42
+msgid "Lifetime License."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:43
+msgid "You have %1$s / %2$s sites activated."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:44
+msgid "License key expired %s."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:45
+msgid "License key has expired."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:46
+msgid "License keys do not match."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:47
+msgid "License is inactive."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:48
+msgid "License key is disabled."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:49
+msgid "Site is inactive."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:51
+msgid "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update."
+msgstr ""
+
+#: ../buddyx/updater/theme-updater.php:52
+msgid "<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
 msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
@@ -969,8 +1057,16 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:250
+#: ../buddyx/inc/Styles/Component.php:261
 msgid "Invalid theme stylesheet handle: %s"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:44, ../buddyx/inc/Welcome/Component.php:45
+msgid "Getting Started"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:54
+msgid "Getting started with BuddyX"
 msgstr ""
 
 #: ../buddyx/inc/widgets/bp-profile-completion-widget.php:20
