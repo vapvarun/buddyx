@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
