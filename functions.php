@@ -131,6 +131,18 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 	add_action( 'after_setup_theme', 'buddyx_woocommerce_support' );
 }
 
+//
+// force add theme support for BP nouveau
+// ------------------------------------------------------------------------------
+if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
+
+	function buddyx_buddypress_nouveau_support() {
+		add_theme_support('buddypress-use-nouveau');
+	}
+
+	add_action( 'after_setup_theme', 'buddyx_buddypress_nouveau_support' );
+}
+
 /**
  * Remove WooCommerce the breadcrumbs 
  */
