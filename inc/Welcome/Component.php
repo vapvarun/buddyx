@@ -93,23 +93,23 @@ class Component implements Component_Interface {
 
 							<div class="buddyx-row">
 								<div class="buddyx-col">
-									<a href="https://www.youtube.com/watch?v=KSRaUaD30Jc" class="buddyx-feature-sub-title-a">
-										<img class="ha-img-fluid ha-rounded" src="https://buddyxtheme.com/wp-content/plugins/happy-elementor-addons/assets/imgs/admin/crossdomain-video-cover.jpg" alt="BuddyX Demo installation">
+									<a href="https://www.youtube.com/watch?v=Ztogq3dx4-E&feature=youtu.be" class="buddyx-feature-sub-title-a" target="_blank">
+										<img class="ha-img-fluid ha-rounded" src="https://wbcomdesigns.com/wp-content/uploads/2020/05/theme-install-video-v-min.jpg" alt="BuddyX Demo installation">
 										<h4 class="buddyx-feature-sub-title">BuddyX Demo installation</h4>
 									</a>
 								</div>
 								<div class="buddyx-col">
-									<a href="https://www.youtube.com/watch?v=KSRaUaD30Jc" class="buddyx-feature-sub-title-a">
-										<img class="ha-img-fluid ha-rounded" src="https://buddyxtheme.com/wp-content/plugins/happy-elementor-addons/assets/imgs/admin/crossdomain-video-cover.jpg" alt="BuddyX Customizer Option">
+									<a href="https://www.youtube.com/watch?v=i51CikDsbeg&feature=youtu.be" class="buddyx-feature-sub-title-a" target="_blank">
+										<img class="ha-img-fluid ha-rounded" src="https://wbcomdesigns.com/wp-content/uploads/2020/05/theme-options-v-min.jpg" alt="BuddyX Customizer Option">
 										<h4 class="buddyx-feature-sub-title">BuddyX Customizer Option</h4>
 									</a>
 								</div>
-								<div class="buddyx-col">
-								<a href="https://www.youtube.com/watch?v=KSRaUaD30Jc" class="buddyx-feature-sub-title-a">
-									<img class="ha-img-fluid ha-rounded" src="https://buddyxtheme.com/wp-content/plugins/happy-elementor-addons/assets/imgs/admin/crossdomain-video-cover.jpg" alt="Setting Up BuddyPress">
-									<h4 class="buddyx-feature-sub-title">Setting Up BuddyPress</h4>
-								</a>
-								</div>
+								<!-- <div class="buddyx-col">
+									<a href="#" class="buddyx-feature-sub-title-a">
+										<img class="ha-img-fluid ha-rounded" src="https://buddyxtheme.com/wp-content/plugins/happy-elementor-addons/assets/imgs/admin/crossdomain-video-cover.jpg" alt="Setting Up BuddyPress">
+										<h4 class="buddyx-feature-sub-title">Setting Up BuddyPress</h4>
+									</a>
+								</div> -->
 							</div><!-- .video-tutorial columns -->
 
 							<div class="buddyx-text-center">
