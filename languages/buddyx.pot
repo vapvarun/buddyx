@@ -492,6 +492,10 @@ msgstr ""
 msgid "View your shopping cart"
 msgstr ""
 
+#: ../buddyx/inc/extra.php:273
+msgid "See All"
+msgstr ""
+
 #. translators: 1: classname/type of the variable, 2: interface name
 #: ../buddyx/inc/Template_Tags.php:54
 msgid "The theme templating component %1$s does not implement the %2$s interface."

@@ -36,6 +36,13 @@
                         <?php bp_nouveau_member_meta(); ?>
 
                     </div><!-- #item-meta -->
+                    <div class="buddyx-badge">
+						<?php
+						if ( function_exists( 'buddyx_profile_achievements' ) ):
+							buddyx_profile_achievements();
+						endif;
+						?>
+					</div><!-- .buddyx-badge -->
                 <?php endif; ?>
 
                 <?php
