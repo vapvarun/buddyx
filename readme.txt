@@ -22,7 +22,7 @@ An answer to that question.
 == Changelog ==
 
 = 2.6.0 =
-* Fix: Condition Checkl for BuddyPress Nouveau theme support
+* Fix: Condition Check for BuddyPress Nouveau theme support
 * Improvement: Added Getting started page
 * Improvement: Added Demo Data Importer
 
