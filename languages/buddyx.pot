@@ -1001,7 +1001,7 @@ msgid "Lazy-loading images means images are loaded only when they are in view. I
 msgstr ""
 
 #: ../buddyx/inc/Nav_Menus/Component.php:74
-msgid "BuddyPress"
+msgid "User Menu"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:93
