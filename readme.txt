@@ -21,6 +21,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 2.7.0 =
+* Improvement: Added Gamifaction support
+* Imporvement: BB forums and message UI
+* Fix: Updated Blog header
+
 = 2.6.0 =
 * Fix: Condition Check for BuddyPress Nouveau theme support
 * Improvement: Added Getting started page
