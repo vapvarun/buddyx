@@ -12,7 +12,7 @@
 namespace BuddyX\Buddyx;
 
 ?>
-
+	</div><!-- .container -->
 	<footer id="colophon" class="site-footer">
 		<div class="site-footer-wrapper">
 			<div class="container">

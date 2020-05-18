@@ -49,3 +49,5 @@ namespace BuddyX\Buddyx;
 			</header><!-- #masthead -->
 		</div>
     </div>
+
+	<div class="container">
