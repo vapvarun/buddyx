@@ -49,3 +49,8 @@ namespace BuddyX\Buddyx;
 			</header><!-- #masthead -->
 		</div>
     </div>
+<?php
+$classes = get_body_class();
+if(! in_array('page-template-full-width',$classes) ) { ?>
+	<div class="container">
+<?php } ?>

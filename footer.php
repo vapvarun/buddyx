@@ -12,7 +12,11 @@
 namespace BuddyX\Buddyx;
 
 ?>
-
+	<?php
+	$classes = get_body_class();
+	if(! in_array('page-template-full-width',$classes) ) { ?>
+		</div><!-- .container -->
+	<?php } ?>
 	<footer id="colophon" class="site-footer">
 		<div class="site-footer-wrapper">
 			<div class="container">

@@ -129,11 +129,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_style_add_data( $handle, 'precache', true );
 		}
 
-		// Enqueue RTL CSS
-		if ( is_rtl() ) {
-			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
-		}
-
 		// Enqueue Platform CSS
 		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css');
@@ -142,6 +137,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue bbPress CSS
 		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css');
+		}
+
+		// Enqueue WC Vendors CSS
+		if( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
+			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css');
+		}
+
+		// Enqueue RTL CSS
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
 		}
 	}
 

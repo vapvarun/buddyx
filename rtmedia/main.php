@@ -42,7 +42,6 @@ if ( bp_is_group() ) {
 				<div id="item-header" role="complementary" data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups" class="groups-header single-headers">
 					<?php bp_nouveau_group_header_template_part(); ?>
 				</div><!-- #item-header -->
-            <div class="container">
                 <div class="site-wrapper group-home">
 			        <div class="bp-wrap">
                         <?php
@@ -82,7 +81,6 @@ if ( bp_is_group() ) {
                     </div><!-- // .bp-wrap -->
                     <?php echo get_sidebar( 'buddypress' ); ?>
                 </div><!-- // .ite-wrapper -->
-            </div><!-- // .container -->
         
 			<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
 		<?php endwhile; ?>
@@ -101,7 +99,6 @@ if ( !isset( $bp_nouveau_appearance[ 'user_nav_display' ] ) ) {
 	<div id="item-header" role="complementary" data-bp-item-id="<?php echo esc_attr( bp_displayed_user_id() ); ?>" data-bp-item-component="members" class="users-header single-headers">
 		<?php bp_nouveau_member_header_template_part(); ?>
     </div><!-- #item-header -->
-<div class="container">
     <div class="site-wrapper member-home">
         <div class="bp-wrap">
         <?php
@@ -143,6 +140,5 @@ if ( !isset( $bp_nouveau_appearance[ 'user_nav_display' ] ) ) {
         </div><!-- // .bp-wrap -->
         <?php echo get_sidebar( 'buddypress' ); ?>
     </div><!-- .site-wrapper -->
-</div><!-- .container -->
 
 <?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>

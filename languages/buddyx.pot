@@ -32,8 +32,12 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: ../buddyx/footer.php:20
+#: ../buddyx/footer.php:24
 msgid "Footer"
+msgstr ""
+
+#: ../buddyx/full-width-container.php:3
+msgid "Page-Without-Sidebar"
 msgstr ""
 
 #: ../buddyx/full-width.php:3
@@ -484,12 +488,16 @@ msgstr ""
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:97
+#: ../buddyx/inc/extra.php:83
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:192
+#: ../buddyx/inc/extra.php:178
 msgid "View your shopping cart"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:259
+msgid "See All"
 msgstr ""
 
 #. translators: 1: classname/type of the variable, 2: interface name
@@ -620,7 +628,7 @@ msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#: ../buddyx/buddypress/groups/groups-loop.php:51, ../buddyx/buddypress/groups/single/cover-image-header.php:36
+#: ../buddyx/buddypress/groups/groups-loop.php:51, ../buddyx/buddypress/groups/single/cover-image-header.php:35
 msgid "active %s"
 msgstr ""
 
@@ -1057,7 +1065,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:261
+#: ../buddyx/inc/Styles/Component.php:266
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -1073,51 +1081,51 @@ msgstr ""
 msgid "Show Logged in user Profile Completion Progress."
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:25
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:26
 msgid "(BuddyPress) Profile Completion"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:64
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:66
 msgid "%s Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:86
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:88
 msgid "Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:185, ../buddyx/inc/widgets/bp-profile-completion-widget.php:415
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:187, ../buddyx/inc/widgets/bp-profile-completion-widget.php:429
 msgid "Profile Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:206, ../buddyx/inc/widgets/bp-profile-completion-widget.php:418
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:207, ../buddyx/inc/widgets/bp-profile-completion-widget.php:432
 msgid "Cover Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:286
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:289
 msgid "Profile Fields"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:399
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:404
 msgid "Complete Your Profile"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:424
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:438
 msgid "Title:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:427
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:441
 msgid "Profile field sets:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:449
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:466
 msgid "Profile photos:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:469
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:485
 msgid "Hide widget once progress hits 100%"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:475
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:491
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 

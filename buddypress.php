@@ -26,43 +26,43 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 
 	<?php do_action( 'buddy_before_content' ); ?>
 
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both'  ) : ?>
-		<aside id="secondary" class="left-sidebar widget-area">
-			<div class="sticky-sidebar">
-				<?php buddyx()->display_buddypress_left_sidebar(); ?>
-			</div>
-		</aside>
-	<?php endif; ?>
-	<main id="primary" class="site-main">
-	
-		<?php
-		if ( have_posts() ) {
-
-			//get_template_part( 'template-parts/content/page_header' );
-
-			while ( have_posts() ) {
-				the_post();
-
-				get_template_part( 'template-parts/content-buddypress' );
-			}
-
-			if ( ! is_singular() ) {
-				get_template_part( 'template-parts/content/pagination' );
-			}
-		} else {
-			get_template_part( 'template-parts/content/error' );
-		}
-		?>
+		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both'  ) : ?>
+			<aside id="secondary" class="left-sidebar widget-area">
+				<div class="sticky-sidebar">
+					<?php buddyx()->display_buddypress_left_sidebar(); ?>
+				</div>
+			</aside>
+		<?php endif; ?>
+		<main id="primary" class="site-main">
 		
-	</main><!-- #primary -->
-	<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
-		<aside id="secondary" class="primary-sidebar widget-area">
-			<div class="sticky-sidebar">
-				<?php buddyx()->display_buddypress_right_sidebar(); ?>
-			</div>
-		</aside>
-	<?php endif; ?>
+			<?php
+			if ( have_posts() ) {
 
-	<?php do_action( 'buddy_after_content' ); ?>
+				//get_template_part( 'template-parts/content/page_header' );
+
+				while ( have_posts() ) {
+					the_post();
+
+					get_template_part( 'template-parts/content-buddypress' );
+				}
+
+				if ( ! is_singular() ) {
+					get_template_part( 'template-parts/content/pagination' );
+				}
+			} else {
+				get_template_part( 'template-parts/content/error' );
+			}
+			?>
+			
+		</main><!-- #primary -->
+		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
+			<aside id="secondary" class="primary-sidebar widget-area">
+				<div class="sticky-sidebar">
+					<?php buddyx()->display_buddypress_right_sidebar(); ?>
+				</div>
+			</aside>
+		<?php endif; ?>
+
+		<?php do_action( 'buddy_after_content' ); ?>
 <?php
 get_footer();

@@ -19,7 +19,6 @@ if ( bp_has_groups() ) :
 
         </div><!-- #item-header -->
         
-        <div class="container">
             <div class="site-wrapper group-home">
                 <div class="bp-wrap">
 
@@ -40,7 +39,6 @@ if ( bp_has_groups() ) :
                     <?php echo get_sidebar('buddypress'); ?>
                 <?php endif; ?>
         </div><!-- .site-wrapper -->
-    </div><!-- .container -->
 
 		<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
 
