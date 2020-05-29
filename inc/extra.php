@@ -24,7 +24,7 @@ add_action( 'buddy_after_content', 'buddy_content_bottom' );
 
 // Site Sub Header 
 if ( !function_exists( 'buddyx_sub_header' ) ) {
-	function buddyx_sub_header() { 
+	function buddyx_sub_header() {
 	global $wp_query;
 	if(! is_home() || isset( $wp_query ) && (bool) $wp_query->is_posts_page) { ?> 
 		<div class="site-sub-header">
@@ -38,7 +38,7 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 				} 
-				if ( function_exists('is_bbpress') && !is_search() ) {
+				if ( function_exists('is_bbpress') && !is_search() && !is_home() ) {
 					get_template_part( 'template-parts/content/page_header' );
 				}
 				?>
