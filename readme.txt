@@ -21,9 +21,25 @@ An answer to that question.
 
 == Changelog ==
 
+= 2.8.0 =
+* Improvement: Managed BuddyPress group reviews star rating alignment
+* Improvement: Added page template without sidebar and theme fixes
+* Improvement: Update rtmedia - main.php file
+* Fix: Updated bp-profile-completion-widget.php
+* Improvement: German translation Included
+* Improvement: (#99) Managed content layout with other CPT's
+* Improvement: Fixed page stuck issue when page scrolling up
+* Improvement: Update wc-vendor.css file
+* Improvement: (#97) Managed WC vendor dashboard page UI
+* Improvement: (#98) Managed WooCommerce error message UI
+* Improvement: (#95) Added BadgeOS Support
+* Improvement: (#94) Added myCred support
+* Improvement: (#93) Added GamiPress support and theme fixes
+* Improvement: Video Image with url update
+
 = 2.7.0 =
 * Improvement: Added Gamifaction support
-* Imporvement: BB forums and message UI
+* Improvement: BB forums and message UI
 * Fix: Updated Blog header
 
 = 2.6.0 =
@@ -34,7 +50,7 @@ An answer to that question.
 = 2.5.0 =
 * Improvement: Update plugin check condition
 * Improvement: bbPress support extended
-* Improvement: Update blocks gallery style 
+* Improvement: Update blocks gallery style
 * Improvement: Managed default sidebar layout and theme fixes
 * Improvement: (#60) Added bbpress support and managed buddyboss platform forum page
 * Fix: (#52) Fixed error when buddyboss platform plugin not activate, css fixes
