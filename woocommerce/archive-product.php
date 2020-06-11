@@ -29,7 +29,13 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
     <div class="container">
         <header class="woocommerce-products-header">
             <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-                <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+				<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+				<?php
+					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+					if ( ! empty( $breadcrumbs ) ) {
+						the_breadcrumb();
+					}
+				?>
             <?php endif; ?>
 
             <?php
