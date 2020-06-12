@@ -24,32 +24,103 @@ add_action( 'buddy_after_content', 'buddy_content_bottom' );
 
 // Site Sub Header 
 if ( !function_exists( 'buddyx_sub_header' ) ) {
-	function buddyx_sub_header() { 
-	global $wp_query;
-	if(! is_home() || isset( $wp_query ) && (bool) $wp_query->is_posts_page) { ?> 
-		<div class="site-sub-header">
-			<div class="container">
-				<?php if (get_post_type() === 'post' || is_single()) {
-					// POST
-					get_template_part( 'template-parts/content/page_header' );
-				}
+	add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 
-				if (get_post_type() === 'page' || is_single()) {
+	function buddyx_sub_header() {
+		global $post;
+		if ( is_front_page() ) {
+			return;
+		}
+		?>
+	<div class="site-sub-header">
+		<div class="container">
+		  <?php
+			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
+				get_template_part( 'template-parts/content/page_header' );
+				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				if ( ! empty( $breadcrumbs ) ) {					
+					the_breadcrumb();
+				}
+			} elseif ( get_post_type() === 'page' || is_single() ) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
-				} 
-				if ( function_exists('is_bbpress') && !is_search() ) {
-					get_template_part( 'template-parts/content/page_header' );
+					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				if ( ! empty( $breadcrumbs ) ) {
+					the_breadcrumb();
 				}
-				?>
-			</div>
+			}
+			?>
 		</div>
-		<?php }
-	} 
+ 	</div>
+<?php }
 }
 
-add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
+/**
+ * BREADCRUMBS
+ */
+//  to include in functions.php
+if ( !function_exists( 'the_breadcrumb' ) ) {
+	function the_breadcrumb() {
+		
+		$wpseo_titles = get_option( 'wpseo_titles' );		
+		if ( function_exists('yoast_breadcrumb') && isset($wpseo_titles['breadcrumbs-enable']) &&  $wpseo_titles['breadcrumbs-enable'] == 1 ) {
+			
+			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			
+		} else {
+		
+			$sep = ' &raquo ';
 
+			if (!is_front_page()) {
+			
+				// Start the breadcrumb with a link to your homepage
+				echo '<div class="buddyx-breadcrumbs">';
+				echo '<a href="';
+				echo home_url();
+				echo '">';
+				echo'Home';
+				echo '</a>' . $sep;
+			
+				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
+				if ( is_category() || is_single() ){
+					the_category(' > ');
+				} elseif ( is_archive() || is_single() ){
+					if ( is_day() ) {
+						printf( __( '%s', 'buddyxpro' ), get_the_date() );
+					} elseif ( is_month() ) {
+						printf( __( '%s', 'buddyxpro' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyxpro' ) ) );
+					} elseif ( is_year() ) {
+						printf( __( '%s', 'buddyxpro' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyxpro' ) ) );
+					} elseif( is_shop() ) {
+						_e( 'Shop', 'buddyxpro' );
+					}elseif( is_archive('post-type-archive-forum') ) {
+						_e( 'Forums Archives', 'buddyxpro' );
+					} else {
+						_e( 'Blog Archives', 'buddyxpro' );
+					}
+				}
+			
+				// If the current page is a single post, show its title with the separator
+				if (is_single()) {
+					echo $sep;
+					the_title();
+				}
+			
+				// If the current page is a static page, show its title.
+				if (is_page()) {
+					echo the_title();
+				}
+			
+				// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home > Blog
+				if (is_home()){
+					_e( 'Blog', 'buddyxpro' );
+				}
+
+				echo '</div>';
+			}
+		}
+	}
+}
 
 // Site Loader 
 if ( !function_exists( 'site_loader' ) ) {

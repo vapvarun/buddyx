@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BuddyX v2.x\n"
-"POT-Creation-Date: 2020-05-19 19:25+0200\n"
-"PO-Revision-Date: 2020-05-19 19:31+0200\n"
+"POT-Creation-Date: 2020-05-29 16:47+0200\n"
+"PO-Revision-Date: 2020-05-29 16:48+0200\n"
 "Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language: de_DE@formal\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #: buddypress/groups/groups-loop.php:51
-#: buddypress/groups/single/cover-image-header.php:36
+#: buddypress/groups/single/cover-image-header.php:35
 #, php-format
 msgid "active %s"
 msgstr "aktiv %s"
@@ -569,7 +569,7 @@ msgstr "Aktivieren Sie jetzt das Kirki-Toolkit"
 msgid "Activate Now"
 msgstr "Jetzt aktivieren"
 
-#: footer.php:20
+#: footer.php:24
 msgid "Footer"
 msgstr "Footer"
 
@@ -1027,7 +1027,7 @@ msgid "Footer 4"
 msgstr "Footer 4"
 
 #. translators: %s: stylesheet handle
-#: inc/Styles/Component.php:261
+#: inc/Styles/Component.php:266
 #, php-format
 msgid "Invalid theme stylesheet handle: %s"
 msgstr "Ungültiges Theme-Stylesheet-Handle: %s"
@@ -1127,67 +1127,71 @@ msgstr ""
 "BuddyX requires the BuddyPress Template Pack „BP Nouveau“ to be active. "
 "Please activate this Template Pack from the BuddyPress Options."
 
-#: inc/extra.php:97
+#: inc/extra.php:83
 msgid "View Shopping Cart"
 msgstr "Einkaufswagen ansehen"
 
-#: inc/extra.php:192
+#: inc/extra.php:178
 msgid "View your shopping cart"
 msgstr "Ihre Auswahl ansehen"
+
+#: inc/extra.php:259
+msgid "See All"
+msgstr "Alle anzeigen"
 
 #: inc/widgets/bp-profile-completion-widget.php:20
 msgid "Show Logged in user Profile Completion Progress."
 msgstr ""
 "Fortschritt der Fertigstellung des angemeldeten Benutzerprofils anzeigen."
 
-#: inc/widgets/bp-profile-completion-widget.php:25
+#: inc/widgets/bp-profile-completion-widget.php:26
 msgid "(BuddyPress) Profile Completion"
 msgstr "(BuddyPress) Profil-Vervollständigung"
 
-#: inc/widgets/bp-profile-completion-widget.php:64
+#: inc/widgets/bp-profile-completion-widget.php:66
 #, php-format
 msgid "%s Complete"
 msgstr "%s abgeschlossen"
 
-#: inc/widgets/bp-profile-completion-widget.php:86
+#: inc/widgets/bp-profile-completion-widget.php:88
 msgid "Complete"
 msgstr "Abgeschlossen"
 
-#: inc/widgets/bp-profile-completion-widget.php:185
-#: inc/widgets/bp-profile-completion-widget.php:415
+#: inc/widgets/bp-profile-completion-widget.php:187
+#: inc/widgets/bp-profile-completion-widget.php:429
 msgid "Profile Photo"
 msgstr "Profilbild"
 
-#: inc/widgets/bp-profile-completion-widget.php:206
-#: inc/widgets/bp-profile-completion-widget.php:418
+#: inc/widgets/bp-profile-completion-widget.php:207
+#: inc/widgets/bp-profile-completion-widget.php:432
 msgid "Cover Photo"
 msgstr "Titelbild"
 
-#: inc/widgets/bp-profile-completion-widget.php:286
+#: inc/widgets/bp-profile-completion-widget.php:289
 msgid "Profile Fields"
 msgstr "Profilfelder"
 
-#: inc/widgets/bp-profile-completion-widget.php:399
+#: inc/widgets/bp-profile-completion-widget.php:404
 msgid "Complete Your Profile"
 msgstr "Vervollständigen Sie Ihr Profil"
 
-#: inc/widgets/bp-profile-completion-widget.php:424
+#: inc/widgets/bp-profile-completion-widget.php:438
 msgid "Title:"
 msgstr "Titel:"
 
-#: inc/widgets/bp-profile-completion-widget.php:427
+#: inc/widgets/bp-profile-completion-widget.php:441
 msgid "Profile field sets:"
 msgstr "Profil-Feldsätze:"
 
-#: inc/widgets/bp-profile-completion-widget.php:449
+#: inc/widgets/bp-profile-completion-widget.php:466
 msgid "Profile photos:"
 msgstr "Profilbilder:"
 
-#: inc/widgets/bp-profile-completion-widget.php:469
+#: inc/widgets/bp-profile-completion-widget.php:485
 msgid "Hide widget once progress hits 100%"
 msgstr "Widget ausblenden, sobald der Fortschritt 100% erreicht"
 
-#: inc/widgets/bp-profile-completion-widget.php:475
+#: inc/widgets/bp-profile-completion-widget.php:491
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 "Hinweis: Dieses Widget wird nur angezeigt, wenn ein Mitglied angemeldet ist."
@@ -1580,6 +1584,10 @@ msgstr "wbcomdesigns,vapvarun"
 #. Author URI of the plugin/theme
 msgid "https://wbcomdesigns.com"
 msgstr "https://wbcomdesigns.com"
+
+#. Template Name of the plugin/theme
+msgid "Page-Without-Sidebar"
+msgstr "Seite - ohne Seitenleiste"
 
 #. Template Name of the plugin/theme
 msgid "Full-Width-No-Title"

@@ -54,4 +54,6 @@ if ( is_404() ) {
 		?>
 	</header><!-- .page-header -->
 	<?php
+} else {
+	the_title( '<h1 class="entry-title">', '</h1>' );
 }
