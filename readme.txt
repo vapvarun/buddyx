@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.4.1
+Tested up to: 5.4.2
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -20,6 +20,10 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.9.0 =
+* Fix: (#59, #105, #110, #111) Trello card fixes
+* Improvement: Added Yoast breadcrumbs
 
 = 2.8.0 =
 * Improvement: Managed BuddyPress group reviews star rating alignment
