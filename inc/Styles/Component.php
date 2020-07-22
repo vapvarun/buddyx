@@ -144,6 +144,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css');
 		}
 
+		// Enqueue LearnPress CSS
+		if ( class_exists( 'LearnPress' ) ) {
+			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css');
+		}
+
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
