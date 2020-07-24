@@ -69,7 +69,7 @@ function buddyx_register_required_plugins() {
 			'required'	 => false,
 			'version'	 => '1.0.0',
 		),
-		
+
 		// Kirki Toolkit
 		array(
 			'name'		 => 'Kirki Toolkit', 'buddyx',
@@ -79,22 +79,8 @@ function buddyx_register_required_plugins() {
 
 		// Ultimate Addons for Gutenberg
 		array(
-			'name'		 => 'Ultimate Addons for Gutenberg',
-			'slug'		 => 'ultimate-addons-for-gutenberg',
-			'required'	 => false,
-		),
-
-		// BuddyPress Plugin
-		array(
-			'name'		 => 'BuddyPress',
-			'slug'		 => 'buddypress',
-			'required'	 => false,
-		),
-
-		// rtMedia Plugin
-		array(
-			'name'		 => 'rtMedia for WordPress, BuddyPress and bbPress',
-			'slug'		 => 'buddypress-media',
+			'name'		 => 'Elementor Page Builder',
+			'slug'		 => 'elementor',
 			'required'	 => false,
 		),
 
@@ -103,6 +89,15 @@ function buddyx_register_required_plugins() {
 			'name'		 => 'WooCommerce',
 			'slug'		 => 'woocommerce',
 			'required'	 => false,
+		),
+
+		// Demo Impoter
+		array(
+			'name'		 => 'BuddyBoss Platform',
+			'slug'		 => 'buddyboss-platform',
+			'source'	 => 'https://github.com/buddyboss/buddyboss-platform/releases/download/1.4.6/buddyboss-platform-plugin.zip',
+			'required'	 => false,
+			'version'	 => '1.4.6',
 		),
 
 	);
