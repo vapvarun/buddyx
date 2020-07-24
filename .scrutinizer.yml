@@ -5,9 +5,3 @@ checks:
 build:
     nodes:
         tests: true
-        analysis:
-            tests:
-                override:
-                    -
-                        command: scss-lint-run
-                        use_website_config: true
