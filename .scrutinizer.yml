@@ -104,19 +104,3 @@ checks:
         curly: true
         check_switch_no_default: true
         check_switch_default_not_last: true
-
-build:
-    nodes:
-        tests: true
-        analysis:
-            tests:
-                override:
-                    -
-                        command: phpcs-run
-                        use_website_config: true
-                    -
-                        command: scss-lint-run
-                        use_website_config: true
-                    -
-                        command: csslint-run
-                        use_website_config: true
