@@ -49,29 +49,17 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	<i class="fa fa-bars" aria-hidden="true"></i>
 	</button>
 
-	<div class="primary-menu-container buddyx-mobile-menu">
+	<div class="primary-menu-container">
 		<div class="mobile-menu-heading">
 			<h3 class="menu-title"><?php esc_attr_e( 'Menu', 'buddyx' ); ?></h3>
 			<a href="#" class="menu-close">close</a>
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
-		<div class="moible-icons">
-			<?php site_menu_icon(); ?>
-		</div>
+		<?php site_menu_icon(); ?>
 	</div>
-
-	<div class="primary-menu-container buddyx-desktop-menu">
-		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
-		<div class="moible-icons">
-			<?php site_menu_icon(); ?>
-		</div>
-	</div>
-	<div class="buddypress-icons-wrapper">
-		<div class="desktop-icons">
-			<?php site_menu_icon(); ?>
-		</div>
-		<?php //if ( class_exists( 'BuddyPress' ) ) { ?>
+	<?php if ( class_exists( 'BuddyPress' ) ) { ?>
+		<div class="buddypress-icons-wrapper">
 			<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
-		<?php //} ?>
-	</div>
+		</div>
+	<?php } ?>
 </nav><!-- #site-navigation -->

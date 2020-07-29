@@ -44,7 +44,7 @@ class Component implements Component_Interface {
 			__( 'Getting Started', 'buddyx' ),
 			__( 'Getting Started', 'buddyx' ),
 			'manage_options',
-			'buddyxpro-welcome',
+			'buddyx-welcome',
 			array( &$this, 'submenu_page_callback' )
 		);
 	}

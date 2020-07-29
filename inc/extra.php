@@ -86,17 +86,17 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 					the_category(' > ');
 				} elseif ( is_archive() || is_single() ){
 					if ( is_day() ) {
-						printf( __( '%s', 'buddyxpro' ), get_the_date() );
+						printf( __( '%s', 'buddyx' ), get_the_date() );
 					} elseif ( is_month() ) {
-						printf( __( '%s', 'buddyxpro' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyxpro' ) ) );
+						printf( __( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
 					} elseif ( is_year() ) {
-						printf( __( '%s', 'buddyxpro' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyxpro' ) ) );
+						printf( __( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
 					} elseif( is_shop() ) {
-						_e( 'Shop', 'buddyxpro' );
+						_e( 'Shop', 'buddyx' );
 					}elseif( is_archive('post-type-archive-forum') ) {
-						_e( 'Forums Archives', 'buddyxpro' );
+						_e( 'Forums Archives', 'buddyx' );
 					} else {
-						_e( 'Blog Archives', 'buddyxpro' );
+						_e( 'Blog Archives', 'buddyx' );
 					}
 				}
 			
@@ -113,7 +113,7 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 			
 				// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home > Blog
 				if (is_home()){
-					_e( 'Blog', 'buddyxpro' );
+					_e( 'Blog', 'buddyx' );
 				}
 
 				echo '</div>';
