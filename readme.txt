@@ -21,6 +21,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 2.9.1 =
+* Improvement: Added LearnPress basic Support
+* Improvement: Updated plugin suggestions
+* Improvement: Updated Navigation Menu style
+
 = 2.9.0 =
 * Fix: (#59, #105, #110, #111) Trello card fixes
 * Improvement: Added Yoast breadcrumbs
