@@ -894,7 +894,7 @@ msgid "User Menu"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:93
-msgid "Left Sidebar"
+msgid "Right Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:120, ../buddyx/inc/Sidebars/Component.php:132, ../buddyx/inc/Sidebars/Component.php:146, ../buddyx/inc/Sidebars/Component.php:158, ../buddyx/inc/Sidebars/Component.php:172, ../buddyx/inc/Sidebars/Component.php:184, ../buddyx/inc/Sidebars/Component.php:197, ../buddyx/inc/Sidebars/Component.php:209, ../buddyx/inc/Sidebars/Component.php:221, ../buddyx/inc/Sidebars/Component.php:233
@@ -902,7 +902,7 @@ msgid "Add widgets here."
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:105
-msgid "Right Sidebar"
+msgid "Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:118
