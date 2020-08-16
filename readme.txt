@@ -83,6 +83,9 @@ or Isotope Commercial License for commercial use
 https://isotope.metafizzy.co
 Copyright 2010-2018 Metafizzy
 
+Screenshot
+screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/photo/1624307, CC0
+
 == Changelog ==
 
 = 1.0.0 =
