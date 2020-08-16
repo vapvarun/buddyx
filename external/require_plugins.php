@@ -59,7 +59,7 @@ function buddyx_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-		
+
 		// Kirki Toolkit
 		array(
 			'name'		 => 'Kirki Toolkit', 'buddyx',
@@ -67,31 +67,10 @@ function buddyx_register_required_plugins() {
 			'required'	 => false,
 		),
 
-		// Ultimate Addons for Gutenberg
-		array(
-			'name'		 => 'Ultimate Addons for Gutenberg',
-			'slug'		 => 'ultimate-addons-for-gutenberg',
-			'required'	 => false,
-		),
-
 		// BuddyPress Plugin
 		array(
 			'name'		 => 'BuddyPress',
 			'slug'		 => 'buddypress',
-			'required'	 => false,
-		),
-
-		// rtMedia Plugin
-		array(
-			'name'		 => 'rtMedia for WordPress, BuddyPress and bbPress',
-			'slug'		 => 'buddypress-media',
-			'required'	 => false,
-		),
-
-		// WooCommerce
-		array(
-			'name'		 => 'WooCommerce',
-			'slug'		 => 'woocommerce',
 			'required'	 => false,
 		),
 
