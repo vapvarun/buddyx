@@ -1,7 +1,0 @@
-checks:
-    php: true
-    javascript: true
-
-build:
-    nodes:
-        tests: true
