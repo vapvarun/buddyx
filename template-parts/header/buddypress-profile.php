@@ -23,7 +23,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
   global $bp;
   ?>
   <div class="user-notifications">
-    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_html( esc_attr( 'Notifications' ), 'buddyx' ); ?>">
+    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr( esc_attr( 'Notifications' ), 'buddyx' ); ?>">
         <span class="fa fa-bell"></span>
         <?php
         if ( function_exists( 'bp_notifications_get_unread_notification_count' ) ) {

@@ -76,7 +76,7 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 				// Start the breadcrumb with a link to your homepage
 				echo '<div class="buddyx-breadcrumbs">';
 				echo '<a href="';
-				echo home_url();
+				echo esc_url(home_url());
 				echo '">';
 				echo'Home';
 				echo '</a>' . $sep;
@@ -151,7 +151,7 @@ if ( !function_exists( 'site_menu_icon' ) ) {
 				endif;
 				if( !empty($carticon) && function_exists("is_woocommerce")) : ?>
 					<div class="cart">
-						<a href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e( 'View Shopping Cart', 'buddyx' ); ?>">
+						<a href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
 							<span class="fa fa-shopping-cart"> </span><?php
 							$count = WC()->cart->cart_contents_count;
 							if( $count > 0 ) : ?>

@@ -924,7 +924,7 @@ msgid "User Menu"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:93
-msgid "Left Sidebar"
+msgid "Right Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:120, ../buddyx/inc/Sidebars/Component.php:132, ../buddyx/inc/Sidebars/Component.php:146, ../buddyx/inc/Sidebars/Component.php:158, ../buddyx/inc/Sidebars/Component.php:172, ../buddyx/inc/Sidebars/Component.php:184, ../buddyx/inc/Sidebars/Component.php:197, ../buddyx/inc/Sidebars/Component.php:209, ../buddyx/inc/Sidebars/Component.php:221, ../buddyx/inc/Sidebars/Component.php:233
@@ -932,7 +932,7 @@ msgid "Add widgets here."
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:105
-msgid "Right Sidebar"
+msgid "Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:118
@@ -1086,7 +1086,7 @@ msgstr ""
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content-bbpress.php:31, ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry_content.php:36
+#: ../buddyx/template-parts/content-bbpress.php:31, ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry-page.php:36, ../buddyx/template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr ""
 
@@ -1262,14 +1262,10 @@ msgstr ""
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:145
-msgid "Coupon code"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:145, ../buddyx/woocommerce/cart/cart.php:145
+#: ../buddyx/woocommerce/cart/cart.php:147, ../buddyx/woocommerce/cart/cart.php:147
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:150, ../buddyx/woocommerce/cart/cart.php:150
+#: ../buddyx/woocommerce/cart/cart.php:152, ../buddyx/woocommerce/cart/cart.php:152
 msgid "Update cart"
 msgstr ""

@@ -90,8 +90,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_sidebars() {
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Left Sidebar', 'buddyx' ),
-				'id'            => static::LEFT_SIDEBAR_SLUG,
+				'name'          => esc_html__( 'Right Sidebar', 'buddyx' ),
+				'id'            => static::RIGHT_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
@@ -102,8 +102,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Right Sidebar', 'buddyx' ),
-				'id'            => static::RIGHT_SIDEBAR_SLUG,
+				'name'          => esc_html__( 'Left Sidebar', 'buddyx' ),
+				'id'            => static::LEFT_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
