@@ -1,5 +1,5 @@
 === BuddyX ===
-Contributors: wbcomdesigns,vapvarun
+Contributors: wbcomdesigns
 Tags: buddypress,amp-ready
 Requires at least: 4.8
 Tested up to: 5.5.0
@@ -11,7 +11,11 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 Buddyx is build with WP Rig for your community site powered with BuddyPress.
+
 Free theme for your community with BuddyPress, Buddyx is built using latest best practices for progressive web content and optimization.
+
+It offers templates to work with page builders. It have support for popular LMS plugins along with WooCommerce.
+It's RTL ready, translation ready, have support of bunch of premium plugins and developed, maintained and support by Wbcom Designs.
 
 == BuddyX Child Theme ==
 
@@ -25,11 +29,11 @@ There are multiple ways you can use a child theme with the BuddyX Theme, Use any
 BuddyX is licensed under the GNU General Public License v3.0 (or later)
 More details here: https://www.gnu.org/licenses/gpl-3.0.html
 
+BuddyX is based on WP Rig https://github.com/wprig/wprig, WP Rig is released under GNU General Public License v3.0 (or later).
+
 == Copyright ==
 
 BuddyX is distributed under the terms of the GNU GPL.
-
-BuddyX is based on WP Rig https://github.com/wprig/wprig, WP Rig is released under GNU General Public License v3.0 (or later).
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
