@@ -1,6 +1,6 @@
 === BuddyX ===
 Contributors: wbcomdesigns
-Tags: translation-ready, Accessibility Ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
+Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
 Tested up to: 5.5.0
 Requires PHP: 7.0
@@ -82,9 +82,6 @@ Licensed GPLv3 for open source use
 or Isotope Commercial License for commercial use
 https://isotope.metafizzy.co
 Copyright 2010-2018 Metafizzy
-
-Screenshot
-screenshot.png (Slider Image), © 2020 @geralt-9301 https://pixabay.com/photos/personal-woman-self-talk-mirror-2923048/, CC0
 
 == Changelog ==
 
