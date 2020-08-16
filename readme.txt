@@ -29,6 +29,8 @@ More details here: https://www.gnu.org/licenses/gpl-3.0.html
 
 BuddyX is distributed under the terms of the GNU GPL.
 
+BuddyX is based on WP Rig https://github.com/wprig/wprig, WP Rig is released under GNU General Public License v3.0 (or later).
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3.0 of the License, or
