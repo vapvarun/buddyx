@@ -79,8 +79,8 @@ function buddyx_register_required_plugins() {
 
 		// Ultimate Addons for Gutenberg
 		array(
-			'name'		 => 'Elementor Page Builder',
-			'slug'		 => 'elementor',
+			'name'		 => 'Ultimate Addons for Gutenberg',
+			'slug'		 => 'ultimate-addons-for-gutenberg',
 			'required'	 => false,
 		),
 
