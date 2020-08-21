@@ -1,4 +1,4 @@
-<?php 
+<?php
 // buddy_excerpt_length
 function buddy_excerpt_length( $length ) {
     return 20;
@@ -22,7 +22,7 @@ if ( !function_exists( 'buddy_content_bottom' ) ) {
 
 add_action( 'buddy_after_content', 'buddy_content_bottom' );
 
-// Site Sub Header 
+// Site Sub Header
 if ( !function_exists( 'buddyx_sub_header' ) ) {
 	add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 
@@ -38,7 +38,7 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-				if ( ! empty( $breadcrumbs ) ) {					
+				if ( ! empty( $breadcrumbs ) ) {
 					the_breadcrumb();
 				}
 			} elseif ( get_post_type() === 'page' || is_single() ) {
@@ -61,18 +61,18 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 //  to include in functions.php
 if ( !function_exists( 'the_breadcrumb' ) ) {
 	function the_breadcrumb() {
-		
-		$wpseo_titles = get_option( 'wpseo_titles' );		
+
+		$wpseo_titles = get_option( 'wpseo_titles' );
 		if ( function_exists('yoast_breadcrumb') && isset($wpseo_titles['breadcrumbs-enable']) &&  $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-			
+
 			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-			
+
 		} else {
-		
+
 			$sep = ' &raquo ';
 
 			if (!is_front_page()) {
-			
+
 				// Start the breadcrumb with a link to your homepage
 				echo '<div class="buddyx-breadcrumbs">';
 				echo '<a href="';
@@ -80,7 +80,7 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 				echo '">';
 				echo'Home';
 				echo '</a>' . $sep;
-			
+
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
 					the_category(' > ');
@@ -99,18 +99,18 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 						_e( 'Blog Archives', 'buddyxpro' );
 					}
 				}
-			
+
 				// If the current page is a single post, show its title with the separator
 				if (is_single()) {
 					echo $sep;
 					the_title();
 				}
-			
+
 				// If the current page is a static page, show its title.
 				if (is_page()) {
 					echo the_title();
 				}
-			
+
 				// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home > Blog
 				if (is_home()){
 					_e( 'Blog', 'buddyxpro' );
@@ -122,7 +122,7 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 	}
 }
 
-// Site Loader 
+// Site Loader
 if ( !function_exists( 'site_loader' ) ) {
 	function site_loader() {
 		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
@@ -190,7 +190,7 @@ if ( !function_exists( 'bp_get_activity_css_first_class' ) ) {
 
 /**
  * Is the current user online
- * 
+ *
  * @param $user_id
  *
  * @return bool
@@ -261,7 +261,7 @@ if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
  */
 if ( !function_exists( 'disable_woo_commerce_sidebar' ) ) {
 	function disable_woo_commerce_sidebar() {
-		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 	}
 }
 add_action('init', 'disable_woo_commerce_sidebar');
