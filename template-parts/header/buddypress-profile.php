@@ -10,7 +10,8 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
                 if ( $count > 0 ) { ?>
                     <sup><?php bp_total_unread_messages_count(); ?></sup><?php
                 } else {
-                    echo '<sup>0</sup>';
+                  ?>
+                  <sup><?php echo esc_html( '0', 'buddyx' ); ?></sup><?php
                 }
             }
         ?>

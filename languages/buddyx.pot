@@ -46,7 +46,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../buddyx/comments.php:60
-msgid "Comments are closed."
+msgid "Comments are disabled."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:327
@@ -1018,6 +1018,166 @@ msgstr ""
 msgid "Getting started with BuddyX"
 msgstr ""
 
+#: ../buddyx/inc/Welcome/Component.php:60
+msgid "Programming Languages"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:61
+msgid "Home"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:62
+msgid "Get Pro"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:64
+msgid "tab1"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:73
+msgid "Knowledge Base"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:74
+msgid "We have created full-proof documentation for you. It will help you to understand how our theme works."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:75
+msgid "Take Me to The Knowledge Page"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:88
+msgid "Video Tutorial"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:89
+msgid "How to use Floating Effects and manage CSS Transform?"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:97
+msgid "BuddyX Demo installation"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:103
+msgid "BuddyX Customizer Option"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:109
+msgid "View More Videos"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:117
+msgid "FAQ"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:118
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:124
+msgid "Can I use these addons in my client project?"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:125
+msgid "Yes, absolutely, no holds barred. Use it to bring colorful moments to your customers. And don’t forget to check out our premium features."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:128
+msgid "Is there any support policy available for the free users?"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:129
+msgid "Free or pro version, both comes with excellent support from us. However, pro users will get priority support."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:138
+msgid "Support"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:139
+msgid "Submit your tickets to get solutions from our WordPress experts within the next 24 hours."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:140
+msgid "Create Ticket"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:145
+msgid "Help Desk Hours"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:146
+msgid "Days: Monday-Friday"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:147
+msgid "Time: 10AM – 7PM GMT"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:148
+msgid "Inquiries received after the working hours or on weekends will be addressed on the next working day."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:157
+msgid "tab2"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:163
+msgid "Features"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:168
+msgid "Multiple Header Variations"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:169
+msgid "Website header attracts the site visitors’ attention first. Keeping this fact in mind, BuddyX theme is designed with attractive header styles that make your site look more interactive. Try out the various header designs and select the best one for your community website."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:183
+msgid "Members and Groups Layout"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:184
+msgid "In order to make your community website more engaging and interactive, BuddyX theme comes with clean and most flexible members and group directory layouts. It makes your website more user-friendly and attractive."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:192
+msgid "Multiple Member &#38; Group Header Layouts"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:193
+msgid "BuddyX offers beautiful layouts for members and group pages for your social network community website. Site admin can select layouts to style the profile header of their community members as well as for groups."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:207
+msgid "WooCommerce Ready"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:208
+msgid "Want more than just a BuddyPress or bbPress WordPress theme? BuddyX will match your requirements! Try this amazing social network theme that offers support to the most widely used WordPress e-commerce plugin— WooCommerce. Integrate online store functionalities with your website today and sell your products to your community members."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:216
+msgid "LearnDash Support"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:217
+msgid "If you are looking for a powerful social learning solution, BuddyX is perfect! The theme is fully compatible with the powerful WordPress LMS plugin→ LearnDash. You can easily create a community for your students to engage learners with a social experience and allow them to share their progress with others."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:231
+msgid "Get Your Site Ready With Just 1-Click"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:232
+msgid "Do you like the look and style of the Demo? Would you like to create your social network just like it? BuddyX theme offers one-click demo installation support to help you get started with your website within minutes."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:239
+msgid "Get Pro and Experience all those exciting features"
+msgstr ""
+
 #: ../buddyx/inc/widgets/bp-profile-completion-widget.php:20
 msgid "Show Logged in user Profile Completion Progress."
 msgstr ""
@@ -1068,6 +1228,10 @@ msgstr ""
 
 #: ../buddyx/inc/widgets/bp-profile-completion-widget.php:491
 msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+
+#: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:125
+msgid "Notifications menu"
 msgstr ""
 
 #: ../buddyx/searchform.php:2
@@ -1218,11 +1382,11 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:45
+#: ../buddyx/template-parts/header/buddypress-profile.php:46
 msgid "View all notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:50
+#: ../buddyx/template-parts/header/buddypress-profile.php:51
 msgid "No new notifications"
 msgstr ""
 

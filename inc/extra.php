@@ -246,7 +246,7 @@ if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
 		$count = WC()->cart->get_cart_contents_count();
 		ob_start();
 		?>
-		<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
+		<a class="menu-icons-wrapper cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
 			<span class="fa fa-shopping-cart"></span>
 			<sup><?php echo esc_html( $count ); ?></sup>
 		</a>

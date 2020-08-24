@@ -70,8 +70,6 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 		<div class="desktop-icons">
 			<?php site_menu_icon(); ?>
 		</div>
-		<?php //if ( class_exists( 'BuddyPress' ) ) { ?>
-			<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
-		<?php //} ?>
+		<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
 	</div>
 </nav><!-- #site-navigation -->

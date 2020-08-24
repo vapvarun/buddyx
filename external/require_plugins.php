@@ -59,20 +59,20 @@ function buddyx_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
+		
+            // Kirki Toolkit
+            array(
+                    'name'		 => 'Kirki Toolkit', 'buddyx',
+                    'slug'		 => 'kirki',
+                    'required'	 => false,
+            ),
 
-		// Kirki Toolkit
-		array(
-			'name'		 => 'Kirki Toolkit', 'buddyx',
-			'slug'		 => 'kirki',
-			'required'	 => false,
-		),
-
-		// BuddyPress Plugin
-		array(
-			'name'		 => 'BuddyPress',
-			'slug'		 => 'buddypress',
-			'required'	 => false,
-		),
+            // BuddyPress Plugin
+            array(
+                    'name'		 => 'BuddyPress',
+                    'slug'		 => 'buddypress',
+                    'required'	 => false,
+            ),
 
 	);
 

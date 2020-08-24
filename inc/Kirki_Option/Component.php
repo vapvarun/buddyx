@@ -1119,7 +1119,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_text',
 			'label'       => esc_attr__( 'Add Content', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => 'Copyright &copy; 2019. All rights reserved by, <a href="#">WbcomDesigns</a>',
+			'default'     => 'Copyright &copy; 2020. All rights reserved by, <a href="#">BuddyX Theme</a>',
 			'priority'    => 10,
 		);
 

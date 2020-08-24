@@ -10,9 +10,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-Buddyx is build with WP Rig for your community site powered with BuddyPress.
+BuddyX is build with WP Rig for your community site powered with BuddyPress.
 
-Free theme for your community with BuddyPress, Buddyx is built using latest best practices for progressive web content and optimization.
+Free theme for your community with BuddyPress, BuddyX is built using latest best practices for progressive web content and optimization.
 
 It offers templates to work with page builders. It have support for popular LMS plugins along with WooCommerce.
 It's RTL ready, translation ready, have support of bunch of premium plugins and developed, maintained and support by Wbcom Designs.
