@@ -21,7 +21,7 @@ An answer to that question.
 
 == Changelog ==
 
-= 2.9.1 =
+= 2.9.2 =
 * Fix: Fixed cover image issue with BuddyPress
 * Fix: Updated cart and comment support
 
