@@ -93,7 +93,7 @@ function buddyx_register_required_plugins() {
 
 		// Demo Impoter
 		array(
-			'name'		 => 'BuddyBoss Platform',
+			'name'		 => 'BB',
 			'slug'		 => 'buddyboss-platform',
 			'source'	 => 'https://github.com/buddyboss/buddyboss-platform/releases/download/1.4.6/buddyboss-platform-plugin.zip',
 			'required'	 => false,
