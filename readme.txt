@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.4.2
+Tested up to: 5.5.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -20,6 +20,10 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.9.1 =
+* Fix: Fixed cover image issue with BuddyPress
+* Fix: Updated cart and comment support
 
 = 2.9.1 =
 * Improvement: Added LearnPress basic Support
