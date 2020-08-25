@@ -226,7 +226,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'     => 'radio-image',
 			'settings' => 'site_layout',
-			'label'    => esc_attr__( 'Site Layout', 'buddyx' ),
+			'label'    => esc_html__( 'Site Layout', 'buddyx' ),
 			'section'  => 'site_layout',
 			'priority' => 10,
 			'default'  => 'wide',
@@ -242,8 +242,8 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'			 => 'dimension',
 			'settings'		 => 'site_container_width',
-			'label'			 => esc_attr__( 'Max Content Layout Width', 'buddyx' ),
-			'description'	 => esc_attr__( 'Select the maximum content width for your website (px)', 'buddyx' ),
+			'label'			 => esc_html__( 'Max Content Layout Width', 'buddyx' ),
+			'description'	 => esc_html__( 'Select the maximum content width for your website (px)', 'buddyx' ),
 			'section'		 => 'site_layout',
 			'default'		 => '1170px',
 			'priority'		 => 10,
@@ -267,8 +267,8 @@ class Component implements Component_Interface {
 			'section'	 => 'site_loader',
 			'default'	 => '2',
 			'choices'	 => array(
-				'on'	 => esc_attr__( 'Yes', 'buddyx' ),
-				'off'	 => esc_attr__( 'No', 'buddyx' )
+				'on'	 => esc_html__( 'Yes', 'buddyx' ),
+				'off'	 => esc_html__( 'No', 'buddyx' )
 			),
 		);
 
@@ -296,7 +296,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'site_title_typography_option',
-			'label'       => esc_attr__( 'Site Title Settings', 'buddyx' ),
+			'label'       => esc_html__( 'Site Title Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -319,7 +319,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_title_hover_color',
-			'label'       => esc_attr__( 'Site Title Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Site Title Hover Color', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -334,7 +334,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'site_tagline_typography_option',
-			'label'       => esc_attr__( 'Site Tagline Settings', 'buddyx' ),
+			'label'       => esc_html__( 'Site Tagline Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
 				'font-family'    => 'Lato',
@@ -360,7 +360,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h1_typography_option',
-			'label'       => esc_attr__( 'H1 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H1 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -383,7 +383,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h2_typography_option',
-			'label'       => esc_attr__( 'H2 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H2 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -406,7 +406,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h3_typography_option',
-			'label'       => esc_attr__( 'H3 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H3 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -429,7 +429,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h4_typography_option',
-			'label'       => esc_attr__( 'H4 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H4 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -452,7 +452,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h5_typography_option',
-			'label'       => esc_attr__( 'H5 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H5 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -475,7 +475,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'h6_typography_option',
-			'label'       => esc_attr__( 'H6 Tag Settings', 'buddyx' ),
+			'label'       => esc_html__( 'H6 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -501,7 +501,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'menu_typography_option',
-			'label'       => esc_attr__( 'Menu Settings', 'buddyx' ),
+			'label'       => esc_html__( 'Menu Settings', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => array(
 				'font-family'    => 'Source Sans Pro',
@@ -528,7 +528,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'menu_hover_color',
-			'label'       => esc_attr__( 'Menu Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Menu Hover Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -547,7 +547,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'menu_active_color',
-			'label'       => esc_attr__( 'Menu Active Color', 'buddyx' ),
+			'label'       => esc_html__( 'Menu Active Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -565,7 +565,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'typography_option',
-			'label'       => esc_attr__( 'Settings', 'buddyx' ),
+			'label'       => esc_html__( 'Settings', 'buddyx' ),
 			'section'     => 'body_typography_section',
 			'default'     => array(
 				'font-family'    => 'Lato',
@@ -591,7 +591,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_header_bg_color',
-			'label'       => esc_attr__( 'Header Background Color', 'buddyx' ),
+			'label'       => esc_html__( 'Header Background Color', 'buddyx' ),
 			'section'     => 'site_header_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
@@ -617,8 +617,8 @@ class Component implements Component_Interface {
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
 			'choices'	 => array(
-				'on'	 => esc_attr__( 'Yes', 'buddyx' ),
-				'off'	 => esc_attr__( 'No', 'buddyx' )
+				'on'	 => esc_html__( 'Yes', 'buddyx' ),
+				'off'	 => esc_html__( 'No', 'buddyx' )
 			),
 		);
 
@@ -630,8 +630,8 @@ class Component implements Component_Interface {
 				'section'	 => 'site_header_section',
 				'default'	 => '2',
 				'choices'	 => array(
-					'on'	 => esc_attr__( 'Yes', 'buddyx' ),
-					'off'	 => esc_attr__( 'No', 'buddyx' )
+					'on'	 => esc_html__( 'Yes', 'buddyx' ),
+					'off'	 => esc_html__( 'No', 'buddyx' )
 				),
 			);
 		endif;
@@ -646,8 +646,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sub_header_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_attr__( 'Yes','buddyx' ),
-				'off' => esc_attr__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' )
 			),
 		);
 
@@ -678,7 +678,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'typography',
 			'settings'    => 'site_sub_header_typography',
-			'label'       => esc_attr__( 'Content Typography', 'buddyx' ),
+			'label'       => esc_html__( 'Content Typography', 'buddyx' ),
 			'section'     => 'site_sub_header_section',
 			'default'     => array(
 				'font-family'    => '',
@@ -705,8 +705,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sub_header_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_attr__( 'Yes','buddyx' ),
-				'off' => esc_attr__( 'No', 'buddyx' ),
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' ),
 			),
 		);
 
@@ -716,7 +716,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'body_background_color',
-			'label'       => esc_attr__( 'Body Background Color', 'buddyx' ),
+			'label'       => esc_html__( 'Body Background Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f7f7f9',
 			'priority'    => 10,
@@ -731,7 +731,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_primary_color',
-			'label'       => esc_attr__( 'Theme Color', 'buddyx' ),
+			'label'       => esc_html__( 'Theme Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -756,7 +756,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_links_color',
-			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#111111',
 			'priority'    => 10,
@@ -771,7 +771,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_links_focus_hover_color',
-			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
+			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -795,7 +795,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_background_color',
-			'label'       => esc_attr__( 'Button Background Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Background Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -813,7 +813,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_background_hover_color',
-			'label'       => esc_attr__( 'Button Background Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Background Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f83939',
 			'priority'    => 10,
@@ -831,7 +831,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_text_color',
-			'label'       => esc_attr__( 'Button Text Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Text Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
@@ -848,7 +848,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_text_hover_color',
-			'label'       => esc_attr__( 'Button Text Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Text Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
@@ -865,7 +865,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_border_color',
-			'label'       => esc_attr__( 'Button Border Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Border Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -882,7 +882,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_buttons_border_hover_color',
-			'label'       => esc_attr__( 'Button Border Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Button Border Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f83939',
 			'priority'    => 10,
@@ -902,7 +902,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'     => 'radio-image',
 			'settings' => 'blog_layout_option',
-			'label'    => esc_attr__( 'Blog Layout', 'buddyx' ),
+			'label'    => esc_html__( 'Blog Layout', 'buddyx' ),
 			'section'  => 'site_blog_section',
 			'priority' => 10,
 			'default'  => 'default-layout',
@@ -916,15 +916,15 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'select', 
 			'settings'    => 'post_per_row',
-			'label'       => esc_attr__( 'Post Per Row', 'buddyx' ),
+			'label'       => esc_html__( 'Post Per Row', 'buddyx' ),
 			'section'     => 'site_blog_section',
 			'default'     => '4',
 			'priority'    => 10,
 			'choices'     => array( 
-				'12' => esc_attr__( 'Column 1', 'buddyx' ), 
-				'6' => esc_attr__( 'Column 2', 'buddyx' ),
-				'4' => esc_attr__( 'Column 3', 'buddyx' ),  
-				'3' => esc_attr__( 'Column 4', 'buddyx' ),
+				'12' => esc_html__( 'Column 1', 'buddyx' ), 
+				'6' => esc_html__( 'Column 2', 'buddyx' ),
+				'4' => esc_html__( 'Column 3', 'buddyx' ),  
+				'3' => esc_html__( 'Column 4', 'buddyx' ),
 			), 
 			'active_callback'	 => array(
 				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
@@ -937,7 +937,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'     => 'radio-image',
 			'settings' => 'sidebar_option',
-			'label'    => esc_attr__( 'Sidebar Layout', 'buddyx' ),
+			'label'    => esc_html__( 'Sidebar Layout', 'buddyx' ),
 			'section'  => 'site_sidebar_layout',
 			'priority' => 10,
 			'default'  => 'right',
@@ -953,7 +953,7 @@ class Component implements Component_Interface {
 			$fields[] = array(
 				'type'     => 'radio-image',
 				'settings' => 'buddypress_sidebar_option',
-				'label'    => esc_attr__( 'BuddyPress Sidebar Layout', 'buddyx' ),
+				'label'    => esc_html__( 'BuddyPress Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
 				'default'  => 'right',
@@ -970,7 +970,7 @@ class Component implements Component_Interface {
 			$fields[] = array(
 				'type'     => 'radio-image',
 				'settings' => 'bbpress_sidebar_option',
-				'label'    => esc_attr__( 'bbPress Sidebar Layout', 'buddyx' ),
+				'label'    => esc_html__( 'bbPress Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
 				'default'  => 'right',
@@ -987,7 +987,7 @@ class Component implements Component_Interface {
 			$fields[] = array(
 				'type'     => 'radio-image',
 				'settings' => 'woocommerce_sidebar_option',
-				'label'    => esc_attr__( 'WooCommerce Sidebar Layout', 'buddyx' ),
+				'label'    => esc_html__( 'WooCommerce Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
 				'default'  => 'right',
@@ -1007,8 +1007,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sidebar_layout',
 			'default'  => '1',
 			'choices'  => [
-				'on' => esc_attr__( 'Yes','buddyx' ),
-				'off'  => esc_attr__( 'No','buddyx' ),
+				'on' => esc_html__( 'Yes','buddyx' ),
+				'off'  => esc_html__( 'No','buddyx' ),
 			],
 		);
 
@@ -1022,8 +1022,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_footer_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_attr__( 'Yes','buddyx' ),
-				'off' => esc_attr__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' )
 			),
 		);
 
@@ -1054,7 +1054,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_title_color',
-			'label'       => esc_attr__( 'Title Color', 'buddyx' ),
+			'label'       => esc_html__( 'Title Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
 			'priority'    => 10,
@@ -1069,7 +1069,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_content_color',
-			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
+			'label'       => esc_html__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#505050',
 			'priority'    => 10,
@@ -1084,7 +1084,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_color',
-			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
 			'priority'    => 10,
@@ -1099,7 +1099,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_footer_links_hover_color',
-			'label'       => esc_attr__( 'Link Hover', 'buddyx' ),
+			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
@@ -1117,7 +1117,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'textarea',
 			'settings'    => 'site_copyright_text',
-			'label'       => esc_attr__( 'Add Content', 'buddyx' ),
+			'label'       => esc_html__( 'Add Content', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => 'Copyright &copy; 2020. All rights reserved by, <a href="#">BuddyX Theme</a>',
 			'priority'    => 10,
@@ -1126,7 +1126,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_background_color',
-			'label'       => esc_attr__( 'Background Color', 'buddyx' ),
+			'label'       => esc_html__( 'Background Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
@@ -1141,7 +1141,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_border_color',
-			'label'       => esc_attr__( 'Border Color', 'buddyx' ),
+			'label'       => esc_html__( 'Border Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#e8e8e8',
 			'priority'    => 10,
@@ -1156,7 +1156,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_content_color',
-			'label'       => esc_attr__( 'Content Color', 'buddyx' ),
+			'label'       => esc_html__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#505050',
 			'priority'    => 10,
@@ -1171,7 +1171,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_links_color',
-			'label'       => esc_attr__( 'Link Color', 'buddyx' ),
+			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#111111',
 			'priority'    => 10,
@@ -1186,7 +1186,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type'        => 'color',
 			'settings'    => 'site_copyright_links_hover_color',
-			'label'       => esc_attr__( 'Link Hover Color', 'buddyx' ),
+			'label'       => esc_html__( 'Link Hover Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,

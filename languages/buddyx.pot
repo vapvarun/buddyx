@@ -1382,6 +1382,14 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
+#: ../buddyx/template-parts/footer/info.php:20
+msgid "Copyright &copy; 2020. All rights reserved by, "
+msgstr ""
+
+#: ../buddyx/template-parts/footer/info.php:20
+msgid "BuddyX Theme"
+msgstr ""
+
 #: ../buddyx/template-parts/header/buddypress-profile.php:46
 msgid "View all notifications"
 msgstr ""
