@@ -88,6 +88,10 @@ screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/phot
 
 == Changelog ==
 
+= 2.9.2 =
+* Fix: Escaping function updates
+* Improvement: page.php syntax cleanup
+
 = 2.9.1 =
 * Improvement: Added LearnPress basic Support
 * Improvement: Updated plugin suggestions
