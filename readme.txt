@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.5.0
+Tested up to: 5.5.1
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -94,6 +94,24 @@ Screenshot
 screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/photo/1624307, CC0
 
 == Changelog ==
+
+= 2.9.3 =
+* Fix: extra.php added admin conditon for excerpt
+* Fix: Translation String
+* Fix: make sure to have unique prefix
+* Fix: Admin css/js at welcome page only
+* Fix: disabled removed for core customizer options
+* Fix: Theme URI with wporg path
+* Fix: Screenshot updated
+* Fix: Remove additional scripts from header.php
+* Fix: Footer copyright text
+* Add Licence info for tgmpa, kirki
+* Fix: removed console js error
+* Fix : Keyboard navigation
+
+= 2.9.2 =
+* Fix: Removed extermal images 
+* Fix: Added unminied sources
 
 = 2.9.1 =
 * Improvement: Added LearnPress basic Support
