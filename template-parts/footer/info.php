@@ -12,13 +12,21 @@ $copyright = get_theme_mod( 'site_copyright_text' );
 
 	<div class="site-info">
 		<div class="container">
-
+			
 
 			<?php if ( $copyright ) {
 				echo ( $copyright );
 			} else { ?>
-				<?php esc_html_e( 'Copyright &copy; 2020. All rights reserved by, ', 'buddyx' ); ?><a href="<?php echo esc_url( '#' ); ?>"><?php esc_html_e( 'BuddyX Theme', 'buddyx' ); ?></a><?php
+				<?php 
+				$year = date_i18n(
+								/* translators: Copyright date format, see https://www.php.net/date */
+								_x( 'Y', 'copyright date format', 'buddyx' )
+							);
+				echo sprintf(__('Copyright &copy; %1$s. All rights reserved by, %2$s. Designed with %3$s','buddyx'), $year ,'<a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo( 'name' ).'</a>','<a href="https://wordpress.org/themes/buddyx/">BuddyX</a>');
+				 
+				
 			} ?>
+			
 		</div>
 
 	<?php

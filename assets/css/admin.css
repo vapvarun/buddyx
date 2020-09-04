@@ -45,15 +45,15 @@
 }
 
 .buddyx-dashboard-tabs button:focus {
-    outline: 0;
-    --bs-color: rgba(0,0,0,0.6);
+    outline: thin dotted;
+    --bs-color: rgba(0, 0, 0, 0.6);
 }
 
 .buddyx-home-body {
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-left: 15px; 
+    padding-left: 15px;
     max-width: 1200px;
 }
 
@@ -113,7 +113,7 @@ h2.buddyx-feature-title {
         grid-gap: 10px;
         margin: 50px 0;
         align-items: center;
-    }	
+    }
 }
 
 .buddyx-title-icon {
@@ -146,7 +146,7 @@ h2.buddyx-feature-title {
     font-weight: 700;
     font-size: 28px;
     line-height: 1.4;
-}	
+}
 
 .buddyx-col-content {
     font-size: 18px;
@@ -172,7 +172,7 @@ h2.buddyx-feature-title {
     color: #fff;
 }
 
-.buddyx-btn-primary:focus, 
+.buddyx-btn-primary:focus,
 .buddyx-btn-primary:hover {
     background: #f83939;
     color: #fff;
@@ -183,21 +183,22 @@ h2.buddyx-feature-title {
     margin-bottom: -30px;
 }
 
+
 /**/
 
-.buddyx-home-banner img{
+.buddyx-home-banner img {
     max-width: 100%;
     height: auto;
 }
 
-.buddy-plugin-row{
+.buddy-plugin-row {
     max-width: 1200px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 
-.addon-section{
+.addon-section {
     width: 100%;
     max-width: calc(25% - 20px);
     margin: 10px;
@@ -210,27 +211,29 @@ h2.buddyx-feature-title {
     overflow: hidden;
     transition: all 0.3s;
 }
+
 .addon-section:hover {
     transform: translateY(-10px);
     transition: all 0.3s;
 }
 
-.addon-section a{
+.addon-section a {
     text-decoration: none;
 }
 
-.addon-section img{
+.addon-section img {
     max-width: 100%;
     height: auto;
 }
 
-.addon-content{
+.addon-content {
     padding: 15px 10px;
     text-align: center;
 }
-.addon-content h3{
-    margin:0px;
-    padding:0px;
+
+.addon-content h3 {
+    margin: 0px;
+    padding: 0px;
     font-size: 20px;
     line-height: 1.3;
 }
@@ -242,7 +245,7 @@ h2.buddyx-feature-title {
 }
 
 @media (max-width: 768px) {
-    .addon-section{
+    .addon-section {
         max-width: calc(50% - 20px);
     }
 }

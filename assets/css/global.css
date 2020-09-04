@@ -295,7 +295,13 @@ input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb;
-    outline: none;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+    outline: thin dotted;
 }
 
 input[type="text"],
@@ -338,7 +344,7 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
     color: #111;
-    outline: none;
+    outline: thin dotted;
 }
 
 table {
@@ -419,16 +425,8 @@ select {
 }
 
 .custom-logo-link {
-    /* display: inline-block; */
     display: block;
-    /* margin: 0 auto 1em; */
 }
-
-
-/* .site-branding {
-	text-align: center;
-	padding: 60px 0 1.75em;
-} */
 
 .site-branding img {
     max-width: 150px;
@@ -490,13 +488,7 @@ select {
     font-size: 24px;
 }
 
-
-/* .nav--toggle-small .menu {
-	display: none;
-} */
-
 .nav--toggle-sub .dropdown,
-.buddyx-mobile-menu .dropdown-toggle,
 .mobile-menu-heading {
     display: none;
 }
@@ -639,20 +631,29 @@ body.admin-bar .site-header-wrapper {
     .mobile-menu-heading .menu-close:hover:after {
         transform: rotate(-45deg);
     }
-    .main-navigation ul.menu ul li {
-        padding-left: 0;
-    }
-    #primary-menu .submenu-btn {
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        background: #111;
-        color: #fff;
-        text-align: center;
+    .buddyx-mobile-menu .dropdown-toggle {
+        display: block;
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 2;
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+    }
+    .buddyx-mobile-menu .dropdown-toggle:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-size: 18px;
+    }
+    .main-navigation ul.menu ul li {
+        padding-left: 0;
+    }
+    #primary-menu .sub-menu {
+        display: none;
+    }
+    #primary-menu .sub-menu.toggle-show {
+        display: block;
     }
     .main-navigation ul.menu li+li {
         border-top: 1px solid rgba(34, 36, 38, .1);
@@ -660,9 +661,6 @@ body.admin-bar .site-header-wrapper {
     .main-navigation ul li.menu-item-has-children {
         position: relative;
     }
-    /* .main-navigation ul li.menu-item-has-children a {
-        padding: .5em 2em .5em 0;
-    } */
     .buddyx-mobile-menu .menu-icons-wrapper #searchform input[type=text] {
         width: 185px;
     }
@@ -672,10 +670,6 @@ body.admin-bar .site-header-wrapper {
     .main-navigation .primary-menu-container {
         width: 300px;
     }
-}
-
-.submenu-btn.fa-angle-down.fa-angle-up:before {
-    content: "\f106";
 }
 
 @media (min-width: 768px) {
@@ -690,42 +684,33 @@ body.admin-bar .site-header-wrapper {
     .nav--toggle-small .menu {
         display: block;
     }
-    #primary-menu .submenu-btn {
+    .nav--toggle-sub .dropdown-symbol {
+        display: block;
+        background: transparent;
         position: absolute;
-        right: 0;
-        top: 40%;
-        width: var(--dropdown-symbol-width);
-        height: var(--dropdown-symbol-width);
-        font-size: 20px;
-        line-height: inherit;
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        transform: translateY(-50%);
-        overflow: visible;
-        cursor: pointer;
-    }
-    #primary-menu .sub-menu .submenu-btn {
-        right: 10px;
+        right: 20%;
+        top: 50%;
+        width: 60%;
+        height: 60%;
+        border: solid #000;
+        border-width: 0 2px 2px 0;
+        transform: translateY(-50%) rotate(45deg);
     }
     .nav--toggle-sub ul ul {
-        opacity: 0;
-        visibility: hidden;
+        display: none;
         position: absolute;
         top: 100%;
         right: 0;
         flex-direction: column;
         background: #fff;
         margin-left: 0;
-        margin-top: 9px;
         z-index: 1;
         text-shadow: none;
         text-align: left;
         box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
         border: 0;
         border-radius: .28571429rem;
-        transition: all .3s;
+        transition: none;
     }
     .nav--toggle-sub ul .hideshow ul {
         margin-left: -10px;
@@ -784,18 +769,6 @@ body.admin-bar .site-header-wrapper {
         transform: translateY(-50%);
         overflow: visible;
     }
-    .nav--toggle-sub .dropdown-symbol {
-        display: block;
-        background: transparent;
-        position: absolute;
-        right: 20%;
-        top: 50%;
-        width: 60%;
-        height: 60%;
-        border: solid #000;
-        border-width: 0 2px 2px 0;
-        transform: translateY(-50%) rotate(45deg);
-    }
     .nav--toggle-sub ul ul .dropdown,
     .nav--toggle-sub ul ul .dropdown-toggle {
         top: 32%;
@@ -822,9 +795,8 @@ body.admin-bar .site-header-wrapper {
     .nav--toggle-sub li:hover>ul,
     .nav--toggle-sub li.menu-item--toggled-on>ul,
     .nav--toggle-sub li:not(.menu-item--has-toggle):focus>ul {
-        opacity: 1;
-        visibility: visible;
-        margin-top: 0;
+        display: block;
+        transition: none;
     }
     /*
 	 * "focus-within" is an alternative to focus class for
@@ -836,6 +808,7 @@ body.admin-bar .site-header-wrapper {
 	 */
     .nav--toggle-sub li:not(.menu-item--has-toggle):focus-within>ul {
         display: block;
+        transition: none;
     }
 }
 
@@ -1166,15 +1139,13 @@ body.admin-bar .site-header-wrapper {
 
 .main-navigation #user-profile-menu,
 .main-navigation .bp-header-submenu {
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     position: absolute;
     top: 100%;
     right: -8px;
     flex-direction: column;
     background: #fff;
     margin-left: 0;
-    margin-top: 9px;
     z-index: 1;
     text-shadow: none;
     text-align: left;
@@ -1213,10 +1184,9 @@ body.admin-bar .site-header-wrapper {
 }
 
 .buddypress-icons-wrapper .user-notifications:hover ul#bp-notify,
-.buddypress-icons-wrapper .user-link-wrap:hover #user-profile-menu {
-    opacity: 1;
-    visibility: visible;
-    margin-top: 0;
+.buddypress-icons-wrapper .user-link-wrap:hover #user-profile-menu,
+.buddypress-icons-wrapper .user-link-wrap.active #user-profile-menu {
+    display: block;
 }
 
 #user-profile-menu li {

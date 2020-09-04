@@ -60,7 +60,7 @@ if ( is_user_logged_in() ) {
   if ( ($current_user instanceof WP_User ) ) {
     $user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
     echo '<div class="user-link-wrap">';
-    echo '<a class="user-link">';
+    echo '<a class="user-link" href="' . $user_link . '">';
     ?>
     <span class="bp-user"><?php echo $current_user->display_name; ?></span>
     <?php

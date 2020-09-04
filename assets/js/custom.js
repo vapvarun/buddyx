@@ -50,6 +50,37 @@
         });
     };
 
+    // Desktop Menu Toggle
+    BUDDYX.desktopMenuToggle = function() {
+        $('.buddyx-desktop-menu #primary-menu').superfish({
+            delay: 600,
+            animation: {
+                opacity: 'show'
+            },
+            animationOut: {
+                opacity: 'hide'
+            },
+            speed: 'fast',
+            speedOut: 'fast',
+            cssArrows: false,
+            disableHI: false,
+        });
+
+        $("#primary-menu a, .desktop-icons a").focusin(function() {
+            $('.user-link-wrap').removeClass("active");
+        });
+
+        $(".user-link-wrap .user-link").focusin(function() {
+            $(this).parent().removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
+        $(".user-link-wrap ul#user-profile-menu > li:last-child a").focusout(function() {
+            $('.user-link-wrap').removeClass("active");
+        });
+
+    };
+
     // Mobile Menu Toggle
     BUDDYX.mobileNav = function() {
         var widget = $('.menu-toggle'),
@@ -106,25 +137,6 @@
         var isOpened = function() {
             return $('body').hasClass('mobile-menu-opened');
         };
-    };
-
-    // Mobile Sub Menu Toggle
-    BUDDYX.mobileMenuToggle = function() {
-
-        $('.buddyx-mobile-menu #primary-menu .sub-menu').hide();
-
-        $('.buddyx-mobile-menu #primary-menu .menu-item-has-children').each(function() {
-            $(this).prepend('<i class="fa submenu-btn fa-angle-down"></i>');
-        });
-
-        $('body').on('click', '.buddyx-mobile-menu #primary-menu .submenu-btn', function(e) {
-            e.preventDefault();
-            $("body").addClass('menu-active');
-            $(this).toggleClass('fa-angle-up').parent().children('.sub-menu').slideToggle();
-        });
-
-        $('.buddyx-mobile-menu #primary-menu li:has(ul)').doubleTapToGo();
-
     };
 
     // Blog Layout
@@ -205,8 +217,8 @@
 
         BUDDYX.headerHeight();
         BUDDYX.headerSearch();
+        BUDDYX.desktopMenuToggle();
         BUDDYX.mobileNav();
-        BUDDYX.mobileMenuToggle();
         BUDDYX.fitVids();
         BUDDYX.roundAvatarsBodyclass();
         BUDDYX.tableDataAtt();

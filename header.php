@@ -18,23 +18,13 @@ namespace BuddyX\Buddyx;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-
-	<?php
-	if ( ! buddyx()->is_amp() ) {
-		?>
-		<script>document.documentElement.classList.remove( 'no-js' );</script>
-		<?php
-	}
-	?>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
-
+	
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php site_loader(); ?>
-<?php wp_body_open(); ?>
+<?php buddyx_site_loader(); ?>
+<?php buddyx_wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="<?php echo esc_url( '#primary' ); ?>"><?php esc_html_e( 'Skip to content', 'buddyx' ); ?></a>
 

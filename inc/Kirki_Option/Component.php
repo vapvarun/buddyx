@@ -278,6 +278,7 @@ class Component implements Component_Interface {
 			'label'		 => esc_html__( 'Site Loader Background', 'buddyx' ),
 			'section'	 => 'site_loader',
 			'default'	 => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -322,6 +323,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Site Title Hover Color', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -531,6 +533,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Menu Hover Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -550,6 +553,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Menu Active Color', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -594,6 +598,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Header Background Color', 'buddyx' ),
 			'section'     => 'site_header_section',
 			'default'     => '#ffffff',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -719,6 +724,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Body Background Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f7f7f9',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -734,6 +740,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Theme Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -759,6 +766,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#111111',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -774,6 +782,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -798,6 +807,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Background Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
@@ -816,6 +826,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Background Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f83939',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
@@ -834,6 +845,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Text Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -851,6 +863,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Text Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -868,6 +881,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Border Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -885,6 +899,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Button Border Hover Color', 'buddyx' ),
 			'section'     => 'site_skin_section',
 			'default'     => '#f83939',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1057,6 +1072,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Title Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1072,6 +1088,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#505050',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1087,6 +1104,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1102,6 +1120,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
 			'section'     => 'site_footer_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1129,6 +1148,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Background Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#ffffff',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1144,6 +1164,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Border Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#e8e8e8',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1159,6 +1180,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Content Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#505050',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1174,6 +1196,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#111111',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(
@@ -1189,6 +1212,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Link Hover Color', 'buddyx' ),
 			'section'     => 'site_copyright_section',
 			'default'     => '#ef5455',
+                        'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
 				array(

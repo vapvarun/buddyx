@@ -63,7 +63,7 @@ class Component implements Component_Interface {
 					</div>
 					<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab1', 'buddyx' ); ?>">
 						<div class="buddyx-home-banner">
-							<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/thanks-theme-min.jpg" class="size-medium_large" alt="Thank You" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/thanks-theme-min.jpg' );?>" class="size-medium_large" alt="<?php esc_attr_e('Thank You','buddyx');?>" />
 						</div>
 						<div class="buddyx-home-body">
 
@@ -76,7 +76,7 @@ class Component implements Component_Interface {
 								</div>
 
 								<div class="buddyx-col">
-									<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/knowledge-base-min.png" alt="Knowledge Base" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/knowledge-base-min.png' );?>" alt="<?php esc_attr_e('Knowledge Base','buddyx');?>" />
 								</div>
 							</div><!-- .knowledge-base -->
 
@@ -93,13 +93,13 @@ class Component implements Component_Interface {
 							<div class="buddyx-row">
 								<div class="buddyx-col">
 									<a href="<?php echo esc_url( 'https://www.youtube.com/watch?v=Ztogq3dx4-E&feature=youtu.be' ); ?>" class="buddyx-feature-sub-title-a" target="_blank">
-										<?php echo '<img class="ha-img-fluid ha-rounded" src="' . get_template_directory_uri() . '/assets/images/theme-install-video-v-min.jpg" alt="BuddyX Demo installation" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/theme-install-video-v-min.jpg' );?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e('BuddyX Demo installation','buddyx');?>" />
 										<h4 class="buddyx-feature-sub-title"><?php esc_html_e( 'BuddyX Demo installation', 'buddyx' ); ?></h4>
 									</a>
 								</div>
 								<div class="buddyx-col">
 									<a href="<?php echo esc_url( 'https://www.youtube.com/watch?v=i51CikDsbeg&feature=youtu.be' ); ?>" class="buddyx-feature-sub-title-a" target="_blank">
-										<?php echo '<img class="ha-img-fluid ha-rounded" src="' . get_template_directory_uri() . '/assets/images/theme-options-v-min.jpg" alt="BuddyX Customizer Option" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/theme-options-v-min.jpg' );?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e('BuddyX Customizer Option','buddyx');?>" />
 										<h4 class="buddyx-feature-sub-title"><?php esc_html_e( 'BuddyX Customizer Option', 'buddyx' ); ?></h4>
 									</a>
 								</div>
@@ -156,7 +156,7 @@ class Component implements Component_Interface {
 					</div><!-- .tab1 -->
 					<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab2', 'buddyx' ); ?>" hidden>
 						<div class="buddyx-home-banner">
-							<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/choose-pro-theme-min.jpg" class="size-medium_large" alt="Thank You" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/choose-pro-theme-min.jpg' );?>" class="size-medium_large" alt="<?php esc_attr_e('Thank You','buddyx');?>" />
 						</div>
 
 						<div class="buddyx-text-center">
@@ -169,7 +169,7 @@ class Component implements Component_Interface {
 								<p class="buddyx-col-content"><?php esc_html_e( 'Website header attracts the site visitors’ attention first. Keeping this fact in mind, BuddyX theme is designed with attractive header styles that make your site look more interactive. Try out the various header designs and select the best one for your community website.', 'buddyx' ); ?></p>
 							</div>
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/Multiple-Header-min-1024x418.png" class="size-large" alt="Multiple Header Variations" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Multiple-Header-min-1024x418.png' );?>" class="size-large" alt="<?php esc_attr_e('Multiple Header Variations','buddyx');?>" />
 							</div>
 						</div><!-- .features -->
 
@@ -177,7 +177,7 @@ class Component implements Component_Interface {
 
 						<div class="buddyx-row features">
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/member-group-layout-min.png" class="size-large" alt="Members and Groups Layout" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/member-group-layout-min.png' );?>" class="size-large" alt="<?php esc_attr_e('Members and Groups Layout','buddyx');?>" />
 							</div>
 							<div class="buddyx-col">
 								<h3 class="buddyx-feature-title"><?php esc_html_e( 'Members and Groups Layout', 'buddyx' ); ?></h3>
@@ -193,7 +193,7 @@ class Component implements Component_Interface {
 								<p class="buddyx-col-content"><?php esc_html_e( 'BuddyX offers beautiful layouts for members and group pages for your social network community website. Site admin can select layouts to style the profile header of their community members as well as for groups.', 'buddyx' ); ?></p>
 							</div>
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/Member-Header-1-min.png" class="size-large" alt="Multiple Member &#38; Group Header Layouts" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Member-Header-1-min.png' );?>" class="size-large" alt="<?php esc_attr_e('Multiple Member &#38; Group Header Layouts','buddyx');?>" />
 							</div>
 						</div><!-- .features -->
 
@@ -201,7 +201,7 @@ class Component implements Component_Interface {
 
 						<div class="buddyx-row features">
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/shop-min-1024x757.png" class="size-large" alt="WooCommerce Ready" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/shop-min-1024x757.png' );?>" class="size-large" alt="<?php esc_attr_e('WooCommerce Ready','buddyx');?>" />
 							</div>
 							<div class="buddyx-col">
 								<h3 class="buddyx-feature-title"><?php esc_html_e( 'WooCommerce Ready', 'buddyx' ); ?></h3>
@@ -217,7 +217,7 @@ class Component implements Component_Interface {
 								<p class="buddyx-col-content"><?php esc_html_e( 'If you are looking for a powerful social learning solution, BuddyX is perfect! The theme is fully compatible with the powerful WordPress LMS plugin→ LearnDash. You can easily create a community for your students to engage learners with a social experience and allow them to share their progress with others.', 'buddyx' ); ?></p>
 							</div>
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/Learndash-min-1024x668.png" class="size-large" alt="LearnDash Support" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Learndash-min-1024x668.png' );?>" class="size-large" alt="<?php esc_attr_e('LearnDash Support','buddyx');?>" />
 							</div>
 						</div><!-- .features -->
 
@@ -225,7 +225,7 @@ class Component implements Component_Interface {
 
 						<div class="buddyx-row features">
 							<div class="buddyx-col">
-								<?php echo '<img src="' . get_template_directory_uri() . '/assets/images/Buddyboss-1024x669.png" class="size-large" alt="Get Your Site Ready With Just 1-Click" />'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Buddyboss-1024x669.png' );?>" class="size-large" alt="<?php esc_attr_e('Get Your Site Ready With Just 1-Click','buddyx');?>" />
 							</div>
 							<div class="buddyx-col">
 								<h3 class="buddyx-feature-title"><?php esc_html_e( 'Get Your Site Ready With Just 1-Click', 'buddyx' ); ?></h3>
@@ -250,9 +250,9 @@ class Component implements Component_Interface {
 		
 		<script>
 
-			const tabs = document.querySelector('.buddyx-dashboard-tabs .tabs');
-			const tabButtons = tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tab"]');
-			const tabPanels = Array.from(tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tabpanel"]'));
+			var tabs = document.querySelector('.buddyx-dashboard-tabs .tabs');
+			var tabButtons = tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tab"]');
+			var tabPanels = Array.from(tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tabpanel"]'));
 
 			function handleTabClick(event) {
 			// Hide tab panels
@@ -265,10 +265,10 @@ class Component implements Component_Interface {
 			event.currentTarget.setAttribute("aria-selected", true);
 
 			// Find the associated tabPanel and show it
-			const { id } = event.currentTarget;
+			var { id } = event.currentTarget;
 
 			// Find in the array of tabPanels
-			const tabPanel = tabPanels.find(
+			var tabPanel = tabPanels.find(
 				panel => panel.getAttribute('aria-labelledby') === id
 			);
 			tabPanel.hidden = false;

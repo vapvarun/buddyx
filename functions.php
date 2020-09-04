@@ -146,18 +146,18 @@ if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
 /**
  * Remove WooCommerce the breadcrumbs 
  */
-add_action( 'init', 'woo_remove_wc_breadcrumbs' );
-function woo_remove_wc_breadcrumbs() {
+add_action( 'init', 'buddyx_remove_wc_breadcrumbs' );
+function buddyx_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
 /**
  * Remove WooCommerce CSS if WooCommerce not activated
  */
-function woo_dequeue_styles() {
+function buddyx_woo_dequeue_styles() {
     wp_dequeue_style( 'buddyx-woocommerce' );
     wp_deregister_style( 'buddyx-woocommerce' );
 }
 if ( !class_exists( 'WooCommerce' ) ) {
-	add_action( 'wp_print_styles', 'woo_dequeue_styles' );
+	add_action( 'wp_print_styles', 'buddyx_woo_dequeue_styles' );
 }

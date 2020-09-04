@@ -37,6 +37,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_navigation_script' ] );
+		add_action( 'wp_head', [ $this, 'action_wp_head_amp_script' ] );
 		add_action( 'wp_print_footer_scripts', [ $this, 'action_print_skip_link_focus_fix' ] );
 		add_filter( 'nav_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
 		add_filter( 'page_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
@@ -56,9 +57,9 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-navigation',
 			get_theme_file_uri( '/assets/js/navigation.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-navigation', 'async', true );
 		wp_script_add_data( 'buddyx-navigation', 'precache', true );
@@ -70,6 +71,14 @@ class Component implements Component_Interface {
 				'collapse' => __( 'Collapse child menu', 'buddyx' ),
 			]
 		);
+	}
+	
+	public function action_wp_head_amp_script(){
+		if ( ! buddyx()->is_amp() ) {
+			?>
+			<script>document.documentElement.classList.remove( 'no-js' );</script>
+			<?php
+		}
 	}
 
 	/**

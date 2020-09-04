@@ -1034,7 +1034,11 @@ msgstr ""
 msgid "tab1"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:73
+#: ../buddyx/inc/Welcome/Component.php:66, ../buddyx/inc/Welcome/Component.php:159
+msgid "Thank You"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:73, ../buddyx/inc/Welcome/Component.php:79
 msgid "Knowledge Base"
 msgstr ""
 
@@ -1054,11 +1058,11 @@ msgstr ""
 msgid "How to use Floating Effects and manage CSS Transform?"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:97
+#: ../buddyx/inc/Welcome/Component.php:96, ../buddyx/inc/Welcome/Component.php:97
 msgid "BuddyX Demo installation"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:103
+#: ../buddyx/inc/Welcome/Component.php:102, ../buddyx/inc/Welcome/Component.php:103
 msgid "BuddyX Customizer Option"
 msgstr ""
 
@@ -1126,7 +1130,7 @@ msgstr ""
 msgid "Features"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:168
+#: ../buddyx/inc/Welcome/Component.php:168, ../buddyx/inc/Welcome/Component.php:172
 msgid "Multiple Header Variations"
 msgstr ""
 
@@ -1134,7 +1138,7 @@ msgstr ""
 msgid "Website header attracts the site visitors’ attention first. Keeping this fact in mind, BuddyX theme is designed with attractive header styles that make your site look more interactive. Try out the various header designs and select the best one for your community website."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:183
+#: ../buddyx/inc/Welcome/Component.php:180, ../buddyx/inc/Welcome/Component.php:183
 msgid "Members and Groups Layout"
 msgstr ""
 
@@ -1142,7 +1146,7 @@ msgstr ""
 msgid "In order to make your community website more engaging and interactive, BuddyX theme comes with clean and most flexible members and group directory layouts. It makes your website more user-friendly and attractive."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:192
+#: ../buddyx/inc/Welcome/Component.php:192, ../buddyx/inc/Welcome/Component.php:196
 msgid "Multiple Member &#38; Group Header Layouts"
 msgstr ""
 
@@ -1150,7 +1154,7 @@ msgstr ""
 msgid "BuddyX offers beautiful layouts for members and group pages for your social network community website. Site admin can select layouts to style the profile header of their community members as well as for groups."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:207
+#: ../buddyx/inc/Welcome/Component.php:204, ../buddyx/inc/Welcome/Component.php:207
 msgid "WooCommerce Ready"
 msgstr ""
 
@@ -1158,7 +1162,7 @@ msgstr ""
 msgid "Want more than just a BuddyPress or bbPress WordPress theme? BuddyX will match your requirements! Try this amazing social network theme that offers support to the most widely used WordPress e-commerce plugin— WooCommerce. Integrate online store functionalities with your website today and sell your products to your community members."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:216
+#: ../buddyx/inc/Welcome/Component.php:216, ../buddyx/inc/Welcome/Component.php:220
 msgid "LearnDash Support"
 msgstr ""
 
@@ -1166,7 +1170,7 @@ msgstr ""
 msgid "If you are looking for a powerful social learning solution, BuddyX is perfect! The theme is fully compatible with the powerful WordPress LMS plugin→ LearnDash. You can easily create a community for your students to engage learners with a social experience and allow them to share their progress with others."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:231
+#: ../buddyx/inc/Welcome/Component.php:228, ../buddyx/inc/Welcome/Component.php:231
 msgid "Get Your Site Ready With Just 1-Click"
 msgstr ""
 

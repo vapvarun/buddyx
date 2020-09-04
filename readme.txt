@@ -63,12 +63,10 @@ Url: http://markgoodyear.com/labs/scrollup/
 Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
 License: MIT
 
-jquery-doubleTapToGo plugin
-Copyright 2017 DACHCOM.DIGITAL AG
-https://github.com/dachcom-digital/jquery-doubletaptogo
-Original Plugin by Osvaldas Valutis, www.osvaldas.info
-http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
-Available for use under the MIT License
+jQuery Superfish Menu Plugin - v1.7.10
+Copyright (c) 2018 Joel Birch
+License: MIT/GPL - https://opensource.org/licenses/MIT
+Source: https://github.com/joeldbirch/superfish
 
 Sticky-kit v1.1.3 | MIT | Leaf Corcoran 2015 | http://leafo.net
 
@@ -83,14 +81,19 @@ or Isotope Commercial License for commercial use
 https://isotope.metafizzy.co
 Copyright 2010-2018 Metafizzy
 
+TGM-Plugin-Activation 2.6.1
+Url: http://tgmpluginactivation.com/
+Thomas Griffin, Gary Jones, Juliette Reinders Folmer
+Copyright (c) 2011, Thomas Griffin
+License: GPL-2.0+
+
+Kirki Customizer Framework
+License URI: https://opensource.org/licenses/MIT
+
 Screenshot
 screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/photo/1624307, CC0
 
 == Changelog ==
-
-= 2.9.2 =
-* Fix: Escaping function updates
-* Improvement: page.php syntax cleanup
 
 = 2.9.1 =
 * Improvement: Added LearnPress basic Support

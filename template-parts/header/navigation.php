@@ -56,19 +56,19 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 		<div class="moible-icons">
-			<?php site_menu_icon(); ?>
+			<?php buddyx_site_menu_icon(); ?>
 		</div>
 	</div>
 
 	<div class="primary-menu-container buddyx-desktop-menu">
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 		<div class="moible-icons">
-			<?php site_menu_icon(); ?>
+			<?php buddyx_site_menu_icon(); ?>
 		</div>
 	</div>
 	<div class="buddypress-icons-wrapper">
 		<div class="desktop-icons">
-			<?php site_menu_icon(); ?>
+			<?php buddyx_site_menu_icon(); ?>
 		</div>
 		<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
 	</div>

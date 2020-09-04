@@ -153,11 +153,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
-	public function buddyx_enqueue_admin_style() {
-		$css_uri = get_theme_file_uri( '/assets/css/' );
-		$css_dir = get_theme_file_path( '/assets/css/' );
+	public function buddyx_enqueue_admin_style($hook) {
+		
+		if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
+			$css_uri = get_theme_file_uri( '/assets/css/' );
+			$css_dir = get_theme_file_path( '/assets/css/' );
 
-		wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
+			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
+		}
 	}
 
 	/**
