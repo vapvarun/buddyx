@@ -95,6 +95,9 @@ screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/phot
 
 == Changelog ==
 
+= 2.9.4 =
+* Fix: Update Theme URI
+
 = 2.9.3 =
 * Fix: extra.php added admin conditon for excerpt
 * Fix: Translation String
