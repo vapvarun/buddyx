@@ -25,7 +25,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
 	
-	<?php do_action( 'buddy_before_content' ); ?>
+	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
 		<?php if ( ! is_woocommerce() && $default_sidebar == 'left' && ! is_cart() && $default_sidebar == 'left' && ! is_checkout() && $default_sidebar == 'left' && ! is_account_page() && $default_sidebar == 'left' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
@@ -84,6 +84,6 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 		<?php endif; ?>
 	<?php } ?>
 
-	<?php do_action( 'buddy_after_content' ); ?>
+	<?php do_action( 'buddyx_after_content' ); ?>
 <?php
 get_footer();

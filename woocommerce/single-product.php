@@ -25,7 +25,7 @@ get_header( 'shop' );
 
 $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
 
-do_action( 'buddy_before_content' );
+do_action( 'buddyx_before_content' );
 
 	if ( class_exists( 'WooCommerce' ) ) { ?>
 		<?php if ( is_woocommerce() ) { ?>
@@ -87,7 +87,7 @@ do_action( 'buddy_before_content' );
 		<?php } ?>
 	<?php }
 
-do_action( 'buddy_after_content' );
+do_action( 'buddyx_after_content' );
 
 get_footer( 'shop' );
 

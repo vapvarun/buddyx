@@ -24,7 +24,7 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 ?>
 	<?php do_action( 'buddyx_sub_header' ); ?>
 
-	<?php do_action( 'buddy_before_content' ); ?>
+	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( $bbpress_sidebar == 'left' || $bbpress_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
@@ -65,6 +65,6 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 		</aside>
 	<?php endif; ?>
 
-	<?php do_action( 'buddy_after_content' ); ?>
+	<?php do_action( 'buddyx_after_content' ); ?>
 <?php
 get_footer();

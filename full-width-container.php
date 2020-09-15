@@ -17,7 +17,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 ?>	
 	<?php do_action( 'buddyx_sub_header' ); ?>
 	
-	<?php do_action( 'buddy_before_content' ); ?>
+	<?php do_action( 'buddyx_before_content' ); ?>
 
 		<main id="primary" class="site-main">
 			<?php
@@ -36,6 +36,6 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		</main><!-- #primary -->
 	</div><!-- .container -->
 
-	<?php do_action( 'buddy_after_content' ); ?>
+	<?php do_action( 'buddyx_after_content' ); ?>
 <?php
 get_footer();

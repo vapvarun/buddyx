@@ -1,26 +1,26 @@
 <?php 
-// buddy_excerpt_length
-function buddy_excerpt_length( $length ) {
+// buddyx_excerpt_length
+function buddyx_excerpt_length( $length ) {
     return 20;
 }
-add_filter( 'excerpt_length', 'buddy_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'buddyx_excerpt_length', 999 );
 
 // Content wrapper
-if ( !function_exists( 'buddy_content_top' ) ) {
-	function buddy_content_top() { ?>
+if ( !function_exists( 'buddyx_content_top' ) ) {
+	function buddyx_content_top() { ?>
 		<div class="site-wrapper">
 	<?php }
 }
 
-add_action( 'buddy_before_content', 'buddy_content_top' );
+add_action( 'buddyx_before_content', 'buddyx_content_top' );
 
-if ( !function_exists( 'buddy_content_bottom' ) ) {
-	function buddy_content_bottom() { ?>
+if ( !function_exists( 'buddyx_content_bottom' ) ) {
+	function buddyx_content_bottom() { ?>
 		</div>
 	<?php }
 }
 
-add_action( 'buddy_after_content', 'buddy_content_bottom' );
+add_action( 'buddyx_after_content', 'buddyx_content_bottom' );
 
 // Site Sub Header 
 if ( !function_exists( 'buddyx_sub_header' ) ) {
@@ -246,7 +246,7 @@ if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
 		$count = WC()->cart->get_cart_contents_count();
 		ob_start();
 		?>
-		<a class=".menu-icons-wrapper .cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
+		<a class="menu-icons-wrapper cart" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart', 'buddyx' ); ?>">
 			<span class="fa fa-shopping-cart"></span>
 			<sup><?php echo esc_html( $count ); ?></sup>
 		</a>

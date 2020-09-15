@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.4.1
+Tested up to: 5.5.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -20,6 +20,40 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.9.2 =
+* Fix: Fixed cover image issue with BuddyPress
+* Fix: Updated cart and comment support
+
+= 2.9.1 =
+* Improvement: Added LearnPress basic Support
+* Improvement: Updated plugin suggestions
+* Improvement: Updated Navigation Menu style
+
+= 2.9.0 =
+* Fix: (#59, #105, #110, #111) Trello card fixes
+* Improvement: Added Yoast breadcrumbs
+
+= 2.8.0 =
+* Improvement: Managed BuddyPress group reviews star rating alignment
+* Improvement: Added page template without sidebar and theme fixes
+* Improvement: Update rtmedia - main.php file
+* Fix: Updated bp-profile-completion-widget.php
+* Improvement: German translation Included
+* Improvement: (#99) Managed content layout with other CPT's
+* Improvement: Fixed page stuck issue when page scrolling up
+* Improvement: Update wc-vendor.css file
+* Improvement: (#97) Managed WC vendor dashboard page UI
+* Improvement: (#98) Managed WooCommerce error message UI
+* Improvement: (#95) Added BadgeOS Support
+* Improvement: (#94) Added myCred support
+* Improvement: (#93) Added GamiPress support and theme fixes
+* Improvement: Video Image with url update
+
+= 2.7.0 =
+* Improvement: Added Gamifaction support
+* Improvement: BB forums and message UI
+* Fix: Updated Blog header
 
 = 2.6.0 =
 * Fix: Condition Check for BuddyPress Nouveau theme support
