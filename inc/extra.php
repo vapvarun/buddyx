@@ -39,14 +39,14 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 				if ( ! empty( $breadcrumbs ) ) {					
-					the_breadcrumb();
+					buddyx_the_breadcrumb();
 				}
 			} elseif ( get_post_type() === 'page' || is_single() ) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 				if ( ! empty( $breadcrumbs ) ) {
-					the_breadcrumb();
+					buddyx_the_breadcrumb();
 				}
 			}
 			?>
@@ -59,8 +59,8 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
  * BREADCRUMBS
  */
 //  to include in functions.php
-if ( !function_exists( 'the_breadcrumb' ) ) {
-	function the_breadcrumb() {
+if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
+	function buddyx_the_breadcrumb() {
 		
 		$wpseo_titles = get_option( 'wpseo_titles' );		
 		if ( function_exists('yoast_breadcrumb') && isset($wpseo_titles['breadcrumbs-enable']) &&  $wpseo_titles['breadcrumbs-enable'] == 1 ) {
@@ -123,8 +123,8 @@ if ( !function_exists( 'the_breadcrumb' ) ) {
 }
 
 // Site Loader 
-if ( !function_exists( 'site_loader' ) ) {
-	function site_loader() {
+if ( !function_exists( 'buddyx_site_loader' ) ) {
+	function buddyx_site_loader() {
 		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
 		if ( $loader == "1" ) {
 			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
@@ -133,8 +133,8 @@ if ( !function_exists( 'site_loader' ) ) {
 }
 
 // Site Search and Woo icon
-if ( !function_exists( 'site_menu_icon' ) ) {
-	function site_menu_icon () {
+if ( !function_exists( 'buddyx_site_menu_icon' ) ) {
+	function buddyx_site_menu_icon () {
 		// menu icons
 		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
 		$carticon = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
@@ -165,9 +165,9 @@ if ( !function_exists( 'site_menu_icon' ) ) {
 	}
 }
 
-// bp_get_activity_css_first_class
-if ( !function_exists( 'bp_get_activity_css_first_class' ) ) {
-	function bp_get_activity_css_first_class() {
+// buddyx_bp_get_activity_css_first_class
+if ( !function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
+	function buddyx_bp_get_activity_css_first_class() {
 		global $activities_template;
 		/**
 		 * Filters the available mini activity actions available as CSS classes.
@@ -184,7 +184,7 @@ if ( !function_exists( 'bp_get_activity_css_first_class' ) ) {
 			'created_group',
 			'new_member'
 		) );
-		return apply_filters( 'bp_get_activity_css_first_class', $activities_template->activity->component );
+		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $activities_template->activity->component );
 	}
 }
 
@@ -257,14 +257,14 @@ if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
 }
 
 /**
- * disable_woo_commerce_sidebar
+ * buddyx_disable_woo_commerce_sidebar
  */
-if ( !function_exists( 'disable_woo_commerce_sidebar' ) ) {
-	function disable_woo_commerce_sidebar() {
+if ( !function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
+	function buddyx_disable_woo_commerce_sidebar() {
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
 	}
 }
-add_action('init', 'disable_woo_commerce_sidebar');
+add_action('init', 'buddyx_disable_woo_commerce_sidebar');
 
 /**
  * Output badges on profile

@@ -33,7 +33,7 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 				<?php
 					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 					if ( ! empty( $breadcrumbs ) ) {
-						the_breadcrumb();
+						buddyx_the_breadcrumb();
 					}
 				?>
             <?php endif; ?>

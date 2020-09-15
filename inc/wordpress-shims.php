@@ -6,15 +6,15 @@
  */
 
 /**
- * Adds backwards compatibility for wp_body_open() introduced with WordPress 5.2
+ * Adds backwards compatibility for buddyx_body_open() introduced with WordPress 5.2
  */
-if ( ! function_exists( 'wp_body_open' ) ) {
+if ( ! function_exists( 'buddyx_body_open' ) ) {
 	/**
-	 * Run the wp_body_open action.
+	 * Run the buddyx_body_open action.
 	 *
 	 * @return void
 	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
+	function buddyx_body_open() {
+		do_action( 'buddyx_body_open' );
 	}
 }

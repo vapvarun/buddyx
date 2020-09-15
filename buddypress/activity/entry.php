@@ -15,7 +15,7 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
     <div class="activity-card-head">
 		<h6 class="card-head-content-type">
-			<?php echo bp_get_activity_css_first_class(); ?>
+			<?php echo buddyx_bp_get_activity_css_first_class(); ?>
 		</h6>
     </div>    
 
