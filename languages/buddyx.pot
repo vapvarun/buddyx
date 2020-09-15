@@ -46,7 +46,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../buddyx/comments.php:60
-msgid "Comments are closed."
+msgid "Comments are disabled."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:327
@@ -587,6 +587,36 @@ msgstr ""
 
 #: ../buddyx/inc/Editor/Component.php:151
 msgid "XL"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:89, ../buddyx/inc/extra.php:91, ../buddyx/inc/extra.php:93
+msgid "%s"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:91
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:93
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:95
+msgid "Shop"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:97
+msgid "Forums Archives"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:99
+msgid "Blog Archives"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:116
+msgid "Blog"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:154
@@ -1378,6 +1408,10 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
+#: ../buddyx/template-parts/header/navigation.php:55
+msgid "close"
+msgstr ""
+
 #: ../buddyx/updater/theme-updater.php:31
 msgid "BuddyX Theme License"
 msgstr ""
@@ -1490,14 +1524,10 @@ msgstr ""
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:145
-msgid "Coupon code"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:145, ../buddyx/woocommerce/cart/cart.php:145
+#: ../buddyx/woocommerce/cart/cart.php:147, ../buddyx/woocommerce/cart/cart.php:147
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:150, ../buddyx/woocommerce/cart/cart.php:150
+#: ../buddyx/woocommerce/cart/cart.php:152, ../buddyx/woocommerce/cart/cart.php:152
 msgid "Update cart"
 msgstr ""

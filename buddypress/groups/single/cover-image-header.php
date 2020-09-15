@@ -26,7 +26,7 @@
     <?php if ( ! bp_nouveau_groups_front_page_description() ) : ?>
         <div id="item-header-content">
 
-            <h2 class="bp-group-title"><?php echo esc_attr( bp_get_group_name() ); ?></h2>    
+            <h2 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h2>    
             <p class="highlight group-status"><strong><?php echo wp_kses( bp_nouveau_group_meta()->status, array( 'span' => array( 'class' => array() ) ) ); ?></strong></p>
             
             <p class="activity" data-livestamp="<?php bp_core_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ); ?>">

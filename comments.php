@@ -55,9 +55,9 @@ buddyx()->print_styles( 'buddyx-comments' );
 		<?php buddyx()->the_comments(); ?>
 
 		<?php
-		if ( ! comments_open() ) {
+		if ( ! comments_open() && ! is_page() ) {
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'buddyx' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are disabled.', 'buddyx' ); ?></p>
 			<?php
 		}
 	}

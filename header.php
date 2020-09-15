@@ -26,7 +26,7 @@ namespace BuddyX\Buddyx;
 <?php buddyx_site_loader(); ?>
 <?php buddyx_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'buddyx' ); ?></a>
+	<a class="skip-link screen-reader-text" href="<?php echo esc_url( '#primary' ); ?>"><?php esc_html_e( 'Skip to content', 'buddyx' ); ?></a>
 
 	<div class="site-header-wrapper">
 		<div class="container">
