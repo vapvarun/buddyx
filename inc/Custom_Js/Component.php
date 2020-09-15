@@ -55,7 +55,7 @@ class Component implements Component_Interface {
 			get_theme_file_uri( '/assets/js/doubletap.min.js' ),
 			[],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/doubletap.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-doubletap', 'async', true );
 		wp_script_add_data( 'buddyx-doubletap', 'precache', true );
@@ -66,7 +66,7 @@ class Component implements Component_Interface {
 			get_theme_file_uri( '/assets/js/isotope.pkgd.min.js' ),
 			[],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/isotope.pkgd.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-isotope-pkgd', 'async', true );
 		wp_script_add_data( 'buddyx-isotope-pkgd', 'precache', true );
@@ -77,7 +77,7 @@ class Component implements Component_Interface {
 			get_theme_file_uri( '/assets/js/fitvids.min.js' ),
 			[],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/fitvids.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-fitvids', 'async', true );
 		wp_script_add_data( 'buddyx-fitvids', 'precache', true );
@@ -88,7 +88,7 @@ class Component implements Component_Interface {
 			get_theme_file_uri( '/assets/js/sticky-kit.min.js' ),
 			[],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/sticky-kit.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-sticky-kit', 'async', true );
 		wp_script_add_data( 'buddyx-sticky-kit', 'precache', true );
@@ -99,7 +99,7 @@ class Component implements Component_Interface {
 			get_theme_file_uri( '/assets/js/custom.min.js' ),
 			[],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
-			false
+			true
 		);
 		wp_script_add_data( 'buddyx-custom', 'async', true );
 		wp_script_add_data( 'buddyx-custom', 'precache', true );

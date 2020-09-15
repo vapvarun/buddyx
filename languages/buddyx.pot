@@ -474,15 +474,15 @@ msgstr ""
 msgid "Full-Width-No-Title"
 msgstr ""
 
-#: ../buddyx/header.php:39
+#: ../buddyx/header.php:29
 msgid "Skip to content"
 msgstr ""
 
-#: ../buddyx/inc/Accessibility/Component.php:69
+#: ../buddyx/inc/Accessibility/Component.php:70
 msgid "Expand child menu"
 msgstr ""
 
-#: ../buddyx/inc/Accessibility/Component.php:70
+#: ../buddyx/inc/Accessibility/Component.php:71
 msgid "Collapse child menu"
 msgstr ""
 
