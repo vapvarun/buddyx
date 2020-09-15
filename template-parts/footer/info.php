@@ -17,7 +17,11 @@ $copyright = get_theme_mod( 'site_copyright_text' );
 			<?php if ( $copyright ) {
 				echo ( $copyright );
 			} else {
-				 echo 'Copyright &copy; 2020. All rights reserved by, <a href="#">Brndle</a>';
+				$year = date_i18n(
+					/* translators: Copyright date format, see https://www.php.net/date */
+					_x( 'Y', 'copyright date format', 'buddyx' )
+				);
+				echo sprintf(__('Copyright &copy; %1$s. All rights reserved by, %2$s.','buddyx'), $year ,'<a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo( 'name' ).'</a>');
 			} ?>
 		</div>
 
