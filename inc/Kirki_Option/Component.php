@@ -323,6 +323,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_title_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-title a:hover',
@@ -532,6 +533,7 @@ class Component implements Component_Interface {
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
@@ -551,6 +553,7 @@ class Component implements Component_Interface {
 			'section'     => 'menu_typography_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.main-navigation ul li.current-menu-item>a',
@@ -595,6 +598,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_header_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container',
@@ -720,6 +724,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#f7f7f9',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'body',
@@ -763,6 +768,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#111111',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'a',
@@ -838,6 +844,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'a.read-more.button, button:not(.menu-toggle), input[type="button"], input[type="reset"], input[type="submit"],
@@ -855,6 +862,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'a.read-more.button:hover, button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
@@ -872,6 +880,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'a.read-more.button, button:not(.menu-toggle), input[type="button"], input[type="reset"], input[type="submit"],
@@ -889,6 +898,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_skin_section',
 			'default'     => '#f83939',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => 'a.read-more.button:hover, button:not(.menu-toggle):hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
@@ -1061,6 +1071,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-footer .widget-title',
@@ -1076,6 +1087,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_footer_section',
 			'default'     => '#505050',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-footer',
@@ -1091,6 +1103,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_footer_section',
 			'default'     => '#111111',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-footer a',
@@ -1106,6 +1119,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_footer_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-footer a:hover, .site-footer a:active',
@@ -1133,6 +1147,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_copyright_section',
 			'default'     => '#ffffff',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-info',
@@ -1148,6 +1163,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_copyright_section',
 			'default'     => '#e8e8e8',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-info',
@@ -1163,6 +1179,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_copyright_section',
 			'default'     => '#505050',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-info',
@@ -1178,6 +1195,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_copyright_section',
 			'default'     => '#111111',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-info a',
@@ -1193,6 +1211,7 @@ class Component implements Component_Interface {
 			'section'     => 'site_copyright_section',
 			'default'     => '#ef5455',
 			'priority'    => 10,
+			'choices'	  => array( 'alpha' => true ),
 			'output'      => array(
 				array(
 					'element' => '.site-info a:hover',
