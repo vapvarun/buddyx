@@ -84,7 +84,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							?>
 						</div>
 						<div class="wb-bp-progress-label">
-							<span class="wb-bp-completion"><?php echo $user_progress['completion_percentage'] . '%'; ?></span>
+							<span class="wb-bp-completion"><?php echo esc_html($user_progress['completion_percentage']) . '%'; ?></span>
 							<span><?php echo esc_html__( 'Complete', 'buddyx' ); ?></span>
 						</div>
 					</div>

@@ -509,7 +509,7 @@ msgstr ""
 msgid "New comment(s)"
 msgstr ""
 
-#: ../buddyx/inc/Customizer/Component.php:79
+#: ../buddyx/inc/Customizer/Component.php:77
 msgid "Theme Options"
 msgstr ""
 

@@ -90,17 +90,21 @@ License: GPL-2.0+
 Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
-Screenshot
-screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/photo/1624307, CC0
-
 == Changelog ==
+
+= 2.9.5 =
+* Fix: Keyboard navigation with 3 level dropdown
+* Fix: Close menu for mobile for accessibility support
+* Fix: Updated theme tags
+* Fix: removed Invalid url of image used on theme
+* Fix: Fixed escaping issues
 
 = 2.9.4 =
 * Fix: Update Theme URI
 
 = 2.9.3 =
-* Fix: extra.php added admin conditon for excerpt
-* Fix: Translation String
+* Fix: extra.php added admin Condition for excerpt
+* Fix: Translation strings
 * Fix: make sure to have unique prefix
 * Fix: Admin css/js at welcome page only
 * Fix: disabled removed for core customizer options
@@ -113,7 +117,7 @@ screenshot.png (Slider Image), © 2020 @decoasta9301, https://pxhere.com/en/phot
 * Fix : Keyboard navigation
 
 = 2.9.2 =
-* Fix: Removed extermal images 
+* Fix: Removed extermal images
 * Fix: Added unminied sources
 
 = 2.9.1 =

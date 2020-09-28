@@ -117,7 +117,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		?>
-		<ol class="comment-list"<?php echo $amp_live_list ? ' items' : ''; ?>>
+		<ol class="comment-list"<?php echo ( $amp_live_list ? ' items' : '' ); ?>>
 			<?php wp_list_comments( $args ); ?>
 		</ol><!-- .comment-list -->
 		<?php

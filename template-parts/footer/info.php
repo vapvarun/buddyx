@@ -11,11 +11,10 @@ $copyright = get_theme_mod( 'site_copyright_text' );
 ?>
 
 	<div class="site-info">
-		<div class="container">
-			
+		<div class="container">			
 
 			<?php if ( $copyright ) {
-				echo ( $copyright );
+				echo $copyright; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else { ?>
 				<?php 
 				$year = date_i18n(

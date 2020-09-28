@@ -183,9 +183,6 @@ h2.buddyx-feature-title {
     margin-bottom: -30px;
 }
 
-
-/**/
-
 .buddyx-home-banner img {
     max-width: 100%;
     height: auto;
@@ -202,9 +199,7 @@ h2.buddyx-feature-title {
     width: 100%;
     max-width: calc(25% - 20px);
     margin: 10px;
-    /* margin-bottom: 10px; */
     padding: 0;
-    /* border: 1px #000 solid; */
     box-sizing: border-box;
     box-shadow: 1px 5px 10px -5px #dadadab3;
     border-radius: 5px;

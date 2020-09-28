@@ -103,9 +103,6 @@ canvas {
 }
 
 @media (min-width: 768px) {
-    /* .page-template-full-width:not(.elementor-editor-active) .site {
-		padding-top: 0 !important;
-	} */
     #primary,
     .site-wrapper {
         min-height: calc(100vh - 190px);
@@ -127,7 +124,6 @@ canvas {
     .has-buddypress-sidebar-right:not(.bp-user):not(.single-item):not(.group-create) .site-wrapper,
     .has-bbpress-sidebar-right.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-right .site-wrapper {
-        /* margin: 0 1em; */
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-gap: 2rem;
@@ -137,7 +133,6 @@ canvas {
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create) .site-wrapper,
     .has-bbpress-sidebar-left.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-left .site-wrapper {
-        /* margin: 0 1em; */
         display: grid;
         grid-template-columns: 1fr 3fr;
         grid-gap: 2rem;
@@ -408,7 +403,6 @@ select {
 }
 
 .site-header {
-    /* padding-bottom: 1em; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -435,8 +429,6 @@ select {
 .site-title {
     margin: 0;
     margin-bottom: 6px;
-    /* font-family: var(--highlight-font-family); */
-    /* font-stretch: condensed; */
     font-size: 38px;
     font-weight: 700;
     line-height: 1.2;
@@ -450,8 +442,6 @@ select {
 
 .site-description {
     margin: -5px 0 0;
-    /* font-family: var(--highlight-font-family); */
-    /* font-stretch: condensed; */
     font-size: 14px;
     font-weight: inherit;
     line-height: 1.4;
@@ -471,7 +461,6 @@ select {
     margin-left: 15px;
     padding: 10px !important;
     font-family: var(--highlight-font-family);
-    /* font-stretch: condensed; */
     font-size: 80%;
     line-height: 0 !important;
     color: #111;
@@ -768,6 +757,7 @@ body.admin-bar .site-header-wrapper {
         border-radius: 0;
         transform: translateY(-50%);
         overflow: visible;
+        display: none;
     }
     .nav--toggle-sub ul ul .dropdown,
     .nav--toggle-sub ul ul .dropdown-toggle {
@@ -787,6 +777,26 @@ body.admin-bar .site-header-wrapper {
     .nav--toggle-sub li.menu-item--has-toggle {
         position: relative;
         padding-right: var(--dropdown-symbol-width);
+    }
+    .nav--toggle-sub li.menu-item-has-children::after,
+    .nav--toggle-sub li.menu-item--has-toggle::after {
+        content: "\f107";
+        font-family: FontAwesome;
+        display: inline-block;
+        width: 12px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: inherit;
+        font-weight: 900;
+    }
+    .nav--toggle-sub li.menu-item-has-children .sub-menu li::after,
+    .nav--toggle-sub li.menu-item--has-toggle .sub-menu li::after {
+        right: 10px;
     }
     /*
 	 * If the dropdown toggle is active with JS, then
@@ -820,11 +830,8 @@ body.admin-bar .site-header-wrapper {
 .main-navigation {
     clear: both;
     display: flex;
-    /* margin: 0 auto 2em; */
-    /* padding: 0 1em; */
     max-width: var(--content-width);
     font-family: var(--highlight-font-family);
-    /* font-stretch: condensed; */
 }
 
 .main-navigation a {
@@ -834,12 +841,6 @@ body.admin-bar .site-header-wrapper {
     text-decoration: none;
     color: #000;
 }
-
-
-/* .main-navigation a:hover,
-.main-navigation a:focus {
-	text-decoration: underline;
-} */
 
 .main-navigation ul {
     display: block;
@@ -1236,8 +1237,6 @@ body.admin-bar .site-header-wrapper {
     max-width: var(--content-width);
     overflow: hidden;
     padding: 0 1.5rem 2em;
-    /* font-family: var(--highlight-font-family); */
-    /* font-stretch: condensed; */
 }
 
 @media (--content-query) {
@@ -1310,11 +1309,6 @@ body.admin-bar .site-header-wrapper {
     text-decoration: none;
 }
 
-
-/* .pagination a:visited {
-	color: var(--color-link);
-} */
-
 .pagination a:hover,
 .pagination a:active {
     border-color: #00a0d2;
@@ -1324,7 +1318,6 @@ body.admin-bar .site-header-wrapper {
 .pagination .next {
     min-width: auto;
     border-color: transparent;
-    /* text-decoration: underline; */
 }
 
 .pagination .prev:hover,
@@ -1353,7 +1346,6 @@ body.admin-bar .site-header-wrapper {
 
 .site-footer {
     margin: 1em 0 0;
-    /* font-stretch: condensed; */
     background: #fff;
     border-top: 1px solid var(--global-border-color);
 }
@@ -1409,7 +1401,6 @@ body.admin-bar .site-header-wrapper {
 
 .site-info {
     padding: 2em 0;
-    /* font-stretch: condensed; */
     background: #fff;
     border-top: 1px solid var(--global-border-color);
     border-bottom: 1px solid var(--global-border-color);

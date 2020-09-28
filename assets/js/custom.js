@@ -66,7 +66,7 @@
             disableHI: false,
         });
 
-        $("#primary-menu a, .desktop-icons a").focusin(function() {
+        $("#primary-menu a, .desktop-icons a, .bp-icon-wrap").focusin(function() {
             $('.user-link-wrap').removeClass("active");
         });
 
@@ -75,8 +75,17 @@
             $(this).parent().addClass("active");
         });
 
+        $(document).on('click', '.user-link-wrap .user-link', function(e) {
+            var container = $(".user-link-wrap");
+            container.removeClass('active');
+        });
+
         $(".user-link-wrap ul#user-profile-menu > li:last-child a").focusout(function() {
             $('.user-link-wrap').removeClass("active");
+        });
+
+        $(".buddyx-mobile-menu").focusout(function() {
+            $('.mobile-menu-heading .close-menu').focusin();
         });
 
     };

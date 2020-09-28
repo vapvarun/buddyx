@@ -52,7 +52,7 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	<div class="primary-menu-container buddyx-mobile-menu">
 		<div class="mobile-menu-heading">
 			<h3 class="menu-title"><?php esc_html_e( 'Menu', 'buddyx' ); ?></h3>
-			<a href="#" class="menu-close">close</a>
+			<a href="<?php echo esc_url( '#' ); ?>" class="menu-close"><?php esc_html_e( 'Close', 'buddyx' ); ?></a>
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 		<div class="moible-icons">

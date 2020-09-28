@@ -106,7 +106,7 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 			
 				// If the current page is a single post, show its title with the separator
 				if (is_single()) {
-					echo $sep;
+					echo $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					the_title();
 				}
 			
@@ -322,7 +322,7 @@ if ( !function_exists( 'buddyx_profile_achievements' ) ) {
 							$credly_ID	 = $giveable ? 'data-credlyid="' . absint( $achievement->ID ) . '"' : '';
 
 							echo '<li id="widget-achievements-listing-item-' . absint( $achievement->ID ) . '" ' . $credly_ID . ' class="widget-achievements-listing-item' . esc_attr( $item_class ) . '">';
-							echo $thumb;
+							echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . esc_url( $permalink ) . '">' . esc_html( $title ) . '</a>';
 							echo '</li>';
 
