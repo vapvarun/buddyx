@@ -18,12 +18,12 @@ $taxonomies = wp_list_filter(
 <div class="entry-taxonomies">
 	<?php
 	// Show terms for all taxonomies associated with the post.
-	foreach ( $taxonomies as $taxonomy ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+	foreach ( $taxonomies as $taxo ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
 		/* translators: separator between taxonomy terms */
 		$separator = _x( ', ', 'list item separator', 'buddyx' );
 
-		switch ( $taxonomy->name ) {
+		switch ( $taxo->name ) {
 			case 'category':
 				$class            = 'category-links term-links';
 				$list             = get_the_category_list( esc_html( $separator ), '', $post->ID );
@@ -37,12 +37,12 @@ $taxonomies = wp_list_filter(
 				$placeholder_text = __( 'Tagged %s', 'buddyx' );
 				break;
 			default:
-				$class            = str_replace( '_', '-', $taxonomy->name ) . '-links term-links';
-				$list             = get_the_term_list( $post->ID, $taxonomy->name, '', esc_html( $separator ), '' );
+				$class            = str_replace( '_', '-', $taxo->name ) . '-links term-links';
+				$list             = get_the_term_list( $post->ID, $taxo->name, '', esc_html( $separator ), '' );
 				$placeholder_text = sprintf(
 					/* translators: %s: taxonomy name */
 					__( '%s:', 'buddyx' ),
-					$taxonomy->labels->name // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					$taxo->labels->name // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 		}
 

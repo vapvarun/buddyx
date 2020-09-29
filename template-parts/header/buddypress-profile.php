@@ -2,7 +2,7 @@
 // User Messages
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messages' ) ) { ?>
      <div class="bp-msg">
-        <a class="bp-icon-wrap" href="<?php echo bp_loggedin_user_domain() . bp_get_messages_slug(); ?>">
+        <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>">
         <span class="fa fa-envelope"></span>
         <?php
             if ( function_exists( 'bp_total_unread_messages_count' ) ) {
@@ -43,12 +43,12 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
                 <li><?php echo $notification; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?></li><?php
             } ?>
             <li class="bp-view-all">
-                <a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php _e( 'View all notifications', 'buddyx' ); ?></a>
+                <a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html_e( 'View all notifications', 'buddyx' ); ?></a>
             </li>
         </ul>
     <?php } else { ?>
       <ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
-        <li><a href="<?php bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ?>"><?php _e( "No new notifications", 'buddyx' ); ?></a></li>
+        <li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG )?>"><?php esc_html_e( "No new notifications", 'buddyx' ); ?></a></li>
       </ul>
     <?php }
     ?>
@@ -56,15 +56,15 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 }
 // User Account Details
 if ( is_user_logged_in() ) {
-  $current_user = wp_get_current_user();
-  if ( ($current_user instanceof WP_User ) ) {
+  $loggedin_user = wp_get_current_user();
+  if ( ($loggedin_user instanceof WP_User ) ) {
     $user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
     echo '<div class="user-link-wrap">';
-    echo '<a class="user-link" href="' . $user_link . '">';
+    echo '<a class="user-link" href="' . esc_url($user_link) . '">';
     ?>
-    <span class="bp-user"><?php echo esc_html($current_user->display_name); ?></span>
+    <span class="bp-user"><?php echo esc_html($loggedin_user->display_name); ?></span>
     <?php
-    echo get_avatar( $current_user->user_email, 100 );
+    echo get_avatar( $loggedin_user->user_email, 100 );
     echo '</a>';
     wp_nav_menu( array( 'theme_location' => 'user_menu', 'menu_id' => 'user-profile-menu', 'fallback_cb' => '', 'container' => false, 'menu_class' => 'user-profile-menu', ) );
     echo '</div>';

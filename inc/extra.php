@@ -82,25 +82,25 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 				echo '<a href="';
 				echo esc_url(home_url());
 				echo '">';
-				echo _esc_html__( 'Home', 'buddyx');
-				echo '</a>' . $sep;
+				echo esc_html__( 'Home', 'buddyx');
+				echo '</a>' . $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
 					the_category(' > ');
 				} elseif ( is_archive() || is_single() ){
 					if ( is_day() ) {
-						printf( __( '%s', 'buddyx' ), get_the_date() );
+						printf( esc_html__( '%s', 'buddyx' ), get_the_date() );
 					} elseif ( is_month() ) {
-						printf( __( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
+						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
 					} elseif ( is_year() ) {
-						printf( __( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
+						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
 					} elseif( is_shop() ) {
-						_e( 'Shop', 'buddyx' );
+						esc_html_e( 'Shop', 'buddyx' );
 					}elseif( is_archive('post-type-archive-forum') ) {
-						_e( 'Forums Archives', 'buddyx' );
+						esc_html_e( 'Forums Archives', 'buddyx' );
 					} else {
-						_e( 'Blog Archives', 'buddyx' );
+						esc_html_e( 'Blog Archives', 'buddyx' );
 					}
 				}
 			
@@ -112,12 +112,12 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 			
 				// If the current page is a static page, show its title.
 				if (is_page()) {
-					echo the_title();
+					the_title();
 				}
 			
 				// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home > Blog
 				if (is_home()){
-					_e( 'Blog', 'buddyx' );
+					esc_html_e( 'Blog', 'buddyx' );
 				}
 
 				echo '</div>';
@@ -155,11 +155,11 @@ if ( !function_exists( 'buddyx_site_menu_icon' ) ) {
 				endif;
 				if( !empty($carticon) && function_exists("is_woocommerce")) : ?>
 					<div class="cart">
-						<a href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
+						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
 							<span class="fa fa-shopping-cart"> </span><?php
 							$count = WC()->cart->cart_contents_count;
 							if( $count > 0 ) : ?>
-								<sup><?php echo "{$count}";?></sup><?php
+								<sup><?php echo esc_html($count);?></sup><?php
 							endif;?>
 						</a>
 					</div><?php
@@ -321,7 +321,7 @@ if ( !function_exists( 'buddyx_profile_achievements' ) ) {
 							$item_class	 .= $giveable ? ' share-credly addCredly' : '';
 							$credly_ID	 = $giveable ? 'data-credlyid="' . absint( $achievement->ID ) . '"' : '';
 
-							echo '<li id="widget-achievements-listing-item-' . absint( $achievement->ID ) . '" ' . $credly_ID . ' class="widget-achievements-listing-item' . esc_attr( $item_class ) . '">';
+							echo '<li id="widget-achievements-listing-item-' . absint( $achievement->ID ) . '" ' . esc_attr( $credly_ID ) . ' class="widget-achievements-listing-item' . esc_attr( $item_class ) . '">';
 							echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . esc_url( $permalink ) . '">' . esc_html( $title ) . '</a>';
 							echo '</li>';
@@ -330,8 +330,8 @@ if ( !function_exists( 'buddyx_profile_achievements' ) ) {
 
 							if ( $thecount == $number_to_show && $number_to_show != 0 && is_plugin_active( 'badgeos-community-add-on/badgeos-community.php' ) ) {
 								echo '<li id="widget-achievements-listing-item-more" class="widget-achievements-listing-item">';
-								echo '<a class="badgeos-item-thumb" href="' . bp_core_get_user_domain( bp_displayed_user_id() ) . 'bos-bp-achievements/"><span class="fa fa-ellipsis-h"></span></a>';
-								echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . bp_core_get_user_domain( bp_displayed_user_id() ) . 'bos-bp-achievements/">' . __( 'See All', 'buddyx' ) . '</a>';
+								echo '<a class="badgeos-item-thumb" href="' . esc_url(bp_core_get_user_domain( bp_displayed_user_id() )) . 'bos-bp-achievements/"><span class="fa fa-ellipsis-h"></span></a>';
+								echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . esc_url( bp_core_get_user_domain( bp_displayed_user_id() ) ) . 'bos-bp-achievements/">' . esc_html__( 'See All', 'buddyx' ) . '</a>';
 								echo '</li>';
 								break;
 							}
