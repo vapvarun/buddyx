@@ -92,6 +92,9 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 2.9.6 =
+* Fix: Fixed escaping issues
+
 = 2.9.5 =
 * Fix: Keyboard navigation with 3 level dropdown
 * Fix: Close menu for mobile for accessibility support
