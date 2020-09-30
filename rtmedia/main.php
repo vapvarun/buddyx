@@ -79,7 +79,7 @@ if ( bp_is_group() ) {
                             </div>
 				        </div><!-- #item-body -->
                     </div><!-- // .bp-wrap -->
-                    <?php echo get_sidebar( 'buddypress' ); ?>
+                    <?php get_sidebar( 'buddypress' ); ?>
                 </div><!-- // .ite-wrapper -->
         
 			<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
@@ -138,7 +138,7 @@ if ( !isset( $bp_nouveau_appearance[ 'user_nav_display' ] ) ) {
             </div><!-- .item-body-inner-wrapper -->
 	    </div><!-- #item-body -->
         </div><!-- // .bp-wrap -->
-        <?php echo get_sidebar( 'buddypress' ); ?>
+        <?php get_sidebar( 'buddypress' ); ?>
     </div><!-- .site-wrapper -->
 
 <?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>

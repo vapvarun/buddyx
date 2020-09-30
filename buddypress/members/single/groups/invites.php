@@ -26,7 +26,7 @@
 
 				<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 					<div class="item-avatar">
-						<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar(); ?></a>
+						<a href="<?php esc_url( bp_group_permalink() ); ?>"><?php bp_group_avatar(); ?></a>
 					</div>
 				<?php endif; ?>
 
@@ -44,7 +44,7 @@
                                         bp_get_group_total_members( false ),
                                         'buddyx'
                                     ),
-                                    number_format_i18n( bp_get_group_total_members( false ) )
+                                    number_format_i18n( bp_get_group_total_members( false ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 );
                                 ?>
                                 </span>
