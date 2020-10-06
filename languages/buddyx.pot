@@ -1408,6 +1408,14 @@ msgstr ""
 msgid "No new notifications"
 msgstr ""
 
+#: ../buddyx/template-parts/header/buddypress-profile.php:86
+msgid "Login"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:92
+msgid "Register"
+msgstr ""
+
 #: ../buddyx/template-parts/header/navigation.php:14
 msgid "Main menu"
 msgstr ""
