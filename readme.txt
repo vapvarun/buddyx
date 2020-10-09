@@ -92,6 +92,10 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 2.9.7 =
+* Fix: translation ready
+* Fix: Double ESC
+
 = 2.9.6 =
 * Fix: Fixed escaping issues
 
