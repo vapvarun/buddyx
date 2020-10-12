@@ -159,7 +159,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$css_uri = get_theme_file_uri( '/assets/css/' );
 			$css_dir = get_theme_file_path( '/assets/css/' );
 
-			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
+			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');			
+			wp_enqueue_script(
+				'buddyx-admin-script',
+				get_theme_file_uri( '/assets/js/buddyx-admin.js' ),
+				'',
+				'',
+				true
+			);			
 		}
 	}
 

@@ -6,7 +6,7 @@
  */
 
 namespace BuddyX\Buddyx;
-$copyright = esc_html( get_theme_mod( 'site_copyright_text' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+$copyright = esc_html( get_theme_mod( 'site_copyright_text' ) );
 
 ?>
 

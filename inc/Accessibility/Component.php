@@ -67,8 +67,8 @@ class Component implements Component_Interface {
 			'buddyx-navigation',
 			'buddyxScreenReaderText',
 			[
-				'expand'   => __( 'Expand child menu', 'buddyx' ),
-				'collapse' => __( 'Collapse child menu', 'buddyx' ),
+				'expand'   => esc_attr__( 'Expand child menu', 'buddyx' ),
+				'collapse' => esc_attr__( 'Collapse child menu', 'buddyx' ),
 			]
 		);
 	}

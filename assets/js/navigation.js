@@ -6,29 +6,29 @@
  * navigation support for dropdown menus.
  */
 
-var KEYMAP = {
+var buddyx_keymap = {
     TAB: 9,
 };
 
 if ('loading' === document.readyState) {
     // The DOM has not yet been loaded.
-    document.addEventListener('DOMContentLoaded', initNavigation);
+    document.addEventListener('DOMContentLoaded', buddyx_initNavigation);
 } else {
     // The DOM has already been loaded.
-    initNavigation();
+    buddyx_initNavigation();
 }
 
 // Initiate the menus when the DOM loads.
-function initNavigation() {
-    initNavToggleSubmenus();
-    initNavToggleSmall();
+function buddyx_initNavigation() {
+    buddyx_initNavToggleSubmenus();
+    buddyx_initNavToggleSmall();
 }
 
 /**
  * Initiate the script to process all
  * navigation menus with submenu toggle enabled.
  */
-function initNavToggleSubmenus() {
+function buddyx_initNavToggleSubmenus() {
     var navTOGGLE = document.querySelectorAll('.nav--toggle-sub');
 
     // No point if no navs.
@@ -37,7 +37,7 @@ function initNavToggleSubmenus() {
     }
 
     for (let i = 0; i < navTOGGLE.length; i++) {
-        initEachNavToggleSubmenu(navTOGGLE[i]);
+        buddyx_initEachNavToggleSubmenu(navTOGGLE[i]);
     }
 }
 
@@ -46,7 +46,7 @@ function initNavToggleSubmenus() {
  * navigation toggle for a specific navigation menu.
  * @param {Object} nav Navigation element.
  */
-function initEachNavToggleSubmenu(nav) {
+function buddyx_initEachNavToggleSubmenu(nav) {
     // Get the submenus.
     var SUBMENUS = nav.querySelectorAll('.menu ul');
 
@@ -56,7 +56,7 @@ function initEachNavToggleSubmenu(nav) {
     }
 
     // Create the dropdown button.
-    var dropdownButton = getDropdownButton();
+    var dropdownButton = buddyx_getDropdownButton();
 
     for (let i = 0; i < SUBMENUS.length; i++) {
         var parentMenuItem = SUBMENUS[i].parentNode;
@@ -87,19 +87,19 @@ function initEachNavToggleSubmenu(nav) {
 
         // Toggle the submenu when we click the dropdown button.
         thisDropdownButton.addEventListener('click', (e) => {
-            toggleSubMenu(e.target.parentNode);
+            buddyx_toggleSubMenu(e.target.parentNode);
         });
 
         // Clean up the toggle if a mouse takes over from keyboard.
         parentMenuItem.addEventListener('mouseleave', (e) => {
-            toggleSubMenu(e.target, false);
+            buddyx_toggleSubMenu(e.target, false);
         });
 
         // When we focus on a menu link, make sure all siblings are closed.
         parentMenuItem.querySelector('a').addEventListener('focus', (e) => {
             var parentMenuItemsToggled = e.target.parentNode.parentNode.querySelectorAll('li.menu-item--toggled-on');
             for (let j = 0; j < parentMenuItemsToggled.length; j++) {
-                toggleSubMenu(parentMenuItemsToggled[j], false);
+                buddyx_toggleSubMenu(parentMenuItemsToggled[j], false);
             }
         });
 
@@ -108,15 +108,15 @@ function initEachNavToggleSubmenu(nav) {
             // These specific selectors help us only select items that are visible.
             var focusSelector = 'ul.toggle-show > li > a, ul.toggle-show > li > button';
 
-            if (KEYMAP.TAB === e.keyCode) {
+            if (buddyx_keymap.TAB === e.keyCode) {
                 if (e.shiftKey) {
                     // Means we're tabbing out of the beginning of the submenu.
-                    if (isfirstFocusableElement(e.target, document.activeElement, focusSelector)) {
-                        toggleSubMenu(e.target.parentNode, false);
+                    if (buddyx_isfirstFocusableElement(e.target, document.activeElement, focusSelector)) {
+                        buddyx_toggleSubMenu(e.target.parentNode, false);
                     }
                     // Means we're tabbing out of the end of the submenu.
-                } else if (islastFocusableElement(e.target, document.activeElement, focusSelector)) {
-                    toggleSubMenu(e.target.parentNode, false);
+                } else if (buddyx_islastFocusableElement(e.target, document.activeElement, focusSelector)) {
+                    buddyx_toggleSubMenu(e.target.parentNode, false);
                 }
             }
         });
@@ -129,7 +129,7 @@ function initEachNavToggleSubmenu(nav) {
  * Initiate the script to process all
  * navigation menus with small toggle enabled.
  */
-function initNavToggleSmall() {
+function buddyx_initNavToggleSmall() {
     var navTOGGLE = document.querySelectorAll('.nav--toggle-small');
 
     // No point if no navs.
@@ -138,7 +138,7 @@ function initNavToggleSmall() {
     }
 
     for (let i = 0; i < navTOGGLE.length; i++) {
-        initEachNavToggleSmall(navTOGGLE[i]);
+        buddyx_initEachNavToggleSmall(navTOGGLE[i]);
     }
 }
 
@@ -147,7 +147,7 @@ function initNavToggleSmall() {
  * navigation toggle for a specific navigation menu.
  * @param {Object} nav Navigation element.
  */
-function initEachNavToggleSmall(nav) {
+function buddyx_initEachNavToggleSmall(nav) {
     var menuTOGGLE = nav.querySelector('.menu-toggle');
 
     // Return early if MENUTOGGLE is missing.
@@ -170,7 +170,7 @@ function initEachNavToggleSmall(nav) {
  * @param {boolean} forceToggle Force the menu toggle.
  * @return {void}
  */
-function toggleSubMenu(parentMenuItem, forceToggle) {
+function buddyx_toggleSubMenu(parentMenuItem, forceToggle) {
     var toggleButton = parentMenuItem.querySelector('.dropdown-toggle'),
         subMenu = parentMenuItem.querySelector('ul');
     let parentMenuItemToggled = parentMenuItem.classList.contains('menu-item--toggled-on');
@@ -197,13 +197,13 @@ function toggleSubMenu(parentMenuItem, forceToggle) {
         // Make sure all children are closed.
         var subMenuItemsToggled = parentMenuItem.querySelectorAll('.menu-item--toggled-on');
         for (let i = 0; i < subMenuItemsToggled.length; i++) {
-            toggleSubMenu(subMenuItemsToggled[i], false);
+            buddyx_toggleSubMenu(subMenuItemsToggled[i], false);
         }
     } else {
         // Make sure siblings are closed.
         var parentMenuItemsToggled = parentMenuItem.parentNode.querySelectorAll('li.menu-item--toggled-on');
         for (let i = 0; i < parentMenuItemsToggled.length; i++) {
-            toggleSubMenu(parentMenuItemsToggled[i], false);
+            buddyx_toggleSubMenu(parentMenuItemsToggled[i], false);
         }
 
         // Toggle "on" the submenu.
@@ -218,7 +218,7 @@ function toggleSubMenu(parentMenuItem, forceToggle) {
  * element needed for the menu.
  * @return {Object} drop-down button element
  */
-function getDropdownButton() {
+function buddyx_getDropdownButton() {
     var dropdownButton = document.createElement('button');
     dropdownButton.classList.add('dropdown-toggle');
     dropdownButton.setAttribute('aria-expanded', 'false');
@@ -234,7 +234,7 @@ function getDropdownButton() {
  * @param {string} focusSelector
  * @return {boolean} whether or not the element is the first focusable element in the container
  */
-function isfirstFocusableElement(container, element, focusSelector) {
+function buddyx_isfirstFocusableElement(container, element, focusSelector) {
     var focusableElements = container.querySelectorAll(focusSelector);
     if (0 < focusableElements.length) {
         return element === focusableElements[0];
@@ -250,7 +250,7 @@ function isfirstFocusableElement(container, element, focusSelector) {
  * @param {string} focusSelector
  * @return {boolean} whether or not the element is the last focusable element in the container
  */
-function islastFocusableElement(container, element, focusSelector) {
+function buddyx_islastFocusableElement(container, element, focusSelector) {
     var focusableElements = container.querySelectorAll(focusSelector);
     if (0 < focusableElements.length) {
         return element === focusableElements[focusableElements.length - 1];

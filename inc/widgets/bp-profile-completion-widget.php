@@ -385,13 +385,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		 */
 		return apply_filters( 'bp_buddyx_user_progress_formatted', $user_prgress_formatted );
 	}
-
-	/**
-	 * Callback to save widget settings.
-	 */
-	function update( $new_instance, $old_instance ) {
-		return apply_filters( 'BP_buddyx_profile_completion_form_update', $new_instance );
-	}
+	
 
 	/**
 	 * Widget settings form.

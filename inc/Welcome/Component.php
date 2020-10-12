@@ -43,7 +43,7 @@ class Component implements Component_Interface {
 			'themes.php',
 			__( 'Getting Started', 'buddyx' ),
 			__( 'Getting Started', 'buddyx' ),
-			'manage_options',
+			'edit_theme_options',
 			'buddyx-welcome',
 			array( &$this, 'submenu_page_callback' )
 		);
@@ -146,7 +146,7 @@ class Component implements Component_Interface {
 									<p class="buddyx-faq-content"><?php esc_html_e( 'Days: Monday-Friday', 'buddyx' ); ?></br>
 										<?php esc_html_e( 'Time: 10AM – 7PM GMT', 'buddyx' ); ?></br>
 										<?php esc_html_e( 'Inquiries received after the working hours or on weekends will be addressed on the next working day.', 'buddyx' ); ?></p>
-									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://support.wbcomdesigns.com/portal/home' ); ?>">Start Chat</a>
+									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://support.wbcomdesigns.com/portal/home' ); ?>"><?php esc_html_e('Start Chat','buddyx' );?></a>
 								</div>
 							</div><!-- .support -->
 							
@@ -237,7 +237,7 @@ class Component implements Component_Interface {
 
 						<div class="buddyx-text-center">
 							<h3 class="buddyx-feature-title"><?php esc_html_e( 'Get Pro and Experience all those exciting features', 'buddyx' ); ?></h3>
-							<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>">Get Pro</a>
+							<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>"><?php esc_html_e('Get Pro','buddyx' ); ?></a>
 						</div><!-- .video-tutorial button-->
 
 					</div><!-- .tab2 -->
@@ -247,35 +247,5 @@ class Component implements Component_Interface {
 					
 			</div><!-- .buddyx-dashboard-tabs -->
 		</div><!-- .wrap -->
-		
-		<script>
-
-			var tabs = document.querySelector('.buddyx-dashboard-tabs .tabs');
-			var tabButtons = tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tab"]');
-			var tabPanels = Array.from(tabs.querySelectorAll('.buddyx-dashboard-tabs [role="tabpanel"]'));
-
-			function handleTabClick(event) {
-			// Hide tab panels
-			tabPanels.forEach(panel => panel.hidden = true);
-
-			// Mark all tabs as unselected
-			tabButtons.forEach(tab => tab.setAttribute("aria-selected", false));
-
-			// Mark the clicked tab as selected
-			event.currentTarget.setAttribute("aria-selected", true);
-
-			// Find the associated tabPanel and show it
-			var { id } = event.currentTarget;
-
-			// Find in the array of tabPanels
-			var tabPanel = tabPanels.find(
-				panel => panel.getAttribute('aria-labelledby') === id
-			);
-			tabPanel.hidden = false;
-			}
-
-			tabButtons.forEach(button => button.addEventListener('click', handleTabClick));
-
-		</script>
 	<?php }
 }
