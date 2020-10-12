@@ -6,26 +6,26 @@
  */
 
 namespace BuddyX\Buddyx;
-$copyright = get_theme_mod( 'site_copyright_text' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+$copyright = esc_html( get_theme_mod( 'site_copyright_text' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 ?>
 
 	<div class="site-info">
-		<div class="container">			
+		<div class="container">
 
 			<?php if ( $copyright ) {
 				echo $copyright; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else { ?>
-				<?php 
+				<?php
 				$current_year = date_i18n(
 								/* translators: Copyright date format, see https://www.php.net/date */
 								_x( 'Y', 'copyright date format', 'buddyx' )
 							);
 				echo sprintf(__('Copyright &copy; %1$s. All rights reserved by, %2$s. Designed with %3$s','buddyx'), $current_year ,'<a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo( 'name' ).'</a>','<a href="https://wordpress.org/themes/buddyx/">BuddyX</a>');
-				 
-				
+
+
 			} ?>
-			
+
 		</div>
 
 	<?php

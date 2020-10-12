@@ -92,6 +92,9 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 2.9.8 =
+* Fix: ESC HTML for get_theme_mod
+
 = 2.9.7 =
 * Fix: translation ready
 * Fix: Double ESC
