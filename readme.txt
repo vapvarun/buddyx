@@ -92,6 +92,14 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 2.9.9 =
+* Fix: Removed BP_buddyx_profile_completion_form_update
+* Fix: Updated 'manage_options' with 'edit_theme_options' for welcome page
+* Fix: untranslatable lines for welcome page & buddypress-profile.php
+* Fix: updated prefix, global scope and added as new js file to enqueue at Welcome page
+* Fix: used esc_attr__ for Screen Reader Text for Accessibility
+* Fix: updated Screenshot
+
 = 2.9.8 =
 * Fix: ESC HTML for get_theme_mod
 
