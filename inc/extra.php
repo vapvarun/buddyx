@@ -369,7 +369,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 					'theme_name'       => __( 'BuddyX WordPress Theme', 'buddyx' ),
 					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
 				)
-            );
+			);
 							$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
 		}
 					return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
