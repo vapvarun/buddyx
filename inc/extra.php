@@ -358,7 +358,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 	 * @return mixed         Markup of custom text option.
 	 */
 	function buddyx_footer_custom_text() {
-        $copyright = esc_html( get_theme_mod( 'site_copyright_text', 'site-copyright-text' ) );
+        $copyright = esc_html( get_theme_mod( 'site_copyright_text' ) );
         $output = $copyright;
 		if ( '' != $output ) {
       $output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
