@@ -92,6 +92,11 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 2.9.10 =
+* Fix: default font Set
+* Fix: Enabled both sidebar for BuddyPress by default
+* Fix: Updated footer copyright option with sitename and year shortcodes
+
 = 2.9.9 =
 * Fix: Removed BP_buddyx_profile_completion_form_update
 * Fix: Updated 'manage_options' with 'edit_theme_options' for welcome page
