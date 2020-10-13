@@ -300,7 +300,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Site Title Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '600',
 				'font-size'      => '38px',
 				'line-height'    => '1.2',
@@ -339,7 +339,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Site Tagline Settings', 'buddyx' ),
 			'section'     => 'site_title_typography_section',
 			'default'     => array(
-				'font-family'    => 'Lato',
+				'font-family'    => 'Open Sans',
 				'variant'        => 'regular',
 				'font-size'      => '14px',
 				'line-height'    => '1.4',
@@ -365,7 +365,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H1 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '30px',
 				'line-height'    => '1.4',
@@ -388,7 +388,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H2 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '24px',
 				'line-height'    => '1.4',
@@ -411,7 +411,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H3 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '22px',
 				'line-height'    => '1.4',
@@ -434,7 +434,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H4 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '20px',
 				'line-height'    => '1.4',
@@ -457,7 +457,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H5 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '18px',
 				'line-height'    => '1.4',
@@ -480,7 +480,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'H6 Tag Settings', 'buddyx' ),
 			'section'     => 'headings_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '16px',
 				'line-height'    => '1.4',
@@ -506,9 +506,9 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Menu Settings', 'buddyx' ),
 			'section'     => 'menu_typography_section',
 			'default'     => array(
-				'font-family'    => 'Source Sans Pro',
+				'font-family'    => 'Open Sans',
 				'variant'        => '500',
-				'font-size'      => '16px',
+				'font-size'      => '14px',
 				'line-height'    => '1.6',
 				'letter-spacing' => '0.02em',
 				'color'          => '#111111',
@@ -572,9 +572,9 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Settings', 'buddyx' ),
 			'section'     => 'body_typography_section',
 			'default'     => array(
-				'font-family'    => 'Lato',
+				'font-family'    => 'Open Sans',
 				'variant'        => 'regular',
-				'font-size'      => '16px',
+				'font-size'      => '14px',
 				'line-height'    => '1.6',
 				'letter-spacing' => '0',
 				'color'          => '#505050',
@@ -971,7 +971,7 @@ class Component implements Component_Interface {
 				'label'    => esc_html__( 'BuddyPress Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
-				'default'  => 'right',
+				'default'  => 'both',
 				'choices'  => [
 					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
@@ -1138,7 +1138,7 @@ class Component implements Component_Interface {
 			'settings'    => 'site_copyright_text',
 			'label'       => esc_html__( 'Add Content', 'buddyx' ),
 			'section'     => 'site_copyright_section',
-			'default'     => 'Copyright &copy; 2020. All rights reserved by, <a href="#">BuddyX Theme</a>',
+			'default' => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
 			'priority'    => 10,
 		);
 

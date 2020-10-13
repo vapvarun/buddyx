@@ -162,7 +162,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');			
 			wp_enqueue_script(
 				'buddyx-admin-script',
-				get_theme_file_uri( '/assets/js/buddyx-admin.js' ),
+				get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
 				'',
 				'',
 				true
@@ -408,7 +408,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = [
-			'Lato'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
+			'Open Sans'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
 		];
 
 		/**

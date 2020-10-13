@@ -68,8 +68,12 @@
 
 /* Archive and Categories widgets */
 
+.widget_categories li,
 .widget_archive li {
     color: #7d7d7d;
+    line-height: 1.3;
+    padding-bottom: .5em;
+    margin-bottom: 5px;
 }
 
 .widget_categories .children {
@@ -123,6 +127,9 @@
 
 .widget_meta li {
     padding: 0;
+    line-height: 1.3;
+    padding-bottom: .5em;
+    margin-bottom: 5px;
 }
 
 

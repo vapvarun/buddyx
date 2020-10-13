@@ -7,10 +7,10 @@
 
 :root {
 	--global-font-color: #505050;
-	--global-font-family: "Lato", serif;
-	--global-font-size: 16;
+	--global-font-family: "Open Sans", serif;
+	--global-font-size: 14;
 	--global-font-line-height: 1.4;
-	--highlight-font-family: "Lato", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--content-width: 100%;
 	--dropdown-symbol-width: 0.7em;
 

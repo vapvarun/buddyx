@@ -1,10 +1,10 @@
-<?php 
+<?php
 // buddyx_excerpt_length
 function buddyx_excerpt_length( $length ) {
 	if ( is_admin() ) {
 		return $length;
 	}
-	
+
     return 20;
 }
 add_filter( 'excerpt_length', 'buddyx_excerpt_length', 999 );
@@ -26,7 +26,7 @@ if ( !function_exists( 'buddyx_content_bottom' ) ) {
 
 add_action( 'buddyx_after_content', 'buddyx_content_bottom' );
 
-// Site Sub Header 
+// Site Sub Header
 if ( !function_exists( 'buddyx_sub_header' ) ) {
 	add_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 
@@ -42,7 +42,7 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-				if ( ! empty( $breadcrumbs ) ) {					
+				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
 			} elseif ( get_post_type() === 'page' || is_single() ) {
@@ -65,18 +65,18 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 //  to include in functions.php
 if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 	function buddyx_the_breadcrumb() {
-		
-		$wpseo_titles = get_option( 'wpseo_titles' );		
+
+		$wpseo_titles = get_option( 'wpseo_titles' );
 		if ( function_exists('yoast_breadcrumb') && isset($wpseo_titles['breadcrumbs-enable']) &&  $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-			
+
 			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-			
+
 		} else {
-		
+
 			$sep = ' &raquo ';
 
 			if (!is_front_page()) {
-			
+
 				// Start the breadcrumb with a link to your homepage
 				echo '<div class="buddyx-breadcrumbs">';
 				echo '<a href="';
@@ -84,7 +84,7 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 				echo '">';
 				echo esc_html__( 'Home', 'buddyx');
 				echo '</a>' . $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			
+
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
 					the_category(' > ');
@@ -103,18 +103,18 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 						esc_html_e( 'Blog Archives', 'buddyx' );
 					}
 				}
-			
+
 				// If the current page is a single post, show its title with the separator
 				if (is_single()) {
 					echo $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					the_title();
 				}
-			
+
 				// If the current page is a static page, show its title.
 				if (is_page()) {
 					the_title();
 				}
-			
+
 				// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home > Blog
 				if (is_home()){
 					esc_html_e( 'Blog', 'buddyx' );
@@ -126,7 +126,7 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 	}
 }
 
-// Site Loader 
+// Site Loader
 if ( !function_exists( 'buddyx_site_loader' ) ) {
 	function buddyx_site_loader() {
 		$loader	 = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
@@ -194,7 +194,7 @@ if ( !function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 
 /**
  * Is the current user online
- * 
+ *
  * @param $user_id
  *
  * @return bool
@@ -265,7 +265,7 @@ if ( !function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
  */
 if ( !function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
 	function buddyx_disable_woo_commerce_sidebar() {
-		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10); 
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 	}
 }
 add_action('init', 'buddyx_disable_woo_commerce_sidebar');
@@ -344,4 +344,40 @@ if ( !function_exists( 'buddyx_profile_achievements' ) ) {
 		}
 	}
 
+}
+
+/**
+ * Function Footer Custom Text
+ */
+if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
+	/**
+	 * Function Footer Custom Text
+	 *
+	 * @since 1.0.14
+	 * @param string $option Custom text option name.
+	 * @return mixed         Markup of custom text option.
+	 */
+	function buddyx_footer_custom_text() {
+        $copyright = esc_html( get_theme_mod( 'site_copyright_text', 'site-copyright-text' ) );
+        $output = $copyright;
+		if ( '' != $output ) {
+      $output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
+			$output = str_replace( '[site_title]', '<span class="buddyx-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
+			$theme_author = apply_filters(
+				'buddyx_theme_author',
+				array(
+					'theme_name'       => __( 'BuddyX WordPress Theme', 'buddyx' ),
+					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
+				)
+            );
+            $output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
+		}else {
+            $current_year = date_i18n(
+                /* translators: Copyright date format, see https://www.php.net/date */
+                _x( 'Y', 'copyright date format', 'buddyx' )
+            );
+            echo sprintf( __( 'Copyright &copy; %1$s. All rights reserved by, %2$s. Designed with %3$s', 'buddyx' ), $current_year , '<a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="https://wordpress.org/themes/buddyx/">BuddyX</a>' );
+        }
+        return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
+	}
 }

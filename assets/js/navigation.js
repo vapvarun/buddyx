@@ -1,4 +1,4 @@
-/* global wpRigScreenReaderText */
+/* global buddyxScreenReaderText */
 /**
  * File navigation.js.
  *
@@ -192,7 +192,7 @@ function buddyx_toggleSubMenu(parentMenuItem, forceToggle) {
         // Toggle "off" the submenu.
         parentMenuItem.classList.remove('menu-item--toggled-on');
         subMenu.classList.remove('toggle-show');
-        toggleButton.setAttribute('aria-label', wpRigScreenReaderText.expand);
+        toggleButton.setAttribute('aria-label', buddyxScreenReaderText.expand);
 
         // Make sure all children are closed.
         var subMenuItemsToggled = parentMenuItem.querySelectorAll('.menu-item--toggled-on');
@@ -209,7 +209,7 @@ function buddyx_toggleSubMenu(parentMenuItem, forceToggle) {
         // Toggle "on" the submenu.
         parentMenuItem.classList.add('menu-item--toggled-on');
         subMenu.classList.add('toggle-show');
-        toggleButton.setAttribute('aria-label', wpRigScreenReaderText.collapse);
+        toggleButton.setAttribute('aria-label', buddyxScreenReaderText.collapse);
     }
 }
 
@@ -222,7 +222,7 @@ function buddyx_getDropdownButton() {
     var dropdownButton = document.createElement('button');
     dropdownButton.classList.add('dropdown-toggle');
     dropdownButton.setAttribute('aria-expanded', 'false');
-    dropdownButton.setAttribute('aria-label', wpRigScreenReaderText.expand);
+    dropdownButton.setAttribute('aria-label', buddyxScreenReaderText.expand);
     return dropdownButton;
 }
 
