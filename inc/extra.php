@@ -370,14 +370,8 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
 				)
             );
-            $output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
-		}else {
-            $current_year = date_i18n(
-                /* translators: Copyright date format, see https://www.php.net/date */
-                _x( 'Y', 'copyright date format', 'buddyx' )
-            );
-            echo sprintf( __( 'Copyright &copy; %1$s. All rights reserved by %2$s. Designed with %3$s', 'buddyx' ), $current_year , '<a href="' . esc_url( home_url( '/' ) ) . '">' .  esc_html( get_bloginfo( 'name' ) ) . '</a>', '<a href="https://wordpress.org/themes/buddyx/">BuddyX</a>' );
-        }
-        return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
+							$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
+		}
+					return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
 	}
 }
