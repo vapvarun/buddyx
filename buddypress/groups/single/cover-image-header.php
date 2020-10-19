@@ -26,23 +26,23 @@
     <?php if ( ! bp_nouveau_groups_front_page_description() ) : ?>
         <div id="item-header-content">
 
-            <h2 class="bp-group-title"><?php echo esc_attr( bp_get_group_name() ); ?></h2>    
+            <h2 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h2>    
             <p class="highlight group-status"><strong><?php echo wp_kses( bp_nouveau_group_meta()->status, array( 'span' => array( 'class' => array() ) ) ); ?></strong></p>
             
             <p class="activity" data-livestamp="<?php bp_core_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ); ?>">
                 <?php
                 /* translators: %s = last activity timestamp (e.g. "active 1 hour ago") */
-                printf( __( 'active %s', 'buddyx' ), bp_get_group_last_active() );
+                printf( __( 'active %s', 'buddyx' ), bp_get_group_last_active() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
             </p>
 
-            <?php echo bp_nouveau_group_meta()->group_type_list; ?>
+            <?php echo bp_nouveau_group_meta()->group_type_list; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php bp_nouveau_group_hook( 'before', 'header_meta' ); ?>
 
             <?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
                 <div class="item-meta">
 
-                    <?php echo bp_nouveau_group_meta()->extra; ?>
+                    <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
                 </div><!-- .item-meta -->
             <?php endif; ?>

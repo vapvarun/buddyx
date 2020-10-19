@@ -33,7 +33,7 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 				<?php
 					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 					if ( ! empty( $breadcrumbs ) ) {
-						the_breadcrumb();
+						buddyx_the_breadcrumb();
 					}
 				?>
             <?php endif; ?>
@@ -53,7 +53,7 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 
 <?php
 
-do_action( 'buddy_before_content' );
+do_action( 'buddyx_before_content' );
 
 if ( class_exists( 'WooCommerce' ) ) { ?>
 	<?php if ( is_woocommerce() ) { ?>
@@ -145,6 +145,6 @@ do_action( 'woocommerce_after_main_content' );
 	<?php } ?>
 <?php }
 
-do_action( 'buddy_after_content' );
+do_action( 'buddyx_after_content' );
 
 get_footer( 'shop' );

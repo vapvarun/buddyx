@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns,vapvarun
 Tags: buddypress,amp-ready
 Requires at least: 4.8
-Tested up to: 5.5.0
+Tested up to: 5.5.1
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -20,6 +20,14 @@ Buddyx is build for your community site powered with BuddyPress.
 An answer to that question.
 
 == Changelog ==
+
+= 2.9.3 =
+* Fix: (#148) Managed edit activity and textarea format with bb-platform
+* Fix: Fixed not escaped and translation issue
+* Fix: Managed keyboard navigation
+* Fix: Theme check issues fixes
+* Fix: Set theme name prefix in Function name
+* Fix: Replace buddy_ to buddyx_ in function name and action hook
 
 = 2.9.2 =
 * Fix: Fixed cover image issue with BuddyPress

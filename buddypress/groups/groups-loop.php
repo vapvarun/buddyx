@@ -48,8 +48,8 @@ bp_nouveau_before_loop(); ?>
 							<?php
 							printf(
 								/* translators: %s = last activity timestamp (e.g. "active 1 hour ago") */
-								__( 'active %s', 'buddyx' ),
-								bp_get_group_last_active()
+								__( 'active %s', 'buddyx' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								bp_get_group_last_active() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							);
 							?>
 						</p>

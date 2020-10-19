@@ -56,14 +56,14 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 		/* Widget Template */
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		// Widget Title
-		echo $args['before_title'] . $instance['title'] . $args['after_title'];
+		echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		// Widget Content
 
-		$progress_label = sprintf( __( '%s Complete', 'buddyx' ), $user_progress['completion_percentage'] . '%' );
+		$progress_label = sprintf( esc_html__( '%s Complete', 'buddyx' ), $user_progress['completion_percentage'] . '%' );
 		?>
 		<div class="wb-bp-profile-completion-wrap">
 
@@ -75,7 +75,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							$current_user = wp_get_current_user();
 							if ( ( $current_user instanceof WP_User ) ) {
 								$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
-								echo '<a class="wb-bp-user-link" href="' . $user_link . '">';
+								echo '<a class="wb-bp-user-link" href="' . esc_url($user_link) . '">';
 								?>
 								<?php
 								echo get_avatar( $current_user->user_email, 200 );
@@ -84,7 +84,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							?>
 						</div>
 						<div class="wb-bp-progress-label">
-							<span class="wb-bp-completion"><?php echo $user_progress['completion_percentage'] . '%'; ?></span>
+							<span class="wb-bp-completion"><?php echo esc_html($user_progress['completion_percentage']) . '%'; ?></span>
 							<span><?php echo esc_html__( 'Complete', 'buddyx' ); ?></span>
 						</div>
 					</div>
@@ -106,7 +106,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 				<li class="wb-bp-single-section-wrap
 				<?php
-				echo ( $single_section_details['is_group_completed'] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
+				echo ( isset($single_section_details['is_group_completed']) && $single_section_details['is_group_completed'] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
 				echo esc_attr( $user_progress_status );
 				?>
 					">
@@ -130,7 +130,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -383,14 +383,14 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		/**
 		 * Filter returns User Progress array in the template friendly format.
 		 */
-		return apply_filters( 'BP_buddyx_user_progress_formatted', $user_prgress_formatted );
+		return apply_filters( 'bp_buddyx_user_progress_formatted', $user_prgress_formatted );
 	}
 
 	/**
 	 * Callback to save widget settings.
 	 */
 	function update( $new_instance, $old_instance ) {
-		return apply_filters( 'BP_buddyx_profile_completion_form_update', $new_instance );
+		return apply_filters( 'bp_buddyx_profile_completion_form_update', $new_instance );
 	}
 
 	/**
@@ -482,7 +482,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		<p>
 			<label>
 				<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_hide_widget' ) ); ?>" value="hide_widget" <?php checked( ( ! empty( $instance['profile_hide_widget'] ) && 'hide_widget' == $instance['profile_hide_widget'] ) ); ?>/>
-			<?php echo __( 'Hide widget once progress hits 100%', 'buddyx' ); ?>
+			<?php esc_html_e( 'Hide widget once progress hits 100%', 'buddyx' ); ?>
 			</label>
 
 		</p>
