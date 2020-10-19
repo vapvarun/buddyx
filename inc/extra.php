@@ -350,28 +350,28 @@ if ( !function_exists( 'buddyx_profile_achievements' ) ) {
  * Function Footer Custom Text
  */
 if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
-	/**
-	 * Function Footer Custom Text
-	 *
-	 * @since 1.0.14
-	 * @param string $option Custom text option name.
-	 * @return mixed         Markup of custom text option.
-	 */
-	function buddyx_footer_custom_text() {
+    /**
+     * Function Footer Custom Text
+     *
+     * @since 1.0.14
+     * @param string $option Custom text option name.
+     * @return mixed         Markup of custom text option.
+     */
+    function buddyx_footer_custom_text() {
         $copyright = esc_html( get_theme_mod( 'site_copyright_text' ) );
         $output = $copyright;
-		if ( '' != $output ) {
-      $output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
-			$output = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $output );
-			$theme_author = apply_filters(
-				'buddyx_theme_author',
-				array(
-					'theme_name'       => __( 'BuddyX WordPress Theme', 'buddyx' ),
-					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
-				)
-			);
-							$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
-		}
-					return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
-	}
+        if ( '' != $output ) {
+            $output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
+            $output = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $output );
+            $theme_author = apply_filters(
+                    'buddyx_theme_author',
+                    array(
+                            'theme_name'       => __( 'BuddyX WordPress Theme', 'buddyx' ),
+                            'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
+                    )
+            );
+            $output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
+        }
+        return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
+    }
 }

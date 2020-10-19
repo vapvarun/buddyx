@@ -159,7 +159,6 @@ function buddyx_initEachNavToggleSmall(nav) {
     menuTOGGLE.setAttribute('aria-expanded', 'false');
 
     menuTOGGLE.addEventListener('click', (e) => {
-        nav.classList.toggle('nav--toggled-on');
         e.target.setAttribute('aria-expanded', 'false' === e.target.getAttribute('aria-expanded') ? 'true' : 'false');
     }, false);
 }
@@ -266,7 +265,7 @@ function buddyx_islastFocusableElement(container, element, focusSelector) {
         return;
     }
 
-    document.addEventListener('keydown', function(event) {
+     document.addEventListener('keydown', function(event) {
 
         var selectors = 'input, a, button',
             elements = mobnavWrap.querySelectorAll(selectors),
@@ -276,14 +275,22 @@ function buddyx_islastFocusableElement(container, element, focusSelector) {
             activeEl = document.activeElement,
             tabKey = event.keyCode === 9,
             shiftKey = event.shiftKey;
-
-
-        if (!shiftKey && tabKey && lastEl === activeEl) {
+		
+		var firstEl_id = jQuery(activeEl).attr('id');
+		
+		if ( firstEl_id == 'menu-toggle' && jQuery('#' + firstEl_id).hasClass('menu-toggle-open') ) {			
+			closMenu.focus();
+		}
+		
+		if ( firstEl_id == 'menu-close' && !jQuery('#menu-toggle').hasClass('menu-toggle-open') ) {			
+			lastEl.focus();
+		}
+        if (!shiftKey && tabKey && lastEl === activeEl) {			
             event.preventDefault();
             closMenu.focus();
         }
 
-        if (shiftKey && tabKey && firstEl === activeEl) {
+        if (shiftKey && tabKey && firstEl === activeEl) {			
             event.preventDefault();
             closMenu.focus();
         }
@@ -293,6 +300,6 @@ function buddyx_islastFocusableElement(container, element, focusSelector) {
             lastEl.focus();
         }
 
-    });
+    });	
 
 }());

@@ -29,9 +29,6 @@ function buddyx_defaults( $key = '' ) {
 
      # post per view
      $defaults[ 'post-per-row' ] = '3';
-     
-     # footer copyright text
-     $defaults[ 'site-copyright-text' ] = 'Copyright © [current_year] [site_title] | Powered by [theme_author]';
 
 
 	if ( !empty( $key ) && array_key_exists( $key, $defaults ) ) {

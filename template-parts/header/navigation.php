@@ -36,7 +36,11 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	}
 	?>
 
-	<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'buddyx' ); ?>" aria-controls="primary-menu" aria-expanded="false"
+        <div class="buddypress-icons-wrapper buddyx-mobile-icon">
+		<?php get_template_part('template-parts/header/buddypress-profile'); ?>
+	</div>
+
+	<button id="menu-toggle" class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'buddyx' ); ?>" aria-controls="primary-menu" aria-expanded="false"
 		<?php
 		if ( buddyx()->is_amp() ) {
 			?>
@@ -52,7 +56,7 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	<div class="primary-menu-container buddyx-mobile-menu">
 		<div class="mobile-menu-heading">
 			<h3 class="menu-title"><?php esc_html_e( 'Menu', 'buddyx' ); ?></h3>
-			<a href="<?php echo esc_url( '#' ); ?>" class="menu-close"><?php esc_html_e( 'Close', 'buddyx' ); ?></a>
+			<a id="menu-close" href="<?php echo esc_url( '#' ); ?>" class="menu-close"><?php esc_html_e( 'Close', 'buddyx' ); ?></a>
 		</div>
 		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
 		<div class="moible-icons">

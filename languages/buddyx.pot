@@ -635,6 +635,10 @@ msgstr ""
 msgid "See All"
 msgstr ""
 
+#: ../buddyx/inc/extra.php:364
+msgid "BuddyX WordPress Theme"
+msgstr ""
+
 #: ../buddyx/inc/Kirki_Option/Component.php:64, ../buddyx/inc/Kirki_Option/Component.php:73, ../buddyx/inc/Kirki_Option/Component.php:231
 msgid "Site Layout"
 msgstr ""
@@ -655,7 +659,7 @@ msgstr ""
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:124, ../buddyx/template-parts/header/navigation.php:52
+#: ../buddyx/inc/Kirki_Option/Component.php:124, ../buddyx/template-parts/header/navigation.php:56
 msgid "Menu"
 msgstr ""
 
@@ -896,7 +900,7 @@ msgid "Add Content"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1141
-msgid "Copyright &copy; 2020. All rights reserved by, <a href=\"#\">BuddyX Theme</a>"
+msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1148
@@ -1030,7 +1034,7 @@ msgstr ""
 msgid "Programming Languages"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:62
+#: ../buddyx/inc/Welcome/Component.php:62, ../buddyx/inc/Welcome/Component.php:240
 msgid "Get Pro"
 msgstr ""
 
@@ -1394,16 +1398,6 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#. translators: Copyright date format, see https://www.php.net/date
-#: ../buddyx/template-parts/footer/info.php:20
-msgctxt "copyright date format"
-msgid "Y"
-msgstr ""
-
-#: ../buddyx/template-parts/footer/info.php:22
-msgid "Copyright &copy; %1$s. All rights reserved by, %2$s. Designed with %3$s"
-msgstr ""
-
 #: ../buddyx/template-parts/header/buddypress-profile.php:46
 msgid "View all notifications"
 msgstr ""
@@ -1428,11 +1422,11 @@ msgstr ""
 msgid "Main menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:37
+#: ../buddyx/template-parts/header/navigation.php:41
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:53
+#: ../buddyx/template-parts/header/navigation.php:57
 msgid "Close"
 msgstr ""
 

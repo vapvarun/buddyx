@@ -651,7 +651,11 @@ body.admin-bar .site-header-wrapper {
         position: relative;
     }
     .buddyx-mobile-menu .menu-icons-wrapper #searchform input[type=text] {
-        width: 185px;
+        width: 155px;
+        padding-left: 10px;
+    }
+    .buddyx-mobile-menu .menu-icons-wrapper #searchform input[type=submit] {
+        height: 40px;
     }
 }
 
@@ -941,7 +945,7 @@ body.admin-bar .site-header-wrapper {
     display: none;
     position: absolute;
     right: -10px;
-    top: calc(100% + 30px);
+    top: calc(100% + 20px);
     z-index: 9;
 }
 
@@ -951,6 +955,7 @@ body.admin-bar .site-header-wrapper {
     background: #fff;
     margin: 0px;
     padding: 5px 15px;
+    padding-right: 40px;
     border-radius: 8px;
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
@@ -962,12 +967,8 @@ body.admin-bar .site-header-wrapper {
     padding: 0px;
     text-transform: uppercase;
     font-size: 12px;
-    width: 220px;
+    width: 190px;
     -webkit-appearance: none;
-}
-
-.menu-icons-wrapper #searchform input[type=text]:focus {
-    outline: none;
 }
 
 .menu-icons-wrapper #searchform input[type="text"],
@@ -993,6 +994,10 @@ body.admin-bar .site-header-wrapper {
     background: none;
     border: 0;
     text-indent: -9999px;
+}
+
+.menu-icons-wrapper #searchform input[type=submit]:focus {
+    border: 1px dotted #aaa;
 }
 
 .menu-icons-wrapper #searchform:before {
@@ -1041,7 +1046,8 @@ body.admin-bar .site-header-wrapper {
     }
     .menu-icons-wrapper #searchform {
         max-width: 200px;
-        padding: 0 15px;
+        padding: 0;
+        padding-right: 40px;
     }
     .menu-icons-wrapper .top-menu-search-container {
         position: relative;
@@ -1066,6 +1072,10 @@ body.admin-bar .site-header-wrapper {
     align-items: center;
     float: right;
     flex: 0 0 auto;
+}
+
+.buddypress-icons-wrapper.buddyx-mobile-icon {
+    display: none;
 }
 
 .buddypress-icons-wrapper a {
@@ -1118,20 +1128,6 @@ body.admin-bar .site-header-wrapper {
 
 .user-link-wrap .bp-user {
     padding-right: 15px;
-}
-
-.user-link-wrap .bp-user:after {
-    color: inherit;
-    content: '\f107';
-    font-family: "FontAwesome";
-    font-weight: 900;
-    display: inline-block;
-    position: relative;
-    right: -5px;
-    font-size: inherit;
-    top: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 #user-profile-menu {
@@ -1206,6 +1202,12 @@ body.admin-bar .site-header-wrapper {
 }
 
 @media (max-width: 767px) {
+    .buddypress-icons-wrapper {
+        display: none;
+    }
+    .buddypress-icons-wrapper.buddyx-mobile-icon {
+        display: block;
+    }
     .buddypress-icons-wrapper .btn-login,
     .buddypress-icons-wrapper .btn-register {
         font-size: 12px;

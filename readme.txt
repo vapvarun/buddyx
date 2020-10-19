@@ -91,6 +91,8 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+= 2.9.11 =
+* Fix: Accessibility issue for drop down menu and mobile menu
 
 = 2.9.10 =
 * Fix: default font Set

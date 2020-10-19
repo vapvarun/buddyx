@@ -110,6 +110,7 @@
             e.preventDefault();
             if (isOpened()) {
                 closeWidget();
+
             } else {
                 setTimeout(function() {
                     openWidget();
@@ -137,15 +138,18 @@
 
         var closeWidget = function() {
             $('body').removeClass('mobile-menu-opened');
+            $(widget).removeClass('menu-toggle-open');
         };
 
         var openWidget = function() {
             $('body').addClass('mobile-menu-opened');
+            $(widget).addClass('menu-toggle-open');
         };
 
         var isOpened = function() {
             return $('body').hasClass('mobile-menu-opened');
         };
+
     };
 
     // Blog Layout
