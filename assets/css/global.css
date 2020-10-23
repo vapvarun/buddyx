@@ -387,6 +387,7 @@ select {
     border-bottom: 1px solid var(--global-border-color);
     background: #fff;
     min-height: 51px;
+    transition: all .2s;
 }
 
 .site-header-wrapper.has-sticky-header {
@@ -495,6 +496,12 @@ body.admin-bar .site-header-wrapper {
     }
 }
 
+@media (max-width: 600px) {
+    body.admin-bar .site-header-wrapper.has-sticky-header {
+        top: 0;
+    }
+}
+
 .main-navigation .user-profile-menu li a,
 .main-navigation .bp-header-submenu li a {
     padding: 6px 15px;
@@ -553,7 +560,9 @@ body.admin-bar .site-header-wrapper {
         background-color: white;
         z-index: 9999;
         transform: translate3d(340px, 0, 0);
-        transition: transform .3s ease;
+        transition: all .2s ease;
+        opacity: 0;
+        visibility: hidden;
     }
     body.admin-bar .main-navigation .primary-menu-container {
         top: 46px;
@@ -561,6 +570,9 @@ body.admin-bar .site-header-wrapper {
     .mobile-menu-opened .primary-menu-container {
         display: block;
         transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition: transform .3s ease;
     }
     .mobile-menu-heading {
         margin-bottom: 20px;

@@ -37,6 +37,7 @@
 
     // Header Search
     BUDDYX.headerSearch = function() {
+
         $('.search-icon').on('click', function(e) {
             e.stopPropagation();
             $('.site-header .top-menu-search-container').toggle();
@@ -48,6 +49,11 @@
                 container.fadeOut();
             }
         });
+
+        $("#primary-menu a, .cart a.menu-icons-wrapper, .bp-icon-wrap, a.user-link, .site-sub-header a, .site-wrapper a").focusin(function() {
+            $('.site-header .top-menu-search-container').hide();
+        });
+
     };
 
     // Desktop Menu Toggle
