@@ -601,14 +601,22 @@ class Component implements Component_Interface {
                         'choices' => array('alpha' => true),
 			'priority'    => 10,
 			'output'      => array(
-				array(
-					'element' => '.site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container',
-					'property' => 'background-color',
-				),
-				array(
-					'element' => '.site-header-wrapper',
-					'property' => 'border-color',
-				),
+				[
+                                    'element' => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
+                                    'property' => 'background-color',
+                                ],
+                                [
+                                    'element' => '.site-header-wrapper',
+                                    'property' => 'border-color',
+                                ],
+                                [
+                                    'element' => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+                                    'property' => 'border-top-color',
+                                ],
+                                [
+                                    'element' => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+                                    'property' => 'border-right-color',
+                                ],
 			),
 		);
 
