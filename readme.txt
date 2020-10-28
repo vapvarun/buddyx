@@ -93,6 +93,10 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.0.0 =
+* Improvement: Updated Theme Description
+* Fix: Box layout header color fix
+
 = 2.9.12 =
 * Fix: Keyboard navigation fixes.
 
