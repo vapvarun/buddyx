@@ -10,13 +10,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-BuddyX is a community theme with BuddyPress support. BuddyX is a perfect solution for all kind of communities. Let your members create profiles, make friendships, send private messages, create and interact in groups.
+BuddyX is a community theme with BuddyPress support. BuddyX is a perfect solution for all kinds of communities. Let your members create profiles, make friendships, send private messages, create and interact in groups.
 
-BuddyX is the perfect theme for your project. Lightweight and highly extendable, it will enable you to create almost any type of website such a blog, community, business website and WooCommerce storefront with a beautiful & professional design.
+BuddyX is the perfect theme for your project. Lightweight and highly extendable, it will enable you to create almost any website such as a blog, community, business website, and WooCommerce storefront with a beautiful & professional design. Free theme for your community with
 
-Free theme for your community with BuddyPress, BuddyX is built using latest best practices for progressive web content and optimization. It offers special features and templates so it works perfectly with Elementor page builder.
+BuddyPress, BuddyX is built using the latest best practices for progressive web content and optimization.
 
-Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained. It have support for popular LMS plugins along with WooCommerce. Have support of bunch of premium plugins and developed, maintained and support by Wbcom Designs.
+Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained. It has support for popular LMS plugins along with WooCommerce. Have the support of many premium plugins and developed, maintained, and support by Wbcom Designs.
 
 == BuddyX Child Theme ==
 
