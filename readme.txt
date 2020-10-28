@@ -10,13 +10,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-BuddyX is a community theme with BuddyPress support. BuddyX is a perfect solution for all kinds of communities. Let your members create profiles, make friendships, send private messages, create and interact in groups.
+BuddyX is an ideal theme for community and membership websites. Providing a solution to all kinds of communities. Thanks to its BuddyPress support, your website can now have member profiles, send a private message, create groups and so much more.
 
-BuddyX is the perfect theme for your project. Lightweight and highly extendable, it will enable you to create almost any website such as a blog, community, business website, and WooCommerce storefront with a beautiful & professional design. Free theme for your community with
+Lightweight and scalability will allow you to create almost any kind of website. A blog, community or business website, possibilities are limitless with BuddyX. It is a free theme with the power to create a beautiful and professionally designed digital storefront with WooCommerce compatibility. It also has the support of popular LMS plugins.
 
-BuddyPress, BuddyX is built using the latest best practices for progressive web content and optimization.
+The theme has the support of many premium plugins and is regularly developed and maintained by WBCom Designs. Oh! and we provide dedicated support to our customers too.
 
-Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained. It has support for popular LMS plugins along with WooCommerce. Have the support of many premium plugins and developed, maintained, and support by Wbcom Designs.
+Some of the other features are # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regular updates #Regularly Designed, Developed & Maintained
 
 == BuddyX Child Theme ==
 
