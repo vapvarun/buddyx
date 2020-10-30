@@ -39,8 +39,6 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 		<?php
 		if ( have_posts() ) {
 
-			//get_template_part( 'template-parts/content/page_header' );
-
 			while ( have_posts() ) {
 				the_post();
 

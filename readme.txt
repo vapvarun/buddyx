@@ -1,6 +1,6 @@
 === BuddyX ===
-Contributors: wbcomdesigns,vapvarun
-Tags: buddypress,amp-ready
+Contributors: wbcomdesigns
+Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
 Tested up to: 5.5.1
 Requires PHP: 7.0
@@ -8,30 +8,151 @@ Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Free theme for your community with BuddyPress, Buddyx is built using latest best practices for progressive web content and optimization.
 
 == Description ==
-Buddyx is build for your community site powered with BuddyPress.
+BuddyX is an ideal theme for community and membership websites. Providing a solution to all kinds of communities. Thanks to its BuddyPress support, your website can now have member profiles, send a private message, create groups and so much more.
 
-== Frequently Asked Questions ==
+Lightweight and scalability will allow you to create almost any kind of website. A blog, community or business website, possibilities are limitless with BuddyX. It is a free theme with the power to create a beautiful and professionally designed digital storefront with WooCommerce compatibility. It also has the support of popular LMS plugins.
 
-= A question that someone might have =
+The theme has the support of many premium plugins and is regularly developed and maintained by WBCom Designs. Oh! and we provide dedicated support to our customers too.
 
-An answer to that question.
+Some of the other features are # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regular updates #Regularly Designed, Developed & Maintained
+
+== BuddyX Child Theme ==
+
+There are multiple ways you can use a child theme with the BuddyX Theme, Use any one method mentioned below to create a child theme or use a child theme we have created.
+
+1. Download the child theme from Github - https://github.com/buddyx/buddyx-child-theme
+2. More information on creating child theme - https://codex.wordpress.org/Child_Themes
+
+== BuddyX License ==
+
+BuddyX is licensed under the GNU General Public License v3.0 (or later)
+More details here: https://www.gnu.org/licenses/gpl-3.0.html
+
+BuddyX is based on WP Rig https://github.com/wprig/wprig, WP Rig is released under GNU General Public License v3.0 (or later).
+
+== Copyright ==
+
+BuddyX is distributed under the terms of the GNU GPL.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3.0 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+== Customizations ==
+Navigate to Appearance > Customize in your admin panel and customize to taste.
+
+BuddyX bundles the following third-party resources:
+
+Font Awesome Fonts, Copyright Dave Gandy
+License: SIL OFL 1.1 License - https://scripts.sil.org/OFL
+Source: https://fontawesome.com/
+
+Font Awesome Icons, Copyright Dave Gandy
+License: CC BY 4.0 License - https://creativecommons.org/licenses/by/4.0/
+Source: https://fontawesome.com/
+
+scrollup v2.4.1
+Url: http://markgoodyear.com/labs/scrollup/
+Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
+License: MIT
+
+jQuery Superfish Menu Plugin - v1.7.10
+Copyright (c) 2018 Joel Birch
+License: MIT/GPL - https://opensource.org/licenses/MIT
+Source: https://github.com/joeldbirch/superfish
+
+Sticky-kit v1.1.3 | MIT | Leaf Corcoran 2015 | http://leafo.net
+
+FitVids 1.1
+Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
+Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
+Released under the WTFPL license - http://sam.zoy.org/wtfpl/
+
+Isotope PACKAGED v3.0.6
+Licensed GPLv3 for open source use
+or Isotope Commercial License for commercial use
+https://isotope.metafizzy.co
+Copyright 2010-2018 Metafizzy
+
+TGM-Plugin-Activation 2.6.1
+Url: http://tgmpluginactivation.com/
+Thomas Griffin, Gary Jones, Juliette Reinders Folmer
+Copyright (c) 2011, Thomas Griffin
+License: GPL-2.0+
+
+Kirki Customizer Framework
+License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.0.0 =
+* Improvement: Updated Theme Description
+* Fix: Box layout header color fix
+
+= 2.9.12 =
+* Fix: Keyboard navigation fixes.
+
+= 2.9.11 =
+* Fix: Accessibility issue for drop down menu and mobile menu
+
+= 2.9.10 =
+* Fix: default font Set
+* Fix: Enabled both sidebar for BuddyPress by default
+* Fix: Updated footer copyright option with sitename and year shortcodes
+
+= 2.9.9 =
+* Fix: Removed BP_buddyx_profile_completion_form_update
+* Fix: Updated 'manage_options' with 'edit_theme_options' for welcome page
+* Fix: untranslatable lines for welcome page & buddypress-profile.php
+* Fix: updated prefix, global scope and added as new js file to enqueue at Welcome page
+* Fix: used esc_attr__ for Screen Reader Text for Accessibility
+* Fix: updated Screenshot
+
+= 2.9.8 =
+* Fix: ESC HTML for get_theme_mod
+
+= 2.9.7 =
+* Fix: translation ready
+* Fix: Double ESC
+
+= 2.9.6 =
+* Fix: Fixed escaping issues
+
+= 2.9.5 =
+* Fix: Keyboard navigation with 3 level dropdown
+* Fix: Close menu for mobile for accessibility support
+* Fix: Updated theme tags
+* Fix: removed Invalid url of image used on theme
+* Fix: Fixed escaping issues
+
+= 2.9.4 =
+* Fix: Update Theme URI
+
 = 2.9.3 =
-* Fix: (#148) Managed edit activity and textarea format with bb-platform
-* Fix: Fixed not escaped and translation issue
-* Fix: Managed keyboard navigation
-* Fix: Theme check issues fixes
-* Fix: Set theme name prefix in Function name
-* Fix: Replace buddy_ to buddyx_ in function name and action hook
+* Fix: extra.php added admin Condition for excerpt
+* Fix: Translation strings
+* Fix: make sure to have unique prefix
+* Fix: Admin css/js at welcome page only
+* Fix: disabled removed for core customizer options
+* Fix: Theme URI with wporg path
+* Fix: Screenshot updated
+* Fix: Remove additional scripts from header.php
+* Fix: Footer copyright text
+* Add Licence info for tgmpa, kirki
+* Fix: removed console js error
+* Fix : Keyboard navigation
 
 = 2.9.2 =
-* Fix: Fixed cover image issue with BuddyPress
-* Fix: Updated cart and comment support
+* Fix: Removed extermal images
+* Fix: Added unminied sources
 
 = 2.9.1 =
 * Improvement: Added LearnPress basic Support

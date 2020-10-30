@@ -24,7 +24,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
   global $bp;
   ?>
   <div class="user-notifications">
-    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr( 'Notifications', 'buddyx' ); ?>">
+    <a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr_e( 'Notifications', 'buddyx' ); ?>">
         <span class="fa fa-bell"></span>
         <?php
         if ( function_exists( 'bp_notifications_get_unread_notification_count' ) ) {
@@ -40,7 +40,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
         <ul id="bp-notify" class="bp-header-submenu bp-dropdown"><?php
             rsort( $notifications );
             foreach ( $notifications as $notification ) { ?>
-                <li><?php echo $notification; ?></li><?php
+                <li><?php echo $notification; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?></li><?php
             } ?>
             <li class="bp-view-all">
                 <a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html_e( 'View all notifications', 'buddyx' ); ?></a>
@@ -48,7 +48,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
         </ul>
     <?php } else { ?>
       <ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
-        <li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ) ?>"><?php esc_html_e( "No new notifications", 'buddyx' ); ?></a></li>
+        <li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG )?>"><?php esc_html_e( "No new notifications", 'buddyx' ); ?></a></li>
       </ul>
     <?php }
     ?>
@@ -62,7 +62,7 @@ if ( is_user_logged_in() ) {
     echo '<div class="user-link-wrap">';
     echo '<a class="user-link" href="' . esc_url($user_link) . '">';
     ?>
-    <span class="bp-user"><?php echo $loggedin_user->display_name; ?></span>
+    <span class="bp-user"><?php echo esc_html($loggedin_user->display_name); ?></span>
     <?php
     echo get_avatar( $loggedin_user->user_email, 100 );
     echo '</a>';
@@ -83,13 +83,13 @@ if ( is_user_logged_in() ) {
       }
       ?>
   <div class="bp-icon-wrap">
-    <a href="<?php echo $login_page_url; ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e( "Log in", 'buddyx' ); ?></a>
+    <a href="<?php echo esc_url($login_page_url); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e('Log in', 'buddyx' );?></a>
   </div>
   <?php
   if ( get_option( 'users_can_register' ) ) {
     ?>
     <div class="bp-icon-wrap">
-      <a href="<?php echo $registration_page_url; ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( "Register", 'buddyx' ); ?></a>
+      <a href="<?php echo esc_url($registration_page_url); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e('Register', 'buddyx' );?></a>
     </div>
     <?php }
 }

@@ -1,0 +1,254 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Imports
+	# Custom properties
+	# Reset
+	# Typography
+	# Elements
+	# Links
+# WC Global CSS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "_custom-properties.css";
+@import "_reset.css";
+@import "_typography.css";
+@import "_elements.css";
+@import "_links.css";
+@import "_grid.css";
+
+/*--------------------------------------------------------------
+# WC Global CSS
+--------------------------------------------------------------*/
+
+.vendor_list {
+	position: relative;
+    border: 1px solid #e8e8e8;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden; 
+}
+
+.wcv_vendorslist {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.vendor_list {
+	margin: 0px !important;
+}
+
+.vendor_list br {
+	display: none;
+}
+
+.vendor_list img {
+	width: 100%;
+}
+
+.vendor_list a.button {
+	padding: 20px 10px;
+	display: block;
+}
+
+.wcvendors_sold_by_in_loop {
+	margin: 0 1em;
+}
+
+.wcv-dashboard-navigation ul {
+	padding: 0px;
+}
+.wcv-dashboard-navigation ul li {
+    margin: 0 5px 15px 0;
+}
+.wcv-dashboard-navigation ul li a {
+    padding: 8px 13px;
+    font-size: 14px;
+    background-color: var(--button_background_color);
+    color: #ffffff ;
+    border-radius: 3px;
+    transition: all 0.3s; 
+}
+.wcv-dashboard-navigation ul li a:hover {
+	background-color: var(--button_background_color);
+	color: #ffffff ;
+}
+
+.table-condensed {
+	background: #ffffff;
+	border: 0px solid #e8e8e8;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table-condensed th, .table-condensed td {
+	padding: 13px 13px;
+    font-size: 14px;
+    border: 0;
+    text-align: left !important;
+}
+
+.table-condensed th {
+	border-bottom: 1px solid #dddddd;
+	border-top: 1px solid #dddddd;
+}
+
+.site-wrapper form input[type=date] {
+    height: 46px;
+    border: 1px solid #e1e1e1;
+    padding: 10px 0px 10px 16px;
+    font-size: 14px;
+    margin-left: 13px;
+    margin-right: 13px;
+    background-image: url(../images/calendar.svg);
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: right 21px center;
+    width: 179px;
+    margin-bottom: 5px;
+}
+
+.form-row.notes {
+	margin: 0px;
+	padding: 0px;
+}
+
+#wcv_bank_account_name,
+#wcv_bank_account_number,
+#wcv_bank_name,
+#wcv_bank_routing_number,
+#wcv_bank_iban,
+#wcv_bank_bic_swift,
+#pv_shop_name,
+#pv_paypal {
+	width: 100%;
+	padding:10px;
+}
+
+table {
+	background: #ffffff;
+	border: 0px solid #e8e8e8;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table th, table td {
+	border: 0px;
+}
+
+table.table-condensed tr:nth-child(odd) td {
+    background: #ffffff;
+}
+
+table.table-condensed tr:nth-child(even) td {
+  background: #f7f7f9;
+}
+
+.table-striped ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .wcv_vendorslist {
+        grid-template-columns: repeat(2,1fr);
+        margin: 0px;
+        padding: 0px;
+    }
+
+    table td, table th {
+        display: block;
+    }
+
+    .table-condensed thead,
+    .table thead {
+        display: none;
+    }
+
+    .table-condensed tr,
+    .table tr {
+        display: block;
+        padding-bottom: 10px;
+        border-bottom: 1px #eaeaea solid;
+    }
+
+    .table-condensed td,
+    .table td {
+        display: block;
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 1px #e7e7f5 solid;
+    }
+
+    .table-condensed td:before,
+    .table td:before {
+        content: attr(data-attr);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .table-striped td.name,
+    .table-striped td.address,
+    .table-striped td.city,
+    .table-striped td.state,
+    .table-striped td.zip {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .site-wrapper form input[type=date] {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+    .wcv_vendorslist {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+}
+
+.wcv_shop_description {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border: 1px solid var(--global-border-color);
+    border-radius: 8px;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.wcv_shop_description p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wcv_shop_description img {
+    max-height: 250px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}

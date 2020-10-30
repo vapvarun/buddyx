@@ -1,0 +1,369 @@
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "_custom-properties.css";
+@import "_reset.css";
+@import "_typography.css";
+@import "_elements.css";
+@import "_links.css";
+@import "_grid.css";
+
+/*--------------------------------------------------------------
+# Basic
+--------------------------------------------------------------*/
+body,
+html {
+    direction: rtl;
+}
+
+body:not(.block-editor-page):not(.wp-core-ui), 
+body:not(.block-editor-page):not(.wp-core-ui) pre {
+    unicode-bidi: embed;
+    text-align: right !important;
+}
+
+.wp-block-quote {
+    border-left: 0;
+    border-right: 4px solid #000;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+.entry-content>blockquote {
+    padding-left: 0;
+    padding-right: 1em;
+    margin-left: 0;
+    margin-right: 1.5rem;
+}
+
+.entry-content>.wp-block-quote, 
+.entry-content>.wp-block-quote.is-style-large {
+    margin-left: 0;
+    margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 48em) {
+    .entry-content>.wp-block-quote, 
+    .entry-content>.wp-block-quote.is-style-large {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+.user-link-wrap .bp-user {
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.user-link-wrap .bp-user:after {
+    left: -5px;
+    right: auto;
+}
+
+.buddypress-icons-wrapper .bp-msg,
+.buddypress-icons-wrapper .user-link-wrap,
+.buddypress-icons-wrapper .user-notifications {
+    margin: 0 10px 0 0;
+}
+
+.menu-icons-wrapper {
+    float: left;
+    margin: 0 10px 0 0px;
+}
+
+.menu-icons-wrapper .cart,
+ .menu-icons-wrapper .search {
+    float: right;
+}
+
+.menu-icons-wrapper div:last-child {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.buddypress-icons-wrapper .bp-msg sup, 
+.buddypress-icons-wrapper .user-notifications sup,
+.menu-icons-wrapper .cart sup {
+    right: -9px;
+    left: auto;
+}
+
+#user-profile-menu, 
+.bp-header-submenu {
+    left: 0;
+    right: auto;
+}
+
+.menu-icons-wrapper #searchform:before {
+    left: 15px;
+    right: auto;
+}
+
+.menu-icons-wrapper #searchform input[type=submit] {
+    left: 0;
+    right: auto;
+}
+
+body .main-navigation a, 
+body .main-navigation ul li a, 
+body .nav--toggle-sub li.menu-item-has-children, 
+body .nav--toggle-small .menu-toggle,
+body .site-sub-header .entry-header .entry-title, 
+body .site-sub-header .page-header .page-title, 
+body .site-sub-header .entry-header, 
+body .site-sub-header .page-header, 
+body .site-sub-header .entry-title, 
+body .site-sub-header .page-title {
+    text-align: right;
+}
+
+.buddypress-wrap #notification-select, 
+.buddypress-wrap .select-wrap select, 
+.buddypress-wrap .standard-form select, 
+body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
+body .buddypress-wrap .subnav-filters .component-filters select, 
+body .buddypress-wrap .subnav-filters .last select
+select,
+select.orderby,
+select#pa_color,
+select#pa_size {
+    background-position: left 1rem center !important;
+    padding-left: 40px !important;
+    padding-right: 12px !important;
+}
+
+.menu-icons-wrapper {
+    float: right;
+}
+
+.entry-meta.entry-meta .posted-by img {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.entry-meta .author.vcard {
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+.post-thumbnail+.post-categories {
+    right: 10px;
+    left: auto;
+}
+
+@media (min-width: 768px) {
+    .nav--toggle-sub li.menu-item--has-toggle, .nav--toggle-sub li.menu-item-has-children {
+        padding-left: .7em;
+        padding-right: 0;
+    }
+
+    #primary-menu .submenu-btn {
+        left: 0;
+        right: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    #primary-menu .submenu-btn {
+        right: auto;
+        left: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+# BuddyPress
+--------------------------------------------------------------*/
+.buddypress-wrap .bp-messages,
+.buddypress-wrap .bp-feedback {
+    padding: 0.615em 0.7em 0.615em 2.25em;
+}
+
+@media screen and (min-width: 46.8em) {
+    .bp-list li .item-avatar {
+        float: right;
+        margin-left: 15px;
+        margin-right: 0;
+    }
+
+    .bp-list:not(.grid) li .item .item-block {
+        float: right;
+        margin-left: 0;
+    }
+
+    .bp-list li .action div.generic-button:last-child, 
+    .bp-list li .action li.generic-button:last-child {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li a {
+        border-left: 0;
+    }
+}
+
+#buddypress.buddypress-wrap form#whats-new-form #whats-new-submit {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.activity-update-form #whats-new-content {
+    margin-right: 65px;
+    margin-left: 0;
+}
+
+#buddypress input#aw-whats-new-submit,
+ form.ac-form .ac-reply-content input {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.activity-list.item-list .activity-item .activity-avatar {
+    margin: 0 0 0 15px;
+}
+
+.activity-list .activity-item .activity-meta.action {
+    text-align: right;
+}
+
+.activity-list.bp-list .activity-item .activity-meta.action .generic-button {
+    margin-left: 11px;
+    margin-right: 0;
+}
+
+#buddypress #item-header-cover-image #item-header-avatar {
+    float: right;
+}
+
+#buddypress div#item-header #item-header-cover-image #item-header-content {
+    margin-left: 0;
+    margin-right: 152px;
+}
+
+.single-headers li.generic-button, 
+body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div, 
+body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul li {
+    margin: 10px 0 0 10px;
+}
+
+@media screen and (max-width: 782px) {
+    #buddypress div#item-header #item-header-cover-image #item-header-content, 
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions, 
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-header-content {
+        margin-right: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 46.8em) {
+    .buddypress-wrap .bp-subnavs ul li {
+        float: right;
+    }
+}
+
+.buddypress-wrap .select-wrap select {
+    margin-left: 0;
+}
+
+.bp-nouveau.media #buddypress div#item-header div#item-header-content ul li, 
+.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div {
+    float: right;
+}
+
+.groups-header .desc-wrap .group-description {
+    text-align: right;
+}
+
+@media screen and (min-width: 782px) {
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions {
+        float: left;
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-header-content {
+        float: right;
+        margin-right: 0;
+    }    
+}
+
+.buddypress .bp-invites-content ul.item-list li .action {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+#buddypress .bp-invites-content li .item-avatar {
+    margin-left: 15px;
+    margin-right: 0;;
+}
+
+#item-body #group-invites-container .bp-invites-content .list-title,
+.buddypress .bp-invites-content ul.item-list>li .item .list-title {
+    text-align: right;
+}
+
+.dashicons-arrow-right,
+.dashicons-arrow-left {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+a.page-numbers[title="←"],
+a.page-numbers[title="→"],
+a.next.page-numbers,
+a.prev.page-numbers {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.bp-pagination-links .next,
+.bp-pagination-links .prev {
+    display: none;
+}
+
+.nav-links a.prev.page-numbers,
+.nav-links a.next.page-numbers {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.woocommerce ul.products li.product .onsale {
+    left: 0;
+    right: auto;
+}
+
+.woocommerce #respond input#submit.added::after, 
+.woocommerce a.button.added::after, 
+.woocommerce button.button.added::after, 
+.woocommerce input.button.added::after {
+    margin-left: .53em;
+    margin-right: 0;
+}
+
+.woocommerce-page div.product form.cart div.quantity, 
+.woocommerce div.product form.cart div.quantity {
+    margin: 0 0 0 15px;
+}
+
+.woocommerce-error, 
+.woocommerce-info, 
+.woocommerce-message, 
+.woocommerce-page .entry-content .woocommerce-error, 
+.woocommerce-page .entry-content .woocommerce-info, 
+.woocommerce-page .entry-content .woocommerce-message, 
+.woocommerce .entry-content .woocommerce-error, 
+.woocommerce .entry-content .woocommerce-info, 
+.woocommerce .entry-content .woocommerce-message {
+    padding: 1em 3.5em 1em 2em;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a {
+    padding: 10px 30px 10px 0;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:after {
+    right: 10px;
+    left: auto;    
+}

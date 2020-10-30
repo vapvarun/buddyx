@@ -131,38 +131,48 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue Platform CSS
 		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
-			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css');
+			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
 		}
 
 		// Enqueue bbPress CSS
 		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
-			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css');
+			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css' );
 		}
 
 		// Enqueue WC Vendors CSS
 		if( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
-			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css');
+			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
 		}
-
-		// Enqueue LearnPress CSS
+                
+                // Enqueue LearnPress CSS
 		if ( class_exists( 'LearnPress' ) ) {
-			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css');
+			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css' );
 		}
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
+			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css' );
 		}
 	}
 
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
-	public function buddyx_enqueue_admin_style() {
-		$css_uri = get_theme_file_uri( '/assets/css/' );
-		$css_dir = get_theme_file_path( '/assets/css/' );
+	public function buddyx_enqueue_admin_style($hook) {
+		
+		if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
+			$css_uri = get_theme_file_uri( '/assets/css/' );
+			$css_dir = get_theme_file_path( '/assets/css/' );
 
-		wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
+			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );			
+			wp_enqueue_script(
+				'buddyx-admin-script',
+				get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
+				'',
+				'',
+				true
+			);			
+		}
 	}
 
 	/**
@@ -403,7 +413,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = [
-			'Lato'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
+			'Open Sans'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
 		];
 
 		/**

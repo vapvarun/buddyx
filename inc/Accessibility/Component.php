@@ -57,7 +57,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-navigation',
 			get_theme_file_uri( '/assets/js/navigation.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
 			true
 		);
@@ -67,15 +67,12 @@ class Component implements Component_Interface {
 			'buddyx-navigation',
 			'buddyxScreenReaderText',
 			[
-				'expand'   => __( 'Expand child menu', 'buddyx' ),
-				'collapse' => __( 'Collapse child menu', 'buddyx' ),
+				'expand'   => esc_attr__( 'Expand child menu', 'buddyx' ),
+				'collapse' => esc_attr__( 'Collapse child menu', 'buddyx' ),
 			]
 		);
 	}
-
-	/**
-	 * AMP accessibility.
-	 */
+	
 	public function action_wp_head_amp_script(){
 		if ( ! buddyx()->is_amp() ) {
 			?>

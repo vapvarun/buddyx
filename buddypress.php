@@ -38,8 +38,6 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 			<?php
 			if ( have_posts() ) {
 
-				//get_template_part( 'template-parts/content/page_header' );
-
 				while ( have_posts() ) {
 					the_post();
 

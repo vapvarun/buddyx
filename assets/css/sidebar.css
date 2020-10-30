@@ -1,0 +1,36 @@
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+
+.primary-sidebar {
+    width: 100%;
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (--content-query) {
+    .primary-sidebar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (--sidebar-query) {
+    .primary-sidebar {
+        padding: 0;
+    }
+}
+
+.sticky {
+    display: block;
+}
+
+@media screen and (max-width: 60em) {
+    .sticky-sidebar-enable .sticky-sidebar.is_stuck {
+        position: static !important;
+    }
+    .sticky-sidebar-enable .widget-area>div {
+        height: auto !important;
+    }
+}

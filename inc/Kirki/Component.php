@@ -1,6 +1,6 @@
 <?php
 /**
- * Brndle\Brndle\Kirki\Component class
+ * BuddyX\Buddyx\Kirki\Component class
  *
  * @package buddyx
  */
@@ -15,7 +15,7 @@ use function add_filter;
 /**
  * Class Component
  *
- * @package Brndle\Brndle\Kirki
+ * @package BuddyX\Buddyx\Kirki
  */
 class Component implements Component_Interface {
 
