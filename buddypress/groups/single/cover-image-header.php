@@ -32,17 +32,17 @@
             <p class="activity" data-livestamp="<?php bp_core_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ); ?>">
                 <?php
                 /* translators: %s = last activity timestamp (e.g. "active 1 hour ago") */
-                printf( __( 'active %s', 'buddyx' ), bp_get_group_last_active() );  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                printf( __( 'active %s', 'buddyx' ), bp_get_group_last_active() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
             </p>
 
-            <?php echo bp_nouveau_group_meta()->group_type_list; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
+            <?php echo bp_nouveau_group_meta()->group_type_list; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php bp_nouveau_group_hook( 'before', 'header_meta' ); ?>
 
             <?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
                 <div class="item-meta">
 
-                    <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
+                    <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
                 </div><!-- .item-meta -->
             <?php endif; ?>
