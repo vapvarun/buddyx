@@ -66,6 +66,13 @@ function buddyx_register_required_plugins() {
                     'slug'		 => 'kirki',
                     'required'	 => false,
             ),
+            
+            // Elementor Page Builder
+            array(
+                    'name'		 => 'Elementor Page Builder',
+                    'slug'		 => 'elementor',
+                    'required'	 => false,
+            ),
 
             // BuddyPress Plugin
             array(
