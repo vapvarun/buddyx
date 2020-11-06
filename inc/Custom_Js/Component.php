@@ -53,7 +53,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-superfish',
 			get_theme_file_uri( '/assets/js/superfish.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/superfish.min.js' ) ),
 			true
 		);
@@ -64,7 +64,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-isotope-pkgd',
 			get_theme_file_uri( '/assets/js/isotope.pkgd.min.js' ),
-			[],
+			['jquery'],			
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/isotope.pkgd.min.js' ) ),
 			true
 		);
@@ -75,7 +75,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-fitvids',
 			get_theme_file_uri( '/assets/js/fitvids.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/fitvids.min.js' ) ),
 			true
 		);
@@ -86,7 +86,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-sticky-kit',
 			get_theme_file_uri( '/assets/js/sticky-kit.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/sticky-kit.min.js' ) ),
 			true
 		);
@@ -97,7 +97,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-custom',
 			get_theme_file_uri( '/assets/js/custom.min.js' ),
-			[],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);

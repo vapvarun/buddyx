@@ -144,11 +144,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css');
 		}
 
-		// Enqueue LearnPress CSS
-		if ( class_exists( 'LearnPress' ) ) {
-			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css');
-		}
-
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css');
@@ -158,11 +153,21 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
-	public function buddyx_enqueue_admin_style() {
-		$css_uri = get_theme_file_uri( '/assets/css/' );
-		$css_dir = get_theme_file_path( '/assets/css/' );
+	public function buddyx_enqueue_admin_style($hook) {
+		
+		if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
+			$css_uri = get_theme_file_uri( '/assets/css/' );
+			$css_dir = get_theme_file_path( '/assets/css/' );
 
-		wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');
+			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css');			
+			wp_enqueue_script(
+				'buddyx-admin-script',
+				get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
+				'',
+				'',
+				true
+			);			
+		}
 	}
 
 	/**
@@ -403,7 +408,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = [
-			'Lato'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
+			'Open Sans'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
 		];
 
 		/**

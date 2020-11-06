@@ -11,7 +11,7 @@
 
 bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
-<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) { bp_nouveau_edit_activity_data(); } ?>">
+<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>">
 
     <div class="activity-card-head">
 		<h6 class="card-head-content-type">
@@ -35,16 +35,6 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
             <?php bp_activity_action(); ?>
 
-			<?php 
-			if ( function_exists( 'bp_nouveau_activity_is_edited' ) ) {
-					bp_nouveau_activity_is_edited();
-			}
-			
-			if ( function_exists( 'bp_nouveau_activity_privacy' ) ) {
-				bp_nouveau_activity_privacy(); 
-			}
-			?>
-
         </div>
     
 	</div>
@@ -61,12 +51,6 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 			</div>
 
 		<?php endif; ?>
-
-		<?php 
-		if ( function_exists( 'bp_nouveau_activity_state' ) ) {
-			bp_nouveau_activity_state(); 
-		}
-		?>
 
 		<?php bp_nouveau_activity_entry_buttons(); ?>
 

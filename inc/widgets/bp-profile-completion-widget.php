@@ -297,7 +297,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		$progress_details['total_fields']     = $grand_total_fields;
 		$progress_details['completed_fields'] = $grand_completed_fields;
 
-		return apply_filters( 'BP_buddyx_user_progress', $progress_details );
+		return apply_filters( 'bp_buddyx_user_progress', $progress_details );
 	}
 
 	/**
@@ -384,13 +384,6 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		 * Filter returns User Progress array in the template friendly format.
 		 */
 		return apply_filters( 'bp_buddyx_user_progress_formatted', $user_prgress_formatted );
-	}
-
-	/**
-	 * Callback to save widget settings.
-	 */
-	function update( $new_instance, $old_instance ) {
-		return apply_filters( 'bp_buddyx_profile_completion_form_update', $new_instance );
 	}
 
 	/**

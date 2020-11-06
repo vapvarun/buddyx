@@ -1,0 +1,52 @@
+/**
+ * Custom Properties
+ * aka CSS variables.
+ *
+ * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+ **/
+
+:root {
+	--global-font-color: #505050;
+	--global-font-family: "Open Sans", serif;
+	--global-font-size: 14;
+	--global-font-line-height: 1.4;
+	--highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--content-width: 100%;
+	--dropdown-symbol-width: 0.7em;
+
+	/* Custom editor colors */
+	--color-theme-primary: #e36d60;
+	--color-theme-secondary: #41848f;
+	--color-theme-red: #c0392b;
+	--color-theme-green: #27ae60;
+	--color-theme-blue: #2980b9;
+	--color-theme-yellow: #f1c40f;
+	--color-theme-black: #1c2833;
+	--color-theme-grey: #95a5a6;
+	--color-theme-white: #ecf0f1;
+	--color-custom-daylight: #97c0b7;
+	--color-custom-sun: #eee9d1;
+
+	--color-link: #111;
+	--color-link-hover: #ef5455;
+	--color-link-active: #ef5455;
+	--global-border-color: #e8e8e8;
+
+	--button_background_color:#ef5455;
+	--button_background_hover_color:#f83939;
+	--button_border_color:#ef5455;
+	--button_border_hover_color: #f83939;
+
+	--color-quote-border: #111;
+	--color-quote-citation: #6c7781;
+
+	/* Custom editor font sizes */
+	--font-size-small: calc(16 / var(--global-font-size) * 1rem);
+	--font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
+	--font-size-large: calc(36 / var(--global-font-size) * 1rem);
+	--font-size-larger: calc(48 / var(--global-font-size) * 1rem);
+
+	/* Global container width */
+	--container-width: 1170px;
+
+}

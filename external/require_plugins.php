@@ -53,52 +53,26 @@ add_action( 'tgmpa_register', 'buddyx_register_required_plugins' );
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
 function buddyx_register_required_plugins() {
-	$remote_url = 'https://demos.wbcomdesigns.com/exporter/plugins';
 
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
+		
+            // Kirki Toolkit
+            array(
+                    'name'		 => 'Kirki Toolkit', 'buddyx',
+                    'slug'		 => 'kirki',
+                    'required'	 => false,
+            ),
 
-		// Demo Impoter
-		array(
-			'name'		 => 'BuddyX Demo Importer',
-			'slug'		 => 'buddyx-demo-importer',
-			'source'	 => $remote_url . '/buddyx-demo-importer/1.0.0/buddyx-demo-importer.zip',
-			'required'	 => false,
-			'version'	 => '1.0.0',
-		),
-
-		// Kirki Toolkit
-		array(
-			'name'		 => 'Kirki Toolkit', 'buddyx',
-			'slug'		 => 'kirki',
-			'required'	 => false,
-		),
-
-		// Ultimate Addons for Gutenberg
-		array(
-			'name'		 => 'Ultimate Addons for Gutenberg',
-			'slug'		 => 'ultimate-addons-for-gutenberg',
-			'required'	 => false,
-		),
-
-		// WooCommerce
-		array(
-			'name'		 => 'WooCommerce',
-			'slug'		 => 'woocommerce',
-			'required'	 => false,
-		),
-
-		// Demo Impoter
-		array(
-			'name'		 => 'BB',
-			'slug'		 => 'buddyboss-platform',
-			'source'	 => 'https://github.com/buddyboss/buddyboss-platform/releases/download/1.4.6/buddyboss-platform-plugin.zip',
-			'required'	 => false,
-			'version'	 => '1.4.6',
-		),
+            // BuddyPress Plugin
+            array(
+                    'name'		 => 'BuddyPress',
+                    'slug'		 => 'buddypress',
+                    'required'	 => false,
+            ),
 
 	);
 

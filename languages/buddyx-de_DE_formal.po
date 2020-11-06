@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BuddyX v2.x\n"
-"POT-Creation-Date: 2020-08-01 09:45+0200\n"
-"PO-Revision-Date: 2020-08-01 09:47+0200\n"
+"POT-Creation-Date: 2020-05-29 16:47+0200\n"
+"PO-Revision-Date: 2020-05-29 16:48+0200\n"
 "Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
 "Language: de_DE@formal\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -744,15 +744,13 @@ msgstr "Website-Loader ?"
 
 #: inc/Kirki_Option/Component.php:270 inc/Kirki_Option/Component.php:620
 #: inc/Kirki_Option/Component.php:633 inc/Kirki_Option/Component.php:649
-#: inc/Kirki_Option/Component.php:708 inc/Kirki_Option/Component.php:1013
-#: inc/Kirki_Option/Component.php:1028
+#: inc/Kirki_Option/Component.php:998 inc/Kirki_Option/Component.php:1013
 msgid "Yes"
 msgstr "Ja"
 
 #: inc/Kirki_Option/Component.php:271 inc/Kirki_Option/Component.php:621
 #: inc/Kirki_Option/Component.php:634 inc/Kirki_Option/Component.php:650
-#: inc/Kirki_Option/Component.php:709 inc/Kirki_Option/Component.php:1014
-#: inc/Kirki_Option/Component.php:1029
+#: inc/Kirki_Option/Component.php:999 inc/Kirki_Option/Component.php:1014
 msgid "No"
 msgstr "Nein"
 
@@ -824,11 +822,11 @@ msgstr "Website-Suche ?"
 msgid "Site Cart ?"
 msgstr "Website-Warenkorb ?"
 
-#: inc/Kirki_Option/Component.php:645 inc/Kirki_Option/Component.php:1024
+#: inc/Kirki_Option/Component.php:645 inc/Kirki_Option/Component.php:1009
 msgid "Customize Background ?"
 msgstr "Hintergrund anpassen ?"
 
-#: inc/Kirki_Option/Component.php:657 inc/Kirki_Option/Component.php:1036
+#: inc/Kirki_Option/Component.php:657 inc/Kirki_Option/Component.php:1021
 msgid "Background Control"
 msgstr "Hintergrund-Steuerelement"
 
@@ -836,116 +834,112 @@ msgstr "Hintergrund-Steuerelement"
 msgid "Content Typography"
 msgstr "Inhalt Typografie"
 
-#: inc/Kirki_Option/Component.php:704
-msgid "Site Breadcrumbs?"
-msgstr "Website-Brotkrumen?"
-
-#: inc/Kirki_Option/Component.php:719
+#: inc/Kirki_Option/Component.php:707
 msgid "Body Background Color"
 msgstr "Body Hintergrundfarbe"
 
-#: inc/Kirki_Option/Component.php:734
+#: inc/Kirki_Option/Component.php:722
 msgid "Theme Color"
 msgstr "Theme-Farbe"
 
-#: inc/Kirki_Option/Component.php:762 inc/Kirki_Option/Component.php:1090
-#: inc/Kirki_Option/Component.php:1177
+#: inc/Kirki_Option/Component.php:747 inc/Kirki_Option/Component.php:1075
+#: inc/Kirki_Option/Component.php:1162
 msgid "Link Color"
 msgstr "Linkfarbe"
 
-#: inc/Kirki_Option/Component.php:777 inc/Kirki_Option/Component.php:1105
+#: inc/Kirki_Option/Component.php:762 inc/Kirki_Option/Component.php:1090
 msgid "Link Hover"
 msgstr "Link (Hover)"
 
-#: inc/Kirki_Option/Component.php:801
+#: inc/Kirki_Option/Component.php:786
 msgid "Button Background Color"
 msgstr "Hintergrundfarbe der Schaltfläche"
 
-#: inc/Kirki_Option/Component.php:819
+#: inc/Kirki_Option/Component.php:804
 msgid "Button Background Hover Color"
 msgstr "Hintergrundfarbe der Schaltfläche (Hover)"
 
-#: inc/Kirki_Option/Component.php:837
+#: inc/Kirki_Option/Component.php:822
 msgid "Button Text Color"
 msgstr "Schaltflächentextfarbe"
 
-#: inc/Kirki_Option/Component.php:854
+#: inc/Kirki_Option/Component.php:839
 msgid "Button Text Hover Color"
 msgstr "Schaltflächentextfarbe (Hover)"
 
-#: inc/Kirki_Option/Component.php:871
+#: inc/Kirki_Option/Component.php:856
 msgid "Button Border Color"
 msgstr "Schaltflächenrahmenfarbe"
 
-#: inc/Kirki_Option/Component.php:888
+#: inc/Kirki_Option/Component.php:873
 msgid "Button Border Hover Color"
 msgstr "Schaltflächenrahmenfarbe (Hover)"
 
-#: inc/Kirki_Option/Component.php:908
+#: inc/Kirki_Option/Component.php:893
 msgid "Blog Layout"
 msgstr "Blog-Layout"
 
-#: inc/Kirki_Option/Component.php:922
+#: inc/Kirki_Option/Component.php:907
 msgid "Post Per Row"
 msgstr "Beitrag pro Reihe"
 
-#: inc/Kirki_Option/Component.php:927
+#: inc/Kirki_Option/Component.php:912
 msgid "Column 1"
 msgstr "Spalte 1"
 
-#: inc/Kirki_Option/Component.php:928
+#: inc/Kirki_Option/Component.php:913
 msgid "Column 2"
 msgstr "Spalte 2"
 
-#: inc/Kirki_Option/Component.php:929
+#: inc/Kirki_Option/Component.php:914
 msgid "Column 3"
 msgstr "Spalte 3"
 
-#: inc/Kirki_Option/Component.php:930
+#: inc/Kirki_Option/Component.php:915
 msgid "Column 4"
 msgstr "Spalte 4"
 
-#: inc/Kirki_Option/Component.php:943
+#: inc/Kirki_Option/Component.php:928
 msgid "Sidebar Layout"
 msgstr "Layout der Seitenleiste"
 
-#: inc/Kirki_Option/Component.php:959
+#: inc/Kirki_Option/Component.php:944
 msgid "BuddyPress Sidebar Layout"
 msgstr "BuddyPress Seitenleiste-Layout"
 
-#: inc/Kirki_Option/Component.php:976
+#: inc/Kirki_Option/Component.php:961
 msgid "bbPress Sidebar Layout"
 msgstr "bbPress Seitenleiste Layout"
 
-#: inc/Kirki_Option/Component.php:993
+#: inc/Kirki_Option/Component.php:978
 msgid "WooCommerce Sidebar Layout"
 msgstr "WooCommerce Seitenleiste-Layout"
 
-#: inc/Kirki_Option/Component.php:1009
+#: inc/Kirki_Option/Component.php:994
 msgid "Sticky Sidebar ?"
 msgstr "Seitenleiste fixieren?"
 
-#: inc/Kirki_Option/Component.php:1060
+#: inc/Kirki_Option/Component.php:1045
 msgid "Title Color"
 msgstr "Titelfarbe"
 
-#: inc/Kirki_Option/Component.php:1075 inc/Kirki_Option/Component.php:1162
+#: inc/Kirki_Option/Component.php:1060 inc/Kirki_Option/Component.php:1147
 msgid "Content Color"
 msgstr "Inhaltsfarbe"
 
-#: inc/Kirki_Option/Component.php:1123
+#: inc/Kirki_Option/Component.php:1108
 msgid "Add Content"
 msgstr "Inhalt hinzufügen"
 
-#: inc/Kirki_Option/Component.php:1132
+#: inc/Kirki_Option/Component.php:1117
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: inc/Kirki_Option/Component.php:1147
+#: inc/Kirki_Option/Component.php:1132
 msgid "Border Color"
 msgstr "Rahmenfarbe"
 
-#: inc/Kirki_Option/Component.php:1192
+#: inc/Kirki_Option/Component.php:1177
 msgid "Link Hover Color"
 msgstr "Linkfarbe (Hover)"
 
@@ -1033,7 +1027,7 @@ msgid "Footer 4"
 msgstr "Footer 4"
 
 #. translators: %s: stylesheet handle
-#: inc/Styles/Component.php:271
+#: inc/Styles/Component.php:266
 #, php-format
 msgid "Invalid theme stylesheet handle: %s"
 msgstr "Ungültiges Theme-Stylesheet-Handle: %s"
@@ -1133,46 +1127,15 @@ msgstr ""
 "BuddyX requires the BuddyPress Template Pack „BP Nouveau“ to be active. "
 "Please activate this Template Pack from the BuddyPress Options."
 
-#: inc/extra.php:89 inc/extra.php:91 inc/extra.php:93
-#, php-format
-msgid "%s"
-msgstr "%s"
-
-#: inc/extra.php:91
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "F Y"
-
-#: inc/extra.php:93
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y"
-
-#: inc/extra.php:95
-msgid "Shop"
-msgstr "Geschäft"
-
-#: inc/extra.php:97
-msgid "Forums Archives"
-msgstr "Foren-Archive"
-
-#: inc/extra.php:99
-msgid "Blog Archives"
-msgstr "Blog-Archive"
-
-#: inc/extra.php:116
-msgid "Blog"
-msgstr "Blog"
-
-#: inc/extra.php:154
+#: inc/extra.php:83
 msgid "View Shopping Cart"
 msgstr "Einkaufswagen ansehen"
 
-#: inc/extra.php:249
+#: inc/extra.php:178
 msgid "View your shopping cart"
 msgstr "Ihre Auswahl ansehen"
 
-#: inc/extra.php:330
+#: inc/extra.php:259
 msgid "See All"
 msgstr "Alle anzeigen"
 
@@ -1253,7 +1216,6 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 #: template-parts/content-bbpress.php:31
 #: template-parts/content-buddypress.php:31
 #: template-parts/content/entry-full-width.php:31
-#: template-parts/content/entry-page.php:36
 #: template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr "Seiten:"

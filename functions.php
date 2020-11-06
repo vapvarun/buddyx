@@ -154,18 +154,10 @@ function buddyx_remove_wc_breadcrumbs() {
 /**
  * Remove WooCommerce CSS if WooCommerce not activated
  */
-function buddyx_dequeue_styles() {
+function buddyx_woo_dequeue_styles() {
     wp_dequeue_style( 'buddyx-woocommerce' );
     wp_deregister_style( 'buddyx-woocommerce' );
 }
 if ( !class_exists( 'WooCommerce' ) ) {
-	add_action( 'wp_print_styles', 'buddyx_dequeue_styles' );
+	add_action( 'wp_print_styles', 'buddyx_woo_dequeue_styles' );
 }
-
-/**
- * Added function for theme updater
- */
-function buddyx_theme_updater() {
-	require( get_template_directory() . '/updater/theme-updater.php' );
-}
-add_action( 'after_setup_theme', 'buddyx_theme_updater' );

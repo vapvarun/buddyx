@@ -130,9 +130,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( ! isset( $args['container'] ) ) {
 			$args['container'] = 'ul';
 		}
-
-		$args['theme_location'] = static::PRIMARY_NAV_MENU_SLUG;
-
-		wp_nav_menu( $args );
+		
+		wp_nav_menu( array_merge(
+						array(						
+							'theme_location' => static::PRIMARY_NAV_MENU_SLUG,
+						),
+						$args
+					)
+				);
 	}
 }

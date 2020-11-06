@@ -1,0 +1,94 @@
+/**
+ * Styles for the WordPress post/page editor.
+ * Ensures a visual match between back- and front-end.
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Imports
+   # Custom properties
+   # Typography
+   # Elements
+   # Links
+# Adjustments for the editor
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+
+@import "../_custom-properties.css";
+@import "../_typography.css";
+@import "../_elements.css";
+@import "../_links.css";
+@import "../_media.css";
+/* @import "../_blocks.css"; */
+@import "../_grid.css";
+
+/*--------------------------------------------------------------
+# Adjustments for the editor
+--------------------------------------------------------------*/
+button,
+select,
+option {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	border-radius: inherit;
+}
+
+.editor-post-title__input {
+	/* font-family: var(--highlight-font-family); */
+	/* font-stretch: condensed; */
+	font-size: 2.5rem;
+	line-height: 1.4;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.gallery .gallery-item,
+.wp-block-freeform .gallery .gallery-item {
+	width: auto;
+}
+
+/* Main column width */
+.wp-block {
+	max-width: calc(var(--content-width) + 30px);
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+	max-width: calc(50% + var(--content-width) / 2 + 76px);
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+.wp-block-cover h2,
+.wp-block-cover h3,
+.wp-block-cover h4 {
+	color: inherit;
+}
+
+.wp-block-cover .wp-block-cover-text {
+	font-size: 2em;
+	line-height: 1.25;
+}
+
+.wp-block-archives,
+.wp-block-categories__list,
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block-latest-comments {
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+}
