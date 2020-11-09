@@ -73,15 +73,19 @@
         });
 
         $("#primary-menu a, .desktop-icons a, .bp-icon-wrap").focusin(function() {
-            $('.user-link-wrap').removeClass("active");
+            $('.user-link-wrap, .user-notifications').removeClass("active");
         });
 
-        $(".user-link-wrap .user-link").focusin(function() {
+        $(".site-title a, .user-link-wrap .user-link").focusin(function() {
+            $('.user-notifications').removeClass("active");
+        });
+
+        $(".user-link-wrap .user-link, .user-notifications .bp-icon-wrap").focusin(function() {
             $(this).parent().removeClass("active");
             $(this).parent().addClass("active");
         });
 
-        $(document).on('click', '.user-link-wrap .user-link', function(e) {
+        $(document).on('click', '.user-link-wrap .user-link, .user-notifications .bp-icon-wrap', function(e) {
             var container = $(".user-link-wrap");
             container.removeClass('active');
         });
