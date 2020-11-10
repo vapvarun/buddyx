@@ -1193,6 +1193,7 @@ body.admin-bar .site-header-wrapper {
 }
 
 .buddypress-icons-wrapper .user-notifications:hover ul#bp-notify,
+.buddypress-icons-wrapper .user-notifications.active ul#bp-notify,
 .buddypress-icons-wrapper .user-link-wrap:hover #user-profile-menu,
 .buddypress-icons-wrapper .user-link-wrap.active #user-profile-menu {
     display: block;
@@ -1218,14 +1219,13 @@ body.admin-bar .site-header-wrapper {
         display: none;
     }
     .buddypress-icons-wrapper.buddyx-mobile-icon {
-        display: block;
+        display: flex;
     }
     .buddypress-icons-wrapper .btn-login,
     .buddypress-icons-wrapper .btn-register {
         font-size: 12px;
     }
     .buddypress-icons-wrapper .bp-msg,
-    .buddypress-icons-wrapper .user-notifications,
     span.bp-user {
         display: none;
     }
@@ -1234,6 +1234,15 @@ body.admin-bar .site-header-wrapper {
     }
     .user-profile-menu::before {
         right: 24px;
+    }
+}
+
+@media (max-width: 440px) {
+    .main-navigation {
+        margin-left: auto;
+    }
+    .buddypress-icons-wrapper ul#bp-notify {
+        display: none !important;
     }
 }
 
