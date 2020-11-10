@@ -1235,6 +1235,10 @@ body.admin-bar .site-header-wrapper {
     .user-profile-menu::before {
         right: 24px;
     }
+    .buddyx-mobile-icon .user-notifications>.bp-icon-wrap,
+    .buddyx-mobile-icon .user-link-wrap .user-link {
+        pointer-events: none;
+    }
 }
 
 @media (max-width: 440px) {
@@ -1242,7 +1246,7 @@ body.admin-bar .site-header-wrapper {
         margin-left: auto;
     }
     .buddypress-icons-wrapper ul#bp-notify {
-        display: none !important;
+        width: 185px;
     }
 }
 
