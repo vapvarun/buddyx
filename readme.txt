@@ -93,6 +93,10 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.1.0 =
+* Improvement: Updated theme Description
+* Improvement: Added BuddyPress Notification icon for mobile
+
 = 3.0.0 =
 * Improvement: Updated Theme Description
 * Fix: Box layout header color fix
