@@ -388,6 +388,7 @@ select {
     background: #fff;
     min-height: 51px;
     transition: all .2s;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 5px 10px 0 rgba(189, 189, 189, 0.15);
 }
 
 .site-header-wrapper.has-sticky-header {
@@ -498,6 +499,9 @@ body.admin-bar .site-header-wrapper {
 
 @media (max-width: 600px) {
     body.admin-bar .site-header-wrapper.has-sticky-header {
+        top: 0;
+    }
+    body.admin-bar .has-sticky-header .main-navigation .primary-menu-container {
         top: 0;
     }
 }
@@ -1282,10 +1286,35 @@ body.admin-bar .site-header-wrapper {
     padding: 0 1.5rem 2em;
 }
 
+.site-main .posts-navigation,
+.site-main .post-navigation {
+    position: relative;
+    margin: 1rem 0;
+    padding: 1em 0;
+    border-top: 1px solid var(--global-border-color);
+    border-bottom: 1px solid var(--global-border-color);
+}
+
+.post-navigation-sub {
+    display: none;
+}
+
+.nav-previous a::before {
+    content: "\f104";
+    font-family: 'FontAwesome';
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-next a::after {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    display: inline-block;
+    margin-left: 10px;
+}
+
 @media (--content-query) {
     .site-main .comment-navigation,
-    .site-main .posts-navigation,
-    .site-main .post-navigation,
     .site-main .pagination {
         padding-left: 0;
         padding-right: 0;
@@ -1503,13 +1532,31 @@ body.layout-boxed {
 
 .site-sub-header {
     position: relative;
-    color: #fff;
-    margin-bottom: 2rem;
+    color: #505050;
+    margin-bottom: 1rem;
     padding: 30px 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.5);
     width: 100vw;
     margin-left: -50vw;
     left: 50%;
+}
+
+.site-sub-header>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 0 15px;
+}
+
+.site-sub-header>.container::before {
+    content: none;
+}
+
+@media (max-width: 991px) {
+    .site-sub-header>.container {
+        padding: 0 20px;
+    }
 }
 
 .archive-description p {
@@ -1528,8 +1575,10 @@ body.layout-boxed {
 }
 
 .site-sub-header .entry-title,
-.site-sub-header .page-title {
-    color: #fff;
+.site-sub-header .page-title,
+.site-sub-header .page-header {
+    color: #111;
+    margin-right: auto;
 }
 
 @media (--narrow-menu-query) {

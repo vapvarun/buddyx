@@ -116,6 +116,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		</span>
 		<?php
 	}
+	buddyx_posted_on();
 	?>
 </div><!-- .entry-meta -->
 <?php

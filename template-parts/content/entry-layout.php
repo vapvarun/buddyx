@@ -18,16 +18,18 @@ $classes = [
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-	<?php
-	get_template_part( 'template-parts/content/entry_header', get_post_type() );
+	<div class="buddyx-post-content-wrapper">
+		<?php
+		get_template_part( 'template-parts/content/entry_header', get_post_type() );
 
-	if ( is_search() ) {
-		get_template_part( 'template-parts/content/entry_summary', get_post_type() );
-	} else {
-		get_template_part( 'template-parts/content/entry_content', get_post_type() );
-	}
-	if ( is_singular() ) {
-		get_template_part( 'template-parts/content/entry_footer', get_post_type() );
-	}
-	?>
+		if ( is_search() ) {
+			get_template_part( 'template-parts/content/entry_summary', get_post_type() );
+		} else {
+			get_template_part( 'template-parts/content/entry_content', get_post_type() );
+		}
+		if ( is_singular() ) {
+			get_template_part( 'template-parts/content/entry_footer', get_post_type() );
+		}
+		?>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

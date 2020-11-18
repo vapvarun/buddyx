@@ -10,7 +10,8 @@
 	# Alignments
 	# Custom block colors
 	# Custom font sizes
-	# Custom post layouts
+    # Custom post layouts
+# Post Box Style
 --------------------------------------------------------------*/
 
 
@@ -133,6 +134,40 @@ h2.entry-title {
 .page-template-default .entry-meta,
 .page-template-default .entry-footer {
     display: none;
+}
+
+.entry-meta>span {
+    margin-right: 10px;
+}
+
+.entry-meta .entry-cat-links::before,
+.entry-meta .entry-comments-link a::before,
+.entry-meta .entry-edit-link a::before,
+.entry-meta .entry-featured::before {
+    margin-right: 4px;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.entry-meta .entry-cat-links::before {
+    content: "\f115";
+}
+
+.entry-meta .entry-edit-link a::before {
+    content: "\f040";
+}
+
+.entry-meta .entry-comments-link a::before {
+    content: "\f0e5";
+}
+
+.entry-meta .entry-featured::before {
+    content: "\f041";
 }
 
 
@@ -429,4 +464,37 @@ article .entry-header {
 .grid-layout .entry-layout,
 .masonry-layout .entry-layout {
     margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Post Box Style
+--------------------------------------------------------------*/
+
+.entry-layout .buddyx-post-content-wrapper {
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.post-layout .entry-layout.entry-layout .buddyx-post-content-wrapper .entry-content {
+    border-bottom: 0;
+}
+
+.entry-layout .buddyx-post-content-wrapper .post-thumbnail {
+    margin: -16px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.entry-layout .buddyx-post-content-wrapper .post-thumbnail img {
+    border-radius: 8px;
+}
+
+.entry-layout .buddyx-post-content-wrapper .post-thumbnail+.post-categories {
+    left: 0;
 }
