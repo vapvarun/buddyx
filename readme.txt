@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.5.1
+Tested up to: 5.5.3
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -92,6 +92,10 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+
+= 3.1.0 =
+* Improvement: Updated theme Description
+* Improvement: Added BuddyPress Notification icon for mobile
 
 = 3.0.0 =
 * Improvement: Updated Theme Description
