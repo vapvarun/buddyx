@@ -584,54 +584,74 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:82, ../buddyx/inc/Welcome/Component.php:61
+#: ../buddyx/inc/extra.php:72, ../buddyx/inc/Welcome/Component.php:61
 msgid "Home"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:100
+#: ../buddyx/inc/extra.php:90
 msgid "Blog Archives"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:98
+#: ../buddyx/inc/extra.php:88
 msgid "Forums Archives"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:96
+#: ../buddyx/inc/extra.php:86
 msgid "Shop"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:94, ../buddyx/inc/extra.php:92, ../buddyx/inc/extra.php:90
+#: ../buddyx/inc/extra.php:84, ../buddyx/inc/extra.php:82, ../buddyx/inc/extra.php:80
 msgid "%s"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:94
+#: ../buddyx/inc/extra.php:84
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:92
+#: ../buddyx/inc/extra.php:82
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:117
+#: ../buddyx/inc/extra.php:107
 msgid "Blog"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:157
+#: ../buddyx/inc/extra.php:147
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:252
+#: ../buddyx/inc/extra.php:242
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:330
+#: ../buddyx/inc/extra.php:320
 msgid "See All"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:364
+#: ../buddyx/inc/extra.php:354
 msgid "BuddyX WordPress Theme"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:396
+msgid "Sticky"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:407
+msgid "Leave a comment"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:407
+msgid "1 Comment"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:407
+msgid "% Comments"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:412
+msgid "Edit"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:64, ../buddyx/inc/Kirki_Option/Component.php:73, ../buddyx/inc/Kirki_Option/Component.php:231

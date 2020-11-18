@@ -1,14 +1,4 @@
 <?php
-// buddyx_excerpt_length
-function buddyx_excerpt_length( $length ) {
-	if ( is_admin() ) {
-		return $length;
-	}
-
-    return 20;
-}
-add_filter( 'excerpt_length', 'buddyx_excerpt_length', 999 );
-
 // Content wrapper
 if ( !function_exists( 'buddyx_content_top' ) ) {
 	function buddyx_content_top() { ?>
@@ -87,7 +77,7 @@ if ( !function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
-					the_category(' > ');
+					the_category(' &raquo ');
 				} elseif ( is_archive() || is_single() ){
 					if ( is_day() ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date() );
@@ -374,4 +364,57 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
         }
         return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
     }
+}
+
+/**
+ * Categorized Blog
+ * Find out if blog has more than one category.
+ */
+if ( ! function_exists( 'buddyx_categorized_blog' ) ) {
+	function buddyx_categorized_blog() {
+		if ( false === ( $all_the_cool_cats = get_transient( 'buddyx_category_count' ) ) ) {
+
+			$all_the_cool_cats = get_categories( array( 'hide_empty' => 1 ) );
+			$all_the_cool_cats = count( $all_the_cool_cats );
+			set_transient( 'buddyx_category_count', $all_the_cool_cats );
+
+		}
+
+		if ( 1 !== (int) $all_the_cool_cats ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+/**
+ * Blog Post Meta
+ */
+if ( ! function_exists( 'buddyx_posted_on' ) ) {
+
+    function buddyx_posted_on() {
+
+        global $post;
+
+        if ( is_sticky() && is_home() && ! is_paged() ) {
+            echo '<span class="entry-featured">' . esc_html__( 'Sticky', 'buddyx' ) . '</span>';
+        }
+
+        if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && buddyx_categorized_blog() ) {
+            echo '<span class="entry-cat-links">' . get_the_category_list(', ') . '</span>';
+        }
+
+        if ( ! is_search() ) {
+
+            if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+                echo '<span class="entry-comments-link">';
+                comments_popup_link( esc_html__( 'Leave a comment', 'buddyx' ), esc_html__( '1 Comment', 'buddyx' ), esc_html__( '% Comments', 'buddyx' ) );
+                echo '</span>';
+            }
+        }
+
+        edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
+    }
+
 }

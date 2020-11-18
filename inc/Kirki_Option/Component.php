@@ -670,7 +670,7 @@ class Component implements Component_Interface {
 			'label'       => esc_html__( 'Background Control', 'buddyx' ),
 			'section'     => 'site_sub_header_section',
 			'default'     => [
-				'background-color'      => 'rgba(0,0,0,0.8)',
+				'background-color'      => 'rgba(255,255,255,0.5)',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
@@ -699,14 +699,14 @@ class Component implements Component_Interface {
 				'font-size'      => '',
 				'line-height'    => '',
 				'letter-spacing' => '',
-				'color'          => '#ffffff',
+				'color'          => '#111111',
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
 			'priority'    => 10,
 			'output'      => array(
 				array(
-					'element' => '.site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
+					'element' => '.site-sub-header, .site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
 				),
 			),
 		);
