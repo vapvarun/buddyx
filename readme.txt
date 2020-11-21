@@ -93,6 +93,9 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.2.0 =
+* Improvement: Improved blog archive and single post UI
+* Improvement: Default Sub Header settings
 = 3.1.0 =
 * Improvement: Updated theme Description
 * Improvement: Added BuddyPress Notification icon for mobile
