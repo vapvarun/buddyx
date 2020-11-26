@@ -2659,6 +2659,10 @@ body #buddypress #item-header-cover-image span.activity {
     font-size: 14px;
 }
 
+.activity.gamipress-buddypress-points-label {
+    margin-left: 2px;
+}
+
 .users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement-type-label {
     margin-right: 10px;
     font-weight: 500;
