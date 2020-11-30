@@ -60,7 +60,7 @@ class Component implements Component_Interface {
 		$wp_customize->add_panel(
 			'site_layout_panel',
 			array(
-				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
+				'title'       => esc_html__( 'General', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
 			)
@@ -86,6 +86,17 @@ class Component implements Component_Interface {
 				'panel' => 'site_layout_panel',
 			)
 		);
+
+		// Page Mapping
+        $wp_customize->add_section(
+            'page_mapping',
+            [
+                'title' => esc_html__('Page Mapping', 'buddyx'),
+                'priority' => 10,
+                'description' => '',
+                'panel' => 'site_layout_panel',
+            ]
+        );
 
 		// Typography
 		$wp_customize->add_panel(
@@ -290,6 +301,42 @@ class Component implements Component_Interface {
 				array( 'setting' => 'site_loader', 'operator' => '==', 'value' => '1' ),
 			)
 		);
+
+		/*
+         *  Page Mapping
+         */
+        $fields[] = array(
+            'type'			 => 'dropdown-pages',
+            'settings'		 => 'buddyx_login_page',
+            'label'			 => esc_attr__( 'Login Page', 'buddyx' ),
+            'description'	 => esc_attr__( 'You can redirect user to custom login page.', 'buddyx' ),
+            'section'		 => 'page_mapping',
+            'priority'		 => 10,
+            'default'		 => 0,
+            'placeholder'	 => '--- Select a Page ---',
+        );
+
+        $fields[] = array(
+            'type'			 => 'dropdown-pages',
+            'settings'		 => 'buddyx_registration_page',
+            'label'			 => esc_attr__( 'Registration Page', 'buddyx' ),
+            'description'	 => esc_attr__( 'You can redirect user to custom registration page.', 'buddyx' ),
+            'section'		 => 'page_mapping',
+            'priority'		 => 10,
+            'default'		 => 0,
+            'placeholder'	 => '--- Select a Page ---',
+        );
+
+        $fields[] = array(
+            'type'			 => 'dropdown-pages',
+            'settings'		 => 'buddyx_404_page',
+            'label'			 => esc_attr__( '404', 'buddyx' ),
+            'description'	 => esc_attr__( 'You can redirect user to custom 404 page.', 'buddyx' ),
+            'section'		 => 'page_mapping',
+            'priority'		 => 10,
+            'default'		 => 0,
+            'placeholder'	 => '--- Select a Page ---',
+        );
 
 		/**
 		 *  Site Title Typography
