@@ -2103,6 +2103,10 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     margin: auto;
 }
 
+.buddypress.settings .profile-settings.bp-tables-user select {
+    width: auto;
+}
+
 
 /*--------------------------------------------------------------
 # Group Single

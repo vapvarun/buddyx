@@ -356,6 +356,10 @@ table th {
     border: 1px solid var(--global-border-color);
 }
 
+.widget_calendar table th {
+    padding: 0.2em;
+}
+
 select {
     display: inline-block;
     font-family: inherit;
