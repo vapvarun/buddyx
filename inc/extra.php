@@ -261,80 +261,120 @@ if ( !function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
 }
 add_action('init', 'buddyx_disable_woo_commerce_sidebar');
 
-/**
+/*
  * Output badges on profile
  */
 if ( !function_exists( 'buddyx_profile_achievements' ) ) {
-
 	function buddyx_profile_achievements() {
-		global $user_ID;
-
-		//user must be logged in to view earned badges and points
-
-		if ( is_user_logged_in() && function_exists( 'badgeos_get_user_achievements' ) ) {
-
-			$achievements = badgeos_get_user_achievements( array( 'user_id' => bp_displayed_user_id(), 'display' => true ) );
-
-			if ( is_array( $achievements ) && !empty( $achievements ) ) {
-
-				$number_to_show	 = 5;
-				$thecount		 = 0;
-
-				wp_enqueue_script( 'badgeos-achievements' );
-				wp_enqueue_style( 'badgeos-widget' );
-
-				//load widget setting for achievement types to display
-				$set_achievements = ( isset( $instance[ 'set_achievements' ] ) ) ? $instance[ 'set_achievements' ] : '';
-
-				//show most recently earned achievement first
-				$achievements = array_reverse( $achievements );
-
-				echo '<ul class="profile-achievements-listing">';
-
-				foreach ( $achievements as $achievement ) {
-
-					//verify achievement type is set to display in the widget settings
-					//if $set_achievements is not an array it means nothing is set so show all achievements
-					if ( !is_array( $set_achievements ) || in_array( $achievement->post_type, $set_achievements ) ) {
-
-						//exclude step CPT entries from displaying in the widget
-						if ( get_post_type( $achievement->ID ) != 'step' ) {
-
-							$permalink	 = get_permalink( $achievement->ID );
-							$title		 = get_the_title( $achievement->ID );
-							$img		 = badgeos_get_achievement_post_thumbnail( $achievement->ID, array( 50, 50 ), 'wp-post-image' );
-							$thumb		 = $img ? '<a class="badgeos-item-thumb" href="' . esc_url( $permalink ) . '">' . $img . '</a>' : '';
-							$class		 = 'widget-badgeos-item-title';
-							$item_class	 = $thumb ? ' has-thumb' : '';
-
-							// Setup credly data if giveable
-							$giveable	 = credly_is_achievement_giveable( $achievement->ID, $user_ID );
-							$item_class	 .= $giveable ? ' share-credly addCredly' : '';
-							$credly_ID	 = $giveable ? 'data-credlyid="' . absint( $achievement->ID ) . '"' : '';
-
-							echo '<li id="widget-achievements-listing-item-' . absint( $achievement->ID ) . '" ' . esc_attr( $credly_ID ) . ' class="widget-achievements-listing-item' . esc_attr( $item_class ) . '">';
-							echo $thumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . esc_url( $permalink ) . '">' . esc_html( $title ) . '</a>';
-							echo '</li>';
-
-							$thecount++;
-
-							if ( $thecount == $number_to_show && $number_to_show != 0 && is_plugin_active( 'badgeos-community-add-on/badgeos-community.php' ) ) {
-								echo '<li id="widget-achievements-listing-item-more" class="widget-achievements-listing-item">';
-								echo '<a class="badgeos-item-thumb" href="' . esc_url(bp_core_get_user_domain( bp_displayed_user_id() )) . 'bos-bp-achievements/"><span class="fa fa-ellipsis-h"></span></a>';
-								echo '<a class="widget-badgeos-item-title ' . esc_attr( $class ) . '" href="' . esc_url( bp_core_get_user_domain( bp_displayed_user_id() ) ) . 'bos-bp-achievements/">' . esc_html__( 'See All', 'buddyx' ) . '</a>';
-								echo '</li>';
-								break;
-							}
-						}
-					}
-				}
-
-				echo '</ul><!-- widget-achievements-listing -->';
-			}
-		}
+		global $blog_id, $post;
+        $type = "all";
+        $limit = apply_filters( 'buddyx_user_badges_limit', 10 );
+        $offset = 0;
+        $count = 0;
+        $filter = "completed";
+        $search = false;
+        $orderby = "menu_order";
+        $order = "ASC";
+        $wpms = false;
+        $include = array();
+        $exclude = array();
+        $meta_key = '';
+        $meta_value = '';
+        $old_post = $post;
+        $user_id = bp_displayed_user_id();
+        // Convert $type to properly support multiple achievement types
+        if ( 'all' == $type ) {
+            $type = badgeos_get_achievement_types_slugs();
+            // Drop steps from our list of "all" achievements
+            $step_key = array_search( 'step', $type );
+            if  ($step_key )
+                unset($type[$step_key]);
+        } else {
+            $type = explode( ',', $type );
+        }
+        // Build $include array
+        if ( ! is_array( $include ) ) {
+            $include = explode( ',', $include );
+        }
+        // Build $exclude array
+        if ( ! is_array( $exclude ) ) {
+            $exclude = explode( ',', $exclude );
+        }
+        // Initialize our output and counters
+        $achievements = '';
+        $achievement_count = 0;
+        $query_count = 0;
+        // Grab our hidden badges (used to filter the query)
+        $hidden = badgeos_get_hidden_achievement_ids( $type );
+        // If we're polling all sites, grab an array of site IDs
+        if ( $wpms && $wpms != 'false' ) {
+            $sites = badgeos_get_network_site_ids();
+        } else {
+            // Otherwise, use only the current site
+            $sites = array( $blog_id );
+        }
+        // Loop through each site (default is current site only)
+        foreach ( $sites as $site_blog_id ) {
+            // If we're not polling the current site, switch to the site we're polling
+            if ( $blog_id != $site_blog_id ) {
+                switch_to_blog( $site_blog_id );
+            }
+            // Grab our earned badges (used to filter the query)
+            $earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $type );
+            // Query Achievements
+            $args = array(
+                'post_type' => $type,
+                'orderby' => $orderby,
+                'order' => $order,
+                'posts_per_page' => $limit,
+                'offset' => $offset,
+                'post_status' => 'publish',
+                'post__not_in' => array_diff( $hidden, $earned_ids )
+            );
+            // Filter - query completed or non completed achievements
+            if ( $filter == 'completed' ) {
+                $args['post__in'] = array_merge( array(0), $earned_ids );
+            } elseif ($filter == 'not-completed') {
+                $args['post__not_in'] = array_merge( $hidden, $earned_ids );
+            }
+            if ( '' !== $meta_key && '' !== $meta_value ) {
+                $args['meta_key'] = $meta_key;
+                $args['meta_value'] = $meta_value;
+            }
+            // Include certain achievements
+            if ( ! empty( $include ) ) {
+                $args['post__not_in'] = array_diff( $args['post__not_in'], $include );
+                $args['post__in'] = array_merge( array(0), array_diff( $include, $args['post__in'] ) );
+            }
+            // Exclude certain achievements
+            if ( ! empty( $exclude ) ) {
+                $args['post__not_in'] = array_merge( $args['post__not_in'], $exclude );
+            }
+            // Search
+            if ( $search ) {
+                $args['s'] = $search;
+            }
+            // Loop Achievements
+            $achievement_posts = new WP_Query( $args );
+            $query_count += $achievement_posts->found_posts;
+            while ( $achievement_posts->have_posts() ) : $achievement_posts->the_post();
+                // If we were given an ID, get the post
+                if ( is_numeric( get_the_ID() ) ) {
+                    $achievement = get_post( get_the_ID() );
+                }
+                $achievements .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
+                $achievements .= '<a href="' . get_permalink( $achievement->ID ) . '">' . badgeos_get_achievement_post_thumbnail( $achievement->ID ) . '</a>';
+                $achievements .= '</div>';
+                $achievement_count++;
+            endwhile;
+            wp_reset_query();
+            $post = $old_post;
+        }
+        echo '<div class="ps-badgeos__list-wrapper">';
+        echo '<div class="ps-badgeos__list-title">' . _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) . '</div>';
+        echo '<div class="ps-badgeos__list">' . $achievements . '</div>';
+        echo '</div>';
 	}
-
 }
 
 /**
