@@ -266,115 +266,117 @@ add_action('init', 'buddyx_disable_woo_commerce_sidebar');
  */
 if ( !function_exists( 'buddyx_profile_achievements' ) ) {
 	function buddyx_profile_achievements() {
-		global $blog_id, $post;
-        $type = "all";
-        $limit = apply_filters( 'buddyx_user_badges_limit', 10 );
-        $offset = 0;
-        $count = 0;
-        $filter = "completed";
-        $search = false;
-        $orderby = "menu_order";
-        $order = "ASC";
-        $wpms = false;
-        $include = array();
-        $exclude = array();
-        $meta_key = '';
-        $meta_value = '';
-        $old_post = $post;
-        $user_id = bp_displayed_user_id();
-        // Convert $type to properly support multiple achievement types
-        if ( 'all' == $type ) {
-            $type = badgeos_get_achievement_types_slugs();
-            // Drop steps from our list of "all" achievements
-            $step_key = array_search( 'step', $type );
-            if  ($step_key )
-                unset($type[$step_key]);
-        } else {
-            $type = explode( ',', $type );
-        }
-        // Build $include array
-        if ( ! is_array( $include ) ) {
-            $include = explode( ',', $include );
-        }
-        // Build $exclude array
-        if ( ! is_array( $exclude ) ) {
-            $exclude = explode( ',', $exclude );
-        }
-        // Initialize our output and counters
-        $achievements = '';
-        $achievement_count = 0;
-        $query_count = 0;
-        // Grab our hidden badges (used to filter the query)
-        $hidden = badgeos_get_hidden_achievement_ids( $type );
-        // If we're polling all sites, grab an array of site IDs
-        if ( $wpms && $wpms != 'false' ) {
-            $sites = badgeos_get_network_site_ids();
-        } else {
-            // Otherwise, use only the current site
-            $sites = array( $blog_id );
-        }
-        // Loop through each site (default is current site only)
-        foreach ( $sites as $site_blog_id ) {
-            // If we're not polling the current site, switch to the site we're polling
-            if ( $blog_id != $site_blog_id ) {
-                switch_to_blog( $site_blog_id );
+        if ( class_exists( 'BadgeOS' ) ) {
+            global $blog_id, $post;
+            $type = "all";
+            $limit = apply_filters( 'buddyx_user_badges_limit', 10 );
+            $offset = 0;
+            $count = 0;
+            $filter = "completed";
+            $search = false;
+            $orderby = "menu_order";
+            $order = "ASC";
+            $wpms = false;
+            $include = array();
+            $exclude = array();
+            $meta_key = '';
+            $meta_value = '';
+            $old_post = $post;
+            $user_id = bp_displayed_user_id();
+            // Convert $type to properly support multiple achievement types
+            if ( 'all' == $type ) {
+                $type = badgeos_get_achievement_types_slugs();
+                // Drop steps from our list of "all" achievements
+                $step_key = array_search( 'step', $type );
+                if  ($step_key )
+                    unset($type[$step_key]);
+            } else {
+                $type = explode( ',', $type );
             }
-            // Grab our earned badges (used to filter the query)
-            $earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $type );
-            // Query Achievements
-            $args = array(
-                'post_type' => $type,
-                'orderby' => $orderby,
-                'order' => $order,
-                'posts_per_page' => $limit,
-                'offset' => $offset,
-                'post_status' => 'publish',
-                'post__not_in' => array_diff( $hidden, $earned_ids )
-            );
-            // Filter - query completed or non completed achievements
-            if ( $filter == 'completed' ) {
-                $args['post__in'] = array_merge( array(0), $earned_ids );
-            } elseif ($filter == 'not-completed') {
-                $args['post__not_in'] = array_merge( $hidden, $earned_ids );
+            // Build $include array
+            if ( ! is_array( $include ) ) {
+                $include = explode( ',', $include );
             }
-            if ( '' !== $meta_key && '' !== $meta_value ) {
-                $args['meta_key'] = $meta_key;
-                $args['meta_value'] = $meta_value;
+            // Build $exclude array
+            if ( ! is_array( $exclude ) ) {
+                $exclude = explode( ',', $exclude );
             }
-            // Include certain achievements
-            if ( ! empty( $include ) ) {
-                $args['post__not_in'] = array_diff( $args['post__not_in'], $include );
-                $args['post__in'] = array_merge( array(0), array_diff( $include, $args['post__in'] ) );
+            // Initialize our output and counters
+            $achievements = '';
+            $achievement_count = 0;
+            $query_count = 0;
+            // Grab our hidden badges (used to filter the query)
+            $hidden = badgeos_get_hidden_achievement_ids( $type );
+            // If we're polling all sites, grab an array of site IDs
+            if ( $wpms && $wpms != 'false' ) {
+                $sites = badgeos_get_network_site_ids();
+            } else {
+                // Otherwise, use only the current site
+                $sites = array( $blog_id );
             }
-            // Exclude certain achievements
-            if ( ! empty( $exclude ) ) {
-                $args['post__not_in'] = array_merge( $args['post__not_in'], $exclude );
-            }
-            // Search
-            if ( $search ) {
-                $args['s'] = $search;
-            }
-            // Loop Achievements
-            $achievement_posts = new WP_Query( $args );
-            $query_count += $achievement_posts->found_posts;
-            while ( $achievement_posts->have_posts() ) : $achievement_posts->the_post();
-                // If we were given an ID, get the post
-                if ( is_numeric( get_the_ID() ) ) {
-                    $achievement = get_post( get_the_ID() );
+            // Loop through each site (default is current site only)
+            foreach ( $sites as $site_blog_id ) {
+                // If we're not polling the current site, switch to the site we're polling
+                if ( $blog_id != $site_blog_id ) {
+                    switch_to_blog( $site_blog_id );
                 }
-                $achievements .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
-                $achievements .= '<a href="' . get_permalink( $achievement->ID ) . '">' . badgeos_get_achievement_post_thumbnail( $achievement->ID ) . '</a>';
-                $achievements .= '</div>';
-                $achievement_count++;
-            endwhile;
-            wp_reset_query();
-            $post = $old_post;
+                // Grab our earned badges (used to filter the query)
+                $earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $type );
+                // Query Achievements
+                $args = array(
+                    'post_type' => $type,
+                    'orderby' => $orderby,
+                    'order' => $order,
+                    'posts_per_page' => $limit,
+                    'offset' => $offset,
+                    'post_status' => 'publish',
+                    'post__not_in' => array_diff( $hidden, $earned_ids )
+                );
+                // Filter - query completed or non completed achievements
+                if ( $filter == 'completed' ) {
+                    $args['post__in'] = array_merge( array(0), $earned_ids );
+                } elseif ($filter == 'not-completed') {
+                    $args['post__not_in'] = array_merge( $hidden, $earned_ids );
+                }
+                if ( '' !== $meta_key && '' !== $meta_value ) {
+                    $args['meta_key'] = $meta_key;
+                    $args['meta_value'] = $meta_value;
+                }
+                // Include certain achievements
+                if ( ! empty( $include ) ) {
+                    $args['post__not_in'] = array_diff( $args['post__not_in'], $include );
+                    $args['post__in'] = array_merge( array(0), array_diff( $include, $args['post__in'] ) );
+                }
+                // Exclude certain achievements
+                if ( ! empty( $exclude ) ) {
+                    $args['post__not_in'] = array_merge( $args['post__not_in'], $exclude );
+                }
+                // Search
+                if ( $search ) {
+                    $args['s'] = $search;
+                }
+                // Loop Achievements
+                $achievement_posts = new WP_Query( $args );
+                $query_count += $achievement_posts->found_posts;
+                while ( $achievement_posts->have_posts() ) : $achievement_posts->the_post();
+                    // If we were given an ID, get the post
+                    if ( is_numeric( get_the_ID() ) ) {
+                        $achievement = get_post( get_the_ID() );
+                    }
+                    $achievements .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
+                    $achievements .= '<a href="' . get_permalink( $achievement->ID ) . '">' . badgeos_get_achievement_post_thumbnail( $achievement->ID ) . '</a>';
+                    $achievements .= '</div>';
+                    $achievement_count++;
+                endwhile;
+                wp_reset_query();
+                $post = $old_post;
+            }
+            echo '<div class="ps-badgeos__list-wrapper">';
+            echo '<div class="ps-badgeos__list-title">' . _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) . '</div>';
+            echo '<div class="ps-badgeos__list">' . $achievements . '</div>';
+            echo '</div>';
         }
-        echo '<div class="ps-badgeos__list-wrapper">';
-        echo '<div class="ps-badgeos__list-title">' . _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) . '</div>';
-        echo '<div class="ps-badgeos__list">' . $achievements . '</div>';
-        echo '</div>';
-	}
+    }
 }
 
 /**
@@ -464,102 +466,114 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
  * Managing Login and Register URL in Frontend
  * 
  */
-add_filter( 'login_url', 'buddyx_alter_login_url_at_frontend', 10, 3 );
 
-function buddyx_alter_login_url_at_frontend( $login_url, $redirect, $force_reauth ) {
-    if ( is_admin() ) {
+if ( ! function_exists( 'buddyx_alter_login_url_at_frontend' ) ) {
+
+    add_filter( 'login_url', 'buddyx_alter_login_url_at_frontend', 10, 3 );
+
+    function buddyx_alter_login_url_at_frontend( $login_url, $redirect, $force_reauth ) {
+        if ( is_admin() ) {
+            return $login_url;
+        }
+
+        $buddyx_login_page_id = get_theme_mod( 'buddyx_login_page', '0' );
+        if ($buddyx_login_page_id) {
+            $buddyx_login_page_url = get_permalink( $buddyx_login_page_id );
+            if ( $buddyx_login_page_url ) {
+                $login_url = $buddyx_login_page_url;
+            }
+        }
         return $login_url;
     }
-
-    $buddyx_login_page_id = get_theme_mod( 'buddyx_login_page', '0' );
-    if ( $buddyx_login_page_id ) {
-        $buddyx_login_page_url = get_permalink( $buddyx_login_page_id );
-        if ( $buddyx_login_page_url ) {
-            $login_url = $buddyx_login_page_url;
-        }
-    }
-    return $login_url;
 }
 
-add_filter( 'register_url', 'buddyx_alter_register_url_at_frontend', 10, 1 );
+if ( ! function_exists( 'buddyx_alter_register_url_at_frontend' ) ) {
 
-function buddyx_alter_register_url_at_frontend( $register_url ) {
-    if ( is_admin() ) {
+    add_filter( 'register_url', 'buddyx_alter_register_url_at_frontend', 10, 1 );
+
+    function buddyx_alter_register_url_at_frontend( $register_url ) {
+        if ( is_admin() ) {
+            return $register_url;
+        }
+
+        $buddyx_registration_page_id = get_theme_mod( 'buddyx_registration_page', '0' );
+        if ( $buddyx_registration_page_id ) {
+            $buddyx_registration_page_url = get_permalink( $buddyx_registration_page_id );
+            if ( $buddyx_registration_page_url ) {
+                $register_url = $buddyx_registration_page_url;
+            }
+        }
         return $register_url;
     }
 
-    $buddyx_registration_page_id = get_theme_mod( 'buddyx_registration_page', '0' );
-    if ( $buddyx_registration_page_id ) {
-        $buddyx_registration_page_url = get_permalink( $buddyx_registration_page_id );
-        if ( $buddyx_registration_page_url ) {
-            $register_url = $buddyx_registration_page_url;
-        }
-    }
-    return $register_url;
 }
 
 /**
  * Redirect to selected login page from options.
  */
-function buddyx_redirect_login_page() {
+if ( ! function_exists( 'buddyx_redirect_login_page' ) ) {
+    function buddyx_redirect_login_page() {
 
-    /* removing conflict with logout url */
-    if ( isset( $_GET['action'] ) && ( $_GET['action'] == 'logout' ) ) {
-        return;
-    }
+        /* removing conflict with logout url */
+        if ( isset($_GET['action']) && ( $_GET['action'] == 'logout' ) ) {
+            return;
+        }
 
-    global $wbtm_buddyx_settings;
-    $login_page_id = $wbtm_buddyx_settings['buddyx_pages']['buddyx_login_page'];
-    $register_page_id = $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'];
+        global $wbtm_buddyx_settings;
+        $login_page_id = $wbtm_buddyx_settings['buddyx_pages']['buddyx_login_page'];
+        $register_page_id = $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'];
 
-    $login_page = get_permalink( $login_page_id );
-    $register_page = get_permalink( $register_page_id );
-    $page_viewed_url = basename( $_SERVER['REQUEST_URI'] );
-    $exploded_Url = wp_parse_url( $page_viewed_url );
+        $login_page = get_permalink($login_page_id);
+        $register_page = get_permalink($register_page_id);
+        $page_viewed_url = basename($_SERVER['REQUEST_URI']);
+        $exploded_Url = wp_parse_url($page_viewed_url);
 
-    if ( ! isset( $exploded_Url['path'] ) ) {
-        return;
-    }
+        if ( ! isset( $exploded_Url['path'] ) ) {
+            return;
+        }
 
-    // For register page
-    if ( $register_page && 'wp-login.php' == $exploded_Url['path'] && 'action=register' == $exploded_Url['query'] && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
-        wp_redirect( $register_page );
-        exit;
-    }
+        // For register page
+        if ( $register_page && 'wp-login.php' == $exploded_Url['path'] && 'action=register' == $exploded_Url['query'] && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+            wp_redirect( $register_page );
+            exit;
+        }
 
-    // For login page
-    if ( $login_page && $exploded_Url['path'] == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
-        wp_redirect( $login_page );
-        exit;
+        // For login page
+        if ( $login_page && $exploded_Url['path'] == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+            wp_redirect( $login_page );
+            exit;
+        }
     }
 }
 
 /**
  * Add 404 page redirect
  */
-function buddyx_404_redirect() {
+if ( ! function_exists( 'buddyx_404_redirect' ) ) {
+    function buddyx_404_redirect() {
 
-    // media popup fix
-    if ( strpos( $_SERVER['REQUEST_URI'], "media" ) !== false ) {
-        return;
+        // media popup fix
+        if ( strpos( $_SERVER['REQUEST_URI'], "media" ) !== false ) {
+            return;
+        }
+
+        // media upload fix
+        if ( strpos( $_SERVER['REQUEST_URI'], "upload" ) !== false ) {
+            return;
+        }
+
+        if ( ! is_404() ) {
+            return;
+        }
+
+        $buddyx_404_page_id = get_theme_mod( 'buddyx_404_page', '0' );
+
+        if ( $buddyx_404_page_id ) {
+            $buddyx_404_page_url = get_permalink( $buddyx_404_page_id );
+            wp_redirect( $buddyx_404_page_url );
+            exit;
+        }
+
     }
-
-    // media upload fix
-    if ( strpos( $_SERVER['REQUEST_URI'], "upload" ) !== false ) {
-        return;
-    }
-
-    if ( ! is_404() ) {
-        return;
-    }
-
-    $buddyx_404_page_id = get_theme_mod( 'buddyx_404_page', '0' );
-
-    if ( $buddyx_404_page_id ) {
-        $buddyx_404_page_url = get_permalink( $buddyx_404_page_id );
-        wp_redirect( $buddyx_404_page_url );
-        exit;
-    }
-
+    add_action( 'template_redirect', 'buddyx_404_redirect' );
 }
-add_action( 'template_redirect', 'buddyx_404_redirect' );
