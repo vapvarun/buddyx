@@ -97,7 +97,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-custom',
 			get_theme_file_uri( '/assets/js/custom.min.js' ),
-			['jquery'],
+			['jquery', 'wp-rig-superfish', 'wp-rig-isotope-pkgd', 'wp-rig-fitvids', 'wp-rig-sticky-kit'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);

@@ -17,7 +17,9 @@ buddyx()->print_styles( 'buddyx-content' );
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<main id="primary" class="site-main">
-		<?php get_template_part( 'template-parts/content/error', '404' ); ?>
+		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) { ?>
+			<?php get_template_part( 'template-parts/content/error', '404' ); ?>
+		<?php } ?>
 	</main><!-- #primary -->
 	
 	<?php do_action( 'buddyx_after_content' ); ?>
