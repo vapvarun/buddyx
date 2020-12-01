@@ -93,6 +93,16 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.3.0 =
+* Improvement: (#192) Added elementor locations support
+* Improvement: Update extra.php to add support for BadgeOS
+* Improvement: Managed badges UI
+* Improvement: (#168, #170) Update calendar widget UI and profile visibility select UI
+* Fix: Fixed console js errors
+* Improvement: Added page mapping setting
+* Improvement: Updated static page title when set posts page from Homepage Settings
+* Improvement: (#163) Added wbcom BuddyPress plugins support
+
 = 3.2.0 =
 * Improvement: Improved blog archive and single post UI
 * Improvement: Default Sub Header settings
