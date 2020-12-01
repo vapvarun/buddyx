@@ -2981,51 +2981,21 @@ table.badgeos-rank-table tfoot tr th {
     margin: 5px 0;
 }
 
-.buddyx-badge ul span {
-    display: block;
-    color: #111;
-}
-
-.buddyx-badge ul.profile-achievements-listing {
-    margin: 0;
-    list-style: none;
-    display: flex;
-    align-self: center;
-}
-
-.buddyx-badge ul.profile-achievements-listing li {
-    display: inline-block;
-    float: none;
-    margin: 5px 5px 0 0;
-    position: relative;
-}
-
-.buddyx-badge ul.profile-achievements-listing li .badgeos-item-thumb img {
-    width: 40px;
-    max-width: 40px;
-    height: 40px;
-}
-
-.buddyx-badge ul.profile-achievements-listing li#widget-achievements-listing-item-more {
-    margin-left: 10px;
+.buddyx-badge .ps-badgeos__list {
     display: flex;
     align-items: center;
+    flex-flow: row wrap;
 }
 
-.buddyx-badge ul.profile-achievements-listing li .widget-badgeos-item-title {
-    position: absolute;
-    bottom: -16px;
-    right: 0px;
-    left: 0;
-    margin: auto;
-    color: #111;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
+@media screen and (max-width: 782px) {
+    .buddyx-badge .ps-badgeos__list {
+        justify-content: center;
+    }
 }
 
-.buddyx-badge ul.profile-achievements-listing li:hover .widget-badgeos-item-title {
-    opacity: 1;
+.buddyx-badge .ps-badgeos__item img {
+    max-width: 36px;
+    margin: 5px 5px 0 0;
 }
 
 
