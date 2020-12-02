@@ -34,7 +34,7 @@
     color: #fff;
     background-color: var(--button_background_color);
     border-radius: 3px !important;
-    padding: 8px 20px;
+    padding: 10px 20px;
     font-weight: 700;
     font-style: normal;
     text-decoration: none;
@@ -62,8 +62,18 @@
 }
 
 .llms-button-primary:focus,
-.llms-button-primary:active {
+.llms-button-primary:active,
+.llms-button-action:focus,
+.llms-button-action:active {
     background-color: var(--button_background_color);
+}
+
+.llms-button-action.large,
+.llms-button-danger.large,
+.llms-button-primary.large,
+.llms-button-secondary.large {
+    font-size: inherit;
+    padding: 10px 20px;
 }
 
 #page .llms-table tfoot select {
