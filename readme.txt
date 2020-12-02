@@ -93,6 +93,9 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.3.1 =
+* Fix: Fixed js prefix
+
 = 3.3.0 =
 * Improvement: (#192) Added elementor locations support
 * Improvement: Update extra.php to add support for BadgeOS
