@@ -22,6 +22,22 @@
     }
 }
 
+.dropzone.dz-started .dz-default.dz-message .dz-button {
+    padding-top: 0 !important;
+    background: transparent !important;
+    border: 0;
+}
+
+.activity-attached-gif-container {
+    background-repeat: no-repeat;
+    margin: 15px 0;
+    max-width: 100%;
+}
+
+.bb-media-info-section .activity-comments form {
+    margin: 0;
+}
+
 .activity-update-form #whats-new {
     min-height: 50px;
 }
@@ -165,8 +181,26 @@
     margin-bottom: 15px;
 }
 
+@media screen and (min-width: 46.8em) {
+    .friends-request-list li {
+        flex-flow: wrap;
+    }
+}
+
 .friends-request-list .bp-generic-meta.friends-meta.action {
     display: flex;
+    flex-flow: wrap;
+}
+
+@media screen and (max-width: 46.8em) {
+    .friends-request-list .bp-generic-meta.friends-meta.action {
+        justify-content: center;
+    }
+}
+
+.friends-request-list .bp-generic-meta.friends-meta.action div.generic-button,
+.friends-request-list .bp-generic-meta.friends-meta.action li.generic-button {
+    margin: 10px 10px 0 0;
 }
 
 .friends-request-list>li {
@@ -483,7 +517,7 @@ span.bbp-author-avatar img {
     color: rgb(77, 92, 109)!important;
 }
 
-.medium-editor-element {
+.medium-editor-element:not(.emojionearea) {
     padding: 10px;
     min-height: 120px;
     border: 1px #d6d6d6 solid;
@@ -517,7 +551,10 @@ span.bbp-author-avatar img {
 }
 
 .medium-editor-element p {
-    margin-top: 0px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
 }
 
 .bp-messages-content .send-reply {
