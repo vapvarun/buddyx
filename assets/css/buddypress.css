@@ -113,6 +113,7 @@ body .buddypress-wrap .subnav-filters .last select {
     border-radius: 3px;
     box-shadow: none;
     padding: 0 12px;
+    padding-right: 40px;
     color: inherit;
 }
 
