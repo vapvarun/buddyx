@@ -29,7 +29,8 @@
     border: 0;
 }
 
-.activity-attached-gif-container {
+.activity-attached-gif-container,
+.messages-attached-gif-container {
     background-repeat: no-repeat;
     margin: 15px 0;
     max-width: 100%;
