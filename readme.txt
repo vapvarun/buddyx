@@ -22,7 +22,7 @@ Some of the other features are # WooCommerce Ready # Responsive # RTL & Translat
 
 There are multiple ways you can use a child theme with the BuddyX Theme, Use any one method mentioned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/buddyx/buddyx-child-theme
+1. Download the child theme from Github - https://github.com/vapvarun/buddyx-child-theme
 2. More information on creating child theme - https://codex.wordpress.org/Child_Themes
 
 == BuddyX License ==
