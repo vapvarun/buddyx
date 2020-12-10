@@ -589,3 +589,34 @@ if ( ! function_exists( 'buddyx_register_elementor_locations' ) ) {
     }
     add_action( 'elementor/theme/register_locations', 'buddyx_register_elementor_locations' );
 }
+
+/**
+ * Display LifterLMS Course and Lesson sidebars
+ * on courses and lessons in place of the sidebar returned by
+ * this function
+ * @param    string     $id    default sidebar id (an empty string)
+ * @return   string
+ */
+if ( ! function_exists( 'buddyx_llms_sidebar_function' ) ) {
+    function buddyx_llms_sidebar_function( $id ) {
+
+        $my_sidebar_id = 'sidebar-right'; // replace this with your theme's sidebar ID
+
+        return $my_sidebar_id;
+
+    }
+    add_filter( 'llms_get_theme_default_sidebar', 'buddyx_llms_sidebar_function' );
+}
+
+/**
+ * Declare explicit theme support for LifterLMS course and lesson sidebars
+ * @return   void
+ */
+if ( ! function_exists( 'buddyx_llms_theme_support' ) ) {
+    function buddyx_llms_theme_support(){
+
+        add_theme_support( 'lifterlms-sidebars' );
+
+    }
+    add_action( 'after_setup_theme', 'buddyx_llms_theme_support' );
+}

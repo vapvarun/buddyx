@@ -172,7 +172,8 @@ canvas {
     .site-header {
         grid-column: span 2;
     }
-    .site-main {
+    .site-main,
+    .has-woocommerce-sidebar-right .site-wrapper>.content-area {
         grid-column: 1;
         min-width: 0;
     }
@@ -183,7 +184,9 @@ canvas {
         grid-column: 2;
         min-width: 0;
     }
-    .primary-sidebar {
+    .primary-sidebar,
+    .has-woocommerce-sidebar-left .site-wrapper>.content-area,
+    .has-woocommerce-sidebar-both .site-wrapper>.content-area {
         grid-column: 2;
         min-width: 0;
     }

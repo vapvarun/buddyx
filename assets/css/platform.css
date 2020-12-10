@@ -8,6 +8,7 @@
 # Group Single
 # Sidebar Widegts
 # Forums
+# Documents
 # Extra Plugins Support
 --------------------------------------------------------------*/
 
@@ -20,6 +21,23 @@
     .activity-update-form #whats-new-avatar {
         padding-bottom: 15px;
     }
+}
+
+.dropzone.dz-started .dz-default.dz-message .dz-button {
+    padding-top: 0 !important;
+    background: transparent !important;
+    border: 0;
+}
+
+.activity-attached-gif-container,
+.messages-attached-gif-container {
+    background-repeat: no-repeat;
+    margin: 15px 0;
+    max-width: 100%;
+}
+
+.bb-media-info-section .activity-comments form {
+    margin: 0;
 }
 
 .activity-update-form #whats-new {
@@ -148,11 +166,13 @@
     min-height: 185px;
 }
 
-.my-messages.has-buddypress-sidebar-right .bp-vertical-navs .member-home {
+.my-messages .bp-vertical-navs .member-home,
+.messages .bp-vertical-navs .member-home {
     grid-template-columns: 1fr;
 }
 
-.my-messages.has-buddypress-sidebar-right .bp-vertical-navs .member-home aside#secondary {
+.my-messages .bp-vertical-navs .member-home aside#secondary,
+.messages .bp-vertical-navs .member-home aside#secondary {
     display: none;
 }
 
@@ -165,8 +185,26 @@
     margin-bottom: 15px;
 }
 
+@media screen and (min-width: 46.8em) {
+    .friends-request-list li {
+        flex-flow: wrap;
+    }
+}
+
 .friends-request-list .bp-generic-meta.friends-meta.action {
     display: flex;
+    flex-flow: wrap;
+}
+
+@media screen and (max-width: 46.8em) {
+    .friends-request-list .bp-generic-meta.friends-meta.action {
+        justify-content: center;
+    }
+}
+
+.friends-request-list .bp-generic-meta.friends-meta.action div.generic-button,
+.friends-request-list .bp-generic-meta.friends-meta.action li.generic-button {
+    margin: 10px 10px 0 0;
 }
 
 .friends-request-list>li {
@@ -303,11 +341,13 @@
     margin-left: auto;
 }
 
-.send-invites.has-buddypress-sidebar-right .bp-vertical-navs .group-home {
+.send-invites .bp-vertical-navs .group-home,
+.groups.messages .bp-vertical-navs .group-home {
     grid-template-columns: 1fr;
 }
 
-.send-invites.has-buddypress-sidebar-right .bp-vertical-navs .group-home aside#secondary {
+.send-invites .bp-vertical-navs .group-home aside#secondary,
+.groups.messages .bp-vertical-navs .group-home aside#secondary {
     display: none;
 }
 
@@ -328,6 +368,10 @@
     border: 1px solid #eee !important;
     margin-bottom: 10px;
     padding: 15px;
+}
+
+.bb-album-content-wrap h4 {
+    font-size: 16px;
 }
 
 
@@ -450,7 +494,7 @@ span.bbp-author-avatar img {
     opacity: 1;
 }
 
-.bbp-topic-form .medium-editor-element {
+.bbp-topic-form .medium-editor-element:not(.emojionearea) {
     min-height: 100px;
 }
 
@@ -483,7 +527,7 @@ span.bbp-author-avatar img {
     color: rgb(77, 92, 109)!important;
 }
 
-.medium-editor-element {
+.medium-editor-element:not(.emojionearea) {
     padding: 10px;
     min-height: 120px;
     border: 1px #d6d6d6 solid;
@@ -517,7 +561,10 @@ span.bbp-author-avatar img {
 }
 
 .medium-editor-element p {
-    margin-top: 0px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
 }
 
 .bp-messages-content .send-reply {
@@ -533,6 +580,101 @@ span.bbp-author-avatar img {
         border: none;
         margin-left: 0px;
     }
+}
+
+.bp-feedback:not(.custom-homepage-info) {
+    width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+# Documents
+--------------------------------------------------------------*/
+
+.search-document-list .media-folder_items .media-folder_details .media-folder_name,
+#media-folder-document-data-table .media-folder_items .media-folder_details .media-folder_name {
+    color: inherit;
+}
+
+.buddypress-wrap form.bp-dir-search-form input[type="search"],
+.buddypress-wrap form.bp-dir-search-form input[type="text"],
+.buddypress-wrap form.bp-messages-search-form input[type="search"],
+.buddypress-wrap form.bp-messages-search-form input[type="text"],
+.buddypress-wrap form.bp-invites-search-form input[type="search"],
+.buddypress-wrap form.bp-invites-search-form input[type="text"] {
+    float: none;
+}
+
+.directory.document .screen-content {
+    position: relative;
+}
+
+.directory.document .document-options {
+    position: relative;
+}
+
+.directory.document .bp-feedback {
+    width: 100%;
+    margin: 0;
+}
+
+.directory.document .document-search {
+    position: relative;
+}
+
+.directory.document .subnav-filters .subnav-search .bp-dir-search-form #dir-document-search,
+.bp-document-listing .media-search-form .bp-dir-search-form #group-document-search,
+.bp-document-listing .media-search-form .bp-dir-search-form #group-document-search {
+    width: 100%;
+    background-image: url(../images/search.svg);
+}
+
+.bp-media-header-wrap #search-documents-form.media-search-form:after {
+    content: none;
+}
+
+.bp-document-listing .media-search-form {
+    margin: 0 0 15px;
+}
+
+.bp-document-listing .bp-media-header-wrap .bb-title {
+    width: 100%;
+}
+
+.bp-document-listing .bb-media-actions-wrap {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.bp-document-listing .bp-media-header-wrap .bb-media-actions-wrap {
+    margin-bottom: 20px;
+}
+
+.bb-media-container .bp-messages,
+.bb-media-container .bp-feedback {
+    width: 100%;
+}
+
+.bp-nouveau .buddypress-wrap .bp-document-listing form.bp-dir-search-form {
+    border: 0;
+}
+
+.bp-nouveau .buddypress-wrap .bp-document-listing form.bp-dir-search-form button[type="submit"] {
+    display: none;
+}
+
+#media-stream .document-data-table-head,
+#media-folder-document-data-table .media-folder_items,
+.search-document-list .media-folder_items {
+    width: 100%;
+}
+
+.bp-document-listing .media-search-form .bp-dir-search-form {
+    border-radius: 100px;
+}
+
+#media-stream.document-parent #media-folder-document-data-table .media-folder_items {
+    margin: 0;
 }
 
 

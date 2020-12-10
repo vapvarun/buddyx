@@ -148,6 +148,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'LearnPress' ) ) {
 			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css' );
 		}
+                
+                // Enqueue LifterLMS CSS
+		if ( class_exists( 'LifterLMS' ) ) {
+			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css');
+		}
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
