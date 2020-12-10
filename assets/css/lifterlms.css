@@ -276,6 +276,74 @@
     background: #fff;
 }
 
+body .llms-syllabus-wrapper .llms-section-title {
+    margin-top: 15px;
+    text-align: left;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    background: var(--color-link-hover);
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.75;
+    border-radius: 4px;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview {
+    margin-top: 4px;
+    display: block;
+    width: auto;
+    border: 1px solid var(--global-border-color);
+    border-radius: 4px;
+}
+
+body .llms-lesson-preview .llms-lesson-link {
+    border-radius: 4px;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-link {
+    min-height: auto;
+}
+
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-main {
+    margin-left: 2em;
+    margin-left: calc(1.2em + 15px);
+    margin-top: 2px;
+    width: 80%;
+    width: calc(80% - 1.2em - 15px);
+}
+
+body .is-enrolled .llms-lesson-preview .llms-extra {
+    float: right;
+    width: 20%;
+}
+
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
+    margin-bottom: 0;
+    position: absolute;
+    top: 18px;
+    left: 15px;
+    font-size: 1.4em;
+    height: 1.2em;
+    line-height: 1.2;
+    width: 1em;
+}
+
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete .fa {
+    font-size: 24px;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
+    line-height: 1.75;
+    margin-bottom: 0;
+    font-size: inherit;
+}
+
+@media (max-width: 480px) {
+    .llms-lesson-preview .llms-lesson-title {
+        font-size: 14px;
+    }
+}
+
 
 /*--------------------------------------------------------------
 # Single Lesson
