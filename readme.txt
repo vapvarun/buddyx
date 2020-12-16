@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.5.3
+Tested up to: 5.6.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -22,7 +22,7 @@ Some of the other features are # WooCommerce Ready # Responsive # RTL & Translat
 
 There are multiple ways you can use a child theme with the BuddyX Theme, Use any one method mentioned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/buddyx/buddyx-child-theme
+1. Download the child theme from Github - https://github.com/vapvarun/buddyx-child-theme
 2. More information on creating child theme - https://codex.wordpress.org/Child_Themes
 
 == BuddyX License ==
@@ -92,6 +92,11 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+
+= 3.4.0 =
+* Improvement: Added support for Lifterlms
+* Fix: (#193, #202, #203) CSS Tweaks related to BuddyPress and Buddyboss platform
+* Fix: (#183) Managed edit activity
 
 = 3.3.1 =
 * Fix: Fixed js prefix
