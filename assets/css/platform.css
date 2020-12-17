@@ -20,6 +20,12 @@
 # Activity Directory
 --------------------------------------------------------------*/
 
+img.emoji,
+img.emojioneemoji {
+    width: 18px !important;
+    height: 18px !important;
+}
+
 @media screen and (max-width: 46.8em) {
     .activity-update-form #whats-new-avatar {
         padding-bottom: 15px;
