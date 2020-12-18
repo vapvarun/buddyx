@@ -43,7 +43,7 @@
                     ?>
                 </div><!-- .buddyx-badge -->
             <?php endif; ?>
-                
+
             <?php
             if ( function_exists( 'bp_get_user_social_networks_urls' ) ):
                 echo bp_get_user_social_networks_urls();
