@@ -93,6 +93,13 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.5.0 =
+* Improvement: (#222) Update cover-image-header.php
+* Improvement: (#222) Fixed deprecated function notice with buddypress 7.0.0
+* Improvement: (#212) Update emoji size with bb platform
+* Improvement: (#220) Show social media icons on single profile header with bb platform
+* Improvement: Managed buddypress hashtag,buddypress polls, sticky activity & buddypress quote plugins specific fixes
+
 = 3.4.0 =
 * Improvement: Added support for Lifterlms
 * Fix: (#193, #202, #203) CSS Tweaks related to BuddyPress and Buddyboss platform
