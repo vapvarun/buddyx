@@ -26,8 +26,12 @@
     <?php if ( ! bp_nouveau_groups_front_page_description() ) : ?>
         <div id="item-header-content">
 
-            <h2 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h2>    
-            <p class="highlight group-status"><strong><?php echo wp_kses( bp_nouveau_group_meta()->status, array( 'span' => array( 'class' => array() ) ) ); ?></strong></p>
+            <h2 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h2> 
+            <?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>   
+                <p class="highlight group-status"><strong><?php echo esc_html( bp_nouveau_the_group_meta( array( 'keys' => 'status' ) ) ); ?></strong></p>
+			<?php } else { ?>
+                <p class="highlight group-status"><strong><?php echo wp_kses( bp_nouveau_group_meta()->status, array( 'span' => array( 'class' => array() ) ) ); ?></strong></p>
+            <?php } ?>
             
             <p class="activity" data-livestamp="<?php bp_core_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ); ?>">
                 <?php
@@ -36,14 +40,21 @@
                 ?>
             </p>
 
-            <?php echo bp_nouveau_group_meta()->group_type_list; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
+                <?php echo isset( bp_nouveau_the_group_meta()->group_type_list ) ? bp_nouveau_the_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php }else { ?>
+                <?php echo isset( bp_nouveau_group_meta()->group_type_list ) ? bp_nouveau_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php } ?>
+
             <?php bp_nouveau_group_hook( 'before', 'header_meta' ); ?>
 
             <?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
                 <div class="item-meta">
-
-                    <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-
+                    <?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>   
+                        <?php echo bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    <?php } else { ?>
+                        <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    <?php } ?>
                 </div><!-- .item-meta -->
             <?php endif; ?>
 

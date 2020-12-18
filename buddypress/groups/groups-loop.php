@@ -40,7 +40,11 @@ bp_nouveau_before_loop(); ?>
 
 						<?php if ( bp_nouveau_group_has_meta() ) : ?>
 
-							<p class="item-meta group-details"><?php bp_nouveau_group_meta(); ?></p>
+							<?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
+								<p class="item-meta group-details"><?php bp_nouveau_the_group_meta( array( 'keys' => array( 'status', 'count' ) ) ); ?></p>
+							<?php } else { ?>
+								<p class="item-meta group-details"><?php bp_nouveau_group_meta(); ?></p>
+							<?php } ?>
 
 						<?php endif; ?>
 
