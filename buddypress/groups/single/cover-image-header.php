@@ -41,9 +41,9 @@
             </p>
 
             <?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
-                <?php echo isset( bp_nouveau_the_group_meta()->group_type_list ) ? bp_nouveau_the_group_meta()->group_type_list : ''; ?>
+                <?php echo isset( bp_nouveau_the_group_meta()->group_type_list ) ? bp_nouveau_the_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php }else { ?>
-                <?php echo isset( bp_nouveau_group_meta()->group_type_list ) ? bp_nouveau_group_meta()->group_type_list : ''; ?>
+                <?php echo isset( bp_nouveau_group_meta()->group_type_list ) ? bp_nouveau_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php } ?>
 
             <?php bp_nouveau_group_hook( 'before', 'header_meta' ); ?>
@@ -51,7 +51,7 @@
             <?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
                 <div class="item-meta">
                     <?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>   
-                        <?php echo bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); ?>
+                        <?php echo bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php } else { ?>
                         <?php echo bp_nouveau_group_meta()->extra; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php } ?>
