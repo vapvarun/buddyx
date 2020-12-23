@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+body.buddyx-amp .site-header-wrapper {
+    top: 0;
+}
+
+.buddyx-amp .site-header-wrapper {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.buddyx-amp .desktop-icons {
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+    .buddyx-amp .menu-item-has-children>ul.sub-menu::before {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 28px;
+        border-color: #fff #fff transparent transparent;
+        border-style: solid;
+        border-width: 7px;
+        transform-origin: 0 0;
+        transform: rotate(-45deg);
+        box-shadow: 2px -3px 3px 0 rgba(0, 0, 0, .02);
+        z-index: 100;
+    }
+    .buddyx-amp .sub-menu li.menu-item-has-children>ul.sub-menu::before {
+        top: 11px;
+        left: auto;
+        right: -13px;
+        transform: rotate(45deg);
+    }
+    .buddyx-amp .sub-menu li.menu-item-has-children>ul ul.sub-menu::before {
+        top: 30px;
+        left: 0;
+        right: auto;
+        transform: rotate(230deg);
+    }
+}
+
+.buddyx-amp .menu-icons-wrapper .buddyx-dropdown-active .top-menu-search-container {
+    display: block;
+}
+
+.buddyx-amp .menu-icons-wrapper .search a[aria-expanded="true"] .top-menu-search-container {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .buddyx-amp .nav--toggled-on .primary-menu-container.buddyx-mobile-menu {
+        display: block;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition: transform .3s ease;
+    }
+    .buddyx-amp #primary-menu .sub-menu {
+        display: block;
+        margin-left: 10px;
+    }
+    .buddyx-amp .main-navigation ul.menu li+li {
+        border: 0;
+    }
+    body.admin-bar.buddyx-amp .main-navigation .primary-menu-container {
+        top: 0;
+    }
+}

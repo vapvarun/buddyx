@@ -371,6 +371,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file' => 'woocommerce.min.css',
 				'global' => true,
 			],
+			'buddyx-amp' => [
+                'file' => 'buddyx-amp.min.css',
+                'global' => true,
+            ],
 		];
 
 		/**

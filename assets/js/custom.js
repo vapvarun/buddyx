@@ -39,7 +39,7 @@
     BUDDYX.headerSearch = function() {
 
         $('.search-icon').on('click', function(e) {
-            e.stopPropagation();
+            e.preventDefault();
             $('.site-header .top-menu-search-container').toggle();
         });
 
