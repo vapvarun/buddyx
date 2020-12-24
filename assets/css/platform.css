@@ -740,3 +740,23 @@ body.wb-quote .activity-update-form #whats-new {
 #buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-flag-activity-btn::after {
     content: none;
 }
+
+
+/*--------------------------------------------------------------
+## BuddyPress Edit Activity
+--------------------------------------------------------------*/
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-edit:before {
+    content: '\e89b';
+    margin-right: 3px;
+}
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity_cancel:before {
+    content: '\e828';
+    margin-right: 3px;
+}
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
+    content: '\e8c5';
+    margin-right: 3px;
+}
