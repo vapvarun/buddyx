@@ -158,6 +158,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css' );
 		}
+                
+                // Enqueue AMP CSS
+                if ( buddyx()->is_amp() ) {
+                        wp_enqueue_style('buddyx-amp', $css_uri.'buddyx-amp.min.css');
+                }
 	}
 
 	/**
@@ -371,10 +376,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file' => 'woocommerce.min.css',
 				'global' => true,
 			],
-			'buddyx-amp' => [
-                'file' => 'buddyx-amp.min.css',
-                'global' => true,
-            ],
 		];
 
 		/**
