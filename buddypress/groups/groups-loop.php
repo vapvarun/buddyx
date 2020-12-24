@@ -60,12 +60,15 @@ bp_nouveau_before_loop(); ?>
 
 					</div>
 
+					<?php if ( function_exists( 'bp_nouveau_group_description_excerpt' ) ) { ?>
+						<div class="group-desc"><p><?php bp_nouveau_group_description_excerpt(); ?></p></div>
+					<?php } ?>
+
 					<?php bp_nouveau_groups_loop_item(); ?>
 
 					<?php bp_nouveau_groups_loop_buttons(); ?>
 
 				</div>
-
 
 			</div>
 		</li>

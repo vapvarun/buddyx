@@ -1646,6 +1646,15 @@ input#rt_media_comment_submit {
     min-height: 100%;
 }
 
+.buddypress-wrap .grid.three>li .group-desc,
+.buddypress-wrap .grid.four>li .group-desc {
+    min-height: 100%;
+}
+
+.groups-list .list-wrap .group-desc {
+    display: none;
+}
+
 
 /* group-create */
 
