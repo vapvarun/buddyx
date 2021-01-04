@@ -1,4 +1,10 @@
 <?php
+/**
+ * The `buddyx()` extra.
+ *
+ * @package buddyx
+ */
+
 // Content wrapper
 if ( !function_exists( 'buddyx_content_top' ) ) {
 	function buddyx_content_top() { ?>
@@ -63,7 +69,7 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 		} else {
 
-			$sep = ' &raquo ';
+			$sep = ' » ';
 
 			if ( ! is_front_page() ) {
 
@@ -77,7 +83,7 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
-					the_category(' &raquo ');
+					the_category(' » ');
 				} elseif ( is_archive() || is_single() ){
 					if ( is_day() ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date() );
