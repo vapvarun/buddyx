@@ -29,6 +29,7 @@
     # BuddyPress Activity Social Share
     # BuddyPress Birthday
     # BuddyPress Member/Group Reviews
+    # BuddyPress Edit Activity
 --------------------------------------------------------------*/
 
 
@@ -1645,6 +1646,15 @@ input#rt_media_comment_submit {
     min-height: 100%;
 }
 
+.buddypress-wrap .grid.three>li .group-desc,
+.buddypress-wrap .grid.four>li .group-desc {
+    min-height: 100%;
+}
+
+.groups-list .list-wrap .group-desc {
+    display: none;
+}
+
 
 /* group-create */
 
@@ -3140,4 +3150,33 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 
 .rating-bgr {
     font-size: 14px;
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Edit Activity
+--------------------------------------------------------------*/
+
+#frm_buddypress-edit-activity textarea {
+    width: calc(100% - 30px) !important;
+    min-height: 60px;
+    margin: 0 15px 15px !important;
+}
+
+#buddypress .activity-list .activity-item .activity-content>.activity-meta.action .button.buddyboss_edit_activity,
+#buddypress .activity-list .activity-item .activity-content>.activity-meta.action .buddyboss_edit_activity_cancel {
+    margin-right: 11px;
+    margin-top: 15px;
+}
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-edit:before {
+    content: "\f464";
+}
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity_cancel:before {
+    content: "\f335";
+}
+
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
+    content: "\f15e";
 }

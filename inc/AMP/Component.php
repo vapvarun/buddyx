@@ -10,6 +10,7 @@ namespace BuddyX\Buddyx\AMP;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
+use function add_filter;
 use function add_theme_support;
 use function get_theme_support;
 
@@ -38,6 +39,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'after_setup_theme', [ $this, 'action_add_amp_support' ] );
+		add_filter( 'body_class', [ $this, 'buddyx_amp' ] );
+		add_filter( 'buddyx_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
+		add_filter( 'buddyx_search_field_toggle_data_attrs', array( $this, 'add_search_field_toggle_attrs' ) );
 	}
 
 	/**
@@ -69,6 +73,48 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
+	 * Adds custom classes to indicate to activate AMP.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
+	 */
+	public function buddyx_amp( array $classes ) : array {
+		if ( $this->is_amp() ) {
+			$classes[] = 'buddyx-amp';
+		}
+
+		return $classes;
+	}
+
+	/**
+	 * Add search slide data attributes.
+	 *
+	 * @param string $input the data attrs already existing in the nav.
+	 *
+	 * @return string
+	 */
+	public function add_search_slide_toggle_attrs( $input ) {
+		$input .= ' on="tap:AMP.setState( { buddyxAmpSlideSearchMenuExpanded: ! buddyxAmpSlideSearchMenuExpanded } )" ';
+		$input .= ' [class]="( buddyxAmpSlideSearchMenuExpanded ? \'buddyx-search-menu-icon search buddyx-dropdown-active\' : \'buddyx-search-menu-icon search\' )" ';
+		$input .= ' aria-expanded="false" [aria-expanded]="buddyxAmpSlideSearchMenuExpanded ? \'true\' : \'false\'" ';
+
+		return $input;
+	}
+
+	/**
+	 * Add search slide data attributes.
+	 *
+	 * @param string $input the data attrs already existing in the nav.
+	 *
+	 * @return string
+	 */
+	public function add_search_field_toggle_attrs( $input ) {
+		$input .= ' on="tap:AMP.setState( { buddyxAmpSlideSearchMenuExpanded: buddyxAmpSlideSearchMenuExpanded } )" ';
+
+		return $input;
+	}
+
+	/**
 	 * Determines whether this is an AMP response.
 	 *
 	 * Note that this must only be called after the parse_query action.
@@ -93,4 +139,5 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		return ! empty( $amp_theme_support[0]['comments_live_list'] );
 	}
+	
 }

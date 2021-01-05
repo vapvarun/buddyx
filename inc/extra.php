@@ -1,4 +1,10 @@
 <?php
+/**
+ * The `buddyx()` extra.
+ *
+ * @package buddyx
+ */
+
 // Content wrapper
 if ( !function_exists( 'buddyx_content_top' ) ) {
 	function buddyx_content_top() { ?>
@@ -63,7 +69,7 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 		} else {
 
-			$sep = ' &raquo ';
+			$sep = ' » ';
 
 			if ( ! is_front_page() ) {
 
@@ -77,7 +83,7 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
 				if ( is_category() || is_single() ){
-					the_category(' &raquo ');
+					the_category(' » ');
 				} elseif ( is_archive() || is_single() ){
 					if ( is_day() ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date() );
@@ -133,24 +139,24 @@ if ( !function_exists( 'buddyx_site_menu_icon' ) ) {
 		// menu icons
 		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
 		$carticon = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
-		if( !empty($searchicon) || !empty($carticon) ) : ?>
+		if( !empty( $searchicon ) || !empty( $carticon ) ) : ?>
 			<div class="menu-icons-wrapper"><?php
-				if( !empty($searchicon) ): ?>
-					<div class="search">
-						<a href="javascript:void(0)" id="overlay-search" class="search-icon"> <span class="fa fa-search"> </span> </a>
-						<div class="top-menu-search-container">
+				if( !empty( $searchicon ) ): ?>
+					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+						<a href="#" id="overlay-search" class="search-icon"> <span class="fa fa-search"> </span> </a>
+						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 							<?php get_search_form(); ?>
 						</div>
 					</div>
 					<?php
 				endif;
-				if( !empty($carticon) && function_exists("is_woocommerce")) : ?>
+				if( !empty( $carticon ) && function_exists( "is_woocommerce" ) ) : ?>
 					<div class="cart">
 						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
 							<span class="fa fa-shopping-cart"> </span><?php
 							$count = WC()->cart->cart_contents_count;
 							if( $count > 0 ) : ?>
-								<sup><?php echo esc_html($count);?></sup><?php
+								<sup><?php echo esc_html( $count );?></sup><?php
 							endif;?>
 						</a>
 					</div><?php

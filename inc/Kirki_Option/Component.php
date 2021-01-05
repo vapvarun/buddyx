@@ -748,7 +748,6 @@ class Component implements Component_Interface {
 				'letter-spacing' => '',
 				'color'          => '#111111',
 				'text-transform' => 'none',
-				'text-align'     => 'left',
 			),
 			'priority'    => 10,
 			'output'      => array(
