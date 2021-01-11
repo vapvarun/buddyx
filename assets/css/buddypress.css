@@ -30,6 +30,7 @@
     # BuddyPress Birthday
     # BuddyPress Member/Group Reviews
     # BuddyPress Edit Activity
+    # BuddyPress Create Group Type
 --------------------------------------------------------------*/
 
 
@@ -3179,4 +3180,20 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 
 .activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
     content: "\f15e";
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Create Group Type
+--------------------------------------------------------------*/
+
+.groups-header .bp-group-type-list {
+    font-size: inherit;
+}
+
+@media screen and (max-width: 782px) {
+    .groups-header .bp-group-type-list {
+        display: flex;
+        justify-content: center;
+    }
 }
