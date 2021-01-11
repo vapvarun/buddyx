@@ -93,6 +93,12 @@ License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
 
+= 3.6.0 =
+* Improvement: Update theme AMP supported files
+* Improvement: (#226) Managed UI with buddypress edit activity plugin
+* Improvement: Added group description function in group directory page
+* Improvement: Display admin notice when user select buddypress legacy template pack
+
 = 3.5.0 =
 * Improvement: (#222) Update cover-image-header.php
 * Improvement: (#222) Fixed deprecated function notice with buddypress 7.0.0
