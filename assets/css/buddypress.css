@@ -1623,7 +1623,7 @@ input#rt_media_comment_submit {
     #groups-list.bp-list:not(.grid) li .item .item-block {
         display: block;
         width: auto;
-        flex: 0 0 70%;
+        flex: 0 0 60%;
         min-height: 85px;
     }
     .buddypress-wrap .groups-list li .last-activity {
@@ -3196,4 +3196,9 @@ body:not(.logged-in) .bp-share-btn.generic-button {
         display: flex;
         justify-content: center;
     }
+}
+
+.item-list.groups-list.bp-list:not(.grid) .item-meta.wb-bpgt-group-types {
+    flex: 1;
+    margin: 0;
 }
