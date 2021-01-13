@@ -91,9 +91,11 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
 					} elseif ( is_year() ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
-					} elseif( is_shop() ) {
+					} elseif (is_author()) {
+                                                esc_html_e('Author', 'buddyx');
+                                        } elseif( is_shop() ) {
 						esc_html_e( 'Shop', 'buddyx' );
-					}elseif( is_archive('post-type-archive-forum') ) {
+					} elseif( is_archive('post-type-archive-forum') ) {
 						esc_html_e( 'Forums Archives', 'buddyx' );
 					} else {
 						esc_html_e( 'Blog Archives', 'buddyx' );
