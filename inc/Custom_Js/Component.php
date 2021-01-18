@@ -92,12 +92,23 @@ class Component implements Component_Interface {
 		);
 		wp_script_add_data( 'buddyx-sticky-kit', 'async', true );
 		wp_script_add_data( 'buddyx-sticky-kit', 'precache', true );
+                
+                // Enqueue the jquery cookie script.
+                wp_enqueue_script(
+                        'buddyx-jquery-cookie',
+                        get_theme_file_uri('/assets/js/jquery-cookie.min.js'),
+                        [],
+                        buddyx()->get_asset_version(get_theme_file_path('/assets/js/jquery-cookie.min.js')),
+                        true
+                );
+                wp_script_add_data('buddyx-jquery-cookie', 'async', true);
+                wp_script_add_data('buddyx-jquery-cookie', 'precache', true);
 
 		// Enqueue the custom script.
 		wp_enqueue_script(
 			'buddyx-custom',
 			get_theme_file_uri( '/assets/js/custom.min.js' ),
-			['jquery', 'buddyx-superfish', 'buddyx-isotope-pkgd', 'buddyx-fitvids', 'buddyx-sticky-kit'],
+			['jquery', 'buddyx-superfish', 'buddyx-isotope-pkgd', 'buddyx-fitvids', 'buddyx-sticky-kit', 'buddyx-jquery-cookie'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);

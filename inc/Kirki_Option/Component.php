@@ -34,14 +34,23 @@ class Component implements Component_Interface {
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
 		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
+                if ( class_exists( 'SFWD_LMS' ) ) {
+                    add_filter('body_class', [$this, 'site_learndash_body_classes']);
+                }
 	}
 
+        /**
+	 * Site layout body class.
+	 */
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
 	}
 
+        /**
+	 * Site sticky sidebar body class.
+	 */
 	public function site_sticky_sidebar_body_classes( array $classes ) : array {
 
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
@@ -51,6 +60,17 @@ class Component implements Component_Interface {
 
 		return $classes;
 	}
+        
+        /**
+	 * LearnDash dark mode body class.
+	 */
+        public function site_learndash_body_classes(array $classes): array {
+                if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] &&  is_user_logged_in() ) {
+                    $classes[] = 'buddyx-dark-theme';
+                }
+
+                return $classes;
+        }
 
 	/**
 	 * Add Customizer Section

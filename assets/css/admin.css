@@ -250,3 +250,10 @@ h2.buddyx-feature-title {
         max-width: calc(100% - 20px);
     }
 }
+
+
+/* Kirki Switch Button */
+
+.customize-control-kirki-switch .switch-on {
+    padding-right: 8px !important;
+}

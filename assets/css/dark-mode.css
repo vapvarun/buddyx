@@ -1,0 +1,157 @@
+:root {
+    --ld-dark-mode-header-bg: #272727;
+    --ld-dark-mode-sidebar-bg: #1c1c1c;
+    --ld-dark-mode-content-bg: #121212;
+    --ld-dark-mode-content-text: #cccccc;
+    --ld-dark-mode-link-color: #cccccc;
+    --ld-dark-mode-link-hover-color: #fff;
+    --ld-dark-mode-text-secondary: #aaa;
+    --ld-dark-mode-border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Header Area */
+
+.buddyx-dark-theme.ld-in-focus-mode a {
+    color: var(--ld-dark-mode-content-text);
+}
+
+body:not(.buddyx-dark-theme) .learndash-light-mode,
+body.buddyx-dark-theme .learndash-dark-mode {
+    display: none;
+}
+
+#buddyx-toggle-track {
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.buddyx-dark-theme #buddyx-toggle-track {
+    color: #fff;
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item {
+    background: var(--ld-dark-mode-header-bg);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header {
+    border: 0;
+    color: var(--ld-dark-mode-content-text);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-progress,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-action,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu {
+    border-color: var(--ld-dark-mode-border-color);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
+    color: var(--ld-dark-mode-content-text);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-item-preview.ld-is-current-item {
+    color: var(--ld-dark-mode-link-hover-color);
+}
+
+
+/* Main Content Area */
+
+body.buddyx-dark-theme.ld-in-focus-mode,
+body.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper {
+    background: var(--ld-dark-mode-content-bg);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content {
+    color: var(--ld-dark-mode-content-text);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h1,
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h2,
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h3,
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h4,
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h5,
+.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h6 {
+    color: var(--ld-dark-mode-content-text);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list a.ld-table-list-item-preview {
+    color: var(--ld-dark-mode-link-color);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-item,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-items,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-content-actions,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list.ld-no-pagination {
+    border-color: var(--ld-dark-mode-border-color);
+}
+
+
+/* Breadcrumbs */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-topic-status {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--ld-dark-mode-text-secondary);
+}
+
+
+/* Tabs */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab {
+    color: var(--ld-dark-mode-text-secondary);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation::after {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* Sidebar */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar {
+    border-color: var(--ld-dark-mode-border-color);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list:before {
+    background: var(--ld-dark-mode-header-bg);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar {
+    background: var(--ld-dark-mode-sidebar-bg);
+}
+
+
+/* Topics List */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-items {
+    background: var(--ld-dark-mode-sidebar-bg);
+    color: var(--ld-dark-mode-content-text);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview {
+    color: var(--ld-dark-mode-content-text);
+}
+
+
+/* Sidebar: Current Item */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title {
+    color: var(--ld-dark-mode-link-color);
+    background: none;
+}
+
+
+/* Sidebar: Section Headings */
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-section-heading {
+    color: var(--ld-dark-mode-text-secondary);
+    border-top: 1px solid var(--ld-dark-mode-border-color);
+}

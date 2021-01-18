@@ -628,3 +628,16 @@ if ( ! function_exists( 'buddyx_llms_theme_support' ) ) {
     }
     add_action( 'after_setup_theme', 'buddyx_llms_theme_support' );
 }
+
+/**
+ * Example usage for learndash-focus-header-usermenu-after action.
+ */
+add_action( 'learndash-focus-header-usermenu-after', function( $course_id, $user_id ) { ?>
+		<a href="#" id="buddyx-toggle-track">
+			<span class="learndash-dark-mode"><i class="fa fa-moon-o"></i></span>
+			<span class="learndash-light-mode"><i class="fa fa-sun-o"></i></span>
+		</a>
+    <?php },
+    10,
+    2
+);

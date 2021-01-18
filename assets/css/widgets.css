@@ -252,6 +252,18 @@
 }
 
 
+/* ld courses widget */
+
+.widget_sfwd-courses-widget li h4 {
+    font-size: inherit;
+    margin-bottom: 10px;
+}
+
+.widget_sfwd-courses-widget li:last-child h4 {
+    margin-bottom: 0;
+}
+
+
 /* stylelint-disable */
 
 .widget_calendar a {

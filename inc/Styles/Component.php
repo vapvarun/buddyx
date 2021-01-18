@@ -163,6 +163,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
                 if ( buddyx()->is_amp() ) {
                         wp_enqueue_style('buddyx-amp', $css_uri.'buddyx-amp.min.css');
                 }
+                
+                // Enqueue Dark Mode CSS
+                wp_enqueue_style('buddyx-dark-mode', $css_uri.'dark-mode.min.css');
 	}
 
 	/**

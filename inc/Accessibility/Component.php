@@ -38,6 +38,9 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_navigation_script' ] );
 		add_action( 'wp_head', [ $this, 'action_wp_head_amp_script' ] );
+                if ( class_exists( 'SFWD_LMS' ) ) {
+			add_action( 'wp_ajax_buddyx_lms_toggle_theme_color', [ $this, 'toggle_theme_color' ] );
+		}
 		add_action( 'wp_print_footer_scripts', [ $this, 'action_print_skip_link_focus_fix' ] );
 		add_filter( 'nav_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
 		add_filter( 'page_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
@@ -73,12 +76,25 @@ class Component implements Component_Interface {
 		);
 	}
 	
-	public function action_wp_head_amp_script(){
+	/**
+        * AMP accessibility.
+        */
+        public function action_wp_head_amp_script(){
 		if ( ! buddyx()->is_amp() ) {
 			?>
 			<script>document.documentElement.classList.remove( 'no-js' );</script>
 			<?php
 		}
+	}
+        
+        /**
+	 * LearnDash dark mode toggle.
+	 */
+	public function toggle_theme_color() {
+		$cookie_name  = "bxtheme";
+		$cookie_value = ! empty( $_POST['color'] ) ? $_POST['color'] : '';
+		setcookie( $cookie_name, $cookie_value, time() + ( 86400 * 30 ), "/" ); // 86400 = 1 day
+		die();
 	}
 
 	/**
