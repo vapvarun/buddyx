@@ -431,6 +431,15 @@ select {
     display: block;
 }
 
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo-wrapper>a {
+    margin-right: 15px;
+}
+
 .site-branding img {
     max-width: 150px;
 }
