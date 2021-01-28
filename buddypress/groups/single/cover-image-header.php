@@ -45,8 +45,8 @@
             <?php }else { ?>
                 <?php echo isset( bp_nouveau_group_meta()->group_type_list ) ? bp_nouveau_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php } ?>
-			
-			<?php
+
+            <?php
 			if ( function_exists( 'bp_group_type_list' ) ) {
 				bp_group_type_list(
 					bp_get_group_id(),
