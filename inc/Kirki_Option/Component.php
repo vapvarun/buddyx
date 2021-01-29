@@ -292,11 +292,15 @@ class Component implements Component_Interface {
 		 *  Site Loader
 		 */
 		$fields[] = array(
-			'type' => 'toggle',
+			'type' => 'switch',
 			'settings'	 => 'site_loader',
 			'label'		 => esc_html__( 'Site Loader ?', 'buddyx' ),
 			'section'	 => 'site_loader',
-			'default'	 => '0',
+			'default'	 => '2',
+			'choices'	 => array(
+				'on'	 => esc_html__( 'Yes', 'buddyx' ),
+				'off'	 => esc_html__( 'No', 'buddyx' )
+			),
 		);
 
 		$fields[] = array(
@@ -687,11 +691,15 @@ class Component implements Component_Interface {
 		 *  Site Search
 		 */
 		$fields[] = array(
-			'type' => 'toggle',
+			'type' => 'switch',
 			'settings'	 => 'site_search',
-			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
+			'label'		 => esc_html__( 'Enable Search Icon', 'buddyx' ),
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
+			'choices'	 => array(
+				'on'	 => esc_html__( 'Yes', 'buddyx' ),
+				'off'	 => esc_html__( 'No', 'buddyx' )
+			),
 		);
 
                 /**
@@ -699,11 +707,15 @@ class Component implements Component_Interface {
 		 */
 		if( function_exists( 'is_woocommerce' ) ):
 			$fields[] = array(
-				'type' => 'toggle',
+				'type' => 'switch',
 				'settings'	 => 'site_cart',
-				'label'		 => esc_html__( 'Site Cart ?', 'buddyx' ),
+				'label'		 => esc_html__( 'Enable Cart Icon', 'buddyx' ),
 				'section'	 => 'site_header_section',
-				'default'	 => '0',
+				'default'	 => '2',
+				'choices'	 => array(
+					'on'	 => esc_html__( 'Yes', 'buddyx' ),
+					'off'	 => esc_html__( 'No', 'buddyx' )
+				),
 			);
 		endif;
                 
@@ -711,22 +723,30 @@ class Component implements Component_Interface {
 		 *  Site Login
 		 */
 		$fields[] = array(
-			'type' => 'toggle',
+			'type' => 'switch',
 			'settings'	 => 'site_login_button',
-			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
+			'label'		 => esc_html__( 'Enable Login Button', 'buddyx' ),
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
+                        'choices'	 => array(
+                                'on'	 => esc_html__( 'Yes', 'buddyx' ),
+                                'off'	 => esc_html__( 'No', 'buddyx' )
+                        ),
 		);
 		
 		/**
 		 *  Site Sub Header
 		 */
 		$fields[] = array(
-			'type'     => 'toggle',
+			'type'     => 'switch',
 			'settings' => 'site_sub_header_bg',
 			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
 			'section'  => 'site_sub_header_section',
-			'default'  => '0',
+			'default'  => 'off',
+			'choices'  => array(
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' )
+			),
 		);
 
 		$fields[] = array(
@@ -776,11 +796,15 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'     => 'toggle',
+			'type'     => 'switch',
 			'settings' => 'site_breadcrumbs',
 			'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),
 			'section'  => 'site_sub_header_section',
-			'default'  => '0',
+			'default'  => 'off',
+			'choices'  => array(
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' ),
+			),
 		);
 
 		/**
@@ -1153,22 +1177,30 @@ class Component implements Component_Interface {
 		}
 
 		$fields[] = array(
-			'type'     => 'toggle',
+			'type'     => 'switch',
 			'settings' => 'sticky_sidebar_option',
 			'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
 			'section'  => 'site_sidebar_layout',
 			'default'  => '1',
+			'choices'  => [
+				'on' => esc_html__( 'Yes','buddyx' ),
+				'off'  => esc_html__( 'No','buddyx' ),
+			],
 		);
 
 		/**
 		 *  Site Footer
 		 */
 		$fields[] = array(
-			'type'     => 'toggle',
+			'type'     => 'switch',
 			'settings' => 'site_footer_bg',
 			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
 			'section'  => 'site_footer_section',
-			'default'  => '0',
+			'default'  => 'off',
+			'choices'  => array(
+				'on'  => esc_html__( 'Yes','buddyx' ),
+				'off' => esc_html__( 'No', 'buddyx' )
+			),
 		);
 
 		$fields[] = array(

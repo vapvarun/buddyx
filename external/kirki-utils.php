@@ -7,7 +7,7 @@ function buddyx_defaults( $key = '' ) {
     $defaults[ 'site-layout' ] = 'wide';
     
     # site loader
-    $defaults[ 'site-loader' ] = '0';
+    $defaults[ 'site-loader' ] = '2';
 
     # site search
     $defaults[ 'site-search' ] = '1';
