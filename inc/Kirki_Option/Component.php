@@ -292,15 +292,11 @@ class Component implements Component_Interface {
 		 *  Site Loader
 		 */
 		$fields[] = array(
-			'type' => 'switch',
+			'type' => 'toggle',
 			'settings'	 => 'site_loader',
 			'label'		 => esc_html__( 'Site Loader ?', 'buddyx' ),
 			'section'	 => 'site_loader',
-			'default'	 => '2',
-			'choices'	 => array(
-				'on'	 => esc_html__( 'Yes', 'buddyx' ),
-				'off'	 => esc_html__( 'No', 'buddyx' )
-			),
+			'default'	 => '0',
 		);
 
 		$fields[] = array(
@@ -691,44 +687,46 @@ class Component implements Component_Interface {
 		 *  Site Search
 		 */
 		$fields[] = array(
-			'type' => 'switch',
+			'type' => 'toggle',
 			'settings'	 => 'site_search',
 			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
-			'choices'	 => array(
-				'on'	 => esc_html__( 'Yes', 'buddyx' ),
-				'off'	 => esc_html__( 'No', 'buddyx' )
-			),
 		);
 
+                /**
+		 *  Site Cart
+		 */
 		if( function_exists( 'is_woocommerce' ) ):
 			$fields[] = array(
-				'type' => 'switch',
+				'type' => 'toggle',
 				'settings'	 => 'site_cart',
 				'label'		 => esc_html__( 'Site Cart ?', 'buddyx' ),
 				'section'	 => 'site_header_section',
-				'default'	 => '2',
-				'choices'	 => array(
-					'on'	 => esc_html__( 'Yes', 'buddyx' ),
-					'off'	 => esc_html__( 'No', 'buddyx' )
-				),
+				'default'	 => '0',
 			);
 		endif;
+                
+                /**
+		 *  Site Login
+		 */
+		$fields[] = array(
+			'type' => 'toggle',
+			'settings'	 => 'site_login_button',
+			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
+			'section'	 => 'site_header_section',
+			'default'	 => '1',
+		);
 		
 		/**
 		 *  Site Sub Header
 		 */
 		$fields[] = array(
-			'type'     => 'switch',
+			'type'     => 'toggle',
 			'settings' => 'site_sub_header_bg',
 			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
 			'section'  => 'site_sub_header_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' )
-			),
+			'default'  => '0',
 		);
 
 		$fields[] = array(
@@ -778,15 +776,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'     => 'switch',
+			'type'     => 'toggle',
 			'settings' => 'site_breadcrumbs',
 			'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),
 			'section'  => 'site_sub_header_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' ),
-			),
+			'default'  => '0',
 		);
 
 		/**
@@ -1159,30 +1153,22 @@ class Component implements Component_Interface {
 		}
 
 		$fields[] = array(
-			'type'     => 'switch',
+			'type'     => 'toggle',
 			'settings' => 'sticky_sidebar_option',
 			'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
 			'section'  => 'site_sidebar_layout',
 			'default'  => '1',
-			'choices'  => [
-				'on' => esc_html__( 'Yes','buddyx' ),
-				'off'  => esc_html__( 'No','buddyx' ),
-			],
 		);
 
 		/**
 		 *  Site Footer
 		 */
 		$fields[] = array(
-			'type'     => 'switch',
+			'type'     => 'toggle',
 			'settings' => 'site_footer_bg',
 			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
 			'section'  => 'site_footer_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' )
-			),
+			'default'  => '0',
 		);
 
 		$fields[] = array(
