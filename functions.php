@@ -28,11 +28,11 @@ function buddyx_template_pack_check() {
 	return $retval;
 }
 
-function buddyx_buddypress_legacy_notice(){	
+function buddyx_buddypress_legacy_notice(){
 	if ( buddyx_template_pack_check() ) {
 		?>
 		<div class="error"><p>
-		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s', 'buddyx' ), '<a href="'. admin_url('admin.php?page=bp-settings').'" >', '</a>' ); ?>
+		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the BuddyPress Options. %s', 'buddyx' ), '<a href="'. admin_url('admin.php?page=bp-settings').'" >', '</a>' ); ?>
 		</p></div>
 		<?php
 	}
@@ -40,7 +40,7 @@ function buddyx_buddypress_legacy_notice(){
 
 // Bail if requirements are not met.
 if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), BUDDYX_MINIMUM_PHP_VERSION, '<' ) || buddyx_template_pack_check() ) {
-	require get_template_directory() . '/inc/back-compat.php';	
+	require get_template_directory() . '/inc/back-compat.php';
 	add_action( 'admin_notices', 'buddyx_buddypress_legacy_notice' );
 	return;
 }
@@ -155,7 +155,7 @@ if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
 }
 
 /**
- * Remove WooCommerce the breadcrumbs 
+ * Remove WooCommerce the breadcrumbs
  */
 add_action( 'init', 'buddyx_remove_wc_breadcrumbs' );
 function buddyx_remove_wc_breadcrumbs() {
