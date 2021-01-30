@@ -34,14 +34,23 @@ class Component implements Component_Interface {
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
 		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
+                if ( class_exists( 'SFWD_LMS' ) ) {
+                    add_filter('body_class', [$this, 'site_learndash_body_classes']);
+                }
 	}
 
+        /**
+	 * Site layout body class.
+	 */
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
 	}
 
+        /**
+	 * Site sticky sidebar body class.
+	 */
 	public function site_sticky_sidebar_body_classes( array $classes ) : array {
 
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
@@ -51,6 +60,17 @@ class Component implements Component_Interface {
 
 		return $classes;
 	}
+        
+        /**
+	 * LearnDash dark mode body class.
+	 */
+        public function site_learndash_body_classes(array $classes): array {
+                if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] &&  is_user_logged_in() ) {
+                    $classes[] = 'buddyx-dark-theme';
+                }
+
+                return $classes;
+        }
 
 	/**
 	 * Add Customizer Section
@@ -673,7 +693,7 @@ class Component implements Component_Interface {
 		$fields[] = array(
 			'type' => 'switch',
 			'settings'	 => 'site_search',
-			'label'		 => esc_html__( 'Site Search ?', 'buddyx' ),
+			'label'		 => esc_html__( 'Enable Search Icon', 'buddyx' ),
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
 			'choices'	 => array(
@@ -682,11 +702,14 @@ class Component implements Component_Interface {
 			),
 		);
 
+                /**
+		 *  Site Cart
+		 */
 		if( function_exists( 'is_woocommerce' ) ):
 			$fields[] = array(
 				'type' => 'switch',
 				'settings'	 => 'site_cart',
-				'label'		 => esc_html__( 'Site Cart ?', 'buddyx' ),
+				'label'		 => esc_html__( 'Enable Cart Icon', 'buddyx' ),
 				'section'	 => 'site_header_section',
 				'default'	 => '2',
 				'choices'	 => array(
@@ -695,6 +718,21 @@ class Component implements Component_Interface {
 				),
 			);
 		endif;
+                
+                /**
+		 *  Site Login
+		 */
+		$fields[] = array(
+			'type' => 'switch',
+			'settings'	 => 'site_login_button',
+			'label'		 => esc_html__( 'Enable Login Button', 'buddyx' ),
+			'section'	 => 'site_header_section',
+			'default'	 => '1',
+                        'choices'	 => array(
+                                'on'	 => esc_html__( 'Yes', 'buddyx' ),
+                                'off'	 => esc_html__( 'No', 'buddyx' )
+                        ),
+		);
 		
 		/**
 		 *  Site Sub Header
@@ -836,7 +874,7 @@ class Component implements Component_Interface {
                     'property' => 'color',
 				),
 				array(
-					'element' => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span,
+					'element' => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type,
                     .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a,
                     .llms-progress .progress-bar-complete, body .llms-syllabus-wrapper .llms-section-title',
 					'property' => 'background-color',

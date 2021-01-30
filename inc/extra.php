@@ -91,9 +91,11 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
 					} elseif ( is_year() ) {
 						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
-					} elseif( is_shop() ) {
+					} elseif (is_author()) {
+                                                esc_html_e('Author', 'buddyx');
+                                        } elseif( is_shop() ) {
 						esc_html_e( 'Shop', 'buddyx' );
-					}elseif( is_archive('post-type-archive-forum') ) {
+					} elseif( is_archive('post-type-archive-forum') ) {
 						esc_html_e( 'Forums Archives', 'buddyx' );
 					} else {
 						esc_html_e( 'Blog Archives', 'buddyx' );
@@ -626,3 +628,16 @@ if ( ! function_exists( 'buddyx_llms_theme_support' ) ) {
     }
     add_action( 'after_setup_theme', 'buddyx_llms_theme_support' );
 }
+
+/**
+ * Example usage for learndash-focus-header-usermenu-after action.
+ */
+add_action( 'learndash-focus-header-usermenu-after', function( $course_id, $user_id ) { ?>
+		<a href="#" id="buddyx-toggle-track">
+			<span class="learndash-dark-mode"><i class="fa fa-moon-o"></i></span>
+			<span class="learndash-light-mode"><i class="fa fa-sun-o"></i></span>
+		</a>
+    <?php },
+    10,
+    2
+);

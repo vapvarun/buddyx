@@ -18,7 +18,7 @@ namespace BuddyX\Buddyx;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	
+
 	<?php wp_head(); ?>
 </head>
 
@@ -43,6 +43,6 @@ namespace BuddyX\Buddyx;
     </div>
 <?php
 $classes = get_body_class();
-if(! in_array('page-template-full-width',$classes) ) { ?>
+if ( ! in_array( 'page-template-full-width', $classes ) ) { ?>
 	<div class="container">
 <?php } ?>

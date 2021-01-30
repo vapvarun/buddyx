@@ -46,6 +46,21 @@
                 <?php echo isset( bp_nouveau_group_meta()->group_type_list ) ? bp_nouveau_group_meta()->group_type_list : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php } ?>
 
+            <?php
+			if ( function_exists( 'bp_group_type_list' ) ) {
+				bp_group_type_list(
+					bp_get_group_id(),
+					array(
+						'label'        => array(
+							'plural'   => __( 'Group Types', 'buddypress' ),
+							'singular' => __( 'Group Type', 'buddypress' ),
+						),
+						'list_element' => 'span',
+					)
+				);
+			}
+			?>
+
             <?php bp_nouveau_group_hook( 'before', 'header_meta' ); ?>
 
             <?php if ( bp_nouveau_group_has_meta_extra() ) : ?>

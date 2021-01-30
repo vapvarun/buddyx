@@ -13,6 +13,7 @@
     # BuddyPress Sticky Post
     # BuddyPress Quotes
     # BuddyPress Moderation Pro
+    # Profile Types
 --------------------------------------------------------------*/
 
 
@@ -560,6 +561,12 @@ span.bbp-author-avatar img {
     margin-top: 0px;
 }
 
+@media screen and (max-width: 767px) {
+    .bp-messages-content-wrapper {
+        height: 100%;
+    }
+}
+
 #bp-message-thread-list li {
     border-color: #d6d6d6;
     border-radius: 4px;
@@ -759,4 +766,29 @@ body.wb-quote .activity-update-form #whats-new {
 .activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
     content: '\e8c5';
     margin-right: 3px;
+}
+
+
+/*--------------------------------------------------------------
+# Profile Types
+--------------------------------------------------------------*/
+
+.member-info-wrapper .bp-member-type {
+    margin: 5px 0 0;
+    display: block;
+}
+
+.users-header .bp-member-type {
+    background: var(--color-link-hover);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: .25px;
+    text-align: center;
+    display: inline-block;
+    padding: 4px 10px 4px;
+    line-height: 1;
+    margin: 0 0 10px;
+    width: max-content;
 }

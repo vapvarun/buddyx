@@ -82,9 +82,11 @@ if ( is_user_logged_in() ) {
         $registration_page_url   = get_permalink( $registration_page_id );
       }
       ?>
-  <div class="bp-icon-wrap">
-    <a href="<?php echo esc_url($login_page_url); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e('Log in', 'buddyx' );?></a>
-  </div>
+    <?php if ( true == get_theme_mod( 'site_login_button', true ) ) : ?>
+    <div class="bp-icon-wrap">
+      <a href="<?php echo esc_url($login_page_url); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e('Log in', 'buddyx' );?></a>
+    </div>
+    <?php endif; ?>
   <?php
   if ( get_option( 'users_can_register' ) ) {
     ?>

@@ -236,6 +236,37 @@
         }
     };
 
+    BUDDYX.toggleTheme = function() {
+
+        $(document).on('click', '#buddyx-toggle-track', function(e) {
+            e.preventDefault();
+            var color = '';
+            if (!$('body').hasClass('buddyx-dark-theme')) {
+                $.cookie('bxtheme', 'dark', { path: '/' });
+                $('body').addClass('buddyx-dark-theme');
+                color = 'dark';
+            } else {
+                $.removeCookie('bxtheme', { path: '/' });
+                $('body').removeClass('buddyx-dark-theme');
+            }
+
+            if (typeof(toggle_theme_ajax) != 'undefined' && toggle_theme_ajax != null) {
+                toggle_theme_ajax.abort();
+            }
+
+            var data = {
+                'action': 'buddyboss_lms_toggle_theme_color',
+                'color': color
+            };
+
+            // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+            if (typeof(toggle_theme_ajax) != 'undefined' && toggle_theme_ajax != null) {
+                toggle_theme_ajax = $.post(ajaxurl, data, function(response) {});
+            }
+        });
+
+    }
+
     $(document).ready(function() {
 
         BUDDYX.headerHeight();
@@ -245,6 +276,7 @@
         BUDDYX.fitVids();
         BUDDYX.roundAvatarsBodyclass();
         BUDDYX.tableDataAtt();
+        BUDDYX.toggleTheme();
 
     });
 

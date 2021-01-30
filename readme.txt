@@ -91,6 +91,11 @@ License: GPL-2.0+
 Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
+jQuery Cookie Plugin v1.4.1
+https://github.com/carhartl/jquery-cookie
+Copyright 2013 Klaus Hartl
+Released under the MIT license
+
 == Changelog ==
 
 = 3.6.0 =

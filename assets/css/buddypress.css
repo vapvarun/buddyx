@@ -30,6 +30,7 @@
     # BuddyPress Birthday
     # BuddyPress Member/Group Reviews
     # BuddyPress Edit Activity
+    # BuddyPress Create Group Type
 --------------------------------------------------------------*/
 
 
@@ -1622,7 +1623,7 @@ input#rt_media_comment_submit {
     #groups-list.bp-list:not(.grid) li .item .item-block {
         display: block;
         width: auto;
-        flex: 0 0 70%;
+        flex: 0 0 60%;
         min-height: 85px;
     }
     .buddypress-wrap .groups-list li .last-activity {
@@ -3179,4 +3180,25 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 
 .activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
     content: "\f15e";
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Create Group Type
+--------------------------------------------------------------*/
+
+.groups-header .bp-group-type-list {
+    font-size: inherit;
+}
+
+@media screen and (max-width: 782px) {
+    .groups-header .bp-group-type-list {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.item-list.groups-list.bp-list:not(.grid) .item-meta.wb-bpgt-group-types {
+    flex: 1;
+    margin: 0;
 }
