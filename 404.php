@@ -21,7 +21,7 @@ buddyx()->print_styles( 'buddyx-content' );
 			<?php get_template_part( 'template-parts/content/error', '404' ); ?>
 		<?php } ?>
 	</main><!-- #primary -->
-	
+
 	<?php do_action( 'buddyx_after_content' ); ?>
 <?php
 get_footer();

@@ -27,7 +27,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 ?>
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
-	
+
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
@@ -47,9 +47,9 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 		</aside>
 	<?php endif; ?>
 	<?php } ?>
-	
+
 	<main id="primary" class="site-main">
-		
+
 		<?php
 		if ( have_posts() ) {
 
@@ -57,18 +57,18 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 			if(in_array('blog',$classes) || in_array('archive',$classes) || in_array('search',$classes)){ ?>
 			<div class="post-layout row <?php echo esc_attr($post_layout); ?>">
 			<div class="grid-sizer <?php echo esc_attr( $post_per_row ); ?>"></div>
-			<?php 
+			<?php
 				while ( have_posts() ) {
 					the_post();
-	
+
 					get_template_part( 'template-parts/content/entry', 'layout' );
 				} ?>
 				</div>
-			<?php 
+			<?php
 			} else {
 				while ( have_posts() ) {
 					the_post();
-	
+
 					get_template_part( 'template-parts/content/entry', get_post_type() );
 				}
 			}

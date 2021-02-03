@@ -24,7 +24,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 ?>
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
-	
+
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
@@ -44,18 +44,18 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 		</aside>
 	<?php endif; ?>
 	<?php } ?>
-	
+
 	<main id="primary" class="site-main">
-		
+
 	<?php
 		if ( have_posts() ) {?>
-			<?php 
+			<?php
 				while ( have_posts() ) {
 					the_post();
-	
+
 					get_template_part( 'template-parts/content/entry', 'page' );
 				} ?>
-			<?php 			
+			<?php
 
 			if ( ! is_singular() ) {
 				get_template_part( 'template-parts/content/pagination' );

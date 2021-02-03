@@ -33,9 +33,9 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 			</div>
 		</aside>
 	<?php endif; ?>
-	
+
 	<main id="primary" class="site-main">
-	
+
 		<?php
 		if ( have_posts() ) {
 
@@ -52,9 +52,9 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 			get_template_part( 'template-parts/content/error' );
 		}
 		?>
-		
+
 	</main><!-- #primary -->
-	
+
 	<?php if ( $bbpress_sidebar == 'right' || $bbpress_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">

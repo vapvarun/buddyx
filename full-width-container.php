@@ -14,9 +14,9 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-?>	
+?>
 	<?php do_action( 'buddyx_sub_header' ); ?>
-	
+
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 		<main id="primary" class="site-main">
@@ -28,7 +28,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 					get_template_part( 'template-parts/content/entry', 'full-width' );
 				}
-				
+
 			} else {
 				get_template_part( 'template-parts/content/error' );
 			}
