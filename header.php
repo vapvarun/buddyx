@@ -32,17 +32,18 @@ namespace BuddyX\Buddyx;
 		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) { ?>
 			<div class="container">
 				<header id="masthead" class="site-header">
-					<?php get_template_part('template-parts/header/custom_header'); ?>
+					<?php get_template_part( 'template-parts/header/custom_header' ); ?>
 
-					<?php get_template_part('template-parts/header/branding'); ?>
+					<?php get_template_part( 'template-parts/header/branding' ); ?>
 
-					<?php get_template_part('template-parts/header/navigation'); ?>
+					<?php get_template_part( 'template-parts/header/navigation' ); ?>
 				</header><!-- #masthead -->
 			</div>
 		<?php } ?>
-    </div>
+	</div>
 <?php
 $classes = get_body_class();
-if ( ! in_array( 'page-template-full-width', $classes ) ) { ?>
+if ( ! in_array( 'page-template-full-width', $classes ) ) {
+	?>
 	<div class="container">
 <?php } ?>

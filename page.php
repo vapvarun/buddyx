@@ -35,8 +35,10 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 				</div>
 			</aside>
 		<?php endif; ?>
-	<?php }else {
-		if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
+		<?php
+	} else {
+		if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) :
+			?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
@@ -48,21 +50,23 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 	<main id="primary" class="site-main">
 
 	<?php
-		if ( have_posts() ) {?>
+	if ( have_posts() ) {
+		?>
 			<?php
-				while ( have_posts() ) {
-					the_post();
+			while ( have_posts() ) {
+				the_post();
 
-					get_template_part( 'template-parts/content/entry', 'page' );
-				} ?>
+				get_template_part( 'template-parts/content/entry', 'page' );
+			}
+			?>
 			<?php
 
 			if ( ! is_singular() ) {
 				get_template_part( 'template-parts/content/pagination' );
 			}
-		} else {
-			get_template_part( 'template-parts/content/error' );
-		}
+	} else {
+		get_template_part( 'template-parts/content/error' );
+	}
 	?>
 
 	</main><!-- #primary -->
@@ -74,7 +78,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 				</div>
 			</aside>
 		<?php endif; ?>
-		<?php }else { ?>
+		<?php } else { ?>
 			<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
