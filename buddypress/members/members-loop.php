@@ -18,7 +18,10 @@ bp_nouveau_before_loop(); ?>
 
 	<ul id="members-list" class="<?php bp_nouveau_loop_classes(); ?>">
 
-	<?php while ( bp_members() ) : bp_the_member(); ?>
+	<?php
+	while ( bp_members() ) :
+		bp_the_member();
+		?>
 
 		<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_member_user_id(); ?>" data-bp-item-component="members">
 			<div class="list-wrap">
@@ -31,33 +34,35 @@ bp_nouveau_before_loop(); ?>
 
 					<div class="item-block">
 
-                        <div class="member-info-wrapper">
-                            <h2 class="list-title member-name">
-                                <a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a>
-                            </h2>
+						<div class="member-info-wrapper">
+							<h2 class="list-title member-name">
+								<a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a>
+							</h2>
 
-                            <?php if ( bp_nouveau_member_has_meta() ) : ?>
-                                <p class="item-meta last-activity">
-                                    <?php bp_nouveau_member_meta(); ?>
-                                </p><!-- #item-meta -->
-                            <?php endif; ?>
+							<?php if ( bp_nouveau_member_has_meta() ) : ?>
+								<p class="item-meta last-activity">
+									<?php bp_nouveau_member_meta(); ?>
+								</p><!-- #item-meta -->
+							<?php endif; ?>
 
-                            <?php if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) && true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-                                echo '<p class="item-meta member-type-wrap">' . bp_get_user_member_type( bp_get_member_user_id() ) . '</p>';
-                            } ?>
+							<?php
+							if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) && true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
+								echo '<p class="item-meta member-type-wrap">' . bp_get_user_member_type( bp_get_member_user_id() ) . '</p>';
+							}
+							?>
 
-                        </div><!-- .member-info-wrapper -->
+						</div><!-- .member-info-wrapper -->
 
-                        <div class="member-action-wrapper">
-                            <?php
-                            bp_nouveau_members_loop_buttons(
-                                array(
-                                    'container'      => 'ul',
-                                    'button_element' => 'button',
-                                )
-                            );
-                            ?>
-                        </div><!-- .member-action-wrapper -->
+						<div class="member-action-wrapper">
+							<?php
+							bp_nouveau_members_loop_buttons(
+								array(
+									'container'      => 'ul',
+									'button_element' => 'button',
+								)
+							);
+							?>
+						</div><!-- .member-action-wrapper -->
 
 					</div>
 
@@ -72,7 +77,7 @@ bp_nouveau_before_loop(); ?>
 
 	<?php bp_nouveau_pagination( 'bottom' ); ?>
 
-<?php
+	<?php
 else :
 
 	bp_nouveau_user_feedback( 'members-loop-none' );
