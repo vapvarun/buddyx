@@ -10,8 +10,8 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @package 	WooCommerce/Templates
+ * @see         https://docs.woocommerce.com/document/template-structure/
+ * @package     WooCommerce/Templates
  * @version     1.6.4
  */
 
@@ -27,9 +27,9 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 
 do_action( 'buddyx_before_content' );
 
-	if ( class_exists( 'WooCommerce' ) ) { ?>
+if ( class_exists( 'WooCommerce' ) ) { ?>
 		<?php if ( is_woocommerce() ) { ?>
-			<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both'  ) : ?>
+			<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both' ) : ?>
 				<aside id="secondary" class="woo-left-sidebar widget-area">
 					<div class="sticky-sidebar">
 						<?php buddyx()->display_woocommerce_left_sidebar(); ?>
@@ -37,7 +37,8 @@ do_action( 'buddyx_before_content' );
 				</aside>
 			<?php endif; ?>
 		<?php } ?>
-	<?php }
+	<?php
+}
 
 		/**
 		 * woocommerce_before_main_content hook.
@@ -45,11 +46,14 @@ do_action( 'buddyx_before_content' );
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
-        do_action( 'woocommerce_before_main_content' );
-        
-	?>
+		do_action( 'woocommerce_before_main_content' );
 
-		<?php while ( have_posts() ) : the_post(); ?>
+?>
+
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
@@ -75,7 +79,8 @@ do_action( 'buddyx_before_content' );
 
 	<?php
 
-	if ( class_exists( 'WooCommerce' ) ) { ?>
+	if ( class_exists( 'WooCommerce' ) ) {
+		?>
 		<?php if ( is_woocommerce() ) { ?>
 			<?php if ( $woocommerce_sidebar == 'right' || $woocommerce_sidebar == 'both' ) : ?>
 				<aside id="secondary" class="woo-primary-sidebar widget-area">
@@ -85,10 +90,11 @@ do_action( 'buddyx_before_content' );
 				</aside>
 			<?php endif; ?>
 		<?php } ?>
-	<?php }
+		<?php
+	}
 
-do_action( 'buddyx_after_content' );
+	do_action( 'buddyx_after_content' );
 
-get_footer( 'shop' );
+	get_footer( 'shop' );
 
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+	/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
