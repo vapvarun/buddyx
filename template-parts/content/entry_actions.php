@@ -19,11 +19,11 @@ namespace BuddyX\Buddyx;
 					wp_kses(
 						/* translators: %s: post title */
 						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'buddyx' ),
-						[
-							'span' => [
-								'class' => [],
-							],
-						]
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
 					),
 					get_the_title()
 				)
@@ -38,11 +38,11 @@ namespace BuddyX\Buddyx;
 			wp_kses(
 				/* translators: %s: post title */
 				__( 'Edit <span class="screen-reader-text">%s</span>', 'buddyx' ),
-				[
-					'span' => [
-						'class' => [],
-					],
-				]
+				array(
+					'span' => array(
+						'class' => array(),
+					),
+				)
 			),
 			get_the_title()
 		),

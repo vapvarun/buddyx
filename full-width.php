@@ -23,8 +23,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 				the_post();
 
 				get_template_part( 'template-parts/content/entry', 'full-width' );
-            }
-
+			}
 		} else {
 			get_template_part( 'template-parts/content/error' );
 		}

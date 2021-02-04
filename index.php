@@ -27,7 +27,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 ?>
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
-
+	
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
@@ -49,9 +49,9 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 		</aside>
 	<?php endif; ?>
 	<?php } ?>
-
+	
 	<main id="primary" class="site-main">
-
+		
 		<?php
 		if ( have_posts() ) {
 

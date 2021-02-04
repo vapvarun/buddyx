@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kirki' ) ) {
 					self_admin_url( 'update.php' )
 				);
 				$plugin_install_url = wp_nonce_url( $plugin_install_url, 'install-plugin_kirki' );
-				$classes = 'cannot-expand accordion-section control-section control-section-themes control-section-' . $this->type;
+				$classes            = 'cannot-expand accordion-section control-section control-section-themes control-section-' . $this->type;
 				?>
 				<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="<?php echo esc_attr( $classes ); ?>" style="border-top:none;border-bottom:1px solid #ddd;padding:7px 14px 16px 14px;text-align:right;">
 					<?php if ( ! $installed ) : ?>
@@ -74,18 +74,30 @@ if ( ! class_exists( 'Kirki' ) ) {
 		 * @param object $wp_customize The main customizer object.
 		 */
 		function kirki_installer_register( $wp_customize ) {
-			$wp_customize->add_section( new Kirki_Installer_Section( $wp_customize, 'kirki_installer', array(
-				'title'      => '',
-				'capability' => 'install_plugins',
-				'priority'   => 0,
-			) ) );
-			$wp_customize->add_setting( 'kirki_installer_setting', array(
-				'sanitize_callback' => '__return_true',
-			) );
-			$wp_customize->add_control( 'kirki_installer_control', array(
-				'section'    => 'kirki_installer',
-				'settings'   => 'kirki_installer_setting',
-			) );
+			$wp_customize->add_section(
+				new Kirki_Installer_Section(
+					$wp_customize,
+					'kirki_installer',
+					array(
+						'title'      => '',
+						'capability' => 'install_plugins',
+						'priority'   => 0,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'kirki_installer_setting',
+				array(
+					'sanitize_callback' => '__return_true',
+				)
+			);
+			$wp_customize->add_control(
+				'kirki_installer_control',
+				array(
+					'section'  => 'kirki_installer',
+					'settings' => 'kirki_installer_setting',
+				)
+			);
 
 		}
 		add_action( 'customize_register', 'kirki_installer_register' );

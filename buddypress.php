@@ -26,7 +26,7 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 
 	<?php do_action( 'buddyx_before_content' ); ?>
 
-		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both'  ) : ?>
+		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_buddypress_left_sidebar(); ?>
@@ -34,7 +34,7 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 			</aside>
 		<?php endif; ?>
 		<main id="primary" class="site-main">
-
+		
 			<?php
 			if ( have_posts() ) {
 
@@ -51,7 +51,7 @@ $buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_default
 				get_template_part( 'template-parts/content/error' );
 			}
 			?>
-
+			
 		</main><!-- #primary -->
 		<?php if ( ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'right' || ! bp_is_user() && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">

@@ -97,13 +97,6 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
-= 3.7.0 =
-* Improvement: (#236) Added customizer setting for header login button and fixes
-* Improvement: (#235) Managed Profile Types with bb platform
-* Improvement: Update logo and site title position
-* Improvement: (#234) Added dark mode for learndash single lesson in focus mode
-* Fix: Fixed fatal error in author page
-* Improvement: Managed buddypress group type list UI with list view
 
 = 3.6.0 =
 * Improvement: Update theme AMP supported files

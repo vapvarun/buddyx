@@ -36,8 +36,8 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 	}
 	?>
 
-        <div class="buddypress-icons-wrapper buddyx-mobile-icon">
-		<?php get_template_part('template-parts/header/buddypress-profile'); ?>
+		<div class="buddypress-icons-wrapper buddyx-mobile-icon">
+		<?php get_template_part( 'template-parts/header/buddypress-profile' ); ?>
 	</div>
 
 	<button id="menu-toggle" class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'buddyx' ); ?>" aria-controls="primary-menu" aria-expanded="false"
@@ -61,14 +61,14 @@ if ( ! buddyx()->is_primary_nav_menu_active() ) {
 			[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
 			<?php } ?>><?php esc_html_e( 'Close', 'buddyx' ); ?></a>
 		</div>
-		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+		<?php buddyx()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 		<div class="moible-icons">
 			<?php buddyx_site_menu_icon(); ?>
 		</div>
 	</div>
 
 	<div class="primary-menu-container buddyx-desktop-menu">
-		<?php buddyx()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+		<?php buddyx()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 		<div class="moible-icons">
 			<?php buddyx_site_menu_icon(); ?>
 		</div>

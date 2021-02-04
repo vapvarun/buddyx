@@ -14,31 +14,32 @@ namespace BuddyX\Buddyx;
 ?>
 	<?php
 	$classes = get_body_class();
-	if(! in_array('page-template-full-width',$classes) ) { ?>
+	if ( ! in_array( 'page-template-full-width', $classes ) ) {
+		?>
 		</div><!-- .container -->
 	<?php } ?>
 	<footer id="colophon" class="site-footer">
 		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) { ?>
 			<div class="site-footer-wrapper">
 				<div class="container">
-					<?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) ): ?>
+					<?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) ) : ?>
 						<div class="footer-inner" role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'buddyx' ); ?>">
 								<?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
 							<div class="footer-widget">
-								<?php dynamic_sidebar( 'footer-1' ); ?>
+									<?php dynamic_sidebar( 'footer-1' ); ?>
 							</div>
-								<?php }	if ( is_active_sidebar( 'footer-2' ) ) { ?>
+								<?php } if ( is_active_sidebar( 'footer-2' ) ) { ?>
 							<div class="footer-widget">
-								<?php dynamic_sidebar( 'footer-2' ); ?>
+									<?php dynamic_sidebar( 'footer-2' ); ?>
 							</div>
 							<?php } ?>
 								<?php if ( is_active_sidebar( 'footer-3' ) ) { ?>
 							<div class="footer-widget">
-								<?php dynamic_sidebar( 'footer-3' ); ?>
+									<?php dynamic_sidebar( 'footer-3' ); ?>
 							</div>
-								<?php }	if ( is_active_sidebar( 'footer-4' ) ) { ?>
+								<?php } if ( is_active_sidebar( 'footer-4' ) ) { ?>
 							<div class="footer-widget">
-								<?php dynamic_sidebar( 'footer-4' ); ?>
+									<?php dynamic_sidebar( 'footer-4' ); ?>
 							</div>
 							<?php } ?>
 						</div><!-- .widget-area inner-->

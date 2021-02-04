@@ -31,6 +31,7 @@
     # BuddyPress Member/Group Reviews
     # BuddyPress Edit Activity
     # BuddyPress Create Group Type
+    # BuddyPress Member Type
 --------------------------------------------------------------*/
 
 
@@ -3201,4 +3202,14 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 .item-list.groups-list.bp-list:not(.grid) .item-meta.wb-bpgt-group-types {
     flex: 1;
     margin: 0;
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Member Type
+--------------------------------------------------------------*/
+
+body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
+    font-size: 14px;
+    color: inherit;
 }

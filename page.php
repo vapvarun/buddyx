@@ -24,7 +24,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 ?>
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
-
+	
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
@@ -46,9 +46,9 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 		</aside>
 	<?php endif; ?>
 	<?php } ?>
-
+	
 	<main id="primary" class="site-main">
-
+		
 	<?php
 	if ( have_posts() ) {
 		?>

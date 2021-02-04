@@ -28,11 +28,11 @@ function buddyx_template_pack_check() {
 	return $retval;
 }
 
-function buddyx_buddypress_legacy_notice(){
+function buddyx_buddypress_legacy_notice() {
 	if ( buddyx_template_pack_check() ) {
 		?>
 		<div class="error"><p>
-		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the BuddyPress Options. %s', 'buddyx' ), '<a href="'. admin_url('admin.php?page=bp-settings').'" >', '</a>' ); ?>
+		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s', 'buddyx' ), '<a href="'. admin_url('admin.php?page=bp-settings').'" >', '</a>' ); ?>
 		</p></div>
 		<?php
 	}
@@ -48,7 +48,7 @@ if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) |
 // Include WordPress shims.
 require get_template_directory() . '/inc/wordpress-shims.php';
 
-//Include Kirki
+// Include Kirki
 require get_template_directory() . '/external/require_plugins.php';
 require_once get_template_directory() . '/external/include-kirki.php';
 require_once get_template_directory() . '/external/kirki-utils.php';
@@ -98,7 +98,7 @@ require get_template_directory() . '/inc/functions.php';
 call_user_func( 'BuddyX\Buddyx\buddyx' );
 
 // Require plugin.php to use is_plugin_active() below
-if ( !function_exists( 'is_plugin_active' ) ) {
+if ( ! function_exists( 'is_plugin_active' ) ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
@@ -109,19 +109,19 @@ require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.ph
 require get_template_directory() . '/inc/extra.php';
 
 // bp_nouveau_appearance default option
-$optionKey = "buddyx_theme_is_activated";
-if ( !get_option( $optionKey ) ) {
+$optionKey = 'buddyx_theme_is_activated';
+if ( ! get_option( $optionKey ) ) {
 
 	$bp_nouveau_appearance = array(
-		'members_layout'		 => 3,
+		'members_layout'         => 3,
 		'members_friends_layout' => 3,
-		'groups_layout'			 => 3,
-		'members_group_layout'	 => 3,
-		'group_front_page'		 => 0,
-		'group_front_boxes'		 => 0,
-		'user_front_page'		 => 0,
-		'user_nav_display'		 => 1,
-		'group_nav_display'		 => 1,
+		'groups_layout'          => 3,
+		'members_group_layout'   => 3,
+		'group_front_page'       => 0,
+		'group_front_boxes'      => 0,
+		'user_front_page'        => 0,
+		'user_nav_display'       => 1,
+		'group_nav_display'      => 1,
 	);
 	update_option( 'bp_nouveau_appearance', $bp_nouveau_appearance );
 	update_option( $optionKey, 1 );
@@ -130,7 +130,7 @@ if ( !get_option( $optionKey ) ) {
 //
 // Add WooCommerce Support
 // ------------------------------------------------------------------------------
-if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
+if ( ! function_exists( 'buddyx_woocommerce_support' ) ) {
 
 	function buddyx_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
@@ -145,10 +145,10 @@ if ( !function_exists( 'buddyx_woocommerce_support' ) ) {
 //
 // force add theme support for BP nouveau
 // ------------------------------------------------------------------------------
-if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
+if ( ! function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
 
 	function buddyx_buddypress_nouveau_support() {
-		add_theme_support('buddypress-use-nouveau');
+		add_theme_support( 'buddypress-use-nouveau' );
 	}
 
 	add_action( 'after_setup_theme', 'buddyx_buddypress_nouveau_support' );
@@ -159,16 +159,16 @@ if ( !function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
  */
 add_action( 'init', 'buddyx_remove_wc_breadcrumbs' );
 function buddyx_remove_wc_breadcrumbs() {
-    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
 /**
  * Remove WooCommerce CSS if WooCommerce not activated
  */
 function buddyx_woo_dequeue_styles() {
-    wp_dequeue_style( 'buddyx-woocommerce' );
-    wp_deregister_style( 'buddyx-woocommerce' );
+	wp_dequeue_style( 'buddyx-woocommerce' );
+	wp_deregister_style( 'buddyx-woocommerce' );
 }
-if ( !class_exists( 'WooCommerce' ) ) {
+if ( ! class_exists( 'WooCommerce' ) ) {
 	add_action( 'wp_print_styles', 'buddyx_woo_dequeue_styles' );
 }
