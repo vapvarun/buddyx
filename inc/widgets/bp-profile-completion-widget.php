@@ -75,7 +75,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							$current_user = wp_get_current_user();
 							if ( ( $current_user instanceof WP_User ) ) {
 								$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
-								echo '<a class="wb-bp-user-link" href="' . esc_url($user_link) . '">';
+								echo '<a class="wb-bp-user-link" href="' . esc_url( $user_link ) . '">';
 								?>
 								<?php
 								echo get_avatar( $current_user->user_email, 200 );
@@ -84,7 +84,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							?>
 						</div>
 						<div class="wb-bp-progress-label">
-							<span class="wb-bp-completion"><?php echo esc_html($user_progress['completion_percentage']) . '%'; ?></span>
+							<span class="wb-bp-completion"><?php echo esc_html( $user_progress['completion_percentage'] ) . '%'; ?></span>
 							<span><?php echo esc_html__( 'Complete', 'buddyx' ); ?></span>
 						</div>
 					</div>
@@ -106,7 +106,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 				<li class="wb-bp-single-section-wrap
 				<?php
-				echo ( isset($single_section_details['is_group_completed']) && $single_section_details['is_group_completed'] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
+				echo ( isset( $single_section_details['is_group_completed'] ) && $single_section_details['is_group_completed'] ) ? esc_attr( 'completed ' ) : esc_attr( 'incomplete ' );
 				echo esc_attr( $user_progress_status );
 				?>
 					">
