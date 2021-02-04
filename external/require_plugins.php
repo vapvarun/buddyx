@@ -59,27 +59,28 @@ function buddyx_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-		
-            // Kirki Toolkit
-            array(
-                    'name'		 => 'Kirki Toolkit', 'buddyx',
-                    'slug'		 => 'kirki',
-                    'required'	 => false,
-            ),
-            
-            // Elementor Page Builder
-            array(
-                    'name'		 => 'Elementor Page Builder',
-                    'slug'		 => 'elementor',
-                    'required'	 => false,
-            ),
 
-            // BuddyPress Plugin
-            array(
-                    'name'		 => 'BuddyPress',
-                    'slug'		 => 'buddypress',
-                    'required'	 => false,
-            ),
+		// Kirki Toolkit
+		array(
+			'name'     => 'Kirki Toolkit',
+			'buddyx',
+			'slug'     => 'kirki',
+			'required' => false,
+		),
+
+		// Elementor Page Builder
+		array(
+			'name'     => 'Elementor Page Builder',
+			'slug'     => 'elementor',
+			'required' => false,
+		),
+
+		// BuddyPress Plugin
+		array(
+			'name'     => 'BuddyPress',
+			'slug'     => 'buddypress',
+			'required' => false,
+		),
 
 	);
 
@@ -93,14 +94,14 @@ function buddyx_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'			 => 'buddyx', // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path'	 => '', // Default absolute path to bundled plugins.
-		'menu'			 => 'tgmpa-install-plugins', // Menu slug.
-		'has_notices'	 => true, // Show admin notices or not.
-		'dismissable'	 => true, // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'	 => '', // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic'	 => false, // Automatically activate plugins after installation or not.
-		'message'		 => '', // Message to output right before the plugins table.
+		'id'           => 'buddyx', // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '', // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'has_notices'  => true, // Show admin notices or not.
+		'dismissable'  => true, // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '', // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false, // Automatically activate plugins after installation or not.
+		'message'      => '', // Message to output right before the plugins table.
 	);
 
 	tgmpa( $plugins, $config );
