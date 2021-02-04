@@ -26,38 +26,39 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 ?>
 
 <div class="site-sub-header">
-    <div class="container">
-        <header class="woocommerce-products-header">
-            <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+	<div class="container">
+		<header class="woocommerce-products-header">
+			<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 				<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 				<?php
 					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-					if ( ! empty( $breadcrumbs ) ) {
-						buddyx_the_breadcrumb();
-					}
+				if ( ! empty( $breadcrumbs ) ) {
+					buddyx_the_breadcrumb();
+				}
 				?>
-            <?php endif; ?>
+			<?php endif; ?>
 
-            <?php
-            /**
-             * Hook: woocommerce_archive_description.
-             *
-             * @hooked woocommerce_taxonomy_archive_description - 10
-             * @hooked woocommerce_product_archive_description - 10
-             */
-            do_action( 'woocommerce_archive_description' );
-            ?>
-        </header>
-    </div>
+			<?php
+			/**
+			 * Hook: woocommerce_archive_description.
+			 *
+			 * @hooked woocommerce_taxonomy_archive_description - 10
+			 * @hooked woocommerce_product_archive_description - 10
+			 */
+			do_action( 'woocommerce_archive_description' );
+			?>
+		</header>
+	</div>
 </div>
 
 <?php
 
 do_action( 'buddyx_before_content' );
 
-if ( class_exists( 'WooCommerce' ) ) { ?>
+if ( class_exists( 'WooCommerce' ) ) {
+	?>
 	<?php if ( is_woocommerce() ) { ?>
-		<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both'  ) : ?>
+		<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="woo-left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_woocommerce_left_sidebar(); ?>
@@ -65,7 +66,8 @@ if ( class_exists( 'WooCommerce' ) ) { ?>
 			</aside>
 		<?php endif; ?>
 	<?php } ?>
-<?php }
+	<?php
+}
 
 /**
  * Hook: woocommerce_before_main_content.
@@ -131,7 +133,7 @@ do_action( 'woocommerce_after_main_content' );
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-//do_action( 'woocommerce_sidebar' );
+// do_action( 'woocommerce_sidebar' );
 ?>
 <?php if ( class_exists( 'WooCommerce' ) ) { ?>
 	<?php if ( is_woocommerce() ) { ?>
@@ -143,7 +145,8 @@ do_action( 'woocommerce_after_main_content' );
 			</aside>
 		<?php endif; ?>
 	<?php } ?>
-<?php }
+	<?php
+}
 
 do_action( 'buddyx_after_content' );
 
