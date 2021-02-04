@@ -15,7 +15,7 @@
 		<?php
 		while ( bp_members() ) :
 			bp_the_member();
-		?>
+			?>
 			<li id="friendship-<?php bp_friend_friendship_id(); ?>" <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_friend_friendship_id(); ?>" data-bp-item-component="members">
 				<div class="list-wrap">
 					<div class="item-avatar">

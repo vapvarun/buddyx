@@ -18,7 +18,7 @@
 		<?php
 		while ( bp_groups() ) :
 			bp_the_group();
-		?>
+			?>
 
 			<li class="item-entry invites-list" data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups">
 
@@ -31,31 +31,31 @@
 				<?php endif; ?>
 
 					<div class="item">
-                        <div class="item-block">
-                            <h2 class="list-title groups-title"><?php bp_group_link(); ?></h2>
-                            <p class="meta group-details">
-                                <span class="small">
-                                <?php
-                                printf(
-                                    /* translators: %s = number of members */
-                                    _n(
-                                        '%s member',
-                                        '%s members',
-                                        bp_get_group_total_members( false ),
-                                        'buddyx'
-                                    ),
-                                    number_format_i18n( bp_get_group_total_members( false ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                );
-                                ?>
-                                </span>
-                            </p>
+						<div class="item-block">
+							<h2 class="list-title groups-title"><?php bp_group_link(); ?></h2>
+							<p class="meta group-details">
+								<span class="small">
+								<?php
+								printf(
+									/* translators: %s = number of members */
+									_n(
+										'%s member',
+										'%s members',
+										bp_get_group_total_members( false ),
+										'buddyx'
+									),
+									number_format_i18n( bp_get_group_total_members( false ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								);
+								?>
+								</span>
+							</p>
 
-                            <p class="desc">
-                                <?php bp_group_description_excerpt(); ?>
-                            </p>
+							<p class="desc">
+								<?php bp_group_description_excerpt(); ?>
+							</p>
 
-                            <?php bp_nouveau_group_hook( '', 'invites_item' ); ?>
-                        </div>
+							<?php bp_nouveau_group_hook( '', 'invites_item' ); ?>
+						</div>
 						<?php
 						bp_nouveau_groups_invite_buttons(
 							array(
