@@ -9,9 +9,9 @@ namespace BuddyX\Buddyx;
 
 $taxonomies = wp_list_filter(
 	get_object_taxonomies( $post, 'objects' ),
-	[
+	array(
 		'public' => true,
-	]
+	)
 );
 
 ?>
@@ -25,14 +25,14 @@ $taxonomies = wp_list_filter(
 
 		switch ( $taxo->name ) {
 			case 'category':
-				$class            = 'category-links term-links';
-				$list             = get_the_category_list( esc_html( $separator ), '', $post->ID );
+				$class = 'category-links term-links';
+				$list  = get_the_category_list( esc_html( $separator ), '', $post->ID );
 				/* translators: %s: list of taxonomy terms */
 				$placeholder_text = __( 'Posted in %s', 'buddyx' );
 				break;
 			case 'post_tag':
-				$class            = 'tag-links term-links';
-				$list             = get_the_tag_list( '', esc_html( $separator ), '', $post->ID );
+				$class = 'tag-links term-links';
+				$list  = get_the_tag_list( '', esc_html( $separator ), '', $post->ID );
 				/* translators: %s: list of taxonomy terms */
 				$placeholder_text = __( 'Tagged %s', 'buddyx' );
 				break;
