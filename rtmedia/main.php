@@ -1,5 +1,6 @@
 <?php
-/* * **************************************
+/*
+ * **************************************
  * Main.php
  *
  * The main template file, that loads the header, footer and sidebar
@@ -9,14 +10,14 @@
 global $rt_ajax_request;
 $rt_ajax_request = false;
 
-//todo sanitize and fix $_SERVER variable usage
+// todo sanitize and fix $_SERVER variable usage
 // check if it is an ajax request
 
 $_rt_ajax_request = rtm_get_server_var( 'HTTP_X_REQUESTED_WITH', 'FILTER_SANITIZE_STRING' );
 if ( 'xmlhttprequest' === strtolower( $_rt_ajax_request ) ) {
 	$rt_ajax_request = true;
 }
-//if it's not an ajax request, load headers
+// if it's not an ajax request, load headers
 if ( $rt_ajax_request ) {
 	// include the right rtMedia template
 	echo '<div id="buddypress">';
@@ -33,8 +34,8 @@ if ( bp_is_group() ) {
 
 			<?php
 			$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance', array() );
-			if ( !isset( $bp_nouveau_appearance[ 'group_nav_display' ] ) ) {
-				$bp_nouveau_appearance[ 'group_nav_display' ] = false;
+			if ( ! isset( $bp_nouveau_appearance['group_nav_display'] ) ) {
+				$bp_nouveau_appearance['group_nav_display'] = false;
 			}
 			?>
 
@@ -42,46 +43,49 @@ if ( bp_is_group() ) {
 				<div id="item-header" role="complementary" data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups" class="groups-header single-headers">
 					<?php bp_nouveau_group_header_template_part(); ?>
 				</div><!-- #item-header -->
-                <div class="site-wrapper group-home">
-			        <div class="bp-wrap">
-                        <?php
-                        if ( $bp_nouveau_appearance[ 'group_nav_display' ] ) {
-                            if ( !bp_nouveau_is_object_nav_in_sidebar() ) { ?>
-                                    <?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
-                                <?php }
-                        } ?>
+				<div class="site-wrapper group-home">
+					<div class="bp-wrap">
+						<?php
+						if ( $bp_nouveau_appearance['group_nav_display'] ) {
+							if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+								?>
+									<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
+								<?php
+							}
+						}
+						?>
 
-                        <div id="item-body" class="item-body">
-                            <div class="item-body-inner-wrapper">
-                                <?php
-                                if ( !$bp_nouveau_appearance[ 'group_nav_display' ] ) {
-                                    if ( !bp_nouveau_is_object_nav_in_sidebar() ) {
-                                        ?>
-                                            <?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
-                                        <?php
-                                    }
-                                }
-                                ?>
+						<div id="item-body" class="item-body">
+							<div class="item-body-inner-wrapper">
+								<?php
+								if ( ! $bp_nouveau_appearance['group_nav_display'] ) {
+									if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+										?>
+											<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
+										<?php
+									}
+								}
+								?>
 
-                                <nav class="rtm-bp-navs bp-navs bp-subnavs no-ajax user-subnav" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'Notifications menu', 'buddyx' ); ?>">
-                                    <ul class="subnav">
-                                        <?php rtmedia_sub_nav(); ?>
-                                        <?php do_action( 'rtmedia_sub_nav' ); ?>
-                                    </ul>
-                                </nav>
+								<nav class="rtm-bp-navs bp-navs bp-subnavs no-ajax user-subnav" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'Notifications menu', 'buddyx' ); ?>">
+									<ul class="subnav">
+										<?php rtmedia_sub_nav(); ?>
+										<?php do_action( 'rtmedia_sub_nav' ); ?>
+									</ul>
+								</nav>
 
-                                <?php
-                                do_action( 'bp_before_member_media' );
-                                // include the right rtMedia template
-                                rtmedia_load_template();
-                                do_action( 'bp_after_member_media' );
-                                ?>
-                            </div>
-				        </div><!-- #item-body -->
-                    </div><!-- // .bp-wrap -->
-                    <?php get_sidebar( 'buddypress' ); ?>
-                </div><!-- // .ite-wrapper -->
-        
+								<?php
+								do_action( 'bp_before_member_media' );
+								// include the right rtMedia template
+								rtmedia_load_template();
+								do_action( 'bp_after_member_media' );
+								?>
+							</div>
+						</div><!-- #item-body -->
+					</div><!-- // .bp-wrap -->
+					<?php get_sidebar( 'buddypress' ); ?>
+				</div><!-- // .ite-wrapper -->
+		
 			<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
 		<?php endwhile; ?>
 		<?php
@@ -90,55 +94,55 @@ if ( bp_is_group() ) {
 }
 
 $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance', array() );
-if ( !isset( $bp_nouveau_appearance[ 'user_nav_display' ] ) ) {
-	$bp_nouveau_appearance[ 'user_nav_display' ] = false;
+if ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) ) {
+	$bp_nouveau_appearance['user_nav_display'] = false;
 }
 ?>
 
 <?php bp_nouveau_member_hook( 'before', 'home_content' ); ?>
 	<div id="item-header" role="complementary" data-bp-item-id="<?php echo esc_attr( bp_displayed_user_id() ); ?>" data-bp-item-component="members" class="users-header single-headers">
 		<?php bp_nouveau_member_header_template_part(); ?>
-    </div><!-- #item-header -->
-    <div class="site-wrapper member-home">
-        <div class="bp-wrap">
-        <?php
-        if ( $bp_nouveau_appearance[ 'user_nav_display' ] ) {
-            if ( !bp_nouveau_is_object_nav_in_sidebar() ) {
-                ?>
-                    <?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
-                <?php
-            }
-        }
-        ?>
-	    <div id="item-body" class="item-body">
-            <div class="item-body-inner-wrapper">
-                <?php
-                if ( !$bp_nouveau_appearance[ 'user_nav_display' ] ) {
-                    if ( !bp_nouveau_is_object_nav_in_sidebar() ) {
-                        ?>
-                            <?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
-                        <?php
-                    }
-                }
-                ?>
+	</div><!-- #item-header -->
+	<div class="site-wrapper member-home">
+		<div class="bp-wrap">
+		<?php
+		if ( $bp_nouveau_appearance['user_nav_display'] ) {
+			if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+				?>
+					<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
+				<?php
+			}
+		}
+		?>
+		<div id="item-body" class="item-body">
+			<div class="item-body-inner-wrapper">
+				<?php
+				if ( ! $bp_nouveau_appearance['user_nav_display'] ) {
+					if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+						?>
+							<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
+						<?php
+					}
+				}
+				?>
 
-                <nav class="rtm-bp-navs bp-navs bp-subnavs no-ajax user-subnav" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'Notifications menu', 'buddyx' ); ?>">
-                    <ul class="subnav">
-                        <?php rtmedia_sub_nav(); ?>
-                        <?php do_action( 'rtmedia_sub_nav' ); ?>
-                    </ul>
-                </nav>
+				<nav class="rtm-bp-navs bp-navs bp-subnavs no-ajax user-subnav" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'Notifications menu', 'buddyx' ); ?>">
+					<ul class="subnav">
+						<?php rtmedia_sub_nav(); ?>
+						<?php do_action( 'rtmedia_sub_nav' ); ?>
+					</ul>
+				</nav>
 
-                <?php
-                do_action( 'bp_before_member_media' );
-                // include the right rtMedia template
-                rtmedia_load_template();
-                do_action( 'bp_after_member_media' );
-                ?>
-            </div><!-- .item-body-inner-wrapper -->
-	    </div><!-- #item-body -->
-        </div><!-- // .bp-wrap -->
-        <?php get_sidebar( 'buddypress' ); ?>
-    </div><!-- .site-wrapper -->
+				<?php
+				do_action( 'bp_before_member_media' );
+				// include the right rtMedia template
+				rtmedia_load_template();
+				do_action( 'bp_after_member_media' );
+				?>
+			</div><!-- .item-body-inner-wrapper -->
+		</div><!-- #item-body -->
+		</div><!-- // .bp-wrap -->
+		<?php get_sidebar( 'buddypress' ); ?>
+	</div><!-- .site-wrapper -->
 
 <?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>
