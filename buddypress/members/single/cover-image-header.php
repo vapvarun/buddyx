@@ -27,8 +27,10 @@
                 <h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
             <?php endif; ?>
 
-            <?php if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) && true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-                echo bp_get_user_member_type( bp_displayed_user_id() );
+            <?php if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+                if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
+                    echo bp_get_user_member_type( bp_displayed_user_id() );
+                }
             } ?>
 
             <?php bp_nouveau_member_hook( 'before', 'header_meta' ); ?>
@@ -47,6 +49,19 @@
                     ?>
                 </div><!-- .buddyx-badge -->
             <?php endif; ?>
+                
+            <?php
+            bp_member_type_list(
+                    bp_displayed_user_id(),
+                    array(
+                            'label'        => array(
+                                    'plural'   => __( 'Member Types', 'buddyx' ),
+                                    'singular' => __( 'Member Type', 'buddyx' ),
+                            ),
+                            'list_element' => 'span',
+                    )
+            );
+            ?>
 
             <?php
             if ( function_exists( 'bp_get_user_social_networks_urls' ) ):

@@ -42,8 +42,10 @@ bp_nouveau_before_loop(); ?>
                                 </p><!-- #item-meta -->
                             <?php endif; ?>
 
-                            <?php if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) && true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-                                echo '<p class="item-meta member-type-wrap">' . bp_get_user_member_type( bp_get_member_user_id() ) . '</p>';
+                            <?php if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+                                if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
+                                    echo '<p class="item-meta member-type-wrap">' . bp_get_user_member_type( bp_get_member_user_id() ) . '</p>';
+                                }
                             } ?>
 
                         </div><!-- .member-info-wrapper -->
