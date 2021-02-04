@@ -11,42 +11,47 @@
 
 bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
-<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) { bp_nouveau_edit_activity_data(); } ?>">
+<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="
+										  <?php
+											if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) {
+												bp_nouveau_edit_activity_data(); }
+											?>
+">
 
-    <div class="activity-card-head">
+	<div class="activity-card-head">
 		<h6 class="card-head-content-type">
 			<?php echo buddyx_bp_get_activity_css_first_class(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</h6>
-    </div>    
+	</div>    
 
-    <div class="activity-item-head">
+	<div class="activity-item-head">
 
-        <div class="activity-avatar item-avatar">
+		<div class="activity-avatar item-avatar">
 
-            <a href="<?php bp_activity_user_link(); ?>">
+			<a href="<?php bp_activity_user_link(); ?>">
 
-                <?php bp_activity_avatar( array( 'type' => 'full' ) ); ?>
+				<?php bp_activity_avatar( array( 'type' => 'full' ) ); ?>
 
-            </a>
+			</a>
 
-        </div>
+		</div>
 
-        <div class="activity-header">
+		<div class="activity-header">
 
-            <?php bp_activity_action(); ?>
+			<?php bp_activity_action(); ?>
 
-			<?php 
+			<?php
 			if ( function_exists( 'bp_nouveau_activity_is_edited' ) ) {
 					bp_nouveau_activity_is_edited();
 			}
-			
+
 			if ( function_exists( 'bp_nouveau_activity_privacy' ) ) {
-				bp_nouveau_activity_privacy(); 
+				bp_nouveau_activity_privacy();
 			}
 			?>
 
-        </div>
-    
+		</div>
+	
 	</div>
 	
 
@@ -62,9 +67,9 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
 		<?php endif; ?>
 
-		<?php 
+		<?php
 		if ( function_exists( 'bp_nouveau_activity_state' ) ) {
-			bp_nouveau_activity_state(); 
+			bp_nouveau_activity_state();
 		}
 		?>
 
