@@ -9,7 +9,7 @@
 
 <div id="cover-image-container">
 	<div id="header-cover-image"></div>
-</div><!-- #cover-image-container -->    
+</div><!-- #cover-image-container -->
 
 <div class="item-header-cover-image-wrapper">
 	<div id="item-header-cover-image">
@@ -51,18 +51,20 @@
 					?>
 				</div><!-- .buddyx-badge -->
 			<?php endif; ?>
-				
+
 			<?php
-			bp_member_type_list(
-				bp_displayed_user_id(),
-				array(
-					'label'        => array(
-						'plural'   => __( 'Member Types', 'buddyx' ),
-						'singular' => __( 'Member Type', 'buddyx' ),
-					),
-					'list_element' => 'span',
-				)
-			);
+			if ( ! is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+				bp_member_type_list(
+					bp_displayed_user_id(),
+					array(
+						'label'        => array(
+							'plural'   => __( 'Member Types', 'buddyx' ),
+							'singular' => __( 'Member Type', 'buddyx' ),
+						),
+						'list_element' => 'span',
+					)
+				);
+			}
 			?>
 
 			<?php
