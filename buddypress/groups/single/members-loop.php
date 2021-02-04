@@ -20,7 +20,7 @@
 		<?php
 		while ( bp_group_members() ) :
 			bp_group_the_member();
-		?>
+			?>
 
 			<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php echo esc_attr( bp_get_group_member_id() ); ?>" data-bp-item-component="members">
 
@@ -35,20 +35,20 @@
 					<div class="item">
 
 						<div class="item-block">
-                            <div class="member-info-wrapper">
-                                <h3 class="list-title member-name"><?php bp_group_member_link(); ?></h3>
+							<div class="member-info-wrapper">
+								<h3 class="list-title member-name"><?php bp_group_member_link(); ?></h3>
 
-                                <p class="joined item-meta">
-                                    <?php bp_group_member_joined_since(); ?>
-                                </p>
+								<p class="joined item-meta">
+									<?php bp_group_member_joined_since(); ?>
+								</p>
 
-                                <?php bp_nouveau_group_hook( '', 'members_list_item' ); ?>
+								<?php bp_nouveau_group_hook( '', 'members_list_item' ); ?>
 
-                            </div><!-- .member-info-wrapper -->
-                            <div class="member-action-wrapper">
-                                <?php bp_nouveau_members_loop_buttons(); ?>
-                            </div><!-- .member-action-wrapper -->
-                        </div>
+							</div><!-- .member-info-wrapper -->
+							<div class="member-action-wrapper">
+								<?php bp_nouveau_members_loop_buttons(); ?>
+							</div><!-- .member-action-wrapper -->
+						</div>
 
 					</div>
 
@@ -66,7 +66,8 @@
 
 	<?php bp_nouveau_group_hook( 'after', 'members_content' ); ?>
 
-<?php else :
+	<?php
+else :
 
 	bp_nouveau_user_feedback( 'group-members-none' );
 
