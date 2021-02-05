@@ -53,16 +53,18 @@
 			<?php endif; ?>
 				
 			<?php
-			bp_member_type_list(
-				bp_displayed_user_id(),
-				array(
-					'label'        => array(
-						'plural'   => __( 'Member Types', 'buddyx' ),
-						'singular' => __( 'Member Type', 'buddyx' ),
-					),
-					'list_element' => 'span',
-				)
-			);
+                        if ( function_exists( 'bp_member_type_list' ) ) :
+                            bp_member_type_list(
+                                    bp_displayed_user_id(),
+                                    array(
+                                            'label'        => array(
+                                                    'plural'   => __( 'Member Types', 'buddyx' ),
+                                                    'singular' => __( 'Member Type', 'buddyx' ),
+                                            ),
+                                            'list_element' => 'span',
+                                    )
+                            );
+                            endif;
 			?>
 
 			<?php
