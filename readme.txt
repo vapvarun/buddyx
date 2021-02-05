@@ -98,9 +98,17 @@ Released under the MIT license
 
 == Changelog ==
 
-= 3.6.1 =
+= 3.7.1 =
 * Fix: Added condition to display for buddypress member type
 * Fix: PHPCS fixes
+
+= 3.7.0 =
+* Improvement: (#236) Added customizer setting for header login button and fixes
+* Improvement: (#235) Managed Profile Types with bb platform
+* Improvement: Update logo and site title position
+* Improvement: (#234) Added dark mode for learndash single lesson in focus mode
+* Fix: Fixed fatal error in author page
+* Improvement: Managed BuddyPress group type list UI with a list view
 
 = 3.6.0 =
 * Improvement: Update theme AMP supported files
