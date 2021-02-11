@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.6.0
+Tested up to: 5.6.1
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,18 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 3.7.1 =
+* Fix: Added condition to display for buddypress member type
+* Fix: PHPCS fixes
+
+= 3.7.0 =
+* Improvement: (#236) Added customizer setting for header login button and fixes
+* Improvement: (#235) Managed Profile Types with bb platform
+* Improvement: Update logo and site title position
+* Improvement: (#234) Added dark mode for learndash single lesson in focus mode
+* Fix: Fixed fatal error in author page
+* Improvement: Managed BuddyPress group type list UI with a list view
 
 = 3.6.0 =
 * Improvement: Update theme AMP supported files
