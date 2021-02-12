@@ -21,7 +21,6 @@
     # myCred
     # BadgeOS
     # Buddypress Group Reviews
-    # BuddyPress Activity Social Share
     # BuddyPress Check-ins
     # BuddyPress Quotes
     # BuddyPress Polls
@@ -1343,6 +1342,13 @@ form.ac-form .ac-reply-content input {
 .buddypress-wrap .activity-comments ul li ul {
     margin-left: 0;
     border-top: 1px solid var(--global-border-color);
+}
+
+.buddypress-wrap .activity-comments>ul>li>ul,
+.buddypress-wrap .activity-comments>ul>li>ul>li>ul,
+.buddypress-wrap .activity-comments>ul>li>ul>li>ul>li>ul {
+    margin-left: 35px;
+    border-top: 0;
 }
 
 .activity-list .activity-item .activity-comments .activity-meta.action {
@@ -3033,19 +3039,6 @@ table.badgeos-rank-table tfoot tr th {
 
 
 /*--------------------------------------------------------------
-## BuddyPress Activity Social Share
---------------------------------------------------------------*/
-
-.bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button::before {
-    margin-right: 5px;
-}
-
-body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-button {
-    margin: 15px;
-}
-
-
-/*--------------------------------------------------------------
 ## BuddyPress Check-ins
 --------------------------------------------------------------*/
 
@@ -3105,6 +3098,14 @@ body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-butt
 ## BuddyPress Activity Social Share
 --------------------------------------------------------------*/
 
+.bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button::before {
+    margin-right: 5px;
+}
+
+body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-button {
+    margin: 15px;
+}
+
 body:not(.logged-in) .bp-share-btn.generic-button {
     font-family: inherit;
     font-size: 14px;
@@ -3123,6 +3124,10 @@ body:not(.logged-in) .bp-share-btn.generic-button {
     vertical-align: middle;
     transition: all .2s linear;
     margin: 15px !important;
+}
+
+.bp-nouveau .activity-list .activity-item .activity-meta .bp-share-button::before {
+    font-size: 18px;
 }
 
 

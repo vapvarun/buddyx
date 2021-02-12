@@ -21,6 +21,22 @@ msgstr ""
 msgid "active %s"
 msgstr ""
 
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:55
+msgid "Group Types"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:56
+msgid "Group Type"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:59
+msgid "Member Types"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:60
+msgid "Member Type"
+msgstr ""
+
 #: ../buddyx/buddypress/members/single/groups/invites.php:10
 msgid "Group Invites"
 msgstr ""
