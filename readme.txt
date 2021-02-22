@@ -98,6 +98,11 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.7.2 =
+* Fix: Managed header UI with box layout
+* Fix: (#239) Fixed replies are not intended in activity and share button
+* Fix: (#237) Managed Member type UI
+
 = 3.7.1 =
 * Fix: Added condition to display for buddypress member type
 * Fix: PHPCS fixes
