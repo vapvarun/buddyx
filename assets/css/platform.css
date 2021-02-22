@@ -97,6 +97,20 @@ img.emojioneemoji {
     content: none;
 }
 
+.activity-state {
+    margin: 0 15px 15px;
+}
+
+.bb-media-privacy-wrap .privacy:before {
+    content: "\e960";
+    font-family: bb-icons;
+    font-size: 12px;
+}
+
+span.bb-activity-edited-text {
+    font-size: 12px;
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory

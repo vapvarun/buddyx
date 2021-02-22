@@ -21,7 +21,6 @@
     # myCred
     # BadgeOS
     # Buddypress Group Reviews
-    # BuddyPress Activity Social Share
     # BuddyPress Check-ins
     # BuddyPress Quotes
     # BuddyPress Polls
@@ -1307,42 +1306,103 @@ form.ac-form .ac-reply-content input {
     padding: 0;
 }
 
-.buddypress-wrap .activity-comments ul li {
+.buddypress-wrap .activity-comments>ul>li {
     margin: 0;
-    padding: 0;
+    padding: 15px;
     border-top: 1px solid var(--global-border-color);
 }
 
+body.activity-permalink .activity-list li:first-child {
+    padding-top: 15px;
+}
+
+.buddypress-wrap .activity-comments .show-all button {
+    padding: 0;
+}
+
 .activity-list .activity-item div.item-avatar {
-    margin: 15px;
+    margin: 0 15px 0 0;
     text-align: left;
     line-height: 0;
     float: left;
+    width: auto;
+}
+
+.activity-list.item-list .activity-item .activity-comments img.avatar {
+    max-width: 36px;
+    width: 100%;
+    height: auto;
 }
 
 .buddypress-wrap .activity-comments .acomment-meta {
     color: inherit;
     overflow: visible;
     padding-left: 0;
-    margin-top: 15px;
 }
 
 .buddypress-wrap .activity-comments .acomment-content {
     border-left: 0;
-    margin: 0;
+    margin: 0 0 0 51px;
     padding: 0;
-    clear: both;
+}
+
+body #buddypress .bp-list .activity-comments .action {
+    line-height: 1;
+    margin-left: 51px;
+    padding: 0;
 }
 
 .activity-list .activity-item.mini,
 .buddypress-wrap .activity-comments .acomment-meta,
+.buddypress-wrap .activity-comments .acomment-content p,
+.buddypress-wrap .activity-comments .acomment-content .rtmedia-activity-text {
+    font-size: 14px;
+}
+
 .buddypress-wrap .activity-comments .acomment-content p {
-    font-size: inherit;
+    margin: 0;
+}
+
+#buddypress .activity-list .activity-item .comment-item .activity-meta.action .buddyboss_edit_activity_cancel,
+#buddypress .activity-list .activity-item .comment-item .activity-meta.action .buddyboss_edit_activity_comment,
+#buddypress .activity-list .activity-item .comment-item .activity-meta.action .buddyboss_edit_activity_comment.action-save,
+#buddypress .bp-list .activity-comments .bp-generic-meta .generic-button a,
+body #buddypress .bp-list .activity-comments .action .generic-button a {
+    background: 0 0;
+    padding: 0;
+    color: #939597;
+    border: 0;
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+    min-height: 10px;
+}
+
+body #buddypress .bp-list .activity-comments .action .generic-button {
+    margin-top: 0;
 }
 
 .buddypress-wrap .activity-comments ul li ul {
     margin-left: 0;
-    border-top: 1px solid var(--global-border-color);
+}
+
+.buddypress-wrap .activity-comments ul li {
+    margin: 0;
+}
+
+.buddypress-wrap .activity-comments .rtmedia-activity-text {
+    margin: 0;
+}
+
+.buddypress-wrap .activity-comments>ul>li>ul,
+.buddypress-wrap .activity-comments>ul>li>ul>li>ul,
+.buddypress-wrap .activity-comments>ul>li>ul>li>ul>li>ul {
+    margin-left: 51px;
+    border-top: 0;
+}
+
+.buddypress-wrap .activity-comments ul>li>ul>li {
+    border-top: 0;
 }
 
 .activity-list .activity-item .activity-comments .activity-meta.action {
@@ -3033,19 +3093,6 @@ table.badgeos-rank-table tfoot tr th {
 
 
 /*--------------------------------------------------------------
-## BuddyPress Activity Social Share
---------------------------------------------------------------*/
-
-.bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button::before {
-    margin-right: 5px;
-}
-
-body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-button {
-    margin: 15px;
-}
-
-
-/*--------------------------------------------------------------
 ## BuddyPress Check-ins
 --------------------------------------------------------------*/
 
@@ -3105,6 +3152,14 @@ body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-butt
 ## BuddyPress Activity Social Share
 --------------------------------------------------------------*/
 
+.bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button::before {
+    margin-right: 5px;
+}
+
+body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-button {
+    margin: 15px;
+}
+
 body:not(.logged-in) .bp-share-btn.generic-button {
     font-family: inherit;
     font-size: 14px;
@@ -3123,6 +3178,10 @@ body:not(.logged-in) .bp-share-btn.generic-button {
     vertical-align: middle;
     transition: all .2s linear;
     margin: 15px !important;
+}
+
+.bp-nouveau .activity-list .activity-item .activity-meta .bp-share-button::before {
+    font-size: 18px;
 }
 
 

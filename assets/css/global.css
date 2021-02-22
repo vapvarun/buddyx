@@ -86,6 +86,16 @@ canvas {
     height: auto !important;
 }
 
+body.elementor-editor-active .site-header-wrapper {
+    z-index: 99;
+}
+
+.elementor-template-full-width #page>.container,
+.elementor-template-full-width #page>.container-fluid {
+    max-width: 100%;
+    padding: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Layouts
@@ -1528,11 +1538,13 @@ body.layout-boxed {
     background-color: rgba(0, 0, 0, 0.025);
 }
 
-.layout-boxed .site,
-.layout-boxed .site-header-wrapper {
-    width: 1170px;
-    margin: 0 auto;
-    background: #fff;
+@media (min-width: 1170px) {
+    .layout-boxed .site,
+    .layout-boxed .site-header-wrapper {
+        width: 1170px;
+        margin: 0 auto;
+        background: #fff;
+    }
 }
 
 
