@@ -2551,6 +2551,16 @@ button#bp-delete-avatar {
     margin-right: 15px;
 }
 
+.widget.widget_bp_core_login_widget label {
+    display: block;
+}
+
+.widget.widget_bp_core_login_widget input[type=text],
+.widget.widget_bp_core_login_widget input[type=password] {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
 
 /*--------------------------------------------------------------
 # Extra Plugins Support
