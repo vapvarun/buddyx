@@ -21,8 +21,6 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 
 ?>
 
-<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) { ?>
-
 	<?php do_action( 'buddyx_sub_header' ); ?>
 	
 	<?php do_action( 'buddyx_before_content' ); ?>
@@ -80,8 +78,6 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 	<?php endif; ?>
 
 	<?php do_action( 'buddyx_after_content' ); ?>
-
-	<?php } ?>
 
 <?php
 get_footer();
