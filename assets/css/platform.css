@@ -63,6 +63,11 @@ img.emojioneemoji {
     padding: 15px;
 }
 
+.activity-update-form.modal-popup {
+    margin: 0;
+    border-radius: 0 !important;
+}
+
 .activity-update-form #whats-new {
     padding: 0;
     border: 0;
@@ -70,6 +75,26 @@ img.emojioneemoji {
 
 #whats-new-attachments.empty {
     display: none;
+}
+
+.buddypress .entry-content #whats-new-textarea ul,
+.buddypress .entry-content #whats-new-textarea ol {
+    list-style: decimal;
+    margin: 0 0 3px 18px;
+    padding: 0;
+}
+
+.buddypress .entry-content #whats-new-textarea ul {
+    list-style: disc;
+}
+
+.activity-list .activity-item .activity-inner p {
+    margin-bottom: 15px;
+}
+
+.activity-update-form #whats-new {
+    padding: 0;
+    border: 0;
 }
 
 .activity-content .bb-activity-media-elem .entry-img {
@@ -575,10 +600,8 @@ span.bbp-author-avatar img {
     margin-top: 0px;
 }
 
-@media screen and (max-width: 767px) {
-    .bp-messages-content-wrapper {
-        height: 100%;
-    }
+.bp-messages-content-wrapper {
+    height: 100%;
 }
 
 #bp-message-thread-list li {
