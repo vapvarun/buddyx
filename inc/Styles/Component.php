@@ -133,6 +133,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
 		}
+                
+                // Enqueue BuddyPress CSS
+		if ( ! class_exists( 'Youzify' ) ) {
+			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css');
+		}
 
 		// Enqueue bbPress CSS
 		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {

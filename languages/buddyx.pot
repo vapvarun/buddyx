@@ -1008,7 +1008,7 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:120, ../buddyx/inc/Sidebars/Component.php:132, ../buddyx/inc/Sidebars/Component.php:146, ../buddyx/inc/Sidebars/Component.php:158, ../buddyx/inc/Sidebars/Component.php:172, ../buddyx/inc/Sidebars/Component.php:184, ../buddyx/inc/Sidebars/Component.php:197, ../buddyx/inc/Sidebars/Component.php:209, ../buddyx/inc/Sidebars/Component.php:221, ../buddyx/inc/Sidebars/Component.php:233
+#: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:121, ../buddyx/inc/Sidebars/Component.php:133, ../buddyx/inc/Sidebars/Component.php:148, ../buddyx/inc/Sidebars/Component.php:160, ../buddyx/inc/Sidebars/Component.php:174, ../buddyx/inc/Sidebars/Component.php:186, ../buddyx/inc/Sidebars/Component.php:199, ../buddyx/inc/Sidebars/Component.php:211, ../buddyx/inc/Sidebars/Component.php:223, ../buddyx/inc/Sidebars/Component.php:235
 msgid "Add widgets here."
 msgstr ""
 
@@ -1016,48 +1016,48 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:118
+#: ../buddyx/inc/Sidebars/Component.php:119
 msgid "BuddyPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:130
+#: ../buddyx/inc/Sidebars/Component.php:131
 msgid "BuddyPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:144
+#: ../buddyx/inc/Sidebars/Component.php:146
 msgid "bbPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:156
+#: ../buddyx/inc/Sidebars/Component.php:158
 msgid "bbPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:170
+#: ../buddyx/inc/Sidebars/Component.php:172
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:182
+#: ../buddyx/inc/Sidebars/Component.php:184
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:195
+#: ../buddyx/inc/Sidebars/Component.php:197
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:207
+#: ../buddyx/inc/Sidebars/Component.php:209
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:219
+#: ../buddyx/inc/Sidebars/Component.php:221
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:231
+#: ../buddyx/inc/Sidebars/Component.php:233
 msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:304
+#: ../buddyx/inc/Styles/Component.php:309
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 

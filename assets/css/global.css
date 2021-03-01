@@ -20,6 +20,7 @@
 # Site Layout
 # Site Sub Header Layout
 # Site Text Editor
+# Youzify Support
 --------------------------------------------------------------*/
 
 
@@ -1703,4 +1704,63 @@ button.media-menu-item {
 .media-router .media-menu-item:hover {
     background: 0 0 !important;
     border: 0 !important;
+}
+
+
+/*--------------------------------------------------------------
+# Youzify Support
+--------------------------------------------------------------*/
+
+body.youzify-active #youzify .youzify-page {
+    width: 100vw;
+    margin-left: -50vw;
+    left: 50%;
+}
+
+body.youzify-active .youzify-global-wall .youzify-page-main-content,
+body.youzify-active .youzify-content main.youzify-page-main-content,
+body.youzify-active .youzify-profile-header .youzify-inner-content,
+body.youzify-active #youzify-profile-navmenu .youzify-inner-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body.youzify-active button.youzify-responsive-menu {
+    border: 0;
+    display: none;
+    border-radius: 0;
+}
+
+body.youzify-active button.youzify-responsive-menu:hover,
+body.youzify-active button.youzify-responsive-menu:focus {
+    border: 0;
+    border-radius: 0;
+}
+
+@media screen and (max-width: 768px) {
+    body.youzify-active button.youzify-responsive-menu {
+        display: block;
+    }
+}
+
+body.youzify-active .widget.buddypress.widget_bp_core_members_widget div.item-options a,
+body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options a {
+    color: #fff!important;
+    font-size: 10px;
+    box-shadow: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    text-shadow: none;
+    margin: 10px 8px 0 0;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: .05em;
+    border: none!important;
+    background-color: #898989;
+    text-transform: uppercase;
+}
+
+body.youzify-active .footer-widget .buddypress.widget .item-list,
+body.youzify-active .footer-widget .buddypress.widget .item-options {
+    padding: 0 !important;
 }
