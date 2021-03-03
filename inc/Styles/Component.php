@@ -128,15 +128,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 			wp_style_add_data( $handle, 'precache', true );
 		}
-
-		// Enqueue Platform CSS
-		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
-			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
-		}
                 
                 // Enqueue BuddyPress CSS
 		if ( ! class_exists( 'Youzify' ) ) {
 			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css');
+		}
+
+		// Enqueue Platform CSS
+		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
 		}
 
 		// Enqueue bbPress CSS
