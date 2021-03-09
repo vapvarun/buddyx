@@ -1577,12 +1577,18 @@ body.layout-boxed {
     left: 50%;
 }
 
-.site-sub-header>.container {
+.site-sub-header>.container,
+.site-sub-header .woocommerce-products-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
     padding: 0 15px;
+}
+
+.site-sub-header .woocommerce-products-header {
+    width: 100%;
+    padding: 0;
 }
 
 .site-sub-header>.container::before {
@@ -1632,7 +1638,6 @@ body.layout-boxed {
 .buddyx-breadcrumbs,
 #breadcrumbs {
     font-size: 14px;
-    margin: 0;
 }
 
 .buddyx-breadcrumbs a,
@@ -1643,6 +1648,25 @@ body.layout-boxed {
 .buddyx-breadcrumbs a:hover,
 #breadcrumbs a:hover {
     text-decoration: underline;
+}
+
+.buddyx-trail-items {
+    list-style: none;
+}
+
+.buddyx-trail-items,
+.buddyx-trail-items li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: inherit;
+    text-indent: 0;
+}
+
+.buddyx-trail-items li:not(.trail-end)::after {
+    padding: 0 0.3em;
+    content: "\00bb";
 }
 
 

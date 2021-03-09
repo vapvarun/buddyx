@@ -35,7 +35,7 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 	<div class="site-sub-header">
 		<div class="container">
 		  <?php
-			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
+			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 				if ( ! empty( $breadcrumbs ) ) {
@@ -55,74 +55,21 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 <?php }
 }
 
-/**
+/*
  * BREADCRUMBS
  */
 //  to include in functions.php
 if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
-	function buddyx_the_breadcrumb() {
-
-		$wpseo_titles = get_option( 'wpseo_titles' );
-		if ( function_exists('yoast_breadcrumb') && isset($wpseo_titles['breadcrumbs-enable']) &&  $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-
-			yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-
-		} else {
-
-			$sep = ' » ';
-
-			if ( ! is_front_page() ) {
-
-				// Start the breadcrumb with a link to your homepage
-				echo '<div class="buddyx-breadcrumbs">';
-				echo '<a href="';
-				echo esc_url(home_url());
-				echo '">';
-				echo esc_html__( 'Home', 'buddyx');
-				echo '</a>' . $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-				// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
-				if ( is_category() || is_single() ){
-					the_category(' » ');
-				} elseif ( is_archive() || is_single() ){
-					if ( is_day() ) {
-						printf( esc_html__( '%s', 'buddyx' ), get_the_date() );
-					} elseif ( is_month() ) {
-						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'buddyx' ) ) );
-					} elseif ( is_year() ) {
-						printf( esc_html__( '%s', 'buddyx' ), get_the_date( _x( 'Y', 'yearly archives date format', 'buddyx' ) ) );
-					} elseif (is_author()) {
-                                                esc_html_e('Author', 'buddyx');
-                                        } elseif( is_shop() ) {
-						esc_html_e( 'Shop', 'buddyx' );
-					} elseif( is_archive('post-type-archive-forum') ) {
-						esc_html_e( 'Forums Archives', 'buddyx' );
-					} else {
-						esc_html_e( 'Blog Archives', 'buddyx' );
-					}
-				}
-
-				// If the current page is a single post, show its title with the separator
-				if ( is_single() ) {
-					echo $sep; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					the_title();
-				}
-
-				// If the current page is a static page, show its title.
-				if ( is_page() ) {
-					the_title();
-				}
-
-				// if you have a static page assigned to be you posts list page. It will find the title of the static page.
-                if ( is_home() ) {
-                    $blog_title = get_option( 'page_for_posts', true );
-                    echo esc_html( get_the_title ( $blog_title ) );
-                }
-
-				echo '</div>';
-			}
-		}
-	}
+    function buddyx_the_breadcrumb() {
+        $wpseo_titles = get_option( 'wpseo_titles' );
+        if (function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
+            yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+        } else {
+            echo '<div class="buddyx-breadcrumbs">';
+                buddyx_get_breadcrumb();
+            echo '</div>';
+        }
+    }
 }
 
 // Site Loader
