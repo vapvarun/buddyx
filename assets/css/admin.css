@@ -17,6 +17,12 @@
     grid-gap: 10px;
 }
 
+@media (max-width: 480px) {
+    .buddyx-dashboard-tabs [role="tablist"] {
+        grid-template-columns: auto;
+    }
+}
+
 .buddyx-dashboard-tabs [role="tabpanel"] {
     background: #fff;
     padding: 2rem;
@@ -148,6 +154,14 @@ h2.buddyx-feature-title {
     line-height: 1.4;
 }
 
+.knowledge-base-doc .buddyx-feature-title {
+    font-size: 18px;
+}
+
+.knowledge-base-doc .buddyx-col {
+    text-align: center;
+}
+
 .buddyx-col-content {
     font-size: 18px;
     margin-bottom: 2.5rem;
@@ -249,4 +263,47 @@ h2.buddyx-feature-title {
     .addon-section {
         max-width: calc(100% - 20px);
     }
+}
+
+
+/* Features Table */
+
+.buddyx-features-table thead tr th,
+.buddyx-features-table tbody tr td {
+    padding: 5px 10px;
+    border: 1px solid #e8e8e8;
+}
+
+.buddyx-features-table td.buddyx-main-feature {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px;
+    border-left: 3px solid #000;
+}
+
+.buddyx-features-table .dashicons.dashicons-yes-alt {
+    color: #008000;
+}
+
+.buddyx-features-table .dashicons.dashicons-dismiss {
+    color: #ff0000;
+}
+
+table.buddyx-features-table {
+    width: 100%;
+}
+
+@media (max-width: 359px) {
+    .buddyx-features-table tbody tr td,
+    .buddyx-features-table thead tr th {
+        font-size: 11px;
+        hyphens: auto;
+    }
+}
+
+
+/* Community Addons */
+
+.buddyx-row.community-addons {
+    align-items: flex-start;
 }
