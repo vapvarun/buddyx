@@ -31,6 +31,7 @@
     # BuddyPress Edit Activity
     # BuddyPress Create Group Type
     # BuddyPress Member Type
+    # BP Idea Stream
 --------------------------------------------------------------*/
 
 
@@ -2274,6 +2275,19 @@ body.single-item.groups #buddypress div#item-header #item-header-cover-image #it
         margin-top: 15px;
         text-align: center;
     }
+    body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
+        justify-content: center;
+    }
+    body.ideastream.bp-user .wp-embed-share {
+        float: none;
+    }
+    body.ideastream.bp-user .wp-embed-share .wp-embed-share-dialog-open {
+        margin: auto;
+    }
+    body.ideastream #item-header-content {
+        height: auto !important;
+        width: auto !important;
+    }
 }
 
 #item-body #group-invites-container .bp-invites-content .item-list>li {
@@ -3281,4 +3295,21 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
     font-size: 14px;
     color: inherit;
+}
+
+
+/*--------------------------------------------------------------
+# BP Idea Stream
+--------------------------------------------------------------*/
+
+.wp-embed-share-tab-button {
+    display: inline-block !important;
+}
+
+.wp-embed-share-tab[aria-hidden="true"] {
+    display: none !important;
+}
+
+.wp-embed-share-tab {
+    margin-top: 10px;
 }

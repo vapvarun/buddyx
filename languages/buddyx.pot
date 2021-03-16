@@ -516,6 +516,87 @@ msgstr ""
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
 
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:346
+msgid "Browse:"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:347
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:348, ../buddyx/inc/Welcome/Component.php:61
+msgid "Home"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:349
+msgid "404 Not Found"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:350
+msgid "Archives"
+msgstr ""
+
+#. translators: %s is the search query.
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:352
+msgid "Search results for: %s"
+msgstr ""
+
+#. translators: %s is the page number.
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:354
+msgid "Page %s"
+msgstr ""
+
+#. translators: %s is the page number.
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:356
+msgid "Comment Page %s"
+msgstr ""
+
+#. translators: Minute archive title. %s is the minute time format.
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:358
+msgid "Minute %s"
+msgstr ""
+
+#. translators: Weekly archive title. %s is the week date format.
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:360
+msgid "Week %s"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:820
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:837
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:854
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:870, ../buddyx/inc/class-buddyx-breadcrubms.php:899, ../buddyx/inc/class-buddyx-breadcrubms.php:926, ../buddyx/inc/class-buddyx-breadcrubms.php:953, ../buddyx/inc/class-buddyx-breadcrubms.php:1293
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:871, ../buddyx/inc/class-buddyx-breadcrubms.php:927, ../buddyx/inc/class-buddyx-breadcrubms.php:1297
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:872, ../buddyx/inc/class-buddyx-breadcrubms.php:1301
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrubms.php:900
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
 #: ../buddyx/inc/Comments/Component.php:132
 msgid "New comment(s)"
 msgstr ""
@@ -600,75 +681,41 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:75, ../buddyx/inc/Welcome/Component.php:61
-msgid "Home"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:95
-msgid "Blog Archives"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:93
-msgid "Forums Archives"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:91
-msgid "Shop"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:89
-msgid "Author"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:87, ../buddyx/inc/extra.php:85, ../buddyx/inc/extra.php:83
-msgid "%s"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:87
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:85
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:153
+#: ../buddyx/inc/extra.php:105
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:248
+#: ../buddyx/inc/extra.php:200
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:381
+#: ../buddyx/inc/extra.php:333
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/extra.php:408
+#: ../buddyx/inc/extra.php:360
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:450
+#: ../buddyx/inc/extra.php:402
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:461
+#: ../buddyx/inc/extra.php:413
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:461
+#: ../buddyx/inc/extra.php:413
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:461
+#: ../buddyx/inc/extra.php:413
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:466
+#: ../buddyx/inc/extra.php:418
 msgid "Edit"
 msgstr ""
 
@@ -1008,7 +1055,7 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:120, ../buddyx/inc/Sidebars/Component.php:132, ../buddyx/inc/Sidebars/Component.php:146, ../buddyx/inc/Sidebars/Component.php:158, ../buddyx/inc/Sidebars/Component.php:172, ../buddyx/inc/Sidebars/Component.php:184, ../buddyx/inc/Sidebars/Component.php:197, ../buddyx/inc/Sidebars/Component.php:209, ../buddyx/inc/Sidebars/Component.php:221, ../buddyx/inc/Sidebars/Component.php:233
+#: ../buddyx/inc/Sidebars/Component.php:95, ../buddyx/inc/Sidebars/Component.php:107, ../buddyx/inc/Sidebars/Component.php:121, ../buddyx/inc/Sidebars/Component.php:133, ../buddyx/inc/Sidebars/Component.php:148, ../buddyx/inc/Sidebars/Component.php:160, ../buddyx/inc/Sidebars/Component.php:174, ../buddyx/inc/Sidebars/Component.php:186, ../buddyx/inc/Sidebars/Component.php:199, ../buddyx/inc/Sidebars/Component.php:211, ../buddyx/inc/Sidebars/Component.php:223, ../buddyx/inc/Sidebars/Component.php:235
 msgid "Add widgets here."
 msgstr ""
 
@@ -1016,48 +1063,48 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:118
+#: ../buddyx/inc/Sidebars/Component.php:119
 msgid "BuddyPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:130
+#: ../buddyx/inc/Sidebars/Component.php:131
 msgid "BuddyPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:144
+#: ../buddyx/inc/Sidebars/Component.php:146
 msgid "bbPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:156
+#: ../buddyx/inc/Sidebars/Component.php:158
 msgid "bbPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:170
+#: ../buddyx/inc/Sidebars/Component.php:172
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:182
+#: ../buddyx/inc/Sidebars/Component.php:184
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:195
+#: ../buddyx/inc/Sidebars/Component.php:197
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:207
+#: ../buddyx/inc/Sidebars/Component.php:209
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:219
+#: ../buddyx/inc/Sidebars/Component.php:221
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:231
+#: ../buddyx/inc/Sidebars/Component.php:233
 msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:304
+#: ../buddyx/inc/Styles/Component.php:309
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 

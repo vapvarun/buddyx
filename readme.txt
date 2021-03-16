@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.6.2
+Tested up to: 5.7.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 3.7.4 =
+* Improvement: Update welcome page layout and added extra features
+* Improvement: (#259) Added wp idea stream and bp idea stream support
+* Improvement: (#258) Fixed multisite forums, topics, ideastream subheader title issue
+* Improvement: (#257) Managed sidebars with buddypress shortcode plugin
+* Improvement: (#256) Added youzify support
 
 = 3.7.3 =
 * Fix: (#244) Managed elementor theme locations for pages

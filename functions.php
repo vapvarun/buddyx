@@ -102,6 +102,9 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
+// Load theme breadcrubms function.
+require get_template_directory() . '/inc/class-buddyx-breadcrubms.php';
+
 // Load BuddyPress PRofile Completion widget.
 require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
 

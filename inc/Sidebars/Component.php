@@ -113,6 +113,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 
 		if ( function_exists('bp_is_active') ) {
+                    if ( ! class_exists( 'Youzify' ) ) {
 			register_sidebar(
 				[
 					'name'          => esc_html__( 'BuddyPress Left Sidebar', 'buddyx' ),
@@ -136,6 +137,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					'after_title'   => '</h2>',
 				]
 			);
+                    }
 		}
 
 		if ( function_exists('is_bbpress') ) {
@@ -345,6 +347,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					}
 				}
 			}
+		}
+                
+                if ( class_exists( 'Youzify' ) ) {
+			$classes[] = 'youzify-active';
 		}
 
 		return $classes;
