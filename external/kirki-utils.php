@@ -24,11 +24,14 @@ function buddyx_defaults( $key = '' ) {
 	// sticky sidebar
 	$defaults['sticky-sidebar'] = '1';
 
-	 // blog layout option
-	 $defaults['blog-layout-option'] = 'default-layout';
+	// blog layout option
+	$defaults['blog-layout-option'] = 'default-layout';
+         
+        # single blog layout option
+        $defaults[ 'single-post-layout' ] = 'default';
 
-	 // post per view
-	 $defaults['post-per-row'] = '3';
+	// post per view
+	$defaults['post-per-row'] = '3';
 
 	if ( ! empty( $key ) && array_key_exists( $key, $defaults ) ) {
 		return $defaults[ $key ];

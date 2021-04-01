@@ -34,6 +34,7 @@ class Component implements Component_Interface {
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
 		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
+                add_filter( 'body_class', [ $this, 'site_single_blog_post_body_classes' ] );
                 if ( class_exists( 'SFWD_LMS' ) ) {
                     add_filter('body_class', [$this, 'site_learndash_body_classes']);
                 }
@@ -56,6 +57,26 @@ class Component implements Component_Interface {
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
 		if ( $sticky_sidebar ) {
 			$classes[] = 'sticky-sidebar-enable';
+		}
+
+		return $classes;
+	}
+        
+        /**
+	 * Site single blog post body class.
+	 */
+	public function site_single_blog_post_body_classes( array $classes ) : array {
+
+		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
+
+		if ( $single_post_layout === '1' ) {
+			$classes[] = 'single-post-layout-1';
+		} elseif ( $single_post_layout === '2' ) {
+			$classes[] = 'single-post-layout-2';
+		} elseif ( $single_post_layout === '3' ) {
+			$classes[] = 'single-post-layout-3';
+		} else {
+			$classes[] = '';
 		}
 
 		return $classes;
@@ -1111,6 +1132,21 @@ class Component implements Component_Interface {
 			'active_callback'	 => array(
 				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
 			)
+		);
+                
+                $fields[] = array(
+			'type'        => 'select', 
+			'settings'    => 'single_post_layout',
+			'label'       => esc_html__( 'Single Post Layout', 'buddyx' ),
+			'section'     => 'site_blog_section',
+			'default'     => 'default',
+			'priority'    => 10,
+			'choices'     => array( 
+				'default' => esc_html__( 'Defualt', 'buddyx' ), 
+				'1' => esc_html__( 'Layout 1', 'buddyx' ),
+				'2' => esc_html__( 'Layout 2', 'buddyx' ),  
+				'3' => esc_html__( 'Layout 3', 'buddyx' ),
+			),
 		);
 		
 		/**
