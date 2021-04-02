@@ -681,41 +681,41 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:105
+#: ../buddyx/inc/extra.php:112
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:200
+#: ../buddyx/inc/extra.php:207
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:333
+#: ../buddyx/inc/extra.php:340
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/extra.php:360
+#: ../buddyx/inc/extra.php:367
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:402
+#: ../buddyx/inc/extra.php:409
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:413
+#: ../buddyx/inc/extra.php:420
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:413
+#: ../buddyx/inc/extra.php:420
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:413
+#: ../buddyx/inc/extra.php:420
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:418
+#: ../buddyx/inc/extra.php:425
 msgid "Edit"
 msgstr ""
 
@@ -799,12 +799,12 @@ msgstr ""
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:321, ../buddyx/inc/Kirki_Option/Component.php:720, ../buddyx/inc/Kirki_Option/Component.php:736, ../buddyx/inc/Kirki_Option/Component.php:752, ../buddyx/inc/Kirki_Option/Component.php:767, ../buddyx/inc/Kirki_Option/Component.php:825, ../buddyx/inc/Kirki_Option/Component.php:1227, ../buddyx/inc/Kirki_Option/Component.php:1242
-msgid "Yes"
+#: ../buddyx/inc/Kirki_Option/Component.php:321, ../buddyx/inc/Kirki_Option/Component.php:720, ../buddyx/inc/Kirki_Option/Component.php:736, ../buddyx/inc/Kirki_Option/Component.php:752, ../buddyx/inc/Kirki_Option/Component.php:767, ../buddyx/inc/Kirki_Option/Component.php:825, ../buddyx/inc/Kirki_Option/Component.php:1165, ../buddyx/inc/Kirki_Option/Component.php:1177, ../buddyx/inc/Kirki_Option/Component.php:1189, ../buddyx/inc/Kirki_Option/Component.php:1270, ../buddyx/inc/Kirki_Option/Component.php:1285
+msgid "Enable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Kirki_Option/Component.php:721, ../buddyx/inc/Kirki_Option/Component.php:737, ../buddyx/inc/Kirki_Option/Component.php:753, ../buddyx/inc/Kirki_Option/Component.php:768, ../buddyx/inc/Kirki_Option/Component.php:826, ../buddyx/inc/Kirki_Option/Component.php:1228, ../buddyx/inc/Kirki_Option/Component.php:1243
-msgid "No"
+#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Kirki_Option/Component.php:721, ../buddyx/inc/Kirki_Option/Component.php:737, ../buddyx/inc/Kirki_Option/Component.php:753, ../buddyx/inc/Kirki_Option/Component.php:768, ../buddyx/inc/Kirki_Option/Component.php:826, ../buddyx/inc/Kirki_Option/Component.php:1166, ../buddyx/inc/Kirki_Option/Component.php:1178, ../buddyx/inc/Kirki_Option/Component.php:1190, ../buddyx/inc/Kirki_Option/Component.php:1271, ../buddyx/inc/Kirki_Option/Component.php:1286
+msgid "Disable"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:329
@@ -903,11 +903,11 @@ msgstr ""
 msgid "Enable Login Button"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:763, ../buddyx/inc/Kirki_Option/Component.php:1238
+#: ../buddyx/inc/Kirki_Option/Component.php:763, ../buddyx/inc/Kirki_Option/Component.php:1281
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:775, ../buddyx/inc/Kirki_Option/Component.php:1250
+#: ../buddyx/inc/Kirki_Option/Component.php:775, ../buddyx/inc/Kirki_Option/Component.php:1293
 msgid "Background Control"
 msgstr ""
 
@@ -927,11 +927,11 @@ msgstr ""
 msgid "Theme Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:914, ../buddyx/inc/Kirki_Option/Component.php:1306, ../buddyx/inc/Kirki_Option/Component.php:1398, ../buddyx/inc/Welcome/Component.php:347
+#: ../buddyx/inc/Kirki_Option/Component.php:914, ../buddyx/inc/Kirki_Option/Component.php:1349, ../buddyx/inc/Kirki_Option/Component.php:1441, ../buddyx/inc/Welcome/Component.php:347
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:930, ../buddyx/inc/Kirki_Option/Component.php:1322
+#: ../buddyx/inc/Kirki_Option/Component.php:930, ../buddyx/inc/Kirki_Option/Component.php:1365
 msgid "Link Hover"
 msgstr ""
 
@@ -987,67 +987,63 @@ msgstr ""
 msgid "Single Post Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1144
-msgid "Defualt"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1145
-msgid "Layout 1"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1146
-msgid "Layout 2"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1147
-msgid "Layout 3"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1157
-msgid "Sidebar Layout"
+#: ../buddyx/inc/Kirki_Option/Component.php:1161
+msgid "Single Blog Breadcrumbs?"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1173
+msgid "Single Blog Meta?"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:1185
+msgid "Single Blog Categories?"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:1200
+msgid "Sidebar Layout"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:1216
 msgid "BuddyPress Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1190
+#: ../buddyx/inc/Kirki_Option/Component.php:1233
 msgid "bbPress Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1207
+#: ../buddyx/inc/Kirki_Option/Component.php:1250
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1223
+#: ../buddyx/inc/Kirki_Option/Component.php:1266
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1274
+#: ../buddyx/inc/Kirki_Option/Component.php:1317
 msgid "Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1290, ../buddyx/inc/Kirki_Option/Component.php:1382
+#: ../buddyx/inc/Kirki_Option/Component.php:1333, ../buddyx/inc/Kirki_Option/Component.php:1425
 msgid "Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1341
+#: ../buddyx/inc/Kirki_Option/Component.php:1384
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1343
+#: ../buddyx/inc/Kirki_Option/Component.php:1386
 msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1350, ../buddyx/inc/Welcome/Component.php:297
+#: ../buddyx/inc/Kirki_Option/Component.php:1393, ../buddyx/inc/Welcome/Component.php:297
 msgid "Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1366
+#: ../buddyx/inc/Kirki_Option/Component.php:1409
 msgid "Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1414
+#: ../buddyx/inc/Kirki_Option/Component.php:1457
 msgid "Link Hover Color"
 msgstr ""
 

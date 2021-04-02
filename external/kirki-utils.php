@@ -23,12 +23,24 @@ function buddyx_defaults( $key = '' ) {
 
 	// sticky sidebar
 	$defaults['sticky-sidebar'] = '1';
+        
+        // site breadcrumbs
+        $defaults[ 'site-breadcrumbs' ] = 'on';
 
 	// blog layout option
 	$defaults['blog-layout-option'] = 'default-layout';
          
-        # single blog layout option
-        $defaults[ 'single-post-layout' ] = 'default';
+        // single blog layout option
+        $defaults[ 'single-post-layout' ] = '1';
+
+        // single blog breadcrumbs
+        $defaults[ 'single-post-breadcrumbs' ] = 'on';
+
+        // single blog meta
+        $defaults[ 'single-post-meta' ] = 'on';
+
+        // single blog categories
+        $defaults[ 'single-post-categories' ] = 'on';
 
 	// post per view
 	$defaults['post-per-row'] = '3';

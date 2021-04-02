@@ -1711,10 +1711,12 @@ body.layout-boxed {
     .single-post.single-post-layout-1 .entry-content,
     .single-post.single-post-layout-1 .entry-summary,
     .single-post.single-post-layout-1 .page-content,
-    .single-post.single-post-layout-1 .entry-footer,
-    .single-post.single-post-layout-1 .post-navigation,
     .single-post.single-post-layout-1 .comments-area {
-        padding: 0 30px;
+        padding: 1rem 30px;
+    }
+    .single-post.single-post-layout-1 .entry-footer,
+    .single-post.single-post-layout-1 .post-navigation {
+        margin: 0 30px;
     }
     .single-post.single-post-layout-2 .site-sub-header>.container,
     .single-post.single-post-layout-2 .entry-header,
