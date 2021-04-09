@@ -98,6 +98,10 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.7.5 =
+* Improvement: (#263) Added single post layouts
+* Fix: Update header.php
+
 = 3.7.4 =
 * Improvement: Update welcome page layout and added extra features
 * Improvement: (#259) Added wp idea stream and bp idea stream support

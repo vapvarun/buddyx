@@ -7,6 +7,9 @@
 
 namespace BuddyX\Buddyx;
 
+$single_post_meta = get_theme_mod( 'single_post_meta', buddyx_defaults( 'single-post-meta' ) );
+$single_post_categories = get_theme_mod( 'single_post_categories', buddyx_defaults( 'single-post-categories' ) );
+
 ?>
 
 <header class="entry-header">
