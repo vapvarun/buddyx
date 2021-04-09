@@ -101,6 +101,7 @@ Released under the MIT license
 = 3.7.5 =
 * Improvement: (#263) Added single post layouts
 * Fix: Update header.php
+* Fix: Embed have extra white space
 
 = 3.7.4 =
 * Improvement: Update welcome page layout and added extra features
