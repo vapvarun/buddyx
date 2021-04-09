@@ -1683,6 +1683,7 @@ body.layout-boxed {
 }
 
 .single-post.single-post-layout-1 .entry-meta {
+    margin-top: 10px;
     justify-content: center;
 }
 
