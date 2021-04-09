@@ -34,6 +34,7 @@ class Component implements Component_Interface {
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
 		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
+                add_filter( 'body_class', [ $this, 'site_single_blog_post_body_classes' ] );
                 if ( class_exists( 'SFWD_LMS' ) ) {
                     add_filter('body_class', [$this, 'site_learndash_body_classes']);
                 }
@@ -56,6 +57,26 @@ class Component implements Component_Interface {
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
 		if ( $sticky_sidebar ) {
 			$classes[] = 'sticky-sidebar-enable';
+		}
+
+		return $classes;
+	}
+        
+        /**
+	 * Site single blog post body class.
+	 */
+	public function site_single_blog_post_body_classes( array $classes ) : array {
+
+		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
+
+		if ( $single_post_layout === '2' ) {
+			$classes[] = 'single-post-layout-1';
+		} elseif ( $single_post_layout === '3' ) {
+			$classes[] = 'single-post-layout-2';
+		} elseif ( $single_post_layout === '4' ) {
+			$classes[] = 'single-post-layout-3';
+		} else {
+			$classes[] = '';
 		}
 
 		return $classes;
@@ -298,8 +319,8 @@ class Component implements Component_Interface {
 			'section'	 => 'site_loader',
 			'default'	 => '2',
 			'choices'	 => array(
-				'on'	 => esc_html__( 'Yes', 'buddyx' ),
-				'off'	 => esc_html__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 
@@ -697,8 +718,8 @@ class Component implements Component_Interface {
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
 			'choices'	 => array(
-				'on'	 => esc_html__( 'Yes', 'buddyx' ),
-				'off'	 => esc_html__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 
@@ -713,8 +734,8 @@ class Component implements Component_Interface {
 				'section'	 => 'site_header_section',
 				'default'	 => '2',
 				'choices'	 => array(
-					'on'	 => esc_html__( 'Yes', 'buddyx' ),
-					'off'	 => esc_html__( 'No', 'buddyx' )
+					'on'  => esc_html__( 'Enable','buddyx' ),
+                                        'off' => esc_html__( 'Disable', 'buddyx' ),
 				),
 			);
 		endif;
@@ -729,8 +750,8 @@ class Component implements Component_Interface {
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
                         'choices'	 => array(
-                                'on'	 => esc_html__( 'Yes', 'buddyx' ),
-                                'off'	 => esc_html__( 'No', 'buddyx' )
+                                'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
                         ),
 		);
 		
@@ -744,8 +765,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sub_header_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 
@@ -802,8 +823,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sub_header_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' ),
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 
@@ -1112,6 +1133,64 @@ class Component implements Component_Interface {
 				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
 			)
 		);
+                
+                $fields[] = array(
+			'type'        => 'radio-image', 
+			'settings'    => 'single_post_layout',
+			'label'       => esc_html__( 'Single Post Layout', 'buddyx' ),
+			'section'     => 'site_blog_section',
+			'priority'    => 10,
+			'default'  => '1',
+			'choices'  => [
+				'1' => get_template_directory_uri() . '/assets/images/single-blog-default.png',
+				'2' => get_template_directory_uri() . '/assets/images/single-blog-layout-1.png',
+				'3' => get_template_directory_uri() . '/assets/images/single-blog-layout-2.png',
+				'4' => get_template_directory_uri() . '/assets/images/single-blog-layout-3.png',
+			],
+		);
+
+		$fields[] = array(
+			'type'=> 'custom',
+			'settings' => 'custom-skin-divider1',
+			'section'     => 'site_blog_section',
+			'default'     => '<hr>',
+		);
+
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'single_post_breadcrumbs',
+			'label'    => esc_html__( 'Single Blog Breadcrumbs?', 'buddyx' ),
+			'section'  => 'site_blog_section',
+			'default'  => 'on',
+			'choices'  => array(
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+			),
+		);
+
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'single_post_meta',
+			'label'    => esc_html__( 'Single Blog Meta?', 'buddyx' ),
+			'section'  => 'site_blog_section',
+			'default'  => 'on',
+			'choices'  => array(
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+			),
+		);
+
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'single_post_categories',
+			'label'    => esc_html__( 'Single Blog Categories?', 'buddyx' ),
+			'section'  => 'site_blog_section',
+			'default'  => 'on',
+			'choices'  => array(
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+			),
+		);
 		
 		/**
 		 *  Site Sidebar Layout
@@ -1189,8 +1268,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_sidebar_layout',
 			'default'  => '1',
 			'choices'  => [
-				'on' => esc_html__( 'Yes','buddyx' ),
-				'off'  => esc_html__( 'No','buddyx' ),
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			],
 		);
 
@@ -1204,8 +1283,8 @@ class Component implements Component_Interface {
 			'section'  => 'site_footer_section',
 			'default'  => 'off',
 			'choices'  => array(
-				'on'  => esc_html__( 'Yes','buddyx' ),
-				'off' => esc_html__( 'No', 'buddyx' )
+				'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 

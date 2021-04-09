@@ -38,9 +38,16 @@ if ( !function_exists( 'buddyx_sub_header' ) ) {
 			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-				if ( ! empty( $breadcrumbs ) ) {
-					buddyx_the_breadcrumb();
-				}
+				$single_post_breadcrumbs = get_theme_mod( 'single_post_breadcrumbs', buddyx_defaults( 'single-post-breadcrumbs' ) );
+                                if ( is_single() && ! is_home() ) {
+                                    if ( ! empty( $single_post_breadcrumbs ) ) {
+                                        buddyx_the_breadcrumb();
+                                    }
+                                } else {
+                                    if ( ! empty( $breadcrumbs ) ) {
+                                        buddyx_the_breadcrumb();
+                                    }
+                                }
 			} elseif ( get_post_type() === 'page' || is_single() ) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );

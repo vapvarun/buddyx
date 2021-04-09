@@ -19,6 +19,7 @@
 # Infinite scroll
 # Site Layout
 # Site Sub Header Layout
+# Site Single Blog Layout
 # Site Text Editor
 # Youzify Support
 # WP Idea Stream
@@ -96,6 +97,15 @@ body.elementor-editor-active .site-header-wrapper {
 .elementor-template-full-width #page>.container-fluid {
     max-width: 100%;
     padding: 0;
+}
+
+p:empty {
+    content: none;
+    margin: 0;
+}
+
+p:empty::before {
+    content: none;
 }
 
 
@@ -460,6 +470,7 @@ select {
 }
 
 .site-branding img {
+    width: 100%;
     max-width: 150px;
 }
 
@@ -1283,6 +1294,7 @@ body.admin-bar .site-header-wrapper {
 @media (max-width: 480px) {
     .main-navigation {
         margin-left: auto;
+        flex: 0 0 auto;
     }
 }
 
@@ -1633,6 +1645,130 @@ body.layout-boxed {
 
 
 /*--------------------------------------------------------------
+# Site Single Blog Layout
+--------------------------------------------------------------*/
+
+.single-post.single-post-layout-1 .site-sub-header>.container,
+.single-post.single-post-layout-2 .site-sub-header>.container,
+.single-post.single-post-layout-3 .site-sub-header>.container {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.single-post.single-post-layout-1 .site-sub-header .entry-title,
+.single-post.single-post-layout-1 .site-sub-header .page-header,
+.single-post.single-post-layout-1 .site-sub-header .page-title {
+    margin: auto;
+}
+
+.single-post.single-post-layout-1 aside,
+.single-post.single-post-layout-2 aside,
+.single-post.single-post-layout-3 aside {
+    display: none;
+}
+
+.single-post.single-post-layout-1 .site-wrapper,
+.single-post.single-post-layout-2 .site-wrapper,
+.single-post.single-post-layout-3 .site-wrapper {
+    grid-template-columns: auto !important;
+}
+
+.single-post.single-post-layout-1 article .entry-header {
+    margin: auto;
+}
+
+.single-post.single-post-layout-1 .entry-meta {
+    justify-content: center;
+}
+
+.single-post.single-post-layout-1 .post-thumbnail img,
+.single-post.single-post-layout-2 .post-thumbnail img,
+.single-post.single-post-layout-3 .post-thumbnail img {
+    width: 100%;
+    border-radius: 0;
+}
+
+.single-post.single-post-layout-1 .alignfull,
+.single-post.single-post-layout-2 .alignfull,
+.single-post.single-post-layout-3 .alignfull {
+    margin-left: calc(-100vw / 2 + 100% / 2);
+    margin-right: calc(-100vw / 2 + 100% / 2);
+    max-width: 100vw;
+}
+
+@media (min-width: 768px) {
+    .single-post.single-post-layout-1 .post-thumbnail,
+    .single-post.single-post-layout-1 h1.entry-title,
+    .single-post.single-post-layout-1 .entry-content,
+    .single-post.single-post-layout-1 .entry-summary,
+    .single-post.single-post-layout-1 .page-content,
+    .single-post.single-post-layout-1 .entry-footer,
+    .single-post.single-post-layout-1 .post-navigation,
+    .single-post.single-post-layout-1 .comments-area {
+        max-width: 811px;
+    }
+    .single-post.single-post-layout-1 .entry-content,
+    .single-post.single-post-layout-1 .entry-summary,
+    .single-post.single-post-layout-1 .page-content,
+    .single-post.single-post-layout-1 .comments-area {
+        padding: 1rem 30px;
+    }
+    .single-post.single-post-layout-1 .entry-footer,
+    .single-post.single-post-layout-1 .post-navigation {
+        margin: 0 30px;
+    }
+    .single-post.single-post-layout-2 .site-sub-header>.container,
+    .single-post.single-post-layout-2 .entry-header,
+    .single-post.single-post-layout-2 .entry-content,
+    .single-post.single-post-layout-2 .entry-summary,
+    .single-post.single-post-layout-2 .page-content,
+    .single-post.single-post-layout-2 .entry-footer,
+    .single-post.single-post-layout-2 .post-navigation,
+    .single-post.single-post-layout-2 .comments-area,
+    .single-post.single-post-layout-3 .site-sub-header>.container,
+    .single-post.single-post-layout-3 .entry-header,
+    .single-post.single-post-layout-3 .entry-content,
+    .single-post.single-post-layout-3 .entry-summary,
+    .single-post.single-post-layout-3 .page-content,
+    .single-post.single-post-layout-3 .entry-footer,
+    .single-post.single-post-layout-3 .post-navigation,
+    .single-post.single-post-layout-3 .comments-area {
+        max-width: 45rem;
+    }
+    .single-post.single-post-layout-2 .site-sub-header>.container,
+    .single-post.single-post-layout-3 .site-sub-header>.container {
+        padding: 0;
+    }
+}
+
+.single-post.single-post-layout-2 .site-sub-header,
+.single-post.single-post-layout-3 .site-sub-header {
+    background: transparent;
+}
+
+.single-post.single-post-layout-2 .site-sub-header>.container,
+.single-post.single-post-layout-3 .site-sub-header>.container {
+    align-items: flex-start;
+}
+
+.single-post.single-post-layout-3 header.entry-header {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.single-post.single-post-layout-3 .site-sub-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.single-post.single-post-layout-3 .post-thumbnail+.post-categories {
+    position: static;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
 
@@ -1795,6 +1931,18 @@ body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options 
 body.youzify-active .footer-widget .buddypress.widget .item-list,
 body.youzify-active .footer-widget .buddypress.widget .item-options {
     padding: 0 !important;
+}
+
+body.youzify-active .widget_archive li,
+body.youzify-active .widget_categories li,
+body.youzify-active .widget_meta li,
+body.youzify-active .widget_nav_menu li a,
+body.youzify-active .widget_pages li a {
+    margin-bottom: 0;
+    color: #8a8a8a;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 15px 25px;
 }
 
 
