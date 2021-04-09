@@ -485,6 +485,10 @@ msgstr ""
 msgid "Full-Width-No-Title"
 msgstr ""
 
+#: ../buddyx/functions.php:32
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s"
+msgstr ""
+
 #: ../buddyx/header.php:29
 msgid "Skip to content"
 msgstr ""
