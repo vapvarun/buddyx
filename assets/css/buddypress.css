@@ -1362,7 +1362,7 @@ body #buddypress .bp-list .activity-comments .action {
 }
 
 .buddypress-wrap .activity-comments .acomment-content p {
-    margin: 0;
+    margin: 5px 0 10px;
 }
 
 #buddypress .activity-list .activity-item .comment-item .activity-meta.action .buddyboss_edit_activity_cancel,
