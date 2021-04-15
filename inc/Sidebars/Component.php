@@ -352,6 +352,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
                 if ( class_exists( 'Youzify' ) ) {
 			$classes[] = 'youzify-active';
 		}
+                
+                if ( is_plugin_active( 'buddypress-global-search/buddypress-global-search.php' ) ) {
+			$classes[] = 'buddypress-global-search';
+		}
 
 		return $classes;
 	}
