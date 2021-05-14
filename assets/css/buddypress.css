@@ -1812,6 +1812,7 @@ body.buddypress.group-create #page #primary .entry-header {
 #buddypress #header-cover-image {
     height: 300px;
     border-radius: 0;
+    margin-top: -1em;
 }
 
 .users-header #cover-image-container,
