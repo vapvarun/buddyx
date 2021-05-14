@@ -20,7 +20,7 @@
     };
 
     // Header Height
-    BUDDYX.headerHeight = function() {
+    BUDDYX.headerClass = function() {
         var $document = $(document),
             $elementHeader = $('body, .site-header-wrapper'),
             className = 'has-sticky-header';
@@ -275,7 +275,7 @@
 
     $(document).ready(function() {
 
-        BUDDYX.headerHeight();
+        BUDDYX.headerClass();
         BUDDYX.headerSearch();
         BUDDYX.desktopMenuToggle();
         BUDDYX.mobileNav();
@@ -288,7 +288,7 @@
 
     $(window).resize(function() {
         // do stuff
-        BUDDYX.headerHeight();
+        BUDDYX.headerClass();
     });
 
     $(window).scroll(function() {
@@ -297,6 +297,7 @@
     });
 
     $(window).load(function() {
+        BUDDYX.headerClass();
         BUDDYX.siteLoader();
         BUDDYX.stickySidebar();
         BUDDYX.blogLayout();
