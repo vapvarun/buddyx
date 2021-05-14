@@ -21,18 +21,24 @@
 
     // Header Height
     BUDDYX.headerHeight = function() {
-        var header_height = $('.site-header-wrapper').height();
-        $('.site').css("paddingTop", header_height + 12 + "px");
-        $('.page-template-full-width:not(.elementor-editor-active) .site').css("paddingTop", header_height - 10 + "px");
-        $('#cover-image-container').css("marginTop", -header_height + 46 + "px");
-
         var $document = $(document),
-            $elementHeader = $('.site-header-wrapper'),
+            $elementHeader = $('body, .site-header-wrapper'),
             className = 'has-sticky-header';
 
         $document.scroll(function() {
             $elementHeader.toggleClass(className, $document.scrollTop() >= 1);
         });
+    };
+
+    // Header Scroll
+    BUDDYX.headerScroll = function() {
+        var header_height = $('.site-header-wrapper').height();
+
+        if ($('body').hasClass('has-sticky-header')) {
+            $('.site').css("paddingTop", header_height + 10 + "px");
+        } else {
+            $('.site').css("paddingTop", 0 + "px");
+        }
     };
 
     // Header Search
@@ -287,6 +293,7 @@
 
     $(window).scroll(function() {
         // do stuff
+        BUDDYX.headerScroll();
     });
 
     $(window).load(function() {
