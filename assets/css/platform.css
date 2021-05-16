@@ -136,6 +136,23 @@ span.bb-activity-edited-text {
     font-size: 12px;
 }
 
+.activity-list .activity-item .activity-content .activity-inner {
+    padding: 1em;
+    padding-top: 0;
+}
+
+.buddypress-wrap .activity-inner p {
+    padding: 0;
+}
+
+.bb-media-length-1 .bb-activity-media-elem .entry-img {
+    padding-top: 0;
+}
+
+.bb-media-length-1 .bb-activity-media-elem .entry-img img {
+    position: static;
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory
@@ -417,6 +434,11 @@ span.bb-activity-edited-text {
     border: 1px solid #eee !important;
     margin-bottom: 10px;
     padding: 15px;
+}
+
+.buddypress-wrap .standard-form label,
+.buddypress-wrap .standard-form span.label {
+    display: inline-block;
 }
 
 .bb-album-content-wrap h4 {

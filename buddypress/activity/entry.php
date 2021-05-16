@@ -11,12 +11,7 @@
 
 bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
-<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="
-										  <?php
-											if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) {
-												bp_nouveau_edit_activity_data(); }
-											?>
-">
+<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) { bp_nouveau_edit_activity_data(); } ?>">
 
 	<div class="activity-card-head">
 		<h6 class="card-head-content-type">

@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress
 Requires at least: 4.8
-Tested up to: 5.7.0
+Tested up to: 5.7.3
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -98,10 +98,17 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.7.6 =
+* Fix: header glitch on page load
+* Fix: Managed loader text size in mobile view
+* Fix: Managed font family for search and input fields
+* Fix: (#265) Update profile fields checkbox UI and fixes
+* Fix: (#264) Update edit activity with bb platform
+* Improvement: Managed buddypress global search plugin UI
+
 = 3.7.5 =
 * Improvement: (#263) Added single post layouts
 * Fix: Update header.php
-* Fix: Embed have extra white space
 
 = 3.7.4 =
 * Improvement: Update welcome page layout and added extra features

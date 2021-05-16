@@ -32,6 +32,7 @@
     # BuddyPress Create Group Type
     # BuddyPress Member Type
     # BP Idea Stream
+    # BuddyPress Global Search
 --------------------------------------------------------------*/
 
 
@@ -1361,7 +1362,7 @@ body #buddypress .bp-list .activity-comments .action {
 }
 
 .buddypress-wrap .activity-comments .acomment-content p {
-    margin: 0;
+    margin: 5px 0 10px;
 }
 
 #buddypress .activity-list .activity-item .comment-item .activity-meta.action .buddyboss_edit_activity_cancel,
@@ -1811,6 +1812,7 @@ body.buddypress.group-create #page #primary .entry-header {
 #buddypress #header-cover-image {
     height: 300px;
     border-radius: 0;
+    margin-top: -1em;
 }
 
 .users-header #cover-image-container,
@@ -3312,4 +3314,78 @@ body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
 
 .wp-embed-share-tab {
     margin-top: 10px;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Global Search
+--------------------------------------------------------------*/
+
+.search-results.buddypress-global-search form#searchform {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-results.buddypress-global-search .item-list-tabs>ul {
+    border-bottom: 1px solid var(--global-border-color);
+}
+
+.search-results.buddypress-global-search .activity_comment-list .activity-content {
+    margin-left: 65px;
+}
+
+.search-results.buddypress-global-search .activity_comment-list .item-meta {
+    float: none;
+    text-align: left;
+}
+
+.search-results.buddypress-global-search .activity_comment-list .activity-avatar img.avatar {
+    margin-top: 10px;
+}
+
+.search-results.buddypress-global-search #buddypress .results-group .activity-list .activity-content {
+    margin-left: 0;
+}
+
+.search-results.buddypress-global-search .activity-list .item-avatar p {
+    margin: 0;
+}
+
+.search-results.buddypress-global-search .activity-list .activity-avatar img.avatar {
+    margin: 15px;
+}
+
+.search-results.buddypress-global-search .activity-list .activity-content .activity-header {
+    padding: 15px;
+}
+
+.search-results.buddypress-global-search .activity-list.item-list .activity-item .activity-avatar {
+    margin-right: 0;
+}
+
+body.search-results.buddypress-global-search #buddypress .bp-list .activity-comments .acomment-meta p {
+    margin: 0;
+}
+
+body.search-results.buddypress-global-search .bp-list li .item .list-title {
+    margin: 0;
+}
+
+body.search-results.buddypress-global-search .bp-list li .action {
+    text-align: left;
+}
+
+@media (--sidebar-query) {
+    .has-sidebar-right.search-results.buddypress-global-search .site-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .has-sidebar-left.search-results.buddypress-global-search .site-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
 }

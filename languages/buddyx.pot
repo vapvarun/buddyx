@@ -520,83 +520,83 @@ msgstr ""
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:346
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:346
 msgid "Browse:"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:347
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:347
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:348, ../buddyx/inc/Welcome/Component.php:61
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:348, ../buddyx/inc/Welcome/Component.php:61
 msgid "Home"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:349
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:349
 msgid "404 Not Found"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:350
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:350
 msgid "Archives"
 msgstr ""
 
 #. translators: %s is the search query.
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:352
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:352
 msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:354
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:354
 msgid "Page %s"
 msgstr ""
 
 #. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:356
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:356
 msgid "Comment Page %s"
 msgstr ""
 
 #. translators: Minute archive title. %s is the minute time format.
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:358
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:358
 msgid "Minute %s"
 msgstr ""
 
 #. translators: Weekly archive title. %s is the week date format.
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:360
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:360
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:820
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:820
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:837
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:837
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:854
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:854
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:870, ../buddyx/inc/class-buddyx-breadcrubms.php:899, ../buddyx/inc/class-buddyx-breadcrubms.php:926, ../buddyx/inc/class-buddyx-breadcrubms.php:953, ../buddyx/inc/class-buddyx-breadcrubms.php:1293
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:870, ../buddyx/inc/class-buddyx-breadcrumbs.php:899, ../buddyx/inc/class-buddyx-breadcrumbs.php:926, ../buddyx/inc/class-buddyx-breadcrumbs.php:953, ../buddyx/inc/class-buddyx-breadcrumbs.php:1293
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:871, ../buddyx/inc/class-buddyx-breadcrubms.php:927, ../buddyx/inc/class-buddyx-breadcrubms.php:1297
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:871, ../buddyx/inc/class-buddyx-breadcrumbs.php:927, ../buddyx/inc/class-buddyx-breadcrumbs.php:1297
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:872, ../buddyx/inc/class-buddyx-breadcrubms.php:1301
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:872, ../buddyx/inc/class-buddyx-breadcrumbs.php:1301
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrubms.php:900
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:900
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
