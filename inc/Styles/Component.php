@@ -158,6 +158,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'LifterLMS' ) ) {
 			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css');
 		}
+                
+                // Enqueue Dokan CSS
+		if ( class_exists( 'WeDevs_Dokan' ) ) {
+			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css');
+		}
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
