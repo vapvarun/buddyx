@@ -455,7 +455,7 @@ span.bb-activity-edited-text {
 }
 
 .widget.buddypress #groups-list li,
-.elementor-widget-wrap #groups-list li {
+.elementor-widget-wrap .buddypress-wrap:not(.wbcom-groups-grid-widget) #groups-list li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
