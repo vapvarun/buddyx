@@ -732,7 +732,7 @@ class Component implements Component_Interface {
 				'settings'	 => 'site_cart',
 				'label'		 => esc_html__( 'Enable Cart Icon', 'buddyx' ),
 				'section'	 => 'site_header_section',
-				'default'	 => '2',
+				'default'	 => '1',
 				'choices'	 => array(
 					'on'  => esc_html__( 'Enable','buddyx' ),
                                         'off' => esc_html__( 'Disable', 'buddyx' ),
@@ -745,8 +745,23 @@ class Component implements Component_Interface {
 		 */
 		$fields[] = array(
 			'type' => 'switch',
-			'settings'	 => 'site_login_button',
-			'label'		 => esc_html__( 'Enable Login Button', 'buddyx' ),
+			'settings'	 => 'site_login_link',
+			'label'		 => esc_html__( 'Enable Login Link', 'buddyx' ),
+			'section'	 => 'site_header_section',
+			'default'	 => '1',
+                        'choices'	 => array(
+                                'on'  => esc_html__( 'Enable','buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+                        ),
+		);
+                
+                /**
+		 *  Site Register
+		 */
+		$fields[] = array(
+			'type' => 'switch',
+			'settings'	 => 'site_register_link',
+			'label'		 => esc_html__( 'Enable Register Link', 'buddyx' ),
 			'section'	 => 'site_header_section',
 			'default'	 => '1',
                         'choices'	 => array(
