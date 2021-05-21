@@ -180,6 +180,14 @@ button.mfp-arrow {
     margin-bottom: 10px;
 }
 
+.buddyx-dokan #dokan-seller-listing-wrap .dokan-single-seller .store-wrapper .store-header .store-banner {
+    min-height: 245px;
+}
+
+.buddyx-dokan #dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-header .store-banner {
+    min-height: 180px;
+}
+
 
 /*--------------------------------------------------------------
 # Single Store
