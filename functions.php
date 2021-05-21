@@ -191,7 +191,7 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 		$bp_is_directory = false;
 	}
 
-	/* Register page id and buddypress saved register page equal then bp_is_directory set false */
+	/* Register page id and BuddyPress saved register page equal then bp_is_directory set false */
 	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['register'] == $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}
@@ -201,7 +201,7 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 		$bp_is_directory = false;
 	}
 
-	/* Activate page id and buddypress saved activate page equal then bp_is_directory set false */
+	/* Activate page id and BuddyPress saved activate page equal then bp_is_directory set false */
 	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['activate'] == $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}
