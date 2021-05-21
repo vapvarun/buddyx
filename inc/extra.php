@@ -596,25 +596,3 @@ add_action( 'learndash-focus-header-usermenu-after', function( $course_id, $user
     10,
     2
 );
-    
-/**
- * Dokan Review Tab Add Custom Class
- */
-add_action(
-	'woocommerce_before_main_content',
-	function() {
-		if ( get_query_var( 'store_review' ) ) {
-			echo '<div class="dokan-store-wrap layout-left">';
-		}
-	},
-	999
-);
-add_action(
-	'woocommerce_after_main_content',
-	function() {
-		if ( get_query_var( 'store_review' ) ) {
-			echo '</div>';
-		}
-	},
-	999
-);
