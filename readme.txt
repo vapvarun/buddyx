@@ -98,6 +98,10 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.7.7 =
+* Fix: Added Dokan Support
+* Fix: Added Option to hide login and register button on Top
+
 = 3.7.6 =
 * Fix: header glitch on page load
 * Fix: Managed loader text size in mobile view
