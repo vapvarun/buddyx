@@ -235,6 +235,14 @@ button.mfp-arrow {
     margin-top: 0;
 }
 
+.dokan-store-tabs .dokan-live-chat>span {
+    top: 15px !important;
+}
+
+.dokan-live-chat>span {
+    top: 12px !important;
+}
+
 .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a {
     padding: 8px 15px;
 }
@@ -242,6 +250,25 @@ button.mfp-arrow {
 @media (max-width: 480px) {
     .dokan-store-tabs .dokan-right {
         float: none !important;
+    }
+    .buddyx-dokan .dokan-single-store .dokan-store-tabs ul {
+        padding: 15px;
+    }
+    .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li {
+        margin: 0 0 10px;
+        text-align: center;
+        width: 100%;
+        border: 0;
+    }
+    .dokan-single-store .dokan-store-tabs ul li a {
+        background: #f2f2f2;
+    }
+    .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a,
+    .dokan-store-tabs ul li.dokan-share-btn-wrap .dokan-share-btn,
+    .dokan-store-tabs .dokan-live-chat,
+    .dokan-store-tabs .dokan-store-support-btn,
+    .dokan-store-tabs .dokan-follow-store-button {
+        width: 100%;
     }
 }
 

@@ -181,6 +181,7 @@ p:empty::before {
         justify-content: center;
     }
     .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
+    .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .primary-sidebar,
@@ -190,6 +191,7 @@ p:empty::before {
         min-width: 0;
     }
     .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
+    .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-both.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .site-main,
@@ -198,6 +200,7 @@ p:empty::before {
         min-width: 0;
     }
     .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
+    .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .primary-sidebar,
@@ -214,6 +217,7 @@ p:empty::before {
         min-width: 0;
     }
     .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
+    .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-left.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
     .has-bbpress-sidebar-left.bbpress:not(.buddypress) .site-main,
