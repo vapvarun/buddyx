@@ -31,6 +31,11 @@
     padding: 15px 15px 15px 50px !important;
 }
 
+.dokan-alert>p,
+.dokan-alert>ul {
+    margin-top: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Dashboard
@@ -233,6 +238,7 @@ button.mfp-arrow {
 .dokan-store-tabs .dokan-store-support-btn,
 .dokan-store-tabs .dokan-live-chat {
     margin-top: 0;
+    top: 0 !important;
 }
 
 .dokan-store-tabs .dokan-live-chat>span {
@@ -263,7 +269,7 @@ button.mfp-arrow {
     .dokan-single-store .dokan-store-tabs ul li a {
         background: #f2f2f2;
     }
-    .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a,
+    .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a:not(.whatsapp-live-widget),
     .dokan-store-tabs ul li.dokan-share-btn-wrap .dokan-share-btn,
     .dokan-store-tabs .dokan-live-chat,
     .dokan-store-tabs .dokan-store-support-btn,
