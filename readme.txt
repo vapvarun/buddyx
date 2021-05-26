@@ -98,6 +98,18 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.8.0 =
+* Improvement: (#274) Managed dokan whatsapp live chat button UI
+* Improvement: (#274) Dokan checklist fixes
+* Improvement: Added header register link enable/disable setting
+* Improvement: Fixed Register Page template issue with buddyboss and buddypress plugin
+* Improvement: (#272) Managed store listing and single store UI and fixes
+* Improvement: (#272) Added dokan basic support 
+
+= 3.7.7 =
+* Fix: Added Dokan Support
+* Fix: Added Option to hide login and register button on Top
+
 = 3.7.6 =
 * Fix: header glitch on page load
 * Fix: Managed loader text size in mobile view

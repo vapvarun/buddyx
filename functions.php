@@ -175,3 +175,36 @@ function buddyx_woo_dequeue_styles() {
 if ( ! class_exists( 'WooCommerce' ) ) {
 	add_action( 'wp_print_styles', 'buddyx_woo_dequeue_styles' );
 }
+
+
+/*
+ * Return $bp_is_directory false when buddypress register page view.
+ *
+ */
+add_filter( 'bp_nouveau_theme_compat_page_templates_directory_only', 'buddyx_page_templates_directory_only' );
+function buddyx_page_templates_directory_only( $bp_is_directory ) {
+	global $wp_query;
+	$bp_pages = get_option( 'bp-pages' );
+
+	/* Register page id and BuddyBoss saved register page equal then bp_is_directory set false */
+	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && get_the_ID() != 0 && $bp_pages['register'] == get_the_ID() ) {
+		$bp_is_directory = false;
+	}
+
+	/* Register page id and BuddyPress saved register page equal then bp_is_directory set false */
+	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['register'] == $wp_query->queried_object_id ) {
+		$bp_is_directory = false;
+	}
+
+	/* Activate page id and BuddyBoss saved activate page equal then bp_is_directory set false */
+	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && get_the_ID() != 0 && $bp_pages['activate'] == get_the_ID() ) {
+		$bp_is_directory = false;
+	}
+
+	/* Activate page id and BuddyPress saved activate page equal then bp_is_directory set false */
+	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['activate'] == $wp_query->queried_object_id ) {
+		$bp_is_directory = false;
+	}
+
+	return $bp_is_directory;
+}

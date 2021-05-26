@@ -101,13 +101,13 @@ if ( is_user_logged_in() ) {
 		$registration_page_url = get_permalink( $registration_page_id );
 	}
 	?>
-	<?php if ( true == get_theme_mod( 'site_login_button', true ) ) : ?>
+	<?php if ( true == get_theme_mod( 'site_login_link', true ) ) : ?>
 	<div class="bp-icon-wrap">
 	  <a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?></a>
 	</div>
 	<?php endif; ?>
 	<?php
-	if ( get_option( 'users_can_register' ) ) {
+	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
 		?>
 	<div class="bp-icon-wrap">
 	  <a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
