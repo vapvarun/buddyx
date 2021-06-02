@@ -362,3 +362,9 @@ body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-lin
 .dokan-widget-area .widget .store-cat-stack-dokan ul>li ul.children {
     margin-top: 5px;
 }
+
+#dokan-form-contact-seller:after {
+    content: "";
+    display: table;
+    clear: both;
+}

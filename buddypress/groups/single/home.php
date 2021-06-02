@@ -35,8 +35,12 @@ if ( bp_has_groups() ) :
 					</div><!-- #item-body -->
 
 				</div><!-- // .bp-wrap -->
-				<?php if ( get_theme_mod( 'buddypress_sidebar_option' ) == 'right' || get_theme_mod( 'buddypress_sidebar_option' ) == 'both' ) : ?>
-					<?php get_sidebar( 'buddypress' ); ?>
+				<?php if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) : ?>
+					<aside id="secondary" class="primary-sidebar widget-area">
+						<div class="sticky-sidebar">
+							<?php dynamic_sidebar( 'single_group' ); ?>
+						</div>
+					</aside>
 				<?php endif; ?>
 		</div><!-- .site-wrapper -->
 

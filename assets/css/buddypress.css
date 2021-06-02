@@ -33,6 +33,7 @@
     # BuddyPress Member Type
     # BP Idea Stream
     # BuddyPress Global Search
+    # BuddyPress Giphy
 --------------------------------------------------------------*/
 
 
@@ -1567,7 +1568,7 @@ input#rt_media_comment_submit {
 
 /* Grid View */
 
-.buddypress-wrap .grid.bp-list {
+#buddypress.buddypress-wrap .grid.bp-list {
     padding-top: 0;
     display: flex;
     flex-flow: row wrap;
@@ -1795,16 +1796,20 @@ body.buddypress.group-create #page #primary .entry-header {
 }
 
 @media (--sidebar-query) {
-    .has-buddypress-sidebar-right .member-home,
-    .has-buddypress-sidebar-both .member-home,
-    .has-buddypress-sidebar-right .group-home,
-    .has-buddypress-sidebar-both .group-home {
+    .has-single-member-sidebar .member-home,
+    .has-single-group-sidebar .group-home {
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-gap: 2rem;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
+    }
+    .has-buddypress-sidebar-right:not(.has-single-member-sidebar) .member-home,
+    .has-buddypress-sidebar-both:not(.has-single-member-sidebar) .member-home,
+    .has-buddypress-sidebar-right:not(.has-single-group-sidebar) .group-home,
+    .has-buddypress-sidebar-both:not(.has-single-group-sidebar) .group-home {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2654,13 +2659,12 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap span.wb-bp-completed-staus {
-    display: inline-block;
+    display: block;
     font-size: 14px;
     width: 50px;
     height: 26px;
     text-align: center;
     float: right;
-    vertical-align: middle;
     border: 2px solid #4caf50;
     border-radius: 30px;
 }
@@ -2705,9 +2709,15 @@ button#bp-delete-avatar {
 ## GamiPress
 --------------------------------------------------------------*/
 
+.gamipress-buddypress-user-details-activity {
+    margin: 0 15px;
+}
+
 .users-header .gamipress-buddypress-points,
 .users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
-.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.users-header .gamipress-buddypress-user-achievements,
+.users-header .gamipress-buddypress-ranks {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2722,7 +2732,9 @@ button#bp-delete-avatar {
 @media screen and (max-width: 782px) {
     .users-header .gamipress-buddypress-points,
     .users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
-    .users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+    .users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+    .users-header .gamipress-buddypress-user-achievements,
+    .users-header .gamipress-buddypress-ranks {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
@@ -2731,7 +2743,9 @@ button#bp-delete-avatar {
 
 .users-header .center-view .gamipress-buddypress-points,
 .users-header .center-view .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
-.users-header .center-view .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+.users-header .center-view .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.users-header .center-view .gamipress-buddypress-user-achievements,
+.users-header .center-view .gamipress-buddypress-ranks {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -2813,7 +2827,7 @@ body #buddypress #item-header-cover-image span.activity {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    max-width: calc(33.333333% - 10px);
     background-color: #fff;
     border: 1px solid var(--global-border-color);
     border-radius: 4px;
@@ -2824,12 +2838,21 @@ body #buddypress #item-header-cover-image span.activity {
     align-items: flex-start;
 }
 
+@media screen and (min-width: 768px) {
+    .gamipress-columns-2>.gamipress-achievement,
+    .gamipress-columns-2>.gamipress-points,
+    .gamipress-columns-2>.gamipress-points-type,
+    .gamipress-columns-2 .gamipress-rank {
+        width: calc(50% - 10px);
+    }
+}
+
 @media (max-width: 1200px) {
     .gamipress-user-points:not(.gamipress-layout-none) .gamipress-points {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
-        max-width: 50%;
+        max-width: calc(50% - 10px);
         padding: 20px;
     }
 }
@@ -2865,6 +2888,7 @@ body #buddypress #item-header-cover-image span.activity {
 .gamipress-points-types[class*="gamipress-columns"]>.gamipress-points-type,
 .gamipress-ranks-container[class*="gamipress-columns"] .gamipress-rank {
     background: #fff;
+    margin: 5px;
     border: 1px solid var(--global-border-color);
     border-radius: 4px;
 }
@@ -3388,4 +3412,24 @@ body.search-results.buddypress-global-search .bp-list li .action {
         grid-gap: 2rem;
         justify-content: center;
     }
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Giphy
+--------------------------------------------------------------*/
+
+.bp-giphy-html-container,
+.activity-giphy-container {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
+    float: left;
+}
+
+.mce-container button {
+    background: transparent !important;
+    border: 0 !important;
 }
