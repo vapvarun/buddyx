@@ -478,11 +478,11 @@ msgid "Footer"
 msgstr ""
 
 #: ../buddyx/full-width-container.php:3
-msgid "Page-Without-Sidebar"
+msgid "Page No Sidebar"
 msgstr ""
 
 #: ../buddyx/full-width.php:3
-msgid "Full-Width-No-Title"
+msgid "Page Full Screen"
 msgstr ""
 
 #: ../buddyx/functions.php:32
@@ -1712,6 +1712,18 @@ msgstr ""
 
 #: ../buddyx/inc/widgets/bp-profile-completion-widget.php:484
 msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+
+#: ../buddyx/page-both-sidebar.php:3
+msgid "Page Both Sidebar"
+msgstr ""
+
+#: ../buddyx/page-left-sidebar.php:3
+msgid "Page Left Sidebar"
+msgstr ""
+
+#: ../buddyx/page-right-sidebar.php:3
+msgid "Page Right Sidebar"
 msgstr ""
 
 #: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:131
