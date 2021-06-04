@@ -311,7 +311,6 @@ textarea {
 
 /* stylelint-disable */
 
-button:not(.menu-toggle),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -351,7 +350,6 @@ a.read-more.button {
 
 /* stylelint-enable */
 
-button:not(.menu-toggle):hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
