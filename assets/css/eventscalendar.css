@@ -88,7 +88,9 @@
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus,
-.tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover {
+.tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover,
+.tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum,
+.tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum-link {
     color: var(--color-link-active);
 }
 
@@ -129,7 +131,8 @@
 .tribe-events .datepicker .year.active:hover,
 .widget .tribe-events .tribe-events-calendar-month__day-cell--selected,
 .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus,
-.widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover {
+.widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover,
+.tribe-events-pro.tribe-events-view--week .datepicker .day.current:before {
     background: var(--color-link-active);
 }
 
