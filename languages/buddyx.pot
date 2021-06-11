@@ -1152,7 +1152,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:319
+#: ../buddyx/inc/Styles/Component.php:324
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
