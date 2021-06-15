@@ -233,6 +233,19 @@ p:empty::before {
     .site-footer {
         grid-column: span 2;
     }
+    /* BuddyPress Sidebar */
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .site-wrapper {
+        grid-template-columns: 3fr 260px !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-right .site-wrapper {
+        grid-template-columns: 260px 3fr !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .site-main {
+        grid-column: 1 !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .primary-sidebar {
+        grid-column: 2 !important;
+    }
     /* Page Templates */
     .page-template-page-left-sidebar .site-wrapper {
         display: grid;
