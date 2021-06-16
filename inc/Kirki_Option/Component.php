@@ -1244,6 +1244,7 @@ class Component implements Component_Interface {
 		);
 
 		if ( function_exists('bp_is_active') ) {
+                    if ( ! class_exists( 'Youzify' ) ) {
 			$fields[] = array(
 				'type'     => 'radio-image',
 				'settings' => 'buddypress_sidebar_option',
@@ -1288,6 +1289,7 @@ class Component implements Component_Interface {
                                         'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
                                 ),
                         );
+                    }
 		}
 
 		if ( function_exists('is_bbpress') ) {
