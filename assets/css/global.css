@@ -753,8 +753,13 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         right: 0;
         margin: 0;
         padding: 0;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        outline: 0;
+        background-color: var(--button_background_color);
+        border: 1px solid var(--button_border_color);
+        border-radius: 3px;
     }
     .buddyx-mobile-menu .dropdown-toggle:after {
         content: "\f107";
