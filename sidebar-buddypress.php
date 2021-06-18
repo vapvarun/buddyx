@@ -9,10 +9,6 @@
 
 namespace BuddyX\Buddyx;
 
-if ( ! buddyx()->is_buddypress_right_sidebar_active() ) {
-	return;
-}
-
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 global $bp;
 $buddypress_sidebar         = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
