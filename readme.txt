@@ -98,6 +98,15 @@ Released under the MIT license
 
 == Changelog ==
 
+= 3.9.0 =
+* Improvement: (#276) Update community pages sidebar structure and UI
+* Fix: Update mobile menu dropdown toggle button UI
+* Fix: (#282) Youzify specific fixes
+* Fix: (#273) Removed fatal error with WPML plugin
+* Fix: (#280) Managed bb platform profile completion widget UI
+* Fix: (#278) Added the events calendar basic support
+
+
 = 3.8.0 =
 * Improvement: (#274) Managed dokan whatsapp live chat button UI
 * Improvement: (#274) Dokan checklist fixes
