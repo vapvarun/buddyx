@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full-Width-No-Title
+ * Template Name: Page Full Screen
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *

@@ -131,7 +131,7 @@ class Component implements Component_Interface {
 	 * @param WP_Post $item The current menu item.
 	 * @return array Modified HTML attributes
 	 */
-	public function filter_nav_menu_link_attributes_aria_current( array $atts, WP_Post $item ) : array {
+	public function filter_nav_menu_link_attributes_aria_current( array $atts, $item ) : array {
 		if ( isset( $item->current ) ) {
 			if ( $item->current ) {
 				$atts['aria-current'] = 'page';

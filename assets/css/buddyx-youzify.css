@@ -1,0 +1,429 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Global
+# BuddyPress Profile Completion
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
+
+body.youzify-active .youzify-scrolltotop {
+    display: none;
+}
+
+body.youzify-active .site-footer {
+    margin-top: 0;
+}
+
+body.youzify-active #youzify .youzify-page {
+    width: 100vw;
+    margin-left: -50vw;
+    left: 50%;
+}
+
+body.youzify-active .youzify-global-wall .youzify-page-main-content,
+body.youzify-active .youzify-content main.youzify-page-main-content,
+body.youzify-active .youzify-profile-header .youzify-inner-content,
+body.youzify-active #youzify-profile-navmenu .youzify-inner-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.uk-option-button,
+.youzify-panel-subtabs .youzify-panel-subtab-label,
+.youzify-vertical-tab .youzify-vtab-title,
+.ukai-panel .uk-option-item .option-title,
+#youzify_networks .youzify-network-item .youzify-network-name,
+.ukai-panel .uk-box-title h2,
+.uk-panel-message .uk-msg-text,
+.uk-option-item .option-desc,
+.youzify-hidden-wg h3:after,
+.youzify-md-actions button,
+.youzify-cs-buttons button,
+.option-content label,
+.ukai-panel-title h2,
+.uk-responsive-menu,
+.ukai-copyright a,
+.ukai-copyright p,
+p.youzify-no-content,
+.youzify-md-content,
+.youzify-cs-title,
+.youzify-ad-title,
+.youzify-md-title,
+.uk-popup,
+.uk-msg-head h3,
+.youzify-save-options,
+.youzify_msg span,
+.youzify-reset-options,
+.uk-panel-msg .uk-msg-content p,
+.uk-upload-photo .uk-upload-button,
+.youzify .uk-upload-photo .uk-upload-button,
+.youzify-main-content .wp-picker-container .wp-picker-clear,
+.youzify-main-content .wp-picker-container .wp-color-picker,
+.youzify .wp-picker-container input[type=text].wp-color-picker,
+.wp-picker-container input[type=text].wp-color-picker,
+#youzify .youzify-directory-filter .item-list-tabs li select,
+#youzify-directory-search-box form input[type=submit],
+#youzify-directory-search-box form input[type=text],
+#youzify-groups-list .action a,
+#youzify-groups-list .item .item-meta span,
+#youzify-groups-list .item .item-title a,
+#youzify-members-list .youzify-fullname,
+#youzify-members-list .youzify-name,
+#youzify-members-list .youzify-user-actions a {
+    font-family: inherit;
+}
+
+#youzify .option-content input:not([type=radio]):not(.uk-upload-button):not(.wp-color-picker):not(.wp-picker-clear),
+#youzify .editfield input:not([type=radio]):not([type=checkbox]),
+.settings-inner-content .options-section-title h2,
+.youzify .option-content input:not([type=radio]),
+.youzify-settings-sidebar .youzify-account-menus ul li a,
+.youzify-cphoto-options .youzify-upload-photo,
+.youzify-settings-sidebar .youzify-account-menus h2,
+.youzify .option-content textarea,
+.youzify .option-content select,
+.uk-option-item .option-desc,
+.youzify-uploader-change-item h2,
+.youzify-account-header ul li a,
+.youzify .action-button,
+.youzify-account-head span,
+.uk-option-item label,
+.youzify-account-head h2,
+.youzify-account-item-button,
+.youzify-no-content,
+#group-settings-form textarea,
+#send-invite-form .submit input,
+#group-settings-form input[type="submit"],
+.group-members #search-members-form label input,
+.group-members #search-members-form #members_search_submit,
+#group-settings-form .youzify-group-field-item input[type=text],
+.youzify-group-manage-members-search #search-members-form #members_search,
+.youzify-group-manage-members-search #members_search_submit,
+.youzify-head-content .youzify-head-meta,
+.youzify-user-statistics li h3,
+.youzify-head-content h2,
+.youzify-usermeta li span,
+.youzify-head-content h3,
+.youzify-account-menu a,
+.youzify-author-infos p,
+.youzify-name h2,
+.youzify-membership,
+.youzify-membership-form .youzify-membership-form-cover .form-cover-title,
+.youzify-membership-form-item .youzify-membership-item-content label,
+.youzify-membership-form-item .youzify-membership-item-content input,
+.youzify-membership-social-buttons .youzify-membership-social-title,
+.youzify-membership-form .youzify-membership-form-message p,
+.youzify-membership-social-buttons li a,
+.youzify-membership-form-actions button,
+.youzify-membership-form .youzify-membership-form-desc,
+.youzify-membership-form .form-title h2,
+.youzify-membership-forgot-password,
+.youzify-membership-link-button,
+.youzify-membership-form-note,
+#youzify_membership_signup_form .current-visibility-level,
+#youzify_membership_signup_form fieldset legend,
+.youzify-user-balance-box .youzify-user-points-slash,
+.youzify-tab-title-box .youzify-tab-title-content h2,
+.youzify-recent-posts .youzify-post-head .youzify-post-title a,
+.youzify-wg-networks.youzify-icons-full-width li a,
+.youzify-tab-comment .youzify-comment-excerpt p,
+.youzify-profile-navmenu .youzify-navbar-item a,
+.youzify-project-content .youzify-project-title,
+.youzify-tab-comment .youzify-comment-fullname,
+.youzify-post-plus4imgs .youzify-post-imgs-nbr,
+.youzify-recent-posts .youzify-post-meta ul li,
+.youzify-post-content .youzify-post-title a,
+.youzify-tab-comment .youzify-comment-title,
+.youzify-tab-post .youzify-post-meta ul li,
+.youzify-form .youzify-form-message p,
+.youzify-infos-content ul li strong,
+.youzify-video-head .youzify-video-title,
+.youzify-video-head .youzify-video-desc,
+.youzify-tab-post .youzify-post-title a,
+.youzify-quote-content blockquote,
+.youzify-tab-post .youzify-post-text p,
+.youzify-widget .youzify-widget-title,
+.youzify-box-head .youzify-box-title,
+.youzify .youzify-link-content p,
+.pagination .page-numbers,
+.youzify-infos-content ul li p,
+.youzify-aboutme-description,
+.youzify-info-msg p strong,
+.lb-data .lb-caption,
+.lb-data .lb-number,
+.youzify-profile-login,
+.youzify_msg span,
+.youzify-aboutme-name,
+.youzify-project-type,
+.youzify-quote-owner,
+.youzify-box-404 h2,
+.youzify-info-msg p,
+.youzify-post-type,
+.youzify-skillbar-title,
+.youzify-skill-bar-percent,
+.youzify-box-404 p,
+.youzify-item-title,
+#youzify-not-friend-message p,
+#message-recipients .highlight h2,
+.youzify-msg-form-item textarea,
+#send-reply #send_reply_button,
+#sitewide-notice #message button,
+.youzify-msg-form-item input[type="text"]:not(.search),
+.youzify-msg-form-item .emojionearea .emojionearea-editor,
+.item-list-tabs #search-message-form #messages_search,
+.item-list-tabs #search-message-form #messages_search_submit,
+.youzify-wall-actions .youzify-update-post,
+#youzify-wall-form .youzify-wall-cf-item .youzify-cf-option-title,
+#youzify-wall-modal,
+.atwho-container .atwho-view ul li span.username,
+.atwho-container .atwho-view small,
+.dropdown-menu[data-strategy='youzify_mentions'] li span.username,
+.dropdown-menu[data-strategy='youzify_mentions'] small,
+#youzify div.item-list-tabs .youzify-activity-search input,
+#youzify .youzify .youzify-wc-main-content form .form-row input.input-text,
+#youzify .youzify .youzify-wc-main-content form .form-row textarea,
+body .youzify,
+body .youzify h3,
+body #youzify input,
+body .youzify input,
+body .youzify button,
+.youzify a,
+.youzify p,
+.youzify input,
+.youzify-wp-widget,
+.youzify select,
+.youzify-dialog,
+.youzify textarea,
+#youzify div textarea,
+.youzify a.button,
+#sitewide-notice,
+.youzify-tooltip:after,
+.widget.buddypress,
+.youzify-dialog-desc,
+.youzify-items-list-widget,
+.youzify-modal-actions a,
+.youzify-modal-actions button,
+.youzify-my-account-widget,
+[data-youzify-tooltip]:after,
+.youzify-tool-btn .youzify-tool-name,
+.widget_bp_groups_widget .item-options a,
+.widget_bp_core_members_widget .item-options a,
+.widget_bp_core_sitewide_messages .bp-site-wide-message button,
+#message p code,
+#youzify-modal,
+#youzify-modal .youzify-modal,
+#youzify-live-notifications .youzify-notif-item .youzify-notif-desc,
+#youzify-live-notifications .youzify-notif-item .youzify-notif-time {
+    font-family: inherit;
+}
+
+.youzify .uk-option-item input::-webkit-input-placeholder,
+.youzify .uk-option-item input::-moz-placeholder,
+.youzify .uk-option-item input:-moz-placeholder,
+.youzify .option-option input::-ms-input-placeholder,
+.youzify .uk-option-item textarea::-webkit-input-placeholder,
+.youzify .uk-option-item textarea:-moz-placeholder,
+.youzify .uk-option-item textarea::-moz-placeholder,
+.youzify .option-option textarea::-ms-input-placeholder,
+.group-members #search-members-form label input::-webkit-input-placeholder,
+.group-members #search-members-form label input:-moz-placeholder,
+.group-members #search-members-form label input::-moz-placeholder,
+.group-members #search-members-form label input:-ms-input-placeholder,
+.group-members #search-members-form label input::-ms-input-placeholder,
+.youzify-group-manage-members-search #search-members-form #members_search::-webkit-input-placeholder,
+.youzify-group-manage-members-search #search-members-form #members_search:-moz-placeholder,
+.youzify-group-manage-members-search #search-members-form #members_search::-moz-placeholder,
+.youzify-group-manage-members-search #search-members-form #members_search:-ms-input-placeholder,
+.youzify-group-manage-members-search #search-members-form #members_search::-ms-input-placeholder,
+.youzify-membership-form-item .youzify-membership-item-content input::-webkit-input-placeholder,
+.youzify-membership-form-item .youzify-membership-item-content input::-moz-placeholder,
+.youzify-membership-form-item .youzify-membership-item-content input::-ms-input-placeholder,
+.item-list-tabs #search-message-form #messages_search::-webkit-input-placeholder,
+.item-list-tabs #search-message-form #messages_search:-moz-placeholder,
+.item-list-tabs #search-message-form #messages_search::-moz-placeholder,
+.item-list-tabs #search-message-form #messages_search:-ms-input-placeholder,
+.item-list-tabs #search-message-form #messages_search::-ms-input-placeholder,
+.youzify textarea::placeholder,
+.youzify ::-webkit-input-placeholder,
+.youzify ::-moz-placeholder,
+.youzify :-ms-input-placeholder,
+.youzify :-moz-placeholder {
+    font-family: inherit;
+}
+
+body.youzify-active button.youzify-responsive-menu {
+    border: 0;
+    display: none;
+    border-radius: 0;
+}
+
+body.youzify-active button.youzify-responsive-menu:hover,
+body.youzify-active button.youzify-responsive-menu:focus {
+    border: 0;
+    border-radius: 0;
+}
+
+@media screen and (max-width: 768px) {
+    body.youzify-active button.youzify-responsive-menu {
+        display: block;
+    }
+}
+
+body.youzify-active .widget.buddypress.widget_bp_core_members_widget div.item-options a,
+body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options a {
+    color: #fff!important;
+    font-size: 10px;
+    box-shadow: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    text-shadow: none;
+    margin: 10px 8px 0 0;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: .05em;
+    border: none!important;
+    background-color: #898989;
+    text-transform: uppercase;
+}
+
+body.youzify-active .footer-widget .buddypress.widget .item-list,
+body.youzify-active .footer-widget .buddypress.widget .item-options {
+    padding: 0 !important;
+}
+
+body.youzify-active .widget_archive li,
+body.youzify-active .widget_categories li,
+body.youzify-active .widget_meta li,
+body.youzify-active .widget_nav_menu li a,
+body.youzify-active .widget_pages li a {
+    margin-bottom: 0;
+    color: #8a8a8a;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 15px 25px;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Profile Completion
+--------------------------------------------------------------*/
+
+body.youzify-active .widget_bp_profile_completion_widget .widget-title::before {
+    content: "\f2bd";
+}
+
+body.youzify-active .wb-bp-profile-completion-wrap {
+    padding: 1em;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-user-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-user-avatar img {
+    width: 50px;
+    height: 51px;
+    max-width: 50px;
+    border-radius: 50% !important;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-progress-label {
+    margin-left: 12px;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-progress-label span {
+    display: block;
+    line-height: 1.1;
+}
+
+.wb-bp-profile-completion-wrap span.wb-bp-completion {
+    color: #121212;
+    font-size: 32px;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-progress-wrap .wb-bp-progress-container {
+    border-radius: 12px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-progress-container .wb-bp-progress {
+    height: 3px;
+    background-color: #4caf50;
+    border-radius: 12px !important;
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
+}
+
+.wb-bp-profile-completion-wrap .wb-bp-detailed-progress-container {
+    margin-top: 30px;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap span.wb-bp-completed-staus {
+    display: block;
+    font-size: 14px;
+    width: 50px;
+    height: 26px;
+    text-align: center;
+    float: right;
+    border: 2px solid #4caf50;
+    border-radius: 30px;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.incomplete span.wb-bp-completed-staus {
+    border: 2px solid red;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap span.wb-bp-section-number {
+    text-indent: -9999px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 100px;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: relative;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number:before {
+    content: "";
+    display: inline-block;
+    font-size: 14px;
+    position: absolute;
+    top: 1px;
+    left: 6px;
+    height: 15px;
+    width: 9px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    transform: rotate(45deg);
+}

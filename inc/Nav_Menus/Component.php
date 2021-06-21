@@ -96,7 +96,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param object  $args        An object of wp_nav_menu() arguments.
 	 * @return string Modified nav menu HTML.
 	 */
-	public function filter_primary_nav_menu_dropdown_symbol( string $item_output, WP_Post $item, int $depth, $args ) : string {
+	public function filter_primary_nav_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
 
 		// Only for our primary menu location.
 		if ( empty( $args->theme_location ) || static::PRIMARY_NAV_MENU_SLUG !== $args->theme_location ) {

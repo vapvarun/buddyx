@@ -163,6 +163,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css');
 		}
+                
+                // Enqueue EventsCalendar CSS
+		if ( class_exists( 'Tribe__Events__Main' ) ) {
+			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css');
+		}
+                
+                // Enqueue Youzify CSS
+		if ( class_exists( 'Youzify' ) ) {
+			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css');
+		}
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {

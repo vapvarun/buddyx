@@ -83,7 +83,13 @@ if ( bp_is_group() ) {
 							</div>
 						</div><!-- #item-body -->
 					</div><!-- // .bp-wrap -->
-					<?php get_sidebar( 'buddypress' ); ?>
+					<?php if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) : ?>
+						<aside id="secondary" class="primary-sidebar widget-area">
+							<div class="sticky-sidebar">
+								<?php dynamic_sidebar( 'single_group' ); ?>
+							</div>
+						</aside>
+					<?php endif; ?>
 				</div><!-- // .ite-wrapper -->
 		
 			<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
@@ -142,7 +148,13 @@ if ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) ) {
 			</div><!-- .item-body-inner-wrapper -->
 		</div><!-- #item-body -->
 		</div><!-- // .bp-wrap -->
-		<?php get_sidebar( 'buddypress' ); ?>
+		<?php if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) : ?>
+			<aside id="secondary" class="primary-sidebar widget-area">
+				<div class="sticky-sidebar">
+					<?php dynamic_sidebar( 'single_member' ); ?>
+				</div>
+			</aside>
+		<?php endif; ?>
 	</div><!-- .site-wrapper -->
 
 <?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>

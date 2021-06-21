@@ -21,7 +21,6 @@
 # Site Sub Header Layout
 # Site Single Blog Layout
 # Site Text Editor
-# Youzify Support
 # WP Idea Stream
 --------------------------------------------------------------*/
 
@@ -154,7 +153,7 @@ p:empty::before {
     .has-bbpress-sidebar-right.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-right .site-wrapper {
         display: grid;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 3fr 260px;
         grid-gap: 2rem;
         justify-content: center;
     }
@@ -165,7 +164,7 @@ p:empty::before {
     .has-bbpress-sidebar-left.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-left .site-wrapper {
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 260px 3fr;
         grid-gap: 2rem;
         justify-content: center;
     }
@@ -176,7 +175,7 @@ p:empty::before {
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-both .site-wrapper {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 260px 2fr 260px;
         grid-gap: 1.5rem;
         justify-content: center;
     }
@@ -234,6 +233,54 @@ p:empty::before {
     .site-footer {
         grid-column: span 2;
     }
+    /* BuddyPress Sidebar */
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .site-wrapper {
+        grid-template-columns: 3fr 260px !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-right .site-wrapper {
+        grid-template-columns: 260px 3fr !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .site-main {
+        grid-column: 1 !important;
+    }
+    .has-buddypress-sidebar-both.has-no-buddypress-sidebar-left .primary-sidebar {
+        grid-column: 2 !important;
+    }
+    /* Page Templates */
+    .page-template-page-left-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 3fr !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .page-template-page-left-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .page-template-page-right-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 260px !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .page-template-page-right-sidebar .site-main {
+        grid-column: 1 !important;
+        min-width: 0;
+    }
+    .page-template-page-both-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 2fr 260px !important;
+        grid-gap: 1.5rem;
+        justify-content: center;
+    }
+    .page-template-page-both-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .page-template-page-both-sidebar .primary-sidebar {
+        grid-column: 3 !important;
+        min-width: 0;
+    }
 }
 
 @media screen and (max-width: 60em) {
@@ -276,7 +323,6 @@ textarea {
 
 /* stylelint-disable */
 
-button:not(.menu-toggle),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -316,7 +362,6 @@ a.read-more.button {
 
 /* stylelint-enable */
 
-button:not(.menu-toggle):hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
@@ -708,8 +753,13 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         right: 0;
         margin: 0;
         padding: 0;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        outline: 0;
+        background-color: var(--button_background_color);
+        border: 1px solid var(--button_border_color);
+        border-radius: 3px;
     }
     .buddyx-mobile-menu .dropdown-toggle:after {
         content: "\f107";
@@ -1895,77 +1945,6 @@ button.media-menu-item {
 .media-router .media-menu-item:hover {
     background: 0 0 !important;
     border: 0 !important;
-}
-
-
-/*--------------------------------------------------------------
-# Youzify Support
---------------------------------------------------------------*/
-
-body.youzify-active #youzify .youzify-page {
-    width: 100vw;
-    margin-left: -50vw;
-    left: 50%;
-}
-
-body.youzify-active .youzify-global-wall .youzify-page-main-content,
-body.youzify-active .youzify-content main.youzify-page-main-content,
-body.youzify-active .youzify-profile-header .youzify-inner-content,
-body.youzify-active #youzify-profile-navmenu .youzify-inner-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-body.youzify-active button.youzify-responsive-menu {
-    border: 0;
-    display: none;
-    border-radius: 0;
-}
-
-body.youzify-active button.youzify-responsive-menu:hover,
-body.youzify-active button.youzify-responsive-menu:focus {
-    border: 0;
-    border-radius: 0;
-}
-
-@media screen and (max-width: 768px) {
-    body.youzify-active button.youzify-responsive-menu {
-        display: block;
-    }
-}
-
-body.youzify-active .widget.buddypress.widget_bp_core_members_widget div.item-options a,
-body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options a {
-    color: #fff!important;
-    font-size: 10px;
-    box-shadow: none;
-    font-weight: 600;
-    padding: 6px 12px;
-    text-shadow: none;
-    margin: 10px 8px 0 0;
-    display: inline-block;
-    text-decoration: none;
-    letter-spacing: .05em;
-    border: none!important;
-    background-color: #898989;
-    text-transform: uppercase;
-}
-
-body.youzify-active .footer-widget .buddypress.widget .item-list,
-body.youzify-active .footer-widget .buddypress.widget .item-options {
-    padding: 0 !important;
-}
-
-body.youzify-active .widget_archive li,
-body.youzify-active .widget_categories li,
-body.youzify-active .widget_meta li,
-body.youzify-active .widget_nav_menu li a,
-body.youzify-active .widget_pages li a {
-    margin-bottom: 0;
-    color: #8a8a8a;
-    font-size: 13px;
-    line-height: 24px;
-    padding: 15px 25px;
 }
 
 

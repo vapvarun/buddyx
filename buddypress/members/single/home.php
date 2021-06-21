@@ -29,8 +29,12 @@
 
 			</div><!-- #item-body -->
 		</div><!-- // .bp-wrap -->
-		<?php if ( get_theme_mod( 'buddypress_sidebar_option' ) == 'right' || get_theme_mod( 'buddypress_sidebar_option' ) == 'both' ) : ?>
-			<?php get_sidebar( 'buddypress' ); ?> 
+		<?php if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) : ?>
+			<aside id="secondary" class="primary-sidebar widget-area">
+				<div class="sticky-sidebar">
+					<?php dynamic_sidebar( 'single_member' ); ?>
+				</div>
+			</aside>
 		<?php endif; ?>
 	</div><!-- .site-wrapper -->
 

@@ -18,6 +18,8 @@ function buddyx_defaults( $key = '' ) {
 	// site sidebar
 	$defaults['sidebar-option']             = 'right';
 	$defaults['buddypress-sidebar-option']  = 'both';
+        $defaults['buddypress-members-sidebar-option'] = 'right';
+	$defaults['buddypress-groups-sidebar-option']  = 'right';
 	$defaults['bbpress-sidebar-option']     = 'right';
 	$defaults['woocommerce-sidebar-option'] = 'right';
 

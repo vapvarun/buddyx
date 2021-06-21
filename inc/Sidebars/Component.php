@@ -31,6 +31,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	const RIGHT_SIDEBAR_SLUG = 'sidebar-right';
 	const BUDDYPRESS_LEFT_SIDEBAR_SLUG = 'buddypress-sidebar-left';
 	const BUDDYPRESS_RIGHT_SIDEBAR_SLUG = 'buddypress-sidebar-right';
+
+	const BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG = 'buddypress-members-sidebar-right';
+	const BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG = 'buddypress-groups-sidebar-right';
+
 	const BBPRESS_LEFT_SIDEBAR_SLUG = 'bbpress-sidebar-left';
 	const BBPRESS_RIGHT_SIDEBAR_SLUG = 'bbpress-sidebar-right';
 	const WOOCOMMERCE_LEFT_SIDEBAR_SLUG  = 'woocommerce-sidebar-left';
@@ -71,6 +75,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'is_buddypress_left_sidebar_active'  => [ $this, 'is_buddypress_left_sidebar_active' ],
 			'display_buddypress_right_sidebar'    => [ $this, 'display_buddypress_right_sidebar' ],
 			'is_buddypress_right_sidebar_active'  => [ $this, 'is_buddypress_right_sidebar_active' ],
+
+			'display_buddypress_members_right_sidebar'    => [ $this, 'display_buddypress_members_right_sidebar' ],
+			'is_buddypress_members_right_sidebar_active'  => [ $this, 'is_buddypress_members_right_sidebar_active' ],
+
+			'display_buddypress_groups_right_sidebar'    => [ $this, 'display_buddypress_groups_right_sidebar' ],
+			'is_buddypress_groups_right_sidebar_active'  => [ $this, 'is_buddypress_groups_right_sidebar_active' ],
 
 			'display_bbpress_left_sidebar'    => [ $this, 'display_bbpress_left_sidebar' ],
 			'is_bbpress_left_sidebar_active'  => [ $this, 'is_bbpress_left_sidebar_active' ],
@@ -113,31 +123,79 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 
 		if ( function_exists('bp_is_active') ) {
-                    if ( ! class_exists( 'Youzify' ) ) {
-			register_sidebar(
-				[
-					'name'          => esc_html__( 'BuddyPress Left Sidebar', 'buddyx' ),
-					'id'            => static::BUDDYPRESS_LEFT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				]
-			);
+			if ( ! class_exists( 'Youzify' ) ) {
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Community &rarr; Left Sidebar', 'buddyx' ),
+						'id'            => static::BUDDYPRESS_LEFT_SIDEBAR_SLUG,
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
 
-			register_sidebar(
-				[
-					'name'          => esc_html__( 'BuddyPress Right Sidebar', 'buddyx' ),
-					'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				]
-			);
-                    }
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Activity &rarr; Directory Right Sidebar', 'buddyx' ),
+						'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
+
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Members &rarr; Directory Right Sidebar', 'buddyx' ),
+						'id'            => static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG,
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
+
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Groups &rarr; Directory Right Sidebar', 'buddyx' ),
+						'id'            => static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG,
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
+
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Members &rarr; Single Profile Sidebar', 'buddyx' ),
+						'id'            => 'single_member',
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
+
+				register_sidebar(
+					[
+						'name'          => esc_html__( 'Groups &rarr; Single Group Sidebar', 'buddyx' ),
+						'id'            => 'single_group',
+						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+						'before_widget' => '<section id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</section>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					]
+				);
+			}
 		}
 
 		if ( function_exists('is_bbpress') ) {
@@ -273,25 +331,134 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		//Buddypress
 		if ( class_exists( 'BuddyPress' ) ) {
 			if ( bp_current_component() ) {
+				global $bp;
 				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
+				$buddypress_members_sidebar = get_theme_mod( 'buddypress_members_sidebar_option', buddyx_defaults( 'buddypress-members-sidebar-option' ) );
+				$buddypress_groups_sidebar = get_theme_mod( 'buddypress_groups_sidebar_option', buddyx_defaults( 'buddypress-groups-sidebar-option' ) );
 
 				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'left' ) {
 					global $template;
 
 					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-						$classes[] = 'has-buddypress-sidebar-left';
+						if ( bp_is_current_component( 'activity' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-left';
+						}
 					}
 				} elseif ( $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'right' ) {
 					global $template;
 
 					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-						$classes[] = 'has-buddypress-sidebar-right';
+						if ( bp_is_current_component( 'activity' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-right';
+						}
 					}
-				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' ) {
+				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
 					global $template;
 
 					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-						$classes[] = 'has-buddypress-sidebar-both';
+						if ( bp_is_current_component( 'activity' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+						}
+					}
+				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'both' && ! $this->is_buddypress_right_sidebar_active() ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'activity' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+						}
+					}
+				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'activity' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both';
+						}
+					}
+				}
+
+				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'left' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'members' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-left';
+						}
+					}
+				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'right' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'members' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-right';
+						}
+					}
+				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'members' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+						}
+					}
+				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'both' && ! $this->is_buddypress_members_right_sidebar_active() ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'members' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+						}
+					}
+				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'members' ) && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both';
+						}
+					}
+				}
+
+				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'left' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'groups' ) && !bp_is_group() && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-left';
+						}
+					}
+				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'right' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'groups' ) && !bp_is_group() && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-right';
+						}
+					}
+				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'groups' ) && !bp_is_group() && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+						}
+					}
+				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'both' && ! $this->is_buddypress_groups_right_sidebar_active() ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'groups' ) && !bp_is_group() && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+						}
+					}
+				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_is_current_component( 'groups' ) && !bp_is_group() && !bp_is_user() ) {
+							$classes[] = 'has-buddypress-sidebar-both';
+						}
 					}
 				}
 			}
@@ -348,19 +515,34 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				}
 			}
 		}
-                
-                if ( class_exists( 'Youzify' ) ) {
-			$classes[] = 'youzify-active';
+
+		if ( class_exists( 'Youzify' ) ) {
+			if ( bp_current_component() ) {
+				$classes[] = 'youzify-active';
+			}
 		}
-                
-                if ( is_plugin_active( 'buddypress-global-search/buddypress-global-search.php' ) ) {
+
+		if ( is_plugin_active( 'buddypress-global-search/buddypress-global-search.php' ) ) {
 			$classes[] = 'buddypress-global-search';
 		}
-                
-                // Dokan Class
+
+		// Dokan Class
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			$classes[] = 'buddyx-dokan';
 		}
+
+		// Single Member Sidebar
+		if ( class_exists( 'BuddyPress' ) ) {
+			if ( is_active_sidebar('single_member') && bp_is_user() && !bp_is_user_settings() && !bp_is_user_messages() && !bp_is_user_notifications() && !bp_is_user_profile_edit() && !bp_is_user_change_avatar() && !bp_is_user_change_cover_image() && !bp_is_user_front() ) {
+				$classes[] = 'has-single-member-sidebar';
+			}
+
+			// Single Group Sidebar
+			if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) {
+				$classes[] = 'has-single-group-sidebar';
+			}
+		}
+
 
 		return $classes;
 	}
@@ -427,6 +609,38 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function display_buddypress_right_sidebar() {
 		dynamic_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the buddypress members right sidebar is active.
+	 *
+	 * @return bool True if the buddypress members right sidebar is active, false otherwise.
+	 */
+	public function is_buddypress_members_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the buddypress members right sidebar.
+	 */
+	public function display_buddypress_members_right_sidebar() {
+		dynamic_sidebar( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the buddypress groups right sidebar is active.
+	 *
+	 * @return bool True if the buddypress groups right sidebar is active, false otherwise.
+	 */
+	public function is_buddypress_groups_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the buddypress groups right sidebar.
+	 */
+	public function display_buddypress_groups_right_sidebar() {
+		dynamic_sidebar( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
