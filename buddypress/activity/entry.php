@@ -35,6 +35,7 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
                     <?php bp_activity_action(); ?>
 
+                                <?php if ( function_exists('BuddyPress') && isset(buddypress()->buddyboss ) ) { ?>
                                 <p class="activity-date">
                                         <a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>"><?php echo bp_core_time_since( bp_get_activity_date_recorded() ); ?></a>
                                         <?php
@@ -43,6 +44,7 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
                                         }
                                         ?>
                                 </p>
+                                <?php } ?>
 
                                 <?php
                                 if ( function_exists( 'bp_nouveau_activity_privacy' ) ) {

@@ -1122,12 +1122,7 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
 }
 
 .activity-list .activity-item .activity-header .activity-time-since {
-    display: none;
-}
-
-.activity-list .activity-item .activity-header p.activity-date {
-    display: inline-block;
-    font-size: 14px;
+    display: block;
 }
 
 .activity-list .activity-item .activity-content .activity-inner,
