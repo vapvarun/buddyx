@@ -97,6 +97,8 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 3.9.1 =
+* Fix: Update Activity Privacy alignment with timestamp
 
 = 3.9.0 =
 * Improvement: (#276) Update community pages sidebar structure and UI
@@ -113,7 +115,7 @@ Released under the MIT license
 * Improvement: Added header register link enable/disable setting
 * Improvement: Fixed Register Page template issue with buddyboss and buddypress plugin
 * Improvement: (#272) Managed store listing and single store UI and fixes
-* Improvement: (#272) Added dokan basic support 
+* Improvement: (#272) Added dokan basic support
 
 = 3.7.7 =
 * Fix: Added Dokan Support
