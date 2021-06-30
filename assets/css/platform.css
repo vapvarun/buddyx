@@ -127,10 +127,29 @@ img.emojioneemoji {
     margin: 0 15px 15px;
 }
 
+.activity-list .activity-item .activity-header .activity-time-since,
+.activity-item .activity-header .activity-time-since {
+    display: none;
+}
+
+.activity-list .activity-item .activity-header p.activity-date {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.bb-media-privacy-wrap:before {
+    content: '\00b7';
+    display: inline-block;
+    margin: 0 4px;
+}
+
 .bb-media-privacy-wrap .privacy:before {
     content: "\e960";
     font-family: bb-icons;
-    font-size: 12px;
+}
+
+.bb-media-privacy-wrap .activity-privacy {
+    left: -5px;
 }
 
 span.bb-activity-edited-text {

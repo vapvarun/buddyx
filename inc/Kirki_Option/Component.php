@@ -1248,7 +1248,7 @@ class Component implements Component_Interface {
 			$fields[] = array(
 				'type'     => 'radio-image',
 				'settings' => 'buddypress_sidebar_option',
-				'label'    => esc_html__( 'BuddyPress Sidebar Layout', 'buddyx' ),
+				'label'    => esc_html__( 'Activity Directory Sidebar Layout', 'buddyx' ),
 				'section'  => 'site_sidebar_layout',
 				'priority' => 10,
 				'default'  => 'both',
