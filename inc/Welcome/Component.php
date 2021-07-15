@@ -64,7 +64,7 @@ class Component implements Component_Interface {
 					</div>
 					<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab1', 'buddyx' ); ?>">
 						<div class="buddyx-home-banner">
-							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/buddyx-free.jpg' );?>" class="size-medium_large" alt="<?php esc_attr_e( 'Thank You', 'buddyx' );?>" />
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-free.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'Thank You', 'buddyx' ); ?>" />
 						</div>
 						<div class="buddyx-home-body">
 
@@ -77,7 +77,7 @@ class Component implements Component_Interface {
 								</div>
 
 								<div class="buddyx-col">
-									<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/knowledge-base-min.png' );?>" alt="<?php esc_attr_e( 'Knowledge Base', 'buddyx' );?>" />
+									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/knowledge-base-min.png' ); ?>" alt="<?php esc_attr_e( 'Knowledge Base', 'buddyx' ); ?>" />
 								</div>
 							</div><!-- .knowledge-base -->
 
@@ -117,13 +117,13 @@ class Component implements Component_Interface {
 							<div class="buddyx-row">
 								<div class="buddyx-col">
 									<a href="<?php echo esc_url( 'https://www.youtube.com/watch?v=Ztogq3dx4-E&feature=youtu.be' ); ?>" class="buddyx-feature-sub-title-a" target="_blank">
-										<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/theme-install-video-v-min.jpg' );?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e('BuddyX Demo installation','buddyx');?>" />
+										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/theme-install-video-v-min.jpg' ); ?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e( 'BuddyX Demo installation', 'buddyx' ); ?>" />
 										<h4 class="buddyx-feature-sub-title"><?php esc_html_e( 'BuddyX Demo installation', 'buddyx' ); ?></h4>
 									</a>
 								</div>
 								<div class="buddyx-col">
 									<a href="<?php echo esc_url( 'https://www.youtube.com/watch?v=i51CikDsbeg&feature=youtu.be' ); ?>" class="buddyx-feature-sub-title-a" target="_blank">
-										<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/theme-options-v-min.jpg' );?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e('BuddyX Customizer Option','buddyx');?>" />
+										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/theme-options-v-min.jpg' ); ?>" class="ha-img-fluid ha-rounded" alt="<?php esc_attr_e( 'BuddyX Customizer Option', 'buddyx' ); ?>" />
 										<h4 class="buddyx-feature-sub-title"><?php esc_html_e( 'BuddyX Customizer Option', 'buddyx' ); ?></h4>
 									</a>
 								</div>
@@ -158,29 +158,29 @@ class Component implements Component_Interface {
 
 							<div class="buddyx-row support">
 								<div class="buddyx-col">
-									<div class="buddyx-title-icon"><span class="dashicons dashicons-email"></span></div>
-									<h3 class="buddyx-feature-title"><?php esc_html_e( 'Support', 'buddyx' ); ?></h3>
-									<p class="buddyx-faq-content"><?php esc_html_e( 'Submit your tickets to get solutions from our WordPress experts within the next 24 hours.', 'buddyx' ); ?></p>
-									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>"><?php esc_html_e( 'Create Ticket', 'buddyx' ); ?></a>
+									<div class="buddyx-title-icon"><span class="dashicons dashicons-star-filled"></span></div>
+									<h3 class="buddyx-feature-title"><?php esc_html_e( 'Rate Us', 'buddyx' ); ?></h3>
+									<p class="buddyx-faq-content"><?php esc_html_e( 'Never underestimate your rate! Your 5 star rate will encourage us so much!', 'buddyx' ); ?></p>
+									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post' ); ?>"><?php esc_html_e( 'Rate Us ★★★★★', 'buddyx' ); ?></a>
 								</div>
 
 								<div class="buddyx-col">
 									<div class="buddyx-title-icon"><span class="dashicons dashicons-phone"></span></div>
 									<h4 class="buddyx-feature-title"><?php esc_html_e( 'Help Desk Hours', 'buddyx' ); ?></h3>
 									<p class="buddyx-faq-content"><?php esc_html_e( 'Days: Monday-Friday', 'buddyx' ); ?></br>
-										<?php esc_html_e( 'Time: 10AM – 7PM GMT', 'buddyx' ); ?></br>
+										<?php esc_html_e( 'Time: 10AM – 7PM IST', 'buddyx' ); ?></br>
 										<?php esc_html_e( 'Inquiries received after the working hours or on weekends will be addressed on the next working day.', 'buddyx' ); ?></p>
 									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://support.wbcomdesigns.com/portal/home' ); ?>"><?php esc_html_e( 'Start Chat', 'buddyx' ); ?></a>
+									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>"><?php esc_html_e( 'Create Ticket', 'buddyx' ); ?></a>
 								</div>
 							</div><!-- .support -->
-							
 
 						</div><!-- .buddyx-home-body -->
 
 					</div><!-- .tab1 -->
 					<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab2', 'buddyx' ); ?>" hidden>
 						<div class="buddyx-home-banner">
-							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/buddyx-paid.jpg' );?>" class="size-medium_large" alt="<?php esc_attr_e('Thank You','buddyx');?>" />
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-paid.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'Thank You', 'buddyx' ); ?>" />
 						</div>
 
 						<div class="buddyx-text-center">
@@ -588,14 +588,14 @@ class Component implements Component_Interface {
 
 						<div class="buddyx-text-center">
 							<h3 class="buddyx-feature-title"><?php esc_html_e( 'Get Pro and Experience all those exciting features', 'buddyx' ); ?></h3>
-							<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>"><?php esc_html_e('Get Pro','buddyx' ); ?></a>
+							<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>"><?php esc_html_e( 'Get Pro', 'buddyx' ); ?></a>
 						</div><!-- .video-tutorial button-->
 
 					</div><!-- .tab2 -->
 
 					<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
 						<div class="buddyx-home-banner">
-							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/buddyx-addons.jpg' );?>" class="size-medium_large" alt="<?php esc_attr_e('Thank You','buddyx');?>" />
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-addons.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'Thank You', 'buddyx' ); ?>" />
 						</div>
 
 							<div class="buddyx-row community-addons">
@@ -682,5 +682,6 @@ class Component implements Component_Interface {
 			</div><!-- .buddyx-dashboard-tabs -->
 		</div><!-- .wrap -->
 		
-	<?php }
+		<?php
+	}
 }

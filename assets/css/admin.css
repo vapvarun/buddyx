@@ -120,6 +120,9 @@ h2.buddyx-feature-title {
         margin: 50px 0;
         align-items: center;
     }
+    .buddyx-row.support {
+        align-items: flex-start;
+    }
 }
 
 .buddyx-title-icon {
@@ -184,6 +187,10 @@ h2.buddyx-feature-title {
 .buddyx-btn-primary {
     background: #ef5455;
     color: #fff;
+}
+
+.buddyx-row.support .buddyx-btn-primary {
+    margin: 0 10px 10px 0;
 }
 
 .buddyx-btn-primary:focus,

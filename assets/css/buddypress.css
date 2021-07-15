@@ -16,6 +16,7 @@
 # Group Single
 # BuddyPress Sidebar
 # BuddyPress Profile Completion
+# BuddyPress Profile Edit Avatar / Cover
 # Extra Plugin Support
     # GamiPress
     # myCred
@@ -56,8 +57,8 @@
     display: none;
 }
 
-body.activity .entry-content {
-    margin-top: 1em;
+body.bp-nouveau .entry-content {
+    margin-top: 0;
 }
 
 .buddypress .entry-footer {
@@ -1817,7 +1818,6 @@ body.buddypress.group-create #page #primary .entry-header {
 #buddypress #header-cover-image {
     height: 300px;
     border-radius: 0;
-    margin-top: -1em;
 }
 
 .users-header #cover-image-container,
@@ -2024,6 +2024,8 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 
 @media screen and (max-width: 782px) {
     #buddypress #item-header-cover-image #item-header-avatar img.avatar {
+        float: none;
+        margin: auto;
         margin-bottom: 15px;
     }
     #buddypress div#item-header #item-header-cover-image #item-header-content {
@@ -2702,6 +2704,90 @@ button#bp-delete-avatar {
     border-bottom: 3px solid white;
     border-right: 3px solid white;
     transform: rotate(45deg);
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Profile Edit Avatar / Cover
+--------------------------------------------------------------*/
+
+#item-header-cover-image #item-header-avatar {
+    position: relative;
+}
+
+#item-header a.link-change-cover-image,
+#item-header a.position-change-cover-image,
+#item-header a.link-change-profile-image {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 12px;
+    top: 12px;
+    z-index: 3;
+    opacity: 0;
+    transition: all 0.2s;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+#item-header a.link-change-cover-image>i,
+#item-header a.position-change-cover-image>i,
+#item-header a.link-change-profile-image>i {
+    font-size: 16px;
+}
+
+#item-header a.position-change-cover-image {
+    top: 55px;
+    display: none;
+}
+
+@media screen and (min-width: 1220px) {
+    #buddypress #item-header a.position-change-cover-image {
+        display: flex;
+    }
+    #buddypress #item-header .header-cover-img {
+        display: block;
+    }
+    #buddypress #item-header #header-cover-image.has-cover-image {
+        background-image: none;
+    }
+}
+
+#item-header-avatar a.link-change-profile-image {
+    top: 50px;
+    left: 50%;
+    margin-left: -15px;
+}
+
+#header-cover-image:hover a.link-change-cover-image,
+#item-header-avatar:hover a.link-change-profile-image,
+#header-cover-image:hover a.position-change-cover-image {
+    opacity: 1;
+}
+
+#header-cover-image:hover a.link-change-cover-image .bp-tooltip:after {
+    left: 100px;
+    right: auto;
+    margin-top: 3px;
+    top: 0;
+    transform: translate(-50%, 0);
+}
+
+
+/* Tooltip */
+
+[data-bp-tooltip][data-bp-tooltip-pos="right"]:after {
+    left: 100%;
+    margin-left: 11px;
+    top: 50%;
+    transform: translate(-10px, -50%);
 }
 
 
