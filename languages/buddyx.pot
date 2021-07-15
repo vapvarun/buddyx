@@ -17,23 +17,55 @@ msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#: ../buddyx/buddypress/groups/groups-loop.php:55, ../buddyx/buddypress/groups/single/cover-image-header.php:39
+#: ../buddyx/buddypress/groups/groups-loop.php:55, ../buddyx/buddypress/groups/single/cover-image-header.php:103
 msgid "active %s"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:55
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:41, ../buddyx/buddypress/members/single/cover-image-header.php:42
+msgid "Change Cover Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:55, ../buddyx/buddypress/members/single/cover-image-header.php:56
+msgid "Reposition Cover Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:59, ../buddyx/buddypress/members/single/cover-image-header.php:60
+msgid "Cancel"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:60, ../buddyx/buddypress/members/single/cover-image-header.php:61
+msgid "Save Changes"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:61, ../buddyx/buddypress/members/single/cover-image-header.php:62
+msgid "Drag to move cover photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:62, ../buddyx/buddypress/members/single/cover-image-header.php:63
+msgid "Cover photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76
+msgid "Change Group Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:119
 msgid "Group Types"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:56
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:120
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:59
+#: ../buddyx/buddypress/members/single/cover-image-header.php:75
+msgid "Change Profile Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:123
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:60
+#: ../buddyx/buddypress/members/single/cover-image-header.php:124
 msgid "Member Type"
 msgstr ""
 
@@ -1287,15 +1319,15 @@ msgid "Free or pro version, both comes with excellent support from us. However, 
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:162
-msgid "Support"
+msgid "Rate Us"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:163
-msgid "Submit your tickets to get solutions from our WordPress experts within the next 24 hours."
+msgid "Never underestimate your rate! Your 5 star rate will encourage us so much!"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:164
-msgid "Create Ticket"
+msgid "Rate Us ★★★★★"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:169
@@ -1307,7 +1339,7 @@ msgid "Days: Monday-Friday"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:171
-msgid "Time: 10AM – 7PM GMT"
+msgid "Time: 10AM – 7PM IST"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:172
@@ -1316,6 +1348,10 @@ msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:173
 msgid "Start Chat"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:174
+msgid "Create Ticket"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:181
