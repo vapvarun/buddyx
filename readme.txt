@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 3.9.2 =
+* Improvement: Added Change Avatars and Covers edits links on Members & Groups headers
+
 = 3.9.1 =
 * Fix: Update Activity Privacy alignment with timestamp
 
