@@ -75,13 +75,6 @@ function buddyx_register_required_plugins() {
 			'required' => false,
 		),
 
-		// BuddyPress Plugin
-		array(
-			'name'     => 'BuddyPress',
-			'slug'     => 'buddypress',
-			'required' => false,
-		),
-
 	);
 
 	/*
