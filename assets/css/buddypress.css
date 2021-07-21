@@ -1,12 +1,6 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Imports
-	# Custom properties
-	# Reset
-	# Typography
-	# Elements
-	# Links
 # Global Buddypress CSS
 # rtMedia Specific
 # Activity Directory
@@ -37,17 +31,6 @@
     # BuddyPress Giphy
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-# Imports
---------------------------------------------------------------*/
-
-@import "_custom-properties.css";
-@import "_reset.css";
-@import "_typography.css";
-@import "_elements.css";
-@import "_links.css";
-@import "_grid.css";
 
 /*--------------------------------------------------------------
 # Global Buddypress Css

@@ -54,6 +54,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 ?>
 
 <div class="entry-meta">
+	<div class="entry-meta__content">
 	<?php
 	if ( ! empty( $author_string ) ) {
 		?>
@@ -61,16 +62,16 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			<?php
 			/* translators: %s: post author */
 			if ( class_exists( 'BuddyPress' ) ) {
-				echo get_avatar( get_the_author_meta( 'user_email' ), '26' );
-				printf( _x( 'by %s', 'post author', 'buddyx' ), bp_core_get_userlink( $post->post_author ) );
-			} else {
-				echo get_avatar( get_the_author_meta( 'user_email' ), $size = '26' );
-				$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+				echo get_avatar( get_the_author_meta( 'user_email' ), '38' );
+				printf( _x( 'Written by %s', 'post author', 'buddyx' ), bp_core_get_userlink( $post->post_author ) );
+			}else {
+				echo get_avatar( get_the_author_meta('user_email'), $size = '38');
+				$author_byline = _x( 'Written by  %s', 'post author', 'buddyx' );
 			}
 			if ( ! empty( $time_string ) ) {
 				/* translators: %s: post author */
 				if ( ! class_exists( 'BuddyPress' ) ) {
-					$author_byline = _x( 'by %s', 'post author', 'buddyx' );
+					$author_byline = _x( 'Written by %s', 'post author', 'buddyx' );
 				}
 			}
 			if ( ! class_exists( 'BuddyPress' ) ) {
@@ -109,14 +110,16 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			<?php
 			printf(
 				/* translators: %s: post date */
-				esc_html_x( ': %s', 'post date', 'buddyx' ),
+				esc_html_x( '%s', 'post date', 'buddyx' ),
 				$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 			?>
 		</span>
 		<?php
-	}
-	buddyx_posted_on();
+	}?>
+	</div><!-- .entry-meta__content -->
+	<?php
+	edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
 	?>
 </div><!-- .entry-meta -->
 <?php

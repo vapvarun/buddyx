@@ -47,6 +47,12 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes.
 	 */
 	public function action_add_image_sizes() {
-		add_image_size( 'buddyx-featured', 720, 480 );
+		add_image_size( 'buddyx-featured', 900, 515, true );
+		add_image_size( 'buddyx-thumbnail', 150, 150, true );
+        add_image_size( 'buddyx-medium', 300, 300, true );
+        add_image_size( 'buddyx-large', 1024, 508, true );
+        add_image_size( 'buddyx-list', 300, 250, true );     
+        add_image_size( 'buddyx-col-two', 450, 300, true );
+        add_image_size( 'buddyx-col-three', 350, 250, true );
 	}
 }
