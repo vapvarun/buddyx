@@ -97,6 +97,24 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.0.0 =
+* New Feature: Post Format - Gallery
+* New Feature: Post Format - Link 
+* New Feature: Post Format - Image
+* New Feature: Post Format - Quote
+* New Feature: Post Format - Video
+* New Feature: Post Format - Audio
+* New Feature: 4 Single Blog Template
+* New Feature: 4 Blog Archive Template
+* New Feature: Mobile Panel updates with User Menu and Primary Menu
+* Improvement: Message and Cart icon in mobile view on Top Bar
+* Improvement: removed lazy load from the theme for better support for cache plugins
+* Improvement: Added image sizes based on template files to serve sized images
+* Improvement: Managed activity edit and delete actions button with bb platform
+* Improvement: Managed moderation report with bb platform
+* Fix: Widget location renamed to support WP 5.8
+
+
 = 3.9.2 =
 * Improvement: Added Change Avatars and Covers edits links on Members & Groups headers
 
