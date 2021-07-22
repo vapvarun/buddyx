@@ -28,6 +28,30 @@ if ( is_singular( get_post_type() ) ) {
 	</div><!-- .post-thumbnail -->
 	<?php
 } else {
+
+		$post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layout-option' ) );
+
+	if ( $post_layout == 'grid-layout' ) {
+			$blog_grid_columns = get_theme_mod( 'blog_grid_columns', buddyx_defaults( 'blog-grid-columns' ) );
+		if ( $blog_grid_columns == 'two-column' ) {
+				$thumbnail_size = 'buddyx-col-two';
+		} else {
+				$thumbnail_size = 'buddyx-featured';
+		}
+	} elseif ( $post_layout == 'masonry-layout' ) {
+			$post_per_row = get_theme_mod( 'post_per_row', buddyx_defaults( 'post-per-row' ) );
+
+		if ( $post_per_row == 'buddyx-masonry-2' ) {
+				$thumbnail_size = 'buddyx-col-two';
+		} else {
+				$thumbnail_size = 'buddyx-col-three';
+		}
+	} elseif ( $post_layout == 'list-layout' ) {
+			$thumbnail_size = 'buddyx-list';
+	} else {
+			$thumbnail_size = 'buddyx-large';
+	}
+
 	?>
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php

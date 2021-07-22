@@ -16,36 +16,42 @@ function buddyx_defaults( $key = '' ) {
 	$defaults['site-cart'] = '1';
 
 	// site sidebar
-	$defaults['sidebar-option']             = 'right';
-	$defaults['buddypress-sidebar-option']  = 'both';
-        $defaults['buddypress-members-sidebar-option'] = 'right';
+	$defaults['sidebar-option']                    = 'right';
+	$defaults['buddypress-sidebar-option']         = 'both';
+	$defaults['buddypress-members-sidebar-option'] = 'right';
 	$defaults['buddypress-groups-sidebar-option']  = 'right';
-	$defaults['bbpress-sidebar-option']     = 'right';
-	$defaults['woocommerce-sidebar-option'] = 'right';
+	$defaults['bbpress-sidebar-option']            = 'right';
+	$defaults['woocommerce-sidebar-option']        = 'right';
 
 	// sticky sidebar
 	$defaults['sticky-sidebar'] = '1';
-        
-        // site breadcrumbs
-        $defaults[ 'site-breadcrumbs' ] = 'on';
+
+	// site breadcrumbs
+	$defaults['site-breadcrumbs'] = 'on';
 
 	// blog layout option
 	$defaults['blog-layout-option'] = 'default-layout';
-         
-        // single blog layout option
-        $defaults[ 'single-post-layout' ] = '1';
 
-        // single blog breadcrumbs
-        $defaults[ 'single-post-breadcrumbs' ] = 'on';
+	// blog image position
+	$defaults['blog-image-position'] = 'thumb-left';
 
-        // single blog meta
-        $defaults[ 'single-post-meta' ] = 'on';
+	// blog grid columns
+	$defaults['blog-grid-columns'] = 'one-column';
 
-        // single blog categories
-        $defaults[ 'single-post-categories' ] = 'on';
+	// single post blog layout option
+	$defaults['single-post-sidebar-option'] = 'none';
+
+	// blog masonry view
+	$defaults['blog-masonry-view'] = 'without-masonry';
 
 	// post per view
-	$defaults['post-per-row'] = '3';
+	$defaults['post-per-row'] = 'buddyx-masonry-2';
+
+	// single post content width
+	$defaults['single-post-content-width'] = 'small';
+
+	// single post title layout
+	$defaults['single-post-title-layout'] = 'buddyx-section-title-above';
 
 	if ( ! empty( $key ) && array_key_exists( $key, $defaults ) ) {
 		return $defaults[ $key ];

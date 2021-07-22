@@ -32,26 +32,26 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'customize_register', array( $this, 'add_panels_and_sections' ) );
 		add_filter( 'kirki/fields', array( $this, 'add_fields' ) );
-		add_filter( 'body_class', [ $this, 'site_width_body_classes' ] );
-		add_filter( 'body_class', [ $this, 'site_sticky_sidebar_body_classes' ] );
-                add_filter( 'body_class', [ $this, 'site_single_blog_post_body_classes' ] );
-                if ( class_exists( 'SFWD_LMS' ) ) {
-                    add_filter('body_class', [$this, 'site_learndash_body_classes']);
-                }
+		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
+		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
+				add_filter( 'body_class', array( $this, 'site_single_blog_post_body_classes' ) );
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			add_filter( 'body_class', array( $this, 'site_learndash_body_classes' ) );
+		}
 	}
 
-        /**
-	 * Site layout body class.
-	 */
+		/**
+		 * Site layout body class.
+		 */
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
 	}
 
-        /**
-	 * Site sticky sidebar body class.
-	 */
+		/**
+		 * Site sticky sidebar body class.
+		 */
 	public function site_sticky_sidebar_body_classes( array $classes ) : array {
 
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
@@ -61,10 +61,10 @@ class Component implements Component_Interface {
 
 		return $classes;
 	}
-        
-        /**
-	 * Site single blog post body class.
-	 */
+
+		/**
+		 * Site single blog post body class.
+		 */
 	public function site_single_blog_post_body_classes( array $classes ) : array {
 
 		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
@@ -81,17 +81,17 @@ class Component implements Component_Interface {
 
 		return $classes;
 	}
-        
-        /**
-	 * LearnDash dark mode body class.
-	 */
-        public function site_learndash_body_classes(array $classes): array {
-                if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] &&  is_user_logged_in() ) {
-                    $classes[] = 'buddyx-dark-theme';
-                }
 
-                return $classes;
-        }
+		/**
+		 * LearnDash dark mode body class.
+		 */
+	public function site_learndash_body_classes( array $classes ): array {
+		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] && is_user_logged_in() ) {
+			$classes[] = 'buddyx-dark-theme';
+		}
+
+			return $classes;
+	}
 
 	/**
 	 * Add Customizer Section
@@ -113,7 +113,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'site_layout_panel',
+				'panel'       => 'site_layout_panel',
 			)
 		);
 
@@ -124,20 +124,20 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'site_layout_panel',
+				'panel'       => 'site_layout_panel',
 			)
 		);
 
 		// Page Mapping
-        $wp_customize->add_section(
-            'page_mapping',
-            [
-                'title' => esc_html__('Page Mapping', 'buddyx'),
-                'priority' => 10,
-                'description' => '',
-                'panel' => 'site_layout_panel',
-            ]
-        );
+		$wp_customize->add_section(
+			'page_mapping',
+			array(
+				'title'       => esc_html__( 'Page Mapping', 'buddyx' ),
+				'priority'    => 10,
+				'description' => '',
+				'panel'       => 'site_layout_panel',
+			)
+		);
 
 		// Typography
 		$wp_customize->add_panel(
@@ -155,7 +155,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Site Title', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'typography_panel',
+				'panel'       => 'typography_panel',
 			)
 		);
 
@@ -165,7 +165,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Headings', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'typography_panel',
+				'panel'       => 'typography_panel',
 			)
 		);
 
@@ -175,7 +175,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Menu', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'typography_panel',
+				'panel'       => 'typography_panel',
 			)
 		);
 
@@ -185,7 +185,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Body', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'typography_panel',
+				'panel'       => 'typography_panel',
 			)
 		);
 
@@ -255,7 +255,7 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Footer Section', 'buddyx' ),
 				'priority'    => 10,
 				'description' => '',
-				'panel' => 'site_footer_panel',
+				'panel'       => 'site_footer_panel',
 			)
 		);
 
@@ -266,11 +266,11 @@ class Component implements Component_Interface {
 				'title'       => esc_html__( 'Copyright Section', 'buddyx' ),
 				'priority'    => 11,
 				'description' => '',
-				'panel' => 'site_footer_panel',
+				'panel'       => 'site_footer_panel',
 			)
 		);
 	}
-	
+
 	public function add_fields( $fields ) {
 		/**
 		 *  Site Layout
@@ -282,29 +282,29 @@ class Component implements Component_Interface {
 			'section'  => 'site_layout',
 			'priority' => 10,
 			'default'  => 'wide',
-			'choices'  => [
+			'choices'  => array(
 				'boxed' => get_template_directory_uri() . '/assets/images/boxed.png',
 				'wide'  => get_template_directory_uri() . '/assets/images/wide.png',
-			],
+			),
 		);
 
 		/**
 		 *  Site Container Width
 		 */
 		$fields[] = array(
-			'type'			 => 'dimension',
-			'settings'		 => 'site_container_width',
-			'label'			 => esc_html__( 'Max Content Layout Width', 'buddyx' ),
-			'description'	 => esc_html__( 'Select the maximum content width for your website (px)', 'buddyx' ),
-			'section'		 => 'site_layout',
-			'default'		 => '1170px',
-			'priority'		 => 10,
-			'transport'		 => 'auto',
-			'output'		 => array(
+			'type'        => 'dimension',
+			'settings'    => 'site_container_width',
+			'label'       => esc_html__( 'Max Content Layout Width', 'buddyx' ),
+			'description' => esc_html__( 'Select the maximum content width for your website (px)', 'buddyx' ),
+			'section'     => 'site_layout',
+			'default'     => '1170px',
+			'priority'    => 10,
+			'transport'   => 'auto',
+			'output'      => array(
 				array(
-					'element'	 => '.container',
-					'function'	 => 'css',
-					'property'	 => 'max-width',
+					'element'  => '.container',
+					'function' => 'css',
+					'property' => 'max-width',
 				),
 			),
 		);
@@ -313,81 +313,85 @@ class Component implements Component_Interface {
 		 *  Site Loader
 		 */
 		$fields[] = array(
-			'type' => 'switch',
-			'settings'	 => 'site_loader',
-			'label'		 => esc_html__( 'Site Loader ?', 'buddyx' ),
-			'section'	 => 'site_loader',
-			'default'	 => '2',
-			'choices'	 => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
+			'type'     => 'switch',
+			'settings' => 'site_loader',
+			'label'    => esc_html__( 'Site Loader ?', 'buddyx' ),
+			'section'  => 'site_loader',
+			'default'  => '2',
+			'choices'  => array(
+				'on'  => esc_html__( 'Enable', 'buddyx' ),
 				'off' => esc_html__( 'Disable', 'buddyx' ),
 			),
 		);
 
 		$fields[] = array(
-			'type' => 'color',
-			'settings'	 => 'site_loader_bg',
-			'label'		 => esc_html__( 'Site Loader Background', 'buddyx' ),
-			'section'	 => 'site_loader',
-			'default'	 => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
+			'type'            => 'color',
+			'settings'        => 'site_loader_bg',
+			'label'           => esc_html__( 'Site Loader Background', 'buddyx' ),
+			'section'         => 'site_loader',
+			'default'         => '#ef5455',
+			'choices'         => array( 'alpha' => true ),
+			'priority'        => 10,
+			'output'          => array(
 				array(
-					'element' => '.site-loader',
+					'element'  => '.site-loader',
 					'property' => 'background-color',
 				),
 			),
-			'active_callback'	 => array(
-				array( 'setting' => 'site_loader', 'operator' => '==', 'value' => '1' ),
-			)
+			'active_callback' => array(
+				array(
+					'setting'  => 'site_loader',
+					'operator' => '==',
+					'value'    => '1',
+				),
+			),
 		);
 
 		/*
-         *  Page Mapping
-         */
-        $fields[] = array(
-            'type'			 => 'dropdown-pages',
-            'settings'		 => 'buddyx_login_page',
-            'label'			 => esc_attr__( 'Login Page', 'buddyx' ),
-            'description'	 => esc_attr__( 'You can redirect user to custom login page.', 'buddyx' ),
-            'section'		 => 'page_mapping',
-            'priority'		 => 10,
-            'default'		 => 0,
-            'placeholder'	 => '--- Select a Page ---',
-        );
+		 *  Page Mapping
+		 */
+		$fields[] = array(
+			'type'        => 'dropdown-pages',
+			'settings'    => 'buddyx_login_page',
+			'label'       => esc_attr__( 'Login Page', 'buddyx' ),
+			'description' => esc_attr__( 'You can redirect user to custom login page.', 'buddyx' ),
+			'section'     => 'page_mapping',
+			'priority'    => 10,
+			'default'     => 0,
+			'placeholder' => '--- Select a Page ---',
+		);
 
-        $fields[] = array(
-            'type'			 => 'dropdown-pages',
-            'settings'		 => 'buddyx_registration_page',
-            'label'			 => esc_attr__( 'Registration Page', 'buddyx' ),
-            'description'	 => esc_attr__( 'You can redirect user to custom registration page.', 'buddyx' ),
-            'section'		 => 'page_mapping',
-            'priority'		 => 10,
-            'default'		 => 0,
-            'placeholder'	 => '--- Select a Page ---',
-        );
+		$fields[] = array(
+			'type'        => 'dropdown-pages',
+			'settings'    => 'buddyx_registration_page',
+			'label'       => esc_attr__( 'Registration Page', 'buddyx' ),
+			'description' => esc_attr__( 'You can redirect user to custom registration page.', 'buddyx' ),
+			'section'     => 'page_mapping',
+			'priority'    => 10,
+			'default'     => 0,
+			'placeholder' => '--- Select a Page ---',
+		);
 
-        $fields[] = array(
-            'type'			 => 'dropdown-pages',
-            'settings'		 => 'buddyx_404_page',
-            'label'			 => esc_attr__( '404', 'buddyx' ),
-            'description'	 => esc_attr__( 'You can redirect user to custom 404 page.', 'buddyx' ),
-            'section'		 => 'page_mapping',
-            'priority'		 => 10,
-            'default'		 => 0,
-            'placeholder'	 => '--- Select a Page ---',
-        );
+		$fields[] = array(
+			'type'        => 'dropdown-pages',
+			'settings'    => 'buddyx_404_page',
+			'label'       => esc_attr__( '404', 'buddyx' ),
+			'description' => esc_attr__( 'You can redirect user to custom 404 page.', 'buddyx' ),
+			'section'     => 'page_mapping',
+			'priority'    => 10,
+			'default'     => 0,
+			'placeholder' => '--- Select a Page ---',
+		);
 
 		/**
 		 *  Site Title Typography
 		 */
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_title_typography_option',
-			'label'       => esc_html__( 'Site Title Settings', 'buddyx' ),
-			'section'     => 'site_title_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'site_title_typography_option',
+			'label'    => esc_html__( 'Site Title Settings', 'buddyx' ),
+			'section'  => 'site_title_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '600',
 				'font-size'      => '38px',
@@ -397,8 +401,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => '.site-title a',
 				),
@@ -406,27 +410,27 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_title_hover_color',
-			'label'       => esc_html__( 'Site Title Hover Color', 'buddyx' ),
-			'section'     => 'site_title_typography_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
+			'type'     => 'color',
+			'settings' => 'site_title_hover_color',
+			'label'    => esc_html__( 'Site Title Hover Color', 'buddyx' ),
+			'section'  => 'site_title_typography_section',
+			'default'  => '#ef5455',
+			'choices'  => array( 'alpha' => true ),
+			'priority' => 10,
+			'output'   => array(
 				array(
-					'element' => '.site-title a:hover',
+					'element'  => '.site-title a:hover',
 					'property' => 'color',
 				),
 			),
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_tagline_typography_option',
-			'label'       => esc_html__( 'Site Tagline Settings', 'buddyx' ),
-			'section'     => 'site_title_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'site_tagline_typography_option',
+			'label'    => esc_html__( 'Site Tagline Settings', 'buddyx' ),
+			'section'  => 'site_title_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => 'regular',
 				'font-size'      => '14px',
@@ -436,8 +440,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => '.site-description',
 				),
@@ -448,11 +452,11 @@ class Component implements Component_Interface {
 		 *  Headings Typography
 		 */
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h1_typography_option',
-			'label'       => esc_html__( 'H1 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h1_typography_option',
+			'label'    => esc_html__( 'H1 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '30px',
@@ -462,8 +466,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h1, body.buddypress article.page>.entry-header .entry-title',
 				),
@@ -471,11 +475,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h2_typography_option',
-			'label'       => esc_html__( 'H2 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h2_typography_option',
+			'label'    => esc_html__( 'H2 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '24px',
@@ -485,8 +489,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h2',
 				),
@@ -494,11 +498,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h3_typography_option',
-			'label'       => esc_html__( 'H3 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h3_typography_option',
+			'label'    => esc_html__( 'H3 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '22px',
@@ -508,8 +512,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h3',
 				),
@@ -517,11 +521,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h4_typography_option',
-			'label'       => esc_html__( 'H4 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h4_typography_option',
+			'label'    => esc_html__( 'H4 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '20px',
@@ -531,8 +535,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h4',
 				),
@@ -540,11 +544,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h5_typography_option',
-			'label'       => esc_html__( 'H5 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h5_typography_option',
+			'label'    => esc_html__( 'H5 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '18px',
@@ -554,8 +558,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h5',
 				),
@@ -563,11 +567,11 @@ class Component implements Component_Interface {
 		);
 
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'h6_typography_option',
-			'label'       => esc_html__( 'H6 Tag Settings', 'buddyx' ),
-			'section'     => 'headings_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'h6_typography_option',
+			'label'    => esc_html__( 'H6 Tag Settings', 'buddyx' ),
+			'section'  => 'headings_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '16px',
@@ -577,8 +581,8 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => '',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => 'h6',
 				),
@@ -589,11 +593,11 @@ class Component implements Component_Interface {
 		 *  Menu Typography
 		 */
 		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'menu_typography_option',
-			'label'       => esc_html__( 'Menu Settings', 'buddyx' ),
-			'section'     => 'menu_typography_section',
-			'default'     => array(
+			'type'     => 'typography',
+			'settings' => 'menu_typography_option',
+			'label'    => esc_html__( 'Menu Settings', 'buddyx' ),
+			'section'  => 'menu_typography_section',
+			'default'  => array(
 				'font-family'    => 'Open Sans',
 				'variant'        => '500',
 				'font-size'      => '14px',
@@ -603,276 +607,302 @@ class Component implements Component_Interface {
 				'text-transform' => 'none',
 				'text-align'     => 'left',
 			),
-			'priority'    => 10,
-			'output'      => array(
+			'priority' => 10,
+			'output'   => array(
 				array(
 					'element' => '.main-navigation a, .main-navigation ul li a, .nav--toggle-sub li.menu-item-has-children, .nav--toggle-small .menu-toggle',
 				),
 				array(
-					'element' => '.nav--toggle-small .menu-toggle',
+					'element'  => '.nav--toggle-small .menu-toggle',
 					'property' => 'border-color',
 				),
 			),
 		);
 
 		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'menu_hover_color',
-			'label'       => esc_html__( 'Menu Hover Color', 'buddyx' ),
-			'section'     => 'menu_typography_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
+			'type'     => 'color',
+			'settings' => 'menu_hover_color',
+			'label'    => esc_html__( 'Menu Hover Color', 'buddyx' ),
+			'section'  => 'menu_typography_section',
+			'default'  => '#ef5455',
+			'choices'  => array( 'alpha' => true ),
+			'priority' => 10,
+			'output'   => array(
 				array(
-					'element' => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
+					'element'  => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
 					'property' => 'color',
 				),
 				array(
-					'element' => '.nav--toggle-small .menu-toggle:hover',
+					'element'  => '.nav--toggle-small .menu-toggle:hover',
 					'property' => 'border-color',
 				),
 			),
 		);
 
 		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'menu_active_color',
-			'label'       => esc_html__( 'Menu Active Color', 'buddyx' ),
-			'section'     => 'menu_typography_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
+			'type'     => 'color',
+			'settings' => 'menu_active_color',
+			'label'    => esc_html__( 'Menu Active Color', 'buddyx' ),
+			'section'  => 'menu_typography_section',
+			'default'  => '#ef5455',
+			'choices'  => array( 'alpha' => true ),
+			'priority' => 10,
+			'output'   => array(
 				array(
-					'element' => '.main-navigation ul li.current-menu-item>a',
+					'element'  => '.main-navigation ul li.current-menu-item>a',
 					'property' => 'color',
 				),
 			),
 		);
 
-		/**
-		 * Body Typography
-		 */
-		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'typography_option',
-			'label'       => esc_html__( 'Settings', 'buddyx' ),
-			'section'     => 'body_typography_section',
-			'default'     => array(
-				'font-family'    => 'Open Sans',
-				'variant'        => 'regular',
-				'font-size'      => '14px',
-				'line-height'    => '1.6',
-				'letter-spacing' => '0',
-				'color'          => '#505050',
-				'text-transform' => 'none',
-				'text-align'     => 'left',
-			),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'body:not(.block-editor-page):not(.wp-core-ui), body:not(.block-editor-page):not(.wp-core-ui) pre, button, input, optgroup, select, textarea',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'typography',
+					'settings' => 'sub_menu_typography_option',
+					'label'    => esc_html__( 'Sub Menu Settings', 'buddyx' ),
+					'section'  => 'menu_typography_section',
+					'default'  => array(
+						'font-family'    => 'Open Sans',
+						'variant'        => '500',
+						'font-size'      => '16px',
+						'line-height'    => '1.6',
+						'letter-spacing' => '0.02em',
+						'text-transform' => 'none',
+						'text-align'     => 'left',
+					),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element' => '.main-navigation ul#primary-menu>li .sub-menu a',
+						),
+					),
+				);
 
-		/**
-		 * Site Header
-		 */
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_header_bg_color',
-			'label'       => esc_html__( 'Header Background Color', 'buddyx' ),
-			'section'     => 'site_header_section',
-			'default'     => '#ffffff',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				[
-                    'element' => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
-                    'property' => 'background-color',
-                ],
-                [
-                    'element' => '.site-header-wrapper',
-                    'property' => 'border-color',
-                ],
-                [
-                    'element' => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-                    'property' => 'border-top-color',
-                ],
-                [
-                    'element' => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-                    'property' => 'border-right-color',
-                ],
-			),
-		);
+				/**
+				 * Body Typography
+				 */
+				$fields[] = array(
+					'type'     => 'typography',
+					'settings' => 'typography_option',
+					'label'    => esc_html__( 'Settings', 'buddyx' ),
+					'section'  => 'body_typography_section',
+					'default'  => array(
+						'font-family'    => 'Open Sans',
+						'variant'        => 'regular',
+						'font-size'      => '14px',
+						'line-height'    => '1.6',
+						'letter-spacing' => '0',
+						'color'          => '#505050',
+						'text-transform' => 'none',
+						'text-align'     => 'left',
+					),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element' => 'body:not(.block-editor-page):not(.wp-core-ui), body:not(.block-editor-page):not(.wp-core-ui) pre, button, input, optgroup, select, textarea',
+						),
+					),
+				);
 
-		/**
-		 *  Site Search
-		 */
-		$fields[] = array(
-			'type' => 'switch',
-			'settings'	 => 'site_search',
-			'label'		 => esc_html__( 'Enable Search Icon', 'buddyx' ),
-			'section'	 => 'site_header_section',
-			'default'	 => '1',
-			'choices'	 => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+				/**
+				 * Site Header
+				 */
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_header_bg_color',
+					'label'    => esc_html__( 'Header Background Color', 'buddyx' ),
+					'section'  => 'site_header_section',
+					'default'  => '#ffffff',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
+							'property' => 'background-color',
+						),
+						array(
+							'element'  => '.site-header-wrapper',
+							'property' => 'border-color',
+						),
+						array(
+							'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+							'property' => 'border-top-color',
+						),
+						array(
+							'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+							'property' => 'border-right-color',
+						),
+					),
+				);
 
-                /**
+				/**
+				 *  Site Search
+				 */
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_search',
+					'label'    => esc_html__( 'Enable Search Icon', 'buddyx' ),
+					'section'  => 'site_header_section',
+					'default'  => '1',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
+
+				/**
 		 *  Site Cart
 		 */
-		if( function_exists( 'is_woocommerce' ) ):
-			$fields[] = array(
-				'type' => 'switch',
-				'settings'	 => 'site_cart',
-				'label'		 => esc_html__( 'Enable Cart Icon', 'buddyx' ),
-				'section'	 => 'site_header_section',
-				'default'	 => '1',
-				'choices'	 => array(
-					'on'  => esc_html__( 'Enable','buddyx' ),
-                                        'off' => esc_html__( 'Disable', 'buddyx' ),
-				),
-			);
+				if ( function_exists( 'is_woocommerce' ) ) :
+					$fields[] = array(
+						'type'     => 'switch',
+						'settings' => 'site_cart',
+						'label'    => esc_html__( 'Enable Cart Icon', 'buddyx' ),
+						'section'  => 'site_header_section',
+						'default'  => '1',
+						'choices'  => array(
+							'on'  => esc_html__( 'Enable', 'buddyx' ),
+							'off' => esc_html__( 'Disable', 'buddyx' ),
+						),
+					);
 		endif;
-                
-                /**
+
+				/**
 		 *  Site Login
 		 */
-		$fields[] = array(
-			'type' => 'switch',
-			'settings'	 => 'site_login_link',
-			'label'		 => esc_html__( 'Enable Login Link', 'buddyx' ),
-			'section'	 => 'site_header_section',
-			'default'	 => '1',
-                        'choices'	 => array(
-                                'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-                        ),
-		);
-                
-                /**
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_login_link',
+					'label'    => esc_html__( 'Enable Login Link', 'buddyx' ),
+					'section'  => 'site_header_section',
+					'default'  => '1',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
+
+				/**
 		 *  Site Register
 		 */
-		$fields[] = array(
-			'type' => 'switch',
-			'settings'	 => 'site_register_link',
-			'label'		 => esc_html__( 'Enable Register Link', 'buddyx' ),
-			'section'	 => 'site_header_section',
-			'default'	 => '1',
-                        'choices'	 => array(
-                                'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-                        ),
-		);
-		
-		/**
-		 *  Site Sub Header
-		 */
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'site_sub_header_bg',
-			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
-			'section'  => 'site_sub_header_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_register_link',
+					'label'    => esc_html__( 'Enable Register Link', 'buddyx' ),
+					'section'  => 'site_header_section',
+					'default'  => '1',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'background',
-			'settings'    => 'sub_header_background_setting',
-			'label'       => esc_html__( 'Background Control', 'buddyx' ),
-			'section'     => 'site_sub_header_section',
-			'default'     => [
-				'background-color'      => 'rgba(255,255,255,0.5)',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'cover',
-				'background-attachment' => 'scroll',
-			],
-			'transport'   => 'auto',
-			'output'      => [
-				[
-					'element' => '.site-sub-header',
-				],
-			],
-			'active_callback' => array(
-				array( 'setting' => 'site_sub_header_bg', 'operator' => '==', 'value' => '1' )
-			)
-		);
+				/**
+				 *  Site Sub Header
+				 */
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_sub_header_bg',
+					'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+					'section'  => 'site_sub_header_section',
+					'default'  => 'off',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'typography',
-			'settings'    => 'site_sub_header_typography',
-			'label'       => esc_html__( 'Content Typography', 'buddyx' ),
-			'section'     => 'site_sub_header_section',
-			'default'     => array(
-				'font-family'    => '',
-				'variant'        => '',
-				'font-size'      => '',
-				'line-height'    => '',
-				'letter-spacing' => '',
-				'color'          => '#111111',
-				'text-transform' => 'none',
-			),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-sub-header, .site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'            => 'background',
+					'settings'        => 'sub_header_background_setting',
+					'label'           => esc_html__( 'Background Control', 'buddyx' ),
+					'section'         => 'site_sub_header_section',
+					'default'         => array(
+						'background-color'      => 'rgba(255,255,255,0.5)',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'cover',
+						'background-attachment' => 'scroll',
+					),
+					'transport'       => 'auto',
+					'output'          => array(
+						array(
+							'element' => '.site-sub-header',
+						),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'site_sub_header_bg',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'site_breadcrumbs',
-			'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),
-			'section'  => 'site_sub_header_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'typography',
+					'settings' => 'site_sub_header_typography',
+					'label'    => esc_html__( 'Content Typography', 'buddyx' ),
+					'section'  => 'site_sub_header_section',
+					'default'  => array(
+						'font-family'    => '',
+						'variant'        => '',
+						'font-size'      => '',
+						'line-height'    => '',
+						'letter-spacing' => '',
+						'color'          => '#111111',
+						'text-transform' => 'none',
+					),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element' => '.site-sub-header, .site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
+						),
+					),
+				);
 
-		/**
-		 * Site Skin
-		 */
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'body_background_color',
-			'label'       => esc_html__( 'Body Background Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#f7f7f9',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'body',
-					'property' => 'background-color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_breadcrumbs',
+					'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),
+					'section'  => 'site_sub_header_section',
+					'default'  => 'off',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_primary_color',
-			'label'       => esc_html__( 'Theme Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
+				/**
+				 * Site Skin
+				 */
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'body_background_color',
+					'label'    => esc_html__( 'Body Background Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#f7f7f9',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => 'body',
+							'property' => 'background-color',
+						),
+					),
+				);
+
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_primary_color',
+					'label'    => esc_html__( 'Theme Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.post-meta-category.post-meta-category a, .buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
 					.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a, .media .rtm-tabs li.active a, .buddypress.widget .item-options a.selected,
 					
                                         .learndash-wrapper .ld-expand-button.ld-button-alternate,
@@ -909,89 +939,89 @@ class Component implements Component_Interface {
                     .llms-student-dashboard .llms-sd-item.current>a, .llms-loop-item-content .llms-loop-title:hover, .llms-pagination ul li .page-numbers.current,
 					
 					.tribe-common--breakpoint-medium.tribe-events-pro .tribe-events-pro-map__event-datetime-featured-text, .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-datetime-featured-text, .tribe-common .tribe-common-c-svgicon, .tribe-common .tribe-common-cta--thin-alt:active, .tribe-common .tribe-common-cta--thin-alt:focus, .tribe-common .tribe-common-cta--thin-alt:hover, .tribe-common a:active, .tribe-common a:focus, .tribe-common a:hover, .tribe-events-cal-links .tribe-events-gcal, .tribe-events-cal-links .tribe-events-ical, .tribe-events-event-meta a, .tribe-events-event-meta a:visited, .tribe-events-pro .tribe-events-pro-organizer__meta-email-link, .tribe-events-pro .tribe-events-pro-organizer__meta-website-link, .tribe-events-pro .tribe-events-pro-photo__event-datetime-featured-text, .tribe-events-schedule .recurringinfo a, .tribe-events-single ul.tribe-related-events li .tribe-related-events-title a, .tribe-events-widget.tribe-events-widget .tribe-events-widget-events-list__view-more-link, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover, .tribe-events .tribe-events-c-ical__link, .tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date, .tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date-link, .tribe-related-event-info .recurringinfo a, .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum, .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum-link',
-                    'property' => 'color',
-				),
-				array(
-					'element' => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type,
+							'property' => 'color',
+						),
+						array(
+							'element'  => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type,
                     .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a,
                     .llms-progress .progress-bar-complete, body .llms-syllabus-wrapper .llms-section-title,
 					
 					.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after',
-					'property' => 'background-color',
-				),
-				array(
-					'element' => '.tribe-events .datepicker .day.active, .tribe-events .datepicker .day.active.focused, .tribe-events .datepicker .day.active:focus, .tribe-events .datepicker .day.active:hover, .tribe-events .datepicker .month.active, .tribe-events .datepicker .month.active.focused, .tribe-events .datepicker .month.active:focus, .tribe-events .datepicker .month.active:hover, .tribe-events .datepicker .year.active, .tribe-events .datepicker .year.active.focused, .tribe-events .datepicker .year.active:focus, .tribe-events .datepicker .year.active:hover, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover, .tribe-events .tribe-events-c-ical__link:active, .tribe-events .tribe-events-c-ical__link:focus, .tribe-events .tribe-events-c-ical__link:hover, .widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after, .tribe-events-pro.tribe-events-view--week .datepicker .day.current:before',
-					'property' => 'background',
-				),
-				array(
-                    'element' => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a,
+							'property' => 'background-color',
+						),
+						array(
+							'element'  => '.tribe-events .datepicker .day.active, .tribe-events .datepicker .day.active.focused, .tribe-events .datepicker .day.active:focus, .tribe-events .datepicker .day.active:hover, .tribe-events .datepicker .month.active, .tribe-events .datepicker .month.active.focused, .tribe-events .datepicker .month.active:focus, .tribe-events .datepicker .month.active:hover, .tribe-events .datepicker .year.active, .tribe-events .datepicker .year.active.focused, .tribe-events .datepicker .year.active:focus, .tribe-events .datepicker .year.active:hover, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover, .tribe-events .tribe-events-c-ical__link:active, .tribe-events .tribe-events-c-ical__link:focus, .tribe-events .tribe-events-c-ical__link:hover, .widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after, .tribe-events-pro.tribe-events-view--week .datepicker .day.current:before',
+							'property' => 'background',
+						),
+						array(
+							'element'  => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a,
                     
                     .llms-student-dashboard .llms-sd-item.current>a, .llms-student-dashboard .llms-sd-item>a:hover,
 					
 					.tribe-common .tribe-common-cta--thin-alt, .tribe-common .tribe-common-cta--thin-alt:active, .tribe-common .tribe-common-cta--thin-alt:focus, .tribe-common .tribe-common-cta--thin-alt:hover, .tribe-events-pro .tribe-events-pro-map__event-card-wrapper--active .tribe-events-pro-map__event-card-button, .tribe-events-pro .tribe-events-pro-week-day-selector__day--active, .tribe-events .tribe-events-c-ical__link',
-					'property' => 'border-color',
-				),
-				array(
-                    'element' => '.tribe-common .tribe-common-anchor-thin:active, .tribe-common .tribe-common-anchor-thin:focus, .tribe-common .tribe-common-anchor-thin:hover, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover',
-					'property' => 'border-bottom-color',
-				),
-			),
-		);
+							'property' => 'border-color',
+						),
+						array(
+							'element'  => '.tribe-common .tribe-common-anchor-thin:active, .tribe-common .tribe-common-anchor-thin:focus, .tribe-common .tribe-common-anchor-thin:hover, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover',
+							'property' => 'border-bottom-color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_links_color',
-			'label'       => esc_html__( 'Link Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#111111',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'a',
-					'property' => 'color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_links_color',
+					'label'    => esc_html__( 'Link Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#111111',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => 'a',
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_links_focus_hover_color',
-			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:hover,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_links_focus_hover_color',
+					'label'    => esc_html__( 'Link Hover', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:hover,
 					.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover',
-					'property' => 'color',
-				),
-			),
-		);
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'=> 'custom',
-			'settings' => 'custom-skin-divider',
-			'section'     => 'site_skin_section',
-			'default'     => '<hr>',
-		);
+				$fields[] = array(
+					'type'     => 'custom',
+					'settings' => 'custom-skin-divider',
+					'section'  => 'site_skin_section',
+					'default'  => '<hr>',
+				);
 
-		// Site Buttons
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_background_color',
-			'label'       => esc_html__( 'Button Background Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'choices'	  => array( 'alpha' => true ),
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default,
+				// Site Buttons
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_background_color',
+					'label'    => esc_html__( 'Button Background Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'choices'  => array( 'alpha' => true ),
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
+					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit,
 					.woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
                                         
                     .ld-course-list-items .ld_course_grid .btn-primary,
@@ -1009,24 +1039,24 @@ class Component implements Component_Interface {
                     .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
 					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link,
 					.tribe-common .tribe-common-c-btn, .tribe-common a.tribe-common-c-btn',
-                    'property' => 'background',
-				),
-			),
-		);
+							'property' => 'background',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_background_hover_color',
-			'label'       => esc_html__( 'Button Background Hover Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#f83939',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'choices'	  => array( 'alpha' => true ),
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_background_hover_color',
+					'label'    => esc_html__( 'Button Background Hover Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#f83939',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'choices'  => array( 'alpha' => true ),
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
+					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover,
 					.woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
                                         
                     .ld-course-list-items .ld_course_grid .btn-primary:hover,
@@ -1039,500 +1069,559 @@ class Component implements Component_Interface {
                     .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
 					.tribe-common .tribe-common-c-btn:focus, .tribe-common .tribe-common-c-btn:hover, .tribe-common a.tribe-common-c-btn:focus, .tribe-common a.tribe-common-c-btn:hover',
-                    'property' => 'background',
-				),
-			),
-		);
+							'property' => 'background',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_text_color',
-			'label'       => esc_html__( 'Button Text Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ffffff',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_text_color',
+					'label'    => esc_html__( 'Button Text Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ffffff',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
+					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit,
 					.woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
                     .learndash-course-widget-wrap .ld-course-status-action a,
                     
                     .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
 					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link',
-					'property' => 'color',
-				),
-			),
-		);
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_text_hover_color',
-			'label'       => esc_html__( 'Button Text Hover Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ffffff',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_text_hover_color',
+					'label'    => esc_html__( 'Button Text Hover Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ffffff',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
+					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover,
 					.woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
                     .learndash-course-widget-wrap .ld-course-status-action a:hover,
                     
                     .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover',
-					'property' => 'color',
-				),
-			),
-		);
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_border_color',
-			'label'       => esc_html__( 'Button Border Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_border_color',
+					'label'    => esc_html__( 'Button Border Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], input[type="submit"],
+					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit,
                     .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
                     
                     .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
 					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link,
 					.tribe-common .tribe-common-c-btn, .tribe-common a.tribe-common-c-btn',
-					'property' => 'border-color',
-				),
-			),
-		);
+							'property' => 'border-color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_buttons_border_hover_color',
-			'label'       => esc_html__( 'Button Border Hover Color', 'buddyx' ),
-			'section'     => 'site_skin_section',
-			'default'     => '#f83939',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover,
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_buttons_border_hover_color',
+					'label'    => esc_html__( 'Button Border Hover Color', 'buddyx' ),
+					'section'  => 'site_skin_section',
+					'default'  => '#f83939',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
+					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover,
                     .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
                     
                     .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
 					.tribe-common .tribe-common-c-btn:focus, .tribe-common .tribe-common-c-btn:hover, .tribe-common a.tribe-common-c-btn:focus, .tribe-common a.tribe-common-c-btn:hover',
-					'property' => 'border-color',
-				),
-			),
-		);
+							'property' => 'border-color',
+						),
+					),
+				);
 
-		/**
-		 *  Site Blog Layout
-		 */
-		$fields[] = array(
-			'type'     => 'radio-image',
-			'settings' => 'blog_layout_option',
-			'label'    => esc_html__( 'Blog Layout', 'buddyx' ),
-			'section'  => 'site_blog_section',
-			'priority' => 10,
-			'default'  => 'default-layout',
-			'choices'  => [
-				'default-layout' => get_template_directory_uri() . '/assets/images/one-column.png',
-				'grid-layout' => get_template_directory_uri() . '/assets/images/one-half-column.png',
-				'masonry-layout' => get_template_directory_uri() . '/assets/images/one-third-column.png',
-			],
-		);
+				/**
+				 *  Site Blog Layout
+				 */
+				$fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'blog_layout_option',
+					'label'    => esc_html__( 'Blog Layout', 'buddyx' ),
+					'section'  => 'site_blog_section',
+					'priority' => 10,
+					'default'  => 'default-layout',
+					'choices'  => array(
+						'default-layout' => get_template_directory_uri() . '/assets/images/default-layout.png',
+						'list-layout'    => get_template_directory_uri() . '/assets/images/list-layout.png',
+						'grid-layout'    => get_template_directory_uri() . '/assets/images/grid-layout.png',
+						'masonry-layout' => get_template_directory_uri() . '/assets/images/masonry-layout.png',
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'select', 
-			'settings'    => 'post_per_row',
-			'label'       => esc_html__( 'Post Per Row', 'buddyx' ),
-			'section'     => 'site_blog_section',
-			'default'     => '4',
-			'priority'    => 10,
-			'choices'     => array( 
-				'12' => esc_html__( 'Column 1', 'buddyx' ), 
-				'6' => esc_html__( 'Column 2', 'buddyx' ),
-				'4' => esc_html__( 'Column 3', 'buddyx' ),  
-				'3' => esc_html__( 'Column 4', 'buddyx' ),
-			), 
-			'active_callback'	 => array(
-				array( 'setting' => 'blog_layout_option', 'operator' => '!==', 'value' => 'default-layout' ),
-			)
-		);
-                
-                $fields[] = array(
-			'type'        => 'radio-image', 
-			'settings'    => 'single_post_layout',
-			'label'       => esc_html__( 'Single Post Layout', 'buddyx' ),
-			'section'     => 'site_blog_section',
-			'priority'    => 10,
-			'default'  => '1',
-			'choices'  => [
-				'1' => get_template_directory_uri() . '/assets/images/single-blog-default.png',
-				'2' => get_template_directory_uri() . '/assets/images/single-blog-layout-1.png',
-				'3' => get_template_directory_uri() . '/assets/images/single-blog-layout-2.png',
-				'4' => get_template_directory_uri() . '/assets/images/single-blog-layout-3.png',
-			],
-		);
+				$fields[] = array(
+					'type'            => 'radio',
+					'settings'        => 'blog_image_position',
+					'label'           => esc_html__( 'Image position', 'buddyx' ),
+					'section'         => 'site_blog_section',
+					'priority'        => 10,
+					'default'         => 'thumb-left',
+					'choices'         => array(
+						'thumb-left'  => esc_html__( 'Left', 'buddyx' ),
+						'thumb-right' => esc_html__( 'Right', 'buddyx' ),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'blog_layout_option',
+							'operator' => '==',
+							'value'    => 'list-layout',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'=> 'custom',
-			'settings' => 'custom-skin-divider1',
-			'section'     => 'site_blog_section',
-			'default'     => '<hr>',
-		);
+				$fields[] = array(
+					'type'            => 'radio',
+					'settings'        => 'blog_grid_columns',
+					'label'           => esc_html__( 'Grid Columns', 'buddyx' ),
+					'section'         => 'site_blog_section',
+					'priority'        => 10,
+					'default'         => 'one-column',
+					'choices'         => array(
+						'one-column' => esc_html__( 'One', 'buddyx' ),
+						'two-column' => esc_html__( 'Two', 'buddyx' ),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'blog_layout_option',
+							'operator' => '==',
+							'value'    => 'grid-layout',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'single_post_breadcrumbs',
-			'label'    => esc_html__( 'Single Blog Breadcrumbs?', 'buddyx' ),
-			'section'  => 'site_blog_section',
-			'default'  => 'on',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+				$fields[] = array(
+					'type'            => 'radio',
+					'settings'        => 'blog_masonry_view',
+					'label'           => esc_html__( 'View', 'buddyx' ),
+					'section'         => 'site_blog_section',
+					'priority'        => 10,
+					'default'         => 'without-masonry',
+					'choices'         => array(
+						'without-masonry' => esc_html__( 'Without Masonry', 'buddyx' ),
+						'with-masonry'    => esc_html__( 'With Masonry', 'buddyx' ),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'blog_layout_option',
+							'operator' => '==',
+							'value'    => 'masonry-layout',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'single_post_meta',
-			'label'    => esc_html__( 'Single Blog Meta?', 'buddyx' ),
-			'section'  => 'site_blog_section',
-			'default'  => 'on',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+				$fields[] = array(
+					'type'            => 'select',
+					'settings'        => 'post_per_row',
+					'label'           => esc_html__( 'Post Per Row', 'buddyx' ),
+					'section'         => 'site_blog_section',
+					'default'         => 'buddyx-masonry-2',
+					'priority'        => 10,
+					'choices'         => array(
+						'buddyx-masonry-2' => esc_html__( 'Two', 'buddyx' ),
+						'buddyx-masonry-3' => esc_html__( 'Three', 'buddyx' ),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'blog_layout_option',
+							'operator' => '==',
+							'value'    => 'masonry-layout',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'single_post_categories',
-			'label'    => esc_html__( 'Single Blog Categories?', 'buddyx' ),
-			'section'  => 'site_blog_section',
-			'default'  => 'on',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
-		
-		/**
-		 *  Site Sidebar Layout
-		 */
-		$fields[] = array(
-			'type'     => 'radio-image',
-			'settings' => 'sidebar_option',
-			'label'    => esc_html__( 'Sidebar Layout', 'buddyx' ),
-			'section'  => 'site_sidebar_layout',
-			'priority' => 10,
-			'default'  => 'right',
-			'choices'  => [
-				'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-				'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-				'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-				'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-			],
-		);
+				$fields[] = array(
+					'type'     => 'custom',
+					'settings' => 'custom-skin-divider1',
+					'section'  => 'site_blog_section',
+					'default'  => '<hr>',
+				);
 
-		if ( function_exists('bp_is_active') ) {
-                    if ( ! class_exists( 'Youzify' ) ) {
-			$fields[] = array(
-				'type'     => 'radio-image',
-				'settings' => 'buddypress_sidebar_option',
-				'label'    => esc_html__( 'Activity Directory Sidebar Layout', 'buddyx' ),
-				'section'  => 'site_sidebar_layout',
-				'priority' => 10,
-				'default'  => 'both',
-				'choices'  => [
-					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-					'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-				],
-			);
-                        
-                        $fields[] = array(
-                                'type'     => 'radio-image',
-                                'settings' => 'buddypress_members_sidebar_option',
-                                'label'    => esc_html__( 'Members Directory Sidebar Layout', 'buddyx' ),
-                                'section'  => 'site_sidebar_layout',
-                                'priority' => 10,
-                                'default'  => 'right',
-                                'choices'  => array(
-                                        'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-                                        'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-                                        'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-                                        'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-                                ),
-                        );
+				$fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'single_post_content_width',
+					'label'    => esc_html__( 'Single Post Content Width', 'buddyx' ),
+					'section'  => 'site_blog_section',
+					'priority' => 10,
+					'default'  => 'small',
+					'choices'  => array(
+						'small' => get_template_directory_uri() . '/assets/images/small.png',
+						'large' => get_template_directory_uri() . '/assets/images/large.png',
+					),
+				);
 
-                        $fields[] = array(
-                                'type'     => 'radio-image',
-                                'settings' => 'buddypress_groups_sidebar_option',
-                                'label'    => esc_html__( 'Groups Directory Sidebar Layout', 'buddyx' ),
-                                'section'  => 'site_sidebar_layout',
-                                'priority' => 10,
-                                'default'  => 'right',
-                                'choices'  => array(
-                                        'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-                                        'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-                                        'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-                                        'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-                                ),
-                        );
-                    }
-		}
+				$fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'single_post_title_layout',
+					'label'    => esc_html__( 'Single Post Title Layout', 'buddyx' ),
+					'section'  => 'site_blog_section',
+					'priority' => 10,
+					'default'  => 'buddyx-section-title-above',
+					'choices'  => array(
+						'buddyx-section-title-over'  => get_template_directory_uri() . '/assets/images/single-blog-layout-1.png',
+						'buddyx-section-half'        => get_template_directory_uri() . '/assets/images/single-blog-layout-2.png',
+						'buddyx-section-title-above' => get_template_directory_uri() . '/assets/images/single-blog-layout-3.png',
+						'buddyx-section-title-below' => get_template_directory_uri() . '/assets/images/single-blog-layout-4.png',
+					),
+				);
 
-		if ( function_exists('is_bbpress') ) {
-			$fields[] = array(
-				'type'     => 'radio-image',
-				'settings' => 'bbpress_sidebar_option',
-				'label'    => esc_html__( 'bbPress Sidebar Layout', 'buddyx' ),
-				'section'  => 'site_sidebar_layout',
-				'priority' => 10,
-				'default'  => 'right',
-				'choices'  => [
-					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-					'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-				],
-			);
-		}
+				/**
+				 *  Site Sidebar Layout
+				 */
+				$fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'sidebar_option',
+					'label'    => esc_html__( 'Sidebar Layout', 'buddyx' ),
+					'section'  => 'site_sidebar_layout',
+					'priority' => 10,
+					'default'  => 'right',
+					'choices'  => array(
+						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+						'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+					),
+				);
+                                
+                                $fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'single_post_sidebar_option',
+					'label'    => esc_html__( 'Single Post Sidebar Layout', 'buddyx' ),
+					'section'  => 'site_sidebar_layout',
+					'priority' => 10,
+					'default'  => 'none',
+					'choices'  => array(
+						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+						'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+					),
+				);
 
-		if ( class_exists( 'WooCommerce' ) ) {
-			$fields[] = array(
-				'type'     => 'radio-image',
-				'settings' => 'woocommerce_sidebar_option',
-				'label'    => esc_html__( 'WooCommerce Sidebar Layout', 'buddyx' ),
-				'section'  => 'site_sidebar_layout',
-				'priority' => 10,
-				'default'  => 'right',
-				'choices'  => [
-					'none' => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-					'left' => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-					'both' => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-				],
-			);
-		}
+				if ( function_exists( 'bp_is_active' ) ) {
+					if ( ! class_exists( 'Youzify' ) ) {
+						$fields[] = array(
+							'type'     => 'radio-image',
+							'settings' => 'buddypress_sidebar_option',
+							'label'    => esc_html__( 'Activity Directory Sidebar Layout', 'buddyx' ),
+							'section'  => 'site_sidebar_layout',
+							'priority' => 10,
+							'default'  => 'both',
+							'choices'  => array(
+								'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+								'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+								'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+								'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+							),
+						);
 
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'sticky_sidebar_option',
-			'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
-			'section'  => 'site_sidebar_layout',
-			'default'  => '1',
-			'choices'  => [
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			],
-		);
+						$fields[] = array(
+							'type'     => 'radio-image',
+							'settings' => 'buddypress_members_sidebar_option',
+							'label'    => esc_html__( 'Members Directory Sidebar Layout', 'buddyx' ),
+							'section'  => 'site_sidebar_layout',
+							'priority' => 10,
+							'default'  => 'right',
+							'choices'  => array(
+								'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+								'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+								'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+								'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+							),
+						);
 
-		/**
-		 *  Site Footer
-		 */
-		$fields[] = array(
-			'type'     => 'switch',
-			'settings' => 'site_footer_bg',
-			'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
-			'section'  => 'site_footer_section',
-			'default'  => 'off',
-			'choices'  => array(
-				'on'  => esc_html__( 'Enable','buddyx' ),
-				'off' => esc_html__( 'Disable', 'buddyx' ),
-			),
-		);
+						$fields[] = array(
+							'type'     => 'radio-image',
+							'settings' => 'buddypress_groups_sidebar_option',
+							'label'    => esc_html__( 'Groups Directory Sidebar Layout', 'buddyx' ),
+							'section'  => 'site_sidebar_layout',
+							'priority' => 10,
+							'default'  => 'right',
+							'choices'  => array(
+								'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+								'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+								'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+								'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+							),
+						);
+					}
+				}
 
-		$fields[] = array(
-			'type'        => 'background',
-			'settings'    => 'background_setting',
-			'label'       => esc_html__( 'Background Control', 'buddyx' ),
-			'section'     => 'site_footer_section',
-			'default'     => [
-				'background-color'      => 'rgba(255,255,255,0.8)',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'cover',
-				'background-attachment' => 'scroll',
-			],
-			'transport'   => 'auto',
-			'output'      => [
-				[
-					'element' => '.site-footer-wrapper',
-				],
-			],
-			'active_callback' => array(
-				array( 'setting' => 'site_footer_bg', 'operator' => '==', 'value' => '1' )
-			)
-		);
+				if ( function_exists( 'is_bbpress' ) ) {
+					$fields[] = array(
+						'type'     => 'radio-image',
+						'settings' => 'bbpress_sidebar_option',
+						'label'    => esc_html__( 'bbPress Sidebar Layout', 'buddyx' ),
+						'section'  => 'site_sidebar_layout',
+						'priority' => 10,
+						'default'  => 'right',
+						'choices'  => array(
+							'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+							'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+							'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+							'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+						),
+					);
+				}
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_footer_title_color',
-			'label'       => esc_html__( 'Title Color', 'buddyx' ),
-			'section'     => 'site_footer_section',
-			'default'     => '#111111',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-footer .widget-title',
-					'property' => 'color',
-				),
-			),
-		);
+				if ( class_exists( 'WooCommerce' ) ) {
+					$fields[] = array(
+						'type'     => 'radio-image',
+						'settings' => 'woocommerce_sidebar_option',
+						'label'    => esc_html__( 'WooCommerce Sidebar Layout', 'buddyx' ),
+						'section'  => 'site_sidebar_layout',
+						'priority' => 10,
+						'default'  => 'right',
+						'choices'  => array(
+							'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+							'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+							'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+							'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+						),
+					);
+				}
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_footer_content_color',
-			'label'       => esc_html__( 'Content Color', 'buddyx' ),
-			'section'     => 'site_footer_section',
-			'default'     => '#505050',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-footer',
-					'property' => 'color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'sticky_sidebar_option',
+					'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),
+					'section'  => 'site_sidebar_layout',
+					'default'  => '1',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_footer_links_color',
-			'label'       => esc_html__( 'Link Color', 'buddyx' ),
-			'section'     => 'site_footer_section',
-			'default'     => '#111111',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-footer a',
-					'property' => 'color',
-				),
-			),
-		);
+				/**
+				 *  Site Footer
+				 */
+				$fields[] = array(
+					'type'     => 'switch',
+					'settings' => 'site_footer_bg',
+					'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+					'section'  => 'site_footer_section',
+					'default'  => 'off',
+					'choices'  => array(
+						'on'  => esc_html__( 'Enable', 'buddyx' ),
+						'off' => esc_html__( 'Disable', 'buddyx' ),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_footer_links_hover_color',
-			'label'       => esc_html__( 'Link Hover', 'buddyx' ),
-			'section'     => 'site_footer_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-footer a:hover, .site-footer a:active',
-					'property' => 'color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'            => 'background',
+					'settings'        => 'background_setting',
+					'label'           => esc_html__( 'Background Control', 'buddyx' ),
+					'section'         => 'site_footer_section',
+					'default'         => array(
+						'background-color'      => 'rgba(255,255,255,0.8)',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'cover',
+						'background-attachment' => 'scroll',
+					),
+					'transport'       => 'auto',
+					'output'          => array(
+						array(
+							'element' => '.site-footer-wrapper',
+						),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'site_footer_bg',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
+				);
 
-		/**
-		 *  Site Copyright
-		 */
-		$fields[] = array(
-			'type'        => 'textarea',
-			'settings'    => 'site_copyright_text',
-			'label'       => esc_html__( 'Add Content', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default' => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
-			'priority'    => 10,
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_footer_title_color',
+					'label'    => esc_html__( 'Title Color', 'buddyx' ),
+					'section'  => 'site_footer_section',
+					'default'  => '#111111',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-footer .widget-title',
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_background_color',
-			'label'       => esc_html__( 'Background Color', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#ffffff',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info',
-					'property' => 'background-color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_footer_content_color',
+					'label'    => esc_html__( 'Content Color', 'buddyx' ),
+					'section'  => 'site_footer_section',
+					'default'  => '#505050',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-footer',
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_border_color',
-			'label'       => esc_html__( 'Border Color', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#e8e8e8',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info',
-					'property' => 'border-color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_footer_links_color',
+					'label'    => esc_html__( 'Link Color', 'buddyx' ),
+					'section'  => 'site_footer_section',
+					'default'  => '#111111',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-footer a',
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_content_color',
-			'label'       => esc_html__( 'Content Color', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#505050',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info',
-					'property' => 'color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_footer_links_hover_color',
+					'label'    => esc_html__( 'Link Hover', 'buddyx' ),
+					'section'  => 'site_footer_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-footer a:hover, .site-footer a:active',
+							'property' => 'color',
+						),
+					),
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_links_color',
-			'label'       => esc_html__( 'Link Color', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#111111',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info a',
-					'property' => 'color',
-				),
-			),
-		);
+				/**
+				 *  Site Copyright
+				 */
+				$fields[] = array(
+					'type'     => 'textarea',
+					'settings' => 'site_copyright_text',
+					'label'    => esc_html__( 'Add Content', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
+					'priority' => 10,
+				);
 
-		$fields[] = array(
-			'type'        => 'color',
-			'settings'    => 'site_copyright_links_hover_color',
-			'label'       => esc_html__( 'Link Hover Color', 'buddyx' ),
-			'section'     => 'site_copyright_section',
-			'default'     => '#ef5455',
-                        'choices' => array('alpha' => true),
-			'priority'    => 10,
-			'output'      => array(
-				array(
-					'element' => '.site-info a:hover',
-					'property' => 'color',
-				),
-			),
-		);
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_copyright_background_color',
+					'label'    => esc_html__( 'Background Color', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => '#ffffff',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-info',
+							'property' => 'background-color',
+						),
+					),
+				);
 
-		return $fields;
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_copyright_border_color',
+					'label'    => esc_html__( 'Border Color', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => '#e8e8e8',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-info',
+							'property' => 'border-color',
+						),
+					),
+				);
+
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_copyright_content_color',
+					'label'    => esc_html__( 'Content Color', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => '#505050',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-info',
+							'property' => 'color',
+						),
+					),
+				);
+
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_copyright_links_color',
+					'label'    => esc_html__( 'Link Color', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => '#111111',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-info a',
+							'property' => 'color',
+						),
+					),
+				);
+
+				$fields[] = array(
+					'type'     => 'color',
+					'settings' => 'site_copyright_links_hover_color',
+					'label'    => esc_html__( 'Link Hover Color', 'buddyx' ),
+					'section'  => 'site_copyright_section',
+					'default'  => '#ef5455',
+					'choices'  => array( 'alpha' => true ),
+					'priority' => 10,
+					'output'   => array(
+						array(
+							'element'  => '.site-info a:hover',
+							'property' => 'color',
+						),
+					),
+				);
+
+				return $fields;
 	}
 }

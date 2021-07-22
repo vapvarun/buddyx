@@ -86,6 +86,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			]
 		);
 
+		/*
+		 * Enable support for Post Formats.
+		 * See http://codex.wordpress.org/Post_Formats
+		 */
+		add_theme_support( 'post-formats', [
+			'image',
+			'gallery',
+			'quote',
+			'video',
+			'audio',
+			'link'
+		] );
+
 		// Add support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 

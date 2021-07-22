@@ -1,3 +1,18 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Getting Started Page
+# Features Table
+# Community Addons
+# Post Formats
+# Single Post Title Style
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Getting Started Page
+--------------------------------------------------------------*/
+
 .buddyx-dashboard-tabs {
     margin: 30px 0;
 }
@@ -51,8 +66,11 @@
 }
 
 .buddyx-dashboard-tabs button:focus {
-    outline: thin dotted;
     --bs-color: rgba(0, 0, 0, 0.6);
+}
+
+.buddyx-dashboard-tabs button:focus-visible {
+    outline: 2px solid black;
 }
 
 .buddyx-home-body {
@@ -273,7 +291,9 @@ h2.buddyx-feature-title {
 }
 
 
-/* Features Table */
+/*--------------------------------------------------------------
+# Features Table
+--------------------------------------------------------------*/
 
 .buddyx-features-table thead tr th,
 .buddyx-features-table tbody tr td {
@@ -309,8 +329,225 @@ table.buddyx-features-table {
 }
 
 
-/* Community Addons */
+/*--------------------------------------------------------------
+# Community Addons
+--------------------------------------------------------------*/
 
 .buddyx-row.community-addons {
     align-items: flex-start;
+}
+
+
+/*--------------------------------------------------------------
+# Post Formats
+--------------------------------------------------------------*/
+
+.buddyx_post_format-settings {
+    padding: 10px 0 0;
+}
+
+.buddyx_post_format-settings .buddyx_input_section {
+    padding: 10px 0 20px 0;
+}
+
+.format-setting-label {
+    border-bottom: 1px dashed #ccc;
+    margin: 0 0 20px 0;
+    padding: 5px 0px 1px 0px;
+    width: 100%;
+}
+
+.format-setting-label .label {
+    background: none;
+    border: none;
+    color: #222;
+    cursor: text;
+    display: block;
+    font-size: 1.3em;
+    font-weight: 500;
+    line-height: 1.6em;
+    letter-spacing: 0;
+    padding: 0 0 9px 0;
+    text-shadow: none;
+}
+
+input#buddyx_post_audio,
+input#buddyx_post_video {
+    width: calc(100% - 60px);
+}
+
+.buddyx_quote_format_setting textarea {
+    width: 99.9%;
+    border: 1px solid #ccc;
+    font-family: Consolas, Monaco, monospace;
+    line-height: 150%;
+    outline: 0;
+    padding: 10px;
+    resize: vertical;
+}
+
+.buddyx_quote_format_setting input,
+.buddyx_link_format_setting input {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.buddyx_audio_format_setting .buddyx_upload_media,
+.buddyx_video_format_setting .buddyx_upload_media {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+.buddyx_images_gallery:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.buddyx_images_gallery li {
+    position: relative;
+    float: left;
+    padding: 8px;
+    margin: 0;
+    color: #444;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 33.3333%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .buddyx_images_gallery li {
+        width: 20%;
+    }
+}
+
+@media (min-width: 800px) {
+    .buddyx_images_gallery li {
+        width: 15%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .buddyx_images_gallery li {
+        width: 11.11%;
+    }
+}
+
+.buddyx_images_gallery .thumbnail {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity .1s;
+}
+
+.buddyx_images_gallery .thumbnail:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.buddyx_images_gallery .thumbnail .centered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate( 50%, 50%);
+}
+
+.buddyx_images_gallery .thumbnail .centered img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate( -50%, -50%);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.buddyx_images_gallery .actions .delete {
+    display: none;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    border: 0;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    outline: none;
+    text-decoration: none;
+    background: #eee;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.buddyx_images_gallery li:hover .actions .delete {
+    display: block;
+}
+
+.buddyx_images_gallery .actions .delete i {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*--------------------------------------------------------------
+# Single Post Title Style
+--------------------------------------------------------------*/
+
+.buddyx_post_settings .buddyx_radio_list {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.buddyx_post_settings .buddyx_radio_list li.buddyx_radio_list_item {
+    position: relative;
+    padding: 4px;
+}
+
+.buddyx_post_settings .buddyx_radio_list input.buddyx_radio_input {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin: 0;
+    outline: 0;
+    opacity: 0;
+}
+
+.buddyx_post_settings .buddyx_radio_list img.post-title-image {
+    max-width: 90px;
+    border: 1px solid #ddd;
+}
+
+.buddyx_post_settings .buddyx_radio_list input.buddyx_radio_input:checked~img.post-title-image,
+.buddyx_post_settings .buddyx_radio_list input.buddyx_radio_input:focus~img.post-title-image {
+    outline: 2px solid #007cba;
 }

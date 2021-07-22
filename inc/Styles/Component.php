@@ -164,6 +164,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css');
 		}
                 
+                // Enqueue WooCommerce CSS
+		if ( class_exists( 'WooCommerce' ) ) {
+			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css');
+		}
+                
                 // Enqueue EventsCalendar CSS
 		if ( class_exists( 'Tribe__Events__Main' ) ) {
 			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css');
@@ -173,6 +178,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'Youzify' ) ) {
 			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css');
 		}
+                
+                // Enqueue Slick CSS
+		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css');
 
 		// Enqueue RTL CSS
 		if ( is_rtl() ) {
@@ -193,19 +201,20 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function buddyx_enqueue_admin_style($hook) {
 		
-		if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
-			$css_uri = get_theme_file_uri( '/assets/css/' );
-			$css_dir = get_theme_file_path( '/assets/css/' );
+                $css_uri = get_theme_file_uri( '/assets/css/' );
+                $css_dir = get_theme_file_path( '/assets/css/' );
 
-			wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );			
-			wp_enqueue_script(
-				'buddyx-admin-script',
-				get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
-				'',
-				'',
-				true
-			);			
-		}
+                wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );
+                
+                if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
+                    wp_enqueue_script(
+                            'buddyx-admin-script',
+                            get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
+                            '',
+                            '',
+                            true
+                    );
+                }
 	}
 
 	/**
@@ -393,10 +402,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			],
 			'buddyx-buddypress' => [
 				'file' => 'buddypress.min.css',
-				'global' => true,
-			],
-			'buddyx-woocommerce' => [
-				'file' => 'woocommerce.min.css',
 				'global' => true,
 			],
 		];

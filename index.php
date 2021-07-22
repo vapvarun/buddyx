@@ -21,8 +21,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 
-$post_layout  = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layout-option' ) );
-$post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'post-per-row' ) );
+$post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layout-option' ) );
 
 ?>
 
@@ -47,7 +46,7 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
 		</aside>
-	<?php endif; ?>
+	<?php endif; ?> 
 	<?php } ?>
 	
 	<main id="primary" class="site-main">
@@ -57,18 +56,14 @@ $post_per_row = 'col-md-' . get_theme_mod( 'post_per_row', buddyx_defaults( 'pos
 
 			$classes = get_body_class();
 			if ( in_array( 'blog', $classes ) || in_array( 'archive', $classes ) || in_array( 'search', $classes ) ) {
-				?>
-			<div class="post-layout row <?php echo esc_attr( $post_layout ); ?>">
-			<div class="grid-sizer <?php echo esc_attr( $post_per_row ); ?>"></div>
-				<?php
-				while ( have_posts() ) {
-					the_post();
 
-					get_template_part( 'template-parts/content/entry', 'layout' );
-				}
-				?>
-				</div>
-				<?php
+				$args = array(
+					'post_layout' => $post_layout,
+					'body_class'  => $classes,
+				);
+				get_template_part( 'template-parts/layout/entry', $post_layout, $args );
+
+
 			} else {
 				while ( have_posts() ) {
 					the_post();

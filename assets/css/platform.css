@@ -9,6 +9,7 @@
 # Sidebar Widegts
 # Forums
 # Documents
+# Moderation
 # Extra Plugins Support
     # BuddyPress Sticky Post
     # BuddyPress Quotes
@@ -21,6 +22,19 @@
 /*--------------------------------------------------------------
 # Activity Directory
 --------------------------------------------------------------*/
+
+.activity-list .bb-activity-more-options-wrap {
+    top: 8px;
+    margin: 0 !important;
+}
+
+.activity-list .bb-activity-more-options-wrap .bb-activity-more-options {
+    top: 30px;
+}
+
+.activity-list .bb-activity-more-options-wrap .bb-activity-more-options .generic-button {
+    margin: 0;
+}
 
 img.emoji,
 img.emojioneemoji {
@@ -774,6 +788,15 @@ span.bbp-author-avatar img {
 
 .bb-activity-media-wrap .bb-activity-media-elem.document-activity {
     margin-left: 6px;
+}
+
+
+/*--------------------------------------------------------------
+# Moderation
+--------------------------------------------------------------*/
+
+.moderation-popup .modal-container .bb-model-footer .button.bb-cancel-report-content {
+    border: 0;
 }
 
 

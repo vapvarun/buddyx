@@ -9,14 +9,10 @@ namespace BuddyX\Buddyx\Custom_Js;
 
 use BuddyX\Buddyx\Component_Interface;
 use function BuddyX\Buddyx\buddyx;
-use WP_Post;
 use function add_action;
-use function add_filter;
 use function wp_enqueue_script;
 use function get_theme_file_uri;
 use function get_theme_file_path;
-use function wp_script_add_data;
-use function wp_localize_script;
 
 /**
  * Class for improving custom_js among various core features.
@@ -57,8 +53,6 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/superfish.min.js' ) ),
 			true
 		);
-		wp_script_add_data( 'buddyx-superfish', 'async', true );
-		wp_script_add_data( 'buddyx-superfish', 'precache', true );
 
 		// Enqueue the isotope script.
 		wp_enqueue_script(
@@ -68,8 +62,6 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/isotope.pkgd.min.js' ) ),
 			true
 		);
-		wp_script_add_data( 'buddyx-isotope-pkgd', 'async', true );
-		wp_script_add_data( 'buddyx-isotope-pkgd', 'precache', true );
 
 		// Enqueue the fitVids script.
 		wp_enqueue_script(
@@ -79,8 +71,6 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/fitvids.min.js' ) ),
 			true
 		);
-		wp_script_add_data( 'buddyx-fitvids', 'async', true );
-		wp_script_add_data( 'buddyx-fitvids', 'precache', true );
 
 		// Enqueue the sticky kit script.
 		wp_enqueue_script(
@@ -90,30 +80,33 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/sticky-kit.min.js' ) ),
 			true
 		);
-		wp_script_add_data( 'buddyx-sticky-kit', 'async', true );
-		wp_script_add_data( 'buddyx-sticky-kit', 'precache', true );
                 
                 // Enqueue the jquery cookie script.
                 wp_enqueue_script(
                         'buddyx-jquery-cookie',
                         get_theme_file_uri('/assets/js/jquery-cookie.min.js'),
-                        [],
+                        ['jquery'],
                         buddyx()->get_asset_version(get_theme_file_path('/assets/js/jquery-cookie.min.js')),
                         true
                 );
-                wp_script_add_data('buddyx-jquery-cookie', 'async', true);
-                wp_script_add_data('buddyx-jquery-cookie', 'precache', true);
+                
+                // Enqueue the slick script.
+                wp_enqueue_script(
+                    'buddyx-slick',
+                    get_theme_file_uri('/assets/js/slick.min.js'),
+                    ['jquery'],
+                    buddyx()->get_asset_version(get_theme_file_path('/assets/js/slick.min.js')),
+                    true
+                );
 
 		// Enqueue the custom script.
 		wp_enqueue_script(
 			'buddyx-custom',
 			get_theme_file_uri( '/assets/js/custom.min.js' ),
-			['jquery', 'buddyx-superfish', 'buddyx-isotope-pkgd', 'buddyx-fitvids', 'buddyx-sticky-kit', 'buddyx-jquery-cookie'],
+			['jquery'],
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);
-		wp_script_add_data( 'buddyx-custom', 'async', true );
-		wp_script_add_data( 'buddyx-custom', 'precache', true );
 		
 	}
 }

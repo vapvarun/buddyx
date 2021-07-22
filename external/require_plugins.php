@@ -75,10 +75,10 @@ function buddyx_register_required_plugins() {
 			'required' => false,
 		),
 
-		// BuddyPress Plugin
+		// Classic Widgets
 		array(
-			'name'     => 'BuddyPress',
-			'slug'     => 'buddypress',
+			'name'     => 'Classic Widgets',
+			'slug'     => 'classic-widgets',
 			'required' => false,
 		),
 

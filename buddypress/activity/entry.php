@@ -13,7 +13,13 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
 <li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) { bp_nouveau_edit_activity_data(); } ?>">
 
-	<div class="activity-card-head">
+        <?php 
+	if ( function_exists('buddypress') && isset(buddypress()->buddyboss )) {
+		bb_nouveau_activity_entry_bubble_buttons();
+	}
+	?>
+    
+        <div class="activity-card-head">
 		<h6 class="card-head-content-type">
 			<?php echo buddyx_bp_get_activity_css_first_class(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</h6>

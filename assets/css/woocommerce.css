@@ -1,12 +1,6 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Imports
-	# Custom properties
-	# Reset
-	# Typography
-	# Elements
-	# Links
 # Global WooCommerce Css
 # Shop Page
 # Single Product Page
@@ -18,20 +12,6 @@
     # Advanced WooCommerce Product Gallery Slider
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-# Imports
---------------------------------------------------------------*/
-
-@import "_custom-properties.css";
-@import "_reset.css";
-@import "_typography.css";
-@import "_elements.css";
-@import "_links.css";
-@import "_grid.css";
-@import "content.css";
-@import "sidebar.css";
-@import "widgets.css";
 
 /*--------------------------------------------------------------
 # Global WooCommerce Css

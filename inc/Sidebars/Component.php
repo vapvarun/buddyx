@@ -70,7 +70,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'display_left_sidebar'    => [ $this, 'display_left_sidebar' ],
 			'is_right_sidebar_active' => [ $this, 'is_right_sidebar_active' ],
 			'display_right_sidebar'   => [ $this, 'display_right_sidebar' ],
-			
+
 			'display_buddypress_left_sidebar'    => [ $this, 'display_buddypress_left_sidebar' ],
 			'is_buddypress_left_sidebar_active'  => [ $this, 'is_buddypress_left_sidebar_active' ],
 			'display_buddypress_right_sidebar'    => [ $this, 'display_buddypress_right_sidebar' ],
@@ -126,7 +126,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			if ( ! class_exists( 'Youzify' ) ) {
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Community &rarr; Left Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Community Left Sidebar', 'buddyx' ),
 						'id'            => static::BUDDYPRESS_LEFT_SIDEBAR_SLUG,
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -138,7 +138,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Activity &rarr; Directory Right Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Activity Directory Right Sidebar', 'buddyx' ),
 						'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -150,7 +150,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Members &rarr; Directory Right Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Members Directory Right Sidebar', 'buddyx' ),
 						'id'            => static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG,
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -162,7 +162,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Groups &rarr; Directory Right Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Groups Directory Right Sidebar', 'buddyx' ),
 						'id'            => static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG,
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -174,7 +174,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Members &rarr; Single Profile Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Members Single Profile Sidebar', 'buddyx' ),
 						'id'            => 'single_member',
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -186,7 +186,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				register_sidebar(
 					[
-						'name'          => esc_html__( 'Groups &rarr; Single Group Sidebar', 'buddyx' ),
+						'name'          => esc_html__( 'Groups Single Group Sidebar', 'buddyx' ),
 						'id'            => 'single_group',
 						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 						'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -493,7 +493,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'WooCommerce' ) ) {
 			if ( is_woocommerce() ) {
 				$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
-				
+
 				if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
 					global $template;
 
