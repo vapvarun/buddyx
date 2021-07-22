@@ -1208,27 +1208,27 @@ msgid "Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:129
-msgid "Community &rarr; Left Sidebar"
+msgid "Community Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:141
-msgid "Activity &rarr; Directory Right Sidebar"
+msgid "Activity Directory Right Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:153
-msgid "Members &rarr; Directory Right Sidebar"
+msgid "Members Directory Right Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:165
-msgid "Groups &rarr; Directory Right Sidebar"
+msgid "Groups Directory Right Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:177
-msgid "Members &rarr; Single Profile Sidebar"
+msgid "Members Single Profile Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:189
-msgid "Groups &rarr; Single Group Sidebar"
+msgid "Groups Single Group Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:204
