@@ -114,7 +114,6 @@ Released under the MIT license
 * Improvement: Managed moderation report with bb platform
 * Fix: Widget location renamed to support WP 5.8
 
-
 = 3.9.2 =
 * Improvement: Added Change Avatars and Covers edits links on Members & Groups headers
 
