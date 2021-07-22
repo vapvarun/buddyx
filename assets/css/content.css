@@ -1194,7 +1194,7 @@ article .entry-header {
 }
 
 @media (max-width: 767px) {
-    .buddyx-post-section .post-thumbnail {
+    .buddyx-post-section.buddyx-section-title-over .post-thumbnail {
         position: relative;
         z-index: 0;
         width: 100%;
@@ -1204,6 +1204,25 @@ article .entry-header {
         display: block;
         overflow: hidden;
         padding-top: 100%;
+    }
+    .buddyx-post-section.buddyx-section-title-over .post-thumbnail>img {
+        object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .buddyx-post-section .post-thumbnail {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+        overflow: hidden;
+        padding-top: 52.56%;
     }
     .buddyx-post-section .post-thumbnail>img {
         object-fit: cover;
