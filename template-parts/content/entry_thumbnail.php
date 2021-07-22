@@ -49,7 +49,7 @@ if ( is_singular( get_post_type() ) ) {
 	} elseif ( $post_layout == 'list-layout' ) {
 			$thumbnail_size = 'buddyx-list';
 	} else {
-			$thumbnail_size = 'buddyx-featured';
+			$thumbnail_size = 'buddyx-large';
 	}
 
 	?>

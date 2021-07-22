@@ -902,7 +902,7 @@ class Component implements Component_Interface {
 					'priority' => 10,
 					'output'   => array(
 						array(
-							'element'  => '.buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
+							'element'  => '.post-meta-category.post-meta-category a, .buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
 					.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a, .media .rtm-tabs li.active a, .buddypress.widget .item-options a.selected,
 					
                                         .learndash-wrapper .ld-expand-button.ld-button-alternate,
@@ -1305,6 +1305,21 @@ class Component implements Component_Interface {
 					'section'  => 'site_sidebar_layout',
 					'priority' => 10,
 					'default'  => 'right',
+					'choices'  => array(
+						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+						'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+					),
+				);
+                                
+                                $fields[] = array(
+					'type'     => 'radio-image',
+					'settings' => 'single_post_sidebar_option',
+					'label'    => esc_html__( 'Single Post Sidebar Layout', 'buddyx' ),
+					'section'  => 'site_sidebar_layout',
+					'priority' => 10,
+					'default'  => 'none',
 					'choices'  => array(
 						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',

@@ -27,7 +27,7 @@ if ( $post_layout == 'grid-layout' ) {
 } elseif ( $post_layout == 'list-layout' ) {
 	$thumbnail_size = 'buddyx-list';
 } else {
-	$thumbnail_size = 'buddyx-featured';
+	$thumbnail_size = 'buddyx-large';
 }
 
 // Audio or video attachments can have featured images, so they need to be specifically checked.

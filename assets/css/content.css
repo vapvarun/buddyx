@@ -150,6 +150,11 @@
     display: none;
 }
 
+.post-thumbnail img {
+    width: 100%;
+    margin: 0 auto;
+}
+
 .page-content,
 .entry-content,
 .entry-summary {

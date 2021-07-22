@@ -148,7 +148,7 @@ p:empty::before {
 }
 
 @media (--sidebar-query) {
-    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
+    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
     .has-sidebar-right.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-right.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-right:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -159,7 +159,7 @@ p:empty::before {
         grid-gap: 2rem;
         justify-content: center;
     }
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-left.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -170,7 +170,7 @@ p:empty::before {
         grid-gap: 2rem;
         justify-content: center;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-both.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -181,7 +181,7 @@ p:empty::before {
         grid-gap: 1.5rem;
         justify-content: center;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
@@ -191,7 +191,7 @@ p:empty::before {
         grid-column: 3;
         min-width: 0;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-main,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-both.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
@@ -200,7 +200,7 @@ p:empty::before {
         grid-column: 2;
         min-width: 0;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
@@ -217,7 +217,7 @@ p:empty::before {
         grid-column: 1;
         min-width: 0;
     }
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-main,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-left.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
@@ -269,6 +269,10 @@ p:empty::before {
         grid-column: 1 !important;
         min-width: 0;
     }
+    .page-template-page-right-sidebar .primary-sidebar {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
     .page-template-page-both-sidebar .site-wrapper {
         display: grid;
         grid-template-columns: 260px 2fr 260px !important;
@@ -281,6 +285,91 @@ p:empty::before {
     }
     .page-template-page-both-sidebar .primary-sidebar {
         grid-column: 3 !important;
+        min-width: 0;
+    }
+    /* Post Templates */
+    .post-template-post-left-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 3fr !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .post-template-post-left-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .post-template-post-right-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 260px !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .post-template-post-right-sidebar .site-main {
+        grid-column: 1 !important;
+        min-width: 0;
+    }
+    .post-template-post-right-sidebar .primary-sidebar {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .post-template-post-both-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 2fr 260px !important;
+        grid-gap: 1.5rem;
+        justify-content: center;
+    }
+    .post-template-post-both-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .post-template-post-both-sidebar .primary-sidebar {
+        grid-column: 3 !important;
+        min-width: 0;
+    }
+    /* Single Post Sidebar  */
+    .has-single-post-left-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 3fr !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .has-single-post-left-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .has-single-post-right-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 260px !important;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+    .has-single-post-right-sidebar .site-main {
+        grid-column: 1 !important;
+        min-width: 0;
+    }
+    .has-single-post-right-sidebar .primary-sidebar {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .has-single-post-both-sidebar .site-wrapper {
+        display: grid;
+        grid-template-columns: 260px 2fr 260px !important;
+        grid-gap: 1.5rem;
+        justify-content: center;
+    }
+    .has-single-post-both-sidebar .site-main {
+        grid-column: 2 !important;
+        min-width: 0;
+    }
+    .has-single-post-both-sidebar .primary-sidebar {
+        grid-column: 3 !important;
+        min-width: 0;
+    }
+    .has-single-post-no-sidebar .site-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+    .has-single-post-no-sidebar .site-main {
+        grid-column: 1 !important;
         min-width: 0;
     }
 }
@@ -1702,7 +1791,8 @@ body.layout-boxed {
 
 .site-sub-header .entry-title,
 .site-sub-header .page-title,
-.site-sub-header .page-header {
+.site-sub-header .page-header,
+.site-sub-header .entry-header-title {
     color: #111;
     margin-right: auto;
 }

@@ -509,14 +509,6 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: ../buddyx/full-width-container.php:3
-msgid "Page No Sidebar"
-msgstr ""
-
-#: ../buddyx/full-width.php:3
-msgid "Page Full Screen"
-msgstr ""
-
 #: ../buddyx/functions.php:32
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s"
 msgstr ""
@@ -915,11 +907,11 @@ msgstr ""
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:321, ../buddyx/inc/Kirki_Option/Component.php:742, ../buddyx/inc/Kirki_Option/Component.php:758, ../buddyx/inc/Kirki_Option/Component.php:774, ../buddyx/inc/Kirki_Option/Component.php:789, ../buddyx/inc/Kirki_Option/Component.php:804, ../buddyx/inc/Kirki_Option/Component.php:862, ../buddyx/inc/Kirki_Option/Component.php:1397, ../buddyx/inc/Kirki_Option/Component.php:1412
+#: ../buddyx/inc/Kirki_Option/Component.php:321, ../buddyx/inc/Kirki_Option/Component.php:742, ../buddyx/inc/Kirki_Option/Component.php:758, ../buddyx/inc/Kirki_Option/Component.php:774, ../buddyx/inc/Kirki_Option/Component.php:789, ../buddyx/inc/Kirki_Option/Component.php:804, ../buddyx/inc/Kirki_Option/Component.php:862, ../buddyx/inc/Kirki_Option/Component.php:1412, ../buddyx/inc/Kirki_Option/Component.php:1427
 msgid "Enable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Kirki_Option/Component.php:743, ../buddyx/inc/Kirki_Option/Component.php:759, ../buddyx/inc/Kirki_Option/Component.php:775, ../buddyx/inc/Kirki_Option/Component.php:790, ../buddyx/inc/Kirki_Option/Component.php:805, ../buddyx/inc/Kirki_Option/Component.php:863, ../buddyx/inc/Kirki_Option/Component.php:1398, ../buddyx/inc/Kirki_Option/Component.php:1413
+#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Kirki_Option/Component.php:743, ../buddyx/inc/Kirki_Option/Component.php:759, ../buddyx/inc/Kirki_Option/Component.php:775, ../buddyx/inc/Kirki_Option/Component.php:790, ../buddyx/inc/Kirki_Option/Component.php:805, ../buddyx/inc/Kirki_Option/Component.php:863, ../buddyx/inc/Kirki_Option/Component.php:1413, ../buddyx/inc/Kirki_Option/Component.php:1428
 msgid "Disable"
 msgstr ""
 
@@ -1027,11 +1019,11 @@ msgstr ""
 msgid "Enable Register Link"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:800, ../buddyx/inc/Kirki_Option/Component.php:1408
+#: ../buddyx/inc/Kirki_Option/Component.php:800, ../buddyx/inc/Kirki_Option/Component.php:1423
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:812, ../buddyx/inc/Kirki_Option/Component.php:1420
+#: ../buddyx/inc/Kirki_Option/Component.php:812, ../buddyx/inc/Kirki_Option/Component.php:1435
 msgid "Background Control"
 msgstr ""
 
@@ -1051,11 +1043,11 @@ msgstr ""
 msgid "Theme Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:965, ../buddyx/inc/Kirki_Option/Component.php:1476, ../buddyx/inc/Kirki_Option/Component.php:1568, ../buddyx/inc/Welcome/Component.php:347
+#: ../buddyx/inc/Kirki_Option/Component.php:965, ../buddyx/inc/Kirki_Option/Component.php:1491, ../buddyx/inc/Kirki_Option/Component.php:1583, ../buddyx/inc/Welcome/Component.php:347
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:981, ../buddyx/inc/Kirki_Option/Component.php:1492
+#: ../buddyx/inc/Kirki_Option/Component.php:981, ../buddyx/inc/Kirki_Option/Component.php:1507
 msgid "Link Hover"
 msgstr ""
 
@@ -1143,55 +1135,59 @@ msgstr ""
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1312
-msgid "Activity Directory Sidebar Layout"
+#: ../buddyx/inc/Kirki_Option/Component.php:1310
+msgid "Single Post Sidebar Layout"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1327
-msgid "Members Directory Sidebar Layout"
+msgid "Activity Directory Sidebar Layout"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:1342
+msgid "Members Directory Sidebar Layout"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:1357
 msgid "Groups Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1360
+#: ../buddyx/inc/Kirki_Option/Component.php:1375
 msgid "bbPress Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1377
+#: ../buddyx/inc/Kirki_Option/Component.php:1392
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1393
+#: ../buddyx/inc/Kirki_Option/Component.php:1408
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1444
+#: ../buddyx/inc/Kirki_Option/Component.php:1459
 msgid "Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1460, ../buddyx/inc/Kirki_Option/Component.php:1552
+#: ../buddyx/inc/Kirki_Option/Component.php:1475, ../buddyx/inc/Kirki_Option/Component.php:1567
 msgid "Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1511
+#: ../buddyx/inc/Kirki_Option/Component.php:1526
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1513
+#: ../buddyx/inc/Kirki_Option/Component.php:1528
 msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1520, ../buddyx/inc/Welcome/Component.php:297
+#: ../buddyx/inc/Kirki_Option/Component.php:1535, ../buddyx/inc/Welcome/Component.php:297
 msgid "Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1536
+#: ../buddyx/inc/Kirki_Option/Component.php:1551
 msgid "Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1584
+#: ../buddyx/inc/Kirki_Option/Component.php:1599
 msgid "Link Hover Color"
 msgstr ""
 
@@ -1199,7 +1195,7 @@ msgstr ""
 msgid "User Menu"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:417
+#: ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:417, ../buddyx/post-templates/post-right-sidebar.php:3
 msgid "Right Sidebar"
 msgstr ""
 
@@ -1207,7 +1203,7 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:412
+#: ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:412, ../buddyx/post-templates/post-left-sidebar.php:3
 msgid "Left Sidebar"
 msgstr ""
 
@@ -1558,7 +1554,7 @@ msgstr ""
 msgid "No Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:422
+#: ../buddyx/inc/Welcome/Component.php:422, ../buddyx/post-templates/post-both-sidebar.php:3
 msgid "Both Sidebar"
 msgstr ""
 
@@ -1830,16 +1826,32 @@ msgstr ""
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
-#: ../buddyx/page-both-sidebar.php:3
+#: ../buddyx/page-templates/full-width-container.php:3
+msgid "Page No Sidebar"
+msgstr ""
+
+#: ../buddyx/page-templates/full-width.php:3
+msgid "Page Full Screen"
+msgstr ""
+
+#: ../buddyx/page-templates/page-both-sidebar.php:3
 msgid "Page Both Sidebar"
 msgstr ""
 
-#: ../buddyx/page-left-sidebar.php:3
+#: ../buddyx/page-templates/page-left-sidebar.php:3
 msgid "Page Left Sidebar"
 msgstr ""
 
-#: ../buddyx/page-right-sidebar.php:3
+#: ../buddyx/page-templates/page-right-sidebar.php:3
 msgid "Page Right Sidebar"
+msgstr ""
+
+#: ../buddyx/post-templates/post-full-large.php:3
+msgid "Full Width - Large container"
+msgstr ""
+
+#: ../buddyx/post-templates/post-full-small.php:3
+msgid "Full Width - Small container"
 msgstr ""
 
 #: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:131
