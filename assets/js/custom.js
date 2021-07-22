@@ -82,7 +82,7 @@
             $('.user-link-wrap, .user-notifications').removeClass("active");
         });
 
-        $(".site-title a, .user-link-wrap .user-link").focusin(function() {
+        $(".site-title a, .user-link-wrap .user-link, button.menu-toggle").focusin(function() {
             $('.user-notifications').removeClass("active");
         });
 

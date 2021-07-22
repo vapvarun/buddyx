@@ -66,8 +66,11 @@
 }
 
 .buddyx-dashboard-tabs button:focus {
-    outline: thin dotted;
     --bs-color: rgba(0, 0, 0, 0.6);
+}
+
+.buddyx-dashboard-tabs button:focus-visible {
+    outline: 2px solid black;
 }
 
 .buddyx-home-body {

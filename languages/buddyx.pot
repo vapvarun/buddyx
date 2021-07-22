@@ -855,7 +855,7 @@ msgstr ""
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:174, ../buddyx/inc/Welcome/Component.php:237, ../buddyx/template-parts/header/navigation.php:58
+#: ../buddyx/inc/Kirki_Option/Component.php:174, ../buddyx/inc/Welcome/Component.php:237, ../buddyx/template-parts/header/navigation.php:59
 msgid "Menu"
 msgstr ""
 
@@ -2034,12 +2034,16 @@ msgstr ""
 msgid "Main menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:43
+#: ../buddyx/template-parts/header/navigation.php:44
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:62
+#: ../buddyx/template-parts/header/navigation.php:63
 msgid "Close"
+msgstr ""
+
+#: ../buddyx/template-parts/header/navigation.php:78
+msgid "My Account"
 msgstr ""
 
 #: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:79

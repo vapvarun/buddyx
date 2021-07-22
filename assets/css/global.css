@@ -472,11 +472,11 @@ input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb;
 }
 
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus {
-    outline: thin dotted;
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="reset"]:focus-visible,
+input[type="submit"]:focus-visible {
+    outline: 2px solid black;
 }
 
 input[type="text"],
@@ -519,7 +519,29 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
     color: #111;
-    outline: thin dotted;
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="url"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="search"]:focus-visible,
+input[type="number"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="range"]:focus-visible,
+input[type="date"]:focus-visible,
+input[type="month"]:focus-visible,
+input[type="week"]:focus-visible,
+input[type="time"]:focus-visible,
+input[type="datetime"]:focus-visible,
+input[type="datetime-local"]:focus-visible,
+input[type="color"]:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid black;
+}
+
+a.menu-close:focus-visible {
+    outline: 2px solid #fff;
 }
 
 table {
@@ -657,8 +679,6 @@ select {
 .nav--toggle-small .menu-toggle {
     display: block;
     margin: 0;
-    margin-top: 3px;
-    margin-left: 10px;
     padding: 10px !important;
     font-family: var(--highlight-font-family);
     font-size: 80%;
@@ -720,6 +740,9 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 @media (max-width: 767px) {
+    .site-branding {
+        flex: 1;
+    }
     .main-navigation .primary-menu-container.buddyx-desktop-menu,
     .desktop-icons {
         display: none;
@@ -872,12 +895,28 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .main-navigation ul li.menu-item-has-children {
         position: relative;
     }
-    .buddyx-mobile-menu .menu-icons-wrapper #searchform input[type=text] {
-        width: 155px;
-        padding-left: 10px;
+    .buddyx-mobile-user .user-wrap {
+        display: flex;
+        align-items: center;
+        margin: 10px 10px 20px;
     }
-    .buddyx-mobile-menu .menu-icons-wrapper #searchform input[type=submit] {
-        height: 40px;
+    .buddyx-mobile-user .user-wrap a {
+        width: auto;
+        padding: 0;
+    }
+    .buddyx-mobile-user .user-wrap .avatar {
+        border-radius: 50%;
+        margin-right: 15px;
+        max-width: 52px;
+    }
+    .buddyx-mobile-user .user-wrap .user-name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .buddyx-mobile-user .my-account-link a {
+        font-size: 13px;
+        color: #939597;
+        line-height: 1;
     }
 }
 
@@ -1159,6 +1198,11 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     margin: 0px 10px;
 }
 
+.menu-icons-wrapper .cart {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
 .menu-icons-wrapper div:last-child {
     margin-right: 0px;
 }
@@ -1266,21 +1310,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .menu-icons-wrapper {
         float: none;
     }
-    .menu-icons-wrapper #searchform {
-        max-width: 200px;
-        padding: 0;
-        padding-right: 40px;
-    }
-    .menu-icons-wrapper .top-menu-search-container {
-        position: relative;
-        left: 0;
-        display: block !important;
-    }
-    .menu-icons-wrapper .search .search-icon {
-        display: none;
-    }
     .menu-icons-wrapper .cart {
-        line-height: 45px;
+        min-width: 32px;
     }
 }
 
@@ -1435,7 +1466,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .buddypress-icons-wrapper .btn-register {
         font-size: 12px;
     }
-    .buddypress-icons-wrapper .bp-msg,
+    .buddypress-icons-wrapper .user-link-wrap,
     span.bp-user {
         display: none;
     }
@@ -1454,7 +1485,28 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 @media (max-width: 480px) {
     .main-navigation {
         margin-left: auto;
-        flex: 0 0 auto;
+    }
+    .site-title a {
+        font-size: 24px !important;
+    }
+    .buddypress-icons-wrapper .bp-msg,
+    .buddypress-icons-wrapper .user-link-wrap,
+    .buddypress-icons-wrapper .user-notifications,
+    .menu-icons-wrapper,
+    .menu-icons-wrapper .cart {
+        margin: 0;
+    }
+    .menu-icons-wrapper .cart {
+        margin-left: 5px;
+    }
+    .main-navigation .cart a {
+        min-width: 37px;
+    }
+    .menu-icons-wrapper .top-menu-search-container {
+        right: -80px;
+    }
+    .menu-icons-wrapper #searchform {
+        max-width: 200px;
     }
 }
 
