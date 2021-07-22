@@ -9,6 +9,7 @@
 # Sidebar Widegts
 # Forums
 # Documents
+# Moderation
 # Extra Plugins Support
     # BuddyPress Sticky Post
     # BuddyPress Quotes
@@ -787,6 +788,15 @@ span.bbp-author-avatar img {
 
 .bb-activity-media-wrap .bb-activity-media-elem.document-activity {
     margin-left: 6px;
+}
+
+
+/*--------------------------------------------------------------
+# Moderation
+--------------------------------------------------------------*/
+
+.moderation-popup .modal-container .bb-model-footer .button.bb-cancel-report-content {
+    border: 0;
 }
 
 
