@@ -75,6 +75,13 @@ function buddyx_register_required_plugins() {
 			'required' => false,
 		),
 
+		// Classic Widgets
+		array(
+			'name'     => 'Classic Widgets',
+			'slug'     => 'classic-widgets',
+			'required' => false,
+		),
+
 	);
 
 	/*
