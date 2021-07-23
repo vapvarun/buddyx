@@ -12,6 +12,22 @@ $title_position  = get_post_meta( get_the_ID(), '_post_title_position', true );
 
 $content_classes = array();
 
+if ( has_post_format( 'video' ) ) {
+    $format_class = 'video';    
+} elseif ( has_post_format( 'audio' ) ) {
+    $format_class = 'audio';
+} elseif ( has_post_format( 'quote' ) ) {
+    $format_class = 'quote';
+} elseif ( has_post_format( 'link' ) ) {
+    $format_class = 'link';
+} elseif ( has_post_format( 'gallery' ) ) {
+    $format_class = 'gallery';
+} elseif ( has_post_format( 'image' ) ) {
+    $format_class = 'image';
+} else {
+    $format_class = 'standard';
+}
+
 if ( $title_overwrite == 'yes' ) {
 	$content_classes[] = 'buddyx-section-' . $title_position;
 } else {
@@ -25,7 +41,7 @@ if ( has_post_thumbnail() ) {
 $content_classes = implode( ' ', $content_classes );
 
 ?>
-<div class="buddyx-post-section <?php echo esc_attr( $content_classes ); ?>">
+<div class="buddyx-post-section <?php echo esc_attr( $content_classes ); ?> <?php echo esc_attr( $format_class ); ?>">
 	
 	<div class="entry-media-image">
 	
