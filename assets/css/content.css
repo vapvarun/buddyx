@@ -1266,11 +1266,11 @@ article .entry-header {
     bottom: 0;
 }
 
-.buddyx-section-title-over.has-featured-image .post-meta-category a,
-.buddyx-section-title-over.has-featured-image h1.entry-title,
-.buddyx-section-title-over.has-featured-image .entry-meta,
-.buddyx-section-title-over.has-featured-image .entry-meta__content a,
-.buddyx-section-title-over.has-featured-image .post-edit-link {
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .post-meta-category a,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image h1.entry-title,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .entry-meta,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .entry-meta__content a,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .post-edit-link {
     color: #fff;
 }
 
@@ -1337,8 +1337,7 @@ article .entry-header {
 .single-format-audio .buddyx-section-title-over.has-featured-image .entry-header--default,
 .single-format-gallery .buddyx-section-title-over.has-featured-image .entry-header--default {
     position: static;
-    background: #2f4f4f;
-    padding: 20px;
+    padding: 0;
 }
 
 
