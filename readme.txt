@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.0.1 =
+* Fix: (#290) Fixed post author image is missing
+
 = 4.0.0 =
 * New Feature: Post Format - Gallery
 * New Feature: Post Format - Link 
