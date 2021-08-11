@@ -125,12 +125,21 @@ p:empty::before {
     overflow: hidden;
 }
 
-.blog .site-wrapper,
-.home-page .site-wrapper {
-    margin-top: 15px;
+.site-wrapper {
+    margin: 1rem 0;
+}
+
+.site-wrapper #item-header {
+    margin-top: -1rem;
 }
 
 @media (min-width: 768px) {
+    .site-wrapper {
+        margin: 2rem 0;
+    }
+    .site-wrapper #item-header {
+        margin-top: -2rem;
+    }
     #primary,
     .site-wrapper {
         min-height: calc(100vh - 190px);
@@ -883,10 +892,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .main-navigation ul.menu ul li {
         padding-left: 0;
     }
-    #primary-menu .sub-menu {
+    #primary-menu .sub-menu,
+    .mobile-user-profile-menu .sub-menu {
         display: none;
     }
-    #primary-menu .sub-menu.toggle-show {
+    #primary-menu .sub-menu.toggle-show,
+    .mobile-user-profile-menu .sub-menu.toggle-show {
         display: block;
     }
     .main-navigation ul.menu li+li {
