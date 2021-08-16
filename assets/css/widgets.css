@@ -21,6 +21,10 @@
     background: #fff;
 }
 
+.widget-area .widget:first-child {
+    margin-top: 0;
+}
+
 .widget-area .widget:last-child {
     margin-bottom: 1rem;
 }

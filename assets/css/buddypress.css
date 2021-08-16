@@ -152,7 +152,9 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content a,
 .buddypress .buddypress-wrap button.button,
 .buddypress .buddypress-wrap button.button.edit,
 .buddypress .buddypress-wrap .btn-default,
-.moderation-popup .modal-container .bb-model-footer .button.report-submit {
+.moderation-popup .modal-container .bb-model-footer .button.report-submit,
+button#bbp_topic_submit,
+button#bbp_reply_submit {
     font-family: inherit;
     font-size: initial;
     color: #fff;
@@ -198,7 +200,9 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hove
 .buddypress .buddypress-wrap button.button:hover,
 .buddypress .buddypress-wrap button.button.edit:hover,
 .buddypress .buddypress-wrap .btn-default:hover,
-.moderation-popup .modal-container .bb-model-footer .button.report-submit:hover {
+.moderation-popup .modal-container .bb-model-footer .button.report-submit:hover,
+button#bbp_topic_submit:hover,
+button#bbp_reply_submit:hover {
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
     color: #fff;
@@ -1838,10 +1842,6 @@ body.buddypress.group-create #page #primary .entry-header {
 
 .bp-wrap {
     width: 100%;
-}
-
-.bp-single-vert-nav .bp-wrap {
-    margin-top: 16px;
 }
 
 .buddypress-wrap:not(.bp-vertical-navs) .item-body {
