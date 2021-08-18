@@ -714,7 +714,7 @@ msgid "View Shopping Cart"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:134
-msgid "Xprofile"
+msgid "Profile"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:137, ../buddyx/inc/extra.php:156
@@ -725,8 +725,8 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:143, ../buddyx/inc/Welcome/Component.php:568
-msgid "bbPress"
+#: ../buddyx/inc/extra.php:143
+msgid "Forums"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:146
@@ -1676,6 +1676,10 @@ msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:563
 msgid "TutorLMS"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:568
+msgid "bbPress"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:573
