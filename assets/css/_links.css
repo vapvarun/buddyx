@@ -3,28 +3,25 @@
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
-/* stylelint-disable */
-a {
-	color: var(--color-link);
-	text-decoration: none;
-}
-/* stylelint-enable */
 
-/* a:visited {
-	color: var(--color-link-visited);
-} */
+
+/* stylelint-disable */
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+
+/* stylelint-enable */
 
 a:hover,
 a:focus,
 a:active {
-	color: var(--color-link-active);
-}
-
-a:focus-visible {
-    outline: 2px solid black;
+    color: var(--color-link-active);
 }
 
 a:hover,
 a:active {
-	outline: 0;
+    outline: 0;
 }

@@ -14,9 +14,11 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-
-$default_sidebar = get_theme_mod( 'single_post_sidebar_option', buddyx_defaults( 'single-post-sidebar-option' ) );
-
+if ( get_post_type() == 'post' ) {
+	$default_sidebar = get_theme_mod( 'single_post_sidebar_option', buddyx_defaults( 'single-post-sidebar-option' ) );
+} else {
+	$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
+}
 
 if ( get_post_type() == 'post' ) {
 	$single_post_content_width = get_theme_mod( 'single_post_content_width', buddyx_defaults( 'single-post-content-width' ) );

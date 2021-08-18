@@ -22,6 +22,10 @@
     margin-top: 1em;
 }
 
+.forum-archive .bbp-breadcrumb {
+    display: none;
+}
+
 #bbpress-forums ul.bbp-forums,
 #bbpress-forums ul.bbp-lead-topic,
 #bbpress-forums ul.bbp-replies,
@@ -137,6 +141,66 @@ a.bbp-topic-permalink {
 #bbpress-forums div.bbp-reply-author img.avatar,
 #bbpress-forums div.bbp-topic-author img.avatar {
     border-radius: 50%;
+}
+
+
+/* Search Form */
+
+#bbpress-forums #bbp-search-form>div {
+    display: flex;
+}
+
+@media only screen and (max-width: 767px) {
+    ul li.bbp-forum-info,
+    ul li.bbp-topic-title {
+        width: 75%
+    }
+    .bbp-header ul li.bbp-forum-freshness,
+    .bbp-body ul li.bbp-forum-freshness,
+    .bbp-header ul li.bbp-topic-freshness,
+    .bbp-body ul li.bbp-topic-freshness,
+    .bbp-header ul li.bbp-forum-reply-count,
+    .bbp-body ul li.bbp-forum-reply-count,
+    .bbp-header ul li.bbp-topic-voice-count,
+    .bbp-body ul li.bbp-topic-voice-count {
+        display: none
+    }
+    .bbp-header ul li.bbp-topic-reply-count,
+    .bbp-body ul li.bbp-topic-reply-count,
+    .bbp-header ul li.bbp-forum-topic-count,
+    .bbp-body ul li.bbp-forum-topic-count {
+        border: none
+    }
+    .bbp-header ul li.bbp-forum-topic-count,
+    .bbp-body ul li.bbp-forum-topic-count,
+    .bbp-header ul li.bbp-topic-reply-count,
+    .bbp-body ul li.bbp-topic-reply-count {
+        width: 25%
+    }
+    #bbpress-forums div.bbp-search-form {
+        float: none;
+    }
+    #bbpress-forums #bbp-search-form #bbp_search {
+        width: 100%;
+    }
+    #bbpress-forums div.bbp-search-form input,
+    #bbpress-forums div.bbp-search-form button {
+        font-size: inherit;
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #bbpress-forums li.bbp-header li.bbp-forum-info,
+    #bbpress-forums li.bbp-header li.bbp-topic-title {
+        text-align: left;
+    }
+    #bbpress-forums li.bbp-header li.bbp-forum-info,
+    #bbpress-forums li.bbp-body li.bbp-forum-info,
+    #bbpress-forums li.bbp-header li.bbp-topic-title,
+    #bbpress-forums li.bbp-body li.bbp-topic-title {
+        width: 75%;
+    }
 }
 
 

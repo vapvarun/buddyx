@@ -471,10 +471,6 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 # Single Course
 --------------------------------------------------------------*/
 
-.single-sfwd-courses .site-main {
-    margin-top: 1em;
-}
-
 .single-sfwd-courses .entry-content {
     background: #fff;
     margin: 0;
@@ -488,7 +484,9 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 }
 
 .sfwd-courses .entry-meta,
-.sfwd-courses .entry-footer {
+.single-groups .entry-meta,
+.sfwd-courses .entry-footer,
+.single-groups .entry-footer {
     display: none;
 }
 

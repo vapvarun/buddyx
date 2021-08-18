@@ -429,7 +429,7 @@ article .entry-header {
 
 .buddyx-article--default .buddyx-article {
     position: relative;
-    margin: 1rem 0 0;
+    margin: 0;
     padding: 1em;
     border: 1px solid var(--global-border-color);
     border-radius: 8px;
@@ -507,10 +507,6 @@ article .entry-header {
 /*--------------------------------------------------------------
 ## Post List Layout.
 --------------------------------------------------------------*/
-
-.buddyx-article--list {
-    margin-top: 1em;
-}
 
 .buddyx-article--list .buddyx-article {
     position: relative;
@@ -826,7 +822,7 @@ article .entry-header {
 }
 
 .post-layout.masonry-layout {
-    margin: 1rem 0;
+    margin: 0 0 1rem;
 }
 
 .buddyx-article--masonry {
