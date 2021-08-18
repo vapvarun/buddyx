@@ -141,18 +141,37 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 		 *
 		 * @param array $value Array of classes used to determine classes applied to HTML element.
 		 */
-		$mini_activity_actions = apply_filters(
-			'bp_activity_mini_activity_types',
-			array(
-				'friendship_accepted',
-				'friendship_created',
-				'new_blog',
-				'joined_group',
-				'created_group',
-				'new_member',
-			)
-		);
-		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $activities_template->activity->component );
+		$mini_activity_actions = '';
+
+		switch ( $activities_template->activity->component ) {
+			case 'xprofile':
+				$mini_activity_actions = __( 'Xprofile', 'buddyx' );
+				break;
+			case 'activity':
+				$mini_activity_actions = __( 'Activity', 'buddyx' );
+				break;
+			case 'groups':
+				$mini_activity_actions = __( 'Groups', 'buddyx' );
+				break;
+			case 'bbpress':
+				$mini_activity_actions = __( 'bbPress', 'buddyx' );
+				break;
+			case 'friends':
+				$mini_activity_actions = __( 'Friends', 'buddyx' );
+				break;
+			case 'members':
+				$mini_activity_actions = __( 'Members', 'buddyx' );
+				break;
+			case 'blogs':
+				$mini_activity_actions = __( 'Blogs', 'buddyx' );
+				break;
+				
+			default:			
+				$mini_activity_actions = __( 'Activity', 'buddyx' );
+				break;
+		}
+		
+		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $mini_activity_actions, $activities_template->activity->component );
 	}
 }
 
