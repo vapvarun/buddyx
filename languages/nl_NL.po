@@ -1,0 +1,2361 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyX\n"
+"POT-Creation-Date: 2021-08-18 12:31+0530\n"
+"PO-Revision-Date: 2021-08-18 12:32+0530\n"
+"Last-Translator: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Language-Team: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#: buddypress/groups/groups-loop.php:55
+#: buddypress/groups/single/cover-image-header.php:103
+#, php-format
+msgid "active %s"
+msgstr "actief %s"
+
+#: buddypress/groups/single/cover-image-header.php:41
+#: buddypress/members/single/cover-image-header.php:42
+msgid "Change Cover Photo"
+msgstr "Verwissel de omslagfoto"
+
+#: buddypress/groups/single/cover-image-header.php:55
+#: buddypress/members/single/cover-image-header.php:56
+msgid "Reposition Cover Photo"
+msgstr "Herpositionering Cover Foto"
+
+#: buddypress/groups/single/cover-image-header.php:59
+#: buddypress/members/single/cover-image-header.php:60
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: buddypress/groups/single/cover-image-header.php:60
+#: buddypress/members/single/cover-image-header.php:61
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: buddypress/groups/single/cover-image-header.php:61
+#: buddypress/members/single/cover-image-header.php:62
+msgid "Drag to move cover photo"
+msgstr "Sleep om de coverfoto te verplaatsen"
+
+#: buddypress/groups/single/cover-image-header.php:62
+#: buddypress/members/single/cover-image-header.php:63
+msgid "Cover photo"
+msgstr "Omslagfoto"
+
+#: buddypress/groups/single/cover-image-header.php:76
+msgid "Change Group Photo"
+msgstr "Verander de groepsfoto"
+
+#: buddypress/groups/single/cover-image-header.php:119
+msgid "Group Types"
+msgstr "Type groepen"
+
+#: buddypress/groups/single/cover-image-header.php:120
+msgid "Group Type"
+msgstr "Groeptype"
+
+#: buddypress/members/single/cover-image-header.php:75
+msgid "Change Profile Photo"
+msgstr "Wijzig Profiel Foto"
+
+#: buddypress/members/single/cover-image-header.php:123
+msgid "Member Types"
+msgstr "Lid-types"
+
+#: buddypress/members/single/cover-image-header.php:124
+msgid "Member Type"
+msgstr "Lid-type"
+
+#: buddypress/members/single/groups/invites.php:10
+msgid "Group Invites"
+msgstr "Groepsuitnodigingen"
+
+#: buddypress/members/single/groups/invites.php:42
+#, php-format
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] "%s lid"
+msgstr[1] "%s leden"
+
+#. translators: 1: title.
+#: comments.php:38
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Één gedachte over &ldquo;%1$s&rdquo;"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:44
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s reactie op &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s reacties op &ldquo;%2$s&rdquo;"
+
+#: comments.php:60
+msgid "Comments are disabled."
+msgstr "Opmerkingen zijn uitgeschakeld."
+
+#: external/class-tgm-plugin-activation.php:325
+msgid "Install Required Plugins"
+msgstr "Installeer vereiste plugins"
+
+#: external/class-tgm-plugin-activation.php:326
+msgid "Install Plugins"
+msgstr "Installeer plugins"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:328
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Plugin installeren: %s"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:330
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "Updaten Plugin: %s"
+
+#: external/class-tgm-plugin-activation.php:331
+msgid "Something went wrong with the plugin API."
+msgstr "Er ging iets mis met de plugin API."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:334
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Dit thema vereist de volgende plugin: %1$s."
+msgstr[1] "Dit thema vereist de volgende plugins: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:340
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Dit thema beveelt de volgende plugins aan: %1$s."
+msgstr[1] "Dit thema beveelt de volgende plugins aan: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:346
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"De volgende plugin moet worden bijgewerkt naar de nieuwste versie voor "
+"maximale compatibiliteit met dit thema: %1$s."
+msgstr[1] ""
+"De volgende plugins moeten worden bijgewerkt om hun nieuwste versie voor "
+"maximale compatibiliteit met dit thema: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:352
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "Er is een update beschikbaar voor: %1$s."
+msgstr[1] "Er zijn updates beschikbaar voor: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:358
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "De volgende vereiste plugin is momenteel inactief: %1$s."
+msgstr[1] "De volgende vereiste plugins zijn momenteel inactief: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:364
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "De volgende aanbevolen plugin is momenteel inactief: %1$s."
+msgstr[1] "De volgende aanbevolen plugins zijn momenteel inactief: %1$s."
+
+#: external/class-tgm-plugin-activation.php:369
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Beginnen met het installeren van de plugin"
+msgstr[1] "Beginnen met het installeren van de plugins"
+
+#: external/class-tgm-plugin-activation.php:374
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "Beginnen met bijwerken van de plugin"
+msgstr[1] "Beginnen met bijwerken van de plugins"
+
+#: external/class-tgm-plugin-activation.php:379
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Beginnen met het activeren van de plugin"
+msgstr[1] "Beginnen met het activeren van de plugins"
+
+#: external/class-tgm-plugin-activation.php:383
+msgid "Return to Required Plugins Installer"
+msgstr "Return to Required Plugins Installer"
+
+#: external/class-tgm-plugin-activation.php:384
+#: external/class-tgm-plugin-activation.php:825
+#: external/class-tgm-plugin-activation.php:2551
+#: external/class-tgm-plugin-activation.php:3602
+msgid "Return to the Dashboard"
+msgstr "Terug naar Dashboard"
+
+#: external/class-tgm-plugin-activation.php:385
+#: external/class-tgm-plugin-activation.php:3177
+msgid "Plugin activated successfully."
+msgstr "Plugin succesvol geactiveerd."
+
+#: external/class-tgm-plugin-activation.php:386
+#: external/class-tgm-plugin-activation.php:2970
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "De volgende plugin is succesvol geactiveerd:"
+msgstr[1] "De volgende plugins zijn met succes geactiveerd:"
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:388
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "Geen actie uitgevoerd. De plugin %1$s was al geactiveerd."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:390
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"De plugin is niet geactiveerd. Een nieuwere versie van %s is noodzakelijk "
+"voor dit thema. Werk de plugin bij."
+
+#. translators: 1: dashboard link.
+#: external/class-tgm-plugin-activation.php:392
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Alle plug-ins zijn succesvol geactiveerd. %1$s"
+
+#: external/class-tgm-plugin-activation.php:393
+msgid "Dismiss this notice"
+msgstr "Negeer deze melding"
+
+#: external/class-tgm-plugin-activation.php:394
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Er zijn één of meerdere vereiste of aanbevolen plugins om te installeren, "
+"bij te werken of te activeren."
+
+#: external/class-tgm-plugin-activation.php:395
+msgid "Please contact the administrator of this site for help."
+msgstr "Gelieve de administrator van deze website te contacteren voor hulp."
+
+#: external/class-tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+"Deze plugin moet worden ge-update voor een compatibele versie met dit thema."
+
+#: external/class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr "Update Vereist"
+
+#: external/class-tgm-plugin-activation.php:934
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"Het gekozen plugin pakket bevat geen map met de gewenste slag en de "
+"naamswijziging heeft niet gewerkt."
+
+#: external/class-tgm-plugin-activation.php:934
+#: external/class-tgm-plugin-activation.php:944
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"Gelieve contact op te nemen met de aanbieder van de plugin en vraag hen de "
+"plugin aan te leveren volgens de Wordpress richtlijnen."
+
+#: external/class-tgm-plugin-activation.php:944
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"Het gekozen pluginpakket bestaat uit meer dan een bestand, maar de bestanden "
+"zijn niet samengepakt in een map."
+
+#: external/class-tgm-plugin-activation.php:1133
+#: external/class-tgm-plugin-activation.php:2966
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: external/class-tgm-plugin-activation.php:2000
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: external/class-tgm-plugin-activation.php:2291
+msgid "Required"
+msgstr "Verplicht"
+
+#: external/class-tgm-plugin-activation.php:2294
+msgid "Recommended"
+msgstr "Aanbevolen"
+
+#: external/class-tgm-plugin-activation.php:2310
+msgid "WordPress Repository"
+msgstr "WordPress Repository"
+
+#: external/class-tgm-plugin-activation.php:2313
+msgid "External Source"
+msgstr "Externe Bron"
+
+#: external/class-tgm-plugin-activation.php:2316
+msgid "Pre-Packaged"
+msgstr "Voorverpakt"
+
+#: external/class-tgm-plugin-activation.php:2333
+msgid "Not Installed"
+msgstr "Niet geïnstalleerd"
+
+#: external/class-tgm-plugin-activation.php:2337
+msgid "Installed But Not Activated"
+msgstr "Geïnstalleerd maar niet geactiveerd"
+
+#: external/class-tgm-plugin-activation.php:2339
+msgid "Active"
+msgstr "Actief"
+
+#: external/class-tgm-plugin-activation.php:2345
+msgid "Required Update not Available"
+msgstr "Verplichte update niet beschikbaar"
+
+#: external/class-tgm-plugin-activation.php:2348
+msgid "Requires Update"
+msgstr "Update Vereist"
+
+#: external/class-tgm-plugin-activation.php:2351
+msgid "Update recommended"
+msgstr "Update aanbevolen"
+
+#. translators: 1: install status, 2: update status
+#: external/class-tgm-plugin-activation.php:2360
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2406
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alle <span class=\"screen-reader-text\">(%s)</span>"
+msgstr[1] "Alle <span class=\"screen-reader-text\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2410
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "Installeer <span class=\"count\">(%s)</span>"
+msgstr[1] "Installeer <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2414
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "Update beschikbaar <span class=\"count\">(%s)</span>"
+msgstr[1] "Update beschikbaar <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2418
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "Activeer <span class=\"count\">(%s)</span>"
+msgstr[1] "Activeer <span class=\"count\">(%s)</span>"
+
+#: external/class-tgm-plugin-activation.php:2500
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "onbekend"
+
+#: external/class-tgm-plugin-activation.php:2508
+msgid "Installed version:"
+msgstr "Geïnstalleerde versie:"
+
+#: external/class-tgm-plugin-activation.php:2516
+msgid "Minimum required version:"
+msgstr "Minimaal vereiste versie:"
+
+#: external/class-tgm-plugin-activation.php:2528
+msgid "Available version:"
+msgstr "Beschikbare versie:"
+
+#: external/class-tgm-plugin-activation.php:2551
+msgid "No plugins to install, update or activate."
+msgstr "Geen plugins te installeren, updaten of te activeren."
+
+#: external/class-tgm-plugin-activation.php:2565
+msgid "Plugin"
+msgstr "Plugin"
+
+#: external/class-tgm-plugin-activation.php:2566
+msgid "Source"
+msgstr "Bron"
+
+#: external/class-tgm-plugin-activation.php:2567
+msgid "Type"
+msgstr "Type"
+
+#: external/class-tgm-plugin-activation.php:2571
+msgid "Version"
+msgstr "Versie"
+
+#: external/class-tgm-plugin-activation.php:2572
+msgid "Status"
+msgstr "Status"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2621
+#, php-format
+msgid "Install %2$s"
+msgstr "Installeer %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2626
+#, php-format
+msgid "Update %2$s"
+msgstr "Update %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2632
+#, php-format
+msgid "Activate %2$s"
+msgstr "Activeer %2$s"
+
+#: external/class-tgm-plugin-activation.php:2702
+msgid "Upgrade message from the plugin author:"
+msgstr "Upgrade melding van de plugin-auteur:"
+
+#: external/class-tgm-plugin-activation.php:2735
+msgid "Install"
+msgstr "Installeer"
+
+#: external/class-tgm-plugin-activation.php:2741
+msgid "Update"
+msgstr "Bijwerken"
+
+#: external/class-tgm-plugin-activation.php:2744
+msgid "Activate"
+msgstr "Activeren"
+
+#: external/class-tgm-plugin-activation.php:2775
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+"Er zijn geen plugins geselecteerd om te installeren. Geen actie ondernomen."
+
+#: external/class-tgm-plugin-activation.php:2777
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+"Er zijn geen plugins geselecteerd om bij te werken. Geen actie ondernomen."
+
+#: external/class-tgm-plugin-activation.php:2818
+msgid "No plugins are available to be installed at this time."
+msgstr "Er zijn op dit moment geen plugins beschikbaar om te installeren."
+
+#: external/class-tgm-plugin-activation.php:2820
+msgid "No plugins are available to be updated at this time."
+msgstr "Er zijn op dit moment geen plugins beschikbaar om bij te werken."
+
+#: external/class-tgm-plugin-activation.php:2926
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+"Er zijn geen plugins geselecteerd om te activeren. Geen actie ondernomen."
+
+#: external/class-tgm-plugin-activation.php:2952
+msgid "No plugins are available to be activated at this time."
+msgstr "Er zijn op dit moment geen plugins beschikbaar om te activeren."
+
+#: external/class-tgm-plugin-activation.php:3176
+msgid "Plugin activation failed."
+msgstr "Plugin activatie mislukt."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3520
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Plugin bijwerken %1$s (%2$d/%3$d)"
+
+#. translators: 1: plugin name, 2: error message.
+#: external/class-tgm-plugin-activation.php:3523
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Er is een fout opgetreden tijdens de installatie van %1$s: <strong>%2$s</"
+"strong>."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3525
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "De installatie van %1$s is mislukt."
+
+#: external/class-tgm-plugin-activation.php:3529
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr "Installatie en activatieproces gestart. Dit kan even duren."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3531
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s succesvol geïnstalleerd en geactiveerd."
+
+#: external/class-tgm-plugin-activation.php:3531
+#: external/class-tgm-plugin-activation.php:3539
+msgid "Show Details"
+msgstr "Toon details"
+
+#: external/class-tgm-plugin-activation.php:3531
+#: external/class-tgm-plugin-activation.php:3539
+msgid "Hide Details"
+msgstr "Verberg details"
+
+#: external/class-tgm-plugin-activation.php:3532
+msgid "All installations and activations have been completed."
+msgstr "Alle installaties en activities werden uitgevoerd."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3534
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Installeren en activeren van plugin %1$s (%2$d/%3$d)"
+
+#: external/class-tgm-plugin-activation.php:3537
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr "Installatieproces gestart. Dit kan even duren."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3539
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s is succesvol geïnstalleerd."
+
+#: external/class-tgm-plugin-activation.php:3540
+msgid "All installations have been completed."
+msgstr "Alle installaties zijn voltooid."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3542
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installing Plugin %1$s (%2$d/%3$d)"
+
+#: external/include-kirki.php:54
+msgid ""
+"A plugin is required to take advantage of this theme's features in the "
+"customizer."
+msgstr ""
+"Plugin is nodig om gebruik te maken van de functies van dit thema in de "
+"customizer."
+
+#: external/include-kirki.php:55
+msgid "Install Kirki Toolkit now"
+msgstr "Installeer Kirki Toolkit nu"
+
+#: external/include-kirki.php:56
+msgid "Install Now"
+msgstr "Installeer Nu"
+
+#: external/include-kirki.php:59
+msgid ""
+"You have installed Kirki. Activate it to take advantage of this theme's "
+"features in the customizer."
+msgstr ""
+"Je hebt Kirki geinstalleerd. Activateer nu om gebruik te kunnen maken in "
+"customizer."
+
+#: external/include-kirki.php:60
+msgid "Activate Kirki Toolkit now"
+msgstr "Activateer Kirki Toolkit nu"
+
+#: external/include-kirki.php:61
+msgid "Activate Now"
+msgstr "Activeer nu"
+
+#: footer.php:26
+msgid "Footer"
+msgstr "Footer"
+
+#: functions.php:35
+#, php-format
+msgid ""
+"BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
+"Please activate this Template Pack from the %sBuddyPress Options.%s"
+msgstr ""
+
+#: header.php:29
+msgid "Skip to content"
+msgstr "Ga naar de inhoud"
+
+#: inc/Accessibility/Component.php:73
+msgid "Expand child menu"
+msgstr "Uitvouwen child menu"
+
+#: inc/Accessibility/Component.php:74
+msgid "Collapse child menu"
+msgstr "Invouwen child menu"
+
+#: inc/Comments/Component.php:132
+msgid "New comment(s)"
+msgstr "Nieuwe opmerking(en)"
+
+#: inc/Customizer/Component.php:77
+msgid "Theme Options"
+msgstr "Thema Opties"
+
+#: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
+msgid "Primary"
+msgstr "Primair"
+
+#: inc/Editor/Component.php:70
+msgid "Secondary"
+msgstr "Secundair"
+
+#: inc/Editor/Component.php:75
+msgid "Red"
+msgstr "Rood"
+
+#: inc/Editor/Component.php:80
+msgid "Green"
+msgstr "Groen"
+
+#: inc/Editor/Component.php:85
+msgid "Blue"
+msgstr "Blauw"
+
+#: inc/Editor/Component.php:90
+msgid "Yellow"
+msgstr "Geel"
+
+#: inc/Editor/Component.php:95
+msgid "Black"
+msgstr "Zwart"
+
+#: inc/Editor/Component.php:100
+msgid "Grey"
+msgstr "Grijs"
+
+#: inc/Editor/Component.php:105
+msgid "White"
+msgstr "Wit"
+
+#: inc/Editor/Component.php:110
+msgid "Dusty daylight"
+msgstr ""
+
+#: inc/Editor/Component.php:115
+msgid "Dusty sun"
+msgstr ""
+
+#: inc/Editor/Component.php:132
+msgid "Small"
+msgstr "Klein"
+
+#: inc/Editor/Component.php:133
+msgid "S"
+msgstr "S"
+
+#: inc/Editor/Component.php:138
+msgid "Medium"
+msgstr "Medium"
+
+#: inc/Editor/Component.php:139
+msgid "M"
+msgstr "M"
+
+#: inc/Editor/Component.php:144
+msgid "Large"
+msgstr "Groot"
+
+#: inc/Editor/Component.php:145
+msgid "L"
+msgstr "L"
+
+#: inc/Editor/Component.php:150
+msgid "Larger"
+msgstr "Groter"
+
+#: inc/Editor/Component.php:151
+msgid "XL"
+msgstr "XL"
+
+#: inc/Kirki_Option/Component.php:104
+msgid "General"
+msgstr "Algemeen"
+
+#: inc/Kirki_Option/Component.php:113 inc/Kirki_Option/Component.php:281
+#: inc/Welcome/Component.php:207
+msgid "Site Layout"
+msgstr "Site layout"
+
+#: inc/Kirki_Option/Component.php:124 inc/Welcome/Component.php:217
+msgid "Site Loader"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:135
+msgid "Page Mapping"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:146 inc/Welcome/Component.php:222
+msgid "Typography"
+msgstr "Typografie"
+
+#: inc/Kirki_Option/Component.php:155
+msgid "Site Title"
+msgstr "Website titel"
+
+#: inc/Kirki_Option/Component.php:165 inc/Welcome/Component.php:232
+msgid "Headings"
+msgstr "Koppen"
+
+#: inc/Kirki_Option/Component.php:175 inc/Welcome/Component.php:237
+#: template-parts/header/navigation.php:59
+msgid "Menu"
+msgstr "Menu"
+
+#: inc/Kirki_Option/Component.php:185 inc/Welcome/Component.php:242
+msgid "Body"
+msgstr "Body"
+
+#: inc/Kirki_Option/Component.php:196
+msgid "Site Header"
+msgstr "Siteheader"
+
+#: inc/Kirki_Option/Component.php:206
+msgid "Site Sub Header"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:216
+msgid "Site Skin"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:226 inc/Welcome/Component.php:372
+msgid "Site Blog"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:236 inc/Welcome/Component.php:402
+msgid "Site Sidebar"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:246 inc/Welcome/Component.php:452
+msgid "Site Footer"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:255 inc/Welcome/Component.php:457
+msgid "Footer Section"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:266 inc/Welcome/Component.php:462
+msgid "Copyright Section"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:297
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:298
+msgid "Select the maximum content width for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:318
+msgid "Site Loader ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:322 inc/Kirki_Option/Component.php:747
+#: inc/Kirki_Option/Component.php:763 inc/Kirki_Option/Component.php:779
+#: inc/Kirki_Option/Component.php:794 inc/Kirki_Option/Component.php:809
+#: inc/Kirki_Option/Component.php:871 inc/Kirki_Option/Component.php:1421
+#: inc/Kirki_Option/Component.php:1436
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: inc/Kirki_Option/Component.php:323 inc/Kirki_Option/Component.php:748
+#: inc/Kirki_Option/Component.php:764 inc/Kirki_Option/Component.php:780
+#: inc/Kirki_Option/Component.php:795 inc/Kirki_Option/Component.php:810
+#: inc/Kirki_Option/Component.php:872 inc/Kirki_Option/Component.php:1422
+#: inc/Kirki_Option/Component.php:1437
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: inc/Kirki_Option/Component.php:330
+msgid "Site Loader Background"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:356
+msgid "Login Page"
+msgstr "Inlogpagina"
+
+#: inc/Kirki_Option/Component.php:357
+msgid "You can redirect user to custom login page."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:367
+msgid "Registration Page"
+msgstr "Registratie pagina"
+
+#: inc/Kirki_Option/Component.php:368
+msgid "You can redirect user to custom registration page."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:378
+msgid "404"
+msgstr "404"
+
+#: inc/Kirki_Option/Component.php:379
+msgid "You can redirect user to custom 404 page."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:392 inc/Welcome/Component.php:227
+msgid "Site Title Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:415
+msgid "Site Title Hover Color"
+msgstr "Website titel hover kleur"
+
+#: inc/Kirki_Option/Component.php:431
+msgid "Site Tagline Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:457
+msgid "H1 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:480
+msgid "H2 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:503
+msgid "H3 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:526
+msgid "H4 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:549
+msgid "H5 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:572
+msgid "H6 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:598
+msgid "Menu Settings"
+msgstr "Menu-instellingen"
+
+#: inc/Kirki_Option/Component.php:625
+msgid "Menu Hover Color"
+msgstr "Menu Hover kleur"
+
+#: inc/Kirki_Option/Component.php:645
+msgid "Menu Active Color"
+msgstr "Actief Menu kleur"
+
+#: inc/Kirki_Option/Component.php:661
+msgid "Sub Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:686
+msgid "Settings"
+msgstr "Instellingen"
+
+#: inc/Kirki_Option/Component.php:712
+msgid "Header Background Color"
+msgstr "Achtergrondkleur Header"
+
+#: inc/Kirki_Option/Component.php:743
+msgid "Enable Search Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:759
+msgid "Enable Cart Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:775
+msgid "Enable Login Link"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:790
+msgid "Enable Register Link"
+msgstr "Inschakelen Register Link"
+
+#: inc/Kirki_Option/Component.php:805 inc/Kirki_Option/Component.php:1432
+msgid "Customize Background ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:817 inc/Kirki_Option/Component.php:1444
+msgid "Background Control"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:845 inc/Welcome/Component.php:322
+msgid "Content Typography"
+msgstr "Inhoudstypografie"
+
+#: inc/Kirki_Option/Component.php:867
+msgid "Site Breadcrumbs?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:882 inc/Welcome/Component.php:337
+msgid "Body Background Color"
+msgstr "Body Achtergrond Kleur"
+
+#: inc/Kirki_Option/Component.php:898 inc/Welcome/Component.php:342
+msgid "Theme Color"
+msgstr "Themakleuren"
+
+#: inc/Kirki_Option/Component.php:974 inc/Kirki_Option/Component.php:1504
+#: inc/Kirki_Option/Component.php:1596 inc/Welcome/Component.php:347
+msgid "Link Color"
+msgstr "Linkkleur"
+
+#: inc/Kirki_Option/Component.php:990 inc/Kirki_Option/Component.php:1520
+msgid "Link Hover"
+msgstr "Link Hover"
+
+#: inc/Kirki_Option/Component.php:1015
+msgid "Button Background Color"
+msgstr "Button Achtergrondkleur"
+
+#: inc/Kirki_Option/Component.php:1050
+msgid "Button Background Hover Color"
+msgstr "Selecteer de achtergrondkleur bij zweven over de knop"
+
+#: inc/Kirki_Option/Component.php:1080
+msgid "Button Text Color"
+msgstr "Button Tekstkleur"
+
+#: inc/Kirki_Option/Component.php:1102
+msgid "Button Text Hover Color"
+msgstr "Knop tekst kleur (hover)"
+
+#: inc/Kirki_Option/Component.php:1124
+msgid "Button Border Color"
+msgstr "Button Randkleur"
+
+#: inc/Kirki_Option/Component.php:1146
+msgid "Button Border Hover Color"
+msgstr "Knop rand hover kleur"
+
+#: inc/Kirki_Option/Component.php:1171
+msgid "Blog Layout"
+msgstr "Blog layout"
+
+#: inc/Kirki_Option/Component.php:1186
+msgid "Image position"
+msgstr "Afbeeldingspositie"
+
+#: inc/Kirki_Option/Component.php:1191
+msgid "Left"
+msgstr "Links"
+
+#: inc/Kirki_Option/Component.php:1192
+msgid "Right"
+msgstr "Rechts"
+
+#: inc/Kirki_Option/Component.php:1206
+msgid "Grid Columns"
+msgstr "Raster Kolommen"
+
+#: inc/Kirki_Option/Component.php:1211
+msgid "One"
+msgstr "Eén"
+
+#: inc/Kirki_Option/Component.php:1212 inc/Kirki_Option/Component.php:1251
+msgid "Two"
+msgstr "Twee"
+
+#: inc/Kirki_Option/Component.php:1226 inc/Welcome/Component.php:88
+#: inc/Welcome/Component.php:93 inc/Welcome/Component.php:98
+#: inc/Welcome/Component.php:103
+msgid "View"
+msgstr "Bekijk"
+
+#: inc/Kirki_Option/Component.php:1231
+msgid "Without Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1232
+msgid "With Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1246 inc/Welcome/Component.php:397
+msgid "Post Per Row"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1252
+msgid "Three"
+msgstr "Drie"
+
+#: inc/Kirki_Option/Component.php:1273
+msgid "Single Post Content Width"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1286
+msgid "Single Post Title Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1304
+msgid "Sidebar Layout"
+msgstr "Indeling zijkant"
+
+#: inc/Kirki_Option/Component.php:1319
+msgid "Single Post Sidebar Layout"
+msgstr "Zijbalk-layout enkel bericht"
+
+#: inc/Kirki_Option/Component.php:1336
+msgid "Activity Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1351
+msgid "Members Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1366
+msgid "Groups Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1384
+msgid "bbPress Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1401
+msgid "WooCommerce Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1417
+msgid "Sticky Sidebar ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1472
+msgid "Title Color"
+msgstr "Titelkleur"
+
+#: inc/Kirki_Option/Component.php:1488 inc/Kirki_Option/Component.php:1580
+msgid "Content Color"
+msgstr "Inhoud kleur"
+
+#: inc/Kirki_Option/Component.php:1539
+msgid "Add Content"
+msgstr "Inhoud toevoegen"
+
+#: inc/Kirki_Option/Component.php:1541
+msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1548 inc/Welcome/Component.php:297
+msgid "Background Color"
+msgstr "Achtergrondkleur"
+
+#: inc/Kirki_Option/Component.php:1564
+msgid "Border Color"
+msgstr "Randkleur"
+
+#: inc/Kirki_Option/Component.php:1612
+msgid "Link Hover Color"
+msgstr "Link over kleur"
+
+#: inc/Nav_Menus/Component.php:74
+msgid "User Menu"
+msgstr "Gebruikersmenu"
+
+#: inc/Sidebars/Component.php:103 inc/Welcome/Component.php:417
+msgid "Right Sidebar"
+msgstr "Rechterzijbalk"
+
+#: inc/Sidebars/Component.php:105 inc/Sidebars/Component.php:117
+#: inc/Sidebars/Component.php:131 inc/Sidebars/Component.php:143
+#: inc/Sidebars/Component.php:155 inc/Sidebars/Component.php:167
+#: inc/Sidebars/Component.php:179 inc/Sidebars/Component.php:191
+#: inc/Sidebars/Component.php:206 inc/Sidebars/Component.php:218
+#: inc/Sidebars/Component.php:232 inc/Sidebars/Component.php:244
+#: inc/Sidebars/Component.php:257 inc/Sidebars/Component.php:269
+#: inc/Sidebars/Component.php:281 inc/Sidebars/Component.php:293
+msgid "Add widgets here."
+msgstr "Voeg hier widgets toe."
+
+#: inc/Sidebars/Component.php:115 inc/Welcome/Component.php:412
+msgid "Left Sidebar"
+msgstr "Linkerzijbalk"
+
+#: inc/Sidebars/Component.php:129
+msgid "Community Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:141
+msgid "Activity Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:153
+msgid "Members Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:165
+msgid "Groups Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:177
+msgid "Members Single Profile Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:189
+msgid "Groups Single Group Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:204
+msgid "bbPress Left Sidebar"
+msgstr "bbPress linker zijbalk"
+
+#: inc/Sidebars/Component.php:216
+msgid "bbPress Right Sidebar"
+msgstr "bbPress rechter zijbalk"
+
+#: inc/Sidebars/Component.php:230
+msgid "WooCommerce Left Sidebar"
+msgstr "WooCommerce Sidebar - Links"
+
+#: inc/Sidebars/Component.php:242
+msgid "WooCommerce Right Sidebar"
+msgstr "WooCommerce Sidebar - Rechts"
+
+#: inc/Sidebars/Component.php:255
+msgid "Footer 1"
+msgstr "Footer 1"
+
+#: inc/Sidebars/Component.php:267
+msgid "Footer 2"
+msgstr "Footer 2"
+
+#: inc/Sidebars/Component.php:279
+msgid "Footer 3"
+msgstr "Footer 3"
+
+#: inc/Sidebars/Component.php:291
+msgid "Footer 4"
+msgstr "Footer 4"
+
+#. translators: %s: stylesheet handle
+#: inc/Styles/Component.php:323
+#, php-format
+msgid "Invalid theme stylesheet handle: %s"
+msgstr "Ongeldige thema stylesheet handle: %s"
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Template_Tags.php:54
+#, php-format
+msgid ""
+"The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+"Het thema templating component %1$s implementeert de %2$s interface niet."
+
+#. translators: %s: template tag name
+#: inc/Template_Tags.php:81
+#, php-format
+msgid "The template tag %s does not exist."
+msgstr "De template tag %s bestaat niet."
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:110
+#, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s must either "
+"be a callable or an array."
+msgstr ""
+"De template tag-methode %1$s geregistreerd per themacomponent %2$s moet "
+"ofwel opvraagbaar of een array zijn."
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:121
+#, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s conflicts "
+"with an already registered template tag of the same name."
+msgstr ""
+"De template tag methode %1$s geregistreerd per themacomponent %2$s is in "
+"strijd met een reeds geregistreerde template tag met dezelfde naam."
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Theme.php:57
+#, php-format
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr "De themacomponent %1$s implementeert de interface %2$s niet."
+
+#. translators: %s: slug
+#: inc/Theme.php:120
+#, php-format
+msgid "No theme component with the slug %s exists."
+msgstr "Er bestaat geen themacomponent met de slug %s."
+
+#: inc/Welcome/Component.php:44 inc/Welcome/Component.php:45
+#: inc/Welcome/Component.php:87
+msgid "Getting Started"
+msgstr "Aan de slag"
+
+#: inc/Welcome/Component.php:54
+msgid "Getting started with BuddyX"
+msgstr ""
+
+#: inc/Welcome/Component.php:60
+msgid "Programming Languages"
+msgstr ""
+
+#: inc/Welcome/Component.php:61 inc/class-buddyx-breadcrumbs.php:348
+msgid "Home"
+msgstr "Home"
+
+#: inc/Welcome/Component.php:62 inc/Welcome/Component.php:591
+msgid "Get Pro"
+msgstr "Krijg Pro"
+
+#: inc/Welcome/Component.php:63
+msgid "Community Addons"
+msgstr ""
+
+#: inc/Welcome/Component.php:65
+msgid "tab1"
+msgstr ""
+
+#: inc/Welcome/Component.php:67 inc/Welcome/Component.php:183
+#: inc/Welcome/Component.php:598
+msgid "Thank You"
+msgstr "Bedankt"
+
+#: inc/Welcome/Component.php:74 inc/Welcome/Component.php:80
+msgid "Knowledge Base"
+msgstr "Kennisbank"
+
+#: inc/Welcome/Component.php:75
+msgid ""
+"We have created full-proof documentation for you. It will help you to "
+"understand how our theme works."
+msgstr ""
+
+#: inc/Welcome/Component.php:76
+msgid "Take Me to The Knowledge Page"
+msgstr ""
+
+#: inc/Welcome/Component.php:92
+msgid "Menu Setting"
+msgstr "Menu-instelling"
+
+#: inc/Welcome/Component.php:97
+msgid "Customizer Settings"
+msgstr ""
+
+#: inc/Welcome/Component.php:102 inc/Welcome/Component.php:528
+msgid "Integrations"
+msgstr "Integraties"
+
+#: inc/Welcome/Component.php:112
+msgid "Video Tutorial"
+msgstr "Video-instructie"
+
+#: inc/Welcome/Component.php:113
+msgid "How to use Floating Effects and manage CSS Transform?"
+msgstr ""
+
+#: inc/Welcome/Component.php:120 inc/Welcome/Component.php:121
+msgid "BuddyX Demo installation"
+msgstr ""
+
+#: inc/Welcome/Component.php:126 inc/Welcome/Component.php:127
+msgid "BuddyX Customizer Option"
+msgstr ""
+
+#: inc/Welcome/Component.php:133
+msgid "View More Videos"
+msgstr ""
+
+#: inc/Welcome/Component.php:141
+msgid "FAQ"
+msgstr "FAQ"
+
+#: inc/Welcome/Component.php:142
+msgid "Frequently Asked Questions"
+msgstr "Veelgestelde vragen"
+
+#: inc/Welcome/Component.php:148
+msgid "Can I use these addons in my client project?"
+msgstr ""
+
+#: inc/Welcome/Component.php:149
+msgid ""
+"Yes, absolutely, no holds barred. Use it to bring colorful moments to your "
+"customers. And don’t forget to check out our premium features."
+msgstr ""
+
+#: inc/Welcome/Component.php:152
+msgid "Is there any support policy available for the free users?"
+msgstr ""
+
+#: inc/Welcome/Component.php:153
+msgid ""
+"Free or pro version, both comes with excellent support from us. However, pro "
+"users will get priority support."
+msgstr ""
+
+#: inc/Welcome/Component.php:162
+msgid "Rate Us"
+msgstr "Geef ons een waardering"
+
+#: inc/Welcome/Component.php:163
+msgid ""
+"Never underestimate your rate! Your 5 star rate will encourage us so much!"
+msgstr ""
+
+#: inc/Welcome/Component.php:164
+msgid "Rate Us ★★★★★"
+msgstr ""
+
+#: inc/Welcome/Component.php:169
+msgid "Help Desk Hours"
+msgstr ""
+
+#: inc/Welcome/Component.php:170
+msgid "Days: Monday-Friday"
+msgstr ""
+
+#: inc/Welcome/Component.php:171
+msgid "Time: 10AM – 7PM IST"
+msgstr ""
+
+#: inc/Welcome/Component.php:172
+msgid ""
+"Inquiries received after the working hours or on weekends will be addressed "
+"on the next working day."
+msgstr ""
+
+#: inc/Welcome/Component.php:173
+msgid "Start Chat"
+msgstr "Chat starten"
+
+#: inc/Welcome/Component.php:174
+msgid "Create Ticket"
+msgstr "Ticket aanmaken"
+
+#: inc/Welcome/Component.php:181
+msgid "tab2"
+msgstr ""
+
+#: inc/Welcome/Component.php:187 inc/Welcome/Component.php:195
+msgid "Features"
+msgstr "Kenmerken"
+
+#. Theme Name of the plugin/theme
+#: inc/Welcome/Component.php:196
+msgid "BuddyX"
+msgstr ""
+
+#: inc/Welcome/Component.php:197
+msgid "BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:202
+msgid "Layout"
+msgstr "Layout"
+
+#: inc/Welcome/Component.php:212
+msgid "Content Layout Width"
+msgstr ""
+
+#: inc/Welcome/Component.php:247
+msgid "Google Fonts"
+msgstr "Google Fonts"
+
+#: inc/Welcome/Component.php:252
+msgid "Font Size (PX/EM)"
+msgstr ""
+
+#: inc/Welcome/Component.php:257
+msgid "Text Transform"
+msgstr "Teksttransformatie"
+
+#: inc/Welcome/Component.php:262
+msgid "Line Height"
+msgstr "Lijnhoogte"
+
+#: inc/Welcome/Component.php:267
+msgid "Letter Spacing"
+msgstr "Letterspatiëring"
+
+#: inc/Welcome/Component.php:272
+msgid "Header"
+msgstr "Header"
+
+#: inc/Welcome/Component.php:277
+msgid "Top Bar"
+msgstr "Hoofd balk"
+
+#: inc/Welcome/Component.php:282
+msgid "Sticky Header"
+msgstr "Sticky Header"
+
+#: inc/Welcome/Component.php:287
+msgid "Header Layout"
+msgstr "Koptekst layout"
+
+#: inc/Welcome/Component.php:292
+msgid "Menu Effects"
+msgstr ""
+
+#: inc/Welcome/Component.php:302
+msgid "Site Search"
+msgstr ""
+
+#: inc/Welcome/Component.php:307
+msgid "Site Cart"
+msgstr ""
+
+#: inc/Welcome/Component.php:312
+msgid "Sub Header"
+msgstr "Sub Header"
+
+#: inc/Welcome/Component.php:317
+msgid "Customize Background"
+msgstr "Customize Background"
+
+#: inc/Welcome/Component.php:327
+msgid "Breadcrumbs"
+msgstr "Kruimelpad"
+
+#: inc/Welcome/Component.php:332
+msgid "Skin Colors"
+msgstr "Skin kleuren"
+
+#: inc/Welcome/Component.php:352
+msgid "Primary Header"
+msgstr ""
+
+#: inc/Welcome/Component.php:357
+msgid "Button Background Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:362
+msgid "Button Text Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:367
+msgid "Button Border Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:377
+msgid "List Layout"
+msgstr "Lijst Layout"
+
+#: inc/Welcome/Component.php:382
+msgid "Grid Layout"
+msgstr "Grid Layout"
+
+#: inc/Welcome/Component.php:387
+msgid "Masonry Layout"
+msgstr "Mozaiek - lay-out"
+
+#: inc/Welcome/Component.php:392
+msgid "Blog Layout Style"
+msgstr "Blog Opmaakstijl"
+
+#: inc/Welcome/Component.php:407
+msgid "No Sidebar"
+msgstr "Geen zijbalk"
+
+#: inc/Welcome/Component.php:422
+msgid "Both Sidebar"
+msgstr "Zijbalk Links en Rechts"
+
+#: inc/Welcome/Component.php:427
+msgid "BuddyPress Sidebar"
+msgstr "BuddyPress pagina sidebar"
+
+#: inc/Welcome/Component.php:432
+msgid "WooCommerce Sidebar"
+msgstr "WooCommerce zijbalk"
+
+#: inc/Welcome/Component.php:437
+msgid "bbPress Sidebar"
+msgstr "bbPress zijbalk"
+
+#: inc/Welcome/Component.php:442
+msgid "LearnDash Sidebar"
+msgstr "LearnDash Zijbalk"
+
+#: inc/Welcome/Component.php:447
+msgid "Sticky Sidebar"
+msgstr "Sticky sidebar"
+
+#: inc/Welcome/Component.php:467 inc/Welcome/Component.php:533
+msgid "BuddyPress"
+msgstr "Buddypress"
+
+#: inc/Welcome/Component.php:472
+msgid "Activity Load More"
+msgstr ""
+
+#: inc/Welcome/Component.php:473 inc/Welcome/Component.php:478
+#: inc/Welcome/Component.php:483 inc/Welcome/Component.php:488
+#: inc/Welcome/Component.php:493 inc/Welcome/Component.php:498
+#: inc/Welcome/Component.php:503 inc/Welcome/Component.php:508
+#: inc/Welcome/Component.php:513 inc/Welcome/Component.php:544
+#: inc/Welcome/Component.php:549 inc/Welcome/Component.php:554
+#: inc/Welcome/Component.php:559 inc/Welcome/Component.php:564
+#: inc/Welcome/Component.php:569 inc/Welcome/Component.php:574
+msgid "Limited"
+msgstr "Beperkt"
+
+#: inc/Welcome/Component.php:477
+msgid "Members Multiple Directory Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:482
+msgid "Members Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:487
+msgid "Groups Multiple Directory View"
+msgstr ""
+
+#: inc/Welcome/Component.php:492
+msgid "Group Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:497
+msgid "Member Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:502
+msgid "Member Primary Navigation Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:507
+msgid "Group Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:512
+msgid "Group Primary Navigation Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:518 inc/Welcome/Component.php:543
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: inc/Welcome/Component.php:523
+msgid "Product Listing Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:538
+msgid "BuddyBoss Platform"
+msgstr "BuddyBoss Platform"
+
+#: inc/Welcome/Component.php:548
+msgid "LearnDash"
+msgstr "LearnDash"
+
+#: inc/Welcome/Component.php:553
+msgid "LearnPress"
+msgstr "LearnPress"
+
+#: inc/Welcome/Component.php:558
+msgid "LifterLMS"
+msgstr "LifterLMS"
+
+#: inc/Welcome/Component.php:563
+msgid "TutorLMS"
+msgstr "TutorLMS"
+
+#: inc/Welcome/Component.php:568 inc/extra.php:157
+msgid "bbPress"
+msgstr "bbPress"
+
+#: inc/Welcome/Component.php:573
+msgid "WC Vendors"
+msgstr "WC Vendors"
+
+#: inc/Welcome/Component.php:578
+msgid "GamiPress"
+msgstr "GamiPress"
+
+#: inc/Welcome/Component.php:590
+msgid "Get Pro and Experience all those exciting features"
+msgstr ""
+
+#: inc/Welcome/Component.php:596
+msgid "tab3"
+msgstr ""
+
+#: inc/Welcome/Component.php:603 inc/Welcome/Component.php:613
+msgid "BuddyPress Status & Reaction"
+msgstr ""
+
+#: inc/Welcome/Component.php:604
+msgid ""
+"Allow members to add status on their profile and give their reactions to all "
+"the activity updates."
+msgstr ""
+
+#: inc/Welcome/Component.php:605 inc/Welcome/Component.php:610
+#: inc/Welcome/Component.php:615 inc/Welcome/Component.php:622
+#: inc/Welcome/Component.php:627 inc/Welcome/Component.php:632
+#: inc/Welcome/Component.php:639 inc/Welcome/Component.php:644
+#: inc/Welcome/Component.php:649 inc/Welcome/Component.php:656
+#: inc/Welcome/Component.php:661 inc/Welcome/Component.php:666
+#: inc/Welcome/Component.php:673
+msgid "Try Now"
+msgstr ""
+
+#: inc/Welcome/Component.php:608
+msgid "BuddyPress Private Community Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:609
+msgid "Lock down the BuddyPress components to make your member's profile safe."
+msgstr ""
+
+#: inc/Welcome/Component.php:614
+msgid ""
+"Allow members to flag inappropriate content on your BuddyPress community "
+"site."
+msgstr ""
+
+#: inc/Welcome/Component.php:620
+msgid "BuddyPress Hashtags"
+msgstr ""
+
+#: inc/Welcome/Component.php:621
+msgid ""
+"Allow users to add multi-language hashtag links on BuddyPress community "
+"website."
+msgstr ""
+
+#: inc/Welcome/Component.php:625
+msgid "BuddyPress Polls"
+msgstr ""
+
+#: inc/Welcome/Component.php:626
+msgid ""
+"Allow users to create and respond to polls inside the BuddyPress activity or "
+"in groups."
+msgstr ""
+
+#: inc/Welcome/Component.php:630
+msgid "BuddyPress Profile Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:631
+msgid ""
+"Add repeate fields or group of fields to the front-end forms on the member's "
+"profile."
+msgstr ""
+
+#: inc/Welcome/Component.php:637
+msgid "BuddyPress Resume Manager"
+msgstr ""
+
+#: inc/Welcome/Component.php:638
+msgid ""
+"Allow members to create and display resumes on BuddyPress right form their "
+"profile page."
+msgstr ""
+
+#: inc/Welcome/Component.php:642
+msgid "BuddyPress Quotes"
+msgstr ""
+
+#: inc/Welcome/Component.php:643
+msgid ""
+"Allow BuddyPress users to post content with attractive background colors and "
+"beautiful images."
+msgstr ""
+
+#: inc/Welcome/Component.php:647
+msgid "BuddyPress Sticky Post"
+msgstr ""
+
+#: inc/Welcome/Component.php:648
+msgid ""
+"Make your posts stick on BuddyPress by pinning site-wide and group "
+"activities on the top of the community wall."
+msgstr ""
+
+#: inc/Welcome/Component.php:654
+msgid "BuddyPress Profanity"
+msgstr ""
+
+#: inc/Welcome/Component.php:655
+msgid ""
+"Specify a list of bad words to control the content in your BuddyPress "
+"community."
+msgstr ""
+
+#: inc/Welcome/Component.php:659
+msgid "BuddyPress Newsfeed"
+msgstr ""
+
+#: inc/Welcome/Component.php:660
+msgid ""
+"Organize all the BuddyPress activity-streams just like Facebook newsfeed."
+msgstr ""
+
+#: inc/Welcome/Component.php:664
+msgid "BuddyPress Auto Friends"
+msgstr ""
+
+#: inc/Welcome/Component.php:665
+msgid "Add selected community members as common friends for all members."
+msgstr ""
+
+#: inc/Welcome/Component.php:671
+msgid "Shortcodes for BuddyPress Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:672
+msgid ""
+"Full control on BuddyPress/BuddyBoss Platform template-driven pages. "
+"Introducing Elementor widgets for activity stream, group, and member "
+"directory with various parameters to set as per your choice."
+msgstr ""
+
+#. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
+#: inc/back-compat.php:25
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s and PHP version %2$s. You "
+"are running versions %3$s and %3$s respectively. Please update and try again."
+msgstr ""
+
+#. translators: 1: required WP version number, 2: available WP version number
+#: inc/back-compat.php:30
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s. You are running version "
+"%2$s. Please update and try again."
+msgstr ""
+
+#. translators: 1: required PHP version number, 2: available PHP version number
+#: inc/back-compat.php:35
+#, php-format
+msgid ""
+"Buddyx requires at least PHP version %1$s. You are running version %2$s. "
+"Please update and try again."
+msgstr ""
+
+#: inc/back-compat.php:39
+msgid ""
+"BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
+"Please activate this Template Pack from the BuddyPress Options."
+msgstr ""
+
+#: inc/class-buddyx-breadcrumbs.php:346
+msgid "Browse:"
+msgstr "Zoek:"
+
+#: inc/class-buddyx-breadcrumbs.php:347
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "Kruimelpad"
+
+#: inc/class-buddyx-breadcrumbs.php:349
+msgid "404 Not Found"
+msgstr "404 Niet gevonden"
+
+#: inc/class-buddyx-breadcrumbs.php:350
+msgid "Archives"
+msgstr "Archieven"
+
+#: inc/class-buddyx-breadcrumbs.php:352
+#, php-format
+msgid "Search results for: %s"
+msgstr "Zoekresultaten voor: %s"
+
+#: inc/class-buddyx-breadcrumbs.php:354
+#, php-format
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: inc/class-buddyx-breadcrumbs.php:356
+#, php-format
+msgid "Comment Page %s"
+msgstr "Comment Page %s"
+
+#: inc/class-buddyx-breadcrumbs.php:358
+#, php-format
+msgid "Minute %s"
+msgstr "Minuten %s"
+
+#: inc/class-buddyx-breadcrumbs.php:360
+#, php-format
+msgid "Week %s"
+msgstr "Week %s"
+
+#: inc/class-buddyx-breadcrumbs.php:820
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#: inc/class-buddyx-breadcrumbs.php:837
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: inc/class-buddyx-breadcrumbs.php:854
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: inc/class-buddyx-breadcrumbs.php:870 inc/class-buddyx-breadcrumbs.php:899
+#: inc/class-buddyx-breadcrumbs.php:926 inc/class-buddyx-breadcrumbs.php:953
+#: inc/class-buddyx-breadcrumbs.php:1293
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/class-buddyx-breadcrumbs.php:871 inc/class-buddyx-breadcrumbs.php:927
+#: inc/class-buddyx-breadcrumbs.php:1297
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: inc/class-buddyx-breadcrumbs.php:872 inc/class-buddyx-breadcrumbs.php:1301
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: inc/class-buddyx-breadcrumbs.php:900
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: inc/extra.php:112
+msgid "View Shopping Cart"
+msgstr "Winkelmand bekijken"
+
+#: inc/extra.php:148
+msgid "Xprofile"
+msgstr ""
+
+#: inc/extra.php:151 inc/extra.php:170
+msgid "Activity"
+msgstr "Activiteit"
+
+#: inc/extra.php:154
+msgid "Groups"
+msgstr "Groepen"
+
+#: inc/extra.php:160
+msgid "Friends"
+msgstr "Vrienden"
+
+#: inc/extra.php:163
+msgid "Members"
+msgstr "Leden"
+
+#: inc/extra.php:166
+msgid "Blogs"
+msgstr "Blogs"
+
+#: inc/extra.php:234
+msgid "View your shopping cart"
+msgstr "Bekijk je winkelwagen"
+
+#: inc/extra.php:367
+msgid "Recently earned badge"
+msgid_plural "Recently earned badges"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/extra.php:394
+msgid "BuddyX WordPress Theme"
+msgstr ""
+
+#: inc/extra.php:436
+msgid "Sticky"
+msgstr "Sticky"
+
+#: inc/extra.php:447
+msgid "Leave a comment"
+msgstr "Laat een reactie achter"
+
+#: inc/extra.php:447
+msgid "1 Comment"
+msgstr "1 Reactie"
+
+#: inc/extra.php:447
+msgid "% Comments"
+msgstr "% Reacties"
+
+#: inc/extra.php:452 template-parts/content/entry_meta.php:122
+msgid "Edit"
+msgstr "Bewerken"
+
+#: inc/extra.php:657
+msgid "Post Settings"
+msgstr "Post"
+
+#: inc/extra.php:666
+msgid "Post Format Settings"
+msgstr "Bericht opmaakinstellingen"
+
+#: inc/extra.php:686
+msgid "Overwrite Title Customizer settings"
+msgstr ""
+
+#: inc/extra.php:691
+msgid "Title Style"
+msgstr "Titel-stijl"
+
+#: inc/extra.php:741
+msgid "Enter Youtube, Vimeo and etc video url."
+msgstr ""
+
+#: inc/extra.php:744
+msgid "Video URL"
+msgstr "Video URL"
+
+#: inc/extra.php:747 inc/extra.php:760 inc/extra.php:989
+msgid "Add Media"
+msgstr "Media toevoegen"
+
+#: inc/extra.php:754
+msgid "Enter audio url."
+msgstr ""
+
+#: inc/extra.php:757
+msgid "Audio URL"
+msgstr "Audio Bestand URL"
+
+#: inc/extra.php:767
+msgid "Input your quote."
+msgstr "Voer citaat in."
+
+#: inc/extra.php:770
+msgid "Quote Text"
+msgstr "Quote Tekst"
+
+#: inc/extra.php:776
+msgid "Quote Author"
+msgstr "Quote Auteur"
+
+#: inc/extra.php:783
+msgid "Input your link."
+msgstr "Voer uw link."
+
+#: inc/extra.php:786
+msgid "Link Title"
+msgstr "Link Titel"
+
+#: inc/extra.php:792
+msgid "Link URL"
+msgstr "Link URL"
+
+#: inc/extra.php:799
+msgid ""
+"To create a gallery, upload your images and then select \"Uploaded to this "
+"post\" from the dropdown (in the media popup) to see images attached to this "
+"post. You can drag to re-order or delete them there."
+msgstr ""
+
+#: inc/extra.php:821 inc/extra.php:928
+msgid "Delete image"
+msgstr "Verwijder afbeelding"
+
+#: inc/extra.php:835 inc/extra.php:905
+msgid "Add images gallery"
+msgstr ""
+
+#: inc/extra.php:907
+msgid "Add to gallery"
+msgstr "Aan galerij toevoegen"
+
+#: inc/extra.php:991
+msgid "Add to Media"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:20
+msgid "Show Logged in user Profile Completion Progress."
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:26
+msgid "(BuddyPress) Profile Completion"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:66
+#, php-format
+msgid "%s Complete"
+msgstr "%s Voltooid"
+
+#: inc/widgets/bp-profile-completion-widget.php:88
+msgid "Complete"
+msgstr "Voltooid"
+
+#: inc/widgets/bp-profile-completion-widget.php:187
+#: inc/widgets/bp-profile-completion-widget.php:422
+msgid "Profile Photo"
+msgstr "Profielfoto"
+
+#: inc/widgets/bp-profile-completion-widget.php:207
+#: inc/widgets/bp-profile-completion-widget.php:425
+msgid "Cover Photo"
+msgstr "Omslagfoto"
+
+#: inc/widgets/bp-profile-completion-widget.php:289
+msgid "Profile Fields"
+msgstr "Profiel velden"
+
+#: inc/widgets/bp-profile-completion-widget.php:397
+msgid "Complete Your Profile"
+msgstr "Het profiel voltooien"
+
+#: inc/widgets/bp-profile-completion-widget.php:431
+msgid "Title:"
+msgstr "Titel:"
+
+#: inc/widgets/bp-profile-completion-widget.php:434
+msgid "Profile field sets:"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:459
+msgid "Profile photos:"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:478
+msgid "Hide widget once progress hits 100%"
+msgstr "Verberg widget zodra de vooruitgang 100% is bereikt"
+
+#: inc/widgets/bp-profile-completion-widget.php:484
+msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+"Opmerking: Deze widget wordt alleen weergegeven als een lid is ingelogd."
+
+#: rtmedia/main.php:70 rtmedia/main.php:135
+msgid "Notifications menu"
+msgstr "Meldingen-menu"
+
+#: searchform.php:9
+msgid "Enter Keyword"
+msgstr "Vul steekwoord in"
+
+#: searchform.php:13
+msgid "Go"
+msgstr "Ga"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-bbpress.php:18
+#: template-parts/content-buddypress.php:18
+#: template-parts/content/entry-full-width.php:18
+#: template-parts/content/entry_content.php:19
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Verder lezen<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content-bbpress.php:31
+#: template-parts/content-buddypress.php:31
+#: template-parts/content/entry-full-width.php:31
+#: template-parts/content/entry-page.php:36
+#: template-parts/content/entry_content.php:36
+msgid "Pages:"
+msgstr "Pagina’s:"
+
+#: template-parts/content/entry-attachment.php:33
+#: template-parts/content/entry-post.php:34 template-parts/content/entry.php:32
+msgid "Previous:"
+msgstr "Vorige:"
+
+#: template-parts/content/entry-attachment.php:43
+#: template-parts/content/entry-post.php:35 template-parts/content/entry.php:33
+msgid "Next:"
+msgstr "Volgende:"
+
+#: template-parts/content/entry-attachment.php:49
+msgid "Post navigation"
+msgstr "Bericht navigatie"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:21
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Geef een Reactie<span class=\"screen-reader-text\"> op %s</span>"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:40
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Bewerk <span class=\"screen-reader-text\">%s</span>"
+
+#: template-parts/content/entry_meta.php:66
+#: template-parts/content/entry_meta.php:74
+#, php-format
+msgctxt "post author"
+msgid "Written by %s"
+msgstr "Geschreven door %s"
+
+#: template-parts/content/entry_meta.php:69
+#, php-format
+msgctxt "post author"
+msgid "Written by  %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:93
+#, php-format
+msgctxt "post parent"
+msgid "In %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:96
+#, php-format
+msgctxt "post parent"
+msgid "in %s"
+msgstr "in %s"
+
+#. translators: %s: post date
+#: template-parts/content/entry_meta.php:113
+#, php-format
+msgctxt "post date"
+msgid "%s"
+msgstr "%s"
+
+#. translators: separator between taxonomy terms
+#: template-parts/content/entry_taxonomies.php:24
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:31
+#, php-format
+msgid "Posted in %s"
+msgstr "Geplaatst in %s"
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:37
+#, php-format
+msgid "Tagged %s"
+msgstr "Gemarkeerd %s"
+
+#. translators: %s: taxonomy name
+#: template-parts/content/entry_taxonomies.php:44
+#, php-format
+msgid "%s:"
+msgstr "%s:"
+
+#: template-parts/content/error-404.php:16
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Het lijkt erop dat er niets is gevonden op deze locatie; probeer het eens "
+"met de links hieronder of door te zoeken?"
+
+#: template-parts/content/error-404.php:27
+msgid "Most Used Categories"
+msgstr "Meest gebruikte categorieën"
+
+#. translators: %1$s: smiley
+#: template-parts/content/error-404.php:45
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Probeer in de maandelijkse archieven tezoeken. %1$s"
+
+#: template-parts/content/error-500.php:14
+msgid "Oops! Something went wrong."
+msgstr "Er is iets mis gegaan."
+
+#: template-parts/content/error-offline.php:14
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr "Het lijkt er op dat je offline bent."
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/error.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Klaar om je eerste bericht te publiceren? <a href=\"%1$s\">Begin hier</a>."
+
+#: template-parts/content/error.php:38
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Sorry, maar we hebben geen resultaten gevonden. Probeer een andere zoekterm."
+
+#: template-parts/content/error.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Het lijkt er op dat we niet kunnen vinden wat je zoekt. Wellicht kan een "
+"zoekopdracht helpen."
+
+#: template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops! Die pagina kan niet gevonden worden."
+
+#: template-parts/content/page_header.php:22
+msgid "Nothing Found"
+msgstr "Niets gevonden"
+
+#. translators: %s: search query
+#: template-parts/content/page_header.php:41
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Zoekresultaten voor: %s"
+
+#: template-parts/content/pagination.php:13
+msgctxt "previous set of search results"
+msgid "Previous"
+msgstr "Vorige"
+
+#: template-parts/content/pagination.php:14
+msgctxt "next set of search results"
+msgid "Next"
+msgstr "Volgende"
+
+#: template-parts/content/pagination.php:15
+msgid "Page navigation"
+msgstr "Pagina navigatie"
+
+#: template-parts/header/buddypress-profile.php:30
+msgid "Notifications"
+msgstr "Meldingen"
+
+#: template-parts/header/buddypress-profile.php:55
+msgid "View all notifications"
+msgstr "Alle meldingen weergeven"
+
+#: template-parts/header/buddypress-profile.php:60
+msgid "No new notifications"
+msgstr "Geen nieuwe meldingen"
+
+#: template-parts/header/buddypress-profile.php:106
+msgid "Login"
+msgstr "Inloggen"
+
+#: template-parts/header/buddypress-profile.php:106
+msgid "Log in"
+msgstr "Inloggen"
+
+#: template-parts/header/buddypress-profile.php:113
+msgid "Register"
+msgstr "Registreren"
+
+#: template-parts/header/navigation.php:16
+msgid "Main menu"
+msgstr "Hoofdmenu"
+
+#: template-parts/header/navigation.php:44
+msgid "Open menu"
+msgstr "Open menu"
+
+#: template-parts/header/navigation.php:63
+msgid "Close"
+msgstr "Sluiten"
+
+#: template-parts/header/navigation.php:79
+msgid "My Account"
+msgstr "Mijn Account"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:79
+msgid "Product"
+msgstr "Product"
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:99
+msgid "Price"
+msgstr "Prijs"
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:105
+msgid "Quantity"
+msgstr "Aantal"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:127
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: woocommerce/cart/cart.php:58
+msgid "Remove this item"
+msgstr "Verwijder dit item"
+
+#: woocommerce/cart/cart.php:94
+msgid "Available on backorder"
+msgstr "Beschikbaar via nabestelling"
+
+#: woocommerce/cart/cart.php:145
+msgid "Coupon:"
+msgstr "Kortingscode:"
+
+#: woocommerce/cart/cart.php:147
+msgid "Apply coupon"
+msgstr "Kortingscode toepassen"
+
+#: woocommerce/cart/cart.php:152
+msgid "Update cart"
+msgstr "Winkelwagen bijwerken"
+
+#. Theme URI of the plugin/theme
+msgid "https://wbcomdesigns.com/downloads/buddyx-theme/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"BuddyX is an ideal theme for community and membership websites. Providing a "
+"solution to all kinds of communities. Thanks to it's BuddyPress support, "
+"your website can now have member profiles, send a private message, create "
+"groups and so much more. It is a lightweight, fully responsive, seo "
+"optimised, RTL & translation ready theme. BuddyX provides support for "
+"WooCommerce, WC Vendors, LearnDash, LearnPress and Gamipress plugins. It is "
+"highly customizable and works perfectly with page builders such as Elementor "
+"and Gutenberg. BuddyX is perfect for creating social learning, marketplace "
+"and blogging websites using BuddyPress integration. BuddyX is built using "
+"the latest best practices for progressive web content and optimization. It "
+"is well tested with the latest BuddyPress version and popular BuddyPress "
+"addons. It is developed, maintained, and supported by Wbcom Designs."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "wbcomdesigns,vapvarun"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/vapvarun/buddyx"
+msgstr ""
