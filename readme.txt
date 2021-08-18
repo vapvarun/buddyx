@@ -97,7 +97,7 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
- 4.1.0 =
+= 4.1.0 =
 * Fix: (#293) Managed translatable activity card title
 * Fix: (#294) Managed forums UI in mobile view and fixes
 * Fix: Update single post default sidebar option
