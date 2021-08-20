@@ -1913,6 +1913,9 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     padding-bottom: 5px;
 }
 
+.buddypress-wrap .profile.edit .button-nav li {
+    margin-bottom: 10px;
+}
 
 /* message-threads */
 
