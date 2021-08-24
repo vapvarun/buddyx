@@ -1917,6 +1917,7 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     margin-bottom: 10px;
 }
 
+
 /* message-threads */
 
 .bp-messages-content #thread-preview .preview-content .actions {
@@ -2572,6 +2573,11 @@ button#bp-delete-avatar {
     margin-bottom: 8px;
 }
 
+.buddypress.widget div.activity-list blockquote .activity-item:not(.mini) {
+    padding-top: 15px;
+    padding-bottom: 1px;
+}
+
 
 /*--------------------------------------------------------------
 # Extra Plugins Support
@@ -3024,6 +3030,47 @@ input#gamipress-achievements-search-input {
 .activity-list .activity-item .activity-content .gamipress-points-award,
 .activity-list .activity-item .activity-content .gamipress-achievement {
     margin: 0 15px 15px;
+}
+
+
+/* Widget Area */
+
+.widget.widget_bp_core_recently_active_widget .item-avatar {
+    position: relative;
+}
+
+.widget.widget_bp_core_recently_active_widget .gamipress-buddypress-user-details-listing {
+    width: 210px;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    display: none;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .widget.widget_bp_core_recently_active_widget .item-avatar:hover .gamipress-buddypress-user-details-listing {
+        display: block;
+    }
+}
+
+.widget.widget_bp_core_recently_active_widget .gamipress-buddypress-user-details-listing>div,
+.widget.bp-latest-activities .gamipress-buddypress-user-details-activity>div {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.widget.bp-latest-activities .gamipress-buddypress-user-details-activity {
+    margin: 0;
+}
+
+.widget.bp-latest-activities .gamipress-buddypress-user-details-activity>div>div {
+    margin-right: 10px;
+}
+
+.widget.bp-latest-activities .gamipress-buddypress-user-details-activity>div>div img {
+    margin: auto;
 }
 
 
