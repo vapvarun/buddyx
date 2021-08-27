@@ -16,6 +16,9 @@ if ( ! buddyx()->is_left_sidebar_active() || ! buddyx()->is_right_sidebar_active
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
+
+<?php do_action( 'buddyx_sidebar_before' ); ?>
+
 <aside id="secondary" class="primary-sidebar widget-area">
 	<div class="sticky-sidebar">
 		<?php
@@ -32,3 +35,5 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		?>
 	</div>
 </aside><!-- #secondary -->
+
+<?php do_action( 'buddyx_sidebar_after' ); ?>

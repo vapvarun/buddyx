@@ -15,6 +15,7 @@ $buddypress_sidebar         = get_theme_mod( 'buddypress_sidebar_option', buddyx
 $buddypress_members_sidebar = get_theme_mod( 'buddypress_members_sidebar_option', buddyx_defaults( 'buddypress-members-sidebar-option' ) );
 $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option', buddyx_defaults( 'buddypress-groups-sidebar-option' ) );
 
+do_action( 'buddyx_sidebar_before' );
 
 if ( function_exists( 'bp_is_active' ) ) {
 	?>
@@ -31,7 +32,7 @@ if ( function_exists( 'bp_is_active' ) ) {
 
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
-			<?php buddyx()->display_buddypress_members_right_sidebar(); ?>
+				<?php buddyx()->display_buddypress_members_right_sidebar(); ?>
 			</div>
 		</aside>
 
@@ -39,10 +40,12 @@ if ( function_exists( 'bp_is_active' ) ) {
 
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
-			<?php buddyx()->display_buddypress_groups_right_sidebar(); ?>
+				<?php buddyx()->display_buddypress_groups_right_sidebar(); ?>
 			</div>
 		</aside>
 
 		<?php
 	endif;
 }
+
+do_action( 'buddyx_sidebar_after' ); ?>
