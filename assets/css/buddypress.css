@@ -30,6 +30,8 @@
     # BuddyPress Global Search
     # BuddyPress Giphy
     # MediaPress
+    # BuddyPress Group Email Subscription
+
 --------------------------------------------------------------*/
 
 
@@ -157,7 +159,9 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content a,
 button#bbp_topic_submit,
 button#bbp_reply_submit,
 .buddypress .buddypress-wrap button.mpp-button-primary,
-button#mpp-edit-media-submit {
+button#mpp-edit-media-submit,
+.ges-change,
+.group-email-tooltip__close {
     font-family: inherit;
     font-size: initial;
     color: #fff;
@@ -207,7 +211,9 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hove
 button#bbp_topic_submit:hover,
 button#bbp_reply_submit:hover,
 .buddypress .buddypress-wrap button.mpp-button-primary:hover,
-button#mpp-edit-media-submit:hover {
+button#mpp-edit-media-submit:hover,
+.ges-change:hover,
+.group-email-tooltip__close:hover {
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
     color: #fff;
@@ -3833,4 +3839,45 @@ div.mpp-bulk-edit-media-action-row select {
 .mpp-form select,
 .mpp-form textarea {
     box-shadow: none;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Group Email Subscription
+--------------------------------------------------------------*/
+
+.buddyx-bpges .group-subscription-div #js-dialogtooltip {
+    width: auto;
+    z-index: 99;
+}
+
+.buddyx-bpges .group-subscription-div .group-email-tooltip #js-tooltip-content a {
+    display: inline-block;
+    margin: 0;
+    margin-bottom: .4em;
+    margin-right: .4em;
+    width: auto;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    padding: 0;
+}
+
+.buddyx-bpges .group-subscription-div {
+    padding-top: 6px;
+    font-size: 11px;
+}
+
+.buddyx-bpges .bp-list li .item,
+.buddyx-bpges .grid>li .list-wrap {
+    overflow: visible;
+}
+
+@media screen and (min-width: 46.8em) {
+    body.bp-nouveau.groups.buddyx-bpges:not(.single-item) .group-subscription-div #js-dialogtooltip {
+        left: 0;
+        right: auto;
+    }
 }

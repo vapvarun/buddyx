@@ -548,6 +548,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$classes[] = 'buddyx-mediapress';
 		}
 
+                // BPGES Class
+		if ( class_exists( 'BPGES_Subscription' ) ) {
+			$classes[] = 'buddyx-bpges';
+		}
+
 
 		return $classes;
 	}
