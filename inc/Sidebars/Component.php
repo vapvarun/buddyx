@@ -543,6 +543,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
+                // MediaPress Class
+		if ( class_exists( 'MediaPress' ) ) {
+			$classes[] = 'buddyx-mediapress';
+		}
+
 
 		return $classes;
 	}
