@@ -3883,3 +3883,88 @@ div.mpp-bulk-edit-media-action-row select {
         right: auto;
     }
 }
+
+
+/*--------------------------------------------------------------
+# BuddyPress Activity Plus
+--------------------------------------------------------------*/
+
+.bpfb_form_container {
+    padding: 0;
+    background: transparent;
+}
+
+.bpfb_actions_container .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos,
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos,
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks {
+    background: none;
+    position: relative;
+}
+
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before,
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before,
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before {
+    content: "\f030";
+}
+
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before {
+    content: "\f03d";
+}
+
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
+    content: "\f0c1";
+}
+
+ul#bpfb_tmp_photo_list {
+    display: none;
+}
+
+.bpfb_preview_container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+}
+
+input#bpfb_add_remote_image {
+    margin: 10px 0 0;
+}
+
+.bpfb_preview_photo_item {
+    border: 3px solid rgba(0, 0, 0, .2);
+}
+
+input.bpfb_remote_image,
+input#bpfb_video_url,
+input#bpfb_link_preview_url {
+    margin: 0 0 15px;
+    width: calc(100% - 15px) !important;
+}
+
+input.bpfb_remote_image {
+    margin: 15px 0 15px;
+}
+
+.bpfb_images {
+    display: flex;
+    flex-flow: wrap;
+    margin: 5px 10px;
+}
+
+.bpfb_images br {
+    display: none;
+}
+
+.bpfb_images a {
+    line-height: 0;
+    margin: 5px;
+}
+
+.bpfb_final_link .bpfb_link_contents {
+    margin-bottom: 10px;
+}
