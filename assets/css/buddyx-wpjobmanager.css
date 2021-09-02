@@ -1,0 +1,175 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Job Dashboard
+# Jobs
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Job Dashboard
+--------------------------------------------------------------*/
+
+#job-manager-job-dashboard table td,
+#job-manager-job-dashboard table th {
+    padding: 1rem;
+}
+
+
+/*--------------------------------------------------------------
+# Jobs
+--------------------------------------------------------------*/
+
+ul.job_listings {
+    border-top: 0;
+}
+
+ul.job_listings li.job_listing {
+    background-color: #fff;
+    border: 1px solid #e7eaec;
+    margin: 0 0 -1px;
+}
+
+ul.job_listings li.job_listing:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+ul.job_listings li.job_listing a {
+    position: relative;
+    transition: all .2s linear;
+    padding: 1.2em 1em;
+    display: flex;
+    align-items: center;
+}
+
+ul.job_listings li.job_listing a:hover {
+    background-color: #fff;
+    box-shadow: 0 3px 24px 0 rgba(18, 43, 70, 0.08);
+    border-left-color: #fff;
+    border-right-color: #fff;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+ul.job_listings li.job_listing a img.company_logo {
+    border-radius: 100%;
+    width: 44px;
+    height: 44px;
+}
+
+@media (min-width: 544px) {
+    ul.job_listings:not(.job_listings_grid) li.job_listing a img.company_logo {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+ul.job_listings li.job_listing a div.position {
+    padding: 0 0 0 60px;
+}
+
+ul.job_listings li.job_listing a div.position .company {
+    font-size: 14px;
+    line-height: 1.35;
+    display: block;
+    display: -webkit-box;
+    max-height: 1.35em;
+    margin: 0;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+    color: #a3a5a9;
+}
+
+ul.job_listings li.job_listing a div.location {
+    color: #a3a5a9;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type {
+    display: inline-block;
+    border-radius: 100px;
+    font-size: 11px;
+    padding: 4px 10px;
+    line-height: 1;
+    text-align: center;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.full-time {
+    background-color: #e4f6dd;
+    color: #48bf1e;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.internship {
+    background-color: #e6ddfb;
+    color: #6033cc;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.freelance {
+    background-color: #DCF2FD;
+    color: #39c;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.full-time {
+    background-color: #E4F6DD;
+    color: #48BF1E;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.part-time {
+    background-color: #fff6ef;
+    color: #f08d3c;
+}
+
+ul.job_listings li.job_listing ul.meta li.job-type.temporary {
+    background-color: #FFE2E0;
+    color: #d93674;
+}
+
+ul.job_listings li.job_listing ul.meta li.date {
+    font-size: 12px;
+    color: #a3a5a9;
+    line-height: 18px;
+    padding-top: 5px;
+}
+
+@media (max-width: 800px) {
+    ul.job_listings li.job_listing a img.company_logo {
+        visibility: visible;
+    }
+}
+
+@media (max-width: 543px) {
+    ul.job_listings li.job_listing a {
+        flex-direction: column;
+    }
+    ul.job_listings li.job_listing a img.company_logo {
+        margin: 0 auto 10px;
+        position: static;
+        width: 64px;
+        height: 64px;
+    }
+    ul.job_listings li.job_listing a div.position {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        float: none;
+        padding: 0;
+    }
+    ul.job_listings li.job_listing a div.position div.company {
+        width: 100%;
+    }
+    ul.job_listings li.job_listing a div.location {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        padding: 0;
+        top: 0;
+    }
+    ul.job_listings li.job_listing a ul.meta {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+}
