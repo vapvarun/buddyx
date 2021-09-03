@@ -21,6 +21,7 @@
 # Site Sub Header Layout
 # Site Text Editor
 # WP Idea Stream
+# Events Manager
 --------------------------------------------------------------*/
 
 
@@ -2053,4 +2054,13 @@ ul#ideas-main-nav form#searchform {
 #wp-idea-stream ul.idea-list .idea-avatar img,
 #wp-idea-stream ul.idea-comments-list .idea-comment-avatar img {
     border-radius: 3px;
+}
+
+
+/*--------------------------------------------------------------
+# Events Manager
+--------------------------------------------------------------*/
+
+.css-events-list table.events-table td {
+    padding: 1rem;
 }
