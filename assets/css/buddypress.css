@@ -31,6 +31,8 @@
     # BuddyPress Giphy
     # MediaPress
     # BuddyPress Group Email Subscription
+    # BuddyPress Lock Unlock Activity
+    # BuddyMessageUX-Free
 
 --------------------------------------------------------------*/
 
@@ -3967,4 +3969,74 @@ input.bpfb_remote_image {
 
 .bpfb_final_link .bpfb_link_contents {
     margin-bottom: 10px;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Lock Unlock Activity
+--------------------------------------------------------------*/
+
+.activity-list.bp-list .activity-item .activity-meta.action .bplua-open-activity,
+.activity-list.bp-list .activity-item .activity-meta.action .bplua-close-activity {
+    margin-right: 11px;
+    margin-top: 15px;
+}
+
+.activity-list .activity-item .activity-meta.action .bplua-open-activity:before,
+.activity-list .activity-item .activity-meta.action .bplua-close-activity:before {
+    font-family: dashicons;
+    font-size: 18px;
+    vertical-align: bottom;
+}
+
+.activity-list .activity-item .activity-meta.action .bplua-open-activity:before {
+    content: "\f528";
+}
+
+.activity-list .activity-item .activity-meta.action .bplua-close-activity:before {
+    content: "\f160";
+}
+
+
+/*--------------------------------------------------------------
+# BuddyMessageUX-Free
+--------------------------------------------------------------*/
+
+.thickbox-loading #TB_ajaxContent {
+    margin: auto;
+    padding: 15px;
+    height: 100% !important;
+}
+
+.thickbox-loading #TB_title {
+    height: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.thickbox-loading textarea#whats-new-profile-ux {
+    margin-bottom: 10px;
+}
+
+.thickbox-loading form#private-message-form-ux label[for=private_message_subject],
+.thickbox-loading form#private-message-form-ux label[for=private_message_content],
+.thickbox-loading form#public-message-form-ux label[for=public_message_content] {
+    display: block;
+}
+
+.thickbox-loading form#private-message-form-ux input#private_message_subject {
+    width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+    #TB_window.thickbox-loading {
+        max-width: 285px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0;
+        right: 0;
+    }
+    .thickbox-loading #TB_ajaxContent {
+        width: 100% !important;
+    }
 }
