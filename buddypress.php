@@ -35,7 +35,7 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 					<?php buddyx()->display_buddypress_left_sidebar(); ?>
 				</div>
 			</aside>
-		<?php elseif ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() && ( $buddypress_groups_sidebar == 'left' || $buddypress_groups_sidebar == 'both' ) ) : ?>
+		<?php elseif ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_group_create() && ! bp_is_user() && ( $buddypress_groups_sidebar == 'left' || $buddypress_groups_sidebar == 'both' ) ) : ?>
 			<aside id="secondary" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_buddypress_left_sidebar(); ?>
@@ -51,7 +51,7 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 	<?php } ?>
 
 	<main id="primary" class="site-main">
-	
+
 		<?php
 		if ( have_posts() ) {
 
@@ -68,9 +68,9 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 			get_template_part( 'template-parts/content/error' );
 		}
 		?>
-		
+
 	</main><!-- #primary -->
-	
+
 	<?php if ( ! bp_is_group_single() && ! bp_is_group_create() ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
