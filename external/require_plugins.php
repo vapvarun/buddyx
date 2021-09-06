@@ -103,5 +103,5 @@ function buddyx_register_required_plugins() {
 		'message'      => '', // Message to output right before the plugins table.
 	);
 
-	tgmpa( $plugins, $config );
+	tgmpa( apply_filters( 'buddyx_plugin_install', $plugins ), $config );
 }
