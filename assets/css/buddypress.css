@@ -1229,14 +1229,32 @@ div#buddypress .activity-read-more a:hover {
     line-height: 1.3;
 }
 
-.activity-list .activity-item .activity-meta.action .bp-screen-reader-text {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    margin-left: 5px;
-    overflow: visible;
-    position: relative;
-    width: auto;
+@media screen and (min-width: 46.8em) {
+    .activity-list .activity-item .activity-meta.action .bp-screen-reader-text {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        margin-left: 5px;
+        overflow: visible;
+        position: relative;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 46.8em) {
+    .activity-list .activity-item .activity-meta .bmpro-flag-activity-btn span,
+    .activity-list .activity-item .activity-meta .bmpro-unflag-activity-btn span,
+    .activity-list .activity-item .activity-meta .bpsp-pin-tool span,
+    .activity-list .activity-item .activity-meta .bp-share-button span,
+    #buddypress .activity-list .activity-item .activity-content>.activity-meta.action .buddyboss_edit_activity_cancel,
+    #buddypress .activity-list .activity-item .activity-content>.activity-meta.action .button.buddyboss_edit_activity {
+        font-size: 0;
+    }
+    .site-wrapper .bmpro-flag-activity-btn:before,
+    .site-wrapper .bmpro-unflag-activity-btn:before,
+    .bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button:before {
+        margin-right: 0;
+    }
 }
 
 .activity-list .activity-item .activity-meta.action .button {

@@ -16,6 +16,7 @@
     # BuddyPress Moderation Pro
     # Profile Types
 # Profile Completion Widget
+# Live Notification
 --------------------------------------------------------------*/
 
 
@@ -180,11 +181,23 @@ span.bb-activity-edited-text {
 }
 
 .bb-media-length-1 .bb-activity-media-elem .entry-img {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 
 .bb-media-length-1 .bb-activity-media-elem .entry-img img {
     position: static;
+}
+
+.bb-activity-video-elem .bb-video-duration,
+.bb-video-thumb .bb-video-duration,
+.bb-media-section .bb-video-duration {
+    padding: 1px 8px !important;
+}
+
+@media screen and (max-width: 46.8em) {
+    .activity-list .activity-item .bp-generic-meta.action .button span {
+        font-size: 0;
+    }
 }
 
 
@@ -1026,4 +1039,13 @@ body.wb-quote .activity-update-form #whats-new {
 .widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.progress_not_started .progress .completed_staus {
     border-color: #ff3a30;
     color: #ff3a30;
+}
+
+
+/*--------------------------------------------------------------
+# Live Notification
+--------------------------------------------------------------*/
+
+.bb-onscreen-notification-enable .bb-onscreen-notification .notification-list .read-item .notification-avatar {
+    position: relative;
 }
