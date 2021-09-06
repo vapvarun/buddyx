@@ -35,10 +35,18 @@
     margin-bottom: 0;
 }
 
+#bbpress-forums fieldset.bbp-form {
+    min-width: calc(100% - 2px);
+}
+
 #bbpress-forums fieldset.bbp-form input[type=text],
 #bbpress-forums fieldset.bbp-form select {
     min-width: 100px;
     min-height: 35px;
+}
+
+#bbpress-forums fieldset.bbp-form input[type=text] {
+    width: 100%;
 }
 
 #bbpress-forums .widget_display_replies img.avatar,

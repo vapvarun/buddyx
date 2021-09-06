@@ -329,6 +329,17 @@
 
     };
 
+    // MediaPress
+    BUDDYX.mediaPress = function() {
+
+        /**
+         * Activity upload Form handling
+         * Prepend the upload buttons to Activity form
+         */
+        $('.activity-update-form #whats-new-form').append($('#mpp-activity-upload-buttons'));
+
+    };
+
     $(document).ready(function() {
 
         BUDDYX.headerClass();
@@ -340,6 +351,7 @@
         BUDDYX.tableDataAtt();
         BUDDYX.toggleTheme();
         BUDDYX.galleryPostSlider();
+        BUDDYX.mediaPress();
 
     });
 

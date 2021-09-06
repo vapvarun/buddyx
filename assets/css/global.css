@@ -21,6 +21,7 @@
 # Site Sub Header Layout
 # Site Text Editor
 # WP Idea Stream
+# Events Manager
 --------------------------------------------------------------*/
 
 
@@ -157,7 +158,7 @@ p:empty::before {
 }
 
 @media (--sidebar-query) {
-    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
+    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
     .has-sidebar-right.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-right.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-right:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -168,7 +169,7 @@ p:empty::before {
         grid-gap: 2rem;
         justify-content: center;
     }
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-left.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -179,7 +180,7 @@ p:empty::before {
         grid-gap: 2rem;
         justify-content: center;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-wrapper,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-both.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
@@ -190,7 +191,7 @@ p:empty::before {
         grid-gap: 1.5rem;
         justify-content: center;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
@@ -200,7 +201,7 @@ p:empty::before {
         grid-column: 3;
         min-width: 0;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-main,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-main,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-both.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
@@ -209,7 +210,7 @@ p:empty::before {
         grid-column: 2;
         min-width: 0;
     }
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
@@ -226,7 +227,7 @@ p:empty::before {
         grid-column: 1;
         min-width: 0;
     }
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small) .site-main,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-main,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-left.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
@@ -2053,4 +2054,13 @@ ul#ideas-main-nav form#searchform {
 #wp-idea-stream ul.idea-list .idea-avatar img,
 #wp-idea-stream ul.idea-comments-list .idea-comment-avatar img {
     border-radius: 3px;
+}
+
+
+/*--------------------------------------------------------------
+# Events Manager
+--------------------------------------------------------------*/
+
+.css-events-list table.events-table td {
+    padding: 1rem;
 }

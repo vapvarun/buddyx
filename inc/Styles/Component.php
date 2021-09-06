@@ -128,7 +128,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 			wp_style_add_data( $handle, 'precache', true );
 		}
-                
+
                 // Enqueue BuddyPress CSS
 		if ( ! class_exists( 'Youzify' ) ) {
 			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css');
@@ -148,37 +148,42 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
 		}
-                
+
                 // Enqueue LearnPress CSS
 		if ( class_exists( 'LearnPress' ) ) {
 			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css' );
 		}
-                
+
                 // Enqueue LifterLMS CSS
 		if ( class_exists( 'LifterLMS' ) ) {
 			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css');
 		}
-                
+
                 // Enqueue Dokan CSS
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css');
 		}
-                
+
                 // Enqueue WooCommerce CSS
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css');
 		}
-                
+
                 // Enqueue EventsCalendar CSS
 		if ( class_exists( 'Tribe__Events__Main' ) ) {
 			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css');
 		}
-                
+
                 // Enqueue Youzify CSS
 		if ( class_exists( 'Youzify' ) ) {
 			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css');
 		}
-                
+
+                // Enqueue WP_Job_Manager CSS
+		if ( class_exists( 'WP_Job_Manager' ) ) {
+			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css');
+		}
+
                 // Enqueue Slick CSS
 		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css');
 
@@ -186,12 +191,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css' );
 		}
-                
+
                 // Enqueue AMP CSS
                 if ( buddyx()->is_amp() ) {
                         wp_enqueue_style('buddyx-amp', $css_uri.'buddyx-amp.min.css');
                 }
-                
+
                 // Enqueue Dark Mode CSS
                 wp_enqueue_style('buddyx-dark-mode', $css_uri.'dark-mode.min.css');
 	}
@@ -200,12 +205,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
 	public function buddyx_enqueue_admin_style($hook) {
-		
+
                 $css_uri = get_theme_file_uri( '/assets/css/' );
                 $css_dir = get_theme_file_path( '/assets/css/' );
 
                 wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );
-                
+
                 if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
                     wp_enqueue_script(
                             'buddyx-admin-script',
