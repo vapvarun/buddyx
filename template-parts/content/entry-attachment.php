@@ -9,6 +9,8 @@ namespace BuddyX\Buddyx;
 
 ?>
 
+<?php do_action( 'buddyx_entry_before' ); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
 	<?php get_template_part( 'template-parts/content/entry_header', get_post_type() ); ?>
 
@@ -55,3 +57,5 @@ if ( is_singular( get_post_type() ) ) {
 		comments_template();
 	}
 }
+
+do_action( 'buddyx_entry_after' );

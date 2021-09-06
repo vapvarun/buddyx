@@ -9,6 +9,8 @@ namespace BuddyX\Buddyx;
 
 ?>
 
+<?php do_action( 'buddyx_entry_content_before' ); ?>
+
 <div class="entry-content">
 
 	<?php
@@ -43,3 +45,5 @@ namespace BuddyX\Buddyx;
 	}
 	?>
 </div><!-- .entry-content -->
+
+<?php do_action( 'buddyx_entry_content_after' ); ?>

@@ -505,7 +505,7 @@ msgstr ""
 msgid "Install Now"
 msgstr ""
 
-#: ../buddyx/footer.php:25
+#: ../buddyx/footer.php:28
 msgid "Footer"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr ""
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s"
 msgstr ""
 
-#: ../buddyx/header.php:29
+#: ../buddyx/header.php:35
 msgid "Skip to content"
 msgstr ""
 
@@ -714,7 +714,7 @@ msgid "View Shopping Cart"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:134
-msgid "Xprofile"
+msgid "Profile"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:137, ../buddyx/inc/extra.php:156
@@ -725,8 +725,8 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:143, ../buddyx/inc/Welcome/Component.php:568
-msgid "bbPress"
+#: ../buddyx/inc/extra.php:143
+msgid "Forums"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:146
@@ -1292,7 +1292,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:332
+#: ../buddyx/inc/Styles/Component.php:337
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -1678,6 +1678,10 @@ msgstr ""
 msgid "TutorLMS"
 msgstr ""
 
+#: ../buddyx/inc/Welcome/Component.php:568
+msgid "bbPress"
+msgstr ""
+
 #: ../buddyx/inc/Welcome/Component.php:573
 msgid "WC Vendors"
 msgstr ""
@@ -1894,23 +1898,23 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-bbpress.php:18, ../buddyx/template-parts/content-buddypress.php:18, ../buddyx/template-parts/content/entry-full-width.php:18, ../buddyx/template-parts/content/entry_content.php:19
+#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:20, ../buddyx/template-parts/content/entry_content.php:21
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content-bbpress.php:31, ../buddyx/template-parts/content-buddypress.php:31, ../buddyx/template-parts/content/entry-full-width.php:31, ../buddyx/template-parts/content/entry-page.php:36, ../buddyx/template-parts/content/entry_content.php:36
+#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:33, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
 msgid "Pages:"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry-attachment.php:33, ../buddyx/template-parts/content/entry-post.php:34, ../buddyx/template-parts/content/entry.php:32
+#: ../buddyx/template-parts/content/entry-attachment.php:35, ../buddyx/template-parts/content/entry-post.php:36, ../buddyx/template-parts/content/entry.php:34
 msgid "Previous:"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry-attachment.php:43, ../buddyx/template-parts/content/entry-post.php:35, ../buddyx/template-parts/content/entry.php:33
+#: ../buddyx/template-parts/content/entry-attachment.php:45, ../buddyx/template-parts/content/entry-post.php:37, ../buddyx/template-parts/content/entry.php:35
 msgid "Next:"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry-attachment.php:49
+#: ../buddyx/template-parts/content/entry-attachment.php:51
 msgid "Post navigation"
 msgstr ""
 

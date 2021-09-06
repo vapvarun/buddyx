@@ -18,6 +18,9 @@ namespace BuddyX\Buddyx;
 		?>
 		</div><!-- .container -->
 	<?php } ?>
+
+	<?php do_action( 'buddyx_footer_before' ); ?>
+
 	<footer id="colophon" class="site-footer">
 		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) { ?>
 			<div class="site-footer-wrapper">
@@ -49,9 +52,17 @@ namespace BuddyX\Buddyx;
 			<?php get_template_part( 'template-parts/footer/info' ); ?>
 		<?php } ?>
 	</footer><!-- #colophon -->
+
+	<?php do_action( 'buddyx_footer_after' ); ?>
+
+<?php do_action( 'buddyx_page_bottom' ); ?>
+
 </div><!-- #page -->
 
 <div class="mobile-menu-close"></div>
+
+<?php do_action( 'buddyx_body_bottom' ); ?>
+
 <?php wp_footer(); ?>
 
 </body>

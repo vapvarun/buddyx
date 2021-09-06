@@ -145,7 +145,7 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 
 		switch ( $activities_template->activity->component ) {
 			case 'xprofile':
-				$mini_activity_actions = __( 'Xprofile', 'buddyx' );
+				$mini_activity_actions = __( 'Profile', 'buddyx' );
 				break;
 			case 'activity':
 				$mini_activity_actions = __( 'Activity', 'buddyx' );
@@ -154,7 +154,7 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 				$mini_activity_actions = __( 'Groups', 'buddyx' );
 				break;
 			case 'bbpress':
-				$mini_activity_actions = __( 'bbPress', 'buddyx' );
+				$mini_activity_actions = __( 'Forums', 'buddyx' );
 				break;
 			case 'friends':
 				$mini_activity_actions = __( 'Friends', 'buddyx' );
