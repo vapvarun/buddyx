@@ -97,6 +97,22 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 4.2.0 =
+* Improvement: Managed activity action buttons iconic view in mobile view
+* Improvement: (#315) Sidebars on create group page
+* Improvement: (#314) Managed events manager events, single event page UI
+* Improvement: (#311, #312) Buddypress lock unlock activity, buddymessageUX fixes
+* Improvement: (#310) Managed UI with buddypress activity plus
+* Improvement: (#307) Managed login button UI with buddypress private community
+* Improvement: (#304) Managed jobs listing, job dashboard page UI
+* Improvement: (#305) Managed buddypress group email subscription UI
+* Improvement: (#302) Added mediapress support
+* Improvement: (#306) Added do_action hooks
+* Improvement: Managed recently active members UI with gamipress
+* Improvement: (#300) Update profile nav buttons UI in mobile view
+* Improvement: (#298) Managed forum discussion form in mobile view
+
 = 4.1.0 =
 * Fix: (#293) Managed translatable activity card title
 * Fix: (#294) Managed forums UI in mobile view and fixes
