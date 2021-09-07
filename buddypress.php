@@ -41,7 +41,7 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 					<?php buddyx()->display_buddypress_left_sidebar(); ?>
 				</div>
 			</aside>
-		<?php elseif ( ! bp_is_user() && ! bp_is_current_component( 'members' ) && ! bp_is_current_component( 'groups' ) && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_current_component( 'members' ) && ! bp_is_current_component( 'groups' ) && ! bp_is_group_single() && ! bp_is_group_create() && $buddypress_sidebar == 'both' ) : ?>
+		<?php elseif ( ! bp_is_user() && ! bp_is_current_component( 'members' ) && ! bp_is_current_component( 'groups' ) && ! bp_is_group_single() && ! bp_is_group_create() && function_exists( 'mpp_is_gallery_component' ) && ! mpp_is_gallery_component() && $buddypress_sidebar == 'left' || ! bp_is_user() && ! bp_is_current_component( 'members' ) && ! bp_is_current_component( 'groups' ) && ! bp_is_group_single() && ! bp_is_group_create() && function_exists( 'mpp_is_gallery_component' ) && ! mpp_is_gallery_component() && $buddypress_sidebar == 'both' ) : ?>
 			<aside id="secondary" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_buddypress_left_sidebar(); ?>
