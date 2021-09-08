@@ -3798,19 +3798,6 @@ div.mpp-bulk-edit-media-action-row select {
     padding: 0 15px 15px;
 }
 
-.activity-list .mpp-media-list-view-grid.mpp-activity-media-list a img {
-    width: 175px;
-    height: 175px;
-    object-fit: cover;
-}
-
-@media screen and (max-width: 480px) {
-    .activity-list .mpp-media-list-view-grid.mpp-activity-media-list a img {
-        width: auto;
-        height: auto;
-    }
-}
-
 
 /* MediaPress Pagination */
 

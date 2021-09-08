@@ -44,7 +44,7 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 				if ( ! empty( $breadcrumbs ) ) {
 						buddyx_the_breadcrumb();
 				}
-			} elseif ( get_post_type() === 'page' || is_single() ) {
+			} elseif ( get_post_type() === 'page' || is_singular() ) {
 					// PAGE
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
@@ -165,12 +165,12 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 			case 'blogs':
 				$mini_activity_actions = __( 'Blogs', 'buddyx' );
 				break;
-				
-			default:			
+
+			default:
 				$mini_activity_actions = __( 'Activity', 'buddyx' );
 				break;
 		}
-		
+
 		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $mini_activity_actions, $activities_template->activity->component );
 	}
 }
@@ -749,7 +749,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				  </a>
 			  </div>
 		  </div>
-  
+
 		  <div class="buddyx_audio_format_setting">
 			  <p class="description"><?php esc_html_e( 'Enter audio url.', 'buddyx' ); ?></p>
 			  <div class="buddyx_input_section">
@@ -762,7 +762,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				  </a>
 			  </div>
 		  </div>
-  
+
 		  <div class="buddyx_quote_format_setting">
 			  <p class="description"><?php esc_html_e( 'Input your quote.', 'buddyx' ); ?></p>
 			  <div class="buddyx_input_section">
@@ -770,22 +770,22 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					  <label class="label"><?php esc_html_e( 'Quote Text', 'buddyx' ); ?></label>
 				  </div>
 				  <textarea name="buddyx_post_quote" class="buddyx-input-textare"><?php echo $post_quote; ?></textarea>
-			  </div>	
+			  </div>
 			  <div class="buddyx_input_section">
 				  <div class="format-setting-label">
 					  <label class="label"><?php esc_html_e( 'Quote Author', 'buddyx' ); ?></label>
 				  </div>
-				  <input type="text" name="buddyx_post_quote_author" value="<?php echo $post_quote_author; ?>" class="buddyx-input-text"/>						
+				  <input type="text" name="buddyx_post_quote_author" value="<?php echo $post_quote_author; ?>" class="buddyx-input-text"/>
 			  </div>
 		  </div>
-			
+
 		  <div class="buddyx_link_format_setting">
 			  <p class="description"><?php esc_html_e( 'Input your link.', 'buddyx' ); ?></p>
 			  <div class="buddyx_input_section">
 				  <div class="format-setting-label">
 					  <label class="label"><?php esc_html_e( 'Link Title', 'buddyx' ); ?></label>
 				  </div>
-				  <input type="text" name="buddyx_post_link_title" value="<?php echo $post_link_title; ?>" class="buddyx-input-text"/>						
+				  <input type="text" name="buddyx_post_link_title" value="<?php echo $post_link_title; ?>" class="buddyx-input-text"/>
 			  </div>
 			  <div class="buddyx_input_section">
 				  <div class="format-setting-label">
@@ -794,7 +794,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				  <input type="text" name="buddyx_post_link_url" value="<?php echo $post_link_url; ?>" class="buddyx-input-text"/>
 			  </div>
 		  </div>
-			
+
 		  <div class="buddyx_gallery_format_setting">
 			  <p class="description"><?php esc_html_e( 'To create a gallery, upload your images and then select "Uploaded to this post" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there.', 'buddyx' ); ?></p>
 			  <div id="images_gallery_container" class="buddyx_images_gallery_container">
@@ -816,7 +816,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
                                               </div>
                                           </div>
                                       </div>
-  
+
                                       <div class="actions">
                                           <a href="#" id="' . $image_id . '" class="delete" title="' . __( 'Delete image', 'buddyx' ) . '"><i class="dashicons dashicons-no"></i></a>
                                       </div>
@@ -836,18 +836,18 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				  </p>
 			  </div>
 		  </div>
-			
-  
+
+
 		  <script>
 		  ( function ( $ ) {
 			  'use strict';
 			  $('#buddyx_postformat_settings').hide();
 			  $( document ).ready( function () {
-					
-				  var post_format = $('input[name=post_format]:checked').val();						
+
+				  var post_format = $('input[name=post_format]:checked').val();
 				  if ( typeof post_format == 'undefined' ) {
 					  post_format = $('#buddyx_post_format').val();
-				  }						
+				  }
 				  if ( post_format == 'video' || post_format == 'audio' || post_format == 'quote' || post_format == 'link' || post_format == 'gallery' ) {
 					  $('#buddyx_postformat_settings').show();
 					  $( '.buddyx_video_format_setting').hide();
@@ -857,8 +857,8 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					  $( '.buddyx_gallery_format_setting').hide();
 					  $( '.buddyx_' + post_format + '_format_setting').show();
 				  }
-					
-					
+
+
 				  $(document).on( "change", 'input[name=post_format], .editor-post-format__content select.components-select-control__input' , function(e){
 					  var post_format = $( this ).val();
 					  $( '.buddyx_video_format_setting').hide();
@@ -885,7 +885,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 						  $('#buddyx_postformat_settings').hide();
 					  }
 				  });
-					
+
 				  /* Uploading files */
 				  var image_gallery_frame;
 				  var $image_gallery_ids = $('#buddyx_image_gallery');
@@ -962,7 +962,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				  });
 				  /* Remove images */
 				  $('#images_gallery_container').on( 'click', 'a.delete', function() {
-  
+
 					  $(this).closest('li.image').remove();
 					  var attachment_ids = '';
 					  $('#images_gallery_container ul li.image').css('cursor','default').each(function() {
@@ -972,11 +972,11 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					  $image_gallery_ids.val( attachment_ids );
 					  return false;
 				  } );
-  
-  
+
+
 				  $('.buddyx_upload_media').on( 'click',  function( event ) {
-					  var $el = $(this);	
-					  var media_id = $(this).data( 'id' );							
+					  var $el = $(this);
+					  var media_id = $(this).data( 'id' );
 					  event.preventDefault();
 					  /* If the media frame already exists, reopen it. */
 					  if ( image_gallery_frame ) {
@@ -998,19 +998,19 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 						  selection.map( function( attachment ) {
 							  attachment = attachment.toJSON();
 							  if ( attachment.id ) {
-									
+
 								  $( '#' + media_id ).val(attachment.url);
 							  }
-						  } );								
+						  } );
 					  });
 					  /* Finally, open the modal. */
 					  image_gallery_frame.open();
 				  });
-					
+
 			  });
 		  } )( jQuery );
 		  </script>
-  
+
 	  </div>
 		 <?php
 

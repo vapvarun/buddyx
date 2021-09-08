@@ -2064,3 +2064,23 @@ ul#ideas-main-nav form#searchform {
 .css-events-list table.events-table td {
     padding: 1rem;
 }
+
+.single .type-event .entry-taxonomies {
+    display: none;
+}
+
+.single .type-event ul.event-categories {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.single .type-event ul.event-categories li {
+    display: inline-block;
+}
+
+.single .type-event ul.event-categories li a {
+    margin: 0;
+    padding: 4px 8px;
+    border: 1px solid;
+}
