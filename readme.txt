@@ -98,6 +98,9 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.2.1 =
+* Fix: Fixed activity sidebar issue with mediapress
+
 = 4.2.0 =
 * Improvement: Managed activity action buttons iconic view in mobile view
 * Improvement: (#315) Sidebars on create group page
