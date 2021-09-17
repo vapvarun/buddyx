@@ -1,0 +1,7 @@
+<wpml-config>
+	<admin-texts>
+		<key name="theme_mods_buddyx">
+			<key name="site_copyright_text" />
+		</key>
+	</admin-texts>
+</wpml-config>
