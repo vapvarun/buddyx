@@ -229,14 +229,6 @@
 # Single Product Page
 --------------------------------------------------------------*/
 
-.single-product .content-area {
-    margin-top: 30px;
-}
-
-.single-product aside {
-    margin-top: 15px;
-}
-
 .woocommerce div.product div.images .flex-control-thumbs li img {
     border: 5px solid var(--global-border-color);
 }

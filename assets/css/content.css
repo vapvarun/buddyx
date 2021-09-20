@@ -801,6 +801,7 @@ article .entry-header {
 .entry-meta__content {
     text-align: left;
     margin-right: 20px;
+    flex: 1;
 }
 
 
