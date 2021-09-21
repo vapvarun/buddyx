@@ -708,6 +708,14 @@ span.bbp-author-avatar img {
     width: 100%;
 }
 
+ul.bbp-stats h4 {
+    font-size: 14px;
+}
+
+ul.bbp-stats .bbp-count {
+    font-size: 20px;
+}
+
 
 /*--------------------------------------------------------------
 # Documents
