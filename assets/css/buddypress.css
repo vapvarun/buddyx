@@ -1950,6 +1950,16 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     margin-bottom: 10px;
 }
 
+.buddypress-wrap .profile.edit .standard-form .field_multiselect select {
+    width: 100%;
+}
+
+.buddypress-wrap .profile.edit .standard-form .field_multiselect select option {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 
 /* message-threads */
 
