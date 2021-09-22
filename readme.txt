@@ -98,9 +98,9 @@ Released under the MIT license
 
 == Changelog ==
 = 4.2.2 =
-(#329, #330) Managed member search mobile view, activity post image
-(#327) Managed multiselect checkbox layout with bb platform
-(#326) Added WPML for customizer options
+* Fix: (#329, #330) Managed member search mobile view, activity post image
+* Fix: (#327) Managed multiselect checkbox layout with bb platform
+* Improvement: (#326) Added WPML for customizer options
 
 = 4.2.1 =
 * Fix: Fixed activity sidebar issue with mediapress
