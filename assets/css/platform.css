@@ -200,6 +200,14 @@ span.bb-activity-edited-text {
     }
 }
 
+.activity-list li.blogs .activity-content .activity-inner {
+    max-width: 100%;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
+    width: 100%;
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory
@@ -211,6 +219,16 @@ span.bb-activity-edited-text {
 
 .bp-single-vert-nav .bp-wrap {
     margin-bottom: 15px;
+}
+
+@media screen and (max-width: 46.8em) {
+    .members-directory-wrapper {
+        display: block;
+    }
+    .members-directory-wrapper .bp-profile-search-widget {
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
 }
 
 
