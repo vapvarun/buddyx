@@ -855,6 +855,10 @@ msgstr ""
 msgid "Add to Media"
 msgstr ""
 
+#: ../buddyx/inc/extra.php:1151
+msgid " Read more"
+msgstr ""
+
 #: ../buddyx/inc/Kirki_Option/Component.php:103
 msgid "General"
 msgstr ""
