@@ -113,11 +113,15 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 							<span class="fa fa-shopping-cart"> </span>
 							<?php
 							$count = WC()->cart->cart_contents_count;
-							if ( $count > 0 ) :
+							if ( $count > 0 ) {
 								?>
 								<sup><?php echo esc_html( $count ); ?></sup>
 												<?php
-							endif;
+							} else {
+								?>
+							  <sup><?php echo esc_html( '0', 'wp-rig' ); ?></sup>
+											  <?php
+							}
 							?>
 						</a>
 					</div>
@@ -636,12 +640,12 @@ add_action(
  * @return void
  */
 if ( ! function_exists( 'buddyx_remove_single_post_subheader' ) ) {
-    function buddyx_remove_single_post_subheader() {
-        if ( is_single() && 'post' === get_post_type() ) {
+	function buddyx_remove_single_post_subheader() {
+		if ( is_single() && 'post' === get_post_type() ) {
 			remove_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 		}
-    }
-    add_action( 'wp', 'buddyx_remove_single_post_subheader' );
+	}
+	add_action( 'wp', 'buddyx_remove_single_post_subheader' );
 }
 
 /**
