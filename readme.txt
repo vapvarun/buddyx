@@ -100,9 +100,9 @@ Released under the MIT license
 = 4.2.3 =
 * Fix: (#335) UI fixes with youzify
 * Fix: (#338) Fixed menu flickering
-* Improvement: (#335) Managed buddypress activity blog post UI with youzify
+* Improvement: (#335) Managed BuddyPress activity blog post UI with youzify
 * Fix: (#331) Managed button UI with bp private community pro
-* Improvement: (#335) Added buddypress activity blog post
+* Improvement: (#335) Added BuddyPress activity blog post
 
 = 4.2.2 =
 * Fix: (#329, #330) Managed member search mobile view, activity post image
