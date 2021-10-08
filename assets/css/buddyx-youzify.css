@@ -436,23 +436,23 @@ body.youzify-active .wb-bp-profile-completion-wrap {
 
 .activity-list li.blogs .activity-content {
     border: 0;
-    padding: 0 15px;
     max-width: 100%;
 }
 
-.activity-list li.blogs .activity-content img {
+.activity-list li.blogs .activity-content .buddyx-post-img-link img {
     width: 100%;
     max-width: 100%;
     margin: 0 0 15px;
+    padding: 0 25px;
 }
 
-.activity-list li.blogs .activity-content img {
+.activity-list li.blogs .activity-content .buddyx-post-img-link img {
     border-radius: 4px;
 }
 
 .activity-list li.blogs .activity-content .buddyx-content-wrp {
     display: block;
-    padding: 0;
+    padding: 0 25px;
 }
 
 .activity-list li.blogs .activity-content .buddyx-content-wrp p {
