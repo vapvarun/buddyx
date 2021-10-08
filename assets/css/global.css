@@ -1175,6 +1175,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
 .menu-icons-wrapper .search {
     position: relative;
+    min-width: 30px;
 }
 
 .main-navigation .search a,
@@ -1185,12 +1186,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper .search,
 .menu-icons-wrapper .cart {
     float: left;
-    margin: 0px 10px;
 }
 
 .menu-icons-wrapper .cart {
-    margin-right: 0;
-    margin-left: 5px;
+    margin: 0;
 }
 
 .menu-icons-wrapper div:last-child {
@@ -1485,9 +1484,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .menu-icons-wrapper,
     .menu-icons-wrapper .cart {
         margin: 0;
-    }
-    .menu-icons-wrapper .cart {
-        margin-left: 5px;
     }
     .main-navigation .cart a {
         min-width: 37px;

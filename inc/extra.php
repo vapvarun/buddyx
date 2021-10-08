@@ -113,11 +113,15 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 							<span class="fa fa-shopping-cart"> </span>
 							<?php
 							$count = WC()->cart->cart_contents_count;
-							if ( $count > 0 ) :
+							if ( $count > 0 ) {
 								?>
 								<sup><?php echo esc_html( $count ); ?></sup>
 												<?php
-							endif;
+							} else {
+								?>
+							  <sup><?php echo esc_html( '0', 'wp-rig' ); ?></sup>
+											  <?php
+							}
 							?>
 						</a>
 					</div>
@@ -636,12 +640,12 @@ add_action(
  * @return void
  */
 if ( ! function_exists( 'buddyx_remove_single_post_subheader' ) ) {
-    function buddyx_remove_single_post_subheader() {
-        if ( is_single() && 'post' === get_post_type() ) {
+	function buddyx_remove_single_post_subheader() {
+		if ( is_single() && 'post' === get_post_type() ) {
 			remove_action( 'buddyx_sub_header', 'buddyx_sub_header' );
 		}
-    }
-    add_action( 'wp', 'buddyx_remove_single_post_subheader' );
+	}
+	add_action( 'wp', 'buddyx_remove_single_post_subheader' );
 }
 
 /**
@@ -1064,4 +1068,110 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 			update_post_meta( $post_id, '_post_title_position', $_POST['_post_title_position'] );
 		}
 	}
+}
+
+/**
+ * Function will add feature image for blog post in the activity feed content.
+ *
+ * @param string $content
+ * @param int    $blog_post_id
+ *
+ * @return string $content
+ *
+ * @since 4.2.2
+ */
+function buddyx_add_feature_image_blog_post_as_activity_content_callback( $content, $blog_post_id ) {
+	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
+		if ( ! empty( $blog_post_id ) && ! empty( get_post_thumbnail_id( $blog_post_id ) ) ) {
+			$content .= sprintf( ' <a class="buddyx-post-img-link" href="%s"><img src="%s" /></a>', esc_url( get_permalink( $blog_post_id ) ), esc_url( wp_get_attachment_image_url( get_post_thumbnail_id( $blog_post_id ), 'full' ) ) );
+		}
+	}
+
+	return $content;
+}
+
+add_filter( 'buddyx_add_feature_image_blog_post_as_activity_content', 'buddyx_add_feature_image_blog_post_as_activity_content_callback', 10, 2 );
+
+add_action( 'bp_before_activity_activity_content', 'buddyx_bp_blogs_activity_content_set_temp_content' );
+
+/**
+ * Function which set the temporary content on the blog post activity.
+ *
+ * @since 4.2.2
+ */
+function buddyx_bp_blogs_activity_content_set_temp_content() {
+
+	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
+
+		global $activities_template;
+
+		$activity = $activities_template->activity;
+		if ( ( 'blogs' === $activity->component ) && isset( $activity->secondary_item_id ) && 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
+			$content = get_post( $activity->secondary_item_id );
+			// If we converted $content to an object earlier, flip it back to a string.
+			if ( is_a( $content, 'WP_Post' ) ) {
+				$activities_template->activity->content = '&#8203;';
+			}
+		} elseif ( 'blogs' === $activity->component && 'new_blog_comment' === $activity->type && $activity->secondary_item_id && $activity->secondary_item_id > 0 ) {
+			$activities_template->activity->content = '&#8203;';
+		}
+	}
+}
+
+add_filter( 'bp_get_activity_content_body', 'buddyx_bp_blogs_activity_content_with_read_more', 9999, 2 );
+
+/**
+ * Function which set the content on activity blog post.
+ *
+ * @param $content
+ * @param $activity
+ *
+ * @return string
+ *
+ * @since 4.2.2
+ */
+function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) {
+
+	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
+
+		if ( ( 'blogs' === $activity->component ) && isset( $activity->secondary_item_id ) && 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
+			$blog_post = get_post( $activity->secondary_item_id );
+			// If we converted $content to an object earlier, flip it back to a string.
+			if ( is_a( $blog_post, 'WP_Post' ) ) {
+				$content_img = apply_filters( 'buddyx_add_feature_image_blog_post_as_activity_content', '', $blog_post->ID );
+				$post_title  = sprintf( '<a class="buddyx-post-title-link" href="%s"><span class="buddyx-post-title">%s</span></a>', esc_url( get_permalink( $blog_post->ID ) ), esc_html( $blog_post->post_title ) );
+				$content     = bp_create_excerpt( bp_strip_script_and_style_tags( html_entity_decode( get_the_excerpt( $blog_post->ID ) ) ) );
+				if ( false !== strrpos( $content, __( '&hellip;', 'wp-rig' ) ) ) {
+					$content = str_replace( ' [&hellip;]', '&hellip;', $content );
+					$content = apply_filters_ref_array( 'bp_get_activity_content', array( $content, $activity ) );
+					preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $content, $matches );
+					if ( isset( $matches ) && array_key_exists( 0, $matches ) && ! empty( $matches[0] ) ) {
+						$iframe  = $matches[0];
+						$content = strip_tags( preg_replace( '/<iframe.*?\/iframe>/i', '', $content ), '<a>' );
+
+						$content .= $iframe;
+					}
+					$content = sprintf( '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>', $content_img, $post_title, wpautop( $content ) );
+				} else {
+					$content = apply_filters_ref_array( 'bp_get_activity_content', array( $content, $activity ) );
+					$content = strip_tags( $content, '<a><iframe><img><span><div>' );
+					preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $content, $matches );
+					if ( isset( $matches ) && array_key_exists( 0, $matches ) && ! empty( $matches[0] ) ) {
+						$content = $content;
+					}
+					$content = sprintf( '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>', $content_img, $post_title, wpautop( $content ) );
+				}
+			}
+		} elseif ( 'blogs' === $activity->component && 'new_blog_comment' === $activity->type && $activity->secondary_item_id && $activity->secondary_item_id > 0 ) {
+			$comment = get_comment( $activity->secondary_item_id );
+			$content = bp_create_excerpt( html_entity_decode( $comment->comment_content ) );
+			if ( false !== strrpos( $content, __( '&hellip;', 'wp-rig' ) ) ) {
+				$content     = str_replace( ' [&hellip;]', '&hellip;', $content );
+				$append_text = apply_filters( 'bp_activity_excerpt_append_text', __( ' Read more', 'wp-rig' ) );
+				$content     = wpautop( sprintf( '%1$s<span class="activity-blog-post-link"><a href="%2$s" rel="nofollow">%3$s</a></span>', $content, get_comment_link( $activity->secondary_item_id ), $append_text ) );
+			}
+		}
+	}
+
+	return $content;
 }

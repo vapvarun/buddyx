@@ -184,8 +184,13 @@ span.bb-activity-edited-text {
     padding-top: 0 !important;
 }
 
+.bb-media-length-1 .bb-activity-media-elem.media-activity {
+    width: 100%;
+}
+
 .bb-media-length-1 .bb-activity-media-elem .entry-img img {
     position: static;
+    width: 100%;
 }
 
 .bb-activity-video-elem .bb-video-duration,

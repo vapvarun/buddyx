@@ -11,6 +11,7 @@
 # BuddyPress Sidebar
 # BuddyPress Profile Completion
 # BuddyPress Profile Edit Avatar / Cover
+# Activity Blog Post
 # Extra Plugin Support
     # GamiPress
     # myCred
@@ -164,7 +165,8 @@ button#bbp_reply_submit,
 button#mpp-edit-media-submit,
 .ges-change,
 .group-email-tooltip__close,
-#bplock-login-btn {
+#bplock-login-btn,
+#bplock-register-btn {
     font-family: inherit;
     font-size: initial;
     color: #fff;
@@ -217,7 +219,8 @@ button#bbp_reply_submit:hover,
 button#mpp-edit-media-submit:hover,
 .ges-change:hover,
 .group-email-tooltip__close:hover,
-#bplock-login-btn:hover {
+#bplock-login-btn:hover,
+#bplock-register-btn:hover {
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
     color: #fff;
@@ -2825,6 +2828,56 @@ button#bp-delete-avatar {
     margin-left: 11px;
     top: 50%;
     transform: translate(-10px, -50%);
+}
+
+
+/*--------------------------------------------------------------
+# Activity Blog Post
+--------------------------------------------------------------*/
+
+.activity-list li.blogs .activity-content .activity-inner {
+    border: 0;
+    padding: 0 15px;
+    max-width: 100%;
+}
+
+.activity-list li.blogs .activity-content .activity-inner img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 15px;
+}
+
+.activity-list li.blogs .activity-content .activity-inner img,
+.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
+    border-radius: 4px;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .buddyx-content-wrp {
+    display: block;
+    padding: 0;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .buddyx-content-wrp p,
+.activity-list li.blogs .activity-content .activity-inner .buddyx-content-wrp p {
+    padding: 0;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .bb-content-wrp {
+    display: block;
+    padding: 0;
+    padding-top: 12px;
+    background-color: transparent;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .buddyx-post-title,
+.activity-list li.blogs .activity-content .activity-inner .bb-post-title {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.activity-list li.blogs .activity-content .activity-inner .bb-post-title {
+    color: inherit;
 }
 
 

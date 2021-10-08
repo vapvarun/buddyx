@@ -2,7 +2,8 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Global
-# BuddyPress Profile Completion
+# BuddyPress Profile 
+# Activity Blog Post
 --------------------------------------------------------------*/
 
 
@@ -426,4 +427,40 @@ body.youzify-active .wb-bp-profile-completion-wrap {
     border-bottom: 3px solid white;
     border-right: 3px solid white;
     transform: rotate(45deg);
+}
+
+
+/*--------------------------------------------------------------
+# Activity Blog Post
+--------------------------------------------------------------*/
+
+.activity-list li.blogs .activity-content {
+    border: 0;
+    max-width: 100%;
+}
+
+.activity-list li.blogs .activity-content .buddyx-post-img-link img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 15px;
+    padding: 0 25px;
+}
+
+.activity-list li.blogs .activity-content .buddyx-post-img-link img {
+    border-radius: 4px;
+}
+
+.activity-list li.blogs .activity-content .buddyx-content-wrp {
+    display: block;
+    padding: 0 25px;
+}
+
+.activity-list li.blogs .activity-content .buddyx-content-wrp p {
+    padding: 0;
+}
+
+.activity-list li.blogs .activity-content .buddyx-post-title {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
 }
