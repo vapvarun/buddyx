@@ -1294,6 +1294,31 @@ class Component implements Component_Interface {
 						'buddyx-section-title-below' => get_template_directory_uri() . '/assets/images/single-blog-layout-4.png',
 					),
 				);
+                                
+                                $fields[] = array(
+                                        'type'            => 'color',
+                                        'settings'        => 'buddyx_section_title_over_overlay',
+                                        'label'           => esc_attr__( 'Image Overlay Color', 'buddyx' ),
+                                        'description'     => esc_attr__( 'Allow to add image overlay color on single post title layout one.', 'buddyx' ),
+                                        'section'         => 'site_blog_section',
+                                        'default'         => 'rgba(0, 0, 0, 0.1)',
+                                        'priority'        => 10,
+                                        'choices'         => array( 'alpha' => true ),
+                                        'output'          => array(
+                                                array(
+                                                        'function' => 'css',
+                                                        'element'  => '.buddyx-section-title-over.has-featured-image.has-featured-image .post-thumbnail:after',
+                                                        'property' => 'background',
+                                                ),
+                                        ),
+                                        'active_callback' => array(
+                                                array(
+                                                        'setting'  => 'single_post_title_layout',
+                                                        'operator' => '==',
+                                                        'value'    => 'buddyx-section-title-over',
+                                                ),
+                                        ),
+                                );
 
 				/**
 				 *  Site Sidebar Layout
