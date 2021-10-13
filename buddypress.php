@@ -72,11 +72,9 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 	</main><!-- #primary -->
 
 	<?php if ( ! bp_is_group_single() && ! bp_is_group_create() ) : ?>
-		<aside id="secondary" class="primary-sidebar widget-area">
-			<div class="sticky-sidebar">
-				<?php get_sidebar( 'buddypress' ); ?>
-			</div>
-		</aside>
+        
+		<?php get_sidebar( 'buddypress' ); ?>
+        
 	<?php endif; ?>
 
 	<?php do_action( 'buddyx_after_content' ); ?>
