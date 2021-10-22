@@ -439,6 +439,17 @@ form.woocommerce-cart-form {
     background: #fff;
 }
 
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-Button.button {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+    .woocommerce-account .woocommerce-MyAccount-content .woocommerce-Button.button {
+        margin: 0 0 15px;
+        width: 100%;
+    }
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a {
     display: block;
     position: relative;

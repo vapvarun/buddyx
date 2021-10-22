@@ -612,6 +612,7 @@ article .entry-header {
 
 .buddyx-article-list-thumbnail .post-thumbnail img {
     height: 100%;
+    object-fit: cover;
 }
 
 .buddyx-article-list-thumbnail:empty {
