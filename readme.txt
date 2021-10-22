@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.4 =
+* Fix: (#347, #348) Managed members invitation pending Invites UI and fixes
+* Fix: Fixed undefined variable error
+* Fix: (#344) Managed order tab spacing in mobile view
+* Fix: (#341) Added spacing between notice text and button
+* Fix: (#342) Blog and single blog layout UI fixes
+
 = 4.2.3 =
 * Fix: (#335) UI fixes with youzify
 * Fix: (#338) Fixed menu flickering
