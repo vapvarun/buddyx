@@ -533,7 +533,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Single Member Sidebar
 		if ( class_exists( 'BuddyPress' ) ) {
-			if ( is_active_sidebar('single_member') && bp_is_user() && !bp_is_user_settings() && !bp_is_user_messages() && !bp_is_user_notifications() && !bp_is_user_profile_edit() && !bp_is_user_change_avatar() && !bp_is_user_change_cover_image() && !bp_is_user_front() ) {
+			if ( is_active_sidebar('single_member') && bp_is_user() && !bp_is_user_settings() && !bp_is_user_messages() && !bp_is_user_notifications() && !bp_is_user_profile_edit() && !bp_is_user_change_avatar() && !bp_is_user_change_cover_image() && !bp_is_user_front() && !bp_has_members_invitations() ) {
 				$classes[] = 'has-single-member-sidebar';
 			}
 

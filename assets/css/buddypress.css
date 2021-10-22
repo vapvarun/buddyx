@@ -166,7 +166,9 @@ button#mpp-edit-media-submit,
 .ges-change,
 .group-email-tooltip__close,
 #bplock-login-btn,
-#bplock-register-btn {
+#bplock-register-btn,
+.bgr-submit-review,
+#bupr_save_review {
     font-family: inherit;
     font-size: initial;
     color: #fff;
@@ -220,7 +222,9 @@ button#mpp-edit-media-submit:hover,
 .ges-change:hover,
 .group-email-tooltip__close:hover,
 #bplock-login-btn:hover,
-#bplock-register-btn:hover {
+#bplock-register-btn:hover,
+.bgr-submit-review:hover,
+#bupr_save_review:hover {
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
     color: #fff;
@@ -3478,6 +3482,10 @@ body:not(.logged-in) .bp-share-btn.generic-button {
 
 .rating-bgr {
     font-size: 14px;
+}
+
+#bupr_member_review_id {
+    padding: 0;
 }
 
 
