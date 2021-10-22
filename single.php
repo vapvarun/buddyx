@@ -20,6 +20,9 @@ if ( get_post_type() == 'post' ) {
 	$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 }
 
+$single_post_content_width = '';
+$classes                   = '';
+
 if ( get_post_type() == 'post' ) {
 	$single_post_content_width = get_theme_mod( 'single_post_content_width', buddyx_defaults( 'single-post-content-width' ) );
 
@@ -34,10 +37,9 @@ if ( get_post_type() == 'post' ) {
 		$classes = 'has-single-post-no-sidebar';
 	}
 }
-
 ?>
 <div class="single-post-main-wrapper buddyx-content--<?php echo esc_attr( $single_post_content_width ); ?> <?php echo esc_attr( $classes ); ?>">
-	
+
 	<?php do_action( 'buddyx_sub_header' ); ?>
 
 	<?php
@@ -45,7 +47,7 @@ if ( get_post_type() == 'post' ) {
 		get_template_part( 'template-parts/content/entry-header', get_post_type() );
 	}
 	?>
-	
+
 	<?php do_action( 'buddyx_before_content' ); ?>
 
 	<?php if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
@@ -55,20 +57,19 @@ if ( get_post_type() == 'post' ) {
 			</div>
 		</aside>
 	<?php endif; ?>
-	
+
 	<main id="primary" class="site-main">
-		
+
 		<?php
 		while ( have_posts() ) {
 			the_post();
 
 			get_template_part( 'template-parts/content/entry', get_post_type() );
-
 		}
 		?>
 
 	</main><!-- #primary -->
-	
+
 	<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
