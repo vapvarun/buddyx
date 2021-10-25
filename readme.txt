@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.5 =
+* Fix: Fixed fatal error with bb platform
+
 = 4.2.4 =
 * Fix: (#347, #348) Managed members invitation pending Invites UI and fixes
 * Fix: Fixed undefined variable error
