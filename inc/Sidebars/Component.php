@@ -532,11 +532,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Single Member Sidebar
-		if ( class_exists( 'BuddyPress' ) ) {
-			if ( is_active_sidebar('single_member') && bp_is_user() && !bp_is_user_settings() && !bp_is_user_messages() && !bp_is_user_notifications() && !bp_is_user_profile_edit() && !bp_is_user_change_avatar() && !bp_is_user_change_cover_image() && !bp_is_user_front() && !bp_has_members_invitations() ) {
+		if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
+			if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) {
 				$classes[] = 'has-single-member-sidebar';
 			}
+		} elseif ( class_exists( 'BuddyPress' ) ) {
+			if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() && function_exists( 'bp_is_members_invitations_screen' ) && ! bp_is_members_invitations_screen() ) {
+				$classes[] = 'has-single-member-sidebar';
+			}
+		}
 
+		if ( class_exists( 'BuddyPress' ) ) {
 			// Single Group Sidebar
 			if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) {
 				$classes[] = 'has-single-group-sidebar';
