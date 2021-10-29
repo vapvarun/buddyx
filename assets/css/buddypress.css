@@ -34,6 +34,7 @@
     # BuddyPress Group Email Subscription
     # BuddyPress Lock Unlock Activity
     # BuddyMessageUX-Free
+    # BuddyPress Moderation
 
 --------------------------------------------------------------*/
 
@@ -4122,5 +4123,20 @@ input.bpfb_remote_image {
     }
     .thickbox-loading #TB_ajaxContent {
         width: 100% !important;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Moderation
+--------------------------------------------------------------*/
+
+body.bmpro_moderation_content .member-home aside {
+    display: none;
+}
+
+@media screen and (min-width: 60em) {
+    body.bmpro_moderation_content.has-single-member-sidebar .member-home {
+        grid-template-columns: 1fr;
     }
 }
