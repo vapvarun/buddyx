@@ -2173,6 +2173,10 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
         border-right: 0;
         padding: .5em calc(.5em + 2px);
     }
+    #object-nav:not(.vertical)>ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: 46.8em) {
