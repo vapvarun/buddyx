@@ -516,6 +516,16 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
 # rtMedia Specific
 --------------------------------------------------------------*/
 
+.bp-nouveau .activity-update-form.activity-update-form #aw-whats-new-reset {
+    margin-top: 0;
+}
+
+.bp-nouveau #aw-whats-new-reset,
+.bp-nouveau #aw-whats-new-reset:hover {
+    background: transparent;
+    border: 0;
+}
+
 .activity-list .activity-item .activity-content .rtm-activity-media-list {
     line-height: 0;
 }
