@@ -3390,6 +3390,10 @@ table.badgeos-rank-table tfoot tr th {
     margin-top: 10px;
 }
 
+#whats-new-toolbar .bpchk-marker-container {
+    margin-top: 0;
+}
+
 .bp-checkins.bp-checkin-panel {
     width: 100%;
     margin: 0 0 15px;
@@ -3425,6 +3429,10 @@ table.badgeos-rank-table tfoot tr th {
 
 .bp-nouveau .site-wrapper .bpolls-html-container {
     margin-top: 10px;
+}
+
+.bp-nouveau .site-wrapper #whats-new-toolbar .bpolls-html-container {
+    margin-top: 0;
 }
 
 
@@ -3667,6 +3675,11 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 .bp-giphy-html-container,
 .activity-giphy-container {
+    margin-top: 10px;
+}
+
+#whats-new-toolbar .bp-giphy-html-container,
+#whats-new-toolbar .activity-giphy-container {
     margin-top: 10px;
 }
 
