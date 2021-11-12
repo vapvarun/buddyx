@@ -3387,11 +3387,7 @@ table.badgeos-rank-table tfoot tr th {
 --------------------------------------------------------------*/
 
 .bpchk-marker-container {
-    margin: 15px 0;
-}
-
-.bpchk-marker-container {
-    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .bp-checkins.bp-checkin-panel {
@@ -3404,8 +3400,18 @@ table.badgeos-rank-table tfoot tr th {
 ## BuddyPress Quotes
 --------------------------------------------------------------*/
 
+@media screen and (min-width: 46.8em) {
+    #whats-new-options .post-elements-buttons-item:first-child {
+        margin-left: 0 !important;
+    }
+}
+
 .quote-btn {
-    margin: 15px 0;
+    margin-top: 10px;
+}
+
+#whats-new-toolbar .quote-btn {
+    margin-top: 0;
 }
 
 .bp-nouveau .site-wrapper .bpquotes-bg-selection-div {
@@ -3418,11 +3424,7 @@ table.badgeos-rank-table tfoot tr th {
 --------------------------------------------------------------*/
 
 .bp-nouveau .site-wrapper .bpolls-html-container {
-    margin: 15px 0;
-}
-
-.wb-quote.bp-nouveau .site-wrapper .bpolls-html-container {
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
 
@@ -3665,8 +3667,7 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 .bp-giphy-html-container,
 .activity-giphy-container {
-    margin-left: 0;
-    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
