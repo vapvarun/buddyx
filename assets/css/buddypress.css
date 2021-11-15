@@ -511,6 +511,18 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
     height: 0;
 }
 
+.buddypress-wrap .field_type_multiselectbox select[multiple] {
+    overflow: auto;
+    background-image: none;
+    min-height: 85px;
+    width: 100%;
+    border-radius: 0;
+}
+
+.buddypress-wrap .field_type_multiselectbox select[multiple] option {
+    padding: 2px 5px;
+}
+
 
 /*--------------------------------------------------------------
 # rtMedia Specific
