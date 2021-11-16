@@ -89,10 +89,6 @@ img.emojioneemoji {
     border: 0;
 }
 
-#whats-new-attachments.empty {
-    display: none;
-}
-
 .buddypress .entry-content #whats-new-textarea ul,
 .buddypress .entry-content #whats-new-textarea ol {
     list-style: decimal;
