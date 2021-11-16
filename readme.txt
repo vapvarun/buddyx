@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 5.8.1
+Tested up to: 5.8.2
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,14 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.6 =
+* Fix: (#356) Managed multiselect field type UI
+* Fix: Update extra plugins support UI
+* Fix: rtMedia specific fixes
+* Fix: Hide sidebar from single member moderation tab
+* Fix: Update members, groups listing button UI with buddypress shortcode
+* Fix: Fixed single profile object navigation tab items alignment
+
 = 4.2.5 =
 * Fix: Fixed fatal error with bb platform
 

@@ -90,7 +90,11 @@ img.emojioneemoji {
 }
 
 #whats-new-attachments.empty {
-    display: none;
+    padding: 0;
+}
+
+#whats-new-attachments.empty .activity-attached-gif-container {
+    margin: 0;
 }
 
 .buddypress .entry-content #whats-new-textarea ul,
