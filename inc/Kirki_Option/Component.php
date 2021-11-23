@@ -886,9 +886,29 @@ class Component implements Component_Interface {
 					'priority' => 10,
 					'output'   => array(
 						array(
-							'element'  => 'body',
+							'element'  => 'body, body.layout-boxed',
 							'property' => 'background-color',
 						),
+					),
+				);
+
+				$fields[] = array(
+					'type'        => 'color',
+					'settings'    => 'content_background_color',
+					'label'       => esc_html__( 'Content Background Color', 'buddyx' ),
+					'description' => esc_html__( 'Note: This setting will only be used if the box layout is selected.', 'buddyx' ),
+					'section'     => 'site_skin_section',
+					'default'     => '#f7f7f9',
+					'choices'     => array('alpha' => true),
+					'priority'    => 10,
+					'output'      => array(
+						array(
+							'element'  => 'body.layout-boxed .site',
+							'property' => 'background-color',
+						),
+					),
+					'active_callback' => array(
+						array( 'setting' => 'site_layout', 'value' => 'boxed' ),
 					),
 				);
 
