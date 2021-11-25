@@ -542,6 +542,16 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
     line-height: 0;
 }
 
+.rtmedia-activity-container .rtm-activity-music-list,
+.rtmedia-activity-container .rtm-activity-video-list {
+    padding: 10px !important;
+}
+
+.rtmedia-activity-container li.media-type-music,
+.rtmedia-activity-container li.media-type-video {
+    margin: 5px !important;
+}
+
 .rtmedia-activity-container .rtmedia-item-title,
 .rtmedia-activity-container .rtmedia-item-title a {
     display: none;
