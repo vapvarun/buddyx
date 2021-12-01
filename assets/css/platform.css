@@ -365,6 +365,10 @@ span.bb-activity-edited-text {
     margin: 0;
 }
 
+.buddypress-wrap table.profile-fields td.data>p {
+    margin-bottom: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Group Single
