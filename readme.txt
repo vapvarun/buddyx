@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.7 =
+* Fix: (#362) Managed music and video type media specific fixes
+* Fix: (#358) Fixed box layout body background color not working
+
 = 4.2.6 =
 * Fix: (#356) Managed multiselect field type UI
 * Fix: Update extra plugins support UI
