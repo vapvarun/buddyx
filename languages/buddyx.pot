@@ -528,7 +528,7 @@ msgstr ""
 
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
 #: ../buddyx/inc/back-compat.php:25
-msgid "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %3$s respectively. Please update and try again."
+msgid "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again."
 msgstr ""
 
 #. translators: 1: required WP version number, 2: available WP version number
