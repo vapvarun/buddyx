@@ -1907,6 +1907,10 @@ body.buddypress.group-create #page #primary .entry-header {
     margin: -50px 0 0;
 }
 
+.item-header-cover-image-wrapper.hide-header-cover-image {
+    margin: 2rem 0 0;
+}
+
 #buddypress #item-header-cover-image #item-header-avatar {
     margin-top: 0;
 }
