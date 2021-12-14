@@ -7,6 +7,7 @@
 # Cart Page
 # Checkout Page
 # My Account Page
+# Widgets
 # Extra Plugin Support
     # TP WooCommerce Product Gallery
     # Advanced WooCommerce Product Gallery Slider
@@ -24,6 +25,7 @@
     display: none
 }
 
+.woocommerce-product-search button[type=submit],
 .woocommerce #respond input#submit,
 .woocommerce a.button,
 .woocommerce button.button,
@@ -91,6 +93,7 @@
     transition: all linear .2s;
 }
 
+.woocommerce-product-search button[type=submit]:hover,
 .woocommerce #respond input#submit:hover,
 .woocommerce a.button:hover,
 .woocommerce button.button:hover,
@@ -486,6 +489,16 @@ form.woocommerce-cart-form {
 .widget_product_search input[type=search] {
     width: 100%;
     margin-bottom: 10px;
+}
+
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+    background-color: var(--color-link-active);
 }
 
 
