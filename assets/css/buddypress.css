@@ -3177,6 +3177,66 @@ input#gamipress-achievements-search-input {
     margin: 0 15px 15px;
 }
 
+#members-list .gamipress-buddypress-user-details {
+    margin-top: 20px;
+}
+
+#members-list .gamipress-buddypress-user-details+a>.member-status {
+    display: none;
+}
+
+#members-list .gamipress-buddypress-points,
+#members-list .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+#members-list .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+#members-list .gamipress-buddypress-user-achievements,
+#members-list .gamipress-buddypress-ranks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#members-list .gamipress-buddypress-points>div,
+#members-list .gamipress-buddypress-achievements>div,
+#members-list .gamipress-buddypress-ranks>div {
+    display: flex;
+    align-items: center;
+    margin: 0 10px 10px 0;
+}
+
+#members-list .gamipress-buddypress-points .gamipress-buddypress-points-thumbnail,
+#members-list .gamipress-buddypress-achievements .gamipress-buddypress-achievement-thumbnail,
+#members-list .gamipress-buddypress-ranks .gamipress-buddypress-rank-thumbnail {
+    margin-right: 5px;
+}
+
+aside #members-list .gamipress-buddypress-user-details {
+    position: absolute;
+    width: 250px;
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid;
+    border-radius: 5px !important;
+    display: none;
+    z-index: 2;
+}
+
+aside #members-list .item-avatar:hover .gamipress-buddypress-user-details {
+    display: block;
+}
+
+aside #members-list .gamipress-buddypress-user-details img {
+    width: 24px;
+    height: 24px;
+}
+
 
 /* Widget Area */
 
