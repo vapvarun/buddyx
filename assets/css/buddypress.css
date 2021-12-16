@@ -35,6 +35,7 @@
     # BuddyPress Lock Unlock Activity
     # BuddyMessageUX-Free
     # BuddyPress Moderation
+    # BuddyPress Status
 
 --------------------------------------------------------------*/
 
@@ -2695,9 +2696,9 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-user-avatar img {
-    width: 50px;
-    height: 51px;
-    max-width: 50px;
+    width: 70px;
+    height: 70px;
+    max-width: 70px;
     border-radius: 50% !important;
 }
 
@@ -2716,12 +2717,13 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-wrap .wb-bp-progress-container {
+    height: 6px;
+    background-color: #eef0f3;
     border-radius: 12px !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-container .wb-bp-progress {
-    height: 3px;
+    height: 6px;
     background-color: #4caf50;
     border-radius: 12px !important;
     background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
@@ -2777,7 +2779,6 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number {
-    background: #4caf50;
     border-color: #4caf50;
 }
 
@@ -2786,12 +2787,12 @@ button#bp-delete-avatar {
     display: inline-block;
     font-size: 14px;
     position: absolute;
-    top: 1px;
-    left: 6px;
-    height: 15px;
-    width: 9px;
-    border-bottom: 3px solid white;
-    border-right: 3px solid white;
+    top: 4px;
+    left: 8px;
+    height: 10px;
+    width: 6px;
+    border-bottom: 2px solid #4caf50;
+    border-right: 2px solid #4caf50;
     transform: rotate(45deg);
 }
 
@@ -4249,4 +4250,17 @@ body.bmpro_moderation_content .member-home aside {
     body.bmpro_moderation_content.has-single-member-sidebar .member-home {
         grid-template-columns: 1fr;
     }
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Status
+--------------------------------------------------------------*/
+
+.bpstatus-icon {
+    margin-top: 15px;
+}
+
+#whats-new-toolbar .bpstatus-icon {
+    margin-top: 0;
 }
