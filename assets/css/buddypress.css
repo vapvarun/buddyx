@@ -3765,6 +3765,10 @@ body.search-results.buddypress-global-search .bp-list li .action {
     margin-top: 10px;
 }
 
+.bp-giphy-comment-html-container.bp-giphy-html-container {
+    margin-top: 0;
+}
+
 #whats-new-toolbar .bp-giphy-html-container,
 #whats-new-toolbar .activity-giphy-container {
     margin-top: 10px;
