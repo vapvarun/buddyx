@@ -4051,8 +4051,33 @@ div.mpp-bulk-edit-media-action-row select {
 --------------------------------------------------------------*/
 
 .buddyx-bpges .group-subscription-div #js-dialogtooltip {
-    width: auto;
     z-index: 99;
+}
+
+@media screen and (max-width: 782px) {
+    .buddyx-bpges .group-subscription-div #js-dialogtooltip {
+        width: auto;
+    }
+}
+
+#groups-dir-list .group-subscription-div,
+#groups-list .group-subscription-div {
+    padding-top: 10px !important;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#groups-dir-list .group-subscription-div .gemail_icon,
+#groups-list .group-subscription-div .gemail_icon {
+    margin: 0;
+    padding: 0;
+    background: none !important;
+    margin-top: 10px;
+}
+
+#groups-dir-list .group-subscription-div .group-subscription-status,
+#groups-list .group-subscription-div .group-subscription-status {
+    margin-top: 10px;
 }
 
 .buddyx-bpges .group-subscription-div .group-email-tooltip #js-tooltip-content a {
@@ -4067,6 +4092,7 @@ div.mpp-bulk-edit-media-action-row select {
     font-size: inherit;
     font-weight: 700;
     padding: 0;
+    text-decoration: underline;
 }
 
 .buddyx-bpges .group-subscription-div {
@@ -4077,6 +4103,19 @@ div.mpp-bulk-edit-media-action-row select {
 .buddyx-bpges .bp-list li .item,
 .buddyx-bpges .grid>li .list-wrap {
     overflow: visible;
+}
+
+button.ges-change,
+button.ges-change:hover {
+    padding: 3px 6px !important;
+}
+
+.ass-email-type {
+    margin: 15px 0;
+}
+
+.ass-email-type label input {
+    margin-right: 7px;
 }
 
 @media screen and (min-width: 46.8em) {
