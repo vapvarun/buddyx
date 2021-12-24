@@ -3198,6 +3198,7 @@ input#gamipress-achievements-search-input {
 .activity-list .activity-item .activity-content .gamipress-buddypress-user-details-activity {
     display: flex;
     flex-flow: wrap;
+    margin-bottom: 15px;
 }
 
 .activity-list .activity-item .activity-content .gamipress-buddypress-points,
