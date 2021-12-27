@@ -97,6 +97,16 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.8 =
+* Fix: (#376) Update activity UI with gamipress
+* Improvement: update register page UI
+* Fix: (#368, #369, #370) Managed with buddypress group email subscription
+* Improvement: managed giphy icon UI in activity comment section
+* Improvement: update profile completion widget UI and fixes
+* Improvement: (#367) Managed product search button UI
+* Improvement: (#366) Managed gamipress UI with bb platform
+* Fix: (#309) Fixed group title disappear when disable group cover image upload
+
 = 4.2.7 =
 * Fix: (#362) Managed music and video type media specific fixes
 * Fix: (#358) Fixed box layout body background color not working

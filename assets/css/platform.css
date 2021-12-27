@@ -15,6 +15,7 @@
     # BuddyPress Quotes
     # BuddyPress Moderation Pro
     # Profile Types
+    # GamiPress
 # Profile Completion Widget
 # Live Notification
 --------------------------------------------------------------*/
@@ -924,7 +925,7 @@ body.wb-quote .activity-update-form #whats-new {
 
 
 /*--------------------------------------------------------------
-# Profile Types
+## Profile Types
 --------------------------------------------------------------*/
 
 .member-info-wrapper .bp-member-type {
@@ -945,6 +946,18 @@ body.wb-quote .activity-update-form #whats-new {
     line-height: 1;
     margin: 0 0 10px;
     width: max-content;
+}
+
+
+/*--------------------------------------------------------------
+## GamiPress
+--------------------------------------------------------------*/
+
+.gamipress-buddypress-user-details-activity,
+.activity-list .activity-item .activity-content .gamipress-achievement,
+.activity-list .activity-item .activity-content .gamipress-points-award,
+.activity-list .activity-item .activity-content .gamipress-rank {
+    margin: 0;
 }
 
 
