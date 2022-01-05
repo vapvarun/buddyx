@@ -1175,3 +1175,17 @@ function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) 
 
 	return $content;
 }
+
+/**
+ *
+ * CSS Compress
+ *
+ */
+if ( ! function_exists( 'buddyx_css_compress' ) ) {
+	function buddyx_css_compress( $css ) {
+		$css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
+		$css = str_replace( ': ', ':', $css );
+		$css = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $css );
+		return $css;
+	}
+}
