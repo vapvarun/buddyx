@@ -3596,6 +3596,10 @@ table.badgeos-rank-table tfoot tr th {
     #whats-new-options .post-elements-buttons-item:first-child {
         margin-left: 0 !important;
     }
+    [dir='rtl'] #whats-new-options .post-elements-buttons-item:first-child {
+        margin-left: 10px!important;
+        margin-right: 0 !important;
+    }
 }
 
 .quote-btn {
@@ -3610,6 +3614,11 @@ table.badgeos-rank-table tfoot tr th {
     margin-bottom: 5px;
 }
 
+[dir='rtl'] .bp-nouveau .site-wrapper .bpquotes-bg-selection-div {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 
 /*--------------------------------------------------------------
 ## BuddyPress Polls
@@ -3621,6 +3630,10 @@ table.badgeos-rank-table tfoot tr th {
 
 .bp-nouveau .site-wrapper #whats-new-toolbar .bpolls-html-container {
     margin-top: 0;
+}
+
+[dir='rtl'] .bp-nouveau .site-wrapper .bpolls-polls-option-html {
+    margin-right: 0;
 }
 
 
@@ -3877,6 +3890,10 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 .buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
     float: left;
+}
+
+[dir='rtl'] .buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
+    float: right;
 }
 
 .mce-container button {
