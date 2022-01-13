@@ -324,6 +324,11 @@ body.youzify-active .widget_pages li a {
     border-radius: 100% !important;
 }
 
+.youzify .activity-inner,
+.youzify .youzify-activity-embed {
+    padding: 0 25px !important;
+}
+
 
 /*--------------------------------------------------------------
 # BuddyPress Profile Completion
