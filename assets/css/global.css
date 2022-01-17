@@ -427,6 +427,7 @@ textarea {
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
+button[type=submit],
 a.read-more.button {
     font-family: inherit;
     font-size: inherit;
@@ -466,7 +467,9 @@ a.read-more.button {
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
+button[type=submit]:hover,
 a.read-more.button:hover {
+    color: #fff;
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
 }

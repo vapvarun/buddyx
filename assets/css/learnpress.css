@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Imports
 # Archive Course
 # Single Course
 # Course Author
@@ -10,8 +11,15 @@
 # User Profile
 # Profile Wishlist
 # Single Lession
+# Become Teacher
 --------------------------------------------------------------*/
 
+
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+
+@import "_custom-properties.css";
 
 /*--------------------------------------------------------------
 # Archive Course
@@ -23,6 +31,15 @@
 
 .single .lp-archive-courses {
     margin-top: 0;
+}
+
+.lp-archive-courses .learn-press-courses[data-layout=grid] .course .course-item .course-content.course-content {
+    border: 1px solid var(--global-border-color);
+    border-top: 0;
+}
+
+.lp-archive-courses .learn-press-courses .course .course-item .course-wrap-thumbnail {
+    line-height: 0;
 }
 
 .post-type-archive-lp_course .site-sub-header h2.entry-title a {
@@ -102,7 +119,7 @@ ul.learn-press-courses .course .course-info .course-price .price {
 }
 
 ul.learn-press-courses .course .course-info .course-price .price {
-    color: #ef5455;
+    color: var(--color-link-active);
 }
 
 ul.learn-press-courses .course .course-info .course-instructor a {
@@ -122,12 +139,24 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 }
 
 .lp-archive-courses .course-summary .course-summary-content .lp-entry-content.lp-content-area .course-summary-sidebar {
-    margin-right: 15px;
+    right: 15px;
 }
 
 .single-lp_course .course-learning-summary .course-meta,
 .course-students {
     display: none !important;
+}
+
+#learn-press-course-curriculum.course-curriculum ul.curriculum-sections.curriculum-sections {
+    z-index: 99;
+}
+
+#learn-press-course .course-summary-sidebar .course-sidebar-preview .media-preview img {
+    width: 100%;
+}
+
+.lp-course-buttons button {
+    cursor: pointer;
 }
 
 .single-lp_course .learn-press-course-results-progress,
@@ -236,7 +265,39 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .lp-single-course .course-price .price {
-    color: #ef5455;
+    color: var(--color-link-active);
+}
+
+#learn-press-course .course-summary-sidebar .course-sidebar-preview .lp-course-buttons button.learn-press-course-wishlist {
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#learn-press-course-curriculum.course-curriculum ul.curriculum-sections .section-header .section-desc.section-desc {
+    margin-top: 5px;
+    line-height: normal;
+}
+
+@media only screen and (max-width: 1199px) {
+    .lp-archive-courses .course-summary .course-summary-content .lp-entry-content.lp-content-area .course-summary-sidebar.course-summary-sidebar {
+        margin-top: 0;
+        right: 0;
+    }
+    .course-summary .course-summary-sidebar.slide-down .course-summary-sidebar__inner.course-summary-sidebar__inner,
+    .course-summary .course-summary-sidebar.slide-top .course-summary-sidebar__inner.course-summary-sidebar__inner {
+        position: static;
+    }
+    #learn-press-course-tabs.course-tabs.course-tabs {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 449px) {
+    ul.learn-press-nav-tabs .course-nav.course-nav {
+        width: 100%;
+    }
 }
 
 
@@ -263,6 +324,11 @@ ul.learn-press-nav-tabs .course-nav a:after {
 /*--------------------------------------------------------------
 # Review Tab
 --------------------------------------------------------------*/
+
+#learn-press-course-tabs .course-tab-panels .course-tab-panel.course-tab-panel-reviews.course-tab-panel-reviews {
+    padding: 1em 1.2em;
+    padding-top: 56px;
+}
 
 #review-form .review-fields,
 #review-form .review-stars {
@@ -317,9 +383,9 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 @media only screen and (max-width: 959px) {
-    ul.learn-press-courses {
+    /* ul.learn-press-courses {
         padding: 0 15px !important;
-    }
+    } */
     .learn-press-search-course-form {
         margin: 15px !important;
     }
@@ -393,7 +459,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 13px;
-    color: #ef5455;
+    color: var(--color-link-active);
 }
 
 .widget .course-detail .course-meta-data a,
@@ -410,7 +476,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .widget_lp-widget-course-info .lp-widget .lp-course-info-fields .lp-course-info .lp-label {
-    background: #ef5455;
+    background: var(--color-link-active);
 }
 
 
@@ -441,6 +507,22 @@ ul.learn-press-nav-tabs .course-nav a:after {
 /*--------------------------------------------------------------
 # User Profile
 --------------------------------------------------------------*/
+
+.wrapper-profile-header.wrap-fullwidth {
+    margin: 0;
+}
+
+.learn-press-course-tab-filters .learn-press-filters>li::after {
+    margin: 0 25px;
+}
+
+.learn-press-filters>li a {
+    cursor: pointer;
+}
+
+.learn-press-profile-course__tab__inner {
+    margin-left: 0 !important;
+}
 
 #learn-press-user-profile {
     position: relative;
@@ -562,7 +644,14 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .lp-list-table thead tr th {
-    background: #ef5455 !important;
+    background: var(--color-link-active) !important;
+}
+
+@media (max-width: 500px) {
+    #learn-press-profile .wrapper-profile-header .lp-profile-right {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -582,7 +671,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
         background: #F5F5F5;
     }
     #learn-press-profile-nav:hover #profile-mobile-menu {
-        background: #ef5455 !important;
+        background: var(--color-link-active) !important;
     }
     #learn-press-profile-nav .tabs>li.active ul,
     #learn-press-profile-nav .tabs>li.active a,
@@ -673,4 +762,21 @@ ul.learn-press-nav-tabs .course-nav a:after {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+}
+
+
+/*--------------------------------------------------------------
+# Become Teacher
+--------------------------------------------------------------*/
+
+.become-teacher-form.become-teacher-form {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid var(--global-border-color);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    border-radius: 8px!important;
 }

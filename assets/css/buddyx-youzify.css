@@ -310,6 +310,27 @@ body.youzify-active .widget_pages li a {
 
 
 /*--------------------------------------------------------------
+# BuddyPress Activity
+--------------------------------------------------------------*/
+
+.activity-list.item-list .activity-item .activity-avatar {
+    margin: 0;
+}
+
+.youzify-icons-circle i,
+.youzify-photo-circle,
+.youzify-photo-circle .youzify-profile-img,
+.youzify-photo-circle img {
+    border-radius: 100% !important;
+}
+
+.youzify .activity-inner,
+.youzify .youzify-activity-embed {
+    padding: 0 25px !important;
+}
+
+
+/*--------------------------------------------------------------
 # BuddyPress Profile Completion
 --------------------------------------------------------------*/
 
