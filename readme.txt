@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 5.8.2
+Tested up to: 5.8.3
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.2.9 =
+* Fix: Managed youzify activity content alignment
+* Fix: (#379, #380) Managed RTL fixes
+* Fix: (#377) Managed UI with learnpress
+
 = 4.2.8 =
 * Fix: (#376) Update activity UI with gamipress
 * Improvement: update register page UI
