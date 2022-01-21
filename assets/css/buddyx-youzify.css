@@ -329,6 +329,10 @@ body.youzify-active .widget_pages li a {
     padding: 0 25px !important;
 }
 
+.youzify .activity-header a.activity-time-since {
+    display: inline-block !important;
+}
+
 
 /*--------------------------------------------------------------
 # BuddyPress Profile Completion

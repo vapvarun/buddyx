@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.0 =
+* Fix: (#371) Activity types RTL fixes
+* Improvement: (#371) Managed UI and fixes with buddypress 10.0.0
+
+
 = 4.2.9 =
 * Fix: Managed youzify activity content alignment
 * Fix: (#379, #380) Managed RTL fixes
