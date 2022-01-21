@@ -69,7 +69,13 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
 			<div class="activity-inner">
 
-				<?php bp_get_template_part( 'activity/type-parts/content',  bp_activity_type_part() ); ?>
+				<?php 
+				if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+					bp_nouveau_activity_content(); 
+				} else {
+					bp_get_template_part( 'activity/type-parts/content',  bp_activity_type_part() );
+				}
+				?>
 
 			</div>
 
