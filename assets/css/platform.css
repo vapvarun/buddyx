@@ -11,11 +11,11 @@
 # Documents
 # Moderation
 # Extra Plugins Support
-    # BuddyPress Sticky Post
-    # BuddyPress Quotes
-    # BuddyPress Moderation Pro
-    # Profile Types
-    # GamiPress
+	# BuddyPress Sticky Post
+	# BuddyPress Quotes
+	# BuddyPress Moderation Pro
+	# Profile Types
+	# GamiPress
 # Profile Completion Widget
 # Live Notification
 --------------------------------------------------------------*/
@@ -44,10 +44,36 @@ img.emojioneemoji {
     height: 18px !important;
 }
 
-@media screen and (max-width: 46.8em) {
-    .activity-update-form #whats-new-avatar {
-        padding-bottom: 15px;
-    }
+.activity-update-form #whats-new-avatar {
+    padding: 0;
+}
+
+#whats-new-heading h5 {
+    margin-bottom: 0;
+}
+
+#whats-new-form.focus-in #bp-activity-privacy-point {
+    font-size: 12px;
+    padding: 4px 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    line-height: 1;
+    border: 1px solid var(--global-border-color);
+}
+
+.activity-update-form:not(.modal-popup) #whats-new-form {
+    border: 0;
+    border-radius: 8px !important;
+}
+
+.activity-update-form #whats-new-avatar img {
+    max-width: 45px;
+}
+
+.activity-update-form:not(.modal-popup) #whats-new-form #whats-new-toolbar {
+    background-color: #f8f8f8;
+    border-top: 1px solid var(--global-border-color);
+    border-radius: 0 0 8px 8px !important;
 }
 
 .dropzone.dz-started .dz-default.dz-message .dz-button {
@@ -65,10 +91,6 @@ img.emojioneemoji {
 
 .bb-media-info-section .activity-comments form {
     margin: 0;
-}
-
-.activity-update-form #whats-new {
-    min-height: 50px;
 }
 
 .activity-update-form #whats-new-content {
