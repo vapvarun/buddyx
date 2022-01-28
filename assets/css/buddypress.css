@@ -38,6 +38,7 @@
     # BuddyMessageUX-Free
     # BuddyPress Moderation
     # BuddyPress Status
+    # BuddyPress Docs
 
 --------------------------------------------------------------*/
 
@@ -4499,4 +4500,13 @@ body.bmpro_moderation_content .member-home aside {
 
 #whats-new-toolbar .bpstatus-icon {
     margin-top: 0;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Docs
+--------------------------------------------------------------*/
+
+ul.component-navigation.bp-docs-nav {
+    margin-left: 0;
 }

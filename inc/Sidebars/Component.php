@@ -463,6 +463,24 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				}
 			}
 		}
+                
+        // Sidebar classes docs component.
+		if ( class_exists( 'BuddyPress' ) ) {
+			if ( function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() ) {
+				global $bp;
+				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
+
+				if ( $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'right' || $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' ) {
+					global $template;
+
+					if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+						if ( bp_docs_is_docs_component() && !bp_is_user() ) {
+							$classes[] = 'has-docs-sidebar-right';
+						}
+					}
+				}
+			}
+		}
 
 		//bbPress
 		if ( function_exists('is_bbpress') ) {
