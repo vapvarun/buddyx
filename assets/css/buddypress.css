@@ -4495,7 +4495,8 @@ body.bmpro_moderation_content .member-home aside {
 --------------------------------------------------------------*/
 
 .bpstatus-icon {
-    margin-top: 15px;
+    margin-top: 8px;
+    display: inline-block;
 }
 
 #whats-new-toolbar .bpstatus-icon {
