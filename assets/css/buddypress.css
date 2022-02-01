@@ -3961,7 +3961,7 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 #whats-new-toolbar .bp-giphy-html-container,
 #whats-new-toolbar .activity-giphy-container {
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
