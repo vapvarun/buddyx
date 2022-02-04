@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.1 =
+* Improvement: Managed sidebar with buddypress docs
+* Fix: Updated entry.php to support lower version of BuddyPress 10.0 and BuddyBoss
+* Fix: (#382) Managed Ui with bb platform 1.8.6
+
 = 4.3.0 =
 * Fix: (#371) Activity types RTL fixes
 * Improvement: (#371) Managed UI and fixes with buddypress 10.0.0
