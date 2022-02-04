@@ -38,6 +38,7 @@
     # BuddyMessageUX-Free
     # BuddyPress Moderation
     # BuddyPress Status
+    # BuddyPress Docs
 
 --------------------------------------------------------------*/
 
@@ -3960,7 +3961,7 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 #whats-new-toolbar .bp-giphy-html-container,
 #whats-new-toolbar .activity-giphy-container {
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .buddypress-giphy-active form.ac-form .ac-reply-content .bp-giphy-html-container {
@@ -4494,9 +4495,19 @@ body.bmpro_moderation_content .member-home aside {
 --------------------------------------------------------------*/
 
 .bpstatus-icon {
-    margin-top: 15px;
+    margin-top: 8px;
+    display: inline-block;
 }
 
 #whats-new-toolbar .bpstatus-icon {
     margin-top: 0;
+}
+
+
+/*--------------------------------------------------------------
+# BuddyPress Docs
+--------------------------------------------------------------*/
+
+ul.component-navigation.bp-docs-nav {
+    margin-left: 0;
 }

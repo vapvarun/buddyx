@@ -44,8 +44,16 @@ if ( function_exists( 'bp_is_active' ) ) {
 			</div>
 		</aside>
 
+	<?php elseif ( function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() && ! bp_is_group() && ! bp_is_user() && $buddypress_sidebar == 'right' || function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() && ! bp_is_group() && ! bp_is_user() && $buddypress_sidebar == 'both' ) : ?>
+
+		<aside id="secondary" class="primary-sidebar widget-area">
+			<div class="sticky-sidebar">
+				<?php buddyx()->display_buddypress_right_sidebar(); ?>
+			</div>
+		</aside>
+
 		<?php
 	endif;
 }
 
-do_action( 'buddyx_sidebar_after' ); ?>
+do_action( 'buddyx_sidebar_after' );

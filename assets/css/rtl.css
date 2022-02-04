@@ -316,6 +316,10 @@ select#pa_size {
 # BuddyPress
 --------------------------------------------------------------*/
 
+.activity-update-form #whats-new-avatar {
+    text-align: right;
+}
+
 .buddypress-wrap .bp-messages,
 .buddypress-wrap .bp-feedback {
     padding: 0.615em 0.7em 0.615em 2.25em;
@@ -349,6 +353,10 @@ select#pa_size {
 .activity-update-form #whats-new-content {
     margin-right: 65px;
     margin-left: 0;
+}
+
+.activity-update-form.modal-popup #whats-new-content {
+    margin-right: 0;
 }
 
 #buddypress input#aw-whats-new-submit,
