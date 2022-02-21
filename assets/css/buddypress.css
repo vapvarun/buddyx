@@ -4549,15 +4549,15 @@ ul.component-navigation.bp-docs-nav {
     padding-bottom: 10px;
 }
 
-.activity-share-modal .activity-list .activity-content .activity-inner .activity-reshare-item-container img:not(.avatar),
+.activity-share-modal .activity-list .activity-content .activity-inner img:not(.avatar),
 .activity-list .activity-content .activity-inner .activity-reshare-item-container img:not(.avatar) {
     width: 100%;
     max-width: 100%;
     margin: 0 0 15px;
 }
 
-.activity-share-modal .activity-list .activity-content .activity-inner .activity-reshare-item-container .bb-post-title,
-.activity-share-modal .activity-list .activity-content .activity-inner .activity-reshare-item-container .buddyx-post-title,
+.activity-share-modal .activity-list .activity-content .activity-inner .bb-post-title,
+.activity-share-modal .activity-list .activity-content .activity-inner .buddyx-post-title,
 .activity-list .activity-content .activity-inner .activity-reshare-item-container .bb-post-title,
 .activity-list .activity-content .activity-inner .activity-reshare-item-container .buddyx-post-title {
     display: block;

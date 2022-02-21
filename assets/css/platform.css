@@ -16,6 +16,7 @@
 	# BuddyPress Moderation Pro
 	# Profile Types
 	# GamiPress
+    # BuddyPress Reshare
 # Profile Completion Widget
 # Live Notification
 --------------------------------------------------------------*/
@@ -980,6 +981,19 @@ body.wb-quote .activity-update-form #whats-new {
 .activity-list .activity-item .activity-content .gamipress-points-award,
 .activity-list .activity-item .activity-content .gamipress-rank {
     margin: 0;
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Reshare
+--------------------------------------------------------------*/
+
+.activity-share-modal .activity-list .bb-activity-more-options-wrap {
+    display: none;
+}
+
+.activity-list .activity-item .activity-meta.action .bp-activity-share-btn .bp-screen-reader-text {
+    position: static;
 }
 
 
