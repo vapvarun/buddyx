@@ -819,6 +819,10 @@ msgstr ""
 msgid "Theme Options"
 msgstr ""
 
+#: ../buddyx/inc/Dropdown_Select/Component.php:48
+msgid "-- Select a Page --"
+msgstr ""
+
 #: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:69
 msgid "Primary"
 msgstr ""

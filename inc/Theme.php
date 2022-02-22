@@ -21,7 +21,7 @@ class Theme {
 	 *
 	 * @var array
 	 */
-	protected $components = [];
+	protected $components = array();
 
 	/**
 	 * The template tags instance, providing access to all available template tags.
@@ -41,7 +41,7 @@ class Theme {
 	 *
 	 * @throws InvalidArgumentException Thrown if one of the $components does not implement Component_Interface.
 	 */
-	public function __construct( array $components = [] ) {
+	public function __construct( array $components = array() ) {
 		if ( empty( $components ) ) {
 			$components = $this->get_default_components();
 		}
@@ -134,7 +134,7 @@ class Theme {
 	 * @return array List of theme components to use by default.
 	 */
 	protected function get_default_components() : array {
-		$components = [
+		$components = array(
 			new Localization\Component(),
 			new Base_Support\Component(),
 			new Editor\Component(),
@@ -155,10 +155,14 @@ class Theme {
 			new Kirki_Option\Component(),
 			new Custom_Js\Component(),
 			new Welcome\Component(),
-		];
+		);
 
 		if ( defined( 'JETPACK__VERSION' ) ) {
 			$components[] = new Jetpack\Component();
+		}
+
+		if ( defined( 'KIRKI_VERSION' ) && version_compare( KIRKI_VERSION, '4.0', '>=' ) ) {
+			$components[] = new Dropdown_Select\Component( $args );
 		}
 
 		return $components;
