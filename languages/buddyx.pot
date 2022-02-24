@@ -15,72 +15,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#: ../buddyx/buddypress/groups/groups-loop.php:55, ../buddyx/buddypress/groups/single/cover-image-header.php:103, ../buddyx/buddypress/groups/single/group-header.php:46
-msgid "active %s"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:41, ../buddyx/buddypress/members/single/cover-image-header.php:42
-msgid "Change Cover Photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:55, ../buddyx/buddypress/members/single/cover-image-header.php:56
-msgid "Reposition Cover Photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:59, ../buddyx/buddypress/members/single/cover-image-header.php:60
-msgid "Cancel"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:60, ../buddyx/buddypress/members/single/cover-image-header.php:61
-msgid "Save Changes"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:61, ../buddyx/buddypress/members/single/cover-image-header.php:62
-msgid "Drag to move cover photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:62, ../buddyx/buddypress/members/single/cover-image-header.php:63
-msgid "Cover photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/groups/single/group-header.php:19
-msgid "Change Group Photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:119, ../buddyx/buddypress/groups/single/group-header.php:62
-msgid "Group Types"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:120, ../buddyx/buddypress/groups/single/group-header.php:63
-msgid "Group Type"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/cover-image-header.php:75
-msgid "Change Profile Photo"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/cover-image-header.php:123
-msgid "Member Types"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/cover-image-header.php:124
-msgid "Member Type"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/groups/invites.php:10
-msgid "Group Invites"
-msgstr ""
-
-#. translators: %s = number of members
-#: ../buddyx/buddypress/members/single/groups/invites.php:41
-msgid "%s member"
-msgid_plural "%s members"
-msgstr[0] ""
-msgstr[1] ""
-
 #. translators: 1: comment count number, 2: title.
 #: ../buddyx/comments.php:44
 msgctxt "comments title"
@@ -95,6 +29,26 @@ msgstr ""
 
 #: ../buddyx/comments.php:60
 msgid "Comments are disabled."
+msgstr ""
+
+#: ../buddyx/footer.php:28
+msgid "Footer"
+msgstr ""
+
+#: ../buddyx/functions.php:32
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s"
+msgstr ""
+
+#: ../buddyx/header.php:35
+msgid "Skip to content"
+msgstr ""
+
+#: ../buddyx/searchform.php:9
+msgid "Enter Keyword"
+msgstr ""
+
+#: ../buddyx/searchform.php:13
+msgid "Go"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:327
@@ -506,26 +460,6 @@ msgstr ""
 msgid "Install Now"
 msgstr ""
 
-#: ../buddyx/footer.php:28
-msgid "Footer"
-msgstr ""
-
-#: ../buddyx/functions.php:32
-msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s"
-msgstr ""
-
-#: ../buddyx/header.php:35
-msgid "Skip to content"
-msgstr ""
-
-#: ../buddyx/inc/Accessibility/Component.php:75
-msgid "Expand child menu"
-msgstr ""
-
-#: ../buddyx/inc/Accessibility/Component.php:76
-msgid "Collapse child menu"
-msgstr ""
-
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
 #: ../buddyx/inc/back-compat.php:25
 msgid "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again."
@@ -624,90 +558,6 @@ msgstr ""
 #: ../buddyx/inc/class-buddyx-breadcrumbs.php:900
 msgctxt "weekly archives date format"
 msgid "W"
-msgstr ""
-
-#: ../buddyx/inc/Comments/Component.php:132
-msgid "New comment(s)"
-msgstr ""
-
-#: ../buddyx/inc/Customizer/Component.php:77
-msgid "Theme Options"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:69
-msgid "Primary"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:70
-msgid "Secondary"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:75
-msgid "Red"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:80
-msgid "Green"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:85
-msgid "Blue"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:90
-msgid "Yellow"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:95
-msgid "Black"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:100
-msgid "Grey"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:105
-msgid "White"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:110
-msgid "Dusty daylight"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:115
-msgid "Dusty sun"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:132
-msgid "Small"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:133
-msgid "S"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:138
-msgid "Medium"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:139
-msgid "M"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:144
-msgid "Large"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:145
-msgid "L"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:150
-msgid "Larger"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:151
-msgid "XL"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:105
@@ -858,6 +708,195 @@ msgstr ""
 
 #: ../buddyx/inc/extra.php:1155
 msgid " Read more"
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: ../buddyx/inc/Template_Tags.php:54
+msgid "The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: template tag name
+#: ../buddyx/inc/Template_Tags.php:81
+msgid "The template tag %s does not exist."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: ../buddyx/inc/Template_Tags.php:110
+msgid "The template tag method %1$s registered by theme component %2$s must either be a callable or an array."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: ../buddyx/inc/Template_Tags.php:121
+msgid "The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name."
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: ../buddyx/inc/Theme.php:57
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: slug
+#: ../buddyx/inc/Theme.php:120
+msgid "No theme component with the slug %s exists."
+msgstr ""
+
+#: ../buddyx/page-templates/full-width-container.php:3
+msgid "Page No Sidebar"
+msgstr ""
+
+#: ../buddyx/page-templates/full-width.php:3
+msgid "Page Full Screen"
+msgstr ""
+
+#: ../buddyx/page-templates/page-both-sidebar.php:3
+msgid "Page Both Sidebar"
+msgstr ""
+
+#: ../buddyx/page-templates/page-left-sidebar.php:3
+msgid "Page Left Sidebar"
+msgstr ""
+
+#: ../buddyx/page-templates/page-right-sidebar.php:3
+msgid "Page Right Sidebar"
+msgstr ""
+
+#: ../buddyx/post-templates/post-both-sidebar.php:3, ../buddyx/inc/Welcome/Component.php:422
+msgid "Both Sidebar"
+msgstr ""
+
+#: ../buddyx/post-templates/post-full-large.php:3
+msgid "Full Width - Large container"
+msgstr ""
+
+#: ../buddyx/post-templates/post-full-small.php:3
+msgid "Full Width - Small container"
+msgstr ""
+
+#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:412
+msgid "Left Sidebar"
+msgstr ""
+
+#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:417
+msgid "Right Sidebar"
+msgstr ""
+
+#: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:131
+msgid "Notifications menu"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers
+#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:20, ../buddyx/template-parts/content/entry_content.php:21
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:33, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#: ../buddyx/buddypress/groups/groups-loop.php:55, ../buddyx/buddypress/groups/single/cover-image-header.php:103, ../buddyx/buddypress/groups/single/group-header.php:46
+msgid "active %s"
+msgstr ""
+
+#: ../buddyx/inc/Accessibility/Component.php:75
+msgid "Expand child menu"
+msgstr ""
+
+#: ../buddyx/inc/Accessibility/Component.php:76
+msgid "Collapse child menu"
+msgstr ""
+
+#: ../buddyx/inc/Comments/Component.php:132
+msgid "New comment(s)"
+msgstr ""
+
+#: ../buddyx/inc/Customizer/Component.php:77
+msgid "Theme Options"
+msgstr ""
+
+#: ../buddyx/inc/Dropdown_Select/Component.php:48
+msgid "-- Select a Page --"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:69
+msgid "Primary"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:70
+msgid "Secondary"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:75
+msgid "Red"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:80
+msgid "Green"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:85
+msgid "Blue"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:90
+msgid "Yellow"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:95
+msgid "Black"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:100
+msgid "Grey"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:105
+msgid "White"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:110
+msgid "Dusty daylight"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:115
+msgid "Dusty sun"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:132
+msgid "Small"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:133
+msgid "S"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:138
+msgid "Medium"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:139
+msgid "M"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:144
+msgid "Large"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:145
+msgid "L"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:150
+msgid "Larger"
+msgstr ""
+
+#: ../buddyx/inc/Editor/Component.php:151
+msgid "XL"
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:103
@@ -1244,16 +1283,8 @@ msgstr ""
 msgid "User Menu"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:417, ../buddyx/post-templates/post-right-sidebar.php:3
-msgid "Right Sidebar"
-msgstr ""
-
 #: ../buddyx/inc/Sidebars/Component.php:105, ../buddyx/inc/Sidebars/Component.php:117, ../buddyx/inc/Sidebars/Component.php:131, ../buddyx/inc/Sidebars/Component.php:143, ../buddyx/inc/Sidebars/Component.php:155, ../buddyx/inc/Sidebars/Component.php:167, ../buddyx/inc/Sidebars/Component.php:179, ../buddyx/inc/Sidebars/Component.php:191, ../buddyx/inc/Sidebars/Component.php:206, ../buddyx/inc/Sidebars/Component.php:218, ../buddyx/inc/Sidebars/Component.php:232, ../buddyx/inc/Sidebars/Component.php:244, ../buddyx/inc/Sidebars/Component.php:257, ../buddyx/inc/Sidebars/Component.php:269, ../buddyx/inc/Sidebars/Component.php:281, ../buddyx/inc/Sidebars/Component.php:293
 msgid "Add widgets here."
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:412, ../buddyx/post-templates/post-left-sidebar.php:3
-msgid "Left Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:129
@@ -1315,36 +1346,6 @@ msgstr ""
 #. translators: %s: stylesheet handle
 #: ../buddyx/inc/Styles/Component.php:337
 msgid "Invalid theme stylesheet handle: %s"
-msgstr ""
-
-#. translators: 1: classname/type of the variable, 2: interface name
-#: ../buddyx/inc/Template_Tags.php:54
-msgid "The theme templating component %1$s does not implement the %2$s interface."
-msgstr ""
-
-#. translators: %s: template tag name
-#: ../buddyx/inc/Template_Tags.php:81
-msgid "The template tag %s does not exist."
-msgstr ""
-
-#. translators: 1: template tag method name, 2: component class name
-#: ../buddyx/inc/Template_Tags.php:110
-msgid "The template tag method %1$s registered by theme component %2$s must either be a callable or an array."
-msgstr ""
-
-#. translators: 1: template tag method name, 2: component class name
-#: ../buddyx/inc/Template_Tags.php:121
-msgid "The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name."
-msgstr ""
-
-#. translators: 1: classname/type of the variable, 2: interface name
-#: ../buddyx/inc/Theme.php:57
-msgid "The theme component %1$s does not implement the %2$s interface."
-msgstr ""
-
-#. translators: %s: slug
-#: ../buddyx/inc/Theme.php:120
-msgid "No theme component with the slug %s exists."
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:44, ../buddyx/inc/Welcome/Component.php:45, ../buddyx/inc/Welcome/Component.php:87
@@ -1601,10 +1602,6 @@ msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:407
 msgid "No Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:422, ../buddyx/post-templates/post-both-sidebar.php:3
-msgid "Both Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:427
@@ -1875,58 +1872,6 @@ msgstr ""
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
-#: ../buddyx/page-templates/full-width-container.php:3
-msgid "Page No Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/full-width.php:3
-msgid "Page Full Screen"
-msgstr ""
-
-#: ../buddyx/page-templates/page-both-sidebar.php:3
-msgid "Page Both Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/page-left-sidebar.php:3
-msgid "Page Left Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/page-right-sidebar.php:3
-msgid "Page Right Sidebar"
-msgstr ""
-
-#: ../buddyx/post-templates/post-full-large.php:3
-msgid "Full Width - Large container"
-msgstr ""
-
-#: ../buddyx/post-templates/post-full-small.php:3
-msgid "Full Width - Small container"
-msgstr ""
-
-#: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:131
-msgid "Notifications menu"
-msgstr ""
-
-#: ../buddyx/searchform.php:9
-msgid "Enter Keyword"
-msgstr ""
-
-#: ../buddyx/searchform.php:13
-msgid "Go"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:20, ../buddyx/template-parts/content/entry_content.php:21
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:33, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
-msgid "Pages:"
-msgstr ""
-
 #: ../buddyx/template-parts/content/entry-attachment.php:35, ../buddyx/template-parts/content/entry-post.php:36, ../buddyx/template-parts/content/entry.php:34
 msgid "Previous:"
 msgstr ""
@@ -2130,3 +2075,62 @@ msgstr ""
 #: ../buddyx/woocommerce/cart/cart.php:152, ../buddyx/woocommerce/cart/cart.php:152
 msgid "Update cart"
 msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:41, ../buddyx/buddypress/members/single/cover-image-header.php:42
+msgid "Change Cover Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:55, ../buddyx/buddypress/members/single/cover-image-header.php:56
+msgid "Reposition Cover Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:59, ../buddyx/buddypress/members/single/cover-image-header.php:60
+msgid "Cancel"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:60, ../buddyx/buddypress/members/single/cover-image-header.php:61
+msgid "Save Changes"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:61, ../buddyx/buddypress/members/single/cover-image-header.php:62
+msgid "Drag to move cover photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:62, ../buddyx/buddypress/members/single/cover-image-header.php:63
+msgid "Cover photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/groups/single/group-header.php:19
+msgid "Change Group Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:119, ../buddyx/buddypress/groups/single/group-header.php:62
+msgid "Group Types"
+msgstr ""
+
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:120, ../buddyx/buddypress/groups/single/group-header.php:63
+msgid "Group Type"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:75
+msgid "Change Profile Photo"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:123
+msgid "Member Types"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/cover-image-header.php:124
+msgid "Member Type"
+msgstr ""
+
+#: ../buddyx/buddypress/members/single/groups/invites.php:10
+msgid "Group Invites"
+msgstr ""
+
+#. translators: %s = number of members
+#: ../buddyx/buddypress/members/single/groups/invites.php:41
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] ""
+msgstr[1] ""

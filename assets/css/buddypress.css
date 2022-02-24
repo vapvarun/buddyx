@@ -39,6 +39,7 @@
     # BuddyPress Moderation
     # BuddyPress Status
     # BuddyPress Docs
+    # BuddyPress Reshare
 
 --------------------------------------------------------------*/
 
@@ -3856,7 +3857,7 @@ body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
 
 
 /*--------------------------------------------------------------
-# BP Idea Stream
+## BP Idea Stream
 --------------------------------------------------------------*/
 
 .wp-embed-share-tab-button {
@@ -3873,7 +3874,7 @@ body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Global Search
+## BuddyPress Global Search
 --------------------------------------------------------------*/
 
 .search-results.buddypress-global-search form#searchform {
@@ -3947,7 +3948,7 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Giphy
+## BuddyPress Giphy
 --------------------------------------------------------------*/
 
 .bp-giphy-html-container,
@@ -3979,7 +3980,7 @@ body.search-results.buddypress-global-search .bp-list li .action {
 
 
 /*--------------------------------------------------------------
-# MediaPress
+## MediaPress
 --------------------------------------------------------------*/
 
 form#mpp-whats-new-form p.activity-greeting {
@@ -4241,7 +4242,7 @@ div.mpp-bulk-edit-media-action-row select {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Group Email Subscription
+## BuddyPress Group Email Subscription
 --------------------------------------------------------------*/
 
 .buddyx-bpges .group-subscription-div #js-dialogtooltip {
@@ -4321,7 +4322,7 @@ button.ges-change:hover {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Activity Plus
+## BuddyPress Activity Plus
 --------------------------------------------------------------*/
 
 .bpfb_form_container {
@@ -4406,7 +4407,7 @@ input.bpfb_remote_image {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Lock Unlock Activity
+## BuddyPress Lock Unlock Activity
 --------------------------------------------------------------*/
 
 .activity-list.bp-list .activity-item .activity-meta.action .bplua-open-activity,
@@ -4432,7 +4433,7 @@ input.bpfb_remote_image {
 
 
 /*--------------------------------------------------------------
-# BuddyMessageUX-Free
+## BuddyMessageUX-Free
 --------------------------------------------------------------*/
 
 .thickbox-loading #TB_ajaxContent {
@@ -4476,7 +4477,7 @@ input.bpfb_remote_image {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Moderation
+## BuddyPress Moderation
 --------------------------------------------------------------*/
 
 body.bmpro_moderation_content .member-home aside {
@@ -4491,7 +4492,7 @@ body.bmpro_moderation_content .member-home aside {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Status
+## BuddyPress Status
 --------------------------------------------------------------*/
 
 .bpstatus-icon {
@@ -4505,9 +4506,71 @@ body.bmpro_moderation_content .member-home aside {
 
 
 /*--------------------------------------------------------------
-# BuddyPress Docs
+## BuddyPress Docs
 --------------------------------------------------------------*/
 
 ul.component-navigation.bp-docs-nav {
     margin-left: 0;
+}
+
+
+/*--------------------------------------------------------------
+## BuddyPress Reshare
+--------------------------------------------------------------*/
+
+.activity-share-modal .activity-list .activity-item .activity-header {
+    margin-bottom: 0;
+}
+
+.activity-list.bp-list .activity-reshare-item-container>.activity-item {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.post-reshare-item-container .post-preview {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.activity-list .activity-item .activity-meta.action .bp-activity-share-btn .bp-screen-reader-text {
+    margin-left: 0;
+}
+
+.bp-activity-share-button::before {
+    margin-right: 5px !important;
+}
+
+#bp-activity-share-widget-box-status-header .buddyx-content-wrp {
+    margin-top: 1rem;
+}
+
+.activity-list.bp-list .activity-reshare-item-container .activity-header {
+    padding-left: 65px;
+    padding-bottom: 10px;
+}
+
+.activity-share-modal .activity-list .activity-content .activity-inner img:not(.avatar),
+.activity-list .activity-content .activity-inner .activity-reshare-item-container img:not(.avatar) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 15px;
+}
+
+.activity-share-modal .activity-list .activity-content .activity-inner .bb-post-title,
+.activity-share-modal .activity-list .activity-content .activity-inner .buddyx-post-title,
+.activity-list .activity-content .activity-inner .activity-reshare-item-container .bb-post-title,
+.activity-list .activity-content .activity-inner .activity-reshare-item-container .buddyx-post-title {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.activity-list .activity-content .activity-inner .activity-reshare-item-container .buddyx-content-wrp p {
+    margin: 0 !important;
+    padding: 0;
+}
+
+.buddypress-wrap .activity-inner .activity-reshare-item-container p {
+    margin: 0 !important;
+    padding: 0 !important;
 }
