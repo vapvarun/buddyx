@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.2 =
+* Fix: Added 'Select a Page' option in page mapping setting
+* Improvement: (#383) Managed activity reshare UI with bb platform
+* Improvement: (#383) Managed activity reshare UI
+
 = 4.3.1 =
 * Improvement: Managed sidebar with buddypress docs
 * Fix: Updated entry.php to support lower version of BuddyPress 10.0 and BuddyBoss
