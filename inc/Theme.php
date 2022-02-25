@@ -162,6 +162,7 @@ class Theme {
 		}
 
 		if ( defined( 'KIRKI_VERSION' ) && version_compare( KIRKI_VERSION, '4.0', '>=' ) ) {
+			$args         = array();
 			$components[] = new Dropdown_Select\Component( $args );
 		}
 
