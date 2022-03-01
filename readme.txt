@@ -98,7 +98,7 @@ Released under the MIT license
 
 == Changelog ==
 = 4.3.3 =
-(#384) Fixed undefined variable $args warning
+* Fix: (#384) Fixed undefined variable $args warning
 
 = 4.3.2 =
 * Fix: Added 'Select a Page' option in page mapping setting
