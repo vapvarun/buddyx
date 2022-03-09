@@ -17,6 +17,7 @@
 	# Profile Types
 	# GamiPress
     # BuddyPress Reshare
+    # bbPress(Activity)
 # Profile Completion Widget
 # Live Notification
 --------------------------------------------------------------*/
@@ -994,6 +995,22 @@ body.wb-quote .activity-update-form #whats-new {
 
 .activity-list .activity-item .activity-meta.action .bp-activity-share-btn .bp-screen-reader-text {
     position: static;
+}
+
+
+/*--------------------------------------------------------------
+## bbPress(Activity)
+--------------------------------------------------------------*/
+
+.activity-list li.bbp_topic_create .activity-content .activity-inner .activity-discussion-title-wrap,
+.activity-list li.bbp_reply_create .activity-content .activity-inner .activity-discussion-title-wrap {
+    margin-bottom: 0 !important;
+}
+
+.activity-list li.bbp_reply_create .activity-content .activity-inner blockquote,
+.activity-list li.bbp_topic_create .activity-content .activity-inner blockquote {
+    margin-left: 0;
+    padding-left: 15px;
 }
 
 

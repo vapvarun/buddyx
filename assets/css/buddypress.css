@@ -40,6 +40,7 @@
     # BuddyPress Status
     # BuddyPress Docs
     # BuddyPress Reshare
+    # bbPress(Activity)
 
 --------------------------------------------------------------*/
 
@@ -4573,4 +4574,14 @@ ul.component-navigation.bp-docs-nav {
 .buddypress-wrap .activity-inner .activity-reshare-item-container p {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+
+/*--------------------------------------------------------------
+## bbPress(Activity)
+--------------------------------------------------------------*/
+
+.activity-list li.bbp_reply_create .activity-content .activity-inner blockquote,
+.activity-list li.bbp_topic_create .activity-content .activity-inner blockquote {
+    margin-left: 15px;
 }
