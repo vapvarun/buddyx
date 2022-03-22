@@ -431,6 +431,17 @@ span.bb-activity-edited-text {
     flex-flow: wrap;
 }
 
+#buddypress .users-header #item-header-cover-image .member-header-actions-wrap {
+    align-items: center;
+    display: flex;
+    flex-flow: nowrap;
+    width: auto;
+}
+
+#buddypress .bb_more_options_list .generic-button a:hover {
+    border: 0;
+}
+
 @media screen and (max-width: 46.8em) {
     .friends-request-list .bp-generic-meta.friends-meta.action {
         justify-content: center;
