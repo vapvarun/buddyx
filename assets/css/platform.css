@@ -313,6 +313,10 @@ span.bb-activity-edited-text {
 # Members Directory
 --------------------------------------------------------------*/
 
+.buddypress-wrap .grid.bp-list>li .item-avatar {
+    margin-bottom: 15px;
+}
+
 .member-action-wrapper {
     margin-left: auto;
 }
