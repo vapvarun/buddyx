@@ -63,7 +63,7 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 						<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
 						<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
 						<span class="drag-element-helper"><i class="bb-icon-menu"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
-						<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_html_e( 'Cover photo', 'buddyx' ); ?>" />
+						<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
 					</div>
 					<?php
 				}
