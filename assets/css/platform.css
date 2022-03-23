@@ -17,6 +17,7 @@
 	# Profile Types
 	# GamiPress
     # BuddyPress Reshare
+    # bbPress(Activity)
 # Profile Completion Widget
 # Live Notification
 --------------------------------------------------------------*/
@@ -83,6 +84,69 @@ img.emojioneemoji {
     border: 0;
 }
 
+.dropzone .dz-default {
+    background: #f8f8f8;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid var(--global-border-color);
+    border-radius: 6px;
+    min-height: 185px;
+    max-height: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #122b46;
+    letter-spacing: -.24px;
+    line-height: 26px;
+    padding: 20px 0;
+}
+
+.dropzone .dz-default .dz-button,
+.dropzone .dz-default .dz-button:hover {
+    background-color: transparent !important;
+    border: 0;
+    color: rgba(18, 43, 70, .5) !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+}
+
+.dropzone .dz-default .dz-button,
+.dropzone .dz-default .dz-button:hover {
+    color: #aaaaaa !important;
+}
+
+.dropzone .dz-default .dz-button::before,
+.dropzone .dz-default .dz-button:hover::before {
+    content: "\e8e3";
+    font-family: bb-icons;
+    font-size: 18px;
+    height: 54px;
+    width: 54px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 50%;
+    line-height: 54px;
+    color: #a3a5a9;
+    margin-bottom: 10px;
+}
+
+.dropzone .dz-default .dz-button>strong,
+.dropzone .dz-default .dz-button:hover>strong {
+    display: block;
+    color: #122b46;
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-bottom: 2px;
+}
+
+.dropzone.media-dropzone .dz-default .dz-button::before,
+.dropzone.media-dropzone .dz-default .dz-button:hover::before {
+    content: "\e9d3";
+}
+
 .activity-attached-gif-container,
 .messages-attached-gif-container {
     background-repeat: no-repeat;
@@ -136,8 +200,11 @@ img.emojioneemoji {
     margin-bottom: 15px;
 }
 
-.activity-update-form #whats-new {
+.buddypress-wrap #whats-new-textarea {
     padding: 0;
+}
+
+.activity-update-form #whats-new {
     border: 0;
 }
 
@@ -245,6 +312,10 @@ span.bb-activity-edited-text {
 /*--------------------------------------------------------------
 # Members Directory
 --------------------------------------------------------------*/
+
+.buddypress-wrap .grid.bp-list>li .item-avatar {
+    margin-bottom: 15px;
+}
 
 .member-action-wrapper {
     margin-left: auto;
@@ -362,6 +433,17 @@ span.bb-activity-edited-text {
 .friends-request-list .bp-generic-meta.friends-meta.action {
     display: flex;
     flex-flow: wrap;
+}
+
+#buddypress .users-header #item-header-cover-image .member-header-actions-wrap {
+    align-items: center;
+    display: flex;
+    flex-flow: nowrap;
+    width: auto;
+}
+
+#buddypress .bb_more_options_list .generic-button a:hover {
+    border: 0;
 }
 
 @media screen and (max-width: 46.8em) {
@@ -994,6 +1076,28 @@ body.wb-quote .activity-update-form #whats-new {
 
 .activity-list .activity-item .activity-meta.action .bp-activity-share-btn .bp-screen-reader-text {
     position: static;
+}
+
+
+/*--------------------------------------------------------------
+## bbPress(Activity)
+--------------------------------------------------------------*/
+
+.activity-list li.bbp_topic_create .activity-content .activity-inner,
+.activity-list li.bbp_reply_create .activity-content .activity-inner,
+.activity-list li.blogs .activity-content .activity-inner {
+    max-width: 100%;
+}
+
+.activity-list li.bbp_topic_create .activity-content .activity-inner .activity-discussion-title-wrap,
+.activity-list li.bbp_reply_create .activity-content .activity-inner .activity-discussion-title-wrap {
+    margin-bottom: 0 !important;
+}
+
+.activity-list li.bbp_reply_create .activity-content .activity-inner blockquote,
+.activity-list li.bbp_topic_create .activity-content .activity-inner blockquote {
+    margin-left: 0;
+    padding-left: 15px;
 }
 
 

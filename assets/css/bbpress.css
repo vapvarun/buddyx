@@ -2,6 +2,7 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Global bbPress CSS
+# Activity Page
 # Widgets
 --------------------------------------------------------------*/
 
@@ -209,6 +210,18 @@ a.bbp-topic-permalink {
     #bbpress-forums li.bbp-body li.bbp-topic-title {
         width: 75%;
     }
+}
+
+
+/*--------------------------------------------------------------
+# Activity Page
+--------------------------------------------------------------*/
+
+.activity-list li.bbp_reply_create .activity-content .activity-inner,
+.activity-list li.bbp_topic_create .activity-content .activity-inner {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 
