@@ -1325,9 +1325,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .menu-icons-wrapper {
         float: none;
     }
-    .menu-icons-wrapper .cart {
-        min-width: 32px;
-    }
 }
 
 
@@ -1513,16 +1510,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
     .site-title a {
         font-size: 24px !important;
-    }
-    .buddypress-icons-wrapper .bp-msg,
-    .buddypress-icons-wrapper .user-link-wrap,
-    .buddypress-icons-wrapper .user-notifications,
-    .menu-icons-wrapper,
-    .menu-icons-wrapper .cart {
-        margin: 0;
-    }
-    .main-navigation .cart a {
-        min-width: 37px;
     }
     .menu-icons-wrapper .top-menu-search-container {
         right: -80px;
