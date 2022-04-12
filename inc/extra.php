@@ -116,11 +116,7 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 							if ( $count > 0 ) {
 								?>
 								<sup><?php echo esc_html( $count ); ?></sup>
-												<?php
-							} else {
-								?>
-							  <sup><?php echo esc_html( '0', 'buddyx' ); ?></sup>
-											  <?php
+								<?php
 							}
 							?>
 						</a>
@@ -237,7 +233,9 @@ if ( ! function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
 		?>
 		<a class="menu-icons-wrapper cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'buddyx' ); ?>">
 			<span class="fa fa-shopping-cart"></span>
-			<sup><?php echo esc_html( $count ); ?></sup>
+			<?php if ( $count > 0 ) { ?>
+				<sup><?php echo esc_html( $count ) ?></sup>
+			<?php } ?>
 		</a>
 		<?php
 		$fragments['.menu-icons-wrapper .cart a'] = ob_get_clean();

@@ -564,149 +564,149 @@ msgstr ""
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:138
+#: ../buddyx/inc/extra.php:135
 msgid "Profile"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:141, ../buddyx/inc/extra.php:160
+#: ../buddyx/inc/extra.php:138, ../buddyx/inc/extra.php:157
 msgid "Activity"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:144
+#: ../buddyx/inc/extra.php:141
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:147
+#: ../buddyx/inc/extra.php:144
 msgid "Forums"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:150
+#: ../buddyx/inc/extra.php:147
 msgid "Friends"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:153
+#: ../buddyx/inc/extra.php:150
 msgid "Members"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:156
+#: ../buddyx/inc/extra.php:153
 msgid "Blogs"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:224
+#: ../buddyx/inc/extra.php:221
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:357
+#: ../buddyx/inc/extra.php:356
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/extra.php:384
+#: ../buddyx/inc/extra.php:383
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:426
+#: ../buddyx/inc/extra.php:425
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:437
+#: ../buddyx/inc/extra.php:436
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:437
+#: ../buddyx/inc/extra.php:436
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:437
+#: ../buddyx/inc/extra.php:436
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:442, ../buddyx/template-parts/content/entry_meta.php:122
+#: ../buddyx/inc/extra.php:441, ../buddyx/template-parts/content/entry_meta.php:122
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:646
+#: ../buddyx/inc/extra.php:645
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:655
+#: ../buddyx/inc/extra.php:654
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:675
+#: ../buddyx/inc/extra.php:674
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:680
+#: ../buddyx/inc/extra.php:679
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:730
+#: ../buddyx/inc/extra.php:729
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:733
+#: ../buddyx/inc/extra.php:732
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:736, ../buddyx/inc/extra.php:749, ../buddyx/inc/extra.php:978
+#: ../buddyx/inc/extra.php:735, ../buddyx/inc/extra.php:748, ../buddyx/inc/extra.php:977
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:743
+#: ../buddyx/inc/extra.php:742
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:746
+#: ../buddyx/inc/extra.php:745
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:756
+#: ../buddyx/inc/extra.php:755
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:759
+#: ../buddyx/inc/extra.php:758
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:765
+#: ../buddyx/inc/extra.php:764
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:772
+#: ../buddyx/inc/extra.php:771
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:775
+#: ../buddyx/inc/extra.php:774
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:781
+#: ../buddyx/inc/extra.php:780
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:788
+#: ../buddyx/inc/extra.php:787
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:810, ../buddyx/inc/extra.php:917
+#: ../buddyx/inc/extra.php:809, ../buddyx/inc/extra.php:916
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:824, ../buddyx/inc/extra.php:894
+#: ../buddyx/inc/extra.php:823, ../buddyx/inc/extra.php:893
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:896
+#: ../buddyx/inc/extra.php:895
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:980
+#: ../buddyx/inc/extra.php:979
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:1155
+#: ../buddyx/inc/extra.php:1154
 msgid " Read more"
 msgstr ""
 
@@ -2004,23 +2004,27 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:51
+#: ../buddyx/template-parts/header/buddypress-profile.php:23, ../buddyx/template-parts/header/buddypress-profile.php:41
+msgid "9+"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:66
 msgid "No new notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:46
+#: ../buddyx/template-parts/header/buddypress-profile.php:61
 msgid "View all notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:87
+#: ../buddyx/template-parts/header/buddypress-profile.php:112
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:87
+#: ../buddyx/template-parts/header/buddypress-profile.php:112
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:94, ../buddyx/template-parts/header/buddypress-profile.php:94
+#: ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:119
 msgid "Register"
 msgstr ""
 
