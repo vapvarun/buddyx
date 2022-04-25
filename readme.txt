@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.5 =
+* Fix: BuddyPress icons fixes in mobile view
+* Fix: Hide header area icon count when is zero
+* Fix: (#405) Added text-decoration setting in typography field
+* Fix: (#402) Managed widget title font size through customiser
+* Fix: (#394, #406) Managed action button in iphone, update message content UI
+
 = 4.3.4 =
 * Fix: (#392) Update item avatar spacing with bb platform
 * Fix: (#392) Managed single profile buttons with bb platform latest update

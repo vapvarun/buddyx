@@ -1,71 +1,77 @@
 <?php
-// User Messages
+/**
+ * BuddyX notification nav
+ *
+ * Displays in the notification navbar
+ *
+ * @package buddyx
+ * @since 1.0.0
+ */
+
+/** Do not allow directly accessing this file. */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
+
+// User Messages.
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messages' ) ) { ?>
-	 <div class="bp-msg">
+	<div class="bp-msg">
 		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>">
-		<span class="fa fa-envelope"></span>
-		<?php
-		if ( function_exists( 'bp_total_unread_messages_count' ) ) {
-			$count = bp_get_total_unread_messages_count();
-			if ( $count > 0 ) {
-				?>
-					<sup><?php bp_total_unread_messages_count(); ?></sup>
-																 <?php
-			} else {
-				?>
-				  <sup><?php echo esc_html( '0', 'buddyx' ); ?></sup>
-								  <?php
-			}
-		}
-		?>
+			<span class="fa fa-envelope"></span>
+			<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 0 ) : ?>
+				<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 9 ) : ?>
+					<sup class="count"><?php esc_html_e( '9+', 'buddyx' ); ?></sup>
+				<?php else : ?>
+					<sup class="count"><?php echo esc_html( messages_get_unread_count() ); ?></sup>
+				<?php endif; ?>
+			<?php endif; ?>
 		</a>
-  </div>
+	</div>
 	<?php
 }
-// User notifications
+// User notifications.
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notifications' ) ) {
 	global $bp;
 	?>
-  <div class="user-notifications">
-	<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr_e( 'Notifications', 'buddyx' ); ?>">
-		<span class="fa fa-bell"></span>
+	<div class="user-notifications">
+		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr( 'Notifications', 'buddyx' ); ?>">
+			<span class="fa fa-bell"></span>
+			<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 0 ) : ?>
+				<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 9 ) : ?>
+					<sup class="count"><?php esc_html_e( '9+', 'buddyx' ); ?></sup>
+				<?php else : ?>
+					<sup class="count"><?php echo esc_html( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ); ?></sup>
+				<?php endif; ?>
+			<?php endif; ?>
+		</a>
 		<?php
-		if ( function_exists( 'bp_notifications_get_unread_notification_count' ) ) {
-			$count = bp_notifications_get_unread_notification_count( get_current_user_id() );
+		$notifications = bp_notifications_get_notifications_for_user( bp_loggedin_user_id() );
+		if ( $notifications ) {
 			?>
-			<sup> <?php echo esc_html( $count ); ?></sup>
-							 <?php
+			<ul id="bp-notify" class="bp-header-submenu bp-dropdown">
+				<?php
+				rsort( $notifications );
+				foreach ( $notifications as $notification ) {
+					?>
+						<li><?php echo $notification; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
+					<?php
+				}
+				?>
+				<li class="bp-view-all">
+					<a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html_e( 'View all notifications', 'buddyx' ); ?></a>
+				</li>
+			</ul>
+		<?php } else { ?>
+			<ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
+				<li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ); ?>"><?php esc_html_e( 'No new notifications', 'buddyx' ); ?></a></li>
+			</ul>
+			<?php
 		}
 		?>
-	</a>
-	<?php
-	$notifications = bp_notifications_get_notifications_for_user( bp_loggedin_user_id() );
-	if ( $notifications ) {
-		?>
-		<ul id="bp-notify" class="bp-header-submenu bp-dropdown">
-		<?php
-			rsort( $notifications );
-		foreach ( $notifications as $notification ) {
-			?>
-				<li><?php echo $notification; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
-							   <?php
-		}
-		?>
-			<li class="bp-view-all">
-				<a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html_e( 'View all notifications', 'buddyx' ); ?></a>
-			</li>
-		</ul>
-	<?php } else { ?>
-	  <ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
-		<li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ); ?>"><?php esc_html_e( 'No new notifications', 'buddyx' ); ?></a></li>
-	  </ul>
-		<?php
-	}
-	?>
-  </div>
+	</div>
 	<?php
 }
-// User Account Details
+// User Account Details.
 if ( is_user_logged_in() ) {
 	$loggedin_user = wp_get_current_user();
 	if ( ( $loggedin_user instanceof WP_User ) ) {
@@ -102,15 +108,15 @@ if ( is_user_logged_in() ) {
 	}
 	?>
 	<?php if ( true == get_theme_mod( 'site_login_link', true ) ) : ?>
-	<div class="bp-icon-wrap">
-	  <a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?></a>
-	</div>
+		<div class="bp-icon-wrap">
+			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?></a>
+		</div>
 	<?php endif; ?>
 	<?php
 	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
 		?>
 	<div class="bp-icon-wrap">
-	  <a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+		<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
 	</div>
 		<?php
 	}

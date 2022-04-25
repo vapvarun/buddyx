@@ -510,6 +510,10 @@ span.bb-activity-edited-text {
     margin-top: 15px;
 }
 
+.activity-list .activity-item .bp-generic-meta.action .acomment-reply.button {
+    max-height: 37px;
+}
+
 .activity-list.bp-list .activity-item .bp-generic-meta.action .generic-button .fa {
     min-width: 23px;
     font-size: 18px;

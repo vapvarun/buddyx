@@ -1196,15 +1196,15 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 --------------------------------------------------------------*/
 
 .menu-icons-wrapper {
-    float: right;
-    margin: 0px 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    margin: 0;
     padding: 10px 0px;
-    min-width: 30px;
 }
 
 .menu-icons-wrapper .search {
     position: relative;
-    min-width: 30px;
+    margin: 0 10px;
 }
 
 .main-navigation .search a,
@@ -1215,14 +1215,11 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper .search,
 .menu-icons-wrapper .cart {
     float: left;
+    position: relative;
 }
 
-.menu-icons-wrapper .cart {
-    margin: 0;
-}
-
-.menu-icons-wrapper div:last-child {
-    margin-right: 0px;
+.menu-icons-wrapper>.cart {
+    margin: 0 10px;
 }
 
 .menu-icons-wrapper .top-menu-search-container {
@@ -1313,9 +1310,9 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     background: var(--color-link-active);
     color: #fff;
     border-radius: 50%;
-    position: relative;
-    top: -8px;
-    left: -9px;
+    position: absolute;
+    top: -5px;
+    right: -8px;
     display: inline-block;
 }
 
@@ -1327,9 +1324,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
     .menu-icons-wrapper {
         float: none;
-    }
-    .menu-icons-wrapper .cart {
-        min-width: 32px;
     }
 }
 
@@ -1343,6 +1337,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     align-items: center;
     float: right;
     flex: 0 0 auto;
+    margin-left: 15px;
 }
 
 .buddypress-icons-wrapper.buddyx-mobile-icon {
@@ -1353,14 +1348,23 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     padding: 0;
 }
 
+.buddypress-icons-wrapper .bp-msg a,
+.buddypress-icons-wrapper .user-notifications a {
+    position: relative;
+}
+
 .buddypress-icons-wrapper .bp-msg,
 .buddypress-icons-wrapper .user-notifications,
 .buddypress-icons-wrapper .user-link-wrap {
-    margin: 0 0 0 10px;
+    margin: 0 10px;
     padding: 10px 0;
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+.buddypress-icons-wrapper .user-link-wrap {
+    margin-right: 0;
 }
 
 .buddypress-icons-wrapper .user-notifications {
@@ -1506,16 +1510,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
     .site-title a {
         font-size: 24px !important;
-    }
-    .buddypress-icons-wrapper .bp-msg,
-    .buddypress-icons-wrapper .user-link-wrap,
-    .buddypress-icons-wrapper .user-notifications,
-    .menu-icons-wrapper,
-    .menu-icons-wrapper .cart {
-        margin: 0;
-    }
-    .main-navigation .cart a {
-        min-width: 37px;
     }
     .menu-icons-wrapper .top-menu-search-container {
         right: -80px;

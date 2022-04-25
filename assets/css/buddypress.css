@@ -2091,6 +2091,16 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 
 /* message-threads */
 
+.bp-messages-content #bp-message-thread-list {
+    border-top: 0;
+}
+
+.bp-messages-content #bp-message-thread-list li {
+    padding: 15px;
+    margin: 0 0 15px;
+    border: 1px solid var(--global-border-color);
+}
+
 .bp-messages-content #thread-preview .preview-content .actions {
     display: flex;
     align-items: center;
@@ -2102,15 +2112,24 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 }
 
 .bp-messages-content #bp-message-thread-list .message-metadata {
-    border-bottom: 0;
-    box-shadow: -2px 1px 9px 0 #e8e8e8;
-    display: table;
-    padding: 10px 15px;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    border: 0;
+}
+
+.bp-messages-content #bp-message-thread-list .message-content {
+    overflow: hidden;
+    margin: 1em auto 0;
     width: 100%;
 }
 
+.bp-messages-content #bp-message-thread-list .message-content p {
+    margin: 0;
+}
+
 .bp-messages-content #bp-message-thread-list li:nth-child(2n) .message-content {
-    padding: 0 15px;
+    background: transparent;
 }
 
 
