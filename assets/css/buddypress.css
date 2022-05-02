@@ -1046,6 +1046,10 @@ select#whats-new-post-in {
     margin-left: auto;
 }
 
+.activity-update-form #whats-new-textarea textarea {
+    color: inherit;
+}
+
 .buddypress-wrap #whats-new-textarea {
     margin: 0;
     padding: 12px 15px;

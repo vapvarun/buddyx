@@ -28,7 +28,7 @@
 --------------------------------------------------------------*/
 
 .activity-list .bb-activity-more-options-wrap {
-    top: 8px;
+    top: 0;
     margin: 0 !important;
 }
 
@@ -253,11 +253,6 @@ img.emojioneemoji {
     margin: 0 4px;
 }
 
-.bb-media-privacy-wrap .privacy:before {
-    content: "\e960";
-    font-family: bb-icons;
-}
-
 .bb-media-privacy-wrap .activity-privacy {
     left: -5px;
 }
@@ -308,10 +303,24 @@ span.bb-activity-edited-text {
     width: 100%;
 }
 
+#buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete {
+    padding: 10px 14px;
+}
+
+#buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete:before {
+    vertical-align: middle;
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory
 --------------------------------------------------------------*/
+
+.buddypress-wrap .members-list:not(.grid) .list-wrap {
+    background: #fff;
+    padding: 1em;
+    border: 1px solid var(--global-border-color);
+}
 
 .buddypress-wrap .grid.bp-list>li .item-avatar {
     margin-bottom: 15px;
@@ -428,6 +437,13 @@ span.bb-activity-edited-text {
     .friends-request-list li {
         flex-flow: wrap;
     }
+    .bp-single-vert-nav .bp-navs.vertical li {
+        float: none;
+    }
+}
+
+.bb-single-main-nav .bb-single-nav-item-point {
+    display: inline;
 }
 
 .friends-request-list .bp-generic-meta.friends-meta.action {
@@ -542,6 +558,7 @@ span.bb-activity-edited-text {
 }
 
 #buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button {
+    font-weight: normal;
     border-radius: .28571429rem !important;
 }
 
@@ -568,7 +585,7 @@ span.bb-activity-edited-text {
 
 .activity-list .activity-item .bp-generic-meta.action .fav:before,
 .activity-list .activity-item .bp-generic-meta.action .unfav:before {
-    content: "\e815";
+    content: "\ef41";
 }
 
 .activity-list .activity-item .bp-generic-meta.action .unfav:before {
