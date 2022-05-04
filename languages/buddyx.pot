@@ -43,11 +43,15 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: ../buddyx/searchform.php:9
+#: ../buddyx/searchform.php:10
+msgid "Search for:"
+msgstr ""
+
+#: ../buddyx/searchform.php:11
 msgid "Enter Keyword"
 msgstr ""
 
-#: ../buddyx/searchform.php:13
+#: ../buddyx/searchform.php:12
 msgid "Go"
 msgstr ""
 

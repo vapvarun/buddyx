@@ -6,9 +6,8 @@
  */
 ?>
 
-<?php $search_text = empty( $_GET['s'] ) ? esc_html__( 'Enter Keyword', 'buddyx' ) : get_search_query(); ?>
-<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<input id="s" name="s" type="text" placeholder="<?php echo esc_attr( $search_text ); ?>" class="text_input" />
-	<a href="#" class="search-icon"> <span class="fa fa-close"> </span> </a>
+<form id="searchform" role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">	
+	<span class="screen-reader-text"><?php esc_html_e( 'Search for:', 'buddyx' ); ?></span>
+	<input type="search" class="search-field-top" placeholder="<?php echo esc_attr( apply_filters( 'search_placeholder', __( 'Enter Keyword', 'buddyx' ) ) ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
 	<input name="submit" type="submit"  value="<?php esc_attr_e( 'Go', 'buddyx' ); ?>" />
 </form>
