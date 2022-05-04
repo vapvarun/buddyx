@@ -609,6 +609,14 @@ span.bb-activity-edited-text {
     background: transparent;
 }
 
+#member-invites-table .field-actions-add i {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 19px;
+    text-align: center;
+}
+
 .group-invites-members-listing ul li .action {
     margin-left: auto;
 }
