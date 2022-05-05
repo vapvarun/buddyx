@@ -181,7 +181,8 @@ button.group-button,
 .avatar-history-actions button.avatar-history-action.recycle,
 .avatar-history-actions button.avatar-history-action.delete,
 .avatar-history-actions button.recycle.disabled,
-.avatar-history-actions button.delete.disabled {
+.avatar-history-actions button.delete.disabled,
+#buddypress #header-cover-image .header-cover-reposition-wrap>.button {
     font-family: inherit;
     font-size: initial;
     color: #fff;
@@ -243,7 +244,9 @@ button.group-button:hover,
 .avatar-history-actions button.avatar-history-action.recycle:hover,
 .avatar-history-actions button.avatar-history-action.delete:hover,
 .avatar-history-actions button.recycle.disabled:hover,
-.avatar-history-actions button.delete.disabled:hover {
+.avatar-history-actions button.delete.disabled:hover,
+#buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover,
+#buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus {
     background-color: var(--button_background_hover_color);
     border: 1px solid var(--button_border_hover_color);
     color: #fff;
@@ -1044,6 +1047,10 @@ select#whats-new-post-in {
 
 #buddypress.buddypress-wrap form#whats-new-form #whats-new-submit {
     margin-left: auto;
+}
+
+.activity-update-form #whats-new-textarea textarea {
+    color: inherit;
 }
 
 .buddypress-wrap #whats-new-textarea {
