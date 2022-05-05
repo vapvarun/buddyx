@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.6 =
+* Fix: (#419) Managed cover photo reposition buttons style
+* Fix: (#417) Update message UI with bb platform
+* Fix: (#419) Managed cover photo reposition buttons style
+* Fix: (#420) Managed network search with bb platform 2.0
+* Fix: (#416) Managed icons and UI fixes with bb platform 2.0
+
 = 4.3.5 =
 * Fix: BuddyPress icons fixes in mobile view
 * Fix: Hide header area icon count when is zero
