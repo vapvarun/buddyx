@@ -1039,7 +1039,8 @@ body.wb-quote .activity-update-form #whats-new {
 ## BuddyPress Moderation Pro
 --------------------------------------------------------------*/
 
-#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-flag-activity-btn::before {
+#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-flag-activity-btn::before,
+#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-unflag-activity-btn::before {
     content: "\f227";
     font-family: dashicons;
     opacity: 1;
