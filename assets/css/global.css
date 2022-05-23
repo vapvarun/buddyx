@@ -668,8 +668,9 @@ select {
 }
 
 .site-branding img {
-    width: 100%;
+    width: auto;
     max-height: 64px;
+    object-fit: contain;
 }
 
 .site-title {
