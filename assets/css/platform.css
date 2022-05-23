@@ -74,9 +74,42 @@ img.emojioneemoji {
 }
 
 .activity-update-form:not(.modal-popup) #whats-new-form #whats-new-toolbar {
-    background-color: #f8f8f8;
+    background-color: #fff;
     border-top: 1px solid var(--global-border-color);
     border-radius: 0 0 8px 8px !important;
+}
+
+.bp-nouveau-activity-form-placeholder- .whats-new-form-footer,
+.activity-update-form .whats-new-form-footer {
+    border-top: 1px solid #d2d4d6;
+}
+
+.bp-nouveau-activity-form-placeholder-.modal-popup #whats-new-form,
+.activity-update-form.modal-popup #whats-new-form {
+    border-radius: 8px;
+}
+
+.bp-nouveau-activity-form-placeholder- .activity-form.focus-in .bb-model-header,
+.activity-update-form .activity-form.focus-in .bb-model-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.bp-nouveau-activity-form-placeholder- .activity-form.focus-in .whats-new-form-footer,
+.activity-update-form .activity-form.focus-in .whats-new-form-footer {
+    border-radius: 0 0 8px 8px;
+}
+
+.activity-update-form .activity-form.focus-in#whats-new-form #whats-new-toolbar {
+    border-radius: 0 0 8px 8px;
+}
+
+.bp-nouveau-activity-form-placeholder- .whats-new-form-footer,
+.activity-update-form .whats-new-form-footer,
+.bp-nouveau-activity-form-placeholder- #whats-new-form-placeholder #whats-new-toolbar,
+.bp-nouveau-activity-form-placeholder- #whats-new-form #whats-new-toolbar,
+.activity-update-form #whats-new-form-placeholder #whats-new-toolbar,
+.activity-update-form #whats-new-form #whats-new-toolbar {
+    background-color: #fff;
 }
 
 .dropzone.dz-started .dz-default.dz-message .dz-button {
