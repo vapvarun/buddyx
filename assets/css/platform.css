@@ -74,9 +74,42 @@ img.emojioneemoji {
 }
 
 .activity-update-form:not(.modal-popup) #whats-new-form #whats-new-toolbar {
-    background-color: #f8f8f8;
+    background-color: #fff;
     border-top: 1px solid var(--global-border-color);
     border-radius: 0 0 8px 8px !important;
+}
+
+.bp-nouveau-activity-form-placeholder- .whats-new-form-footer,
+.activity-update-form .whats-new-form-footer {
+    border-top: 1px solid #d2d4d6;
+}
+
+.bp-nouveau-activity-form-placeholder-.modal-popup #whats-new-form,
+.activity-update-form.modal-popup #whats-new-form {
+    border-radius: 8px;
+}
+
+.bp-nouveau-activity-form-placeholder- .activity-form.focus-in .bb-model-header,
+.activity-update-form .activity-form.focus-in .bb-model-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.bp-nouveau-activity-form-placeholder- .activity-form.focus-in .whats-new-form-footer,
+.activity-update-form .activity-form.focus-in .whats-new-form-footer {
+    border-radius: 0 0 8px 8px;
+}
+
+.activity-update-form .activity-form.focus-in#whats-new-form #whats-new-toolbar {
+    border-radius: 0 0 8px 8px;
+}
+
+.bp-nouveau-activity-form-placeholder- .whats-new-form-footer,
+.activity-update-form .whats-new-form-footer,
+.bp-nouveau-activity-form-placeholder- #whats-new-form-placeholder #whats-new-toolbar,
+.bp-nouveau-activity-form-placeholder- #whats-new-form #whats-new-toolbar,
+.activity-update-form #whats-new-form-placeholder #whats-new-toolbar,
+.activity-update-form #whats-new-form #whats-new-toolbar {
+    background-color: #fff;
 }
 
 .dropzone.dz-started .dz-default.dz-message .dz-button {
@@ -1039,7 +1072,8 @@ body.wb-quote .activity-update-form #whats-new {
 ## BuddyPress Moderation Pro
 --------------------------------------------------------------*/
 
-#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-flag-activity-btn::before {
+#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-flag-activity-btn::before,
+#buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bmpro-unflag-activity-btn::before {
     content: "\f227";
     font-family: dashicons;
     opacity: 1;
@@ -1148,78 +1182,46 @@ body.wb-quote .activity-update-form #whats-new {
 # Profile Completion Widget
 --------------------------------------------------------------*/
 
-.widget.widget_bp_profile_completion_widget {
-    padding-bottom: 10px;
+.widget.widget_bp_profile_completion_widget .profile_completion_wrap ul.pc_detailed_progress {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.widget.widget_bp_profile_completion_widget .profile_completion_wrap {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
 }
 
 .widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_progress_wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column;
+    min-width: 240px;
     flex-flow: column;
+    flex: 1 1 0%;
 }
 
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_progress_wrap .progress_container {
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-    border: 0;
-    background-color: #eef0f3;
-    margin-bottom: 6px;
-    border-radius: 10px;
-    overflow: hidden;
+.widget.widget_bp_profile_completion_widget .progress_text_wrap h3 {
+    line-height: 1.2;
 }
 
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_progress_wrap .progress_container .pc_progress {
-    height: 6px;
-    border-radius: 10px 0 0 10px;
-    background-color: #05d786;
+.widget.widget_bp_profile_completion_widget .progress_text_wrap .progress_text_value {
+    font-size: 34px;
 }
 
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_progress_wrap .progress_text_wrap {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    text-align: left;
+.widget.widget_bp_profile_completion_widget .pc_progress_wrap .progress_text_label,
+.widget.widget_bp_profile_completion_widget .pc_progress_wrap .progress_text_unit {
+    font-size: 14px;
 }
 
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_progress_wrap .progress_text_wrap .progress_text {
-    color: #a3a5a9;
-    font-size: 12px;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .pc_detailed_progress {
-    margin-top: 15px;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap {
-    margin: 0;
-    padding: 10px 0;
-    position: relative;
-    border-top: 1px solid #E7E9EC;
-    margin-left: 30px;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap:before {
-    content: '';
-    border: 2px solid #d0d3d6;
-    margin-left: -30px;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: middle;
-    height: 22px;
-    width: 22px;
-    border-radius: 50%;
+.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap {
+    max-width: 100%;
+    flex: 1 1 0%;
+    min-width: 200px
 }
 
 .widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap .section_number {
     display: none;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap .section_name a {
-    text-decoration: none;
-    font-size: 15px;
 }
 
 .widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap .progress .completed_staus {
@@ -1228,52 +1230,20 @@ body.wb-quote .activity-update-form #whats-new {
     color: #f78f02;
     border-radius: 30px;
     width: 40px;
+    height: 20px;
+    line-height: 1.5;
     font-size: 12px;
     font-weight: 600;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap .section_name {
-    width: -webkit-calc(100% - 55px);
-    width: calc(100% - 55px);
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.completed:after {
-    content: '\e809';
-    font-family: "bb-icons";
-    position: absolute;
-    left: -30px;
-    margin-top: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-size: 23px;
-    color: #05d786;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.completed:before {
-    border-color: #05d786;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.completed .section_name a {
-    text-decoration: line-through;
-    font-size: 15px;
-    color: #c8cbcf;
-}
-
-.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.completed .progress .completed_staus {
-    border-color: #05d786;
-    color: #05d786;
 }
 
 .widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.progress_not_started .progress .completed_staus {
     border-color: #ff3a30;
     color: #ff3a30;
+}
+
+.widget.widget_bp_profile_completion_widget .profile_completion_wrap .pc_detailed_progress_wrap .single_section_wrap.completed .progress .completed_staus {
+    border-color: #05d786;
+    color: #05d786;
 }
 
 
