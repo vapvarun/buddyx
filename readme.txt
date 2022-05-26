@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 5.9.3
+Tested up to: 6.0.0
 Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.7 =
+* Fix: Update whats new area form UI with bb platform
+* Fix: (#422) Managed logo with safari browser
+* Fix: Update min.css files regarding webkit browser
+* Fix: (#423) Managed profile completion widget UI with bb platform
+* Fix: Update flag icon with bb platform
+
 = 4.3.6 =
 * Fix: (#419) Managed cover photo reposition buttons style
 * Fix: (#417) Update message UI with bb platform
