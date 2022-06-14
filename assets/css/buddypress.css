@@ -1552,11 +1552,19 @@ input#rt_media_comment_submit {
 .bp-member-avatar-content img.group-photo,
 .bp-group-avatar-content img.profile-photo,
 .bp-group-avatar-content img.group-photo {
-    border: solid 2px #fff;
+    border: 5px solid #fff;
     background: rgba(255, 255, 255, 0.8);
     height: 80px;
     width: 80px;
     margin: 0 auto 10px;
+    border-radius: 50%;
+}
+
+.bp-member-preview-cover,
+.bp-group-preview-cover,
+.bp-member-preview-cover img,
+.bp-group-preview-cover img {
+    border-radius: 8px !important;
 }
 
 .activity-list .activity-item .activity-content .bp-member-short-description-title,
@@ -1565,22 +1573,9 @@ input#rt_media_comment_submit {
     margin-bottom: 0 !important;
 }
 
-@media screen and (min-width: 46.8em) {
-    .bp-profile-button {
-        text-align: center;
-        margin-top: 15px;
-    }
-    .bp-member-preview-cover+.bp-member-short-description .bp-profile-button,
-    .bp-group-preview-cover+.bp-group-short-description .bp-profile-button {
-        position: absolute;
-        right: 0;
-        top: 93px;
-    }
-    [dir='rtl'] .bp-member-preview-cover+.bp-member-short-description .bp-profile-button,
-    [dir='rtl'] .bp-group-preview-cover+.bp-group-short-description .bp-profile-button {
-        right: auto;
-        left: 0;
-    }
+.bp-profile-button {
+    text-align: center;
+    margin-top: 15px;
 }
 
 

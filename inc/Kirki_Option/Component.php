@@ -671,7 +671,7 @@ class Component implements Component_Interface {
 			'default'  => array(
 				'font-family'     => 'Open Sans',
 				'variant'         => '500',
-				'font-size'       => '16px',
+				'font-size'       => '14px',
 				'line-height'     => '1.6',
 				'letter-spacing'  => '0.02em',
 				'text-transform'  => 'none',
