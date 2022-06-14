@@ -466,7 +466,7 @@ a.read-more.button {
     font-size: inherit;
     color: #fff;
     background-color: var(--button_background_color);
-    border-radius: 3px;
+    border-radius: var(--button-border-radius);
     padding: 10px 20px;
     font-weight: 500;
     font-style: normal;
@@ -540,7 +540,7 @@ input[type="color"],
 textarea {
     color: #666;
     border: 1px solid var(--global-border-color);
-    border-radius: 4px;
+    border-radius: var(--form-border-radius);
     padding: 10px;
     min-height: 38px;
 }

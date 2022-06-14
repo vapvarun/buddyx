@@ -74,7 +74,7 @@
     font-size: inherit;
     color: #fff;
     background-color: var(--button_background_color);
-    border-radius: 3px;
+    border-radius: var(--button-border-radius);
     padding: 8px 20px;
     font-weight: 700;
     font-style: normal;
