@@ -422,6 +422,16 @@ span.bb-activity-edited-text {
     width: auto;
 }
 
+#item-header a.link-change-cover-image>i,
+#item-header a.position-change-cover-image>i,
+#item-header a.link-change-profile-image>i {
+    font-size: 34px;
+}
+
+.users-header #item-header-avatar a.link-change-profile-image {
+    top: 55px;
+}
+
 @media screen and (min-width: 783px) {
     #buddypress div#item-header #item-header-cover-image #item-header-content {
         padding: 0;

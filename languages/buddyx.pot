@@ -15,6 +15,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#. translators: 1: title.
+#: ../buddyx/comments.php:38
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
 #. translators: 1: comment count number, 2: title.
 #: ../buddyx/comments.php:44
 msgctxt "comments title"
@@ -22,10 +27,6 @@ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
-
-#: ../buddyx/comments.php:38
-msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
 
 #: ../buddyx/comments.php:60
 msgid "Comments are disabled."
@@ -184,16 +185,16 @@ msgstr ""
 msgid "Update Required"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:937
-msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+#: ../buddyx/external/class-tgm-plugin-activation.php:934
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:937, ../buddyx/external/class-tgm-plugin-activation.php:934
+#: ../buddyx/external/class-tgm-plugin-activation.php:934, ../buddyx/external/class-tgm-plugin-activation.php:937
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:934
-msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+#: ../buddyx/external/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:1121, ../buddyx/external/class-tgm-plugin-activation.php:2948
@@ -230,24 +231,24 @@ msgstr ""
 msgid "Not Installed"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2321
-msgid "Active"
-msgstr ""
-
 #: ../buddyx/external/class-tgm-plugin-activation.php:2319
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2333
-msgid "Update recommended"
+#: ../buddyx/external/class-tgm-plugin-activation.php:2321
+msgid "Active"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:2327
+msgid "Required Update not Available"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2330
 msgid "Requires Update"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2327
-msgid "Required Update not Available"
+#: ../buddyx/external/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
 msgstr ""
 
 #. translators: 1: install status, 2: update status
@@ -327,6 +328,11 @@ msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
+#: ../buddyx/external/class-tgm-plugin-activation.php:2603
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
 #: ../buddyx/external/class-tgm-plugin-activation.php:2608
 msgid "Update %2$s"
 msgstr ""
@@ -334,10 +340,6 @@ msgstr ""
 #. translators: %2$s: plugin name in screen reader markup
 #: ../buddyx/external/class-tgm-plugin-activation.php:2614
 msgid "Activate %2$s"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:2603
-msgid "Install %2$s"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2684
@@ -356,20 +358,20 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2759
-msgid "No plugins were selected to be updated. No action taken."
-msgstr ""
-
 #: ../buddyx/external/class-tgm-plugin-activation.php:2757
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2802
-msgid "No plugins are available to be updated at this time."
+#: ../buddyx/external/class-tgm-plugin-activation.php:2759
+msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2800
 msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:2802
+msgid "No plugins are available to be updated at this time."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2908
@@ -384,6 +386,11 @@ msgstr ""
 msgid "Plugin activation failed."
 msgstr ""
 
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: ../buddyx/external/class-tgm-plugin-activation.php:3498
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
 #. translators: 1: plugin name, 2: error message.
 #: ../buddyx/external/class-tgm-plugin-activation.php:3501
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
@@ -392,6 +399,32 @@ msgstr ""
 #. translators: 1: plugin name.
 #: ../buddyx/external/class-tgm-plugin-activation.php:3503
 msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3507
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: ../buddyx/external/class-tgm-plugin-activation.php:3509
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3509, ../buddyx/external/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3509, ../buddyx/external/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: ../buddyx/external/class-tgm-plugin-activation.php:3512
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:3515
@@ -403,14 +436,6 @@ msgstr ""
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "Show Details"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "Hide Details"
-msgstr ""
-
 #: ../buddyx/external/class-tgm-plugin-activation.php:3518
 msgid "All installations have been completed."
 msgstr ""
@@ -418,38 +443,6 @@ msgstr ""
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: ../buddyx/external/class-tgm-plugin-activation.php:3520
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3507
-msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3510
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3512
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3498
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:59
-msgid "You have installed Kirki. Activate it to take advantage of this theme's features in the customizer."
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:60
-msgid "Activate Kirki Toolkit now"
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:61
-msgid "Activate Now"
 msgstr ""
 
 #: ../buddyx/external/include-kirki.php:54
@@ -462,6 +455,18 @@ msgstr ""
 
 #: ../buddyx/external/include-kirki.php:56
 msgid "Install Now"
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:59
+msgid "You have installed Kirki. Activate it to take advantage of this theme's features in the customizer."
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:60
+msgid "Activate Kirki Toolkit now"
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:61
+msgid "Activate Now"
 msgstr ""
 
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
@@ -708,6 +713,10 @@ msgstr ""
 
 #: ../buddyx/inc/extra.php:979
 msgid "Add to Media"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:1128, ../buddyx/inc/extra.php:1152
+msgid "&hellip;"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:1154
@@ -1898,15 +1907,15 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_meta.php:69
-msgctxt "post author"
-msgid "Written by  %s"
-msgstr ""
-
 #. translators: %s: post author
 #: ../buddyx/template-parts/content/entry_meta.php:66, ../buddyx/template-parts/content/entry_meta.php:74
 msgctxt "post author"
 msgid "Written by %s"
+msgstr ""
+
+#: ../buddyx/template-parts/content/entry_meta.php:69
+msgctxt "post author"
+msgid "Written by  %s"
 msgstr ""
 
 #. translators: %s: post parent title
@@ -1969,29 +1978,30 @@ msgstr ""
 msgid "Oops! It looks like you&#8217;re offline."
 msgstr ""
 
-#: ../buddyx/template-parts/content/error.php:44
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#. translators: 1: link to WP admin new post page.
+#: ../buddyx/template-parts/content/error.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: ../buddyx/template-parts/content/error.php:38
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: ../buddyx/template-parts/content/error.php:23
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: ../buddyx/template-parts/content/error.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#. translators: %s: search query
-#: ../buddyx/template-parts/content/page_header.php:41
-msgid "Search Results for: %s"
+#: ../buddyx/template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: ../buddyx/template-parts/content/page_header.php:22
 msgid "Nothing Found"
 msgstr ""
 
-#: ../buddyx/template-parts/content/page_header.php:14
-msgid "Oops! That page can&rsquo;t be found."
+#. translators: %s: search query
+#: ../buddyx/template-parts/content/page_header.php:41
+msgid "Search Results for: %s"
 msgstr ""
 
 #: ../buddyx/template-parts/content/pagination.php:13
@@ -2012,12 +2022,12 @@ msgstr ""
 msgid "9+"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:66
-msgid "No new notifications"
-msgstr ""
-
 #: ../buddyx/template-parts/header/buddypress-profile.php:61
 msgid "View all notifications"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:66
+msgid "No new notifications"
 msgstr ""
 
 #: ../buddyx/template-parts/header/buddypress-profile.php:112
