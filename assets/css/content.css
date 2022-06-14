@@ -99,6 +99,7 @@
 }
 
 .post-meta-category {
+    margin-bottom: 5px !important;
     padding: 0;
     list-style: none;
     display: flex;
@@ -504,6 +505,10 @@ article .entry-header {
     margin: 0;
 }
 
+.buddyx-article--default .post-thumbnail img {
+    border-radius: var(--global-border-radius);
+}
+
 
 /*--------------------------------------------------------------
 ## Post List Layout.
@@ -614,6 +619,7 @@ article .entry-header {
 .buddyx-article-list-thumbnail .post-thumbnail img {
     height: 100%;
     object-fit: cover;
+    border-radius: var(--global-border-radius);
 }
 
 .buddyx-article-list-thumbnail:empty {
