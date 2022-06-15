@@ -917,8 +917,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .mobile-user-profile-menu .sub-menu.toggle-show {
         display: block;
     }
-    .main-navigation ul.menu li+li {
-        border-top: 1px solid rgba(34, 36, 38, .1);
+    .main-navigation .buddyx-mobile-menu ul.menu li a {
+        padding: .5em 1em;
+        border-radius: 6px;
+    }
+    .main-navigation .buddyx-mobile-menu ul.menu li a:hover {
+        background: rgba(0, 0, 0, .02);
     }
     .main-navigation ul li.menu-item-has-children {
         position: relative;
@@ -926,7 +930,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .buddyx-mobile-user .user-wrap {
         display: flex;
         align-items: center;
-        margin: 10px 10px 20px;
+        margin: 10px 30px 20px;
     }
     .buddyx-mobile-user .user-wrap a {
         width: auto;
