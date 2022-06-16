@@ -99,6 +99,7 @@
 }
 
 .post-meta-category {
+    margin-bottom: 5px !important;
     padding: 0;
     list-style: none;
     display: flex;
@@ -424,6 +425,14 @@ article .entry-header {
 ## Post Default Layout.
 --------------------------------------------------------------*/
 
+.buddyx-article {
+    transition: all linear .2s;
+}
+
+.buddyx-article:hover {
+    box-shadow: 0 6px 24px 0 rgba(18, 43, 70, .12);
+}
+
 .buddyx-article--default {
     margin-bottom: 1rem;
 }
@@ -433,7 +442,7 @@ article .entry-header {
     margin: 0;
     padding: 1em;
     border: 1px solid var(--global-border-color);
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
 }
 
@@ -504,6 +513,10 @@ article .entry-header {
     margin: 0;
 }
 
+.buddyx-article--default .post-thumbnail img {
+    border-radius: var(--global-border-radius);
+}
+
 
 /*--------------------------------------------------------------
 ## Post List Layout.
@@ -514,7 +527,7 @@ article .entry-header {
     margin: 0;
     padding: 1em;
     border: 1px solid var(--global-border-color);
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
 }
 
@@ -614,6 +627,7 @@ article .entry-header {
 .buddyx-article-list-thumbnail .post-thumbnail img {
     height: 100%;
     object-fit: cover;
+    border-radius: var(--global-border-radius);
 }
 
 .buddyx-article-list-thumbnail:empty {
@@ -654,6 +668,11 @@ article .entry-header {
 /*--------------------------------------------------------------
 ## Post Grid Layout.
 --------------------------------------------------------------*/
+
+.buddyx-article--grid {
+    margin: -15px;
+    margin-bottom: 15px;
+}
 
 .buddyx-article--grid .buddyx-article {
     margin: 0;
@@ -702,7 +721,7 @@ article .entry-header {
 
 .buddyx-article--grid .buddyx-article-col {
     margin: 0;
-    padding: 20px 0;
+    padding: 15px;
     width: 100%;
 }
 
@@ -712,9 +731,6 @@ article .entry-header {
         grid-auto-rows: minmax(auto, auto);
         grid-auto-flow: dense;
         grid-template-columns: repeat(2, 1fr);
-    }
-    .buddyx-article--grid .buddyx-article-col {
-        padding: 20px;
     }
 }
 
@@ -728,7 +744,7 @@ article .entry-header {
     margin-bottom: 0;
     padding: 0;
     background-color: #ececec;
-    border-radius: 5px;
+    border-radius: var(--global-border-radius);
 }
 
 .buddyx-article-grid-thumbnail {
@@ -740,7 +756,7 @@ article .entry-header {
     top: 0;
     left: 0;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: var(--global-border-radius);
 }
 
 .buddyx-article-grid-content {
@@ -794,6 +810,11 @@ article .entry-header {
 .buddyx-article--grid .post-thumbnail img {
     height: 100%;
     object-fit: cover;
+    transition: all .5s;
+}
+
+.buddyx-article--grid .buddyx-article:hover .post-thumbnail img {
+    transform: scale(1.1);
 }
 
 .buddyx-article--grid a.post-thumbnail:hover:before {
@@ -824,18 +845,15 @@ article .entry-header {
     height: 100%;
 }
 
-.post-layout.masonry-layout {
-    margin: 0 0 1rem;
-}
-
 .buddyx-article--masonry {
-    margin: -1rem;
+    margin: -15px;
+    margin-bottom: 15px;
 }
 
 .buddyx-article--masonry .buddyx-article-col {
     margin: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 15px;
 }
 
 .buddyx-article--masonry .buddyx-article {
@@ -843,8 +861,10 @@ article .entry-header {
     margin: 0;
     padding: 1rem;
     border: 1px solid var(--global-border-color);
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
 .buddyx-article--masonry .buddyx-article.sticky {
@@ -857,6 +877,7 @@ article .entry-header {
 
 .buddyx-article--masonry .buddyx-article>*:last-child {
     margin-bottom: 0;
+    margin-top: auto;
 }
 
 .buddyx-article--masonry a.post-thumbnail {

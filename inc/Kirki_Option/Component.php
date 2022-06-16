@@ -671,7 +671,7 @@ class Component implements Component_Interface {
 			'default'  => array(
 				'font-family'     => 'Open Sans',
 				'variant'         => '500',
-				'font-size'       => '16px',
+				'font-size'       => '14px',
 				'line-height'     => '1.6',
 				'letter-spacing'  => '0.02em',
 				'text-transform'  => 'none',
@@ -937,7 +937,7 @@ class Component implements Component_Interface {
 			'output'   => array(
 				array(
 					'element'  => '.post-meta-category.post-meta-category a, .buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
-					.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a, .media .rtm-tabs li.active a, .buddypress.widget .item-options a.selected,
+					.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a, .media .rtm-tabs li.active a, .buddypress.widget .item-options a.selected, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price,
 					
                                         .learndash-wrapper .ld-expand-button.ld-button-alternate,
 					.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name:hover,
@@ -976,8 +976,8 @@ class Component implements Component_Interface {
 					'property' => 'color',
 				),
 				array(
-					'element'  => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type,
-                    .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+					'element'  => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type, .bp-pagination-links span.page-numbers:not(.dots),
+                    .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce span.onsale,
                     .llms-progress .progress-bar-complete, body .llms-syllabus-wrapper .llms-section-title,
 					
 					.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after',

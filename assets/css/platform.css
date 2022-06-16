@@ -74,7 +74,7 @@ img.emojioneemoji {
 }
 
 .activity-update-form:not(.modal-popup) #whats-new-form #whats-new-toolbar {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, .02);
     border-top: 1px solid var(--global-border-color);
     border-radius: 0 0 8px 8px !important;
 }
@@ -109,7 +109,11 @@ img.emojioneemoji {
 .bp-nouveau-activity-form-placeholder- #whats-new-form #whats-new-toolbar,
 .activity-update-form #whats-new-form-placeholder #whats-new-toolbar,
 .activity-update-form #whats-new-form #whats-new-toolbar {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.activity-update-form #whats-new-form #whats-new-toolbar {
+    background-color: transparent;
 }
 
 .dropzone.dz-started .dz-default.dz-message .dz-button {
@@ -345,6 +349,12 @@ span.bb-activity-edited-text {
     vertical-align: middle;
 }
 
+form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
+    box-shadow: none;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--form-border-radius);
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory
@@ -420,6 +430,16 @@ span.bb-activity-edited-text {
     float: left;
     overflow: visible;
     width: auto;
+}
+
+#item-header a.link-change-cover-image>i,
+#item-header a.position-change-cover-image>i,
+#item-header a.link-change-profile-image>i {
+    font-size: 34px;
+}
+
+.users-header #item-header-avatar a.link-change-profile-image {
+    top: 55px;
 }
 
 @media screen and (min-width: 783px) {
@@ -543,7 +563,7 @@ span.bb-activity-edited-text {
 .activity-list .activity-item .bp-generic-meta.action {
     border: 0;
     border-top: 1px solid var(--global-border-color);
-    background: rgba(217, 217, 217, 0.05);
+    background: rgba(0, 0, 0, .02);
     margin: 0;
     padding: 15px;
     padding-top: 0;

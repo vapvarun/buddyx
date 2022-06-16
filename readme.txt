@@ -97,6 +97,16 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.8 =
+* Fix: (#428) Update buddypress subnav UI
+* Fix: (#428) Update shop page, cart page, mobile navigation UI
+* Fix: (#428) Update blog layouts UI
+* Fix: (#428) Update activity, members, groups, single profile, posts UI
+* Fix: (#428) Update button border radius, register page UI
+* Fix: (#428) Update header menu dropdown, search UI
+* Fix: (#428) Update activity types UI
+* Fix: (#428) Update profile cover icons with bb platform and UI fixes
+
 = 4.3.7 =
 * Fix: Update whats new area form UI with bb platform
 * Fix: (#422) Managed logo with safari browser

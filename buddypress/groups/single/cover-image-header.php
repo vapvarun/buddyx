@@ -54,9 +54,9 @@ $has_cover_image_position = '';
 					<?php
 					if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 						?>
-							<i class="bb-icon-edit-thin"></i>
+							<i class="bb-icon-bf bb-icon-camera"></i>
 						<?php } else { ?>
-							<i class="fa fa-edit"></i>
+							<i class="fa fa-camera"></i>
 						<?php
 						}
 						?>
@@ -68,12 +68,12 @@ $has_cover_image_position = '';
 				if ( ! empty( $group_cover_image ) && bp_is_item_admin() ) {
 					?>
 					<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
-						<i class="bb-icon-move"></i>
+						<i class="bb-icon-bf bb-icon-arrows"></i>
 					</a>
 					<div class="header-cover-reposition-wrap">
 						<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
 						<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
-						<span class="drag-element-helper"><i class="bb-icon-menu"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
+						<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
 						<img src="<?php echo esc_url( $group_cover_image ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
 					</div>
 					<?php
@@ -93,9 +93,9 @@ $has_cover_image_position = '';
 									<?php
 									if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 										?>
-											<i class="bb-icon-edit-thin"></i>
+											<i class="bb-icon-bf bb-icon-camera"></i>
 										<?php } else { ?>
-											<i class="fa fa-edit"></i>
+											<i class="fa fa-camera"></i>
 										<?php
 										}
 										?>

@@ -14,7 +14,7 @@
     --content-width: 100%;
     --dropdown-symbol-width: 0.7em;
     /* Custom editor colors */
-    --color-theme-primary: #e36d60;
+    --color-theme-primary: #ef5455;
     --color-theme-secondary: #41848f;
     --color-theme-red: #c0392b;
     --color-theme-green: #27ae60;
@@ -49,6 +49,10 @@
     --container-xxl: 1400px;
     --grid-gutter-width: 30px;
     --el-spacing: 2rem;
+    /* Border radius */
+    --global-border-radius: 8px;
+    --button-border-radius: 6px;
+    --form-border-radius: 6px;
     /* Article */
     --line-clamp-title: 2;
     --line-clamp-with-media: 2;
