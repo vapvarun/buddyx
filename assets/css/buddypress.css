@@ -403,11 +403,23 @@ body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
 
 .buddypress-wrap ul.subnav {
     width: 100%;
-    background: rgba(0, 0, 0, .02);
+    background: #fafafa;
     margin: 15px 0;
     padding: 0 8px;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
+}
+
+.buddypress-wrap .bp-navs ul.subnav li a {
+    padding: 8px 10px;
+}
+
+.buddypress-wrap.bp-dir-hori-nav ul.subnav {
+    margin-top: 0;
+}
+
+body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
+    margin-top: 15px;
 }
 
 .buddypress-wrap.bp-vertical-navs ul.subnav {
@@ -2181,6 +2193,10 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 .single-headers .item-meta {
     margin: 0 0 10px;
     padding-bottom: 0;
+}
+
+.buddypress-wrap .profile {
+    margin-top: 0;
 }
 
 .buddypress-wrap .profile.public .profile-group-title {
