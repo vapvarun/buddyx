@@ -740,8 +740,14 @@ function buddyx_get_webfont_url( $url, $format = 'woff2' ) {
 	return $font->get_url();
 }
 
-
-add_action( 'wp_ajax_buddyx_regenerate_fonts_folder','buddyx_regenerate_fonts_folder' );
+/**
+ * Reset font folder
+ *
+ * @access public
+ * @return void
+ *
+ * @since 4.3.9
+ */
 function buddyx_regenerate_fonts_folder() {
 	
 	if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -760,3 +766,19 @@ function buddyx_regenerate_fonts_folder() {
 
 	wp_send_json_error( 'no_font_loader' );
 }
+add_action( 'wp_ajax_buddyx_regenerate_fonts_folder','buddyx_regenerate_fonts_folder' );
+
+
+
+/**
+ *  Delete the cached partial configs.
+ */
+function buddyx_delete_cached_partials() {	
+
+	// Delete previously stored local fonts data, if exists.
+	if ( get_option( 'buddyx_font_url' ) ) {
+		$local_webfont_loader = buddyx_webfont_loader_instance( '' );
+		$local_webfont_loader->buddyx_delete_fonts_folder();
+	}
+}
+add_action( 'customize_save_after', 'buddyx_delete_cached_partials'  );
