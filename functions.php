@@ -108,6 +108,9 @@ require get_template_directory() . '/inc/class-buddyx-breadcrumbs.php';
 // Load BuddyPress PRofile Completion widget.
 require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
 
+// Load webfont loader file.
+require get_template_directory() . '/inc/Webfont/class-buddyx-webfont-loader.php';
+
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
 

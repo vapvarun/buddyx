@@ -1731,7 +1731,7 @@ class Component implements Component_Interface {
 			'label'           => esc_html__( 'Flush Local Fonts Cache', 'buddyx' ),
 			'description'     => esc_html__( 'Click the button to reset the local fonts cache.', 'buddyx' ),
 			'section'         => 'site_performance_section',
-			'default'         => '<input type="submit" value="Flush Local Font Files">',
+			'default'         => '<input type="submit" value="Flush Local Font Files" class="button button-secondary buddyx-flush-font-files">',
 			'active_callback' => array(
 				array(
 					'setting'  => 'site_load_google_font_locally',

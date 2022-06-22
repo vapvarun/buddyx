@@ -100,9 +100,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_enqueue_styles() {
 
 		// Enqueue Google Fonts.
-		$google_fonts_url = $this->get_google_fonts_url();
+		$google_fonts_url = $this->get_google_fonts_url();		
 		if ( ! empty( $google_fonts_url ) ) {
-			wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			
+			if ( get_theme_mod( 'site_load_google_font_locally' ) && ! is_customize_preview() && ! is_admin() ) {
+				if ( get_theme_mod( 'site_preload_local_font' ) ) {
+					buddyx_load_preload_local_fonts( $google_fonts_url );
+				}				
+				
+				wp_enqueue_style( 'buddyx-fonts', buddyx_get_webfont_url( $google_fonts_url ), [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			} else {
+			
+				wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			}
 		}
 
 		$css_uri = get_theme_file_uri( '/assets/css/' );
