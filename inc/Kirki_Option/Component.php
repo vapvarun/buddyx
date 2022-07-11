@@ -999,6 +999,7 @@ class Component implements Component_Interface {
 				),
 				array(
 					'element'  => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .avatar-history-table td .avatar.selected,
+					.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
                     
                     .llms-student-dashboard .llms-sd-item.current>a, .llms-student-dashboard .llms-sd-item>a:hover,
 					
