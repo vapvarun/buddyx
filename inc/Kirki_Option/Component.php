@@ -268,6 +268,16 @@ class Component implements Component_Interface {
 				'panel'       => 'site_footer_panel',
 			)
 		);
+
+		// Site Performance.
+		$wp_customize->add_section(
+			'site_performance_section',
+			array(
+				'title'       => esc_html__( 'Site Performance', 'buddyx' ),
+				'priority'    => 11,
+				'description' => '',
+			)
+		);
 	}
 
 	public function add_fields( $fields ) {
@@ -989,6 +999,7 @@ class Component implements Component_Interface {
 				),
 				array(
 					'element'  => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .avatar-history-table td .avatar.selected,
+					.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
                     
                     .llms-student-dashboard .llms-sd-item.current>a, .llms-student-dashboard .llms-sd-item>a:hover,
 					
@@ -1677,6 +1688,56 @@ class Component implements Component_Interface {
 				array(
 					'element'  => '.site-info a:hover',
 					'property' => 'color',
+				),
+			),
+		);
+
+		/**
+		 *  Site Performance
+		 */
+		$fields[] = array(
+			'type'     => 'switch',
+			'settings' => 'site_load_google_font_locally',
+			'label'    => esc_html__( 'Load Google Fonts Locally ?', 'buddyx' ),
+			'section'  => 'site_performance_section',
+			'default'  => '',
+			'choices'  => array(
+				'on'  => esc_html__( 'Enable', 'buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+			),
+		);
+
+		$fields[] = array(
+			'type'            => 'switch',
+			'settings'        => 'site_preload_local_font',
+			'label'           => esc_html__( 'Preload Local Fonts ?', 'buddyx' ),
+			'section'         => 'site_performance_section',
+			'default'         => '',
+			'choices'         => array(
+				'on'  => esc_html__( 'Enable', 'buddyx' ),
+				'off' => esc_html__( 'Disable', 'buddyx' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'site_load_google_font_locally',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		);
+
+		$fields[] = array(
+			'type'            => 'custom',
+			'settings'        => 'site_flush_local_font',
+			'label'           => esc_html__( 'Flush Local Fonts Cache', 'buddyx' ),
+			'description'     => esc_html__( 'Click the button to reset the local fonts cache.', 'buddyx' ),
+			'section'         => 'site_performance_section',
+			'default'         => '<input type="submit" value="Flush Local Font Files" class="button button-secondary buddyx-flush-font-files">',
+			'active_callback' => array(
+				array(
+					'setting'  => 'site_load_google_font_locally',
+					'operator' => '==',
+					'value'    => 1,
 				),
 			),
 		);

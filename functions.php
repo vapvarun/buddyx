@@ -1,22 +1,19 @@
 <?php
 /**
- * Buddyx functions and definitions
+ * Buddyx functions and definitions.
  *
  * This file must be parseable by PHP 5.2.
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package buddyx
+ * @see https://developer.wordpress.org/themes/basics/theme-functions/
  */
-
 define( 'BUDDYX_MINIMUM_WP_VERSION', '4.5' );
 define( 'BUDDYX_MINIMUM_PHP_VERSION', '7.0' );
 
 /**
  * Checks if the BP Template pack is Nouveau when BuddyPress is active.
  *
- * @return boolean False if BuddyPress is not active or Nouveau is the active Template Pack.
- *                 True otherwise.
+ * @return bool False if BuddyPress is not active or Nouveau is the active Template Pack.
+ *              True otherwise.
  */
 function buddyx_template_pack_check() {
 	$retval = false;
@@ -32,7 +29,7 @@ function buddyx_buddypress_legacy_notice() {
 	if ( buddyx_template_pack_check() ) {
 		?>
 		<div class="error"><p>
-		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the %sBuddyPress Options.%s', 'buddyx' ), '<a href="'. admin_url('admin.php?page=bp-settings').'" >', '</a>' ); ?>
+		<?php printf( esc_html__( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the %1$sBuddyPress Options.%2$s', 'buddyx' ), '<a href="' . admin_url( 'admin.php?page=bp-settings' ) . '" >', '</a>' ); ?>
 		</p></div>
 		<?php
 	}
@@ -60,10 +57,9 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 	/**
 	 * Custom autoloader function for theme classes.
 	 *
-	 * @access private
+	 * @param string $class_name class name to load
 	 *
-	 * @param string $class_name Class name to load.
-	 * @return bool True if the class was loaded, false otherwise.
+	 * @return bool true if the class was loaded, false otherwise
 	 */
 	function _buddyx_autoload( $class_name ) {
 		$namespace = 'BuddyX\Buddyx';
@@ -99,7 +95,7 @@ call_user_func( 'BuddyX\Buddyx\buddyx' );
 
 // Require plugin.php to use is_plugin_active() below
 if ( ! function_exists( 'is_plugin_active' ) ) {
-	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	include_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
 // Load theme breadcrumbs function.
@@ -108,13 +104,15 @@ require get_template_directory() . '/inc/class-buddyx-breadcrumbs.php';
 // Load BuddyPress PRofile Completion widget.
 require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
 
+// Load webfont loader file.
+require get_template_directory() . '/inc/Webfont/class-buddyx-webfont-loader.php';
+
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
 
 // bp_nouveau_appearance default option
 $optionKey = 'buddyx_theme_is_activated';
 if ( ! get_option( $optionKey ) ) {
-
 	$bp_nouveau_appearance = array(
 		'members_layout'         => 3,
 		'members_friends_layout' => 3,
@@ -134,7 +132,6 @@ if ( ! get_option( $optionKey ) ) {
 // Add WooCommerce Support
 // ------------------------------------------------------------------------------
 if ( ! function_exists( 'buddyx_woocommerce_support' ) ) {
-
 	function buddyx_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
@@ -149,7 +146,6 @@ if ( ! function_exists( 'buddyx_woocommerce_support' ) ) {
 // force add theme support for BP nouveau
 // ------------------------------------------------------------------------------
 if ( ! function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
-
 	function buddyx_buddypress_nouveau_support() {
 		add_theme_support( 'buddypress-use-nouveau' );
 	}
@@ -157,7 +153,7 @@ if ( ! function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
 	add_action( 'after_setup_theme', 'buddyx_buddypress_nouveau_support' );
 }
 
-/**
+/*
  * Remove WooCommerce the breadcrumbs
  */
 add_action( 'init', 'buddyx_remove_wc_breadcrumbs' );
@@ -166,16 +162,16 @@ function buddyx_remove_wc_breadcrumbs() {
 }
 
 /**
- * Remove WooCommerce CSS if WooCommerce not activated
+ * Remove WooCommerce CSS if WooCommerce not activated.
  */
 function buddyx_woo_dequeue_styles() {
 	wp_dequeue_style( 'buddyx-woocommerce' );
 	wp_deregister_style( 'buddyx-woocommerce' );
 }
+
 if ( ! class_exists( 'WooCommerce' ) ) {
 	add_action( 'wp_print_styles', 'buddyx_woo_dequeue_styles' );
 }
-
 
 /*
  * Return $bp_is_directory false when buddypress register page view.
@@ -191,7 +187,7 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 		$bp_is_directory = false;
 	}
 
-	/* Register page id and BuddyPress saved register page equal then bp_is_directory set false */
+	/* Register page id and buddypress saved register page equal then bp_is_directory set false */
 	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['register'] == $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}
@@ -201,7 +197,7 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 		$bp_is_directory = false;
 	}
 
-	/* Activate page id and BuddyPress saved activate page equal then bp_is_directory set false */
+	/* Activate page id and buddypress saved activate page equal then bp_is_directory set false */
 	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['activate'] == $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}

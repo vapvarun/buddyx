@@ -2,8 +2,8 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.0.0
-Requires PHP: 7.0
+Tested up to: 6.0.1
+Requires PHP: 7.3
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -97,6 +97,14 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.3.9 =
+* Fix: (#436) Update woocommerce pages UI
+* Fix: (#433) Managed single member cover image layout
+* Fix: (#431) - Flush on save customizer setting 
+* Fix: (#431) - update js file to flush local font files
+* Fix: (#431) Added buddyx customizer js file
+* Fix: (#431) Added site performance customizer setting
+
 = 4.3.8 =
 * Fix: (#428) Update buddypress subnav UI
 * Fix: (#428) Update shop page, cart page, mobile navigation UI

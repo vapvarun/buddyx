@@ -449,6 +449,7 @@ p:empty::before {
 
 textarea {
     width: 100%;
+    resize: vertical;
 }
 
 

@@ -7,28 +7,28 @@
 
 namespace BuddyX\Buddyx\Styles;
 
+use function _doing_it_wrong;
+use function add_action;
+use function add_filter;
+use function add_query_arg;
+use function apply_filters;
+use function comments_open;
+use function esc_attr;
+use function esc_url;
+use function get_comments_number;
+use function get_theme_file_path;
+use function get_theme_file_uri;
+use function is_singular;
+use function post_password_required;
+use function wp_enqueue_style;
+use function wp_print_styles;
+use function wp_register_style;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function BuddyX\Buddyx\buddyx;
-use function add_action;
-use function add_filter;
-use function wp_enqueue_style;
-use function wp_register_style;
 use function wp_style_add_data;
-use function get_theme_file_uri;
-use function get_theme_file_path;
-use function wp_styles;
-use function esc_attr;
-use function esc_url;
 use function wp_style_is;
-use function _doing_it_wrong;
-use function wp_print_styles;
-use function post_password_required;
-use function is_singular;
-use function comments_open;
-use function get_comments_number;
-use function apply_filters;
-use function add_query_arg;
+use function wp_styles;
 
 /**
  * Class for managing stylesheets.
@@ -62,9 +62,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Gets the unique identifier for the theme component.
 	 *
-	 * @return string Component slug.
+	 * @return string component slug
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'styles';
 	}
 
@@ -72,11 +72,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'buddyx_enqueue_admin_style' ] );
-		add_action( 'wp_head', [ $this, 'action_preload_styles' ] );
-		add_action( 'after_setup_theme', [ $this, 'action_add_editor_styles' ] );
-		add_filter( 'wp_resource_hints', [ $this, 'filter_resource_hints' ], 10, 2 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'buddyx_enqueue_admin_style' ) );
+		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
+		add_action( 'after_setup_theme', array( $this, 'action_add_editor_styles' ) );
+		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}
 
 	/**
@@ -86,10 +86,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
 	 *               adding support for further arguments in the future.
 	 */
-	public function template_tags() : array {
-		return [
-			'print_styles' => [ $this, 'print_styles' ],
-		];
+	public function template_tags(): array {
+		return array(
+			'print_styles' => array( $this, 'print_styles' ),
+		);
 	}
 
 	/**
@@ -98,11 +98,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Stylesheets that are global are enqueued. All other stylesheets are only registered, to be enqueued later.
 	 */
 	public function action_enqueue_styles() {
-
 		// Enqueue Google Fonts.
 		$google_fonts_url = $this->get_google_fonts_url();
 		if ( ! empty( $google_fonts_url ) ) {
-			wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			if ( get_theme_mod( 'site_load_google_font_locally' ) && ! is_customize_preview() && ! is_admin() ) {
+				if ( get_theme_mod( 'site_preload_local_font' ) ) {
+					buddyx_load_preload_local_fonts( $google_fonts_url );
+				}
+				wp_enqueue_style( 'buddyx-fonts', buddyx_get_webfont_url( $google_fonts_url ), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			} else {
+				wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			}
 		}
 
 		$css_uri = get_theme_file_uri( '/assets/css/' );
@@ -121,105 +127,118 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			 * enqueued based on whether they are necessary for the page content).
 			 */
 			if ( $data['global'] || ! $preloading_styles_enabled && is_callable( $data['preload_callback'] ) && call_user_func( $data['preload_callback'] ) ) {
-				wp_enqueue_style( $handle, $src, [], $version, $data['media'] );
+				wp_enqueue_style( $handle, $src, array(), $version, $data['media'] );
 			} else {
-				wp_register_style( $handle, $src, [], $version, $data['media'] );
+				wp_register_style( $handle, $src, array(), $version, $data['media'] );
 			}
 
 			wp_style_add_data( $handle, 'precache', true );
 		}
 
-                // Enqueue BuddyPress CSS
+		// Enqueue BuddyPress CSS.
 		if ( ! class_exists( 'Youzify' ) ) {
-			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css');
+			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css' );
 		}
 
-		// Enqueue Platform CSS
-		if( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+		// Enqueue Platform CSS.
+		if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
 		}
 
-		// Enqueue bbPress CSS
-		if ( function_exists('is_bbpress') || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+		// Enqueue bbPress CSS.
+		if ( function_exists( 'is_bbpress' ) || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css' );
 		}
 
-		// Enqueue WC Vendors CSS
-		if( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
+		// Enqueue WC Vendors CSS.
+		if ( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
 		}
 
-                // Enqueue LearnPress CSS
+		// Enqueue Learndash CSS.
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
+		}
+
+		// Enqueue LearnPress CSS.
 		if ( class_exists( 'LearnPress' ) ) {
 			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css' );
 		}
 
-                // Enqueue LifterLMS CSS
+		// Enqueue LifterLMS CSS.
 		if ( class_exists( 'LifterLMS' ) ) {
-			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css');
+			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css' );
 		}
 
-                // Enqueue Dokan CSS
+		// Enqueue Dokan CSS.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
-			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css');
+			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css' );
 		}
 
-                // Enqueue WooCommerce CSS
+		// Enqueue WooCommerce CSS.
 		if ( class_exists( 'WooCommerce' ) ) {
-			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css');
+			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css' );
 		}
 
-                // Enqueue EventsCalendar CSS
+		// Enqueue EventsCalendar CSS.
 		if ( class_exists( 'Tribe__Events__Main' ) ) {
-			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css');
+			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css' );
 		}
 
-                // Enqueue Youzify CSS
+		// Enqueue Youzify CSS.
 		if ( class_exists( 'Youzify' ) ) {
-			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css');
+			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css' );
 		}
 
-                // Enqueue WP_Job_Manager CSS
+		// Enqueue WP_Job_Manager CSS.
 		if ( class_exists( 'WP_Job_Manager' ) ) {
-			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css');
+			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css' );
 		}
 
-                // Enqueue Slick CSS
-		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css');
+		// Enqueue Slick CSS.
+		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css' );
 
-		// Enqueue RTL CSS
+		// Enqueue RTL CSS.
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css' );
 		}
 
-                // Enqueue AMP CSS
-                if ( buddyx()->is_amp() ) {
-                        wp_enqueue_style('buddyx-amp', $css_uri.'buddyx-amp.min.css');
-                }
+		// Enqueue AMP CSS.
+		if ( buddyx()->is_amp() ) {
+			wp_enqueue_style( 'buddyx-amp', $css_uri . 'buddyx-amp.min.css' );
+		}
 
-                // Enqueue Dark Mode CSS
-                wp_enqueue_style('buddyx-dark-mode', $css_uri.'dark-mode.min.css');
+		// Enqueue Dark Mode CSS.
+		wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css' );
 	}
 
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
 	 */
-	public function buddyx_enqueue_admin_style($hook) {
+	public function buddyx_enqueue_admin_style( $hook ) {
 
-                $css_uri = get_theme_file_uri( '/assets/css/' );
-                $css_dir = get_theme_file_path( '/assets/css/' );
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
 
-                wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );
+		wp_enqueue_style( 'buddyx-admin', $css_uri . '/admin.min.css' );
 
-                if ( isset($_GET['page']) && $_GET['page'] == 'buddyx-welcome' ) {
-                    wp_enqueue_script(
-                            'buddyx-admin-script',
-                            get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
-                            '',
-                            '',
-                            true
-                    );
-                }
+		if ( isset( $_GET['page'] ) && $_GET['page'] == 'buddyx-welcome' ) {
+			wp_enqueue_script(
+				'buddyx-admin-script',
+				get_theme_file_uri( '/assets/js/buddyx-admin.min.js' ),
+				'',
+				'',
+				true
+			);
+		}
+
+		// Customizer JS.
+		global $pagenow;
+
+		if ( $pagenow === 'customize.php' ) {
+			wp_enqueue_script( 'buddyx-customizer-script', get_theme_file_uri( '/assets/js/buddyx-customizer.min.js' ), '', '', true );
+		}
+
 	}
 
 	/**
@@ -230,10 +249,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * Preloading is disabled when AMP is active, as AMP injects the stylesheets inline.
 	 *
-	 * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
+	 * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
 	 */
 	public function action_preload_styles() {
-
 		// If preloading styles is disabled, return early.
 		if ( ! $this->preloading_styles_enabled() ) {
 			return;
@@ -243,7 +261,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$css_files = $this->get_css_files();
 		foreach ( $css_files as $handle => $data ) {
-
 			// Skip if stylesheet not registered.
 			if ( ! isset( $wp_styles->registered[ $handle ] ) ) {
 				continue;
@@ -270,7 +287,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Enqueues WordPress theme styles for the editor.
 	 */
 	public function action_add_editor_styles() {
-
 		// Enqueue Google Fonts.
 		$google_fonts_url = $this->get_google_fonts_url();
 		if ( ! empty( $google_fonts_url ) ) {
@@ -284,16 +300,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Adds preconnect resource hint for Google Fonts.
 	 *
-	 * @param array  $urls          URLs to print for resource hints.
-	 * @param string $relation_type The relation type the URLs are printed.
-	 * @return array URLs to print for resource hints.
+	 * @param array  $urls          URLs to print for resource hints
+	 * @param string $relation_type the relation type the URLs are printed
+	 *
+	 * @return array URLs to print for resource hints
 	 */
-	public function filter_resource_hints( array $urls, string $relation_type ) : array {
+	public function filter_resource_hints( array $urls, string $relation_type ): array {
 		if ( 'preconnect' === $relation_type && wp_style_is( 'buddyx-fonts', 'queue' ) ) {
-			$urls[] = [
+			$urls[] = array(
 				'href' => 'https://fonts.gstatic.com',
 				'crossorigin',
-			];
+			);
 		}
 
 		return $urls;
@@ -312,7 +329,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param string ...$handles One or more stylesheet handles.
 	 */
 	public function print_styles( string ...$handles ) {
-
 		// If preloading styles is disabled (and thus they have already been enqueued), return early.
 		if ( ! $this->preloading_styles_enabled() ) {
 			return;
@@ -321,12 +337,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_files = $this->get_css_files();
 		$handles   = array_filter(
 			$handles,
-			function( $handle ) use ( $css_files ) {
+			function ( $handle ) use ( $css_files ) {
 				$is_valid = isset( $css_files[ $handle ] ) && ! $css_files[ $handle ]['global'];
 				if ( ! $is_valid ) {
 					/* translators: %s: stylesheet handle */
 					_doing_it_wrong( __CLASS__ . '::print_styles()', esc_html( sprintf( __( 'Invalid theme stylesheet handle: %s', 'buddyx' ), $handle ) ), 'Buddyx 2.0.0' );
 				}
+
 				return $is_valid;
 			}
 		);
@@ -346,12 +363,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * By default, this method returns true unless the page is being served in AMP. The
 	 * {@see 'buddyx_preloading_styles_enabled'} filter can be used to tweak the return value.
 	 *
-	 * @return bool True if preloading stylesheets and injecting them is enabled, false otherwise.
+	 * @return bool true if preloading stylesheets and injecting them is enabled, false otherwise
 	 */
 	protected function preloading_styles_enabled() {
 		$preloading_styles_enabled = ! buddyx()->is_amp();
 
-		/**
+		/*
 		 * Filters whether to preload stylesheets and inject their link tags within the page content.
 		 *
 		 * @param bool $preloading_styles_enabled Whether preloading stylesheets and injecting them is enabled.
@@ -362,70 +379,67 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Gets all CSS files.
 	 *
-	 * @return array Associative array of $handle => $data pairs.
+	 * @return array associative array of $handle => $data pairs
 	 */
-	protected function get_css_files() : array {
+	protected function get_css_files(): array {
 		if ( is_array( $this->css_files ) ) {
 			return $this->css_files;
 		}
 
-		$css_files = [
-			'buddyx-global'     => [
+		$css_files = array(
+			'buddyx-global'           => array(
 				'file'   => 'global.min.css',
 				'global' => true,
-			],
-			'buddyx-comments'   => [
+			),
+			'buddyx-comments'         => array(
 				'file'             => 'comments.min.css',
-				'preload_callback' => function() {
+				'preload_callback' => function () {
 					return ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() );
 				},
-			],
-			'buddyx-content'    => [
+			),
+			'buddyx-content'          => array(
 				'file'             => 'content.min.css',
 				'preload_callback' => '__return_true',
-			],
-			'buddyx-sidebar'    => [
-				'file'             => 'sidebar.min.css',
-			],
-			'buddyx-widgets'    => [
-				'file'             => 'widgets.min.css',
-			],
-			'buddyx-front-page' => [
-				'file' => 'front-page.min.css',
-				'preload_callback' => function() {
+			),
+			'buddyx-sidebar'          => array(
+				'file' => 'sidebar.min.css',
+			),
+			'buddyx-widgets'          => array(
+				'file' => 'widgets.min.css',
+			),
+			'buddyx-front-page'       => array(
+				'file'             => 'front-page.min.css',
+				'preload_callback' => function () {
 					global $template;
+
 					return 'front-page.php' === basename( $template );
 				},
-			],
-			'buddyx-site-loader' => [
-				'file' => 'loaders.min.css',
+			),
+			'buddyx-site-loader'      => array(
+				'file'   => 'loaders.min.css',
 				'global' => true,
-			],
-			'buddyx-load-fontawesome' => [
-				'file' => 'fontawesome.min.css',
+			),
+			'buddyx-load-fontawesome' => array(
+				'file'   => 'fontawesome.min.css',
 				'global' => true,
-			],
-			'buddyx-buddypress' => [
-				'file' => 'buddypress.min.css',
-				'global' => true,
-			],
-		];
+			),
+		);
 
 		/**
 		 * Filters default CSS files.
 		 *
 		 * @param array $css_files Associative array of CSS files, as $handle => $data pairs.
-		 * $data must be an array with keys 'file' (file path relative to 'assets/css'
-		 * directory), and optionally 'global' (whether the file should immediately be
-		 * enqueued instead of just being registered) and 'preload_callback' (callback)
-		 * function determining whether the file should be preloaded for the current request).
+		 *                         $data must be an array with keys 'file' (file path relative to 'assets/css'
+		 *                         directory), and optionally 'global' (whether the file should immediately be
+		 *                         enqueued instead of just being registered) and 'preload_callback' (callback)
+		 *                         function determining whether the file should be preloaded for the current request).
 		 */
 		$css_files = apply_filters( 'buddyx_css_files', $css_files );
 
-		$this->css_files = [];
+		$this->css_files = array();
 		foreach ( $css_files as $handle => $data ) {
 			if ( is_string( $data ) ) {
-				$data = [ 'file' => $data ];
+				$data = array( 'file' => $data );
 			}
 
 			if ( empty( $data['file'] ) ) {
@@ -433,11 +447,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 
 			$this->css_files[ $handle ] = array_merge(
-				[
+				array(
 					'global'           => false,
 					'preload_callback' => null,
 					'media'            => 'all',
-				],
+				),
 				$data
 			);
 		}
@@ -448,18 +462,18 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Returns Google Fonts used in theme.
 	 *
-	 * @return array Associative array of $font_name => $font_variants pairs.
+	 * @return array associative array of $font_name => $font_variants pairs
 	 */
-	protected function get_google_fonts() : array {
+	protected function get_google_fonts(): array {
 		if ( is_array( $this->google_fonts ) ) {
 			return $this->google_fonts;
 		}
 
-		$google_fonts = [
-			'Open Sans'  => [ '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ],
-		];
+		$google_fonts = array(
+			'Open Sans' => array( '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ),
+		);
 
-		/**
+		/*
 		 * Filters default Google Fonts.
 		 *
 		 * @param array $google_fonts Associative array of $font_name => $font_variants pairs.
@@ -474,16 +488,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * Uses `latin` subset by default. To use other subsets, add a `subset` key to $query_args and the desired value.
 	 *
-	 * @return string Google Fonts URL, or empty string if no Google Fonts should be used.
+	 * @return string google Fonts URL, or empty string if no Google Fonts should be used
 	 */
-	protected function get_google_fonts_url() : string {
+	protected function get_google_fonts_url(): string {
 		$google_fonts = $this->get_google_fonts();
 
 		if ( empty( $google_fonts ) ) {
 			return '';
 		}
 
-		$font_families = [];
+		$font_families = array();
 
 		foreach ( $google_fonts as $font_name => $font_variants ) {
 			if ( ! empty( $font_variants ) ) {
@@ -498,10 +512,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$font_families[] = $font_name;
 		}
 
-		$query_args = [
+		$query_args = array(
 			'family'  => implode( '|', $font_families ),
 			'display' => 'swap',
-		];
+		);
 
 		return add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
