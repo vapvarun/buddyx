@@ -115,9 +115,15 @@ if ( is_user_logged_in() ) {
 	<?php
 	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
 		?>
-	<div class="bp-icon-wrap">
-		<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
-	</div>
+		<div class="bp-icon-wrap">
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+		</div>
+		<?php
+	} elseif ( function_exists( 'bp_is_active' ) && bp_get_option( 'bp-enable-membership-requests' ) && true === get_theme_mod( 'site_register_link', true ) ) {
+		?>
+		<div class="bp-icon-wrap">
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+		</div>
 		<?php
 	}
 }

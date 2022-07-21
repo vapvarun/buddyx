@@ -2058,7 +2058,7 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:119
+#: ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125
 msgid "Register"
 msgstr ""
 
