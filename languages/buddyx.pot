@@ -2042,23 +2042,23 @@ msgstr ""
 msgid "9+"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:61
-msgid "View all notifications"
+#: ../buddyx/template-parts/header/buddypress-profile.php:70
+msgid "No notifications found."
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:66
-msgid "No new notifications"
+#: ../buddyx/template-parts/header/buddypress-profile.php:74
+msgid "All Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:112
+#: ../buddyx/template-parts/header/buddypress-profile.php:118
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:112
+#: ../buddyx/template-parts/header/buddypress-profile.php:118
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125
+#: ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:131
 msgid "Register"
 msgstr ""
 
