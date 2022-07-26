@@ -138,8 +138,8 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			?>
 
 			<?php
-			if ( function_exists( 'bp_get_user_social_networks_urls' ) ) :
-				echo bp_get_user_social_networks_urls();
+			if ( function_exists( 'bb_enabled_member_social_networks' ) && bb_enabled_profile_header_layout_element( 'social-networks' ) && bb_enabled_member_social_networks() ) :
+				echo bp_get_user_social_networks_urls(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			endif;
 			?>
 

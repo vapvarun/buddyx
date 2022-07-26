@@ -2059,6 +2059,13 @@ li.load-more a.loading::after {
 # Member Single
 --------------------------------------------------------------*/
 
+@media (min-width: 768px) {
+    .site-wrapper.member-home,
+    .site-wrapper.group-home {
+        min-height: auto;
+    }
+}
+
 body.buddypress.bp-user #page #primary .entry-header,
 body.buddypress.single-item.groups #page #primary .entry-header,
 body.buddypress.group-create #page #primary .entry-header {
