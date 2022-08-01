@@ -355,6 +355,12 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     border-radius: var(--form-border-radius);
 }
 
+#whats-new-form.activity-form.has-draft #discard-draft-activity {
+    padding: 0;
+    font-size: 14px !important;
+    font-weight: normal;
+}
+
 
 /*--------------------------------------------------------------
 # Members Directory
@@ -510,6 +516,12 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     display: flex;
     flex-flow: nowrap;
     width: auto;
+}
+
+@media screen and (max-width: 782px) {
+    #buddypress .users-header #item-header-cover-image .member-header-actions-wrap {
+        justify-content: center;
+    }
 }
 
 #buddypress .bb_more_options_list .generic-button a:hover {

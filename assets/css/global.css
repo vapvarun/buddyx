@@ -1353,6 +1353,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
 }
 
+@media (max-width: 480px) {
+    .menu-icons-wrapper #searchform input[type=search] {
+        width: auto;
+    }
+}
+
 
 /*--------------------------------------------------------------
 ## Buddypress navigation icons
