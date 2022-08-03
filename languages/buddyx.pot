@@ -2042,23 +2042,23 @@ msgstr ""
 msgid "9+"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:61
-msgid "View all notifications"
+#: ../buddyx/template-parts/header/buddypress-profile.php:70
+msgid "No notifications found."
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:66
-msgid "No new notifications"
+#: ../buddyx/template-parts/header/buddypress-profile.php:74
+msgid "All Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:112
+#: ../buddyx/template-parts/header/buddypress-profile.php:118
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:112
+#: ../buddyx/template-parts/header/buddypress-profile.php:118
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:119, ../buddyx/template-parts/header/buddypress-profile.php:119
+#: ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:131
 msgid "Register"
 msgstr ""
 
@@ -2114,27 +2114,27 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:42
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:57
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:59
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:74
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:63
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:78
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:64
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:79
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:65
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:80
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:66
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:81
 msgid "Cover photo"
 msgstr ""
 
@@ -2150,15 +2150,15 @@ msgstr ""
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:79, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/buddypress/members/single/cover-image-header.php:94, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:131, ../buddyx/buddypress/members/single/member-header.php:66
+#: ../buddyx/buddypress/members/single/cover-image-header.php:146, ../buddyx/buddypress/members/single/member-header.php:66
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:132, ../buddyx/buddypress/members/single/member-header.php:67
+#: ../buddyx/buddypress/members/single/cover-image-header.php:147, ../buddyx/buddypress/members/single/member-header.php:67
 msgid "Member Type"
 msgstr ""
 

@@ -97,6 +97,12 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.0 =
+* Fix: (#445) Managed single profile social network with bb platform
+* Fix: (#441, #442, #443) Managed UI fixes
+* Fix: (#438) Update header user notification code and UI fixes
+* Fix: (#437) Added membership request button in header
+
 = 4.3.9 =
 * Fix: (#436) Update woocommerce pages UI
 * Fix: (#433) Managed single member cover image layout

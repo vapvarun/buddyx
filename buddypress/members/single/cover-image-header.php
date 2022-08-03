@@ -17,6 +17,21 @@ $cover_image_url          = bp_attachments_get_attachment(
 	)
 );
 
+$is_enabled_social_networks  = function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) && bb_enabled_profile_header_layout_element( 'social-networks' ) && function_exists( 'bb_enabled_member_social_networks' ) && bb_enabled_member_social_networks();
+
+$user_social_networks_urls      = '';
+$social_networks_urls_div_class = 'social-networks-hide';
+if ( $is_enabled_social_networks ) {
+
+	add_filter( 'bp_get_user_social_networks_urls', 'bb_get_user_social_networks_urls_with_visibility', 10, 3 );
+	$user_social_networks_urls = bp_get_user_social_networks_urls();
+	remove_filter( 'bp_get_user_social_networks_urls', 'bb_get_user_social_networks_urls_with_visibility', 10, 3 );
+
+	if ( ! empty( $user_social_networks_urls ) ) {
+		$social_networks_urls_div_class = 'network_profiles';
+	}
+}
+
 if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 	if ( ! empty( $cover_image_url ) ) {
 		$cover_image_position = bp_get_user_meta( bp_displayed_user_id(), 'bp_cover_position', true );
@@ -28,7 +43,7 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 }
 ?>
 
-<div id="cover-image-container">
+<div id="cover-image-container" class="<?php echo esc_attr( $social_networks_urls_div_class ); ?>">
 	<div id="header-cover-image" class="<?php echo esc_attr( $has_cover_image_position . $has_cover_image ); ?>">
 		<?php
 		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
@@ -38,57 +53,57 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 		}
 		?>
 
-			<?php if ( bp_is_my_profile() ) { ?>
-						<a href="<?php echo bp_get_members_component_link( 'profile', 'change-cover-image' ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
-								<?php
-								if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-									?>
-										<i class="bb-icon-bf bb-icon-camera"></i>
-									<?php } else { ?>
-										<i class="fa fa-camera"></i>
-									<?php
-									}
-									?>
-						</a>
-			<?php } ?>
-
-			<?php
-			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-				if ( ! empty( $cover_image_url ) ) {
+		<?php if ( bp_is_my_profile() ) { ?>
+			<a href="<?php echo bp_get_members_component_link( 'profile', 'change-cover-image' ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
+				<?php
+				if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 					?>
-					<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
-						<i class="bb-icon-bf bb-icon-arrows"></i>
-					</a>
-					<div class="header-cover-reposition-wrap">
-						<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
-						<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
-						<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
-						<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
-					</div>
+						<i class="bb-icon-bf bb-icon-camera"></i>
+					<?php } else { ?>
+						<i class="fa fa-camera"></i>
 					<?php
-				}
+					}
+					?>
+			</a>
+		<?php } ?>
+
+		<?php
+		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+			if ( ! empty( $cover_image_url ) ) {
+				?>
+				<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
+					<i class="bb-icon-bf bb-icon-arrows"></i>
+				</a>
+				<div class="header-cover-reposition-wrap">
+					<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
+					<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
+					<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
+					<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
+				</div>
+				<?php
 			}
-			?>
+		}
+		?>
 	</div>
 </div><!-- #cover-image-container -->    
 
 <div class="item-header-cover-image-wrapper">
 	<div id="item-header-cover-image">
 		<div id="item-header-avatar">
-				<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
-						<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
-							<?php
-							if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-								?>
-									<i class="bb-icon-bf bb-icon-camera"></i>
-								<?php } else { ?>
-									<i class="fa fa-camera"></i>
-								<?php
-								}
-								?>
-						</a>
-				<?php } ?>
-				<?php bp_displayed_user_avatar( 'type=full' ); ?>
+			<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
+				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+					<?php
+					if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+						?>
+							<i class="bb-icon-bf bb-icon-camera"></i>
+						<?php } else { ?>
+							<i class="fa fa-camera"></i>
+						<?php
+						}
+						?>
+				</a>
+			<?php } ?>
+			<?php bp_displayed_user_avatar( 'type=full' ); ?>
 		</div><!-- #item-header-avatar -->
 
 		<div id="item-header-content">
@@ -138,9 +153,21 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			?>
 
 			<?php
-			if ( function_exists( 'bp_get_user_social_networks_urls' ) ) :
-				echo bp_get_user_social_networks_urls();
-			endif;
+			$additional_class = '';
+			if ( function_exists( 'bb_get_user_social_networks_field_value' ) ) {
+				$networks_field_value = bb_get_user_social_networks_field_value();
+				if ( is_array( $networks_field_value ) && count( array_filter( $networks_field_value ) ) > 6 ) {
+					$additional_class = 'left-align';
+				}
+			}
+
+			if ( ! empty( $user_social_networks_urls ) ) {
+				?>
+				<div class="flex align-items-center member-social-links <?php echo esc_attr( $additional_class ); ?>">
+					<?php echo wp_kses( $user_social_networks_urls, bb_members_allow_html_tags() ); ?>
+				</div>
+				<?php
+			}
 			?>
 
 			<div class="member-header-actions-wrap">

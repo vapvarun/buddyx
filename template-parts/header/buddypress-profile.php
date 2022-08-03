@@ -44,30 +44,36 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 				<?php endif; ?>
 			<?php endif; ?>
 		</a>
-		<?php
-		$notifications = bp_notifications_get_notifications_for_user( bp_loggedin_user_id() );
-		if ( $notifications ) {
-			?>
-			<ul id="bp-notify" class="bp-header-submenu bp-dropdown">
-				<?php
-				rsort( $notifications );
-				foreach ( $notifications as $notification ) {
-					?>
-						<li><?php echo $notification; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
-					<?php
-				}
-				?>
-				<li class="bp-view-all">
-					<a href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>"><?php esc_html_e( 'View all notifications', 'buddyx' ); ?></a>
-				</li>
-			</ul>
-		<?php } else { ?>
-			<ul id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
-				<li><a href="<?php esc_url( bp_loggedin_user_domain() . BP_NOTIFICATIONS_SLUG ); ?>"><?php esc_html_e( 'No new notifications', 'buddyx' ); ?></a></li>
-			</ul>
+		<div id="bp-notify" class="bp-header-submenu bp-dropdown bp-notify">
 			<?php
-		}
-		?>
+			if ( bp_has_notifications(
+				array(
+					'user_id'  => bp_loggedin_user_id(),
+					'per_page' => 10,
+					'max'      => 10,
+				)
+			) ) :
+				?>
+				<div class="bp-dropdown-inner">
+					<?php
+					while ( bp_the_notifications() ) :
+						bp_the_notification();
+						?>
+						<div class="dropdown-item">
+							<div class="dropdown-item-title notification ellipsis"><?php bp_the_notification_description(); ?></div>
+							<p class="mute"><?php bp_the_notification_time_since(); ?></p>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			<?php else : ?>
+				<div class="alert-message">
+					<div class="alert alert-warning" role="alert"><?php esc_html_e( 'No notifications found.', 'buddyx' ); ?></div>
+				</div>
+			<?php endif; ?>
+			<div class="dropdown-footer">
+				<a href="<?php echo esc_url( trailingslashit( bp_loggedin_user_domain() . bp_get_notifications_slug() . '/unread' ) ); ?>" class="button"><?php esc_html_e( 'All Notifications', 'buddyx' ); ?></a>
+			</div>
+		</div>
 	</div>
 	<?php
 }
@@ -115,9 +121,15 @@ if ( is_user_logged_in() ) {
 	<?php
 	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
 		?>
-	<div class="bp-icon-wrap">
-		<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
-	</div>
+		<div class="bp-icon-wrap">
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+		</div>
+		<?php
+	} elseif ( function_exists( 'bp_is_active' ) && bp_get_option( 'bp-enable-membership-requests' ) && true === get_theme_mod( 'site_register_link', true ) ) {
+		?>
+		<div class="bp-icon-wrap">
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+		</div>
 		<?php
 	}
 }

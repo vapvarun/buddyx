@@ -1353,6 +1353,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
 }
 
+@media (max-width: 480px) {
+    .menu-icons-wrapper #searchform input[type=search] {
+        width: auto;
+    }
+}
+
 
 /*--------------------------------------------------------------
 ## Buddypress navigation icons
@@ -1408,15 +1414,41 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     position: relative;
 }
 
-.buddypress-icons-wrapper ul#bp-notify {
+.buddypress-icons-wrapper #bp-notify {
     width: 300px;
 }
 
-.buddypress-icons-wrapper ul#bp-notify li {
+.buddypress-icons-wrapper #bp-notify .bp-dropdown-inner {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 15px;
+}
+
+.buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item {
+    padding: 10px;
+}
+
+.buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item:hover {
+    background: rgba(0,0,0,.02);
+    border-radius: var(--form-border-radius);
+}
+
+.buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item .mute {
+    font-size: 80%;
+    color: #757575;
+}
+
+.buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item p {
     margin: 0;
 }
 
-.buddypress-icons-wrapper ul#bp-notify li.bp-view-all {
+.buddypress-icons-wrapper #bp-notify .alert-message {
+    padding: 15px;
+}
+
+.buddypress-icons-wrapper #bp-notify .dropdown-footer {
+    padding: 15px;
     border-top: 1px solid var(--global-border-color);
 }
 
@@ -1486,8 +1518,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     right: 50px;
 }
 
-.buddypress-icons-wrapper .user-notifications:hover ul#bp-notify,
-.buddypress-icons-wrapper .user-notifications.active ul#bp-notify,
+.buddypress-icons-wrapper .user-notifications:hover #bp-notify,
+.buddypress-icons-wrapper .user-notifications.active #bp-notify,
 .buddypress-icons-wrapper .user-link-wrap:hover #user-profile-menu,
 .buddypress-icons-wrapper .user-link-wrap.active #user-profile-menu {
     display: block;
@@ -1551,21 +1583,21 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 @media (min-width: 360px) and (max-width: 440px) {
-    .buddypress-icons-wrapper ul#bp-notify {
-        right: -80px;
+    .buddypress-icons-wrapper #bp-notify {
+        right: -60px;
     }
-    ul#bp-notify.bp-header-submenu:before {
-        right: 100px
+    #bp-notify.bp-header-submenu:before {
+        right: 63px
     }
 }
 
 @media (max-width: 359px) {
-    .buddypress-icons-wrapper ul#bp-notify {
+    .buddypress-icons-wrapper #bp-notify {
         width: 280px;
-        right: -100px;
+        right: -60px;
     }
-    ul#bp-notify.bp-header-submenu:before {
-        right: 122px;
+    #bp-notify.bp-header-submenu:before {
+        right: 63px
     }
 }
 
