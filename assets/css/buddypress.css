@@ -1323,7 +1323,7 @@ div#buddypress .activity-read-more a {
     padding: 12px 25px;
     text-align: center;
     background-color: #eee;
-    border-radius: 3px;
+    border-radius: var(--global-border-radius);
 }
 
 .buddypress-wrap .activity-list .load-more,
