@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.1 =
+* Fix: (#449) Update activity read more border radius
+* Fix: (#449) Update activity read more UI
+* Fix: (#446) Managed elementor template edit sidebar issue
+
 = 4.4.0 =
 * Fix: (#445) Managed single profile social network with bb platform
 * Fix: (#441, #442, #443) Managed UI fixes
