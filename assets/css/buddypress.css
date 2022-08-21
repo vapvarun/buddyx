@@ -1315,12 +1315,15 @@ div#buddypress .activity-read-more {
 
 div#buddypress .activity-read-more a {
     font-size: inherit;
-    padding: 0;
+    line-height: 1.2;
     border: 0;
-}
-
-div#buddypress .activity-read-more a:hover {
-    background: transparent;
+    clear: both;
+    display: block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    text-align: center;
+    background-color: #eee;
+    border-radius: var(--global-border-radius);
 }
 
 .buddypress-wrap .activity-list .load-more,

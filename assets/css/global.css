@@ -115,6 +115,16 @@ p:empty::before {
     content: none;
 }
 
+body.elementor_library-template-default .primary-sidebar,
+body.elementor-editor-active .primary-sidebar {
+    display: none;
+}
+
+body.elementor_library-template-default .site-wrapper,
+body.elementor-editor-active .site-wrapper {
+    grid-template-columns: 1fr !important;
+}
+
 
 /*--------------------------------------------------------------
 # Layouts
