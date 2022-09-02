@@ -1466,7 +1466,7 @@ msgid "Theme Integrations"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:142
-msgid "View More"
+msgid "View More Integrations"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:150

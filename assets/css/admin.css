@@ -70,11 +70,14 @@
 
 .buddyx-banner-description {
     font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 20px;
-    max-width: 380px;
+    font-weight: 500;
+    max-width: 450px;
     margin: auto;
+}
+
+.buddyx-banner-description p {
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .buddyx-dashboard-tabs {
@@ -103,7 +106,7 @@
     flex-flow: wrap;
     background: #090B33;
     margin: 0;
-    padding: 7px;
+    padding: 5px;
 }
 
 .buddyx-dashboard-tabs [role="tabpanel"] {
@@ -114,14 +117,14 @@
 .buddyx-dashboard-tabs button {
     display: flex;
     align-items: center;
-    margin: 0 50px 0 0;
+    margin: 5px 20px 5px 5px;
     padding: 12px 70px;
     border: 0;
     border-radius: 12px;
     background-color: transparent;
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 15px;
     cursor: pointer;
     transition: all .2s linear;
@@ -139,13 +142,17 @@
 }
 
 .buddyx-tabs-content .buddyx-tabs-titile {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     padding: 0;
     font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;
     color: #090B33;
+}
+
+.buddyx-dashboard-body .buddyx-tabs-titile {
+    margin: 0 0 20px;
 }
 
 .buddyx-row {
@@ -173,10 +180,12 @@
 }
 
 .buddyx-row.knowledge-base {
+    padding: 15px;
     background: #F4F5F9;
     border-radius: 12px;
     overflow: hidden;
     flex-flow: nowrap;
+    align-items: center;
 }
 
 .buddyx-row.knowledge-base .buddyx-col.col-left {
@@ -193,7 +202,7 @@
 .buddyx-row.support,
 .buddyx-row.addons {
     margin: 40px 0;
-    gap: 50px;
+    gap: 35px;
 }
 
 .buddyx-row.video-tutorial img,
@@ -310,7 +319,7 @@
     }
 
     .buddyx-row.knowledge-base .buddyx-btn {
-        padding: 12px 70px;
+        padding: 18px 70px;
     }
 }
 
@@ -396,10 +405,10 @@
 
 .buddyx-btn {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 18px 20px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 16px;
     text-align: center;
     border-radius: 12px;
     transition: all .2s linear;

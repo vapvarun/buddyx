@@ -101,7 +101,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-right">
 										<h3 class="buddyx-feature-title"><?php esc_html_e( 'Knowledge Base', 'buddyx' ); ?></h3>
 										<p class="buddyx-col-content"><?php esc_html_e( 'We have created full-proof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
-										<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://buddyxtheme.com/docs' ); ?>"><?php esc_html_e( 'View More Knowledge Page', 'buddyx' ); ?></a>
+										<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-theme/' ); ?>"><?php esc_html_e( 'View More Knowledge Page', 'buddyx' ); ?></a>
 									</div>
 								</div><!-- .knowledge-base -->
 
@@ -139,14 +139,14 @@ class Component implements Component_Interface {
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Theme Integrations', 'buddyx' ); ?></h4>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-theme/pro-integrations/gamipress/' ); ?>"><?php esc_html_e( 'View More', 'buddyx' ); ?></a>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-theme/pro-integrations/gamipress/' ); ?>"><?php esc_html_e( 'View More Integrations', 'buddyx' ); ?></a>
 											</div>
 										</div>
 									</div>
 								</div><!-- .video-tutorial -->
 								<div class="buddyx-row faq">
 									<div class="buddyx-col col-full">
-										<h2 class="buddyx-tabs-titile">
+										<h2 class="buddyx-feature-title">
 											<?php esc_html_e( 'Frequently Asked Questions', 'buddyx' ); ?>
 										</h2>
 									</div>
@@ -189,7 +189,7 @@ class Component implements Component_Interface {
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Connect with Our Support Team', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Create a new thread on our theme page, participation is open to anyone from all around the world. We'll be there to help as well but can't guarantee any delay.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://support.wbcomdesigns.com/portal/home' ); ?>"><?php esc_html_e( 'Contact Us', 'buddyx' ); ?></a>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>"><?php esc_html_e( 'Contact Us', 'buddyx' ); ?></a>
 											</div>
 										</div>
 									</div>
