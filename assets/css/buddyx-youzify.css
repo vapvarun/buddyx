@@ -494,17 +494,17 @@ body.youzify-active .wb-bp-profile-completion-wrap {
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-body.youzify-active .widget_bp_core_login_widget .bp-login-widget-user-links,
+body.youzify-active #youzify .widget_bp_core_login_widget .bp-login-widget-user-links,
 .youzify-sidebar .widget_bp_core_login_widget .bp-login-widget-user-links {
     margin-left: 0;
 }
 
-body.youzify-active .widget_bp_core_login_widget .bp-login-widget-user-avatar,
+body.youzify-active #youzify .widget_bp_core_login_widget .bp-login-widget-user-avatar,
 .youzify-sidebar .widget_bp_core_login_widget .bp-login-widget-user-avatar {
     float: none;
 }
 
-body.youzify-active .widget_recent_entries li a {
+body.youzify-active #youzify .widget_recent_entries li a {
     margin-bottom: 0;
     color: #8a8a8a;
     font-size: 13px;
@@ -513,23 +513,50 @@ body.youzify-active .widget_recent_entries li a {
     display: block;
 }
 
-.widget-content.widget_recent_entries li:last-child {
+body.youzify-active #youzify .widget-content.widget_recent_entries li:last-child {
     padding-bottom: 20px;
 }
 
-.widget-content.widget_recent_entries li:first-child {
+body.youzify-active #youzify .widget-content.widget_recent_entries li:first-child {
     padding-top: 20px;
 }
 
-body.youzify-active .widget_calendar .calendar_wrap {
+body.youzify-active #youzify .widget_calendar .calendar_wrap {
     padding: 25px;
 }
 
-body.youzify-active .widget_calendar .pad {
+body.youzify-active #youzify .widget_calendar .pad {
     background-color: #fff;
 }
 
 body.youzify-active .youzify-reset-options,
 body.youzify-active .youzify-save-options {
     line-height: 45px;
+}
+
+body.youzify-active #youzify .youzify-sidebar .woocommerce ul.cart_list,
+body.youzify-active #youzify .youzify-sidebar .woocommerce ul.product_list_widget,
+body.youzify-active #youzify .youzify-sidebar .widget_shopping_cart_content,
+body.youzify-active #youzify .youzify-sidebar .tagcloud,
+body.youzify-active #youzify .youzify-sidebar ul.product-categories,
+body.youzify-active #youzify .youzify-sidebar form.woocommerce-product-search {
+    padding: 15px 25px;
+}
+
+body.youzify-active #youzify .youzify-sidebar .woocommerce bdi {
+    font-size: 13px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li+li {
+    margin-top: 10px;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li ul {
+    margin-left: 18px;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li ul li {
+    margin-top: 10px;
 }
