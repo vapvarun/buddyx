@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.2 =
+* Improvement: (#465) Managed youzify with woocommerce widgets UI
+* Improvement: (#465) Managed youzify UI fixes
+* Improvement: (#461) Managed vendors list UI
+* Improvement: (#453) Update links and UI
+* Improvement: (#453) Update welcome page UI
+
 = 4.4.1 =
 * Fix: (#449) Update activity read more border radius
 * Fix: (#449) Update activity read more UI
