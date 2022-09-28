@@ -1712,7 +1712,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     min-width: 1.75em;
     line-height: 1.5;
     text-align: center;
-    background: #fff!important;
+    background: #fff;
     font-weight: 400;
     border-radius: .28571429rem;
     text-transform: none;

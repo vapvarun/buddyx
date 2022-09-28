@@ -4,6 +4,7 @@
 # Global
 # BuddyPress Profile 
 # Activity Blog Post
+# Widgets
 --------------------------------------------------------------*/
 
 
@@ -276,7 +277,7 @@ body.youzify-active button.youzify-responsive-menu:focus {
 
 body.youzify-active .widget.buddypress.widget_bp_core_members_widget div.item-options a,
 body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options a {
-    color: #fff!important;
+    color: #fff !important;
     font-size: 10px;
     box-shadow: none;
     font-weight: 600;
@@ -286,7 +287,7 @@ body.youzify-active .widget.buddypress.widget_bp_groups_widget div.item-options 
     display: inline-block;
     text-decoration: none;
     letter-spacing: .05em;
-    border: none!important;
+    border: none !important;
     background-color: #898989;
     text-transform: uppercase;
 }
@@ -488,4 +489,74 @@ body.youzify-active .wb-bp-profile-completion-wrap {
     display: block;
     font-size: 20px;
     margin: 0 0 10px;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+body.youzify-active #youzify .widget_bp_core_login_widget .bp-login-widget-user-links,
+.youzify-sidebar .widget_bp_core_login_widget .bp-login-widget-user-links {
+    margin-left: 0;
+}
+
+body.youzify-active #youzify .widget_bp_core_login_widget .bp-login-widget-user-avatar,
+.youzify-sidebar .widget_bp_core_login_widget .bp-login-widget-user-avatar {
+    float: none;
+}
+
+body.youzify-active #youzify .widget_recent_entries li a {
+    margin-bottom: 0;
+    color: #8a8a8a;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 5px 25px;
+    display: block;
+}
+
+body.youzify-active #youzify .widget-content.widget_recent_entries li:last-child {
+    padding-bottom: 20px;
+}
+
+body.youzify-active #youzify .widget-content.widget_recent_entries li:first-child {
+    padding-top: 20px;
+}
+
+body.youzify-active #youzify .widget_calendar .calendar_wrap {
+    padding: 25px;
+}
+
+body.youzify-active #youzify .widget_calendar .pad {
+    background-color: #fff;
+}
+
+body.youzify-active .youzify-reset-options,
+body.youzify-active .youzify-save-options {
+    line-height: 45px;
+}
+
+body.youzify-active #youzify .youzify-sidebar .woocommerce ul.cart_list,
+body.youzify-active #youzify .youzify-sidebar .woocommerce ul.product_list_widget,
+body.youzify-active #youzify .youzify-sidebar .widget_shopping_cart_content,
+body.youzify-active #youzify .youzify-sidebar .tagcloud,
+body.youzify-active #youzify .youzify-sidebar ul.product-categories,
+body.youzify-active #youzify .youzify-sidebar form.woocommerce-product-search {
+    padding: 15px 25px;
+}
+
+body.youzify-active #youzify .youzify-sidebar .woocommerce bdi {
+    font-size: 13px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li+li {
+    margin-top: 10px;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li ul {
+    margin-left: 18px;
+}
+
+body.youzify-active #youzify .youzify-sidebar ul.product-categories>li ul li {
+    margin-top: 10px;
 }
