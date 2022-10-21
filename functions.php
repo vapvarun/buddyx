@@ -210,25 +210,3 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 
 	return $bp_is_directory;
 }
-
-/**
- * Update customizer options when switch theme.
- */
-add_action( 'switch_theme', 'buddyxpro_theme_switcher', 10, 3 );
-
-/**
- * Switch theme.
- *
- * @param string   $new_name  Name of the new theme.
- * @param WP_Theme $new_theme WP_Theme instance of the new theme.
- * @param WP_Theme $old_theme WP_Theme instance of the old theme.
- */
-function buddyxpro_theme_switcher( $new_name, $new_theme, $old_theme ) {
-	if ( strpos( $new_name, 'BuddyxPro' ) !== false ) {
-		$theme_mods_buddyx = get_option( 'theme_mods_buddyx' );
-
-		$theme_slug = get_option( 'stylesheet' );
-		update_option( "theme_mods_$theme_slug", $theme_mods_buddyx );
-
-	}
-}
