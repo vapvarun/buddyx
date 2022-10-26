@@ -165,10 +165,6 @@
     color: var(--color-theme-primary);
     margin: 0 16px;
     font-size: 18px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 @media only screen and (max-width: 543px) {
@@ -178,7 +174,6 @@
 }
 
 .woocommerce ul.products li.product .price {
-    text-align: center;
     font-weight: 500;
 }
 
@@ -189,7 +184,7 @@
 
 .woocommerce ul.products li.product .price del {
     font-size: 14px;
-    margin-left: 4px;
+    margin-right: 4px;
     color: #949494;
     opacity: 1;
     font-weight: 400;
@@ -290,10 +285,6 @@
     margin-top: 0;
     color: var(--color-theme-primary);
     font-size: 20px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
     font-weight: 500;
 }
 
@@ -311,7 +302,7 @@
 .woocommerce div.product p.price del,
 .woocommerce div.product span.price del {
     font-size: 14px;
-    margin-left: 4px;
+    margin-right: 4px;
     color: #949494;
     opacity: 1;
     font-weight: 400;

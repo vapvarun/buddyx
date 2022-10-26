@@ -505,7 +505,7 @@ a.prev.page-numbers {
 .woocommerce .entry-content .woocommerce-error,
 .woocommerce .entry-content .woocommerce-info,
 .woocommerce .entry-content .woocommerce-message {
-    padding: 1em 3.5em 1em 2em;
+    padding: 1em 3.5em 1em 2em !important;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a {
@@ -514,5 +514,17 @@ a.prev.page-numbers {
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:after {
     right: 10px;
+    left: auto;
+}
+
+.woocommerce ul.products li.product .price del,
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.woocommerce span.onsale {
+    right: 2px;
     left: auto;
 }
