@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.3 =
+* Fix: (#472) Added custom WP login form setting
+* Fix: (#479) Removed reverse condition from woocommerce price amount
+
 = 4.4.2 =
 * Improvement: (#465) Managed youzify with woocommerce widgets UI
 * Improvement: (#465) Managed youzify UI fixes
