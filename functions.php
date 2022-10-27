@@ -25,6 +25,9 @@ function buddyx_template_pack_check() {
 	return $retval;
 }
 
+/**
+ * Checks BuddyPress legacy notice.
+ */
 function buddyx_buddypress_legacy_notice() {
 	if ( buddyx_template_pack_check() ) {
 		?>
@@ -45,7 +48,7 @@ if ( version_compare( $GLOBALS['wp_version'], BUDDYX_MINIMUM_WP_VERSION, '<' ) |
 // Include WordPress shims.
 require get_template_directory() . '/inc/wordpress-shims.php';
 
-// Include Kirki
+// Include Kirki.
 require get_template_directory() . '/external/require_plugins.php';
 require_once get_template_directory() . '/external/include-kirki.php';
 require_once get_template_directory() . '/external/kirki-utils.php';
@@ -93,7 +96,7 @@ require get_template_directory() . '/inc/functions.php';
 // Initialize the theme.
 call_user_func( 'BuddyX\Buddyx\buddyx' );
 
-// Require plugin.php to use is_plugin_active() below
+// Require plugin.php to use is_plugin_active() below.
 if ( ! function_exists( 'is_plugin_active' ) ) {
 	include_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
@@ -110,7 +113,10 @@ require get_template_directory() . '/inc/Webfont/class-buddyx-webfont-loader.php
 // Load theme extra function.
 require get_template_directory() . '/inc/extra.php';
 
-// bp_nouveau_appearance default option
+// Custom WP Login Form.
+require get_template_directory() . '/inc/login.php';
+
+// bp_nouveau_appearance default option.
 $optionKey = 'buddyx_theme_is_activated';
 if ( ! get_option( $optionKey ) ) {
 	$bp_nouveau_appearance = array(
@@ -128,9 +134,9 @@ if ( ! get_option( $optionKey ) ) {
 	update_option( $optionKey, 1 );
 }
 
-//
-// Add WooCommerce Support
-// ------------------------------------------------------------------------------
+/*
+ * Add WooCommerce Support
+ */
 if ( ! function_exists( 'buddyx_woocommerce_support' ) ) {
 	function buddyx_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
@@ -142,9 +148,9 @@ if ( ! function_exists( 'buddyx_woocommerce_support' ) ) {
 	add_action( 'after_setup_theme', 'buddyx_woocommerce_support' );
 }
 
-//
-// force add theme support for BP nouveau
-// ------------------------------------------------------------------------------
+/*
+ * Force add theme support for BP nouveau
+ */
 if ( ! function_exists( 'buddyx_buddypress_nouveau_support' ) ) {
 	function buddyx_buddypress_nouveau_support() {
 		add_theme_support( 'buddypress-use-nouveau' );
