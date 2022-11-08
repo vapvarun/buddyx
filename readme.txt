@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.0.1
+Tested up to: 6.1.0
 Requires PHP: 7.3
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.4 =
+* Fix: (#480) Compatibility with WooCommerce latest version
+
 = 4.4.3 =
 * Fix: (#472) Added custom WP login form setting
 * Fix: (#479) Removed reverse condition from woocommerce price amount

@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 4.4.0
+ * @version 7.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,8 +27,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 				<thead>
 					<tr>
-						<th class="product-remove">&nbsp;</th>
-						<th class="product-thumbnail">&nbsp;</th>
+						<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'buddyx' ); ?></span></th>
+						<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'buddyx' ); ?></span></th>
 						<th class="product-name"><?php esc_html_e( 'Product', 'buddyx' ); ?></th>
 						<th class="product-price"><?php esc_html_e( 'Price', 'buddyx' ); ?></th>
 						<th class="product-quantity"><?php esc_html_e( 'Quantity', 'buddyx' ); ?></th>
@@ -142,14 +142,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 							<?php if ( wc_coupons_enabled() ) { ?>
 								<div class="coupon">
-									<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'buddyx' ); ?></label> 
-									<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_url( 'Coupon code', 'buddyx' ); ?>" />
-									<button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'buddyx' ); ?>"><?php esc_html_e( 'Apply coupon', 'buddyx' ); ?></button>
+									<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'buddyx' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'buddyx' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'buddyx' ); ?>"><?php esc_attr_e( 'Apply coupon', 'buddyx' ); ?></button>
 									<?php do_action( 'woocommerce_cart_coupon' ); ?>
 								</div>
 							<?php } ?>
 
-							<button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'buddyx' ); ?>"><?php esc_html_e( 'Update cart', 'buddyx' ); ?></button>
+							<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'buddyx' ); ?>"><?php esc_html_e( 'Update cart', 'buddyx' ); ?></button>
 
 							<?php do_action( 'woocommerce_cart_actions' ); ?>
 

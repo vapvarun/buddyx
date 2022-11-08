@@ -2342,6 +2342,14 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
+#: ../buddyx/woocommerce/cart/cart.php:30
+msgid "Remove item"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:31
+msgid "Thumbnail image"
+msgstr ""
+
 #: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:79
 msgid "Product"
 msgstr ""
@@ -2370,11 +2378,15 @@ msgstr ""
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:147, ../buddyx/woocommerce/cart/cart.php:147
+#: ../buddyx/woocommerce/cart/cart.php:145
+msgid "Coupon code"
+msgstr ""
+
+#: ../buddyx/woocommerce/cart/cart.php:145, ../buddyx/woocommerce/cart/cart.php:145
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:152, ../buddyx/woocommerce/cart/cart.php:152
+#: ../buddyx/woocommerce/cart/cart.php:150, ../buddyx/woocommerce/cart/cart.php:150
 msgid "Update cart"
 msgstr ""
 
