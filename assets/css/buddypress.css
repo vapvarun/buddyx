@@ -841,6 +841,36 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
     clear: both;
 }
 
+/* rtMedia videos */
+.rtmedia-activity-container .rtm-activity-video-list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    position: relative;
+}
+
+.rtmedia-activity-container .rtm-activity-video-list li.media-type-video,
+.rtmedia-activity-container .rtm-activity-video-list.rtmedia-activity-media-length-1 li.media-type-video {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 5px !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.rtmedia-activity-container .rtm-activity-video-list li.media-type-video div.rtmedia-item-thumbnail .mejs-video, 
+.rtmedia-activity-container .rtm-activity-video-list li.media-type-video div.rtmedia-item-thumbnail .mejs-video video {
+    min-height: 300px !important;
+}
+
+@media screen and (min-width: 768px) {
+    .rtmedia-activity-container .rtm-activity-video-list li.media-type-video {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
 
 /* media page media */
 
