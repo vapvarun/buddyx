@@ -27,7 +27,12 @@ bp_nouveau_before_loop(); ?>
 			<div class="list-wrap">
 
 				<div class="item-avatar">
-					<a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar( bp_nouveau_avatar_args() ); ?><?php buddyx_user_status( bp_get_member_user_id() ); ?></a>
+					<a href="<?php bp_member_permalink(); ?>">
+						<?php
+						buddyx_user_status( bp_get_member_user_id() );
+						bp_member_avatar( bp_nouveau_avatar_args() );
+						?>
+					</a>
 				</div>
 
 				<div class="item">
