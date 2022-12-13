@@ -259,7 +259,7 @@ img.emojioneemoji {
     padding: 0;
     position: absolute;
     width: 1px;
-    word-wrap: normal!important;
+    word-wrap: normal !important;
 }
 
 .buddypress-wrap .bp-feedback p,
@@ -388,6 +388,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     .members-directory-wrapper {
         display: block;
     }
+
     .members-directory-wrapper .bp-profile-search-widget {
         margin-left: 0;
         margin-bottom: 30px;
@@ -455,6 +456,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
         display: flex;
         flex-direction: column;
     }
+
     .single-headers img.avatar {
         float: left;
     }
@@ -464,6 +466,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     #buddypress #item-header-cover-image #item-header-avatar {
         float: none;
     }
+
     #buddypress #item-header-cover-image #item-header-avatar img.avatar {
         margin: 0 auto;
         margin-bottom: 15px;
@@ -497,6 +500,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     .friends-request-list li {
         flex-flow: wrap;
     }
+
     .bp-single-vert-nav .bp-navs.vertical li {
         float: none;
     }
@@ -606,12 +610,12 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     padding: 6px 12px !important;
     background: 0 0;
     color: inherit;
-    background: #fff!important;
-    color: rgba(0, 0, 0, .6)!important;
+    background: #fff !important;
+    color: rgba(0, 0, 0, .6) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
-    text-shadow: none!important;
+    text-shadow: none !important;
 }
 
 .activity-list .activity-item .bp-generic-meta.action .button span {
@@ -630,7 +634,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 
 .activity-list .activity-item .activity-content>.bp-generic-meta.action .button:hover {
     border: 1px solid rgba(0, 0, 0, .8) !important;
-    color: rgba(0, 0, 0, .8)!important;
+    color: rgba(0, 0, 0, .8) !important;
 }
 
 .activity-list .activity-item .bp-generic-meta.action .delete-activity:before {
@@ -874,7 +878,7 @@ span.bbp-author-avatar img {
 }
 
 .bp-messages-content #bp-message-content .medium-editor-toolbar .medium-editor-toolbar-actions button {
-    color: rgb(77, 92, 109)!important;
+    color: rgb(77, 92, 109) !important;
 }
 
 .medium-editor-element:not(.emojionearea) {
@@ -1162,18 +1166,24 @@ body.wb-quote .activity-update-form #whats-new {
     width: max-content;
 }
 
-
 /*--------------------------------------------------------------
 ## GamiPress
 --------------------------------------------------------------*/
+.acomment-content .gamipress-buddypress-user-details-activity,
+.activity-content .gamipress-buddypress-user-details-activity {
+    margin: 0 0 15px;
+}
 
-.gamipress-buddypress-user-details-activity,
 .activity-list .activity-item .activity-content .gamipress-achievement,
 .activity-list .activity-item .activity-content .gamipress-points-award,
 .activity-list .activity-item .activity-content .gamipress-rank {
     margin: 0;
+    width: 100% !important;
 }
 
+.buddypress.widget .showGamipressData img {
+    margin: 0 !important;
+}
 
 /*--------------------------------------------------------------
 ## BuddyPress Reshare
