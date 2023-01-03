@@ -41,6 +41,7 @@
     # BuddyPress Docs
     # BuddyPress Reshare
     # bbPress(Activity)
+    # BuddyPress Follow
 
 --------------------------------------------------------------*/
 
@@ -2298,6 +2299,10 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul li,
 body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div,
 .single-headers li.generic-button {
     margin: 10px 10px 0 0;
+}
+
+.single-headers li.generic-button.follow-button a {
+    margin: 0;
 }
 
 .single-headers .item-meta {
@@ -5166,4 +5171,17 @@ ul.component-navigation.bp-docs-nav {
 .activity-list li.bbp_reply_create .activity-content .activity-inner blockquote,
 .activity-list li.bbp_topic_create .activity-content .activity-inner blockquote {
     margin-left: 15px;
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Follow
+--------------------------------------------------------------*/
+.buddypress-wrap ul.subnav li#members-order-select {
+    padding: 10px 0;
+}
+
+.buddypress-wrap ul.subnav li#members-order-select label {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
