@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.6 =
+* Fix: (#485) Managed follow button UI with bp follow
+
 = 4.4.5 =
 * Improvement: (#482) Managed gamipress UI fixes
 * Improvement: (#481) Managed gamipress data UI with activity, members and widget area
