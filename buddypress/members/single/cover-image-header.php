@@ -120,9 +120,9 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			<?php endif; ?>
 
 			<?php
-			if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 				if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-					echo bp_get_user_member_type( bp_displayed_user_id() );
+					echo wp_kses_post( bp_get_user_member_type( bp_displayed_user_id() ) );
 				}
 			}
 			?>
