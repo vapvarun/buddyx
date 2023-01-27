@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Buddyx
+# Copyright (C) 2023 Buddyx
 # This file is distributed under the same license as the Buddyx package.
 msgid ""
 msgstr ""
@@ -2390,27 +2390,27 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:57
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:62
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:74
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:80
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:78
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:84
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:79
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:85
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:80
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:86
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:81
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:87
 msgid "Cover photo"
 msgstr ""
 
@@ -2426,15 +2426,15 @@ msgstr ""
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:94, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/buddypress/members/single/cover-image-header.php:101, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:146, ../buddyx/buddypress/members/single/member-header.php:66
+#: ../buddyx/buddypress/members/single/cover-image-header.php:153, ../buddyx/buddypress/members/single/member-header.php:66
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:147, ../buddyx/buddypress/members/single/member-header.php:67
+#: ../buddyx/buddypress/members/single/cover-image-header.php:154, ../buddyx/buddypress/members/single/member-header.php:67
 msgid "Member Type"
 msgstr ""
 

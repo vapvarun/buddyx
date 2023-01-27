@@ -17,8 +17,9 @@ $cover_image_url          = bp_attachments_get_attachment(
 	)
 );
 
-$is_enabled_social_networks  = function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) && bb_enabled_profile_header_layout_element( 'social-networks' ) && function_exists( 'bb_enabled_member_social_networks' ) && bb_enabled_member_social_networks();
+$is_enabled_social_networks = function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) && bb_enabled_profile_header_layout_element( 'social-networks' ) && function_exists( 'bb_enabled_member_social_networks' ) && bb_enabled_member_social_networks();
 
+$my_profile                     = '';
 $user_social_networks_urls      = '';
 $social_networks_urls_div_class = 'social-networks-hide';
 if ( $is_enabled_social_networks ) {
@@ -33,6 +34,10 @@ if ( $is_enabled_social_networks ) {
 }
 
 if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+	if ( bp_is_my_profile() ) {
+		$my_profile = 'my_profile';
+	}
+
 	if ( ! empty( $cover_image_url ) ) {
 		$cover_image_position = bp_get_user_meta( bp_displayed_user_id(), 'bp_cover_position', true );
 		$has_cover_image      = ' has-cover-image';
@@ -69,18 +74,20 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 
 		<?php
 		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-			if ( ! empty( $cover_image_url ) ) {
-				?>
-				<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
-					<i class="bb-icon-bf bb-icon-arrows"></i>
-				</a>
-				<div class="header-cover-reposition-wrap">
-					<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
-					<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
-					<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
-					<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
-				</div>
-				<?php
+			if ( bp_is_my_profile() ) {
+				if ( ! empty( $cover_image_url ) && bp_attachments_get_user_has_cover_image( bp_displayed_user_id() ) ) {
+					?>
+					<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
+						<i class="bb-icon-bf bb-icon-arrows"></i>
+					</a>
+					<div class="header-cover-reposition-wrap">
+						<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
+						<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
+						<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
+						<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
+					</div>
+					<?php
+				}
 			}
 		}
 		?>
