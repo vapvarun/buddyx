@@ -119,37 +119,6 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 			<?php
 		}
 
-		if ( true === $custom_login_choose_theme && isset( $custom_login_background_gallery ) && ! empty( $custom_login_background_gallery ) ) {
-			?>
-			body.login {
-				background-image: url(<?php echo esc_url( $custom_login_background_gallery ); ?>);
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-			}	
-			<?php
-		}
-
-		if ( true === $custom_login_choose_theme && isset( $custom_login_background_color ) && ! empty( $custom_login_background_color ) ) {
-			?>
-			body.login {
-				background: <?php echo esc_url( $custom_login_background_color ); ?>;
-				background-image: none;
-			}
-			<?php
-		}
-
-		if ( true === $custom_login_choose_theme && isset( $custom_login_background_image ) && ! empty( $custom_login_background_image ) ) {
-			?>
-			body.login {
-				background-image: url(<?php echo esc_url( $custom_login_background_image ); ?>);
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-			}
-			<?php
-		}
-
 		echo '</style>';
 	}
 }

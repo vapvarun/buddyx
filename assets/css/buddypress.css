@@ -42,6 +42,7 @@
     # BuddyPress Reshare
     # bbPress(Activity)
     # BuddyPress Follow
+    # BuddyPress Resume Manager
 
 --------------------------------------------------------------*/
 
@@ -2152,6 +2153,29 @@ body.buddypress.group-create #page #primary .entry-header {
     .has-buddypress-sidebar-right:not(.has-single-group-sidebar) .group-home,
     .has-buddypress-sidebar-both:not(.has-single-group-sidebar) .group-home {
         grid-template-columns: 1fr;
+    }
+
+    .has-single-member-sidebar.has-single-member-activity-sidebar .member-home,
+    .has-single-group-sidebar.has-single-group-activity-sidebar .group-home {
+        display: grid;
+        grid-template-columns: 260px 2fr 260px;
+        grid-gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .has-single-member-activity-sidebar:not(.has-single-member-sidebar) .member-home,
+    .has-single-group-activity-sidebar:not(.has-single-group-sidebar) .group-home {
+        display: grid;
+        grid-template-columns: 260px 3fr;
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+
+    .has-single-member-activity-sidebar .primary-sidebar,
+    .has-single-group-activity-sidebar .primary-sidebar {
+        padding: 0;
+        grid-column: auto;
+        min-width: 0;
     }
 }
 
@@ -5174,7 +5198,7 @@ ul.component-navigation.bp-docs-nav {
 }
 
 /*--------------------------------------------------------------
-# BuddyPress Follow
+## BuddyPress Follow
 --------------------------------------------------------------*/
 .buddypress-wrap ul.subnav li#members-order-select {
     padding: 10px 0;
@@ -5184,4 +5208,15 @@ ul.component-navigation.bp-docs-nav {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+## BuddyPress Resume Manager
+--------------------------------------------------------------*/
+body.resume.has-single-member-sidebar .site-wrapper.member-home .primary-sidebar {
+    display: none;
+}
+
+body.resume.has-single-member-sidebar .member-home {
+    grid-template-columns: 1fr;
 }

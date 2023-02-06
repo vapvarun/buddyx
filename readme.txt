@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.7 =
+* Improvement: (#495) Added user and group activity sidebar
+* Fix: (#493) Update cover-image-header.php
+* Fix: (#493) Fixed cover photo reposition button issue in logout mode with BuddyBoss
+* Fix: (#491) Fixed undefined variable warning in login page
+* Fix: (#490) Update bp resume manager tab UI
+
 = 4.4.6 =
 * Fix: (#485) Managed follow button UI with bp follow
 

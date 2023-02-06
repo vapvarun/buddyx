@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Buddyx
+# Copyright (C) 2023 Buddyx
 # This file is distributed under the same license as the Buddyx package.
 msgid ""
 msgstr ""
@@ -1384,7 +1384,7 @@ msgstr ""
 msgid "User Menu"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:105, ../buddyx/inc/Sidebars/Component.php:117, ../buddyx/inc/Sidebars/Component.php:131, ../buddyx/inc/Sidebars/Component.php:143, ../buddyx/inc/Sidebars/Component.php:155, ../buddyx/inc/Sidebars/Component.php:167, ../buddyx/inc/Sidebars/Component.php:179, ../buddyx/inc/Sidebars/Component.php:191, ../buddyx/inc/Sidebars/Component.php:206, ../buddyx/inc/Sidebars/Component.php:218, ../buddyx/inc/Sidebars/Component.php:232, ../buddyx/inc/Sidebars/Component.php:244, ../buddyx/inc/Sidebars/Component.php:257, ../buddyx/inc/Sidebars/Component.php:269, ../buddyx/inc/Sidebars/Component.php:281, ../buddyx/inc/Sidebars/Component.php:293
+#: ../buddyx/inc/Sidebars/Component.php:105, ../buddyx/inc/Sidebars/Component.php:117, ../buddyx/inc/Sidebars/Component.php:131, ../buddyx/inc/Sidebars/Component.php:143, ../buddyx/inc/Sidebars/Component.php:155, ../buddyx/inc/Sidebars/Component.php:167, ../buddyx/inc/Sidebars/Component.php:179, ../buddyx/inc/Sidebars/Component.php:191, ../buddyx/inc/Sidebars/Component.php:203, ../buddyx/inc/Sidebars/Component.php:215, ../buddyx/inc/Sidebars/Component.php:230, ../buddyx/inc/Sidebars/Component.php:242, ../buddyx/inc/Sidebars/Component.php:256, ../buddyx/inc/Sidebars/Component.php:268, ../buddyx/inc/Sidebars/Component.php:281, ../buddyx/inc/Sidebars/Component.php:293, ../buddyx/inc/Sidebars/Component.php:305, ../buddyx/inc/Sidebars/Component.php:317
 msgid "Add widgets here."
 msgstr ""
 
@@ -1409,38 +1409,46 @@ msgid "Members Single Profile Sidebar"
 msgstr ""
 
 #: ../buddyx/inc/Sidebars/Component.php:189
+msgid "Members Single User Activity"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:201
 msgid "Groups Single Group Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:204
+#: ../buddyx/inc/Sidebars/Component.php:213
+msgid "Groups Single Group Activity"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:228
 msgid "bbPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:216
+#: ../buddyx/inc/Sidebars/Component.php:240
 msgid "bbPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:230
+#: ../buddyx/inc/Sidebars/Component.php:254
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:242
+#: ../buddyx/inc/Sidebars/Component.php:266
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:255
+#: ../buddyx/inc/Sidebars/Component.php:279
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:267
+#: ../buddyx/inc/Sidebars/Component.php:291
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:279
+#: ../buddyx/inc/Sidebars/Component.php:303
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:291
+#: ../buddyx/inc/Sidebars/Component.php:315
 msgid "Footer 4"
 msgstr ""
 
@@ -2390,27 +2398,27 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:57
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:62
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:74
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:80
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:78
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:84
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:79
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:85
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:80
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:86
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:81
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:87
 msgid "Cover photo"
 msgstr ""
 
@@ -2426,15 +2434,15 @@ msgstr ""
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:94, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/buddypress/members/single/cover-image-header.php:101, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:146, ../buddyx/buddypress/members/single/member-header.php:66
+#: ../buddyx/buddypress/members/single/cover-image-header.php:153, ../buddyx/buddypress/members/single/member-header.php:66
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:147, ../buddyx/buddypress/members/single/member-header.php:67
+#: ../buddyx/buddypress/members/single/cover-image-header.php:154, ../buddyx/buddypress/members/single/member-header.php:67
 msgid "Member Type"
 msgstr ""
 

@@ -6,6 +6,8 @@
  * @version 3.0.0
  */
 
+$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
+
 if ( bp_has_groups() ) :
 	while ( bp_groups() ) :
 		bp_the_group();
@@ -18,8 +20,18 @@ if ( bp_has_groups() ) :
 			<?php bp_nouveau_group_header_template_part(); ?>
 
 		</div><!-- #item-header -->
-		
+
 			<div class="site-wrapper group-home">
+				<?php
+				if ( ( ! isset( $bp_nouveau_appearance['group_nav_display'] ) || ! $bp_nouveau_appearance['group_nav_display'] ) && is_active_sidebar( 'single_group_activity' ) && bp_is_group_activity() ) {
+					?>
+					<aside id="secondary" class="primary-sidebar widget-area">
+						<div class="sticky-sidebar">
+							<?php dynamic_sidebar( 'single_group_activity' ); ?>
+						</div>
+					</aside>
+				<?php } ?>
+
 				<div class="bp-wrap">
 
 					<?php if ( ! bp_nouveau_is_object_nav_in_sidebar() ) : ?>
