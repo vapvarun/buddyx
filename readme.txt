@@ -97,6 +97,9 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.4.8 =
+* Fix: (#494) Fixed Call to undefined function
+
 = 4.4.7 =
 * Improvement: (#495) Added user and group activity sidebar
 * Fix: (#493) Update cover-image-header.php
