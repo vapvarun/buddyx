@@ -1033,37 +1033,28 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 
 		if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'post' ) {
 			if ( isset( $_POST['buddyx_post_video'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_video', $_POST['buddyx_post_video'] );
+				update_post_meta( $post_id, '_buddyx_post_video', sanitize_text_field( wp_unslash( $_POST['buddyx_post_video'] ) ) );
 			}
 			if ( isset( $_POST['buddyx_post_audio'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_audio', $_POST['buddyx_post_audio'] );
+				update_post_meta( $post_id, '_buddyx_post_audio', sanitize_text_field( wp_unslash( $_POST['buddyx_post_audio'] ) ) );
 			}
-
 			if ( isset( $_POST['buddyx_post_quote'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_quote', $_POST['buddyx_post_quote'] );
-				update_post_meta( $post_id, '_buddyx_post_quote_author', $_POST['buddyx_post_quote_author'] );
+				update_post_meta( $post_id, '_buddyx_post_quote', sanitize_text_field( wp_unslash( $_POST['buddyx_post_quote'] ) ) );
+				update_post_meta( $post_id, '_buddyx_post_quote_author', sanitize_text_field( wp_unslash( $_POST['buddyx_post_quote_author'] ) ) );
 			}
 			if ( isset( $_POST['buddyx_post_link_title'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_link_title', $_POST['buddyx_post_link_title'] );
-				update_post_meta( $post_id, '_buddyx_post_link_url', $_POST['buddyx_post_link_url'] );
+				update_post_meta( $post_id, '_buddyx_post_link_title', sanitize_text_field( wp_unslash( $_POST['buddyx_post_link_title'] ) ) );
+				update_post_meta( $post_id, '_buddyx_post_link_url', sanitize_text_field( wp_unslash( $_POST['buddyx_post_link_url'] ) ) );
 			}
 			if ( isset( $_POST['buddyx_image_gallery'] ) ) {
-				update_post_meta( $post_id, '_buddyx_image_gallery', $_POST['buddyx_image_gallery'] );
+				update_post_meta( $post_id, '_buddyx_image_gallery', sanitize_text_field( wp_unslash( $_POST['buddyx_image_gallery'] ) ) );
 			}
 			if ( isset( $_POST['_post_title_overwrite'] ) ) {
-				$_post_title_overwrite = $_POST['_post_title_overwrite'];
-			} else {
-					$_post_title_overwrite = '';
+				update_post_meta( $post_id, '_post_title_overwrite', $_POST['_post_title_overwrite'] );
 			}
-
 			if ( isset( $_POST['_post_title_position'] ) ) {
-					$_post_title_position = $_POST['_post_title_position'];
-			} else {
-					$_post_title_position = '';
+				update_post_meta( $post_id, '_post_title_position', sanitize_text_field( wp_unslash( $_POST['_post_title_position'] ) ) );
 			}
-
-			update_post_meta( $post_id, '_post_title_overwrite', $_POST['_post_title_overwrite'] );
-			update_post_meta( $post_id, '_post_title_position', $_POST['_post_title_position'] );
 		}
 	}
 }
