@@ -584,19 +584,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
-		$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
-
-		// Single Member User Sidebar.
-		if ( ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) || ! $bp_nouveau_appearance['user_nav_display'] ) && is_active_sidebar( 'single_member_activity' ) && bp_is_user_activity() ) {
-			$classes[] = 'has-single-member-activity-sidebar';
-		}
-
-		// Single Group User Sidebar.
-		if ( ( ! isset( $bp_nouveau_appearance['group_nav_display'] ) || ! $bp_nouveau_appearance['group_nav_display'] ) && is_active_sidebar( 'single_group_activity' ) && bp_is_group_activity() ) {
-			$classes[] = 'has-single-group-activity-sidebar';
-		}
-
 		if ( class_exists( 'BuddyPress' ) ) {
+			$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
+
+			// Single Member Activity Sidebar.
+			if ( ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) || ! $bp_nouveau_appearance['user_nav_display'] ) && is_active_sidebar( 'single_member_activity' ) && bp_is_user_activity() ) {
+				$classes[] = 'has-single-member-activity-sidebar';
+			}
+
+			// Single Group Activity Sidebar.
+			if ( ( ! isset( $bp_nouveau_appearance['group_nav_display'] ) || ! $bp_nouveau_appearance['group_nav_display'] ) && is_active_sidebar( 'single_group_activity' ) && bp_is_group_activity() ) {
+				$classes[] = 'has-single-group-activity-sidebar';
+			}
+
 			// Single Group Sidebar.
 			if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) {
 				$classes[] = 'has-single-group-sidebar';
