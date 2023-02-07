@@ -575,16 +575,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Single Member Sidebar.
 		if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
+			$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 			if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) {
 				$classes[] = 'has-single-member-sidebar';
 			}
 		} elseif ( class_exists( 'BuddyPress' ) ) {
+			$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 			if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() && function_exists( 'bp_is_members_invitations_screen' ) && ! bp_is_members_invitations_screen() ) {
 				$classes[] = 'has-single-member-sidebar';
 			}
 		}
-
-		$bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 
 		// Single Member User Sidebar.
 		if ( ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) || ! $bp_nouveau_appearance['user_nav_display'] ) && is_active_sidebar( 'single_member_activity' ) && bp_is_user_activity() ) {
