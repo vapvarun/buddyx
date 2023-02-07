@@ -56,12 +56,12 @@ option {
 
 /* Main column width */
 .wp-block {
-	max-width: calc(var(--content-width) + 30px);
+	max-width: calc(45rem + 30px);
 }
 
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
-	max-width: calc(50% + var(--content-width) / 2 + 76px);
+	max-width: calc(50% + 45rem / 2 + 76px);
 }
 
 /* Width of "full-wide" blocks */
