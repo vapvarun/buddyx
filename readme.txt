@@ -97,6 +97,14 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.0 =
+* Fix: (#496) Added theme support for gutenberg editor default values
+* Fix: (#497) Fixed php errors
+* Fix: (#496) Added theme support for gutenberg editor custom dimensions
+
+= 4.4.8 =
+* Fix: Fixed bp_get_option fatal error
+
 = 4.4.7 =
 * Improvement: (#495) Added user and group activity sidebar
 * Fix: (#493) Update cover-image-header.php
