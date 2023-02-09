@@ -98,9 +98,9 @@ Released under the MIT license
 
 == Changelog ==
 = 4.5.0 =
-* Fix: (#496) Added theme support for gutenberg editor default values
+* Improvement: (#496) Added theme support for gutenberg editor default values
 * Fix: (#497) Fixed php errors
-* Fix: (#496) Added theme support for gutenberg editor custom dimensions
+* Improvement: (#496) Added theme support for gutenberg editor custom dimensions
 
 = 4.4.8 =
 * Fix: Fixed bp_get_option fatal error
