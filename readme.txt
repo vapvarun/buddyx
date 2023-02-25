@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.1 =
+* Fix: (#500) Fixed woocommerce outdated copies warning
+* Fix: Update headings font sizes in front end
+
 = 4.5.0 =
 * Improvement: (#496) Added theme support for gutenberg editor default values
 * Fix: (#497) Fixed php errors
