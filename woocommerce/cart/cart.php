@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 7.0.1
+ * @version 7.4.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -103,25 +103,29 @@ do_action( 'woocommerce_before_cart' ); ?>
 								</td>
 
 								<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'buddyx' ); ?>">
-								<?php
-								if ( $_product->is_sold_individually() ) {
-									$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
-								} else {
+									<?php
+									if ( $_product->is_sold_individually() ) {
+										$min_quantity = 1;
+										$max_quantity = 1;
+									} else {
+										$min_quantity = 0;
+										$max_quantity = $_product->get_max_purchase_quantity();
+									}
+
 									$product_quantity = woocommerce_quantity_input(
 										array(
 											'input_name'   => "cart[{$cart_item_key}][qty]",
 											'input_value'  => $cart_item['quantity'],
-											'max_value'    => $_product->get_max_purchase_quantity(),
-											'min_value'    => '0',
+											'max_value'    => $max_quantity,
+											'min_value'    => $min_quantity,
 											'product_name' => $_product->get_name(),
 										),
 										$_product,
 										false
 									);
-								}
 
-								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
-								?>
+									echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+									?>
 								</td>
 
 								<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'buddyx' ); ?>">
@@ -142,7 +146,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 							<?php if ( wc_coupons_enabled() ) { ?>
 								<div class="coupon">
-									<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'buddyx' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'buddyx' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'buddyx' ); ?>"><?php esc_html_e( 'Apply coupon', 'buddyx' ); ?></button>
+									<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'buddyx' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'buddyx' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'buddyx' ); ?>"><?php esc_html_e( 'Apply coupon', 'buddyx' ); ?></button>
 									<?php do_action( 'woocommerce_cart_coupon' ); ?>
 								</div>
 							<?php } ?>
