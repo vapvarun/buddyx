@@ -59,7 +59,7 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 		?>
 
 		<?php if ( bp_is_my_profile() ) { ?>
-			<a href="<?php echo bp_get_members_component_link( 'profile', 'change-cover-image' ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
+			<a href="<?php echo esc_url( bp_get_members_component_link( 'profile', 'change-cover-image' ) ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
 				<?php
 				if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 					?>
@@ -127,7 +127,13 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			}
 			?>
 
-			<?php bp_nouveau_member_hook( 'before', 'header_meta' ); ?>
+			<?php
+			if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
+				bp_nouveau_member_hook( 'before', 'in_header_meta' );
+			} else {
+				bp_nouveau_member_hook( 'before', 'header_meta' );
+			}
+			?>
 
 			<?php if ( bp_nouveau_member_has_meta() ) : ?>
 				<div class="item-meta">

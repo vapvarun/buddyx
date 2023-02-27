@@ -58,6 +58,14 @@ bp_nouveau_before_loop(); ?>
 							}
 							?>
 
+							<?php if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) { ?>
+								<div class="bp-members-list-hook">
+									<div class="bp-members-list-hook-inner">
+										<?php bp_nouveau_member_hook( '', 'members_list_item' ); ?>
+									</div>
+								</div>
+							<?php } ?>
+
 						</div><!-- .member-info-wrapper -->
 
 						<div class="member-action-wrapper">
