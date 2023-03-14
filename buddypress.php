@@ -72,12 +72,12 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 	</main><!-- #primary -->
 
 	<?php if ( ! bp_is_group_single() && ! bp_is_group_create() ) : ?>
-        
+
 		<?php get_sidebar( 'buddypress' ); ?>
-        
+
 	<?php endif; ?>
 
 	<?php do_action( 'buddyx_after_content' ); ?>
-	</div></div>
+
 <?php
 get_footer();
