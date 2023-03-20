@@ -2370,7 +2370,7 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:127
+#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:131
 msgid "Subtotal"
 msgstr ""
 
@@ -2382,19 +2382,19 @@ msgstr ""
 msgid "Available on backorder"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:145
+#: ../buddyx/woocommerce/cart/cart.php:149
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:145
+#: ../buddyx/woocommerce/cart/cart.php:149
 msgid "Coupon code"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:145, ../buddyx/woocommerce/cart/cart.php:145
+#: ../buddyx/woocommerce/cart/cart.php:149, ../buddyx/woocommerce/cart/cart.php:149
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:150, ../buddyx/woocommerce/cart/cart.php:150
+#: ../buddyx/woocommerce/cart/cart.php:154, ../buddyx/woocommerce/cart/cart.php:154
 msgid "Update cart"
 msgstr ""
 
@@ -2438,11 +2438,11 @@ msgstr ""
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:153, ../buddyx/buddypress/members/single/member-header.php:66
+#: ../buddyx/buddypress/members/single/cover-image-header.php:159, ../buddyx/buddypress/members/single/member-header.php:66
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:154, ../buddyx/buddypress/members/single/member-header.php:67
+#: ../buddyx/buddypress/members/single/cover-image-header.php:160, ../buddyx/buddypress/members/single/member-header.php:67
 msgid "Member Type"
 msgstr ""
 

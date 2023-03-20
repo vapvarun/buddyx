@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.2 =
+* Fix: (#506) Added bp attachments support
+* Fix: (#505) Fixed footer issue with box layout
+* Fix: (#502) Managed buddypress member review with bb platform
+
 = 4.5.1 =
 * Fix: (#500) Fixed woocommerce outdated copies warning
 * Fix: Update headings font sizes in front end
