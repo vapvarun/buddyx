@@ -820,6 +820,21 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 # Forums
 --------------------------------------------------------------*/
 
+
+#bbpress-forums .bp-pagination.top {
+    display: block;
+    clear: both;
+}
+
+#bbpress-forums div.bbp-breadcrumb p,
+#bbpress-forums div.bbp-topic-tags p {
+    margin: 0 5px 10px 0;
+}
+
+#bbpress-forums .bbp-forum-content-wrap {
+    font-size: 12px;
+}
+
 #bbpress-forums ul {
     list-style: none;
     margin: 0;
@@ -865,6 +880,10 @@ span.bbp-author-avatar img {
 .bbp-topic-freshness-author {
     display: flex;
     justify-content: center;
+}
+
+.bbp-topic-freshness-author span.bbp-author-name {
+    margin-left: 3px;
 }
 
 .bp-messages-content {
