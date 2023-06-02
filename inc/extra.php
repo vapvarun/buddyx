@@ -165,6 +165,9 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 			case 'blogs':
 				$mini_activity_actions = __( 'Blogs', 'buddyx' );
 				break;
+			case 'business':
+				$mini_activity_actions = __( 'Business', 'wp-rig' );
+				break;
 
 			default:
 				$mini_activity_actions = __( 'Activity', 'buddyx' );

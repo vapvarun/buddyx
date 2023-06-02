@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Global
 # Activity Directory
 # Members Directory
 # Groups Directory
@@ -23,6 +24,29 @@
 # Network Search
 --------------------------------------------------------------*/
 
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
 
 /*--------------------------------------------------------------
 # Activity Directory
@@ -562,6 +586,44 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     margin-bottom: 0;
 }
 
+/* message */
+.bp-messages-content {
+    position: relative;
+}
+
+.compose .bp-messages-form-header {
+    right: 0;
+}
+
+.messages-wrapper #subnav #compose-action-personal-li > a {
+    font-size: 0 !important;
+}
+
+body .select2-container .select2-dropdown.bb-compose-input {
+    margin: 40px 0 0 0px;
+    max-width: 230px;
+    background: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #f6f6f6;
+}
+
+body .select2-container .select2-dropdown.bb-compose-input .select2-results__option {
+    color: var(--color-link);
+    border-radius: var(--global-border-radius);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 8px;
+}
+
+body .select2-container .select2-dropdown.bb-compose-input .avatar {
+    max-width: 30px;
+    margin-right: 6px;
+    border-radius: 50%;
+    display: inline;
+    vertical-align: middle;
+}
 
 /*--------------------------------------------------------------
 # Group Single
@@ -820,6 +882,21 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 # Forums
 --------------------------------------------------------------*/
 
+
+#bbpress-forums .bp-pagination.top {
+    display: block;
+    clear: both;
+}
+
+#bbpress-forums div.bbp-breadcrumb p,
+#bbpress-forums div.bbp-topic-tags p {
+    margin: 0 5px 10px 0;
+}
+
+#bbpress-forums .bbp-forum-content-wrap {
+    font-size: 12px;
+}
+
 #bbpress-forums ul {
     list-style: none;
     margin: 0;
@@ -865,6 +942,10 @@ span.bbp-author-avatar img {
 .bbp-topic-freshness-author {
     display: flex;
     justify-content: center;
+}
+
+.bbp-topic-freshness-author span.bbp-author-name {
+    margin-left: 3px;
 }
 
 .bp-messages-content {

@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.4 =
+* Fix: (#528) Fixed profile completion widget warning
+* Fix: Update message content UI with bb platform
+* Fix: Added business content type in mini activity actions
+* Fix: (#520) Managed search box UI with bb platform
+* Fix: (#514) Managed forums fixes with bb platform
+
 = 4.5.3 =
 * Fix: (#509) Update media upload icon with bb platform
 

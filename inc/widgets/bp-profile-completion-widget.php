@@ -317,10 +317,12 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		/*
 		 * Calculate Total Progress percentage.
 		 */
-		$profile_completion_percentage = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
-		$user_prgress_formatted        = array(
-			'completion_percentage' => $profile_completion_percentage,
-		);
+		if ( $user_progress_arr['total_fields'] > 0 ) {
+			$profile_completion_percentage = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
+			$user_prgress_formatted        = array(
+				'completion_percentage' => $profile_completion_percentage,
+			);
+		}
 
 		/*
 		 * Group specific details
