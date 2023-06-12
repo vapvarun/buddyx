@@ -650,7 +650,7 @@ class BuddyX_Breadcrumbs {
 		if ( false !== $taxonomy->rewrite ) {
 
 			// If 'with_front' is true, dd $wp_rewrite->front to the trail.
-			if ( $taxonomy->rewrite['with_front'] && $wp_rewrite->front )
+			if ( isset( $taxonomy->rewrite['with_front'] ) && $wp_rewrite->front )
 				$this->add_rewrite_front_items();
 
 			// Get parent pages by path if they exist.
