@@ -2128,47 +2128,47 @@ msgstr ""
 msgid "(BuddyPress) Profile Completion"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:66
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:73
 msgid "%s Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:88
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:95
 msgid "Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:187, ../buddyx/inc/widgets/bp-profile-completion-widget.php:424
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:194, ../buddyx/inc/widgets/bp-profile-completion-widget.php:431
 msgid "Profile Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:207, ../buddyx/inc/widgets/bp-profile-completion-widget.php:427
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:214, ../buddyx/inc/widgets/bp-profile-completion-widget.php:434
 msgid "Cover Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:289
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:296
 msgid "Profile Fields"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:399
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:406
 msgid "Complete Your Profile"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:433
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:440
 msgid "Title:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:436
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:443
 msgid "Profile field sets:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:461
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:468
 msgid "Profile photos:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:480
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:487
 msgid "Hide widget once progress hits 100%"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:486
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:493
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
