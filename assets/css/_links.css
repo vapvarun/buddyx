@@ -24,4 +24,5 @@ a:active {
 a:hover,
 a:active {
     outline: 0;
+    text-decoration: none;
 }

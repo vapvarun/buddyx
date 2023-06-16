@@ -2421,11 +2421,11 @@ msgstr ""
 msgid "Change Group Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:137, ../buddyx/buddypress/groups/single/group-header.php:64
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:138, ../buddyx/buddypress/groups/single/group-header.php:64
 msgid "Group Types"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:138, ../buddyx/buddypress/groups/single/group-header.php:65
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:139, ../buddyx/buddypress/groups/single/group-header.php:65
 msgid "Group Type"
 msgstr ""
 
