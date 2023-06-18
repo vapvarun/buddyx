@@ -15,11 +15,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. translators: 1: title.
-#: ../buddyx/comments.php:38
-msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
-
 #. translators: 1: comment count number, 2: title.
 #: ../buddyx/comments.php:44
 msgctxt "comments title"
@@ -27,6 +22,10 @@ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
+
+#: ../buddyx/comments.php:38
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
 
 #: ../buddyx/comments.php:60
 msgid "Comments are disabled."
@@ -185,16 +184,16 @@ msgstr ""
 msgid "Update Required"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:934
-msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+#: ../buddyx/external/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:934, ../buddyx/external/class-tgm-plugin-activation.php:937
+#: ../buddyx/external/class-tgm-plugin-activation.php:937, ../buddyx/external/class-tgm-plugin-activation.php:934
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:937
-msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+#: ../buddyx/external/class-tgm-plugin-activation.php:934
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:1121, ../buddyx/external/class-tgm-plugin-activation.php:2948
@@ -231,24 +230,24 @@ msgstr ""
 msgid "Not Installed"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2319
-msgid "Installed But Not Activated"
-msgstr ""
-
 #: ../buddyx/external/class-tgm-plugin-activation.php:2321
 msgid "Active"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2327
-msgid "Required Update not Available"
+#: ../buddyx/external/class-tgm-plugin-activation.php:2319
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2330
 msgid "Requires Update"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2333
-msgid "Update recommended"
+#: ../buddyx/external/class-tgm-plugin-activation.php:2327
+msgid "Required Update not Available"
 msgstr ""
 
 #. translators: 1: install status, 2: update status
@@ -328,11 +327,6 @@ msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: ../buddyx/external/class-tgm-plugin-activation.php:2603
-msgid "Install %2$s"
-msgstr ""
-
-#. translators: %2$s: plugin name in screen reader markup
 #: ../buddyx/external/class-tgm-plugin-activation.php:2608
 msgid "Update %2$s"
 msgstr ""
@@ -340,6 +334,10 @@ msgstr ""
 #. translators: %2$s: plugin name in screen reader markup
 #: ../buddyx/external/class-tgm-plugin-activation.php:2614
 msgid "Activate %2$s"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:2603
+msgid "Install %2$s"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2684
@@ -358,20 +356,20 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2757
-msgid "No plugins were selected to be installed. No action taken."
-msgstr ""
-
 #: ../buddyx/external/class-tgm-plugin-activation.php:2759
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2800
-msgid "No plugins are available to be installed at this time."
+#: ../buddyx/external/class-tgm-plugin-activation.php:2757
+msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2802
 msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:2800
+msgid "No plugins are available to be installed at this time."
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:2908
@@ -386,11 +384,6 @@ msgstr ""
 msgid "Plugin activation failed."
 msgstr ""
 
-#. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3498
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
 #. translators: 1: plugin name, 2: error message.
 #: ../buddyx/external/class-tgm-plugin-activation.php:3501
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
@@ -399,32 +392,6 @@ msgstr ""
 #. translators: 1: plugin name.
 #: ../buddyx/external/class-tgm-plugin-activation.php:3503
 msgid "The installation of %1$s failed."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3507
-msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
-msgstr ""
-
-#. translators: 1: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3509, ../buddyx/external/class-tgm-plugin-activation.php:3517
-msgid "Show Details"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3509, ../buddyx/external/class-tgm-plugin-activation.php:3517
-msgid "Hide Details"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3510
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3512
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: ../buddyx/external/class-tgm-plugin-activation.php:3515
@@ -436,6 +403,14 @@ msgstr ""
 msgid "%1$s installed successfully."
 msgstr ""
 
+#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
+msgid "Show Details"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
+msgid "Hide Details"
+msgstr ""
+
 #: ../buddyx/external/class-tgm-plugin-activation.php:3518
 msgid "All installations have been completed."
 msgstr ""
@@ -445,16 +420,24 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: ../buddyx/external/include-kirki.php:54
-msgid "A plugin is required to take advantage of this theme's features in the customizer."
+#: ../buddyx/external/class-tgm-plugin-activation.php:3507
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
-#: ../buddyx/external/include-kirki.php:55
-msgid "Install Kirki Toolkit now"
+#: ../buddyx/external/class-tgm-plugin-activation.php:3509
+msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: ../buddyx/external/include-kirki.php:56
-msgid "Install Now"
+#: ../buddyx/external/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3512
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../buddyx/external/class-tgm-plugin-activation.php:3498
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: ../buddyx/external/include-kirki.php:59
@@ -467,6 +450,18 @@ msgstr ""
 
 #: ../buddyx/external/include-kirki.php:61
 msgid "Activate Now"
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:54
+msgid "A plugin is required to take advantage of this theme's features in the customizer."
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:55
+msgid "Install Kirki Toolkit now"
+msgstr ""
+
+#: ../buddyx/external/include-kirki.php:56
+msgid "Install Now"
 msgstr ""
 
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
@@ -569,161 +564,157 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:105
+#: ../buddyx/inc/extra.php:112
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:135
+#: ../buddyx/inc/extra.php:148
 msgid "Profile"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:138, ../buddyx/inc/extra.php:160
+#: ../buddyx/inc/extra.php:151, ../buddyx/inc/extra.php:173
 msgid "Activity"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:141
+#: ../buddyx/inc/extra.php:154
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:144
+#: ../buddyx/inc/extra.php:157
 msgid "Forums"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:147
+#: ../buddyx/inc/extra.php:160
 msgid "Friends"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:150
+#: ../buddyx/inc/extra.php:163
 msgid "Members"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:153
+#: ../buddyx/inc/extra.php:166
 msgid "Blogs"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:156
+#: ../buddyx/inc/extra.php:169
 msgid "Business"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:224
+#: ../buddyx/inc/extra.php:237
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:359
+#: ../buddyx/inc/extra.php:372
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/extra.php:386
+#: ../buddyx/inc/extra.php:399
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:428
+#: ../buddyx/inc/extra.php:441
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:439
+#: ../buddyx/inc/extra.php:452
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:439
+#: ../buddyx/inc/extra.php:452
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:439
+#: ../buddyx/inc/extra.php:452
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:444, ../buddyx/template-parts/content/entry_meta.php:122
+#: ../buddyx/inc/extra.php:457, ../buddyx/template-parts/content/entry_meta.php:122
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:648
+#: ../buddyx/inc/extra.php:662
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:657
+#: ../buddyx/inc/extra.php:671
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:677
+#: ../buddyx/inc/extra.php:691
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:682
+#: ../buddyx/inc/extra.php:696
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:732
+#: ../buddyx/inc/extra.php:746
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:735
+#: ../buddyx/inc/extra.php:749
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:738, ../buddyx/inc/extra.php:751, ../buddyx/inc/extra.php:980
+#: ../buddyx/inc/extra.php:752, ../buddyx/inc/extra.php:765, ../buddyx/inc/extra.php:994
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:745
+#: ../buddyx/inc/extra.php:759
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:748
+#: ../buddyx/inc/extra.php:762
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:758
+#: ../buddyx/inc/extra.php:772
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:761
+#: ../buddyx/inc/extra.php:775
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:767
+#: ../buddyx/inc/extra.php:781
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:774
+#: ../buddyx/inc/extra.php:788
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:777
+#: ../buddyx/inc/extra.php:791
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:783
+#: ../buddyx/inc/extra.php:797
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:790
+#: ../buddyx/inc/extra.php:804
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:812, ../buddyx/inc/extra.php:919
+#: ../buddyx/inc/extra.php:826, ../buddyx/inc/extra.php:933
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:826, ../buddyx/inc/extra.php:896
+#: ../buddyx/inc/extra.php:840, ../buddyx/inc/extra.php:910
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:898
+#: ../buddyx/inc/extra.php:912
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:982
+#: ../buddyx/inc/extra.php:996
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:1122, ../buddyx/inc/extra.php:1146
-msgid "&hellip;"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:1148
+#: ../buddyx/inc/extra.php:1162
 msgid " Read more"
 msgstr ""
 
@@ -2137,47 +2128,47 @@ msgstr ""
 msgid "(BuddyPress) Profile Completion"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:66
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:73
 msgid "%s Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:88
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:95
 msgid "Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:187, ../buddyx/inc/widgets/bp-profile-completion-widget.php:424
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:194, ../buddyx/inc/widgets/bp-profile-completion-widget.php:431
 msgid "Profile Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:207, ../buddyx/inc/widgets/bp-profile-completion-widget.php:427
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:214, ../buddyx/inc/widgets/bp-profile-completion-widget.php:434
 msgid "Cover Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:289
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:296
 msgid "Profile Fields"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:399
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:406
 msgid "Complete Your Profile"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:433
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:440
 msgid "Title:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:436
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:443
 msgid "Profile field sets:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:461
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:468
 msgid "Profile photos:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:480
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:487
 msgid "Hide widget once progress hits 100%"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:486
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:493
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
@@ -2203,15 +2194,15 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
+#: ../buddyx/template-parts/content/entry_meta.php:69
+msgctxt "post author"
+msgid "Written by  %s"
+msgstr ""
+
 #. translators: %s: post author
 #: ../buddyx/template-parts/content/entry_meta.php:66, ../buddyx/template-parts/content/entry_meta.php:74
 msgctxt "post author"
 msgid "Written by %s"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry_meta.php:69
-msgctxt "post author"
-msgid "Written by  %s"
 msgstr ""
 
 #. translators: %s: post parent title
@@ -2274,30 +2265,29 @@ msgstr ""
 msgid "Oops! It looks like you&#8217;re offline."
 msgstr ""
 
-#. translators: 1: link to WP admin new post page.
-#: ../buddyx/template-parts/content/error.php:23
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: ../buddyx/template-parts/content/error.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
 #: ../buddyx/template-parts/content/error.php:38
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: ../buddyx/template-parts/content/error.php:44
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#: ../buddyx/template-parts/content/error.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: ../buddyx/template-parts/content/page_header.php:14
-msgid "Oops! That page can&rsquo;t be found."
+#. translators: %s: search query
+#: ../buddyx/template-parts/content/page_header.php:41
+msgid "Search Results for: %s"
 msgstr ""
 
 #: ../buddyx/template-parts/content/page_header.php:22
 msgid "Nothing Found"
 msgstr ""
 
-#. translators: %s: search query
-#: ../buddyx/template-parts/content/page_header.php:41
-msgid "Search Results for: %s"
+#: ../buddyx/template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: ../buddyx/template-parts/content/pagination.php:13
@@ -2334,7 +2324,7 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:131
+#: ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125
 msgid "Register"
 msgstr ""
 
@@ -2362,43 +2352,44 @@ msgstr ""
 msgid "Thumbnail image"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:79
+#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:87
 msgid "Product"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:99
+#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:121
 msgid "Price"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:105
+#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:127
 msgid "Quantity"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:131
+#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:153
 msgid "Subtotal"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:58
-msgid "Remove this item"
+#. translators: %s is the product name
+#: ../buddyx/woocommerce/cart/cart.php:66
+msgid "Remove %s from cart"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:94
+#: ../buddyx/woocommerce/cart/cart.php:116
 msgid "Available on backorder"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:149
+#: ../buddyx/woocommerce/cart/cart.php:171
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:149
+#: ../buddyx/woocommerce/cart/cart.php:171
 msgid "Coupon code"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:149, ../buddyx/woocommerce/cart/cart.php:149
+#: ../buddyx/woocommerce/cart/cart.php:171, ../buddyx/woocommerce/cart/cart.php:171
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:154, ../buddyx/woocommerce/cart/cart.php:154
+#: ../buddyx/woocommerce/cart/cart.php:176, ../buddyx/woocommerce/cart/cart.php:176
 msgid "Update cart"
 msgstr ""
 
@@ -2430,11 +2421,11 @@ msgstr ""
 msgid "Change Group Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:137, ../buddyx/buddypress/groups/single/group-header.php:64
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:138, ../buddyx/buddypress/groups/single/group-header.php:64
 msgid "Group Types"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:138, ../buddyx/buddypress/groups/single/group-header.php:65
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:139, ../buddyx/buddypress/groups/single/group-header.php:65
 msgid "Group Type"
 msgstr ""
 

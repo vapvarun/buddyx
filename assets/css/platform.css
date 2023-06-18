@@ -595,7 +595,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     right: 0;
 }
 
-.messages-wrapper #subnav #compose-action-personal-li > a {
+.messages-wrapper #subnav #compose-action-personal-li>a {
     font-size: 0 !important;
 }
 
@@ -791,6 +791,33 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
     font-size: 16px;
 }
 
+.single-headers p.highlight.group-status {
+    margin: 10px 0;
+}
+
+.single-headers p.highlight.group-status strong {
+    display: flex;
+    align-items: center;
+}
+
+.single-headers .group-status .group-type {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    padding: 3px 10px 4px;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 100px;
+    margin-left: 10px;
+    line-height: normal;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 782px) {
+    .single-headers p.highlight.group-status strong {
+        justify-content: center;
+    }
+}
 
 /*--------------------------------------------------------------
 # Sidebar Widegts

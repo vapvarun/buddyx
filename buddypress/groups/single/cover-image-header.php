@@ -129,17 +129,19 @@ $has_cover_image_position = '';
 			<?php } ?>
 
 			<?php
-			if ( function_exists( 'bp_group_type_list' ) ) {
-				bp_group_type_list(
-					bp_get_group_id(),
-					array(
-						'label'        => array(
-							'plural'   => __( 'Group Types', 'buddyx' ),
-							'singular' => __( 'Group Type', 'buddyx' ),
-						),
-						'list_element' => 'span',
-					)
-				);
+			if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
+				if ( function_exists( 'bp_group_type_list' ) ) {
+					bp_group_type_list(
+						bp_get_group_id(),
+						array(
+							'label'        => array(
+								'plural'   => __( 'Group Types', 'buddyx' ),
+								'singular' => __( 'Group Type', 'buddyx' ),
+							),
+							'list_element' => 'span',
+						)
+					);
+				}
 			}
 			?>
 

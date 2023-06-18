@@ -42,7 +42,14 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		$profile_groups_selected      = isset( $instance['profile_groups_enabled'] ) ? $instance['profile_groups_enabled'] : array();
 		$profile_phototype_selected   = ! empty( $instance['profile_photos_enabled'] ) ? $instance['profile_photos_enabled'] : array();
 		$profile_hide_widget_selected = ! empty( $instance['profile_hide_widget'] ) ? $instance['profile_hide_widget'] : array();
-		$user_progress                = $this->get_user_profile_progress_data( $profile_groups_selected, $profile_phototype_selected );
+		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+			$settings                       = array();
+			$settings['profile_groups']     = $profile_groups_selected;
+			$settings['profile_photo_type'] = $profile_phototype_selected;
+			$user_progress                  = bp_xprofile_get_user_profile_progress_data( $settings );
+		} else {
+			$user_progress = $this->get_user_profile_progress_data( $profile_groups_selected, $profile_phototype_selected );
+		}
 
 		// IF nothing selected then return and nothing to display.
 		if ( empty( $profile_groups_selected ) && empty( $profile_phototype_selected ) ) {
