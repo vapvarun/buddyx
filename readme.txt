@@ -10,13 +10,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-BuddyX is an ideal theme for community and membership websites. Providing a solution to all kinds of communities. Thanks to its BuddyPress support, your website can now have member profiles, send a private message, create groups and so much more.
+If you are looking for a theme for your community or membership website, BuddyX is the perfect choice. It offers a comprehensive solution for all types of communities. With BuddyPress & BuddyBoss Platform support, your website can feature member profiles, private messaging, group creation, and many other features.
 
-Lightweight and scalability will allow you to create almost any kind of website. A blog, community or business website, possibilities are limitless with BuddyX. It is a free theme with the power to create a beautiful and professionally designed digital storefront with WooCommerce compatibility. It also has the support of popular LMS plugins.
+BuddyX is an excellent choice for various website creation needs, including business, community, and blog sites. Its impressive lightweight and scalability features make the process effortless. This free theme is fully compatible with WooCommerce, enabling you to create a visually appealing and professional digital storefront. Additionally, it supports popular LMS plugins like LearnDash & TutorLMS, making it the ideal solution for all your website requirements.
 
-The theme has the support of many premium plugins and is regularly developed and maintained by WBCom Designs. Oh! and we provide dedicated support to our customers too.
+Our theme offers a wide range of premium plugins and is consistently updated and maintained by Wbcom Designs. Additionally, we provide dedicated support to all of our customers.
 
-Some of the other features are # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regular updates #Regularly Designed, Developed & Maintained
+Our platform boasts many impressive features, such as WooCommerce compatibility, responsive design, RTL and translation support, expandability with premium add-ons, and regular updates. Our team is wholly committed to the continuous development and maintenance of the platform to guarantee its reliability and optimal functionality.
 
 == BuddyX Child Theme ==
 
@@ -97,6 +97,12 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.5 =
+* Fix: (#533) Managed group type in single group with bb platform
+* Fix: (#531) Outdated copies of some WooCommerce template files
+* Fix: (#530) Managed profile completion widget separate profile fields
+* Fix: (#529) Fixed php warning
+
 = 4.5.4 =
 * Fix: (#528) Fixed profile completion widget warning
 * Fix: Update message content UI with bb platform
