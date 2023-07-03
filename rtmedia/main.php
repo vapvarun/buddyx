@@ -69,60 +69,58 @@ if ( ! $rt_ajax_request ) {
 
 				</div><!-- #item-header -->
 
-				<div class="container">
-					<div class="site-wrapper member-home <?php echo esc_attr( $memclass ); ?>">
-						<div class="bp-wrap">
-							<?php
-							if ( $bp_nouveau_appearance['user_nav_display'] ) {
-								if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
-									?>
-										<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
-									<?php
-								}
+				<div class="site-wrapper member-home <?php echo esc_attr( $memclass ); ?>">
+					<div class="bp-wrap">
+						<?php
+						if ( $bp_nouveau_appearance['user_nav_display'] ) {
+							if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+								?>
+									<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
+								<?php
 							}
-							?>
+						}
+						?>
 
-							<div id="item-body" class="item-body">
-								<div class="item-body-inner-wrapper">
-									<?php
-									if ( ! $bp_nouveau_appearance['user_nav_display'] ) {
-										if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
-											?>
-												<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
-											<?php
-										}
+						<div id="item-body" class="item-body">
+							<div class="item-body-inner-wrapper">
+								<?php
+								if ( ! $bp_nouveau_appearance['user_nav_display'] ) {
+									if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+										?>
+											<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
+										<?php
 									}
-									?>
-									<?php do_action( 'bp_before_member_body' ); ?>
-									<?php do_action( 'bp_before_member_media' ); ?>
-									<nav class="<?php bp_nouveau_single_item_subnav_classes(); ?>" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'rtMedia menu', 'buddyx' ); ?>">
-										<ul class="subnav">
+								}
+								?>
+								<?php do_action( 'bp_before_member_body' ); ?>
+								<?php do_action( 'bp_before_member_media' ); ?>
+								<nav class="<?php bp_nouveau_single_item_subnav_classes(); ?>" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'rtMedia menu', 'buddyx' ); ?>">
+									<ul class="subnav">
 
-											<?php rtmedia_sub_nav(); ?>
+										<?php rtmedia_sub_nav(); ?>
 
-											<?php do_action( 'rtmedia_sub_nav' ); ?>
+										<?php do_action( 'rtmedia_sub_nav' ); ?>
 
-										</ul>
-									</nav><!-- .item-list-tabs#subnav -->
+									</ul>
+								</nav><!-- .item-list-tabs#subnav -->
 
-									<?php
-									rtmedia_load_template();
+								<?php
+								rtmedia_load_template();
 
-									do_action( 'bp_after_member_media' );
-									do_action( 'bp_after_member_body' );
-									?>
-								</div><!-- .item-body-inner-wrapper -->
-							</div><!--#item-body-->
-						</div><!-- // .bp-wrap -->
-						<?php if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) : ?>
-							<aside id="secondary" class="primary-sidebar widget-area">
-								<div class="sticky-sidebar">
-									<?php dynamic_sidebar( 'single_member' ); ?>
-								</div>
-							</aside>
-						<?php endif; ?>
-					</div><!-- .site-wrapper -->
-				</div><!-- .container -->
+								do_action( 'bp_after_member_media' );
+								do_action( 'bp_after_member_body' );
+								?>
+							</div><!-- .item-body-inner-wrapper -->
+						</div><!--#item-body-->
+					</div><!-- // .bp-wrap -->
+					<?php if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) : ?>
+						<aside id="secondary" class="primary-sidebar widget-area">
+							<div class="sticky-sidebar">
+								<?php dynamic_sidebar( 'single_member' ); ?>
+							</div>
+						</aside>
+					<?php endif; ?>
+				</div><!-- .site-wrapper -->
 
 				<?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>
 				<?php
@@ -154,79 +152,78 @@ if ( ! $rt_ajax_request ) {
 
 						</div><!-- #item-header -->
 
-						<div class="container">
-							<div class="site-wrapper group-home <?php echo esc_attr( $grpclass ); ?>">
+						<div class="site-wrapper group-home <?php echo esc_attr( $grpclass ); ?>">
 
-								<div class="bp-wrap">
+							<div class="bp-wrap">
 
-									<?php
-									if ( $bp_nouveau_appearance['group_nav_display'] ) {
-										if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
-											?>
-												<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
-											<?php
-										}
+								<?php
+								if ( $bp_nouveau_appearance['group_nav_display'] ) {
+									if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
+										?>
+											<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
+										<?php
 									}
-									?>
+								}
+								?>
 
-									<div id="item-body" class="item-body">
-										<div class="item-body-inner-wrapper">
-											<?php
-											if ( ! $bp_nouveau_appearance['group_nav_display'] ) {
-												if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
-													?>
-														<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
-													<?php
-												}
-											}
-											?>
-											<?php
-											do_action( 'bp_before_group_body' );
-											do_action( 'bp_before_group_media' );
-
-											$bp_is_group_home = bp_is_group_home();
-											if ( $bp_is_group_home && ! bp_current_user_can( 'groups_access_group' ) ) {
-												/**
-												 * Fires before the display of the group status message.
-												 *
-												 * @since 1.1.0
-												 */
-												do_action( 'bp_before_group_status_message' );
+								<div id="item-body" class="item-body">
+									<div class="item-body-inner-wrapper">
+										<?php
+										if ( ! $bp_nouveau_appearance['group_nav_display'] ) {
+											if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 												?>
-
-												<div id="message" class="info">
-													<p><?php bp_group_status_message(); ?></p>
-												</div>
-
+													<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
 												<?php
-
-												/**
-												 * Fires after the display of the group status message.
-												 *
-												 * @since 1.1.0
-												 */
-												do_action( 'bp_after_group_status_message' );
-											} else {
-												?>
-												<nav class="<?php bp_nouveau_single_item_subnav_classes(); ?>" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'rtMedia menu', 'buddyx' ); ?>">
-													<ul class="subnav">
-														<?php rtmedia_sub_nav(); ?>
-														<?php do_action( 'rtmedia_sub_nav' ); ?>
-													</ul>
-												</nav><!-- .item-list-tabs#subnav -->
-												<?php
-
-												rtmedia_load_template();
 											}
+										}
+										?>
+										<?php
+										do_action( 'bp_before_group_body' );
+										do_action( 'bp_before_group_media' );
 
-											do_action( 'bp_after_group_media' );
-											do_action( 'bp_after_group_body' );
+										$bp_is_group_home = bp_is_group_home();
+										if ( $bp_is_group_home && ! bp_current_user_can( 'groups_access_group' ) ) {
+											/**
+											 * Fires before the display of the group status message.
+											 *
+											 * @since 1.1.0
+											 */
+											do_action( 'bp_before_group_status_message' );
 											?>
 
-										</div><!-- .item-body-inner-wrapper -->
-									</div><!-- // .item-body -->
+											<div id="message" class="info">
+												<p><?php bp_group_status_message(); ?></p>
+											</div>
 
-								</div><!-- // .bp-wrap -->
+											<?php
+
+											/**
+											 * Fires after the display of the group status message.
+											 *
+											 * @since 1.1.0
+											 */
+											do_action( 'bp_after_group_status_message' );
+										} else {
+											?>
+											<nav class="<?php bp_nouveau_single_item_subnav_classes(); ?>" id="subnav" role="navigation" aria-label="<?php esc_attr_e( 'rtMedia menu', 'buddyx' ); ?>">
+												<ul class="subnav">
+													<?php rtmedia_sub_nav(); ?>
+													<?php do_action( 'rtmedia_sub_nav' ); ?>
+												</ul>
+											</nav><!-- .item-list-tabs#subnav -->
+											<?php
+
+											rtmedia_load_template();
+										}
+
+										do_action( 'bp_after_group_media' );
+										do_action( 'bp_after_group_body' );
+										?>
+
+									</div><!-- .item-body-inner-wrapper -->
+								</div><!-- // .item-body -->
+
+							</div><!-- // .bp-wrap -->
 							<?php if ( is_active_sidebar( 'single_group' ) && bp_is_group() ) : ?>
 								<aside id="secondary" class="primary-sidebar widget-area">
 									<div class="sticky-sidebar">
@@ -235,8 +232,7 @@ if ( ! $rt_ajax_request ) {
 								</aside>
 							<?php endif; ?>
 
-							</div><!-- // .ite-wrapper -->
-						</div><!-- // .container -->
+						</div><!-- .site-wrapper -->
 
 						<?php bp_nouveau_group_hook( 'after', 'home_content' ); ?>
 

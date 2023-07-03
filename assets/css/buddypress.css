@@ -2294,10 +2294,6 @@ body.buddypress.group-create #page #primary .entry-header {
     margin-top: 0;
 }
 
-.media .buddypress-wrap:not(.bp-vertical-navs) .single-headers {
-    margin-bottom: 0;
-}
-
 #item-header-cover-image #item-header-avatar {
     padding: 0;
 }
