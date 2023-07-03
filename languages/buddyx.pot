@@ -788,8 +788,8 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../buddyx/rtmedia/main.php:66, ../buddyx/rtmedia/main.php:131
-msgid "Notifications menu"
+#: ../buddyx/rtmedia/main.php:211, ../buddyx/rtmedia/main.php:98
+msgid "rtMedia menu"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
