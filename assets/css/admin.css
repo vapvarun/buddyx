@@ -6,6 +6,7 @@
 # Community Addons
 # Post Formats
 # Single Post Title Style
+# rtMedia Notice
 --------------------------------------------------------------*/
 
 .appearance_page_buddyxpro-welcome .notice.notice-error.is-dismissible.learndash-license-is-dismissible,
@@ -910,4 +911,11 @@ input#buddyx_post_video {
 .buddyx_post_settings .buddyx_radio_list input.buddyx_radio_input:checked~img.post-title-image,
 .buddyx_post_settings .buddyx_radio_list input.buddyx_radio_input:focus~img.post-title-image {
     outline: 2px solid #007cba;
+}
+
+/*--------------------------------------------------------------
+# rtMedia Notice
+--------------------------------------------------------------*/
+.error.rtmedia-update-template-notice {
+    display: none;
 }

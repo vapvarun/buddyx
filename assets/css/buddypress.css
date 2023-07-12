@@ -912,8 +912,8 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 
 .media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail,
 .media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail img {
-    width: 175px;
-    height: 175px;
+    width: 175px !important;
+    height: 175px !important;
     max-height: 175px;
     max-width: 175px;
     line-height: inherit;
@@ -928,8 +928,8 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 
     .media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail,
     body.media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail img {
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        height: 100% !important;
         min-height: 200px;
         max-height: 200px;
     }
@@ -1630,6 +1630,18 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
     border-top: 0;
 }
 
+@media screen and (max-width: 46.8em) {
+    .buddypress-wrap .activity-comments>ul>li>ul,
+    .buddypress-wrap .activity-comments>ul>li>ul>li>ul,
+    .buddypress-wrap .activity-comments>ul>li>ul>li>ul>li>ul {
+        margin-left: 0;
+    }
+
+    .buddypress-wrap .activity-comments>ul>li>ul {
+        margin-left: 15px;
+    }
+}
+
 .buddypress-wrap .activity-comments ul>li>ul>li {
     border-top: 0;
 }
@@ -2276,6 +2288,10 @@ body.buddypress.group-create #page #primary .entry-header {
     box-shadow: none;
     border-radius: var(--global-border-radius) !important;
     background: #fff;
+}
+
+.media .buddypress-wrap:not(.bp-vertical-navs) .item-body {
+    margin-top: 0;
 }
 
 #item-header-cover-image #item-header-avatar {
