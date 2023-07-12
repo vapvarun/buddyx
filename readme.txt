@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.6 =
+* Fix: (#536) Managed elementor header
+* Fix: (#534) Update rtmedia override template file
+
 = 4.5.5 =
 * Fix: (#533) Managed group type in single group with bb platform
 * Fix: (#531) Outdated copies of some WooCommerce template files
