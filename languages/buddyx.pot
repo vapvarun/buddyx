@@ -31,7 +31,7 @@ msgstr ""
 msgid "Comments are disabled."
 msgstr ""
 
-#: ../buddyx/footer.php:28
+#: ../buddyx/footer.php:29
 msgid "Footer"
 msgstr ""
 
@@ -2393,27 +2393,27 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:62
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:53, ../buddyx/buddypress/members/single/cover-image-header.php:63
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:80
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/cover-image-header.php:81
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:84
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:74, ../buddyx/buddypress/members/single/cover-image-header.php:85
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:85
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:75, ../buddyx/buddypress/members/single/cover-image-header.php:86
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:86
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/members/single/cover-image-header.php:87
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:87
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/members/single/cover-image-header.php:88
 msgid "Cover photo"
 msgstr ""
 
@@ -2429,15 +2429,15 @@ msgstr ""
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:101, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/buddypress/members/single/cover-image-header.php:102, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:159, ../buddyx/buddypress/members/single/member-header.php:66
+#: ../buddyx/buddypress/members/single/cover-image-header.php:160, ../buddyx/buddypress/members/single/member-header.php:66
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:160, ../buddyx/buddypress/members/single/member-header.php:67
+#: ../buddyx/buddypress/members/single/cover-image-header.php:161, ../buddyx/buddypress/members/single/member-header.php:67
 msgid "Member Type"
 msgstr ""
 

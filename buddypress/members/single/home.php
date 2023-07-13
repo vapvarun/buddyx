@@ -28,7 +28,7 @@ $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 		</aside>
 	<?php } ?>
 	<div class="bp-wrap">
-		<?php if ( ! bp_nouveau_is_object_nav_in_sidebar() ) : ?>
+		<?php if ( ! bp_nouveau_is_object_nav_in_sidebar() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() ) : ?>
 
 			<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
 
