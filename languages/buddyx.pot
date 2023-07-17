@@ -796,11 +796,11 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:20, ../buddyx/template-parts/content/entry_content.php:21
+#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:37, ../buddyx/template-parts/content/entry_content.php:21
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:33, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
+#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:50, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
 msgid "Pages:"
 msgstr ""
 
