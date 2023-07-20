@@ -2352,44 +2352,44 @@ msgstr ""
 msgid "Thumbnail image"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:87
+#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:89
 msgid "Product"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:121
+#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:114
 msgid "Price"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:127
+#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:120
 msgid "Quantity"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:153
+#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:146
 msgid "Subtotal"
 msgstr ""
 
 #. translators: %s is the product name
-#: ../buddyx/woocommerce/cart/cart.php:66
+#: ../buddyx/woocommerce/cart/cart.php:68
 msgid "Remove %s from cart"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:116
+#: ../buddyx/woocommerce/cart/cart.php:109
 msgid "Available on backorder"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:171
+#: ../buddyx/woocommerce/cart/cart.php:164
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:171
+#: ../buddyx/woocommerce/cart/cart.php:164
 msgid "Coupon code"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:171, ../buddyx/woocommerce/cart/cart.php:171
+#: ../buddyx/woocommerce/cart/cart.php:164, ../buddyx/woocommerce/cart/cart.php:164
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:176, ../buddyx/woocommerce/cart/cart.php:176
+#: ../buddyx/woocommerce/cart/cart.php:169, ../buddyx/woocommerce/cart/cart.php:169
 msgid "Update cart"
 msgstr ""
 
