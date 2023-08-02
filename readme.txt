@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.2.0
+Tested up to: 6.3.0
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -23,14 +23,14 @@ Our platform boasts many impressive features, such as WooCommerce compatibility,
 There are multiple ways you can use a child theme with the BuddyX Theme, Use any one method mentioned below to create a child theme or use a child theme we have created.
 
 1. Download the child theme from Github - https://github.com/vapvarun/buddyx-child-theme
-2. More information on creating child theme - https://codex.wordpress.org/Child_Themes
+2. More information on creating a child theme - https://codex.wordpress.org/Child_Themes
 
 == BuddyX License ==
 
 BuddyX is licensed under the GNU General Public License v3.0 (or later)
 More details here: https://www.gnu.org/licenses/gpl-3.0.html
 
-BuddyX is based on WP Rig https://github.com/wprig/wprig, WP Rig is released under GNU General Public License v3.0 (or later).
+BuddyX is based on WP Rig https://github.com/wprig/wprig; WP Rig is released under GNU General Public License v3.0 (or later).
 
 == Copyright ==
 
@@ -97,9 +97,18 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.7 =
+* Fix: (#554) UI fixes with buddypress profanity
+* Fix: (#546) Update widgets UI with the bb platform
+* Fix: (#549) Update media options action button positions
+* Fix: (#545) Managed outdated copies of WooCommerce template files
+* Fix: Managed sticky sidebar scroll to the bottom widget
+* Fix: (#543, 544) Updated featured image size and fixes
+* Fix: (#541) Improve profile and cover photo window
+
 = 4.5.6 =
 * Fix: (#536) Managed elementor header
-* Fix: (#534) Update rtmedia override template file
+* Fix: (#534) Update rtmedia override a template file
 
 = 4.5.5 =
 * Fix: (#533) Managed group type in single group with bb platform
