@@ -48,57 +48,19 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 }
 ?>
 
-<div id="cover-image-container" class="<?php echo esc_attr( $social_networks_urls_div_class ); ?>">
-	<div id="header-cover-image" class="<?php echo esc_attr( $has_cover_image_position . $has_cover_image ); ?>">
-		<?php
-		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-			if ( ! empty( $cover_image_url ) ) {
-				echo '<img class="header-cover-img" src="' . esc_url( $cover_image_url ) . '"' . ( '' !== $cover_image_position ? ' data-top="' . esc_attr( $cover_image_position ) . '"' : '' ) . ( '' !== $cover_image_position ? ' style="top: ' . esc_attr( $cover_image_position ) . 'px"' : '' ) . ' alt="" />';
-			}
-		}
-		?>
-
-		<?php if ( bp_is_my_profile() ) { ?>
-			<a href="<?php echo esc_url( bp_get_members_component_link( 'profile', 'change-cover-image' ) ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
-				<?php
-				if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-					?>
-						<i class="bb-icon-bf bb-icon-camera"></i>
-					<?php } else { ?>
-						<i class="fa fa-camera"></i>
-					<?php
-					}
-					?>
-			</a>
-		<?php } ?>
-
-		<?php
-		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-			if ( bp_is_my_profile() ) {
-				if ( ! empty( $cover_image_url ) && bp_attachments_get_user_has_cover_image( bp_displayed_user_id() ) ) {
-					?>
-					<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
-						<i class="bb-icon-bf bb-icon-arrows"></i>
-					</a>
-					<div class="header-cover-reposition-wrap">
-						<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
-						<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
-						<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
-						<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
-					</div>
-					<?php
+<?php if ( ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() ) : ?>
+	<div id="cover-image-container" class="<?php echo esc_attr( $social_networks_urls_div_class ); ?>">
+		<div id="header-cover-image" class="<?php echo esc_attr( $has_cover_image_position . $has_cover_image ); ?>">
+			<?php
+			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+				if ( ! empty( $cover_image_url ) ) {
+					echo '<img class="header-cover-img" src="' . esc_url( $cover_image_url ) . '"' . ( '' !== $cover_image_position ? ' data-top="' . esc_attr( $cover_image_position ) . '"' : '' ) . ( '' !== $cover_image_position ? ' style="top: ' . esc_attr( $cover_image_position ) . 'px"' : '' ) . ' alt="" />';
 				}
 			}
-		}
-		?>
-	</div>
-</div><!-- #cover-image-container -->    
+			?>
 
-<div class="item-header-cover-image-wrapper">
-	<div id="item-header-cover-image">
-		<div id="item-header-avatar">
-			<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
-				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+			<?php if ( bp_is_my_profile() ) { ?>
+				<a href="<?php echo esc_url( bp_get_members_component_link( 'profile', 'change-cover-image' ) ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
 					<?php
 					if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 						?>
@@ -110,106 +72,148 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 						?>
 				</a>
 			<?php } ?>
-			<?php bp_displayed_user_avatar( 'type=full' ); ?>
-		</div><!-- #item-header-avatar -->
-
-		<div id="item-header-content">
-
-			<?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
-				<h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
-			<?php endif; ?>
 
 			<?php
 			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-				if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-					echo wp_kses_post( bp_get_user_member_type( bp_displayed_user_id() ) );
+				if ( bp_is_my_profile() ) {
+					if ( ! empty( $cover_image_url ) && bp_attachments_get_user_has_cover_image( bp_displayed_user_id() ) ) {
+						?>
+						<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
+							<i class="bb-icon-bf bb-icon-arrows"></i>
+						</a>
+						<div class="header-cover-reposition-wrap">
+							<a href="#" class="button small cover-image-cancel"><?php esc_html_e( 'Cancel', 'buddyx' ); ?></a>
+							<a href="#" class="button small cover-image-save"><?php esc_html_e( 'Save Changes', 'buddyx' ); ?></a>
+							<span class="drag-element-helper"><i class="bb-icon-l bb-icon-bars"></i><?php esc_html_e( 'Drag to move cover photo', 'buddyx' ); ?></span>
+							<img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php esc_attr_e( 'Cover photo', 'buddyx' ); ?>" />
+						</div>
+						<?php
+					}
 				}
 			}
 			?>
+		</div>
+	</div><!-- #cover-image-container -->    
 
-			<?php
-			if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
-				bp_nouveau_member_hook( 'before', 'in_header_meta' );
-			} else {
-				bp_nouveau_member_hook( 'before', 'header_meta' );
-			}
-			?>
+	<div class="item-header-cover-image-wrapper">
+		<div id="item-header-cover-image">
+			<div id="item-header-avatar">
+				<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
+					<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+						<?php
+						if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+							?>
+								<i class="bb-icon-bf bb-icon-camera"></i>
+							<?php } else { ?>
+								<i class="fa fa-camera"></i>
+							<?php
+							}
+							?>
+					</a>
+				<?php } ?>
+				<?php bp_displayed_user_avatar( 'type=full' ); ?>
+			</div><!-- #item-header-avatar -->
 
-			<?php if ( bp_nouveau_member_has_meta() ) : ?>
-				<div class="item-meta">
+			<div id="item-header-content">
 
-					<?php bp_nouveau_member_meta(); ?>
+				<?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
+					<h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
+				<?php endif; ?>
 
-				</div><!-- #item-meta -->
-				<div class="buddyx-badge">
-					<?php
-					if ( function_exists( 'buddyx_profile_achievements' ) ) :
-						buddyx_profile_achievements();
-					endif;
-					?>
-				</div><!-- .buddyx-badge -->
-			<?php endif; ?>
-
-			<?php
-			if ( function_exists( 'bp_member_type_list' ) ) :
-				bp_member_type_list(
-					bp_displayed_user_id(),
-					array(
-						'label'        => array(
-							'plural'   => __( 'Member Types', 'buddyx' ),
-							'singular' => __( 'Member Type', 'buddyx' ),
-						),
-						'list_element' => 'span',
-					)
-				);
-			endif;
-			?>
-
-			<?php
-			$additional_class = '';
-			if ( function_exists( 'bb_get_user_social_networks_field_value' ) ) {
-				$networks_field_value = bb_get_user_social_networks_field_value();
-				if ( is_array( $networks_field_value ) && count( array_filter( $networks_field_value ) ) > 6 ) {
-					$additional_class = 'left-align';
+				<?php
+				if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+					if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
+						echo wp_kses_post( bp_get_user_member_type( bp_displayed_user_id() ) );
+					}
 				}
-			}
-
-			if ( ! empty( $user_social_networks_urls ) ) {
 				?>
-				<div class="flex align-items-center member-social-links <?php echo esc_attr( $additional_class ); ?>">
-					<?php echo wp_kses( $user_social_networks_urls, bb_members_allow_html_tags() ); ?>
-				</div>
-				<?php
-			}
-			?>
 
-			<div class="member-header-actions-wrap">
 				<?php
-				bp_nouveau_member_header_buttons(
-					array(
-						'container'         => 'ul',
-						'button_element'    => 'button',
-						'container_classes' => array( 'member-header-actions' ),
-					)
-				);
+				if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
+					bp_nouveau_member_hook( 'before', 'in_header_meta' );
+				} else {
+					bp_nouveau_member_hook( 'before', 'header_meta' );
+				}
+				?>
 
-				if ( function_exists( 'bp_nouveau_member_header_bubble_buttons' ) ) {
-					bp_nouveau_member_header_bubble_buttons(
+				<?php if ( bp_nouveau_member_has_meta() ) : ?>
+					<div class="item-meta">
+
+						<?php bp_nouveau_member_meta(); ?>
+
+					</div><!-- #item-meta -->
+					<div class="buddyx-badge">
+						<?php
+						if ( function_exists( 'buddyx_profile_achievements' ) ) :
+							buddyx_profile_achievements();
+						endif;
+						?>
+					</div><!-- .buddyx-badge -->
+				<?php endif; ?>
+
+				<?php
+				if ( function_exists( 'bp_member_type_list' ) ) :
+					bp_member_type_list(
+						bp_displayed_user_id(),
 						array(
-							'container'         => 'div',
-							'button_element'    => 'button',
-							'container_classes' => array( 'bb_more_options', 'header-dropdown' ),
-							'is_tooltips'       => false,
-							'button_attr'       => array(
-								'hover_type' => 'static',
+							'label'        => array(
+								'plural'   => __( 'Member Types', 'buddyx' ),
+								'singular' => __( 'Member Type', 'buddyx' ),
 							),
+							'list_element' => 'span',
 						)
 					);
+				endif;
+				?>
+
+				<?php
+				$additional_class = '';
+				if ( function_exists( 'bb_get_user_social_networks_field_value' ) ) {
+					$networks_field_value = bb_get_user_social_networks_field_value();
+					if ( is_array( $networks_field_value ) && count( array_filter( $networks_field_value ) ) > 6 ) {
+						$additional_class = 'left-align';
+					}
+				}
+
+				if ( ! empty( $user_social_networks_urls ) ) {
+					?>
+					<div class="flex align-items-center member-social-links <?php echo esc_attr( $additional_class ); ?>">
+						<?php echo wp_kses( $user_social_networks_urls, bb_members_allow_html_tags() ); ?>
+					</div>
+					<?php
 				}
 				?>
-			</div><!-- .member-header-actions-wrap -->
 
-		</div><!-- #item-header-content -->
+				<div class="member-header-actions-wrap">
+					<?php
+					bp_nouveau_member_header_buttons(
+						array(
+							'container'         => 'ul',
+							'button_element'    => 'button',
+							'container_classes' => array( 'member-header-actions' ),
+						)
+					);
 
-	</div><!-- #item-header-cover-image -->
-</div><!-- .item-header-cover-image-wrapper -->
+					if ( function_exists( 'bp_nouveau_member_header_bubble_buttons' ) ) {
+						bp_nouveau_member_header_bubble_buttons(
+							array(
+								'container'         => 'div',
+								'button_element'    => 'button',
+								'container_classes' => array( 'bb_more_options', 'header-dropdown' ),
+								'is_tooltips'       => false,
+								'button_attr'       => array(
+									'hover_type' => 'static',
+								),
+							)
+						);
+					}
+					?>
+				</div><!-- .member-header-actions-wrap -->
+
+			</div><!-- #item-header-content -->
+
+		</div><!-- #item-header-cover-image -->
+	</div><!-- .item-header-cover-image-wrapper -->
+	<?php
+endif;
+?>

@@ -212,7 +212,7 @@
         var headerHeightExt = headerHeight + 54;
         $('.sticky-sidebar-enable .sticky-sidebar').stick_in_parent({
             offset_top: headerHeightExt,
-            recalc_every: 1,
+            spacer: false,
         });
 
     };
