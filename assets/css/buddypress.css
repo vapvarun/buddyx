@@ -43,6 +43,7 @@
     # bbPress(Activity)
     # BuddyPress Follow
     # BuddyPress Resume Manager
+    # Activity Link Preview
     # BP Attachments
 
 --------------------------------------------------------------*/
@@ -1572,6 +1573,7 @@ body.activity-permalink .activity-list li:first-child {
     border-left: 0;
     margin: 0 0 0 51px;
     padding: 0;
+    word-break: break-all;
 }
 
 body #buddypress .bp-list .activity-comments .action {
@@ -5237,6 +5239,21 @@ body.resume.has-single-member-sidebar .site-wrapper.member-home .primary-sidebar
 body.resume.has-single-member-sidebar .member-home {
     grid-template-columns: 1fr;
 }
+
+/*--------------------------------------------------------------
+## Activity Link Preview
+--------------------------------------------------------------*/
+.activity-link-preview-container {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    border-radius: var(--global-border-radius) !important;
+}
+
+.activity-list .activity-item .activity-content .activity-link-preview-title,
+.activity-link-preview-title {
+    padding: 0;
+}
+
 
 /*--------------------------------------------------------------
 ## BP Attachments
