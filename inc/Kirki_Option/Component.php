@@ -29,8 +29,8 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', array( $this, 'add_panels_and_sections' ) );
-		add_filter( 'after_setup_theme', array( $this, 'add_fields' ) );
+		add_action( 'init', array( $this, 'add_panels_and_sections' ) );
+		add_filter( 'init', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_single_blog_post_body_classes' ) );
