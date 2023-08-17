@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.8 =
+* Fix: (#557) Added Kirki 5.0.0 support
+* Fix: (#556) Managed activity link preview UI
+
 = 4.5.7 =
 * Fix: (#554) UI fixes with buddypress profanity
 * Fix: (#546) Update widgets UI with the bb platform
