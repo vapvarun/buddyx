@@ -254,6 +254,21 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></span></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Page Mapping', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Sign-in Popup | Register Form Fields', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Scroll Top', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Site Loader', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
@@ -329,7 +344,27 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Header Menu Position', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Menu Effects', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'More Menu', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Site Search Style', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Login/Register Button Style', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-close"></span></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
@@ -346,6 +381,21 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Site Cart', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'BuddyPress Components', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td class="buddyx-main-feature"><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td class="buddyx-main-feature"></td>
+													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
@@ -374,6 +424,16 @@ class Component implements Component_Interface {
 													<td class="buddyx-main-feature"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Dark Mode', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Custom Colors', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Body Background Color', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
@@ -391,6 +451,11 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Primary Header', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
@@ -489,6 +554,36 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td class="buddyx-main-feature"><?php esc_html_e( 'WP Login', 'buddyx' ); ?></td>
+													<td class="buddyx-main-feature"></td>
+													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Your Logo Section', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Choose WP Login Theme', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Login Form', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Forget Form', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Button', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Footer', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
@@ -507,6 +602,21 @@ class Component implements Component_Interface {
 													<td class="buddyx-main-feature"><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Activity Control', 'buddyx' ); ?></td>
+													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'BuddyPress Activity Share', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Activity Reaction', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Activity Load More', 'buddyx' ); ?></td>
@@ -565,6 +675,21 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Shop Products Per Page', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Display Filter Button', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Sale Badge Style', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Integrations', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
@@ -610,12 +735,27 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Dokan', 'buddyx' ); ?></td>
+													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'WC Vendors', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'GamiPress', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Paid Memberships', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'The Event Calendar', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
@@ -635,6 +775,42 @@ class Component implements Component_Interface {
 								<p class="buddyx-col-content"><?php esc_html_e( 'Extend your social community website with our premium add-ons for BuddyPress.', 'buddyx' ); ?></p>
 
 								<div class="buddyx-row addons">
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Business-Profile', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-business-profile/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/06/ideapush.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'ideapush', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-ideapush-integration/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Contact-Me', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-contact-me/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
