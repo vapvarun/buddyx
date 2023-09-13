@@ -152,11 +152,25 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-left">
 										<h4 class="buddyx-faq-title"><?php esc_html_e( 'Can I use these addons in my client project?', 'buddyx' ); ?></h4>
-										<p class="buddyx-col-content"><?php esc_html_e( 'Yes, absolutely, no holds barred. Use it to bring colorful moments to your customers. And don’t forget to check out our premium features.', 'buddyx' ); ?></p>
+										<p class="buddyx-col-content"><?php esc_html_e( 'Yes, absolutely, no holds barred. Use it to bring colorful moments to your customers. And don\'t forget to check out our premium features.', 'buddyx' ); ?></p>
 									</div>
 									<div class="buddyx-col col-right">
 										<h4 class="buddyx-faq-title"><?php esc_html_e( 'Is there any support policy available for the free users?', 'buddyx' ); ?></h4>
 										<p class="buddyx-col-content"><?php esc_html_e( 'Free or pro version, both comes with excellent support from us. However, pro users will get priority support.', 'buddyx' ); ?></p>
+									</div>
+								</div><!-- faq -->
+								<div class="buddyx-row video-tutorial child-theme-section">
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/file-download.svg' ); ?>" alt="<?php esc_attr_e( 'file-download', 'buddyx' ); ?>">
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyX Child Theme', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://github.com/wbcomdesigns/buddyx-child/releases/download/v1.0.0/buddyx-child.zip' ); ?>"><?php esc_html_e( 'Download Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
 									</div>
 								</div><!-- faq -->
 							</div><!-- .buddyx-dashboard-body -->

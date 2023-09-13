@@ -27,7 +27,8 @@
 .buddyx-top-banner {
     content: "";
     width: 100%;
-    background-image: url(../../images/buddyx-top-banner.png);
+    background-image: url(../../images/pattern.png);
+    background-color: #460001;
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
@@ -306,6 +307,11 @@
 
 .buddyx-row.addons .buddyx-col-image img {
     border-radius: 12px;
+}
+
+.buddyx-row.child-theme-section {
+    max-width: 500px;
+    margin: 35px auto 0;
 }
 
 @media screen and (min-width: 768px) {
