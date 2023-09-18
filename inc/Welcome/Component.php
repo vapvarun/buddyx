@@ -172,7 +172,7 @@ class Component implements Component_Interface {
 											</div>
 										</div>
 									</div>
-								</div><!-- faq -->
+								</div><!-- child-theme-section -->
 							</div><!-- .buddyx-dashboard-body -->
 						</div><!-- .tab1 -->
 
@@ -268,6 +268,26 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></span></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Sidebar Width', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Global Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Buttons Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Form Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Page Mapping', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
@@ -285,6 +305,11 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Site Loader', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Loading Text', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
 												</tr>
 												<tr>
