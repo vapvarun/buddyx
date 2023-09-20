@@ -69,7 +69,7 @@ class Component implements Component_Interface {
 		?>
 		<div class="buddyx-top-banner-wrapper">
 			<div class="buddyx-top-banner">				
-				<h1 class="buddyx-banner-titile">
+				<h1 class="buddyx-banner-title">
 					<?php esc_html_e( 'Welcome to BuddyX Theme', 'buddyx' ); ?>
 				</h1>
 				<span class="buddyx-theme-version">
@@ -88,8 +88,8 @@ class Component implements Component_Interface {
 						<div class="tabs">
 						<div role="tablist" aria-label="<?php esc_attr_e( 'Programming Languages', 'buddyx' ); ?>">
 							<button role="tab" aria-selected="true" id="tab1"><?php esc_html_e( 'Dashboard', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab3"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab4"><?php esc_html_e( 'Community Addons', 'buddyx' ); ?></button>
+							<button role="tab" aria-selected="false" id="tab2"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></button>
+							<button role="tab" aria-selected="false" id="tab3"><?php esc_html_e( 'Community Addons', 'buddyx' ); ?></button>
 						</div>
 						<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab1', 'buddyx' ); ?>">
 							<div class="buddyx-tabs-content buddyx-dashboard-welcome-body">
@@ -97,7 +97,7 @@ class Component implements Component_Interface {
 
 									<!-- Customizer Options -->
 									<div class="buddyx-welcome-column">
-									<h2 class="buddyx-tabs-titile">
+									<h2 class="buddyx-tabs-title">
 										<?php esc_html_e( 'Customizer Settings', 'buddyx' ); ?>
 										<a class="section-header-link" target="_blank" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go to Customizer', 'buddyx' ); ?></a>
 									</h2>
@@ -160,7 +160,7 @@ class Component implements Component_Interface {
 											<span class="buddyx-box-item-icon">
 												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-demo-installer.png' ); ?>" alt="BuddyX Installer">
 											</span>
-											<h2 class="buddyx-tabs-titile">
+											<h2 class="buddyx-tabs-title">
 												<?php esc_html_e( 'Demo Installation', 'buddyx' ); ?>												
 											</h2>
 											<p><?php esc_html_e( 'The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site.', 'buddyx' ); ?></p>
@@ -170,7 +170,7 @@ class Component implements Component_Interface {
 											<span class="buddyx-box-item-icon">
 												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
 											</span>
-											<h2 class="buddyx-tabs-titile">
+											<h2 class="buddyx-tabs-title">
 												<?php esc_html_e( 'Install Recommended Plugins', 'buddyx' ); ?>											
 											</h2>
 											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in a matter of minutes.', 'buddyx' ); ?></p>
@@ -187,7 +187,7 @@ class Component implements Component_Interface {
 											<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/child-theme.png' ); ?>" alt="child theme">
 										</span>
 										<div class="buddyx-pro-theme-info">
-											<h2 class="buddyx-tabs-titile">
+											<h2 class="buddyx-tabs-title">
 												<?php esc_html_e( 'BuddyX Child Theme', 'buddyx' ); ?>												
 											</h2>
 											<p><?php esc_html_e( 'A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security.', 'buddyx' ); ?></p>
@@ -200,7 +200,7 @@ class Component implements Component_Interface {
 											<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-pro.png' ); ?>" alt="BuddyX Pro">
 										</span>
 										<div class="buddyx-pro-theme-info">
-											<h2 class="buddyx-tabs-titile">
+											<h2 class="buddyx-tabs-title">
 												<?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?>												
 											</h2>
 											<p><?php esc_html_e( '#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform.', 'buddyx' ); ?></p>
@@ -280,12 +280,12 @@ class Component implements Component_Interface {
 							</div><!-- .buddyx-dashboard-body -->
 						</div><!-- .tab1 -->						
 
-						<div role="tabpanel" class="get-pro-buddyx-theme" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>							
+						<div role="tabpanel" class="get-pro-buddyx-theme" aria-labelledby="<?php esc_attr_e( 'tab2', 'buddyx' ); ?>" hidden>							
 
 							<div class="buddyx-welcome-column">
 							<div class="buddyx-welcome-column buddyx-pro-section">
 								<div class="buddyx-pro-theme-info">
-									<h2 class="buddyx-tabs-titile">
+									<h2 class="buddyx-tabs-title">
 										<?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?>												
 									</h2>
 									<p><?php esc_html_e( '#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform', 'buddyx' ); ?></p>
@@ -862,17 +862,17 @@ class Component implements Component_Interface {
 								</div><!-- .buddyx-features-table-wrap -->
 							</div><!-- .features -->
 							</div>
-						</div><!-- .tab3 -->
+						</div><!-- .tab2 -->
 
-						<div role="tabpanel" class="bp-plugin-addons" aria-labelledby="<?php esc_attr_e( 'tab4', 'buddyx' ); ?>" hidden>
+						<div role="tabpanel" class="bp-plugin-addons" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
 							<div class="buddyx-tabs-content buddyx-addon-body">
-								
+
 								<div class="buddyx-welcome-column buddyx-pro-section">
 									<span class="buddyx-box-item-icon">
 										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
 									</span>
 									<div class="buddyx-pro-theme-info">
-										<h2 class="buddyx-tabs-titile">
+										<h2 class="buddyx-tabs-title">
 											<?php esc_html_e( 'BuddyPress Premium add-ons', 'buddyx' ); ?>												
 										</h2>
 										<p><?php esc_html_e( 'Extend your social community website with our premium add-ons for BuddyPress.', 'buddyx' ); ?></p>
@@ -884,12 +884,36 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'WP_Story', 'buddyx' ); ?>" />
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Business-Profile', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
 												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-business-profile/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/06/ideapush.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'ideapush', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-ideapush-integration/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Contact-Me', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-contact-me/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
 											</div>
 										</div>
 									</div>
@@ -902,18 +926,6 @@ class Component implements Component_Interface {
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Social Stories offer a more personal way to interact with your audience.', 'buddyx' ); ?></p>
 												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/wp-stories/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BP_profile-view', 'buddyx' ); ?>" />
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a members profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-contact-me/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
 											</div>
 										</div>
 									</div>
@@ -1160,7 +1172,7 @@ class Component implements Component_Interface {
 								</div><!-- .addons -->
 
 							</div><!-- .buddyx-addon-body -->
-						</div><!-- .tab4 -->
+						</div><!-- .tab3 -->
 					</section>
 
 				</div><!-- .buddyx-dashboard-tabs -->
