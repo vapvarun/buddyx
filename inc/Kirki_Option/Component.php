@@ -103,7 +103,7 @@ class Component implements Component_Interface {
 			'site_layout_panel',
 			array(
 				'title'       => esc_html__( 'General', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -112,7 +112,7 @@ class Component implements Component_Interface {
 			'site_layout',
 			array(
 				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
 			)
@@ -123,7 +123,7 @@ class Component implements Component_Interface {
 			'site_loader',
 			array(
 				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
 			)
@@ -134,7 +134,7 @@ class Component implements Component_Interface {
 			'page_mapping',
 			array(
 				'title'       => esc_html__( 'Page Mapping', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
 			)
@@ -145,7 +145,7 @@ class Component implements Component_Interface {
 			'typography_panel',
 			array(
 				'title'       => esc_html__( 'Typography', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -154,7 +154,7 @@ class Component implements Component_Interface {
 			'site_title_typography_section',
 			array(
 				'title'       => esc_html__( 'Site Title', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'typography_panel',
 			)
@@ -164,7 +164,7 @@ class Component implements Component_Interface {
 			'headings_typography_section',
 			array(
 				'title'       => esc_html__( 'Headings', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'typography_panel',
 			)
@@ -174,7 +174,7 @@ class Component implements Component_Interface {
 			'menu_typography_section',
 			array(
 				'title'       => esc_html__( 'Menu', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'typography_panel',
 			)
@@ -184,7 +184,7 @@ class Component implements Component_Interface {
 			'body_typography_section',
 			array(
 				'title'       => esc_html__( 'Body', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'typography_panel',
 			)
@@ -195,7 +195,7 @@ class Component implements Component_Interface {
 			'site_header_section',
 			array(
 				'title'       => esc_html__( 'Site Header', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -205,7 +205,7 @@ class Component implements Component_Interface {
 			'site_sub_header_section',
 			array(
 				'title'       => esc_html__( 'Site Sub Header', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -215,7 +215,7 @@ class Component implements Component_Interface {
 			'site_skin_section',
 			array(
 				'title'       => esc_html__( 'Site Skin', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -225,7 +225,7 @@ class Component implements Component_Interface {
 			'site_blog_section',
 			array(
 				'title'       => esc_html__( 'Site Blog', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -235,7 +235,7 @@ class Component implements Component_Interface {
 			'site_sidebar_layout',
 			array(
 				'title'       => esc_html__( 'Site Sidebar', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 			)
 		);
@@ -245,7 +245,7 @@ class Component implements Component_Interface {
 			'site_wp_login',
 			array(
 				'title'       => esc_html__( 'WP Login', 'buddyx' ),
-				'priority'    => 11,
+				'priority'    => 31,
 				'description' => '',
 			)
 		);
@@ -254,7 +254,7 @@ class Component implements Component_Interface {
 			'site_wp_login_logo',
 			array(
 				'title'       => esc_html__( 'Logo', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_wp_login',
 			)
@@ -265,7 +265,7 @@ class Component implements Component_Interface {
 			'site_footer_panel',
 			array(
 				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
-				'priority'    => 11,
+				'priority'    => 31,
 				'description' => '',
 			)
 		);
@@ -274,7 +274,7 @@ class Component implements Component_Interface {
 			'site_footer_section',
 			array(
 				'title'       => esc_html__( 'Footer Section', 'buddyx' ),
-				'priority'    => 10,
+				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_footer_panel',
 			)
@@ -285,7 +285,7 @@ class Component implements Component_Interface {
 			'site_copyright_section',
 			array(
 				'title'       => esc_html__( 'Copyright Section', 'buddyx' ),
-				'priority'    => 11,
+				'priority'    => 31,
 				'description' => '',
 				'panel'       => 'site_footer_panel',
 			)
@@ -296,7 +296,7 @@ class Component implements Component_Interface {
 			'site_performance_section',
 			array(
 				'title'       => esc_html__( 'Site Performance', 'buddyx' ),
-				'priority'    => 11,
+				'priority'    => 31,
 				'description' => '',
 			)
 		);
