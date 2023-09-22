@@ -33,8 +33,16 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
-		add_action( 'customize_preview_init', [ $this, 'action_enqueue_customize_preview_js' ] );
+		add_action( 'customize_register', array( $this, 'action_customize_register' ) );
+		add_action( 'customize_preview_init', array( $this, 'action_enqueue_customize_preview_js' ) );
+
+		add_action(
+			'customize_controls_enqueue_scripts',
+			function () {
+				$css_uri = get_theme_file_uri( '/assets/css/' );
+				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', time() );
+			}
+		);
 	}
 
 	/**
@@ -50,21 +58,21 @@ class Component implements Component_Interface {
 		if ( isset( $wp_customize->selective_refresh ) ) {
 			$wp_customize->selective_refresh->add_partial(
 				'blogname',
-				[
+				array(
 					'selector'        => '.site-title a',
 					'render_callback' => function() {
 						bloginfo( 'name' );
 					},
-				]
+				)
 			);
 			$wp_customize->selective_refresh->add_partial(
 				'blogdescription',
-				[
+				array(
 					'selector'        => '.site-description',
 					'render_callback' => function() {
 						bloginfo( 'description' );
 					},
-				]
+				)
 			);
 		}
 
@@ -73,10 +81,10 @@ class Component implements Component_Interface {
 		 */
 		$wp_customize->add_section(
 			'theme_options',
-			[
+			array(
 				'title'    => __( 'Theme Options', 'buddyx' ),
 				'priority' => 130, // Before Additional CSS.
-			]
+			)
 		);
 	}
 
@@ -87,7 +95,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-customizer',
 			get_theme_file_uri( '/assets/js/customizer.min.js' ),
-			[ 'customize-preview' ],
+			array( 'customize-preview' ),
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
 			true
 		);

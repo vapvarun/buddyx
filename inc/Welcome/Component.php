@@ -33,6 +33,10 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu_page' ) );
+
+		// Redirect admin after theme switch.
+		add_action( 'after_switch_theme', array( $this, 'redirect_admin' ) );
+
 		add_action( 'admin_init', array( $this, 'hide_welcome_page_notices' ) );
 	}
 
@@ -48,6 +52,19 @@ class Component implements Component_Interface {
 			'buddyx-welcome',
 			array( &$this, 'submenu_page_callback' )
 		);
+	}
+
+	/**
+	 * Redirect Admin
+	 *
+	 * @since 4.5.9
+	 * @access public
+	 * @return void
+	 */
+	public function redirect_admin() {
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			header( 'Location:' . admin_url() . 'admin.php?page=buddyx-welcome' );
+		}
 	}
 
 	/**
