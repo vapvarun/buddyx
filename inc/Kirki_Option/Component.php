@@ -34,6 +34,7 @@ class Component implements Component_Interface {
 			add_filter( 'init', array( $this, 'add_fields' ) );
 		}
 		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
+		add_filter( 'body_class', array( $this, 'site_sticky_header_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_single_blog_post_body_classes' ) );
 		if ( class_exists( 'SFWD_LMS' ) ) {
@@ -46,6 +47,21 @@ class Component implements Component_Interface {
 	 */
 	public function site_width_body_classes( array $classes ) : array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
+
+		return $classes;
+	}
+
+	/**
+	 * Site sticky header body class.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
+	 */
+	public function site_sticky_header_classes( array $classes ): array {
+		$sticky_header = get_theme_mod( 'site_sticky_header', buddyx_defaults( 'site-sticky-header' ) );
+		if ( $sticky_header ) {
+			$classes[] = 'sticky-header';
+		}
 
 		return $classes;
 	}
@@ -772,6 +788,19 @@ class Component implements Component_Interface {
 		/**
 		 * Site Header
 		 */
+		new \Kirki\Field\Checkbox_Switch(
+			array(
+				'settings' => 'site_sticky_header',
+				'label'    => esc_html__( 'Enable Sticky Header ?', 'buddyx' ),
+				'section'  => 'site_header_section',
+				'default'  => '1',
+				'choices'  => array(
+					'on'  => esc_html__( 'Yes', 'buddyx' ),
+					'off' => esc_html__( 'No', 'buddyx' ),
+				),
+			)
+		);
+
 		new \Kirki\Field\Color(
 			array(
 				'settings' => 'site_header_bg_color',
