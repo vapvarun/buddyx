@@ -16,6 +16,7 @@ function buddyx_defaults( $key = '' ) {
 	$defaults['site-cart'] = '1';
 
 	// site sidebar
+	$defaults['site-sticky-header']                = '1';
 	$defaults['sidebar-option']                    = 'right';
 	$defaults['buddypress-sidebar-option']         = 'both';
 	$defaults['buddypress-members-sidebar-option'] = 'right';

@@ -22,7 +22,7 @@
     // Header Height
     BUDDYX.headerClass = function() {
         var $document = $(document),
-            $elementHeader = $('body, .site-header-wrapper'),
+            $elementHeader = $('body.sticky-header, .sticky-header .site-header-wrapper'),
             className = 'has-sticky-header';
 
         $document.scroll(function() {
@@ -208,8 +208,12 @@
     // stickySidebar
     BUDDYX.stickySidebar = function() {
 
-        var headerHeight = $('.site-header-wrapper').height();
-        var headerHeightExt = headerHeight + 54;
+        var headerHeight = $('.site-header-wrapper').outerHeight();
+        if ($('body').hasClass('sticky-header')) {
+            var headerHeightExt = headerHeight + 54;
+        } else {
+            var headerHeightExt = headerHeight;
+        }
         $('.sticky-sidebar-enable .sticky-sidebar').stick_in_parent({
             offset_top: headerHeightExt,
             spacer: false,

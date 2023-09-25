@@ -33,6 +33,10 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu_page' ) );
+
+		// Redirect admin after theme switch.
+		add_action( 'after_switch_theme', array( $this, 'redirect_admin' ) );
+
 		add_action( 'admin_init', array( $this, 'hide_welcome_page_notices' ) );
 	}
 
@@ -51,6 +55,19 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Redirect Admin
+	 *
+	 * @since 4.5.9
+	 * @access public
+	 * @return void
+	 */
+	public function redirect_admin() {
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			header( 'Location:' . admin_url() . 'admin.php?page=buddyx-welcome' );
+		}
+	}
+
+	/**
 	 * Hide admin notices.
 	 */
 	public function hide_welcome_page_notices() {
@@ -63,17 +80,21 @@ class Component implements Component_Interface {
 		}
 	}
 
-	public function submenu_page_callback() { ?>
+	public function submenu_page_callback() {
+		// instence of tgmpa to check plugins are installed.
+		$tgmpa = call_user_func( array( get_class( $GLOBALS['tgmpa'] ), 'get_instance' ) );
+		?>
 		<div class="buddyx-top-banner-wrapper">
-			<div class="buddyx-top-banner">
+			<div class="buddyx-top-banner">				
+				<h1 class="buddyx-banner-title">
+					<?php esc_html_e( 'Welcome to BuddyX Theme', 'buddyx' ); ?>
+				</h1>
 				<span class="buddyx-theme-version">
 					<?php esc_html_e( 'Version', 'buddyx' ); ?> <?php echo esc_html( wp_get_theme( get_template() )->get( 'Version' ) ); ?>
 				</span>
-				<h1 class="buddyx-banner-titile">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-theme-name.png' ); ?>" alt="<?php esc_attr_e( 'buddyx-theme', 'buddyx' ); ?>">
-				</h1>
 				<div class="buddyx-banner-description">
-					<p><?php esc_html_e( 'Thank you for your purchase! Below you will find information on how to setup the theme to start using it!', 'buddyx' ); ?></p>
+					<p><?php esc_html_e( 'Thank you for purchasing the BuddyX Theme!', 'buddyx' ); ?></p>
+					<p><?php esc_html_e( 'Below, you will find information on setting up the theme to start using it!', 'buddyx' ); ?></p>
 				</div>
 			</div>
 		</div>
@@ -85,139 +106,208 @@ class Component implements Component_Interface {
 						<div class="tabs">
 						<div role="tablist" aria-label="<?php esc_attr_e( 'Programming Languages', 'buddyx' ); ?>">
 							<button role="tab" aria-selected="true" id="tab1"><?php esc_html_e( 'Dashboard', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab2"><?php esc_html_e( 'Help & Support', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab3"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab4"><?php esc_html_e( 'Community Addons', 'buddyx' ); ?></button>
+							<button role="tab" aria-selected="false" id="tab2"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></button>
+							<button role="tab" aria-selected="false" id="tab3"><?php esc_html_e( 'Community Addons', 'buddyx' ); ?></button>
 						</div>
 						<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab1', 'buddyx' ); ?>">
-							<div class="buddyx-tabs-content buddyx-dashboard-body">
-								<h2 class="buddyx-tabs-titile">
-									<?php esc_html_e( 'Welcome to BuddyX Pro Theme', 'buddyx' ); ?>
-								</h2>
-								<div class="buddyx-row knowledge-base">
-									<div class="buddyx-col col-left">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/knowledge-base.png' ); ?>" alt="<?php esc_attr_e( 'knowledge-base', 'buddyx' ); ?>">
-									</div>
-									<div class="buddyx-col col-right">
-										<h3 class="buddyx-feature-title"><?php esc_html_e( 'Knowledge Base', 'buddyx' ); ?></h3>
-										<p class="buddyx-col-content"><?php esc_html_e( 'We have created full-proof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
-										<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-theme/' ); ?>"><?php esc_html_e( 'View More Knowledge Page', 'buddyx' ); ?></a>
-									</div>
-								</div><!-- .knowledge-base -->
+							<div class="buddyx-tabs-content buddyx-dashboard-welcome-body">
+								<div class="buddyx-welcome-container">
 
-								<div class="buddyx-row video-tutorial">
-									<div class="buddyx-col col-full">
-										<h3 class="buddyx-feature-title"><?php esc_html_e( 'Video Tutorial', 'buddyx' ); ?></h3>
-										<p class="buddyx-col-content"><?php esc_html_e( 'How to use Floating Effects and manage CSS Transform?', 'buddyx' ); ?></p>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/demo-installation.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyX Demo installation', 'buddyx' ); ?></h4>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://www.youtube.com/watch?v=Ztogq3dx4-E&feature=youtu.be' ); ?>"><?php esc_html_e( 'View Video', 'buddyx' ); ?></a>
-											</div>
+									<!-- Customizer Options -->
+									<div class="buddyx-welcome-column">
+									<h2 class="buddyx-tabs-title">
+										<?php esc_html_e( 'Customizer Settings', 'buddyx' ); ?>
+										<a class="section-header-link" target="_blank" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go to Customizer', 'buddyx' ); ?></a>
+									</h2>
+									<div class="buddyx-grid-box-wrap">
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-format-image.png' ); ?>" alt="BuddyX Logo">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Upload Logo', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[control]=custom_logo&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
 										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/customizer-options.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyX Customizer Options', 'buddyx' ); ?></h4>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://www.youtube.com/watch?v=i51CikDsbeg&feature=youtu.be' ); ?>"><?php esc_html_e( 'View Video', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/theme-integrations.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Theme Integrations', 'buddyx' ); ?></h4>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-theme/pro-integrations/gamipress/' ); ?>"><?php esc_html_e( 'View More Integrations', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-								</div><!-- .video-tutorial -->
-								<div class="buddyx-row faq">
-									<div class="buddyx-col col-full">
-										<h2 class="buddyx-feature-title">
-											<?php esc_html_e( 'Frequently Asked Questions', 'buddyx' ); ?>
-										</h2>
-									</div>
-									<div class="buddyx-col col-left">
-										<h4 class="buddyx-faq-title"><?php esc_html_e( 'Can I use these addons in my client project?', 'buddyx' ); ?></h4>
-										<p class="buddyx-col-content"><?php esc_html_e( 'Yes, absolutely, no holds barred. Use it to bring colorful moments to your customers. And don’t forget to check out our premium features.', 'buddyx' ); ?></p>
-									</div>
-									<div class="buddyx-col col-right">
-										<h4 class="buddyx-faq-title"><?php esc_html_e( 'Is there any support policy available for the free users?', 'buddyx' ); ?></h4>
-										<p class="buddyx-col-content"><?php esc_html_e( 'Free or pro version, both comes with excellent support from us. However, pro users will get priority support.', 'buddyx' ); ?></p>
-									</div>
-								</div><!-- faq -->
-							</div><!-- .buddyx-dashboard-body -->
-						</div><!-- .tab1 -->
 
-						<div role="tabpanel" aria-labelledby="tab2" hidden>
-							<div class="buddyx-tabs-content buddyx-support-body">
-								<h2 class="buddyx-tabs-titile">
-									<?php esc_html_e( 'How Can We Help You?', 'buddyx' ); ?>
-								</h2>
-								<p class="buddyx-col-content"><?php esc_html_e( 'Our team is here to help you out at anytime. If you have any idea about how we could improve. You can share access to your site on our helpdesk if it can help getting faster.', 'buddyx' ); ?></p>
-								<div class="buddyx-row support">
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/support-ticket.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Tickets Support', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( "Open a ticket on our helpdesk, we don't guarantee a fast response but within a week. Except if you've purchased one of our product we'll reply within 24 hours.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>"><?php esc_html_e( 'Create Ticket', 'buddyx' ); ?></a>
-											</div>
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-admin-appearance.png' ); ?>" alt="BuddyX Colors">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Set Colors', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[control]=body_background_color&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
 										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/support-team.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Connect with Our Support Team', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( "Create a new thread on our theme page, participation is open to anyone from all around the world. We'll be there to help as well but can't guarantee any delay.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>"><?php esc_html_e( 'Contact Us', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/review.svg' ); ?>" alt="<?php esc_attr_e( 'demo-installation', 'buddyx' ); ?>">
-											</div>
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Theme Integrations', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Never underestimate your rate! Your 5 star rate will encourage us so much!', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post' ); ?>"><?php esc_html_e( 'Rate Us ★★★★★', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-								</div><!-- .support -->
-							</div><!-- .buddyx-support-body -->
-						</div><!-- .tab2 -->
 
-						<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
-							<div class="buddyxpro-features-banner">
-								<div class="buddyxpro-features-content">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyxpro-theme-name.png' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'buddyxpro-theme-name', 'buddyx' ); ?>" />
-									<p class="buddyx-col-content"><?php esc_html_e( "What's Inside the BuddyX Pro Theme", 'buddyx' ); ?></p>
-									<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></a>
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-layout.png' ); ?>" alt="BuddyX Layout">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Site Layout', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[control]=site_layout&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
+										</div>
+
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-editor-paragraph.png' ); ?>" alt="BuddyX Typography">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Set Typography	', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[panel]=typography_panel&return=' . admin_url( 'admin.php?page=buddyx-options' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
+										</div>
+
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-admin-customizer.png' ); ?>" alt="BuddyX Header">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Header Layout', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=site_header_section&return=' . admin_url( 'admin.php?page=buddyx-options' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
+										</div>
+
+										<div class="buddyx-box-item">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/dashicons-blog-layout.png' ); ?>" alt="BuddyX Blog">
+											</span>
+											<h4 class="buddyx-box-item-name"><?php esc_html_e( 'Site Blog', 'buddyx' ); ?></h4>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=site_blog_section&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Go to option', 'buddyx' ); ?></a>
+										</div>
+									</div>
+									</div>
+
+									<!-- End Customizer Options -->
+
+									<!-- BuddyX Theme Importer Plugin -->
+									<div class="buddyx-importer-wrapper">
+										<div class="buddyx-welcome-column">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-demo-installer.png' ); ?>" alt="BuddyX Installer">
+											</span>
+											<h2 class="buddyx-tabs-title">
+												<?php esc_html_e( 'Demo Installation', 'buddyx' ); ?>												
+											</h2>
+											<p><?php esc_html_e( 'The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site.', 'buddyx' ); ?></p>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-theme/getting-started-buddyx-theme/demo-installation/' ); ?>" target="_blank"><?php esc_html_e( 'Demo Installation', 'buddyx' ); ?></a>
+										</div>										
+										<div class="buddyx-welcome-column">
+											<span class="buddyx-box-item-icon">
+												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
+											</span>
+											<h2 class="buddyx-tabs-title">
+												<?php esc_html_e( 'Install Recommended Plugins', 'buddyx' ); ?>											
+											</h2>
+											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes.', 'buddyx' ); ?></p>
+											<?php if ( ! $tgmpa->is_tgmpa_complete() ) { ?>
+												<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url() . 'admin.php?page=tgmpa-install-plugins' ); ?>" target="_blank"><?php esc_html_e( 'Install now', 'buddyx' ); ?></a>
+											<?php } else { ?>
+												<a class="buddyx-box-item-link all-plugin-installed" href="javascript:void(0)"><?php esc_html_e( 'Installed', 'buddyx' ); ?></a>
+											<?php } ?>
+										</div>
+									</div>
+
+									<div class="buddyx-welcome-column buddyx-pro-section child-theme-section">
+										<span class="buddyx-box-item-icon">
+											<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/child-theme.png' ); ?>" alt="child theme">
+										</span>
+										<div class="buddyx-pro-theme-info">
+											<h2 class="buddyx-tabs-title">
+												<?php esc_html_e( 'BuddyX Child Theme', 'buddyx' ); ?>												
+											</h2>
+											<p><?php esc_html_e( 'A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security.', 'buddyx' ); ?></p>
+											<a class="buddyx-box-item-link" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://github.com/wbcomdesigns/buddyx-child/releases/download/v1.0.0/buddyx-child.zip' ); ?>"><?php esc_html_e( 'Download Now', 'buddyx' ); ?></a>
+										</div>
+									</div>
+
+									<div class="buddyx-welcome-column buddyx-pro-section">
+										<span class="buddyx-box-item-icon">
+											<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-pro.png' ); ?>" alt="BuddyX Pro">
+										</span>
+										<div class="buddyx-pro-theme-info">
+											<h2 class="buddyx-tabs-title">
+												<?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?>												
+											</h2>
+											<p><?php esc_html_e( '#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform.', 'buddyx' ); ?></p>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>" target="_blank"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></a>
+										</div>
+									</div>
+
+									<!-- End BuddyX Theme Importer Plugin -->
+							</div>
+
+							<!-- Welcome Page Sidebar -->
+							<div class="buddyx-theme-sidebar">
+								<div class="list-section-wrap-widgets">
+									<h3><?php esc_html_e( 'Document', 'buddyx' ); ?> <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12.9399 22.5202H15.0133H6.71994C6.17006 22.5202 5.6427 22.3024 5.25387 21.9146C4.86505 21.5269 4.64661 21.001 4.64661 20.4527V5.97968C4.64661 5.43132 4.86505 4.90543 5.25387 4.51769C5.6427 4.12994 6.17006 3.91211 6.71994 3.91211H19.1599C19.7098 3.91211 20.2372 4.12994 20.626 4.51769C21.0148 4.90543 21.2333 5.43132 21.2333 5.97968V14.2499" stroke="#1F2229" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M18.1233 18.3851C18.1233 18.6593 18.2325 18.9222 18.4269 19.1161C18.6213 19.31 18.885 19.4189 19.16 19.4189H22.27C22.5449 19.4189 22.8086 19.31 23.003 19.1161C23.1974 18.9222 23.3066 18.6593 23.3066 18.3851C23.3066 18.1109 23.1974 17.848 23.003 17.6541C22.8086 17.4602 22.5449 17.3513 22.27 17.3513H19.16C18.885 17.3513 18.6213 17.4602 18.4269 17.6541C18.2325 17.848 18.1233 18.1109 18.1233 18.3851ZM23.3066 22.5202C23.3066 22.2461 23.1974 21.9831 23.003 21.7892C22.8086 21.5954 22.5449 21.4865 22.27 21.4865H19.16C18.885 21.4865 18.6213 21.5954 18.4269 21.7892C18.2325 21.9831 18.1233 22.2461 18.1233 22.5202C18.1233 22.7944 18.2325 23.0574 18.4269 23.2512C18.6213 23.4451 18.885 23.554 19.16 23.554H22.27C22.5449 23.554 22.8086 23.4451 23.003 23.2512C23.1974 23.0574 23.3066 22.7944 23.3066 22.5202Z" fill="#1F2229"></path>
+									<path d="M9.82996 15.8007L12.658 9.69102C12.683 9.63746 12.7228 9.59212 12.7727 9.56036C12.8227 9.52859 12.8807 9.51172 12.94 9.51172C12.9992 9.51172 13.0572 9.52859 13.1072 9.56036C13.1571 9.59212 13.1969 9.63746 13.2219 9.69102L16.05 15.8007" stroke="#1F2229" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									<path d="M10.452 13.2162H15.428V15.077H10.452V13.2162Z" fill="#1F2229"></path>
+									</svg>
+									</h3>
+									<div class="buddyx-quick-setting-section">
+									<p><?php esc_html_e( 'We have created foolproof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
+									<p>
+										<a href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-theme/' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Documentation', 'buddyx' ); ?></a>
+									</p>
+									</div>
 								</div>
-								<div class="buddyxpro-features-image">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyxpro-web-page.png' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'buddyxpro-web-page', 'buddyx' ); ?>" />
+								<div class="list-section-wrap-widgets">
+									<h3><?php esc_html_e( 'Community', 'buddyx' ); ?>
+									<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0_44_2454)">
+										<path d="M25.5366 12C25.5366 5.3725 19.9671 0 13.0966 0C6.22611 0 0.656616 5.3725 0.656616 12C0.656616 17.9895 5.20551 22.954 11.1529 23.854V15.469H7.99414V12H11.1529V9.356C11.1529 6.349 13.0101 4.6875 15.8516 4.6875C17.2122 4.6875 18.636 4.922 18.636 4.922V7.875H17.0676C15.5224 7.875 15.0404 8.8 15.0404 9.75V12H18.4904L17.9389 15.469H15.0404V23.854C20.9877 22.954 25.5366 17.989 25.5366 12Z" fill="black"></path>
+									</g>
+									<defs>
+										<clipPath id="clip0_44_2454">
+										<rect width="24.88" height="24" fill="white" transform="translate(0.656616)"></rect>
+										</clipPath>
+									</defs>
+									</svg>
+									</h3>
+									<div class="buddyx-quick-setting-section">
+									<p><?php esc_html_e( 'Join our community! Share your site, ask a question, and help others.', 'buddyx' ); ?></p>
+									<p>
+										<a href="<?php echo esc_url( 'https://www.facebook.com/groups/191523257634994' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Facebook Group', 'buddyx' ); ?></a>
+									</p>
+									</div>
+								</div>
+								<div class="list-section-wrap-widgets">
+									<h3><?php esc_html_e( 'Support', 'buddyx' ); ?>
+										<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9301 1.5C22.205 1.5 22.4687 1.60536 22.6631 1.79289C22.8575 1.98043 22.9667 2.23478 22.9667 2.5V18.5C22.9667 18.7652 22.8575 19.0196 22.6631 19.2071C22.4687 19.3946 22.205 19.5 21.9301 19.5H16.6311L13.2931 22.398C13.1027 22.5631 12.8558 22.6545 12.5998 22.6545C12.3438 22.6545 12.0969 22.5631 11.9065 22.398L8.56847 19.5H3.27007C2.99512 19.5 2.73144 19.3946 2.53703 19.2071C2.34262 19.0196 2.2334 18.7652 2.2334 18.5V2.5C2.2334 2.23478 2.34262 1.98043 2.53703 1.79289C2.73144 1.60536 2.99512 1.5 3.27007 1.5H21.9301ZM20.8934 3.5H4.30673V17.5H9.36411L12.6001 20.309L15.8355 17.5H20.8934V3.5ZM17.7834 10C17.7834 9.86739 17.7288 9.74021 17.6316 9.64645C17.5344 9.55268 17.4025 9.5 17.2651 9.5H7.93506C7.79759 9.5 7.66575 9.55268 7.56855 9.64645C7.47134 9.74021 7.41673 9.86739 7.41673 10V11C7.41673 11.1326 7.47134 11.2598 7.56855 11.3536C7.66575 11.4473 7.79759 11.5 7.93506 11.5H17.2651C17.4025 11.5 17.5344 11.4473 17.6316 11.3536C17.7288 11.2598 17.7834 11.1326 17.7834 11V10Z" fill="black"></path>
+									</svg>
+									</h3>
+									<div class="buddyx-quick-setting-section">
+									<p><?php esc_html_e( 'Have a question, we are happy to help! Get in touch with our support team.', 'buddyx' ); ?></p>
+									<p>
+										<a href="<?php echo esc_url( 'https://wbcomdesigns.com/support' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Submit a Ticket', 'buddyx' ); ?></a>
+									</p>
+									</div>
+								</div>
+								<div class="list-section-wrap-widgets">
+									<h3><?php esc_html_e( 'Give us feedback', 'buddyx' ); ?>
+										<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9301 1.5C22.205 1.5 22.4687 1.60536 22.6631 1.79289C22.8575 1.98043 22.9667 2.23478 22.9667 2.5V18.5C22.9667 18.7652 22.8575 19.0196 22.6631 19.2071C22.4687 19.3946 22.205 19.5 21.9301 19.5H16.6311L13.2931 22.398C13.1027 22.5631 12.8558 22.6545 12.5998 22.6545C12.3438 22.6545 12.0969 22.5631 11.9065 22.398L8.56847 19.5H3.27007C2.99512 19.5 2.73144 19.3946 2.53703 19.2071C2.34262 19.0196 2.2334 18.7652 2.2334 18.5V2.5C2.2334 2.23478 2.34262 1.98043 2.53703 1.79289C2.73144 1.60536 2.99512 1.5 3.27007 1.5H21.9301ZM20.8934 3.5H4.30673V17.5H9.36411L12.6001 20.309L15.8355 17.5H20.8934V3.5ZM17.7834 10C17.7834 9.86739 17.7288 9.74021 17.6316 9.64645C17.5344 9.55268 17.4025 9.5 17.2651 9.5H7.93506C7.79759 9.5 7.66575 9.55268 7.56855 9.64645C7.47134 9.74021 7.41673 9.86739 7.41673 10V11C7.41673 11.1326 7.47134 11.2598 7.56855 11.3536C7.66575 11.4473 7.79759 11.5 7.93506 11.5H17.2651C17.4025 11.5 17.5344 11.4473 17.6316 11.3536C17.7288 11.2598 17.7834 11.1326 17.7834 11V10Z" fill="black"></path>
+									</svg>
+									</h3>
+									<div class="buddyx-quick-setting-section">
+									<p><?php esc_html_e( 'Remember to pay attention to your rate! Your 5-star review will encourage us so much!', 'buddyx' ); ?></p>
+									<p>
+										<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Write a Review ', 'buddyx' ); ?></a>
+									</p>
+									</div>
+								</div>
+
+							</div>
+
+							</div><!-- .buddyx-dashboard-body -->
+						</div><!-- .tab1 -->						
+
+						<div role="tabpanel" class="get-pro-buddyx-theme" aria-labelledby="<?php esc_attr_e( 'tab2', 'buddyx' ); ?>" hidden>							
+
+							<div class="buddyx-welcome-column">
+							<div class="buddyx-welcome-column buddyx-pro-section">
+								<div class="buddyx-pro-theme-info">
+									<h2 class="buddyx-tabs-title">
+										<?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?>												
+									</h2>
+									<p><?php esc_html_e( '#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform', 'buddyx' ); ?></p>
+									<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>" target="_blank"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></a>
 								</div>
 							</div>
 
@@ -229,7 +319,7 @@ class Component implements Component_Interface {
 							<div class="buddyx-row features">
 								<div class="buddyx-features-table-wrap">
 									<div class="buddyx-features-table-inner">
-										<table class="buddyx-features-table">
+									<table class="buddyx-features-table">
 											<thead>
 												<tr>
 													<th style="text-align: left"><h3><?php esc_html_e( 'Features', 'buddyx' ); ?></h3></th>
@@ -254,8 +344,48 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></span></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Sidebar Width', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Global Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Buttons Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Form Border Radius', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Page Mapping', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Sign-in Popup | Register Form Fields', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Scroll Top', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Site Loader', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td style="text-align: center"><span class="icon-check"></span></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Loading Text', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
 													<td style="text-align: center"><span class="icon-check"></span></td>
 												</tr>
 												<tr>
@@ -329,7 +459,27 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Header Menu Position', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Menu Effects', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'More Menu', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Site Search Style', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></span></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Login/Register Button Style', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-close"></span></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
@@ -346,6 +496,21 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Site Cart', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'BuddyPress Components', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td class="buddyx-main-feature"><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td class="buddyx-main-feature"></td>
+													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
@@ -374,6 +539,16 @@ class Component implements Component_Interface {
 													<td class="buddyx-main-feature"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Dark Mode', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Custom Colors', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'Body Background Color', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
@@ -391,6 +566,11 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Primary Header', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
@@ -489,6 +669,36 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td class="buddyx-main-feature"><?php esc_html_e( 'WP Login', 'buddyx' ); ?></td>
+													<td class="buddyx-main-feature"></td>
+													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Your Logo Section', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Choose WP Login Theme', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Login Form', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Forget Form', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Customize Button', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Footer', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
@@ -507,6 +717,21 @@ class Component implements Component_Interface {
 													<td class="buddyx-main-feature"><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Activity Control', 'buddyx' ); ?></td>
+													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'BuddyPress Activity Share', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Activity Reaction', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Activity Load More', 'buddyx' ); ?></td>
@@ -565,6 +790,21 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Shop Products Per Page', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Display Filter Button', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Sale Badge Style', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-close"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Integrations', 'buddyx' ); ?></td>
 													<td class="buddyx-main-feature"></td>
 													<td class="buddyx-main-feature"></td>
@@ -610,6 +850,11 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
 												<tr>
+													<td><?php esc_html_e( 'Dokan', 'buddyx' ); ?></td>
+													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
 													<td><?php esc_html_e( 'WC Vendors', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
 													<td style="text-align: center"><span class="icon-check"></td>
@@ -619,22 +864,77 @@ class Component implements Component_Interface {
 													<td style="text-align: center"><span class="icon-check"></td>
 													<td style="text-align: center"><span class="icon-check"></td>
 												</tr>
+												<tr>
+													<td><?php esc_html_e( 'Paid Memberships', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
+												<tr>
+													<td><?php esc_html_e( 'The Event Calendar', 'buddyx' ); ?></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+													<td style="text-align: center"><span class="icon-check"></td>
+												</tr>
 											</tbody>
 										</table>
 									</div><!-- .buddyx-features-table-inner -->
 								</div><!-- .buddyx-features-table-wrap -->
 							</div><!-- .features -->
+							</div>
+						</div><!-- .tab2 -->
 
-						</div><!-- .tab3 -->
-
-						<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab4', 'buddyx' ); ?>" hidden>
+						<div role="tabpanel" class="bp-plugin-addons" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
 							<div class="buddyx-tabs-content buddyx-addon-body">
-								<h2 class="buddyx-tabs-titile">
-									<?php esc_html_e( 'Premium add-ons', 'buddyx' ); ?>
-								</h2>
-								<p class="buddyx-col-content"><?php esc_html_e( 'Extend your social community website with our premium add-ons for BuddyPress.', 'buddyx' ); ?></p>
+
+								<div class="buddyx-welcome-column buddyx-pro-section">
+									<span class="buddyx-box-item-icon">
+										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
+									</span>
+									<div class="buddyx-pro-theme-info">
+										<h2 class="buddyx-tabs-title">
+											<?php esc_html_e( 'BuddyPress Premium add-ons', 'buddyx' ); ?>												
+										</h2>
+										<p><?php esc_html_e( 'Extend your social community website with our premium add-ons for BuddyPress.', 'buddyx' ); ?></p>
+										<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://wbcomdesigns.com/plugins/premium-buddypress-add-ons/' ); ?>" target="_blank"><?php esc_html_e( 'View More Addons', 'buddyx' ); ?></a>
+									</div>
+								</div>
 
 								<div class="buddyx-row addons">
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Business-Profile', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-business-profile/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/06/ideapush.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'ideapush', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-ideapush-integration/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
+									<div class="buddyx-col col-same">
+										<div class="buddyx-col-wrapper">
+											<div class="buddyx-col-image">
+												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Contact-Me', 'buddyx' ); ?>" />
+											</div>
+											<div class="buddyx-col-text">
+												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
+												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
+												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-contact-me/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
+											</div>
+										</div>
+									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
@@ -890,7 +1190,7 @@ class Component implements Component_Interface {
 								</div><!-- .addons -->
 
 							</div><!-- .buddyx-addon-body -->
-						</div><!-- .tab4 -->
+						</div><!-- .tab3 -->
 					</section>
 
 				</div><!-- .buddyx-dashboard-tabs -->

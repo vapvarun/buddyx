@@ -1,0 +1,49 @@
+:root {
+    --accentColor: #2271b1;
+    --accentColorHover: #135e96;
+    --optionBorderColor: #ddd;
+}
+
+/* Customize Control */
+.customize-control-description {
+    margin-bottom: 10px;
+}
+
+.customize-control hr {
+    border-bottom: 0 !important;
+}
+
+/* Customize Control Radio Image */
+.customize-control-kirki-radio-image>.image {
+    justify-content: space-between;
+    gap: 10px
+}
+
+.customize-control-kirki-radio-image .image label {
+    width: 48%;
+    padding-top: 10px;
+    line-height: 1;
+    text-align: center;
+    border-radius: 6px !important;
+    padding-left: 10px;
+    padding: 10px;
+    background: #DDE0E2;
+    transition: background .20s ease, box-shadow .20s ease;
+}
+
+.customize-control-kirki-radio-image .image label img {
+    border: 2px solid #868894;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: none !important;
+}
+
+.customize-control-kirki-radio-image .image input:checked+label img {
+    box-shadow: none !important;
+    border: 2px solid var(--accentColor);
+}
+
+.customize-control-kirki-radio-image .image input:checked+label {
+    background: var(--accentColor);
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, .08);
+}
