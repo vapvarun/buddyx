@@ -93,7 +93,8 @@ class Component implements Component_Interface {
 					<?php esc_html_e( 'Version', 'buddyx' ); ?> <?php echo esc_html( wp_get_theme( get_template() )->get( 'Version' ) ); ?>
 				</span>
 				<div class="buddyx-banner-description">
-					<p><?php esc_html_e( 'Thank you for purchasing the BuddyX Theme! Below, you will find information on setting up the theme to start using it!', 'buddyx' ); ?></p>
+					<p><?php esc_html_e( 'Thank you for purchasing the BuddyX Theme!', 'buddyx' ); ?></p>
+					<p><?php esc_html_e( 'Below, you will find information on setting up the theme to start using it!', 'buddyx' ); ?></p>
 				</div>
 			</div>
 		</div>
