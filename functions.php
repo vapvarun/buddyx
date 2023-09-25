@@ -210,3 +210,43 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 
 	return $bp_is_directory;
 }
+
+/*
+ * Update old Color option with new color option
+ *
+ */
+add_action( 'admin_init', 'buddyx_pro_theme_setting_update', 99 );
+function buddyx_pro_theme_setting_update() {
+	global $pagenow;
+	if ( ! get_option( 'update_theme_typo_option' ) && ( $pagenow == 'themes.php' || $pagenow == 'update.php' ) ) {
+		$theme_mods_buddyx = get_option( 'theme_mods_buddyx' );
+
+		if ( isset( $theme_mods_buddyx['h1_typography_option']['color'] ) && $theme_mods_buddyx['h1_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h1_typography_option']['color'];
+		}
+
+		if ( isset( $theme_mods_buddyx['h2_typography_option']['color'] ) && $theme_mods_buddyx['h2_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h2_typography_option']['color'];
+		}
+
+		if ( isset( $theme_mods_buddyx['h3_typography_option']['color'] ) && $theme_mods_buddyx['h3_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h3_typography_option']['color'];
+		}
+
+		if ( isset( $theme_mods_buddyx['h4_typography_option']['color'] ) && $theme_mods_buddyx['h4_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h4_typography_option']['color'];
+		}
+
+		if ( isset( $theme_mods_buddyx['h5_typography_option']['color'] ) && $theme_mods_buddyx['h5_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h5_typography_option']['color'];
+		}
+
+		if ( isset( $theme_mods_buddyx['h6_typography_option']['color'] ) && $theme_mods_buddyx['h6_typography_option']['color'] != '' ) {
+			$theme_mods_buddyx['headings_color'] = $theme_mods_buddyx['h6_typography_option']['color'];
+		}
+
+		update_option( 'theme_mods_buddyx-pro', $theme_mods_buddyx );
+		update_option( 'update_theme_typo_option', true );
+
+	}
+}

@@ -377,30 +377,6 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Field\Color(
-			array(
-				'settings'        => 'site_loader_bg',
-				'label'           => esc_html__( 'Site Loader Background', 'buddyx' ),
-				'section'         => 'site_loader',
-				'default'         => '#ef5455',
-				'choices'         => array( 'alpha' => true ),
-				'priority'        => 10,
-				'output'          => array(
-					array(
-						'element'  => '.site-loader',
-						'property' => 'background-color',
-					),
-				),
-				'active_callback' => array(
-					array(
-						'setting'  => 'site_loader',
-						'operator' => '==',
-						'value'    => '1',
-					),
-				),
-			)
-		);
-
 		/*
 		 *  Page Mapping
 		 */
@@ -468,23 +444,6 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_title_hover_color',
-				'label'    => esc_html__( 'Site Title Hover Color', 'buddyx' ),
-				'section'  => 'site_title_typography_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-title a:hover',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
 		new \Kirki\Field\Typography(
 			array(
 				'settings' => 'site_tagline_typography_option',
@@ -524,7 +483,7 @@ class Component implements Component_Interface {
 					'font-size'       => '30px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -549,7 +508,7 @@ class Component implements Component_Interface {
 					'font-size'       => '24px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -574,7 +533,7 @@ class Component implements Component_Interface {
 					'font-size'       => '22px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -599,7 +558,7 @@ class Component implements Component_Interface {
 					'font-size'       => '20px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -624,7 +583,7 @@ class Component implements Component_Interface {
 					'font-size'       => '18px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -649,7 +608,7 @@ class Component implements Component_Interface {
 					'font-size'       => '16px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'           => '#111111',
+					// 'color'        => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -690,44 +649,6 @@ class Component implements Component_Interface {
 					array(
 						'element'  => '.nav--toggle-small .menu-toggle',
 						'property' => 'border-color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'menu_hover_color',
-				'label'    => esc_html__( 'Menu Hover Color', 'buddyx' ),
-				'section'  => 'menu_typography_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
-						'property' => 'color',
-					),
-					array(
-						'element'  => '.nav--toggle-small .menu-toggle:hover',
-						'property' => 'border-color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'menu_active_color',
-				'label'    => esc_html__( 'Menu Active Color', 'buddyx' ),
-				'section'  => 'menu_typography_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.main-navigation ul li.current-menu-item>a',
-						'property' => 'color',
 					),
 				),
 			)
@@ -797,35 +718,6 @@ class Component implements Component_Interface {
 				'choices'  => array(
 					'on'  => esc_html__( 'Yes', 'buddyx' ),
 					'off' => esc_html__( 'No', 'buddyx' ),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_header_bg_color',
-				'label'    => esc_html__( 'Header Background Color', 'buddyx' ),
-				'section'  => 'site_header_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
-						'property' => 'background-color',
-					),
-					array(
-						'element'  => '.site-header-wrapper',
-						'property' => 'border-color',
-					),
-					array(
-						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-						'property' => 'border-top-color',
-					),
-					array(
-						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-						'property' => 'border-right-color',
-					),
 				),
 			)
 		);
@@ -981,6 +873,181 @@ class Component implements Component_Interface {
 		/**
 		 * Site Skin
 		 */
+		new \Kirki\Field\Custom(
+			array(
+				'settings'        => 'custom-loader-divider',
+				'label'           => esc_html__( 'Loader:', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #50575e">',
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_loader',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_loader_bg',
+				'label'           => esc_html__( 'Site Loader Background', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'output'          => array(
+					array(
+						'element'  => '.site-loader',
+						'property' => 'background-color',
+					),
+				),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_loader',
+						'operator' => '==',
+						'value'    => '1',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Custom(
+			array(
+				'settings' => 'custom-header-divider',
+				'label'    => esc_html__( 'Header:', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '<hr style="border-color: #50575e">',
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_title_typography_option[color]',
+				'label'    => esc_html__( 'Site Title Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_title_hover_color',
+				'label'    => esc_html__( 'Site Title Hover Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ef5455',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-title a:hover',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_tagline_typography_option[color]',
+				'label'    => esc_html__( 'Site Tagline Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#757575',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_header_bg_color',
+				'label'    => esc_html__( 'Header Background Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ffffff',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
+						'property' => 'background-color',
+					),
+					array(
+						'element'  => '.site-header-wrapper',
+						'property' => 'border-color',
+					),
+					array(
+						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+						'property' => 'border-top-color',
+					),
+					array(
+						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
+						'property' => 'border-right-color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'menu_typography_option[color]',
+				'label'    => esc_html__( 'Menu Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'menu_hover_color',
+				'label'    => esc_html__( 'Menu Hover Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ef5455',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
+						'property' => 'color',
+					),
+					array(
+						'element'  => '.nav--toggle-small .menu-toggle:hover',
+						'property' => 'border-color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'menu_active_color',
+				'label'    => esc_html__( 'Menu Active Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ef5455',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.main-navigation ul li.current-menu-item>a',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Custom(
+			array(
+				'settings' => 'custom-body-divider',
+				'label'    => esc_html__( 'Body:', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '<hr style="border-color: #50575e">',
+			)
+		);
+
 		new \Kirki\Field\Color(
 			array(
 				'settings' => 'body_background_color',
@@ -995,6 +1062,17 @@ class Component implements Component_Interface {
 						'property' => 'background-color',
 					),
 				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'typography_option[color]',
+				'label'    => esc_html__( 'Body Text Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#505050',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
 			)
 		);
 
@@ -1017,6 +1095,33 @@ class Component implements Component_Interface {
 					array(
 						'setting' => 'site_layout',
 						'value'   => 'boxed',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_sub_header_typography[color]',
+				'label'    => esc_html__( 'Subheader Title Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'headings_color',
+				'label'    => esc_html__( 'Heading Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+				'output'   => array(
+					array(
+						'element' => 'h1, h2, h3, h4, h5, h6',
 					),
 				),
 			)
@@ -1137,9 +1242,10 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-skin-divider',
+				'settings' => 'custom-button-divider',
+				'label'    => esc_html__( 'Buttons:', 'buddyx' ),
 				'section'  => 'site_skin_section',
-				'default'  => '<hr>',
+				'default'  => '<hr style="border-color: #50575e">',
 			)
 		);
 
@@ -1298,6 +1404,191 @@ class Component implements Component_Interface {
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
 					.tribe-common .tribe-common-c-btn:focus, .tribe-common .tribe-common-c-btn:hover, .tribe-common a.tribe-common-c-btn:focus, .tribe-common a.tribe-common-c-btn:hover',
 						'property' => 'border-color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Custom(
+			array(
+				'settings'        => 'custom-footer-divider',
+				'label'           => esc_html__( 'Footer:', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #50575e">',
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_footer_title_color',
+				'label'    => esc_html__( 'Footer Title Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-footer .widget-title',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_footer_content_color',
+				'label'    => esc_html__( 'Footer Content Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#505050',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-footer',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_footer_links_color',
+				'label'    => esc_html__( 'Footer Link Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-footer a',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_footer_links_hover_color',
+				'label'    => esc_html__( 'Footer Link Hover', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ef5455',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-footer a:hover, .site-footer a:active',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Custom(
+			array(
+				'settings'        => 'custom-coyright-divider',
+				'label'           => esc_html__( 'Copyright:', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #50575e">',
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_copyright_background_color',
+				'label'    => esc_html__( 'Copyright Background Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ffffff',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-info',
+						'property' => 'background-color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_copyright_border_color',
+				'label'    => esc_html__( 'Copyright Border Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#e8e8e8',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-info',
+						'property' => 'border-color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_copyright_content_color',
+				'label'    => esc_html__( 'Copyright Content Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#505050',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-info',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_copyright_links_color',
+				'label'    => esc_html__( 'Copyright Link Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-info a',
+						'property' => 'color',
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'site_copyright_links_hover_color',
+				'label'    => esc_html__( 'Copyright Link Hover Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#ef5455',
+				'choices'  => array( 'alpha' => true ),
+				'priority' => 10,
+				'output'   => array(
+					array(
+						'element'  => '.site-info a:hover',
+						'property' => 'color',
 					),
 				),
 			)
@@ -1847,74 +2138,6 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_footer_title_color',
-				'label'    => esc_html__( 'Title Color', 'buddyx' ),
-				'section'  => 'site_footer_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-footer .widget-title',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_footer_content_color',
-				'label'    => esc_html__( 'Content Color', 'buddyx' ),
-				'section'  => 'site_footer_section',
-				'default'  => '#505050',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-footer',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_footer_links_color',
-				'label'    => esc_html__( 'Link Color', 'buddyx' ),
-				'section'  => 'site_footer_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-footer a',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_footer_links_hover_color',
-				'label'    => esc_html__( 'Link Hover', 'buddyx' ),
-				'section'  => 'site_footer_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-footer a:hover, .site-footer a:active',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
 		/**
 		 *  Site Copyright
 		 */
@@ -1925,91 +2148,6 @@ class Component implements Component_Interface {
 				'section'  => 'site_copyright_section',
 				'default'  => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
 				'priority' => 10,
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_copyright_background_color',
-				'label'    => esc_html__( 'Background Color', 'buddyx' ),
-				'section'  => 'site_copyright_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-info',
-						'property' => 'background-color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_copyright_border_color',
-				'label'    => esc_html__( 'Border Color', 'buddyx' ),
-				'section'  => 'site_copyright_section',
-				'default'  => '#e8e8e8',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-info',
-						'property' => 'border-color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_copyright_content_color',
-				'label'    => esc_html__( 'Content Color', 'buddyx' ),
-				'section'  => 'site_copyright_section',
-				'default'  => '#505050',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-info',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_copyright_links_color',
-				'label'    => esc_html__( 'Link Color', 'buddyx' ),
-				'section'  => 'site_copyright_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-info a',
-						'property' => 'color',
-					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_copyright_links_hover_color',
-				'label'    => esc_html__( 'Link Hover Color', 'buddyx' ),
-				'section'  => 'site_copyright_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
-					array(
-						'element'  => '.site-info a:hover',
-						'property' => 'color',
-					),
-				),
 			)
 		);
 
