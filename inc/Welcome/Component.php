@@ -193,9 +193,9 @@ class Component implements Component_Interface {
 											</h2>
 											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes.', 'buddyx' ); ?></p>
 											<?php if ( ! $tgmpa->is_tgmpa_complete() ) { ?>
-												<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url() . 'admin.php?page=tgmpa-install-plugins' ); ?>" target="_blank"><?php esc_html_e( 'Install now', 'reign' ); ?></a>
+												<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url() . 'admin.php?page=tgmpa-install-plugins' ); ?>" target="_blank"><?php esc_html_e( 'Install now', 'buddyx' ); ?></a>
 											<?php } else { ?>
-												<a class="buddyx-box-item-link all-plugin-installed" href="javascript:void(0)"><?php esc_html_e( 'Installed', 'reign' ); ?></a>
+												<a class="buddyx-box-item-link all-plugin-installed" href="javascript:void(0)"><?php esc_html_e( 'Installed', 'buddyx' ); ?></a>
 											<?php } ?>
 										</div>
 									</div>

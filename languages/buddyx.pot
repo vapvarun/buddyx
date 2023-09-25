@@ -1612,6 +1612,14 @@ msgstr ""
 msgid "Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes."
 msgstr ""
 
+#: ../buddyx/inc/Welcome/Component.php:198
+msgid "Installed"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:196
+msgid "Install now"
+msgstr ""
+
 #: ../buddyx/inc/Welcome/Component.php:209
 msgid "BuddyX Child Theme"
 msgstr ""
