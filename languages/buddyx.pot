@@ -1541,7 +1541,7 @@ msgid "Welcome to BuddyX Theme"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:96
-msgid "Thank you for purchasing BuddyX Theme! Below you will find information on how to setup the theme to start using it!"
+msgid "Thank you for purchasing the BuddyX Theme! Below, you will find information on setting up the theme to start using it!"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:106
@@ -1605,7 +1605,7 @@ msgid "Install Recommended Plugins"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:193
-msgid "Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in a matter of minutes."
+msgid "Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes."
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:208
@@ -1633,7 +1633,7 @@ msgid "Document"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:242
-msgid "We have created full-proof documentation for you. It will help you to understand how our plugin works."
+msgid "We have created foolproof documentation for you. It will help you to understand how our plugin works."
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:244
@@ -1645,7 +1645,7 @@ msgid "Community"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:262
-msgid "Join our community! Share your site, ask a question and help others."
+msgid "Join our community! Share your site, ask a question, and help others."
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:264
@@ -1669,7 +1669,7 @@ msgid "Give us feedback"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:288
-msgid "Never underestimate your rate! Your 5 star rate will encourage us so much!"
+msgid "Remember to pay attention to your rate! Your 5-star review will encourage us so much!"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:290

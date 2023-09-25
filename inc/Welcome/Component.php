@@ -93,7 +93,7 @@ class Component implements Component_Interface {
 					<?php esc_html_e( 'Version', 'buddyx' ); ?> <?php echo esc_html( wp_get_theme( get_template() )->get( 'Version' ) ); ?>
 				</span>
 				<div class="buddyx-banner-description">
-					<p><?php esc_html_e( 'Thank you for purchasing BuddyX Theme! Below you will find information on how to setup the theme to start using it!', 'buddyx' ); ?></p>
+					<p><?php esc_html_e( 'Thank you for purchasing the BuddyX Theme! Below, you will find information on setting up the theme to start using it!', 'buddyx' ); ?></p>
 				</div>
 			</div>
 		</div>
@@ -190,7 +190,7 @@ class Component implements Component_Interface {
 											<h2 class="buddyx-tabs-title">
 												<?php esc_html_e( 'Install Recommended Plugins', 'buddyx' ); ?>											
 											</h2>
-											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in a matter of minutes.', 'buddyx' ); ?></p>
+											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes.', 'buddyx' ); ?></p>
 											<?php if ( ! $tgmpa->is_tgmpa_complete() ) { ?>
 												<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url() . 'admin.php?page=tgmpa-install-plugins' ); ?>" target="_blank"><?php esc_html_e( 'Install now', 'reign' ); ?></a>
 											<?php } else { ?>
@@ -239,7 +239,7 @@ class Component implements Component_Interface {
 									</svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
-									<p><?php esc_html_e( 'We have created full-proof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
+									<p><?php esc_html_e( 'We have created foolproof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
 									<p>
 										<a href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-theme/' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Documentation', 'buddyx' ); ?></a>
 									</p>
@@ -259,7 +259,7 @@ class Component implements Component_Interface {
 									</svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
-									<p><?php esc_html_e( 'Join our community! Share your site, ask a question and help others.', 'buddyx' ); ?></p>
+									<p><?php esc_html_e( 'Join our community! Share your site, ask a question, and help others.', 'buddyx' ); ?></p>
 									<p>
 										<a href="<?php echo esc_url( 'https://www.facebook.com/groups/191523257634994' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Facebook Group', 'buddyx' ); ?></a>
 									</p>
@@ -285,7 +285,7 @@ class Component implements Component_Interface {
 									</svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
-									<p><?php esc_html_e( 'Never underestimate your rate! Your 5 star rate will encourage us so much!', 'buddyx' ); ?></p>
+									<p><?php esc_html_e( 'Remember to pay attention to your rate! Your 5-star review will encourage us so much!', 'buddyx' ); ?></p>
 									<p>
 										<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Write a Review ', 'buddyx' ); ?></a>
 									</p>
