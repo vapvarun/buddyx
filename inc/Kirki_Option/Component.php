@@ -483,7 +483,7 @@ class Component implements Component_Interface {
 					'font-size'       => '30px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'           => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -508,7 +508,7 @@ class Component implements Component_Interface {
 					'font-size'       => '24px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'           => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -533,7 +533,7 @@ class Component implements Component_Interface {
 					'font-size'       => '22px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'           => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -558,7 +558,7 @@ class Component implements Component_Interface {
 					'font-size'       => '20px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'           => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -583,7 +583,7 @@ class Component implements Component_Interface {
 					'font-size'       => '18px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'           => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -608,7 +608,7 @@ class Component implements Component_Interface {
 					'font-size'       => '16px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					// 'color'        => '#111111',
+					'color'        => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -876,9 +876,9 @@ class Component implements Component_Interface {
 		new \Kirki\Field\Custom(
 			array(
 				'settings'        => 'custom-loader-divider',
-				'label'           => esc_html__( 'Loader:', 'buddyx' ),
+				'label'           => esc_html__( 'Loader', 'buddyx' ),
 				'section'         => 'site_skin_section',
-				'default'         => '<hr style="border-color: #50575e">',
+				'default'         => '<hr style="border-color: #c6c6c6">',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_loader',
@@ -916,9 +916,9 @@ class Component implements Component_Interface {
 		new \Kirki\Field\Custom(
 			array(
 				'settings' => 'custom-header-divider',
-				'label'    => esc_html__( 'Header:', 'buddyx' ),
+				'label'    => esc_html__( 'Header', 'buddyx' ),
 				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #50575e">',
+				'default'  => '<hr style="border-color: #c6c6c6">',
 			)
 		);
 
@@ -1042,9 +1042,9 @@ class Component implements Component_Interface {
 		new \Kirki\Field\Custom(
 			array(
 				'settings' => 'custom-body-divider',
-				'label'    => esc_html__( 'Body:', 'buddyx' ),
+				'label'    => esc_html__( 'Body', 'buddyx' ),
 				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #50575e">',
+				'default'  => '<hr style="border-color: #c6c6c6">',
 			)
 		);
 
@@ -1108,22 +1108,6 @@ class Component implements Component_Interface {
 				'default'  => '#111111',
 				'priority' => 10,
 				'choices'  => array( 'alpha' => true ),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'headings_color',
-				'label'    => esc_html__( 'Heading Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-				'output'   => array(
-					array(
-						'element' => 'h1, h2, h3, h4, h5, h6',
-					),
-				),
 			)
 		);
 
@@ -1242,10 +1226,85 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-button-divider',
-				'label'    => esc_html__( 'Buttons:', 'buddyx' ),
+				'settings' => 'custom-headings-divider',
+				'label'    => esc_html__( 'Headings', 'buddyx' ),
 				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #50575e">',
+				'default'  => '<hr style="border-color: #c6c6c6">',
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h1_typography_option[color]',
+				'label'    => esc_html__( 'H1 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h2_typography_option[color]',
+				'label'    => esc_html__( 'H2 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h3_typography_option[color]',
+				'label'    => esc_html__( 'H3 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h4_typography_option[color]',
+				'label'    => esc_html__( 'H4 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h5_typography_option[color]',
+				'label'    => esc_html__( 'H5 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings' => 'h6_typography_option[color]',
+				'label'    => esc_html__( 'H6 Color', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '#111111',
+				'priority' => 10,
+				'choices'  => array( 'alpha' => true ),
+			)
+		);
+
+		new \Kirki\Field\Custom(
+			array(
+				'settings' => 'custom-button-divider',
+				'label'    => esc_html__( 'Buttons', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => '<hr style="border-color: #c6c6c6">',
 			)
 		);
 
@@ -1412,9 +1471,9 @@ class Component implements Component_Interface {
 		new \Kirki\Field\Custom(
 			array(
 				'settings'        => 'custom-footer-divider',
-				'label'           => esc_html__( 'Footer:', 'buddyx' ),
+				'label'           => esc_html__( 'Footer', 'buddyx' ),
 				'section'         => 'site_skin_section',
-				'default'         => '<hr style="border-color: #50575e">',
+				'default'         => '<hr style="border-color: #c6c6c6">',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_custom_colors',
@@ -1496,9 +1555,9 @@ class Component implements Component_Interface {
 		new \Kirki\Field\Custom(
 			array(
 				'settings'        => 'custom-coyright-divider',
-				'label'           => esc_html__( 'Copyright:', 'buddyx' ),
+				'label'           => esc_html__( 'Copyright', 'buddyx' ),
 				'section'         => 'site_skin_section',
-				'default'         => '<hr style="border-color: #50575e">',
+				'default'         => '<hr style="border-color: #c6c6c6">',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_custom_colors',
