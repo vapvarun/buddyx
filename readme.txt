@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.3.0
+Tested up to: 6.3.1
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.5.9 =
+* Fix: (#565) Updated welcome page content
+* Fix: (#568) Combine color options in site skin section
+* Fix: (#566) Added sticky header enable/disable option
+* Fix: (#565) Updated customizer setting images
+* Fix: Update site identity customizer option priority
+* Fix: (#565) Update tabs id and fixes
+* Fix: (#565) Added child theme download section and fixes
+* Fix: (#565) Update buddyx free pro features, plugins list
+* Fix: (#563) Managed activity comments word break
+
 = 4.5.8 =
 * Fix: (#557) Added Kirki 5.0.0 support
 * Fix: (#556) Managed activity link preview UI
@@ -137,12 +148,12 @@ Released under the MIT license
 
 = 4.5.1 =
 * Fix: (#500) Fixed woocommerce outdated copies warning
-* Fix: Update headings font sizes in front end
+* Fix: Update headings font sizes in the front end
 
 = 4.5.0 =
-* Improvement: (#496) Added theme support for gutenberg editor default values
+* Improvement: (#496) Added theme support for Gutenberg editor default values
 * Fix: (#497) Fixed php errors
-* Improvement: (#496) Added theme support for gutenberg editor custom dimensions
+* Improvement: (#496) Added theme support for Gutenberg editor custom dimensions
 
 = 4.4.8 =
 * Fix: Fixed bp_get_option fatal error
@@ -151,11 +162,11 @@ Released under the MIT license
 * Improvement: (#495) Added user and group activity sidebar
 * Fix: (#493) Update cover-image-header.php
 * Fix: (#493) Fixed cover photo reposition button issue in logout mode with BuddyBoss
-* Fix: (#491) Fixed undefined variable warning in login page
+* Fix: (#491) Fixed undefined variable warning in the login page
 * Fix: (#490) Update bp resume manager tab UI
 
 = 4.4.6 =
-* Fix: (#485) Managed follow button UI with bp follow
+* Fix: (#485) Managed to follow button UI with bp follow
 
 = 4.4.5 =
 * Improvement: (#482) Managed gamipress UI fixes
