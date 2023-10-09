@@ -128,7 +128,7 @@ body.buddyx-amp .widget-area .widget {
     padding: 1em;
     border: 1px solid #e8e8e8;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
 }
 

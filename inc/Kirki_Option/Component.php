@@ -332,6 +332,7 @@ class Component implements Component_Interface {
 				'section'  => 'site_layout',
 				'priority' => 10,
 				'default'  => 'wide',
+				'tooltip'  => esc_html__( 'You can select wide or box layout based on your preference.', 'buddyx' ),
 				'choices'  => array(
 					'boxed' => get_template_directory_uri() . '/assets/images/boxed.png',
 					'wide'  => get_template_directory_uri() . '/assets/images/wide.png',
@@ -358,6 +359,42 @@ class Component implements Component_Interface {
 						'property' => 'max-width',
 					),
 				),
+			)
+		);
+
+		new \Kirki\Field\Dimension(
+			array(
+				'settings'    => 'site_global_border_radius',
+				'label'       => esc_html__( 'Global Border Radius', 'buddyx' ),
+				'description' => esc_html__( 'Set the content, various elements border radius for your website (px)', 'buddyx' ),
+				'section'     => 'site_layout',
+				'default'     => '8px',
+				'priority'    => 10,
+				'transport'   => 'refresh',
+			)
+		);
+
+		new \Kirki\Field\Dimension(
+			array(
+				'settings'    => 'site_button_border_radius',
+				'label'       => esc_html__( 'Buttons Border Radius', 'buddyx' ),
+				'description' => esc_html__( 'Set the buttons border radius for your website (px)', 'buddyx' ),
+				'section'     => 'site_layout',
+				'default'     => '6px',
+				'priority'    => 10,
+				'transport'   => 'refresh',
+			)
+		);
+
+		new \Kirki\Field\Dimension(
+			array(
+				'settings'    => 'site_form_border_radius',
+				'label'       => esc_html__( 'Form Border Radius', 'buddyx' ),
+				'description' => esc_html__( 'Set the form elements (except textarea) border radius for your website (px)', 'buddyx' ),
+				'section'     => 'site_layout',
+				'default'     => '6px',
+				'priority'    => 10,
+				'transport'   => 'refresh',
 			)
 		);
 
@@ -436,6 +473,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.site-title a',
@@ -461,6 +499,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.site-description',
@@ -489,6 +528,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h1, body.buddypress article.page>.entry-header .entry-title',
@@ -514,6 +554,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h2',
@@ -539,6 +580,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h3',
@@ -564,6 +606,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h4',
@@ -589,6 +632,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h5',
@@ -614,6 +658,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h6',
@@ -642,6 +687,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.main-navigation a, .main-navigation ul li a, .nav--toggle-sub li.menu-item-has-children, .nav--toggle-small .menu-toggle',
@@ -670,6 +716,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.main-navigation ul#primary-menu>li .sub-menu a',
@@ -698,6 +745,7 @@ class Component implements Component_Interface {
 					'text-decoration' => '',
 				),
 				'priority' => 10,
+				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), body:not(.block-editor-page):not(.wp-core-ui) pre, input, optgroup, select, textarea',

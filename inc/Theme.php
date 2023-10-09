@@ -166,6 +166,10 @@ class Theme {
 			$components[] = new Dropdown_Select\Component( $args );
 		}
 
+		if ( class_exists( 'Kirki' ) ) {
+			$components[] = new Dynamic_Style\Component();
+		}
+
 		return $components;
 	}
 }

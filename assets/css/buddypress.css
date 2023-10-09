@@ -1140,7 +1140,7 @@ form.ac-form .ac-reply-content input {
     padding: 0 20px !important;
     min-height: 34px;
     margin: 0;
-    border-radius: 3px !important;
+    border-radius: var(--button-border-radius) !important;
 }
 
 select#whats-new-post-in {
@@ -1573,7 +1573,7 @@ body.activity-permalink .activity-list li:first-child {
     border-left: 0;
     margin: 0 0 0 51px;
     padding: 0;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 body #buddypress .bp-list .activity-comments .action {
@@ -2255,7 +2255,7 @@ body.buddypress.group-create #page #primary .entry-header {
 }
 
 .compact-view .hide-header-cover-image.item-header-cover-image-wrapper {
-    border-radius: 8px !important;
+    border-radius: var(--global-border-radius) !important;
 }
 
 @media screen and (max-width: 782px) {
@@ -2613,7 +2613,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         min-height: 50vh;
         padding: 0;
         background: #fdfdfd;
-        border-radius: 8px 0 0 8px;
+        border-radius: var(--global-border-radius) 0 0 var(--global-border-radius);
         border: 0;
         border-right: 1px solid var(--global-border-color);
         padding: 20px 0;
