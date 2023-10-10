@@ -182,7 +182,7 @@ class Component implements Component_Interface {
 												<?php esc_html_e( 'Demo Installation', 'buddyx' ); ?>												
 											</h2>
 											<p><?php esc_html_e( 'The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site.', 'buddyx' ); ?></p>
-											<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-theme/getting-started-buddyx-theme/demo-installation/' ); ?>" target="_blank"><?php esc_html_e( 'Demo Installation', 'buddyx' ); ?></a>
+											<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-free-theme/getting-started-buddyx-free-theme/demo-installation-2/' ); ?>" target="_blank"><?php esc_html_e( 'Demo Installation', 'buddyx' ); ?></a>
 										</div>										
 										<div class="buddyx-welcome-column">
 											<span class="buddyx-box-item-icon">
@@ -242,7 +242,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'We have created foolproof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
 									<p>
-										<a href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-theme/' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Documentation', 'buddyx' ); ?></a>
+										<a href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/doc_category/buddyx-free-theme/' ); ?>" class="buddyx-button" target="_blank"><?php esc_html_e( 'Go to Documentation', 'buddyx' ); ?></a>
 									</p>
 									</div>
 								</div>
