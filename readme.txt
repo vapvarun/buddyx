@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.3.1
+Tested up to: 6.3.2
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,12 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.0 =
+* Fix: (#573) Updated documentation link
+* Improvement: (#573) Added global border, form, and button radius settings
+* Fix: (#576) Added fallback menu after theme activation
+* Fix: (#576) Added youtube video link
+
 = 4.5.9 =
 * Fix: (#565) Updated welcome page content
 * Fix: (#568) Combine color options in site skin section

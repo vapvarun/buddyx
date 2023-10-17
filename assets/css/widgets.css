@@ -17,7 +17,7 @@
     padding: 1em;
     border: 1px solid var(--global-border-color);
     box-shadow: none;
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
 }
 

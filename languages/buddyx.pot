@@ -7,6 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
+"POT-Creation-Date: 2023-10-10 07:59+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -31,7 +32,7 @@ msgstr ""
 msgid "Comments are disabled."
 msgstr ""
 
-#: ../buddyx/footer.php:29, ../buddyx/inc/Kirki_Option/Component.php:1474
+#: ../buddyx/footer.php:29, ../buddyx/inc/Kirki_Option/Component.php:1522
 msgid "Footer"
 msgstr ""
 
@@ -768,7 +769,7 @@ msgstr ""
 msgid "Page Right Sidebar"
 msgstr ""
 
-#: ../buddyx/post-templates/post-both-sidebar.php:3, ../buddyx/inc/Welcome/Component.php:642
+#: ../buddyx/post-templates/post-both-sidebar.php:3, ../buddyx/inc/Welcome/Component.php:658
 msgid "Both Sidebar"
 msgstr ""
 
@@ -780,11 +781,11 @@ msgstr ""
 msgid "Full Width - Small container"
 msgstr ""
 
-#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:632
+#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:648
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:637
+#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:653
 msgid "Right Sidebar"
 msgstr ""
 
@@ -792,9 +793,6 @@ msgstr ""
 msgid "rtMedia menu"
 msgstr ""
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers
 #. translators: %s: Name of current post. Only visible to screen readers
 #: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:37, ../buddyx/template-parts/content/entry_content.php:21
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -804,8 +802,6 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #: ../buddyx/buddypress/groups/groups-loop.php:55, ../buddyx/buddypress/groups/single/cover-image-header.php:121, ../buddyx/buddypress/groups/single/group-header.php:48
 msgid "active %s"
@@ -911,19 +907,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:130, ../buddyx/inc/Kirki_Option/Component.php:331, ../buddyx/inc/Welcome/Component.php:143, ../buddyx/inc/Welcome/Component.php:337
+#: ../buddyx/inc/Kirki_Option/Component.php:130, ../buddyx/inc/Kirki_Option/Component.php:331, ../buddyx/inc/Welcome/Component.php:143, ../buddyx/inc/Welcome/Component.php:353
 msgid "Site Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:141, ../buddyx/inc/Welcome/Component.php:382
+#: ../buddyx/inc/Kirki_Option/Component.php:141, ../buddyx/inc/Welcome/Component.php:398
 msgid "Site Loader"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:152, ../buddyx/inc/Welcome/Component.php:367
+#: ../buddyx/inc/Kirki_Option/Component.php:152, ../buddyx/inc/Welcome/Component.php:383
 msgid "Page Mapping"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:163, ../buddyx/inc/Welcome/Component.php:392
+#: ../buddyx/inc/Kirki_Option/Component.php:163, ../buddyx/inc/Welcome/Component.php:408
 msgid "Typography"
 msgstr ""
 
@@ -931,15 +927,15 @@ msgstr ""
 msgid "Site Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:182, ../buddyx/inc/Kirki_Option/Component.php:1230, ../buddyx/inc/Welcome/Component.php:402
+#: ../buddyx/inc/Kirki_Option/Component.php:182, ../buddyx/inc/Kirki_Option/Component.php:1278, ../buddyx/inc/Welcome/Component.php:418
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:192, ../buddyx/inc/Welcome/Component.php:407, ../buddyx/template-parts/header/navigation.php:59
+#: ../buddyx/inc/Kirki_Option/Component.php:192, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:59
 msgid "Menu"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:202, ../buddyx/inc/Kirki_Option/Component.php:1045, ../buddyx/inc/Welcome/Component.php:412
+#: ../buddyx/inc/Kirki_Option/Component.php:202, ../buddyx/inc/Kirki_Option/Component.php:1093, ../buddyx/inc/Welcome/Component.php:428
 msgid "Body"
 msgstr ""
 
@@ -955,15 +951,15 @@ msgstr ""
 msgid "Site Skin"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:243, ../buddyx/inc/Welcome/Component.php:167, ../buddyx/inc/Welcome/Component.php:592
+#: ../buddyx/inc/Kirki_Option/Component.php:243, ../buddyx/inc/Welcome/Component.php:167, ../buddyx/inc/Welcome/Component.php:608
 msgid "Site Blog"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:253, ../buddyx/inc/Welcome/Component.php:622
+#: ../buddyx/inc/Kirki_Option/Component.php:253, ../buddyx/inc/Welcome/Component.php:638
 msgid "Site Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:263, ../buddyx/inc/Welcome/Component.php:672
+#: ../buddyx/inc/Kirki_Option/Component.php:263, ../buddyx/inc/Welcome/Component.php:688
 msgid "WP Login"
 msgstr ""
 
@@ -971,15 +967,15 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:283, ../buddyx/inc/Welcome/Component.php:702
+#: ../buddyx/inc/Kirki_Option/Component.php:283, ../buddyx/inc/Welcome/Component.php:718
 msgid "Site Footer"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:292, ../buddyx/inc/Welcome/Component.php:707
+#: ../buddyx/inc/Kirki_Option/Component.php:292, ../buddyx/inc/Welcome/Component.php:723
 msgid "Footer Section"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:303, ../buddyx/inc/Welcome/Component.php:712
+#: ../buddyx/inc/Kirki_Option/Component.php:303, ../buddyx/inc/Welcome/Component.php:728
 msgid "Copyright Section"
 msgstr ""
 
@@ -987,471 +983,503 @@ msgstr ""
 msgid "Site Performance"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:348
-msgid "Max Content Layout Width"
+#: ../buddyx/inc/Kirki_Option/Component.php:335
+msgid "You can select wide or box layout based on your preference."
 msgstr ""
 
 #: ../buddyx/inc/Kirki_Option/Component.php:349
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:350
 msgid "Select the maximum content width for your website (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:370
+#: ../buddyx/inc/Kirki_Option/Component.php:368, ../buddyx/inc/Welcome/Component.php:368
+msgid "Global Border Radius"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:369
+msgid "Set the content, various elements border radius for your website (px)"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:380, ../buddyx/inc/Welcome/Component.php:373
+msgid "Buttons Border Radius"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:381
+msgid "Set the buttons border radius for your website (px)"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:392, ../buddyx/inc/Welcome/Component.php:378
+msgid "Form Border Radius"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:393
+msgid "Set the form elements (except textarea) border radius for your website (px)"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:407
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:374, ../buddyx/inc/Kirki_Option/Component.php:735, ../buddyx/inc/Kirki_Option/Component.php:752, ../buddyx/inc/Kirki_Option/Component.php:769, ../buddyx/inc/Kirki_Option/Component.php:785, ../buddyx/inc/Kirki_Option/Component.php:801, ../buddyx/inc/Kirki_Option/Component.php:867, ../buddyx/inc/Kirki_Option/Component.php:1953, ../buddyx/inc/Kirki_Option/Component.php:2165, ../buddyx/inc/Kirki_Option/Component.php:2223, ../buddyx/inc/Kirki_Option/Component.php:2236
+#: ../buddyx/inc/Kirki_Option/Component.php:411, ../buddyx/inc/Kirki_Option/Component.php:783, ../buddyx/inc/Kirki_Option/Component.php:800, ../buddyx/inc/Kirki_Option/Component.php:817, ../buddyx/inc/Kirki_Option/Component.php:833, ../buddyx/inc/Kirki_Option/Component.php:849, ../buddyx/inc/Kirki_Option/Component.php:915, ../buddyx/inc/Kirki_Option/Component.php:2001, ../buddyx/inc/Kirki_Option/Component.php:2213, ../buddyx/inc/Kirki_Option/Component.php:2271, ../buddyx/inc/Kirki_Option/Component.php:2284
 msgid "Enable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:375, ../buddyx/inc/Kirki_Option/Component.php:736, ../buddyx/inc/Kirki_Option/Component.php:753, ../buddyx/inc/Kirki_Option/Component.php:770, ../buddyx/inc/Kirki_Option/Component.php:786, ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:868, ../buddyx/inc/Kirki_Option/Component.php:1954, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2224, ../buddyx/inc/Kirki_Option/Component.php:2237
+#: ../buddyx/inc/Kirki_Option/Component.php:412, ../buddyx/inc/Kirki_Option/Component.php:784, ../buddyx/inc/Kirki_Option/Component.php:801, ../buddyx/inc/Kirki_Option/Component.php:818, ../buddyx/inc/Kirki_Option/Component.php:834, ../buddyx/inc/Kirki_Option/Component.php:850, ../buddyx/inc/Kirki_Option/Component.php:916, ../buddyx/inc/Kirki_Option/Component.php:2002, ../buddyx/inc/Kirki_Option/Component.php:2214, ../buddyx/inc/Kirki_Option/Component.php:2272, ../buddyx/inc/Kirki_Option/Component.php:2285
 msgid "Disable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:386
+#: ../buddyx/inc/Kirki_Option/Component.php:423
 msgid "Login Page"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:387
+#: ../buddyx/inc/Kirki_Option/Component.php:424
 msgid "You can redirect user to custom login page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:398
+#: ../buddyx/inc/Kirki_Option/Component.php:435
 msgid "Registration Page"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:399
+#: ../buddyx/inc/Kirki_Option/Component.php:436
 msgid "You can redirect user to custom registration page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:410
+#: ../buddyx/inc/Kirki_Option/Component.php:447
 msgid "404"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:411
+#: ../buddyx/inc/Kirki_Option/Component.php:448
 msgid "You can redirect user to custom 404 page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:425, ../buddyx/inc/Welcome/Component.php:397
+#: ../buddyx/inc/Kirki_Option/Component.php:462, ../buddyx/inc/Welcome/Component.php:413
 msgid "Site Title Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:450
+#: ../buddyx/inc/Kirki_Option/Component.php:476, ../buddyx/inc/Kirki_Option/Component.php:502, ../buddyx/inc/Kirki_Option/Component.php:531, ../buddyx/inc/Kirki_Option/Component.php:557, ../buddyx/inc/Kirki_Option/Component.php:583, ../buddyx/inc/Kirki_Option/Component.php:609, ../buddyx/inc/Kirki_Option/Component.php:635, ../buddyx/inc/Kirki_Option/Component.php:661, ../buddyx/inc/Kirki_Option/Component.php:690, ../buddyx/inc/Kirki_Option/Component.php:719, ../buddyx/inc/Kirki_Option/Component.php:748
+msgid "We recommend using font size in pixels (px)"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:488
 msgid "Site Tagline Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:478
+#: ../buddyx/inc/Kirki_Option/Component.php:517
 msgid "H1 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:503
+#: ../buddyx/inc/Kirki_Option/Component.php:543
 msgid "H2 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:528
+#: ../buddyx/inc/Kirki_Option/Component.php:569
 msgid "H3 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:553
+#: ../buddyx/inc/Kirki_Option/Component.php:595
 msgid "H4 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:578
+#: ../buddyx/inc/Kirki_Option/Component.php:621
 msgid "H5 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:603
+#: ../buddyx/inc/Kirki_Option/Component.php:647
 msgid "H6 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:631
+#: ../buddyx/inc/Kirki_Option/Component.php:676
 msgid "Menu Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:660
+#: ../buddyx/inc/Kirki_Option/Component.php:706
 msgid "Sub Menu Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:687
+#: ../buddyx/inc/Kirki_Option/Component.php:734
 msgid "Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:715
+#: ../buddyx/inc/Kirki_Option/Component.php:763
 msgid "Enable Sticky Header ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:719, ../buddyx/inc/Kirki_Option/Component.php:1969, ../buddyx/inc/Kirki_Option/Component.php:1982
+#: ../buddyx/inc/Kirki_Option/Component.php:767, ../buddyx/inc/Kirki_Option/Component.php:2017, ../buddyx/inc/Kirki_Option/Component.php:2030
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:720, ../buddyx/inc/Kirki_Option/Component.php:1970, ../buddyx/inc/Kirki_Option/Component.php:1983
+#: ../buddyx/inc/Kirki_Option/Component.php:768, ../buddyx/inc/Kirki_Option/Component.php:2018, ../buddyx/inc/Kirki_Option/Component.php:2031
 msgid "No"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:731
+#: ../buddyx/inc/Kirki_Option/Component.php:779
 msgid "Enable Search Icon"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:748
+#: ../buddyx/inc/Kirki_Option/Component.php:796
 msgid "Enable Cart Icon"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:765
+#: ../buddyx/inc/Kirki_Option/Component.php:813
 msgid "Enable Login Link"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:781
+#: ../buddyx/inc/Kirki_Option/Component.php:829
 msgid "Enable Register Link"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:797, ../buddyx/inc/Kirki_Option/Component.php:2161
+#: ../buddyx/inc/Kirki_Option/Component.php:845, ../buddyx/inc/Kirki_Option/Component.php:2209
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:810, ../buddyx/inc/Kirki_Option/Component.php:2174
+#: ../buddyx/inc/Kirki_Option/Component.php:858, ../buddyx/inc/Kirki_Option/Component.php:2222
 msgid "Background Control"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:839, ../buddyx/inc/Welcome/Component.php:527
+#: ../buddyx/inc/Kirki_Option/Component.php:887, ../buddyx/inc/Welcome/Component.php:543
 msgid "Content Typography"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:863
+#: ../buddyx/inc/Kirki_Option/Component.php:911
 msgid "Site Breadcrumbs?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:879
+#: ../buddyx/inc/Kirki_Option/Component.php:927
 msgid "Loader"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:895
+#: ../buddyx/inc/Kirki_Option/Component.php:943
 msgid "Site Loader Background"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:919, ../buddyx/inc/Welcome/Component.php:442
+#: ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Welcome/Component.php:458
 msgid "Header"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:928
+#: ../buddyx/inc/Kirki_Option/Component.php:976
 msgid "Site Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:939
+#: ../buddyx/inc/Kirki_Option/Component.php:987
 msgid "Site Title Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:956
+#: ../buddyx/inc/Kirki_Option/Component.php:1004
 msgid "Site Tagline Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:967
+#: ../buddyx/inc/Kirki_Option/Component.php:1015
 msgid "Header Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:996
+#: ../buddyx/inc/Kirki_Option/Component.php:1044
 msgid "Menu Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1007
+#: ../buddyx/inc/Kirki_Option/Component.php:1055
 msgid "Menu Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1028
+#: ../buddyx/inc/Kirki_Option/Component.php:1076
 msgid "Menu Active Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1054, ../buddyx/inc/Welcome/Component.php:552
+#: ../buddyx/inc/Kirki_Option/Component.php:1102, ../buddyx/inc/Welcome/Component.php:568
 msgid "Body Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1071
+#: ../buddyx/inc/Kirki_Option/Component.php:1119
 msgid "Body Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1082
+#: ../buddyx/inc/Kirki_Option/Component.php:1130
 msgid "Content Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1083
+#: ../buddyx/inc/Kirki_Option/Component.php:1131
 msgid "Note: This setting will only be used if the box layout is selected."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1106
+#: ../buddyx/inc/Kirki_Option/Component.php:1154
 msgid "Subheader Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1117, ../buddyx/inc/Welcome/Component.php:557
+#: ../buddyx/inc/Kirki_Option/Component.php:1165, ../buddyx/inc/Welcome/Component.php:573
 msgid "Theme Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1195, ../buddyx/inc/Welcome/Component.php:562
+#: ../buddyx/inc/Kirki_Option/Component.php:1243, ../buddyx/inc/Welcome/Component.php:578
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1212
+#: ../buddyx/inc/Kirki_Option/Component.php:1260
 msgid "Link Hover"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1239
+#: ../buddyx/inc/Kirki_Option/Component.php:1287
 msgid "H1 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1250
+#: ../buddyx/inc/Kirki_Option/Component.php:1298
 msgid "H2 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1261
+#: ../buddyx/inc/Kirki_Option/Component.php:1309
 msgid "H3 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1272
+#: ../buddyx/inc/Kirki_Option/Component.php:1320
 msgid "H4 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1283
+#: ../buddyx/inc/Kirki_Option/Component.php:1331
 msgid "H5 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1294
+#: ../buddyx/inc/Kirki_Option/Component.php:1342
 msgid "H6 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1305
+#: ../buddyx/inc/Kirki_Option/Component.php:1353
 msgid "Buttons"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1315
+#: ../buddyx/inc/Kirki_Option/Component.php:1363
 msgid "Button Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1351
+#: ../buddyx/inc/Kirki_Option/Component.php:1399
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1382
+#: ../buddyx/inc/Kirki_Option/Component.php:1430
 msgid "Button Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1405
+#: ../buddyx/inc/Kirki_Option/Component.php:1453
 msgid "Button Text Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1428
+#: ../buddyx/inc/Kirki_Option/Component.php:1476
 msgid "Button Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1451
+#: ../buddyx/inc/Kirki_Option/Component.php:1499
 msgid "Button Border Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1490
+#: ../buddyx/inc/Kirki_Option/Component.php:1538
 msgid "Footer Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1507
+#: ../buddyx/inc/Kirki_Option/Component.php:1555
 msgid "Footer Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1524
+#: ../buddyx/inc/Kirki_Option/Component.php:1572
 msgid "Footer Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1541
+#: ../buddyx/inc/Kirki_Option/Component.php:1589
 msgid "Footer Link Hover"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1558
+#: ../buddyx/inc/Kirki_Option/Component.php:1606
 msgid "Copyright"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1574
+#: ../buddyx/inc/Kirki_Option/Component.php:1622
 msgid "Copyright Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1591
+#: ../buddyx/inc/Kirki_Option/Component.php:1639
 msgid "Copyright Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1608
+#: ../buddyx/inc/Kirki_Option/Component.php:1656
 msgid "Copyright Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1625
+#: ../buddyx/inc/Kirki_Option/Component.php:1673
 msgid "Copyright Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1642
+#: ../buddyx/inc/Kirki_Option/Component.php:1690
 msgid "Copyright Link Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1662
+#: ../buddyx/inc/Kirki_Option/Component.php:1710
 msgid "Blog Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1678
+#: ../buddyx/inc/Kirki_Option/Component.php:1726
 msgid "Image position"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1683
+#: ../buddyx/inc/Kirki_Option/Component.php:1731
 msgid "Left"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1684
+#: ../buddyx/inc/Kirki_Option/Component.php:1732
 msgid "Right"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1699
+#: ../buddyx/inc/Kirki_Option/Component.php:1747
 msgid "Grid Columns"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1704
+#: ../buddyx/inc/Kirki_Option/Component.php:1752
 msgid "One"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1705, ../buddyx/inc/Kirki_Option/Component.php:1746
+#: ../buddyx/inc/Kirki_Option/Component.php:1753, ../buddyx/inc/Kirki_Option/Component.php:1794
 msgid "Two"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1720
+#: ../buddyx/inc/Kirki_Option/Component.php:1768
 msgid "View"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1725
+#: ../buddyx/inc/Kirki_Option/Component.php:1773
 msgid "Without Masonry"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1726
+#: ../buddyx/inc/Kirki_Option/Component.php:1774
 msgid "With Masonry"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1741, ../buddyx/inc/Welcome/Component.php:617
+#: ../buddyx/inc/Kirki_Option/Component.php:1789, ../buddyx/inc/Welcome/Component.php:633
 msgid "Post Per Row"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1747
+#: ../buddyx/inc/Kirki_Option/Component.php:1795
 msgid "Three"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1770
+#: ../buddyx/inc/Kirki_Option/Component.php:1818
 msgid "Single Post Content Width"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1784
+#: ../buddyx/inc/Kirki_Option/Component.php:1832
 msgid "Single Post Title Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1800
+#: ../buddyx/inc/Kirki_Option/Component.php:1848
 msgid "Image Overlay Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1801
+#: ../buddyx/inc/Kirki_Option/Component.php:1849
 msgid "Allow to add image overlay color on single post title layout one."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1829
+#: ../buddyx/inc/Kirki_Option/Component.php:1877
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1845
+#: ../buddyx/inc/Kirki_Option/Component.php:1893
 msgid "Single Post Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1863
+#: ../buddyx/inc/Kirki_Option/Component.php:1911
 msgid "Activity Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1879
+#: ../buddyx/inc/Kirki_Option/Component.php:1927
 msgid "Members Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1895
+#: ../buddyx/inc/Kirki_Option/Component.php:1943
 msgid "Groups Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1914
+#: ../buddyx/inc/Kirki_Option/Component.php:1962
 msgid "bbPress Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1932
+#: ../buddyx/inc/Kirki_Option/Component.php:1980
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1949
+#: ../buddyx/inc/Kirki_Option/Component.php:1997
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1965, ../buddyx/inc/Welcome/Component.php:677
+#: ../buddyx/inc/Kirki_Option/Component.php:2013, ../buddyx/inc/Welcome/Component.php:693
 msgid "Customize Your Logo Section"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1978
+#: ../buddyx/inc/Kirki_Option/Component.php:2026
 msgid "Disable Logo?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1998
+#: ../buddyx/inc/Kirki_Option/Component.php:2046
 msgid "Custom Logo"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2021
+#: ../buddyx/inc/Kirki_Option/Component.php:2069
 msgid "Logo Width"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2022
+#: ../buddyx/inc/Kirki_Option/Component.php:2070
 msgid "Select the logo width (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2045
+#: ../buddyx/inc/Kirki_Option/Component.php:2093
 msgid "Logo Height"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2046
+#: ../buddyx/inc/Kirki_Option/Component.php:2094
 msgid "Select the logo height (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2069
+#: ../buddyx/inc/Kirki_Option/Component.php:2117
 msgid "Logo Space Bottom"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2070
+#: ../buddyx/inc/Kirki_Option/Component.php:2118
 msgid "Select the logo bottom spacing (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2093
+#: ../buddyx/inc/Kirki_Option/Component.php:2141
 msgid "Logo URL"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2116
+#: ../buddyx/inc/Kirki_Option/Component.php:2164
 msgid "Logo Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2139
+#: ../buddyx/inc/Kirki_Option/Component.php:2187
 msgid "Login Page Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2140
+#: ../buddyx/inc/Kirki_Option/Component.php:2188
 msgid "Login page title that is shown on WordPress login page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2206
+#: ../buddyx/inc/Kirki_Option/Component.php:2254
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2208
+#: ../buddyx/inc/Kirki_Option/Component.php:2256
 msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2219
+#: ../buddyx/inc/Kirki_Option/Component.php:2267
 msgid "Load Google Fonts Locally ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2232
+#: ../buddyx/inc/Kirki_Option/Component.php:2280
 msgid "Preload Local Fonts ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2252
+#: ../buddyx/inc/Kirki_Option/Component.php:2300
 msgid "Flush Local Fonts Cache"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2253
+#: ../buddyx/inc/Kirki_Option/Component.php:2301
 msgid "Click the button to reset the local fonts cache."
 msgstr ""
 
@@ -1556,7 +1584,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:109, ../buddyx/inc/Welcome/Component.php:225, ../buddyx/inc/Welcome/Component.php:310
+#: ../buddyx/inc/Welcome/Component.php:109, ../buddyx/inc/Welcome/Component.php:225, ../buddyx/inc/Welcome/Component.php:326
 msgid "Get BuddyX Pro"
 msgstr ""
 
@@ -1592,7 +1620,7 @@ msgstr ""
 msgid "Set Typography	"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:159, ../buddyx/inc/Welcome/Component.php:457
+#: ../buddyx/inc/Welcome/Component.php:159, ../buddyx/inc/Welcome/Component.php:473
 msgid "Header Layout"
 msgstr ""
 
@@ -1632,7 +1660,7 @@ msgstr ""
 msgid "Download Now"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:222, ../buddyx/inc/Welcome/Component.php:307
+#: ../buddyx/inc/Welcome/Component.php:222, ../buddyx/inc/Welcome/Component.php:323
 msgid "Get BuddyX Pro Theme"
 msgstr ""
 
@@ -1665,686 +1693,686 @@ msgid "Go to Facebook Group"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:270
+msgid "Videos"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:279
+msgid "Welcome to our WordPress theme video series! Whether you're a newbie or a seasoned website creator, our bite-sized tutorials are packed with tips, tricks, and hacks to supercharge your WordPress journey."
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:281
+msgid "Watch Now"
+msgstr ""
+
+#: ../buddyx/inc/Welcome/Component.php:286
 msgid "Support"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:276
+#: ../buddyx/inc/Welcome/Component.php:292
 msgid "Have a question, we are happy to help! Get in touch with our support team."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:278
+#: ../buddyx/inc/Welcome/Component.php:294
 msgid "Submit a Ticket"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:283
+#: ../buddyx/inc/Welcome/Component.php:299
 msgid "Give us feedback"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:289
+#: ../buddyx/inc/Welcome/Component.php:305
 msgid "Remember to pay attention to your rate! Your 5-star review will encourage us so much!"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:291
+#: ../buddyx/inc/Welcome/Component.php:307
 msgid "Write a Review "
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:301
+#: ../buddyx/inc/Welcome/Component.php:317
 msgid "tab2"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:309
+#: ../buddyx/inc/Welcome/Component.php:325
 msgid "#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:315
+#: ../buddyx/inc/Welcome/Component.php:331
 msgid "Compare Features Of BuddyX With BuddyX Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:316
+#: ../buddyx/inc/Welcome/Component.php:332
 msgid "Take Your Time & Compare Every Feature"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:325
+#: ../buddyx/inc/Welcome/Component.php:341
 msgid "Features"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:326
+#: ../buddyx/inc/Welcome/Component.php:342
 msgid "BuddyX"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:327
+#: ../buddyx/inc/Welcome/Component.php:343
 msgid "BuddyX Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:332
+#: ../buddyx/inc/Welcome/Component.php:348
 msgid "Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:342
+#: ../buddyx/inc/Welcome/Component.php:358
 msgid "Content Layout Width"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:347
+#: ../buddyx/inc/Welcome/Component.php:363
 msgid "Sidebar Width"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:352
-msgid "Global Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:357
-msgid "Buttons Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:362
-msgid "Form Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:372
+#: ../buddyx/inc/Welcome/Component.php:388
 msgid "Sign-in Popup | Register Form Fields"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:377
+#: ../buddyx/inc/Welcome/Component.php:393
 msgid "Scroll Top"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:387
+#: ../buddyx/inc/Welcome/Component.php:403
 msgid "Loading Text"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:417
+#: ../buddyx/inc/Welcome/Component.php:433
 msgid "Google Fonts"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:422
+#: ../buddyx/inc/Welcome/Component.php:438
 msgid "Font Size (PX/EM)"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:427
+#: ../buddyx/inc/Welcome/Component.php:443
 msgid "Text Transform"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:432
+#: ../buddyx/inc/Welcome/Component.php:448
 msgid "Line Height"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:437
+#: ../buddyx/inc/Welcome/Component.php:453
 msgid "Letter Spacing"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:447
+#: ../buddyx/inc/Welcome/Component.php:463
 msgid "Top Bar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:452
+#: ../buddyx/inc/Welcome/Component.php:468
 msgid "Sticky Header"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:462
+#: ../buddyx/inc/Welcome/Component.php:478
 msgid "Header Menu Position"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:467
+#: ../buddyx/inc/Welcome/Component.php:483
 msgid "Menu Effects"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:472
+#: ../buddyx/inc/Welcome/Component.php:488
 msgid "More Menu"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:477
+#: ../buddyx/inc/Welcome/Component.php:493
 msgid "Site Search Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:482
+#: ../buddyx/inc/Welcome/Component.php:498
 msgid "Login/Register Button Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:487
+#: ../buddyx/inc/Welcome/Component.php:503
 msgid "Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:492
+#: ../buddyx/inc/Welcome/Component.php:508
 msgid "Site Search"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:497
+#: ../buddyx/inc/Welcome/Component.php:513
 msgid "Site Cart"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:502
+#: ../buddyx/inc/Welcome/Component.php:518
 msgid "BuddyPress Components"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:507, ../buddyx/inc/Welcome/Component.php:512, ../buddyx/inc/Welcome/Component.php:572
+#: ../buddyx/inc/Welcome/Component.php:523, ../buddyx/inc/Welcome/Component.php:528, ../buddyx/inc/Welcome/Component.php:588
 msgid "Side Panel"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:517
+#: ../buddyx/inc/Welcome/Component.php:533
 msgid "Sub Header"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:522
+#: ../buddyx/inc/Welcome/Component.php:538
 msgid "Customize Background"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:532
+#: ../buddyx/inc/Welcome/Component.php:548
 msgid "Breadcrumbs"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:537
+#: ../buddyx/inc/Welcome/Component.php:553
 msgid "Skin Colors"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:542
+#: ../buddyx/inc/Welcome/Component.php:558
 msgid "Dark Mode"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:547
+#: ../buddyx/inc/Welcome/Component.php:563
 msgid "Custom Colors"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:567
+#: ../buddyx/inc/Welcome/Component.php:583
 msgid "Primary Header"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:577
+#: ../buddyx/inc/Welcome/Component.php:593
 msgid "Button Background Color / Hover"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:582
+#: ../buddyx/inc/Welcome/Component.php:598
 msgid "Button Text Color / Hover"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:587
+#: ../buddyx/inc/Welcome/Component.php:603
 msgid "Button Border Color / Hover"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:597
+#: ../buddyx/inc/Welcome/Component.php:613
 msgid "List Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:602
+#: ../buddyx/inc/Welcome/Component.php:618
 msgid "Grid Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:607
+#: ../buddyx/inc/Welcome/Component.php:623
 msgid "Masonry Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:612
+#: ../buddyx/inc/Welcome/Component.php:628
 msgid "Blog Layout Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:627
+#: ../buddyx/inc/Welcome/Component.php:643
 msgid "No Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:647
+#: ../buddyx/inc/Welcome/Component.php:663
 msgid "BuddyPress Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:652
+#: ../buddyx/inc/Welcome/Component.php:668
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:657
+#: ../buddyx/inc/Welcome/Component.php:673
 msgid "bbPress Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:662
+#: ../buddyx/inc/Welcome/Component.php:678
 msgid "LearnDash Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:667
+#: ../buddyx/inc/Welcome/Component.php:683
 msgid "Sticky Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:682
+#: ../buddyx/inc/Welcome/Component.php:698
 msgid "Choose WP Login Theme"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:687
+#: ../buddyx/inc/Welcome/Component.php:703
 msgid "Customize Login Form"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:692
+#: ../buddyx/inc/Welcome/Component.php:708
 msgid "Customize Forget Form"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:697
+#: ../buddyx/inc/Welcome/Component.php:713
 msgid "Customize Button"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:717, ../buddyx/inc/Welcome/Component.php:813
+#: ../buddyx/inc/Welcome/Component.php:733, ../buddyx/inc/Welcome/Component.php:829
 msgid "BuddyPress"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:722
+#: ../buddyx/inc/Welcome/Component.php:738
 msgid "Activity Control"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:723, ../buddyx/inc/Welcome/Component.php:738, ../buddyx/inc/Welcome/Component.php:743, ../buddyx/inc/Welcome/Component.php:748, ../buddyx/inc/Welcome/Component.php:753, ../buddyx/inc/Welcome/Component.php:758, ../buddyx/inc/Welcome/Component.php:763, ../buddyx/inc/Welcome/Component.php:768, ../buddyx/inc/Welcome/Component.php:773, ../buddyx/inc/Welcome/Component.php:778, ../buddyx/inc/Welcome/Component.php:824, ../buddyx/inc/Welcome/Component.php:829, ../buddyx/inc/Welcome/Component.php:834, ../buddyx/inc/Welcome/Component.php:839, ../buddyx/inc/Welcome/Component.php:844, ../buddyx/inc/Welcome/Component.php:849, ../buddyx/inc/Welcome/Component.php:854, ../buddyx/inc/Welcome/Component.php:859
+#: ../buddyx/inc/Welcome/Component.php:739, ../buddyx/inc/Welcome/Component.php:754, ../buddyx/inc/Welcome/Component.php:759, ../buddyx/inc/Welcome/Component.php:764, ../buddyx/inc/Welcome/Component.php:769, ../buddyx/inc/Welcome/Component.php:774, ../buddyx/inc/Welcome/Component.php:779, ../buddyx/inc/Welcome/Component.php:784, ../buddyx/inc/Welcome/Component.php:789, ../buddyx/inc/Welcome/Component.php:794, ../buddyx/inc/Welcome/Component.php:840, ../buddyx/inc/Welcome/Component.php:845, ../buddyx/inc/Welcome/Component.php:850, ../buddyx/inc/Welcome/Component.php:855, ../buddyx/inc/Welcome/Component.php:860, ../buddyx/inc/Welcome/Component.php:865, ../buddyx/inc/Welcome/Component.php:870, ../buddyx/inc/Welcome/Component.php:875
 msgid "Limited"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:727
+#: ../buddyx/inc/Welcome/Component.php:743
 msgid "BuddyPress Activity Share"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:732
+#: ../buddyx/inc/Welcome/Component.php:748
 msgid "Activity Reaction"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:737
+#: ../buddyx/inc/Welcome/Component.php:753
 msgid "Activity Load More"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:742
+#: ../buddyx/inc/Welcome/Component.php:758
 msgid "Members Multiple Directory Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:747
+#: ../buddyx/inc/Welcome/Component.php:763
 msgid "Members Default Cover Background"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:752
+#: ../buddyx/inc/Welcome/Component.php:768
 msgid "Groups Multiple Directory View"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:757
+#: ../buddyx/inc/Welcome/Component.php:773
 msgid "Group Default Cover Background"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:762
+#: ../buddyx/inc/Welcome/Component.php:778
 msgid "Member Multiple Header Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:767
+#: ../buddyx/inc/Welcome/Component.php:783
 msgid "Member Primary Navigation Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:772
+#: ../buddyx/inc/Welcome/Component.php:788
 msgid "Group Multiple Header Layout"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:777
+#: ../buddyx/inc/Welcome/Component.php:793
 msgid "Group Primary Navigation Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:783, ../buddyx/inc/Welcome/Component.php:823
+#: ../buddyx/inc/Welcome/Component.php:799, ../buddyx/inc/Welcome/Component.php:839
 msgid "WooCommerce"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:788
+#: ../buddyx/inc/Welcome/Component.php:804
 msgid "Product Listing Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:793
+#: ../buddyx/inc/Welcome/Component.php:809
 msgid "Shop Products Per Page"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:798
+#: ../buddyx/inc/Welcome/Component.php:814
 msgid "Display Filter Button"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:803
+#: ../buddyx/inc/Welcome/Component.php:819
 msgid "Sale Badge Style"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:808
+#: ../buddyx/inc/Welcome/Component.php:824
 msgid "Integrations"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:818
+#: ../buddyx/inc/Welcome/Component.php:834
 msgid "BuddyBoss Platform"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:828
+#: ../buddyx/inc/Welcome/Component.php:844
 msgid "LearnDash"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:833
+#: ../buddyx/inc/Welcome/Component.php:849
 msgid "LearnPress"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:838
+#: ../buddyx/inc/Welcome/Component.php:854
 msgid "LifterLMS"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:843
+#: ../buddyx/inc/Welcome/Component.php:859
 msgid "TutorLMS"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:848
+#: ../buddyx/inc/Welcome/Component.php:864
 msgid "bbPress"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:853
+#: ../buddyx/inc/Welcome/Component.php:869
 msgid "Dokan"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:858
+#: ../buddyx/inc/Welcome/Component.php:874
 msgid "WC Vendors"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:863
+#: ../buddyx/inc/Welcome/Component.php:879
 msgid "GamiPress"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:868
+#: ../buddyx/inc/Welcome/Component.php:884
 msgid "Paid Memberships"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:873
+#: ../buddyx/inc/Welcome/Component.php:889
 msgid "The Event Calendar"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:885
+#: ../buddyx/inc/Welcome/Component.php:901
 msgid "tab3"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:894
+#: ../buddyx/inc/Welcome/Component.php:910
 msgid "BuddyPress Premium add-ons"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:896
+#: ../buddyx/inc/Welcome/Component.php:912
 msgid "Extend your social community website with our premium add-ons for BuddyPress."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:897
+#: ../buddyx/inc/Welcome/Component.php:913
 msgid "View More Addons"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:905
+#: ../buddyx/inc/Welcome/Component.php:921
 msgid "BuddyPress-Business-Profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:908
+#: ../buddyx/inc/Welcome/Component.php:924
 msgid "BuddyPress Business Profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:909
+#: ../buddyx/inc/Welcome/Component.php:925
 msgid "BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:910, ../buddyx/inc/Welcome/Component.php:922, ../buddyx/inc/Welcome/Component.php:934, ../buddyx/inc/Welcome/Component.php:946, ../buddyx/inc/Welcome/Component.php:958, ../buddyx/inc/Welcome/Component.php:970, ../buddyx/inc/Welcome/Component.php:982, ../buddyx/inc/Welcome/Component.php:994, ../buddyx/inc/Welcome/Component.php:1006, ../buddyx/inc/Welcome/Component.php:1018, ../buddyx/inc/Welcome/Component.php:1030, ../buddyx/inc/Welcome/Component.php:1042, ../buddyx/inc/Welcome/Component.php:1054, ../buddyx/inc/Welcome/Component.php:1066, ../buddyx/inc/Welcome/Component.php:1078, ../buddyx/inc/Welcome/Component.php:1090, ../buddyx/inc/Welcome/Component.php:1102, ../buddyx/inc/Welcome/Component.php:1114, ../buddyx/inc/Welcome/Component.php:1126, ../buddyx/inc/Welcome/Component.php:1138, ../buddyx/inc/Welcome/Component.php:1150, ../buddyx/inc/Welcome/Component.php:1162, ../buddyx/inc/Welcome/Component.php:1174, ../buddyx/inc/Welcome/Component.php:1186
+#: ../buddyx/inc/Welcome/Component.php:926, ../buddyx/inc/Welcome/Component.php:938, ../buddyx/inc/Welcome/Component.php:950, ../buddyx/inc/Welcome/Component.php:962, ../buddyx/inc/Welcome/Component.php:974, ../buddyx/inc/Welcome/Component.php:986, ../buddyx/inc/Welcome/Component.php:998, ../buddyx/inc/Welcome/Component.php:1010, ../buddyx/inc/Welcome/Component.php:1022, ../buddyx/inc/Welcome/Component.php:1034, ../buddyx/inc/Welcome/Component.php:1046, ../buddyx/inc/Welcome/Component.php:1058, ../buddyx/inc/Welcome/Component.php:1070, ../buddyx/inc/Welcome/Component.php:1082, ../buddyx/inc/Welcome/Component.php:1094, ../buddyx/inc/Welcome/Component.php:1106, ../buddyx/inc/Welcome/Component.php:1118, ../buddyx/inc/Welcome/Component.php:1130, ../buddyx/inc/Welcome/Component.php:1142, ../buddyx/inc/Welcome/Component.php:1154, ../buddyx/inc/Welcome/Component.php:1166, ../buddyx/inc/Welcome/Component.php:1178, ../buddyx/inc/Welcome/Component.php:1190, ../buddyx/inc/Welcome/Component.php:1202
 msgid "Get It Now"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:917
+#: ../buddyx/inc/Welcome/Component.php:933
 msgid "ideapush"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:920
+#: ../buddyx/inc/Welcome/Component.php:936
 msgid "BuddyPress Ideapush Integration"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:921
+#: ../buddyx/inc/Welcome/Component.php:937
 msgid "The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:929
+#: ../buddyx/inc/Welcome/Component.php:945
 msgid "BuddyPress-Contact-Me"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:932
+#: ../buddyx/inc/Welcome/Component.php:948
 msgid "BuddyPress Contact Me"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:933
+#: ../buddyx/inc/Welcome/Component.php:949
 msgid "BuddyPress Contact Me displays a contact form on a member's profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:941
+#: ../buddyx/inc/Welcome/Component.php:957
 msgid "WP_Story"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:944
+#: ../buddyx/inc/Welcome/Component.php:960
 msgid "WP Stories"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:945
+#: ../buddyx/inc/Welcome/Component.php:961
 msgid "Social Stories offer a more personal way to interact with your audience."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:953
+#: ../buddyx/inc/Welcome/Component.php:969
 msgid "BP_profile-view"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:956
+#: ../buddyx/inc/Welcome/Component.php:972
 msgid "Who Viewed My Profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:957
+#: ../buddyx/inc/Welcome/Component.php:973
 msgid "The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header..."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:965
+#: ../buddyx/inc/Welcome/Component.php:981
 msgid "member-blog"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:968
+#: ../buddyx/inc/Welcome/Component.php:984
 msgid "BuddyPress Member Blog Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:969
+#: ../buddyx/inc/Welcome/Component.php:985
 msgid "BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:977
+#: ../buddyx/inc/Welcome/Component.php:993
 msgid "BuddyPress-multi-vendor-marketplace"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:980
+#: ../buddyx/inc/Welcome/Component.php:996
 msgid "BuddyVendor"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:981
+#: ../buddyx/inc/Welcome/Component.php:997
 msgid "With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:989
+#: ../buddyx/inc/Welcome/Component.php:1005
 msgid "stat"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:992
+#: ../buddyx/inc/Welcome/Component.php:1008
 msgid "BuddyPress Statistics"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:993
+#: ../buddyx/inc/Welcome/Component.php:1009
 msgid "BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site..."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1001
+#: ../buddyx/inc/Welcome/Component.php:1017
 msgid "BuddyPress-places"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1004
+#: ../buddyx/inc/Welcome/Component.php:1020
 msgid "BuddyPress Check-Ins Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1005
+#: ../buddyx/inc/Welcome/Component.php:1021
 msgid "Allow community members and groups to post updates along with selecting their current location."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1013
+#: ../buddyx/inc/Welcome/Component.php:1029
 msgid "BuddyPress-Friend-Follow-Suggestion"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1016
+#: ../buddyx/inc/Welcome/Component.php:1032
 msgid "BuddyPress Friend & Follow Suggestion"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1017
+#: ../buddyx/inc/Welcome/Component.php:1033
 msgid "BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1025
+#: ../buddyx/inc/Welcome/Component.php:1041
 msgid "BuddyPress-Animated-Gif-Share"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1028
+#: ../buddyx/inc/Welcome/Component.php:1044
 msgid "BuddyPress Giphy"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1029
+#: ../buddyx/inc/Welcome/Component.php:1045
 msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1037
+#: ../buddyx/inc/Welcome/Component.php:1053
 msgid "BuddyPress-BuddyBoss-shortcodes"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1040
+#: ../buddyx/inc/Welcome/Component.php:1056
 msgid "Shortcodes For BuddyPress Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1041
+#: ../buddyx/inc/Welcome/Component.php:1057
 msgid "Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1049
+#: ../buddyx/inc/Welcome/Component.php:1065
 msgid "BuddyPress-Sticky-Post"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1052
+#: ../buddyx/inc/Welcome/Component.php:1068
 msgid "BuddyPress Sticky Post"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1053
+#: ../buddyx/inc/Welcome/Component.php:1069
 msgid "Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1061
+#: ../buddyx/inc/Welcome/Component.php:1077
 msgid "BuddyPress-color-background-activity"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1064
+#: ../buddyx/inc/Welcome/Component.php:1080
 msgid "BuddyPress Quotes"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1065
+#: ../buddyx/inc/Welcome/Component.php:1081
 msgid "Allow BuddyPress users to post content with attractive background colors and beautiful images."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1073
+#: ../buddyx/inc/Welcome/Component.php:1089
 msgid "BuddyPress-BuddyBoss-autofriend"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1076
+#: ../buddyx/inc/Welcome/Component.php:1092
 msgid "BuddyPress Auto Friends"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1077
+#: ../buddyx/inc/Welcome/Component.php:1093
 msgid "Add selected community members as common friends for all members."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1085
+#: ../buddyx/inc/Welcome/Component.php:1101
 msgid "BuddyPress-Newsfeed-member-profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1088
+#: ../buddyx/inc/Welcome/Component.php:1104
 msgid "BuddyPress Newsfeed"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1089
+#: ../buddyx/inc/Welcome/Component.php:1105
 msgid "Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1097
+#: ../buddyx/inc/Welcome/Component.php:1113
 msgid "BuddyPress-Reactions-and-Status"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1100
+#: ../buddyx/inc/Welcome/Component.php:1116
 msgid "BuddyPress Status"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1101
+#: ../buddyx/inc/Welcome/Component.php:1117
 msgid "Allow members to add status on their profile and give their reactions to all the activity updates."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1109
+#: ../buddyx/inc/Welcome/Component.php:1125
 msgid "BuddyPress-Hashtags"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1112
+#: ../buddyx/inc/Welcome/Component.php:1128
 msgid "BuddyPress Hashtags"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1113
+#: ../buddyx/inc/Welcome/Component.php:1129
 msgid "Allow users to add multi-language hashtag links on BuddyPress community website."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1121
+#: ../buddyx/inc/Welcome/Component.php:1137
 msgid "BuddyPress-Moderation"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1124
+#: ../buddyx/inc/Welcome/Component.php:1140
 msgid "BuddyPress Moderation Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1125
+#: ../buddyx/inc/Welcome/Component.php:1141
 msgid "Allow members to flag inappropriate content on your BuddyPress community site."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1133
+#: ../buddyx/inc/Welcome/Component.php:1149
 msgid "BuddyPress-Private-Community-Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1136
+#: ../buddyx/inc/Welcome/Component.php:1152
 msgid "BuddyPress Private Community Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1137
+#: ../buddyx/inc/Welcome/Component.php:1153
 msgid "Lockdown the BuddyPress components to make your member's profile safe."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1145
+#: ../buddyx/inc/Welcome/Component.php:1161
 msgid "BuddyPress-Polls"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1148
+#: ../buddyx/inc/Welcome/Component.php:1164
 msgid "BuddyPress Polls"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1149
+#: ../buddyx/inc/Welcome/Component.php:1165
 msgid "Allow users to create and respond to polls inside the BuddyPress activity or in groups."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1157
+#: ../buddyx/inc/Welcome/Component.php:1173
 msgid "BuddyPress-Profanity"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1160
+#: ../buddyx/inc/Welcome/Component.php:1176
 msgid "BuddyPress Profanity"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1161
+#: ../buddyx/inc/Welcome/Component.php:1177
 msgid "Specify a list of bad words to control the content in your BuddyPress community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1169
+#: ../buddyx/inc/Welcome/Component.php:1185
 msgid "BuddyPress-Resume-Manager"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1172
+#: ../buddyx/inc/Welcome/Component.php:1188
 msgid "BuddyPress Resume Manager"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1173
+#: ../buddyx/inc/Welcome/Component.php:1189
 msgid "Allow members to create and display resumes on BuddyPress right from their profile page."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1181
+#: ../buddyx/inc/Welcome/Component.php:1197
 msgid "BuddyPress-Profile-Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1184
+#: ../buddyx/inc/Welcome/Component.php:1200
 msgid "BuddyPress Profile Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1185
+#: ../buddyx/inc/Welcome/Component.php:1201
 msgid "Add repeater fields or group of fields to the front-end forms on the member's profile."
 msgstr ""
 

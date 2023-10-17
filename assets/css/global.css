@@ -1007,7 +1007,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         text-align: left;
         box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
         border: 0;
-        border-radius: 8px;
+        border-radius: var(--global-border-radius);
         transition: none;
     }
     .nav--toggle-sub ul .hideshow ul {
@@ -1273,7 +1273,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     margin: 0px;
     padding: 5px 15px;
     padding-right: 45px;
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
 }
 
@@ -1491,7 +1491,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     text-align: left;
     box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
     border: 0;
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     transition: all .3s;
 }
 
@@ -1664,7 +1664,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         padding: 1em;
         border: 1px solid var(--global-border-color);
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-        border-radius: 8px;
+        border-radius: var(--global-border-radius);
         background: #fff;
     }
 }
@@ -2110,7 +2110,7 @@ body.single-ideas #comments .comment-reply-link:hover {
     padding: 1em;
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-    border-radius: 8px;
+    border-radius: var(--global-border-radius);
     background: #fff;
 }
 
