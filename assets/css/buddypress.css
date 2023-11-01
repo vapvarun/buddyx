@@ -631,6 +631,9 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
 /*--------------------------------------------------------------
 # rtMedia Specific
 --------------------------------------------------------------*/
+div#rtmedia-action-update>span {
+    display: none;
+}
 
 .bp-nouveau .activity-update-form.activity-update-form #aw-whats-new-reset {
     margin-top: 0;

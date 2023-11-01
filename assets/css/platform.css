@@ -62,6 +62,14 @@ input[type="search"]::-webkit-search-results-decoration {
     top: 30px;
 }
 
+.activity-list .bb-pin-action {
+    top: 5px;
+}
+
+.bb-action-popup .bb-model-header .bb-model-close-button .bb-icon-times {
+    font-size: 24px;
+}
+
 .activity-list .bb-activity-more-options-wrap .bb-activity-more-options .generic-button {
     margin: 0;
 }
