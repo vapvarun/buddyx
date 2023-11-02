@@ -631,6 +631,9 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
 /*--------------------------------------------------------------
 # rtMedia Specific
 --------------------------------------------------------------*/
+div#rtmedia-action-update>span {
+    display: none;
+}
 
 .bp-nouveau .activity-update-form.activity-update-form #aw-whats-new-reset {
     margin-top: 0;
@@ -1039,7 +1042,7 @@ button.mfp-arrow {
 
 /* rtm-lightbox */
 
-body .mfp-arrow {
+body:not(.buddyx-mediapress) .mfp-arrow {
     cursor: pointer;
     position: absolute;
     opacity: 0.65;
@@ -1059,7 +1062,7 @@ body .mfp-arrow {
     -webkit-appearance: none;
 }
 
-body .mfp-arrow:after {
+body:not(.buddyx-mediapress) .mfp-arrow:after {
     content: '';
     display: block;
     width: 0;
@@ -1072,16 +1075,17 @@ body .mfp-arrow:after {
     border: medium inset transparent;
 }
 
-body .mfp-arrow:after {
+body:not(.buddyx-mediapress) .mfp-arrow:after {
     border-top-width: 13px;
     border-bottom-width: 13px;
     top: 8px;
 }
 
-body .mfp-arrow-left:after,
-body .mfp-arrow-right:after {
-    font-family: 'FontAwesome';
+body:not(.buddyx-mediapress) .mfp-arrow-left:after,
+body:not(.buddyx-mediapress) .mfp-arrow-right:after {
+    font-family: "Font Awesome 5 Free";
     font-size: 24px;
+    font-weight: 900;
     color: #fff;
     border-left: 0;
     margin-left: 13px;
@@ -1089,19 +1093,19 @@ body .mfp-arrow-right:after {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body .mfp-arrow-left:after {
-    content: '\f137';
+body:not(.buddyx-mediapress) .mfp-arrow-left:after {
+    content: '\f104';
 }
 
-body .mfp-arrow-right:after {
-    content: '\f138';
+body:not(.buddyx-mediapress) .mfp-arrow-right:after {
+    content: '\f105';
 }
 
-body .mfp-arrow-left:before {
+body:not(.buddyx-mediapress) .mfp-arrow-left:before {
     border: none;
 }
 
-body .mfp-arrow-right:before {
+body:not(.buddyx-mediapress) .mfp-arrow-right:before {
     border: none;
 }
 

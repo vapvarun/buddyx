@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2023-10-10 07:59+0000\n"
+"POT-Creation-Date: 2023-11-01 06:35+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -800,6 +800,10 @@ msgstr ""
 
 #: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:50, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
 msgid "Pages:"
+msgstr ""
+
+#: ../buddyx/buddypress/activity/entry.php:42
+msgid "Pinned Post"
 msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
