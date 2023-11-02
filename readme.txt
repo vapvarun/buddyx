@@ -97,6 +97,10 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.1 =
+* Fix:  (#578) Managed pin post activity with bb platform and fixes
+* Fix:  (#577) Managed MediaPress gallery navigation arrows
+
 = 4.6.0 =
 * Fix: (#573) Updated documentation link
 * Improvement: (#573) Added global border, form, and button radius settings
