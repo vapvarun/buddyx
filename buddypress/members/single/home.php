@@ -41,26 +41,14 @@ $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 		</div><!-- #item-body -->
 	</div><!-- // .bp-wrap -->
 	<?php
-	if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) {
-		if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() ) {
-			?>
-			<aside id="secondary" class="primary-sidebar widget-area">
-				<div class="sticky-sidebar">
-					<?php dynamic_sidebar( 'single_member' ); ?>
-				</div>
-			</aside>
-			<?php
-		}
-	} elseif ( class_exists( 'BuddyPress' ) ) {
-		if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() && function_exists( 'bp_is_members_invitations_screen' ) && ! bp_is_members_invitations_screen() ) {
-			?>
-			<aside id="secondary" class="primary-sidebar widget-area">
-					<div class="sticky-sidebar">
-					<?php dynamic_sidebar( 'single_member' ); ?>
-					</div>
-			</aside>
-			<?php
-		}
+	if ( is_active_sidebar( 'single_member' ) && bp_is_user() && ! bp_is_user_settings() && ! bp_is_user_messages() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() && ! bp_is_user_front() && function_exists( 'bp_is_members_invitations_screen' ) && ! bp_is_members_invitations_screen() ) {
+		?>
+		<aside id="secondary" class="primary-sidebar widget-area">
+			<div class="sticky-sidebar">
+				<?php dynamic_sidebar( 'single_member' ); ?>
+			</div>
+		</aside>
+		<?php
 	}
 	?>
 </div><!-- .site-wrapper -->
