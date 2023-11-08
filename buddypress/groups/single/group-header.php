@@ -6,7 +6,11 @@
  * @version 7.0.0
  */
 
-$group_link   = bp_get_group_permalink();
+if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
+	$group_link = bp_get_group_url();
+} else {
+	$group_link = bp_get_group_permalink();
+}
 $admin_link   = trailingslashit( $group_link . 'admin' );
 $group_avatar = trailingslashit( $admin_link . 'group-avatar' );
 ?>

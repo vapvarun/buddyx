@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2023-11-08 10:17+0000\n"
+"POT-Creation-Date: 2023-11-08 10:46+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -770,7 +770,7 @@ msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #. translators: %s: last activity timestamp (e.g. "Active 1 hour ago")
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:84, ../buddyx/buddypress/groups/groups-loop.php:53, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:149, ../buddyx/bb-buddypress/groups/single/group-header.php:91, ../buddyx/buddypress/groups/single/cover-image-header.php:56, ../buddyx/buddypress/groups/single/group-header.php:39
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:84, ../buddyx/buddypress/groups/groups-loop.php:57, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:149, ../buddyx/bb-buddypress/groups/single/group-header.php:91, ../buddyx/buddypress/groups/single/cover-image-header.php:60, ../buddyx/buddypress/groups/single/group-header.php:43
 msgid "Active %s"
 msgstr ""
 
@@ -2385,43 +2385,43 @@ msgstr ""
 msgid "%s Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:95
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:99
 msgid "Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:194, ../buddyx/inc/widgets/bp-profile-completion-widget.php:431
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:198, ../buddyx/inc/widgets/bp-profile-completion-widget.php:435
 msgid "Profile Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:214, ../buddyx/inc/widgets/bp-profile-completion-widget.php:434
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:218, ../buddyx/inc/widgets/bp-profile-completion-widget.php:438
 msgid "Cover Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:296
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:300
 msgid "Profile Fields"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:406
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:410
 msgid "Complete Your Profile"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:440
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:444
 msgid "Title:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:443
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:447
 msgid "Profile field sets:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:468
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:472
 msgid "Profile photos:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:487
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:491
 msgid "Hide widget once progress hits 100%"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:493
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:497
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
@@ -2569,15 +2569,15 @@ msgstr ""
 msgid "All Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:118
+#: ../buddyx/template-parts/header/buddypress-profile.php:122
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:118
+#: ../buddyx/template-parts/header/buddypress-profile.php:122
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:131, ../buddyx/template-parts/header/buddypress-profile.php:125, ../buddyx/template-parts/header/buddypress-profile.php:125
+#: ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:129, ../buddyx/template-parts/header/buddypress-profile.php:129
 msgid "Register"
 msgstr ""
 
@@ -2593,7 +2593,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:79
+#: ../buddyx/template-parts/header/navigation.php:83
 msgid "My Account"
 msgstr ""
 
@@ -2646,7 +2646,7 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:78, ../buddyx/buddypress/groups/single/cover-image-header.php:21, ../buddyx/buddypress/members/single/cover-image-header.php:15
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:78, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
 msgid "Change Cover Photo"
 msgstr ""
 
@@ -2666,7 +2666,7 @@ msgstr ""
 msgid "Cover photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/buddypress/groups/single/cover-image-header.php:36, ../buddyx/buddypress/groups/single/group-header.php:19
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/buddypress/groups/single/cover-image-header.php:40, ../buddyx/buddypress/groups/single/group-header.php:23
 msgid "Change Group Photo"
 msgstr ""
 
@@ -2678,11 +2678,11 @@ msgstr ""
 msgid "Change Profile Photo"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:72, ../buddyx/buddypress/groups/single/group-header.php:54
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/groups/single/group-header.php:58
 msgid "Group Types"
 msgstr ""
 
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:73, ../buddyx/buddypress/groups/single/group-header.php:55
+#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/groups/single/group-header.php:59
 msgid "Group Type"
 msgstr ""
 
@@ -2745,7 +2745,7 @@ msgid "Invited by %1$s &middot; %2$s."
 msgstr ""
 
 #. translators: %s is the number of Group members
-#: ../buddyx/buddypress/members/single/groups/invites.php:41
+#: ../buddyx/buddypress/members/single/groups/invites.php:45
 msgid "%s member"
 msgid_plural "%s members"
 msgstr[0] ""

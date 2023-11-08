@@ -81,7 +81,11 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 if ( is_user_logged_in() ) {
 	$loggedin_user = wp_get_current_user();
 	if ( ( $loggedin_user instanceof WP_User ) ) {
-		$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
+		if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
+			$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( get_current_user_id() ) : '#';
+		} else {
+			$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
+		}
 		echo '<div class="user-link-wrap">';
 		echo '<a class="user-link" href="' . esc_url( $user_link ) . '">';
 		?>
@@ -122,13 +126,13 @@ if ( is_user_logged_in() ) {
 	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
 		?>
 		<div class="bp-icon-wrap">
-			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
 		</div>
 		<?php
 	} elseif ( function_exists( 'bp_is_active' ) && bp_get_option( 'bp-enable-membership-requests' ) && true === get_theme_mod( 'site_register_link', true ) ) {
 		?>
 		<div class="bp-icon-wrap">
-			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-address-book"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
 		</div>
 		<?php
 	}
