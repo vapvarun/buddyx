@@ -1807,6 +1807,12 @@ li.load-more a.loading::after {
     top: -4px;
 }
 
+.member-status.offline {
+    background-color: #edbb34;
+    opacity: 0;
+    visibility: hidden;
+}
+
 .round-avatars .member-status {
     right: 2px;
     top: 0;
