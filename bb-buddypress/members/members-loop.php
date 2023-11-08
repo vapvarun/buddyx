@@ -124,6 +124,8 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 			?>
 			">
 
+				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+
 				<div class="item-avatar">
 					<?php
 					$moderation_class = function_exists( 'bp_moderation_is_user_suspended' ) && bp_moderation_is_user_suspended( bp_get_member_user_id() ) ? 'bp-user-suspended' : '';

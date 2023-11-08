@@ -130,6 +130,50 @@ if ( ! function_exists( 'buddyx_user_status' ) ) {
 }
 
 /*
+ * showing member cover image on member directory page
+ */
+if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
+	add_action( 'buddyx_before_member_avatar_member_directory', 'buddyx_render_member_cover_image', 10 );
+
+	function buddyx_render_member_cover_image() {
+		$cover_img_url = bp_attachments_get_attachment(
+			'url',
+			$args      = array(
+				'object_dir' => 'members',
+				'item_id'    => $user_id = bp_get_member_user_id(),
+				'type'       => 'cover-image',
+			)
+		);
+		$default_members_cover = '';
+		$cover_img_url         = isset( $cover_img_url ) ? $cover_img_url : $default_members_cover;
+		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" /></div></div>';
+	}
+
+}
+
+/*
+ * Showing group cover image on groups directory page
+ */
+if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
+	add_action( 'buddyx_before_group_avatar_group_directory', 'buddyx_render_group_cover_image', 10 );
+
+	function buddyx_render_group_cover_image() {
+		$cover_img_url = bp_attachments_get_attachment(
+			'url',
+			$args      = array(
+				'object_dir' => 'groups',
+				'item_id'    => $group_id = bp_get_group_id(),
+				'type'       => 'cover-image',
+			)
+		);
+		$default_groups_cover = '';
+		$cover_img_url        = isset( $cover_img_url ) ? $cover_img_url : $default_groups_cover;
+		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" /></div></div>';
+	}
+
+}
+
+/*
  * Output badges on profile
  */
 if ( ! function_exists( 'buddyx_profile_achievements' ) ) {

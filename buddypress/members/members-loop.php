@@ -26,6 +26,8 @@ bp_nouveau_before_loop(); ?>
 		<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_member_user_id(); ?>" data-bp-item-component="members">
 			<div class="list-wrap">
 
+				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+
 				<div class="item-avatar">
 					<a href="<?php bp_member_permalink(); ?>">
 						<?php
