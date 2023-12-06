@@ -26,6 +26,8 @@
 
 				<div class="list-wrap">
 
+					<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+
 					<div class="item-avatar">
 						<a href="<?php bp_group_member_domain(); ?>">
 							<?php bp_group_member_avatar(); ?>
@@ -46,7 +48,14 @@
 
 							</div><!-- .member-info-wrapper -->
 							<div class="member-action-wrapper">
-								<?php bp_nouveau_members_loop_buttons(); ?>
+								<?php
+								bp_nouveau_members_loop_buttons(
+									array(
+										'container'      => 'ul',
+										'button_element' => 'button',
+									)
+								);
+								?>
 							</div><!-- .member-action-wrapper -->
 						</div>
 
