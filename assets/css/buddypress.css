@@ -2715,6 +2715,15 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         background: transparent;
     }
 
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items {
+        width: 100%;
+    }
+
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items li a,
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items li span {
+        display: flex;
+    }
+
     nav#object-nav.vertical a {
         border: 0;
         display: flex;
@@ -2797,6 +2806,12 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 
     #buddypress.buddypress-wrap #item-body {
         padding: 1em;
+    }
+
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items>li,
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-subnav-nav-items>li {
+        display: inline-block;
+        border-radius: 0;
     }
 
     .buddypress-wrap .bp-subnavs ul li {
@@ -3235,6 +3250,31 @@ button#bp-delete-avatar {
 .buddypress.widget div.activity-list blockquote .activity-item:not(.mini) {
     padding-top: 15px;
     padding-bottom: 1px;
+}
+
+.wp-block-bp-login-form form#bp-login-widget-form {
+    position: relative;
+    margin: 0 0 30px;
+    padding: 1em;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+    background: #fff;
+}
+
+#bp-login-widget-form input[type=password],
+#bp-login-widget-form input[type=text] {
+    background-color: #fff;
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--form-border-radius);
+    padding: 10px;
+    min-height: 38px;
+}
+
+#bp-login-widget-form input[type=password]:focus,
+#bp-login-widget-form input[type=text]:focus {
+    color: var(--global-font-color);
+    outline: none;
 }
 
 
