@@ -116,6 +116,11 @@ require get_template_directory() . '/inc/extra.php';
 // Custom WP Login Form.
 require get_template_directory() . '/inc/login.php';
 
+// Load BuddyPress functions.
+if ( class_exists( 'BuddyPress' ) ) {
+	require get_template_directory() . '/inc/compatibility/buddypress/buddypress-functions.php';
+}
+
 // bp_nouveau_appearance default option.
 $optionKey = 'buddyx_theme_is_activated';
 if ( ! get_option( $optionKey ) ) {
