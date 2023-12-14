@@ -7,7 +7,11 @@
  */
 ?>
 
-<?php if ( bp_has_members( bp_ajax_querystring( 'friendship_requests' ) . '&include=' . bp_get_friendship_requests() ) ) : ?>
+<h2 class="screen-heading friendship-requests-screen"><?php esc_html_e( 'Requests to Connect', 'buddyx' ); ?></h2>
+
+<?php bp_nouveau_member_hook( 'before', 'friend_requests_content' ); ?>
+
+<?php if ( bp_has_members( 'type=alphabetical&include=' . bp_get_friendship_requests() ) ) : ?>
 
 	<?php bp_nouveau_pagination( 'top' ); ?>
 
@@ -49,3 +53,6 @@
 	<?php bp_nouveau_user_feedback( 'member-requests-none' ); ?>
 
 <?php endif; ?>
+
+<?php
+bp_nouveau_member_hook( 'after', 'friend_requests_content' );

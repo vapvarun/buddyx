@@ -3,7 +3,7 @@
  * BuddyPress - Groups Loop
  *
  * @since 3.0.0
- * @version 3.1.0
+ * @version 7.0.0
  */
 
 bp_nouveau_before_loop(); ?>
@@ -26,9 +26,15 @@ bp_nouveau_before_loop(); ?>
 		<li <?php bp_group_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups">
 			<div class="list-wrap">
 
+				<?php do_action( 'buddyx_before_group_avatar_group_directory' ); ?>
+
 				<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 					<div class="item-avatar">
-						<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar( bp_nouveau_avatar_args() ); ?></a>
+						<?php if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) : ?>
+							<a href="<?php bp_group_url(); ?>"><?php bp_group_avatar( bp_nouveau_avatar_args() ); ?></a>
+						<?php else : ?>
+							<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar( bp_nouveau_avatar_args() ); ?></a>
+						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 
@@ -40,21 +46,21 @@ bp_nouveau_before_loop(); ?>
 
 						<?php if ( bp_nouveau_group_has_meta() ) : ?>
 
-							<?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
-								<p class="item-meta group-details"><?php bp_nouveau_the_group_meta( array( 'keys' => array( 'status', 'count' ) ) ); ?></p>
-							<?php } else { ?>
-								<p class="item-meta group-details"><?php bp_nouveau_group_meta(); ?></p>
-							<?php } ?>
+							<p class="item-meta group-details"><?php bp_nouveau_the_group_meta( array( 'keys' => array( 'status', 'count' ) ) ); ?></p>
 
 						<?php endif; ?>
 
 						<p class="last-activity item-meta">
 							<?php
-							printf(
-								/* translators: %s = last activity timestamp (e.g. "active 1 hour ago") */
-								__( 'active %s', 'buddyx' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								bp_get_group_last_active() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							);
+								printf(
+									/* translators: %s: last activity timestamp (e.g. "Active 1 hour ago") */
+									esc_html__( 'Active %s', 'buddyx' ),
+									sprintf(
+										'<span data-livestamp="%1$s">%2$s</span>',
+										bp_core_get_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ),
+										esc_html( bp_get_group_last_active() )
+									)
+								);
 							?>
 						</p>
 

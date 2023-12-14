@@ -9,43 +9,9 @@
  * @version 3.0.0
  */
 
-bp_nouveau_activity_hook( 'before', 'entry' );
+bp_nouveau_activity_hook( 'before', 'entry' ); ?> 
 
-$link_preview_string = '';
-$link_url            = '';
-
-$link_preview_data = bp_activity_get_meta( bp_get_activity_id(), '_link_preview_data', true );
-if ( ! empty( $link_preview_data ) && count( $link_preview_data ) ) {
-	$link_preview_string = wp_json_encode( $link_preview_data );
-	$link_url            = ! empty( $link_preview_data['url'] ) ? $link_preview_data['url'] : '';
-}
-
-$link_embed = bp_activity_get_meta( bp_get_activity_id(), '_link_embed', true );
-if ( ! empty( $link_embed ) ) {
-	$link_url = $link_embed;
-}
-
-?>
-
-<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" data-bp-activity-id="<?php bp_activity_id(); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bp-activity="<?php if ( function_exists( 'bp_nouveau_edit_activity_data' ) ) { bp_nouveau_edit_activity_data(); } ?> data-link-preview='<?php echo esc_attr( $link_preview_string ); ?>' data-link-url='<?php echo esc_attr( $link_url ); ?>">
-
-	<?php
-	if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-		bb_nouveau_activity_entry_bubble_buttons();
-	}
-	?>
-
-	<?php
-	if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-		?>
-		<div class="bb-pin-action">
-			<span class="bb-pin-action_button" data-balloon-pos="up" data-balloon="<?php esc_attr_e( 'Pinned Post', 'buddyx' ); ?>">
-				<i class="bb-icon-f bb-icon-thumbtack"></i>
-			</span>
-		</div>
-		<?php
-	}
-	?>
+<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" <?php bp_nouveau_activity_data_attribute_id(); ?> data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>">
 
 	<div class="activity-card-head">
 		<h6 class="card-head-content-type">
@@ -69,51 +35,21 @@ if ( ! empty( $link_embed ) ) {
 
 			<?php bp_activity_action(); ?>
 
-			<?php if ( function_exists( 'BuddyPress' ) && isset( buddypress()->buddyboss ) ) { ?>
-			<p class="activity-date">
-				<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>"><?php echo bp_core_time_since( bp_get_activity_date_recorded() ); ?></a>
-				<?php
-				if ( function_exists( 'bp_nouveau_activity_is_edited' ) ) {
-						bp_nouveau_activity_is_edited();
-				}
-				?>
-			</p>
-			<?php } ?>
-			
-			<?php
-			if ( function_exists( 'bp_nouveau_activity_privacy' ) ) {
-				bp_nouveau_activity_privacy();
-			}
-			?>
-
 		</div>
-	
+
 	</div>
-	
 
 	<div class="activity-content">
 
-	<?php if ( bp_nouveau_activity_has_content() ) : ?>
+		<?php if ( bp_nouveau_activity_has_content() ) : ?>
 
-		<div class="activity-inner">
+			<div class="activity-inner">
 
-			<?php
-			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-				bp_nouveau_activity_content();
-			} else {
-				bp_get_template_part( 'activity/type-parts/content', bp_activity_type_part() );
-			}
-			?>
+				<?php bp_get_template_part( 'activity/type-parts/content', bp_activity_type_part() ); ?>
 
-		</div>
+			</div>
 
 		<?php endif; ?>
-
-		<?php
-		if ( function_exists( 'bp_nouveau_activity_state' ) ) {
-			bp_nouveau_activity_state();
-		}
-		?>
 
 		<?php bp_nouveau_activity_entry_buttons(); ?>
 

@@ -1083,7 +1083,7 @@ body:not(.buddyx-mediapress) .mfp-arrow:after {
 
 body:not(.buddyx-mediapress) .mfp-arrow-left:after,
 body:not(.buddyx-mediapress) .mfp-arrow-right:after {
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-size: 24px;
     font-weight: 900;
     color: #fff;
@@ -1637,6 +1637,7 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
 }
 
 @media screen and (max-width: 46.8em) {
+
     .buddypress-wrap .activity-comments>ul>li>ul,
     .buddypress-wrap .activity-comments>ul>li>ul>li>ul,
     .buddypress-wrap .activity-comments>ul>li>ul>li>ul>li>ul {
@@ -1805,6 +1806,12 @@ li.load-more a.loading::after {
     height: 12px;
     right: -4px;
     top: -4px;
+}
+
+.member-status.offline {
+    background-color: #edbb34;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .round-avatars .member-status {
@@ -2013,6 +2020,70 @@ li.load-more a.loading::after {
     }
 }
 
+
+/* Members and Groups Directory Card Layout */
+
+.bp-list:not(.grid) .buddyx-mem-cover-wrapper,
+.bp-list:not(.grid) .buddyx-grp-cover-wrapper {
+    display: none;
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .item-avatar {
+    margin-top: -80px;
+    margin-bottom: 15px;
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .item-avatar img.avatar {
+    border: 5px solid #fff;
+}
+
+.buddyx-mem-cover-wrapper,
+.buddyx-grp-cover-wrapper {
+    position: relative;
+    margin: -16px;
+    margin-bottom: 16px;
+}
+
+.buddyx-mem-cover-img,
+.buddyx-grp-cover-img {
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0 !important;
+    position: relative;
+    overflow: hidden;
+    padding-top: 52.56%;
+    display: block;
+    background: #FFEFBA;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FFFFFF, #FFEFBA);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFFFFF, #FFEFBA);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.buddyx-mem-cover-img:before,
+.buddyx-grp-cover-img:before {
+    background: rgba(0, 0, 0, 0.25);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.buddyx-mem-cover-img img,
+.buddyx-grp-cover-img img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 0;
+    min-height: 100%;
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+}
 
 /*--------------------------------------------------------------
 # Groups Directory
@@ -2644,6 +2715,15 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         background: transparent;
     }
 
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items {
+        width: 100%;
+    }
+
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items li a,
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items li span {
+        display: flex;
+    }
+
     nav#object-nav.vertical a {
         border: 0;
         display: flex;
@@ -2726,6 +2806,12 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 
     #buddypress.buddypress-wrap #item-body {
         padding: 1em;
+    }
+
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items>li,
+    #buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-subnav-nav-items>li {
+        display: inline-block;
+        border-radius: 0;
     }
 
     .buddypress-wrap .bp-subnavs ul li {
@@ -3164,6 +3250,31 @@ button#bp-delete-avatar {
 .buddypress.widget div.activity-list blockquote .activity-item:not(.mini) {
     padding-top: 15px;
     padding-bottom: 1px;
+}
+
+.wp-block-bp-login-form form#bp-login-widget-form {
+    position: relative;
+    margin: 0 0 30px;
+    padding: 1em;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+    background: #fff;
+}
+
+#bp-login-widget-form input[type=password],
+#bp-login-widget-form input[type=text] {
+    background-color: #fff;
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--form-border-radius);
+    padding: 10px;
+    min-height: 38px;
+}
+
+#bp-login-widget-form input[type=password]:focus,
+#bp-login-widget-form input[type=text]:focus {
+    color: var(--global-font-color);
+    outline: none;
 }
 
 
@@ -4960,7 +5071,7 @@ button.ges-change:hover {
     background: transparent;
 }
 
-.bpfb_actions_container .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos,
+.bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks {
     background: none;
@@ -4970,7 +5081,7 @@ button.ges-change:hover {
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 18px;
 }
@@ -5031,10 +5142,60 @@ input.bpfb_remote_image {
     margin: 5px;
 }
 
-.bpfb_final_link .bpfb_link_contents {
-    margin-bottom: 10px;
+.bpfb_final_link {
+    margin: 0 15px 15px;
+    padding: 15px 15px 5px;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius) !important;
 }
 
+.bpfb_final_link {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bpfb_final_link .bpfb_link_contents {
+    margin-left: 20px;
+    width: calc(100% - 200px);
+}
+
+.bpfb_final_link .bpfb_link_contents>* {
+    margin: 0 0 10px;
+}
+
+.bpfb_actions_container {
+    padding: 0 15px;
+}
+
+.bpfb_preview_container table tbody td>* {
+    padding: 5px 0;
+}
+
+.bpfb_action_container p {
+    display: flex;
+    gap: 10px;
+    flex-flow: wrap;
+    margin: 0;
+}
+
+@media screen and (max-width: 46.8em) {
+    .bpfb_final_link .bpfb_link_preview_container {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin: 0 0 20px;
+    }
+
+    .bpfb_final_link .bpfb_link_contents {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .bpfb_preview_container {
+        overflow: auto;
+    }
+}
 
 /*--------------------------------------------------------------
 ## BuddyPress Lock Unlock Activity
@@ -5383,7 +5544,7 @@ body.personal.attachments #bp-media-library .screen-heading {
     padding-bottom: 5px;
 }
 
-body.personal.attachments #bp-media-library .media-toolbar-primary .components-select-control__input { 
+body.personal.attachments #bp-media-library .media-toolbar-primary .components-select-control__input {
     display: inline-block;
     font-family: inherit;
     font-style: inherit;

@@ -3,7 +3,7 @@
  * BuddyPress - Members Single Group Invites
  *
  * @since 3.0.0
- * @version 11.0.0
+ * @version 3.1.0
  */
 ?>
 
@@ -26,11 +26,7 @@
 
 				<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 					<div class="item-avatar">
-						<?php if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) : ?>
-							<a href="<?php bp_group_url(); ?>"><?php bp_group_avatar( bp_nouveau_avatar_args() ); ?></a>
-						<?php else : ?>
-							<a href="<?php bp_group_permalink(); ?>"><?php bp_group_avatar( bp_nouveau_avatar_args() ); ?></a>
-						<?php endif; ?>
+						<a href="<?php esc_url( bp_group_permalink() ); ?>"><?php bp_group_avatar(); ?></a>
 					</div>
 				<?php endif; ?>
 
@@ -38,24 +34,29 @@
 						<div class="item-block">
 							<h2 class="list-title groups-title"><?php bp_group_link(); ?></h2>
 							<p class="meta group-details">
-								<span class="small">
-								<?php
-								printf(
-									/* translators: %s is the number of Group members */
-									_n(
-										'%s member',
-										'%s members',
-										bp_get_group_total_members( false ),
-										'buddyx'
-									),
-									number_format_i18n( bp_get_group_total_members( false ) ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								);
-								?>
-								</span>
+								<?php $inviter = bp_groups_get_invited_by(); ?>
+								<?php if ( ! empty( $inviter ) ) : ?>
+									<span class="small">
+									<?php
+									printf(
+										__( 'Invited by %1$s &middot; %2$s.', 'buddyx' ),
+										sprintf(
+											'<a href="%s">%s</a>',
+											$inviter['url'],
+											$inviter['name']
+										),
+										sprintf(
+											'<span class="last-activity">%s</span>',
+											bp_core_time_since( $inviter['date_modified'] )
+										)
+									);
+									?>
+									</span>
+								<?php endif; ?>
 							</p>
 
 							<p class="desc">
-								<?php bp_group_description_excerpt(); ?>
+								<?php echo bp_groups_get_invite_messsage_for_user( bp_displayed_user_id(), bp_get_group_id() ); ?>
 							</p>
 
 							<?php bp_nouveau_group_hook( '', 'invites_item' ); ?>

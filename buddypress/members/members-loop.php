@@ -3,7 +3,7 @@
  * BuddyPress - Members Loop
  *
  * @since 3.0.0
- * @version 3.0.0
+ * @version 6.0.0
  */
 
 bp_nouveau_before_loop(); ?>
@@ -26,6 +26,8 @@ bp_nouveau_before_loop(); ?>
 		<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_member_user_id(); ?>" data-bp-item-component="members">
 			<div class="list-wrap">
 
+				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+
 				<div class="item-avatar">
 					<a href="<?php bp_member_permalink(); ?>">
 						<?php
@@ -47,24 +49,8 @@ bp_nouveau_before_loop(); ?>
 							<?php if ( bp_nouveau_member_has_meta() ) : ?>
 								<p class="item-meta last-activity">
 									<?php bp_nouveau_member_meta(); ?>
-								</p><!-- #item-meta -->
+								</p><!-- .item-meta -->
 							<?php endif; ?>
-
-							<?php
-							if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
-								if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-									echo '<p class="item-meta member-type-wrap">' . bp_get_user_member_type( bp_get_member_user_id() ) . '</p>';
-								}
-							}
-							?>
-
-							<?php if ( function_exists( 'buddypress' ) && buddypress()->buddyboss ) { ?>
-								<div class="bp-members-list-hook">
-									<div class="bp-members-list-hook-inner">
-										<?php bp_nouveau_member_hook( '', 'members_list_item' ); ?>
-									</div>
-								</div>
-							<?php } ?>
 
 						</div><!-- .member-info-wrapper -->
 

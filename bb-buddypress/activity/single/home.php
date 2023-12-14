@@ -8,8 +8,13 @@
 ?>
 
 <div class="site-wrapper">
+	<div id="bp-nouveau-single-activity-edit-form-wrap" style="display: none;">
+		<div id="bp-nouveau-activity-form" class="activity-update-form<?php if ( ! bp_is_active( 'media' ) ) { echo ' media-off'; } ?>"></div>
+	</div>
 
 	<?php bp_nouveau_template_notices(); ?>
+
+	<?php bp_nouveau_before_single_activity_content(); ?>
 
 	<div class="activity" data-bp-single="<?php echo esc_attr( bp_current_action() ); ?>">
 

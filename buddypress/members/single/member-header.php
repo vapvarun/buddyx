@@ -10,20 +10,12 @@
 <div class="item-header-cover-image-wrapper hide-header-cover-image">
 	<div id="item-header-cover-image">
 		<div id="item-header-avatar">
-				<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
-						<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
-							<?php
-							if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-								?>
-									<i class="bb-icon-bf bb-icon-camera"></i>
-								<?php } else { ?>
-									<i class="fa fa-camera"></i>
-								<?php
-								}
-								?>
-						</a>
-				<?php } ?>
-				<?php bp_displayed_user_avatar( 'type=full' ); ?>
+			<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
+				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+					<i class="fa fa-camera"></i>
+				</a>
+			<?php } ?>
+			<?php bp_displayed_user_avatar( 'type=full' ); ?>
 		</div><!-- #item-header-avatar -->
 
 		<div id="item-header-content">
@@ -31,14 +23,6 @@
 			<?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
 				<h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
 			<?php endif; ?>
-
-			<?php
-			if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
-				if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() ) {
-					echo bp_get_user_member_type( bp_displayed_user_id() );
-				}
-			}
-			?>
 
 			<?php bp_nouveau_member_hook( 'before', 'header_meta' ); ?>
 
@@ -72,12 +56,6 @@
 			endif;
 			?>
 
-			<?php
-			if ( function_exists( 'bp_get_user_social_networks_urls' ) ) :
-				echo bp_get_user_social_networks_urls(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
-			endif;
-			?>
-
 			<div class="member-header-actions-wrap">
 				<?php
 				bp_nouveau_member_header_buttons(
@@ -87,20 +65,6 @@
 						'container_classes' => array( 'member-header-actions' ),
 					)
 				);
-
-				if ( function_exists( 'bp_nouveau_member_header_bubble_buttons' ) ) {
-					bp_nouveau_member_header_bubble_buttons(
-						array(
-							'container'         => 'div',
-							'button_element'    => 'button',
-							'container_classes' => array( 'bb_more_options', 'header-dropdown' ),
-							'is_tooltips'       => false,
-							'button_attr'       => array(
-								'hover_type' => 'static',
-							),
-						)
-					);
-				}
 				?>
 			</div><!-- .member-header-actions-wrap -->
 

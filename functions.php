@@ -107,6 +107,11 @@ require get_template_directory() . '/inc/class-buddyx-breadcrumbs.php';
 // Load BuddyPress PRofile Completion widget.
 require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
 
+// Load BuddyPress functions.
+if ( class_exists( 'BuddyPress' ) ) {
+	require get_template_directory() . '/inc/compatibility/buddypress/buddypress-functions.php';
+}
+
 // Load webfont loader file.
 require get_template_directory() . '/inc/Webfont/class-buddyx-webfont-loader.php';
 
@@ -115,6 +120,11 @@ require get_template_directory() . '/inc/extra.php';
 
 // Custom WP Login Form.
 require get_template_directory() . '/inc/login.php';
+
+// Load BuddyPress functions.
+if ( class_exists( 'BuddyPress' ) ) {
+	require get_template_directory() . '/inc/compatibility/buddypress/buddypress-functions.php';
+}
 
 // bp_nouveau_appearance default option.
 $optionKey = 'buddyx_theme_is_activated';

@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BuddyX\n"
-"POT-Creation-Date: 2023-11-06 14:38+0530\n"
-"PO-Revision-Date: 2023-11-06 14:41+0530\n"
+"POT-Creation-Date: 2021-08-18 12:31+0530\n"
+"PO-Revision-Date: 2021-08-18 12:32+0530\n"
 "Last-Translator: Varun Dubey <varun@wbcomdesigns.com>\n"
 "Language-Team: Varun Dubey <varun@wbcomdesigns.com>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,77 +20,65 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
-"X-Poedit-SearchPathExcluded-1: .git\n"
-
-#: buddypress/activity/entry.php:42
-msgid "Pinned Post"
-msgstr "Pinned Bericht"
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #: buddypress/groups/groups-loop.php:55
-#: buddypress/groups/single/cover-image-header.php:121
-#: buddypress/groups/single/group-header.php:48
+#: buddypress/groups/single/cover-image-header.php:103
 #, php-format
 msgid "active %s"
 msgstr "actief %s"
 
-#: buddypress/groups/single/cover-image-header.php:53
-#: buddypress/members/single/cover-image-header.php:63
+#: buddypress/groups/single/cover-image-header.php:41
+#: buddypress/members/single/cover-image-header.php:42
 msgid "Change Cover Photo"
 msgstr "Verwissel de omslagfoto"
 
-#: buddypress/groups/single/cover-image-header.php:70
-#: buddypress/members/single/cover-image-header.php:81
+#: buddypress/groups/single/cover-image-header.php:55
+#: buddypress/members/single/cover-image-header.php:56
 msgid "Reposition Cover Photo"
 msgstr "Herpositionering Cover Foto"
 
-#: buddypress/groups/single/cover-image-header.php:74
-#: buddypress/members/single/cover-image-header.php:85
+#: buddypress/groups/single/cover-image-header.php:59
+#: buddypress/members/single/cover-image-header.php:60
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: buddypress/groups/single/cover-image-header.php:75
-#: buddypress/members/single/cover-image-header.php:86
+#: buddypress/groups/single/cover-image-header.php:60
+#: buddypress/members/single/cover-image-header.php:61
 msgid "Save Changes"
 msgstr "Wijzigingen opslaan"
 
-#: buddypress/groups/single/cover-image-header.php:76
-#: buddypress/members/single/cover-image-header.php:87
+#: buddypress/groups/single/cover-image-header.php:61
+#: buddypress/members/single/cover-image-header.php:62
 msgid "Drag to move cover photo"
 msgstr "Sleep om de coverfoto te verplaatsen"
 
-#: buddypress/groups/single/cover-image-header.php:77
-#: buddypress/members/single/cover-image-header.php:88
+#: buddypress/groups/single/cover-image-header.php:62
+#: buddypress/members/single/cover-image-header.php:63
 msgid "Cover photo"
 msgstr "Omslagfoto"
 
-#: buddypress/groups/single/cover-image-header.php:92
-#: buddypress/groups/single/group-header.php:19
+#: buddypress/groups/single/cover-image-header.php:76
 msgid "Change Group Photo"
 msgstr "Verander de groepsfoto"
 
-#: buddypress/groups/single/cover-image-header.php:138
-#: buddypress/groups/single/group-header.php:64
+#: buddypress/groups/single/cover-image-header.php:119
 msgid "Group Types"
 msgstr "Type groepen"
 
-#: buddypress/groups/single/cover-image-header.php:139
-#: buddypress/groups/single/group-header.php:65
+#: buddypress/groups/single/cover-image-header.php:120
 msgid "Group Type"
 msgstr "Groeptype"
 
-#: buddypress/members/single/cover-image-header.php:102
-#: buddypress/members/single/member-header.php:14
+#: buddypress/members/single/cover-image-header.php:75
 msgid "Change Profile Photo"
 msgstr "Wijzig Profiel Foto"
 
-#: buddypress/members/single/cover-image-header.php:160
-#: buddypress/members/single/member-header.php:66
+#: buddypress/members/single/cover-image-header.php:123
 msgid "Member Types"
 msgstr "Lid-types"
 
-#: buddypress/members/single/cover-image-header.php:161
-#: buddypress/members/single/member-header.php:67
+#: buddypress/members/single/cover-image-header.php:124
 msgid "Member Type"
 msgstr "Lid-type"
 
@@ -321,7 +309,7 @@ msgstr ""
 #: external/class-tgm-plugin-activation.php:2966
 msgctxt "plugin A *and* plugin B"
 msgid "and"
-msgstr "en"
+msgstr ""
 
 #. translators: %s: version number
 #: external/class-tgm-plugin-activation.php:2000
@@ -446,7 +434,7 @@ msgstr "Bron"
 msgid "Type"
 msgstr "Type"
 
-#: external/class-tgm-plugin-activation.php:2571 inc/Welcome/Component.php:93
+#: external/class-tgm-plugin-activation.php:2571
 msgid "Version"
 msgstr "Versie"
 
@@ -625,7 +613,7 @@ msgstr "Activateer Kirki Toolkit nu"
 msgid "Activate Now"
 msgstr "Activeer nu"
 
-#: footer.php:29 inc/Kirki_Option/Component.php:1522
+#: footer.php:26
 msgid "Footer"
 msgstr "Footer"
 
@@ -633,12 +621,10 @@ msgstr "Footer"
 #, php-format
 msgid ""
 "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
-"Please activate this Template Pack from the %1$sBuddyPress Options.%2$s"
+"Please activate this Template Pack from the %sBuddyPress Options.%s"
 msgstr ""
-"BuddyX vereist dat het BuddyPress Template Pack \"BP Nouveau\" actief is. "
-"Activeer dit Template Pack vanuit de %1$sBuddyPress Options.%2$s"
 
-#: header.php:35
+#: header.php:29
 msgid "Skip to content"
 msgstr "Ga naar de inhoud"
 
@@ -654,13 +640,9 @@ msgstr "Invouwen child menu"
 msgid "New comment(s)"
 msgstr "Nieuwe opmerking(en)"
 
-#: inc/Customizer/Component.php:85
+#: inc/Customizer/Component.php:77
 msgid "Theme Options"
 msgstr "Thema Opties"
-
-#: inc/Dropdown_Select/Component.php:48
-msgid "-- Select a Page --"
-msgstr "-- Selecteer een pagina --"
 
 #: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
 msgid "Primary"
@@ -700,11 +682,11 @@ msgstr "Wit"
 
 #: inc/Editor/Component.php:110
 msgid "Dusty daylight"
-msgstr "Stoffig daglicht"
+msgstr ""
 
 #: inc/Editor/Component.php:115
 msgid "Dusty sun"
-msgstr "Stoffige zon"
+msgstr ""
 
 #: inc/Editor/Component.php:132
 msgid "Small"
@@ -738,627 +720,388 @@ msgstr "Groter"
 msgid "XL"
 msgstr "XL"
 
-#: inc/Kirki_Option/Component.php:121
+#: inc/Kirki_Option/Component.php:104
 msgid "General"
 msgstr "Algemeen"
 
-#: inc/Kirki_Option/Component.php:130 inc/Kirki_Option/Component.php:331
-#: inc/Welcome/Component.php:143 inc/Welcome/Component.php:353
+#: inc/Kirki_Option/Component.php:113 inc/Kirki_Option/Component.php:281
+#: inc/Welcome/Component.php:207
 msgid "Site Layout"
 msgstr "Site layout"
 
-#: inc/Kirki_Option/Component.php:141 inc/Welcome/Component.php:398
+#: inc/Kirki_Option/Component.php:124 inc/Welcome/Component.php:217
 msgid "Site Loader"
-msgstr "Lader"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:152 inc/Welcome/Component.php:383
+#: inc/Kirki_Option/Component.php:135
 msgid "Page Mapping"
-msgstr "Pagina in kaart brengen"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:163 inc/Welcome/Component.php:408
+#: inc/Kirki_Option/Component.php:146 inc/Welcome/Component.php:222
 msgid "Typography"
 msgstr "Typografie"
 
-#: inc/Kirki_Option/Component.php:172
+#: inc/Kirki_Option/Component.php:155
 msgid "Site Title"
 msgstr "Website titel"
 
-#: inc/Kirki_Option/Component.php:182 inc/Kirki_Option/Component.php:1278
-#: inc/Welcome/Component.php:418
+#: inc/Kirki_Option/Component.php:165 inc/Welcome/Component.php:232
 msgid "Headings"
 msgstr "Koppen"
 
-#: inc/Kirki_Option/Component.php:192 inc/Welcome/Component.php:423
+#: inc/Kirki_Option/Component.php:175 inc/Welcome/Component.php:237
 #: template-parts/header/navigation.php:59
 msgid "Menu"
 msgstr "Menu"
 
-#: inc/Kirki_Option/Component.php:202 inc/Kirki_Option/Component.php:1093
-#: inc/Welcome/Component.php:428
+#: inc/Kirki_Option/Component.php:185 inc/Welcome/Component.php:242
 msgid "Body"
 msgstr "Body"
 
-#: inc/Kirki_Option/Component.php:213
+#: inc/Kirki_Option/Component.php:196
 msgid "Site Header"
 msgstr "Siteheader"
 
-#: inc/Kirki_Option/Component.php:223
+#: inc/Kirki_Option/Component.php:206
 msgid "Site Sub Header"
-msgstr "Site Subkop"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:233
+#: inc/Kirki_Option/Component.php:216
 msgid "Site Skin"
-msgstr "Site-skin"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:243 inc/Welcome/Component.php:167
-#: inc/Welcome/Component.php:608
+#: inc/Kirki_Option/Component.php:226 inc/Welcome/Component.php:372
 msgid "Site Blog"
-msgstr "Site Blog"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:253 inc/Welcome/Component.php:638
+#: inc/Kirki_Option/Component.php:236 inc/Welcome/Component.php:402
 msgid "Site Sidebar"
-msgstr "Breedte zijbalk website"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:263 inc/Welcome/Component.php:688
-msgid "WP Login"
-msgstr "WP-Login"
-
-#: inc/Kirki_Option/Component.php:272
-msgid "Logo"
-msgstr "Logo"
-
-#: inc/Kirki_Option/Component.php:283 inc/Welcome/Component.php:718
+#: inc/Kirki_Option/Component.php:246 inc/Welcome/Component.php:452
 msgid "Site Footer"
-msgstr "Site voettekst"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:292 inc/Welcome/Component.php:723
+#: inc/Kirki_Option/Component.php:255 inc/Welcome/Component.php:457
 msgid "Footer Section"
-msgstr "Voet sectie"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:303 inc/Welcome/Component.php:728
+#: inc/Kirki_Option/Component.php:266 inc/Welcome/Component.php:462
 msgid "Copyright Section"
-msgstr "Auteursrecht"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:314
-msgid "Site Performance"
-msgstr "Prestaties website"
-
-#: inc/Kirki_Option/Component.php:335
-msgid "You can select wide or box layout based on your preference."
-msgstr "Je kunt brede of boxopmaak selecteren op basis van je voorkeur."
-
-#: inc/Kirki_Option/Component.php:349
+#: inc/Kirki_Option/Component.php:297
 msgid "Max Content Layout Width"
-msgstr "Max. breedte inhoudsopmaak"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:350
+#: inc/Kirki_Option/Component.php:298
 msgid "Select the maximum content width for your website (px)"
-msgstr "Selecteer de maximale inhoudsbreedte voor je website (px)"
-
-#: inc/Kirki_Option/Component.php:368 inc/Welcome/Component.php:368
-msgid "Global Border Radius"
-msgstr "Wereldwijde grensradius"
-
-#: inc/Kirki_Option/Component.php:369
-msgid "Set the content, various elements border radius for your website (px)"
 msgstr ""
-"Stel de randradius van de inhoud en verschillende elementen in voor je "
-"website (px)"
 
-#: inc/Kirki_Option/Component.php:380 inc/Welcome/Component.php:373
-msgid "Buttons Border Radius"
-msgstr "Knop Rand Straal"
-
-#: inc/Kirki_Option/Component.php:381
-msgid "Set the buttons border radius for your website (px)"
-msgstr "Stel de randradius van de knoppen in voor je website (px)"
-
-#: inc/Kirki_Option/Component.php:392 inc/Welcome/Component.php:378
-msgid "Form Border Radius"
-msgstr "Formulierrand radius"
-
-#: inc/Kirki_Option/Component.php:393
-msgid ""
-"Set the form elements (except textarea) border radius for your website (px)"
-msgstr ""
-"Stel de randradius van formulierelementen (behalve textarea) in voor uw "
-"website (px)"
-
-#: inc/Kirki_Option/Component.php:407
+#: inc/Kirki_Option/Component.php:318
 msgid "Site Loader ?"
-msgstr "Site-lader ?"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:411 inc/Kirki_Option/Component.php:783
-#: inc/Kirki_Option/Component.php:800 inc/Kirki_Option/Component.php:817
-#: inc/Kirki_Option/Component.php:833 inc/Kirki_Option/Component.php:849
-#: inc/Kirki_Option/Component.php:915 inc/Kirki_Option/Component.php:2001
-#: inc/Kirki_Option/Component.php:2213 inc/Kirki_Option/Component.php:2271
-#: inc/Kirki_Option/Component.php:2284
+#: inc/Kirki_Option/Component.php:322 inc/Kirki_Option/Component.php:747
+#: inc/Kirki_Option/Component.php:763 inc/Kirki_Option/Component.php:779
+#: inc/Kirki_Option/Component.php:794 inc/Kirki_Option/Component.php:809
+#: inc/Kirki_Option/Component.php:871 inc/Kirki_Option/Component.php:1421
+#: inc/Kirki_Option/Component.php:1436
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: inc/Kirki_Option/Component.php:412 inc/Kirki_Option/Component.php:784
-#: inc/Kirki_Option/Component.php:801 inc/Kirki_Option/Component.php:818
-#: inc/Kirki_Option/Component.php:834 inc/Kirki_Option/Component.php:850
-#: inc/Kirki_Option/Component.php:916 inc/Kirki_Option/Component.php:2002
-#: inc/Kirki_Option/Component.php:2214 inc/Kirki_Option/Component.php:2272
-#: inc/Kirki_Option/Component.php:2285
+#: inc/Kirki_Option/Component.php:323 inc/Kirki_Option/Component.php:748
+#: inc/Kirki_Option/Component.php:764 inc/Kirki_Option/Component.php:780
+#: inc/Kirki_Option/Component.php:795 inc/Kirki_Option/Component.php:810
+#: inc/Kirki_Option/Component.php:872 inc/Kirki_Option/Component.php:1422
+#: inc/Kirki_Option/Component.php:1437
 msgid "Disable"
 msgstr "Uitschakelen"
 
-#: inc/Kirki_Option/Component.php:423
+#: inc/Kirki_Option/Component.php:330
+msgid "Site Loader Background"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:356
 msgid "Login Page"
 msgstr "Inlogpagina"
 
-#: inc/Kirki_Option/Component.php:424
+#: inc/Kirki_Option/Component.php:357
 msgid "You can redirect user to custom login page."
-msgstr "Je kunt gebruikers omleiden naar een aangepaste aanmeldpagina."
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:435
+#: inc/Kirki_Option/Component.php:367
 msgid "Registration Page"
 msgstr "Registratie pagina"
 
-#: inc/Kirki_Option/Component.php:436
+#: inc/Kirki_Option/Component.php:368
 msgid "You can redirect user to custom registration page."
-msgstr "Je kunt gebruikers omleiden naar een aangepaste registratiepagina."
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:447
+#: inc/Kirki_Option/Component.php:378
 msgid "404"
 msgstr "404"
 
-#: inc/Kirki_Option/Component.php:448
+#: inc/Kirki_Option/Component.php:379
 msgid "You can redirect user to custom 404 page."
-msgstr "Je kunt gebruikers omleiden naar een aangepaste 404-pagina."
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:462 inc/Welcome/Component.php:413
+#: inc/Kirki_Option/Component.php:392 inc/Welcome/Component.php:227
 msgid "Site Title Settings"
-msgstr "Instellingen sitetitel"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:476 inc/Kirki_Option/Component.php:502
-#: inc/Kirki_Option/Component.php:531 inc/Kirki_Option/Component.php:557
-#: inc/Kirki_Option/Component.php:583 inc/Kirki_Option/Component.php:609
-#: inc/Kirki_Option/Component.php:635 inc/Kirki_Option/Component.php:661
-#: inc/Kirki_Option/Component.php:690 inc/Kirki_Option/Component.php:719
-#: inc/Kirki_Option/Component.php:748
-msgid "We recommend using font size in pixels (px)"
-msgstr "We raden aan de lettergrootte in pixels (px) te gebruiken"
-
-#: inc/Kirki_Option/Component.php:488
-msgid "Site Tagline Settings"
-msgstr "Site Tagline Instellingen"
-
-#: inc/Kirki_Option/Component.php:517
-msgid "H1 Tag Settings"
-msgstr "Instellingen H1 Tag"
-
-#: inc/Kirki_Option/Component.php:543
-msgid "H2 Tag Settings"
-msgstr "H2 Tag Instellingen"
-
-#: inc/Kirki_Option/Component.php:569
-msgid "H3 Tag Settings"
-msgstr "H3 Tag Instellingen"
-
-#: inc/Kirki_Option/Component.php:595
-msgid "H4 Tag Settings"
-msgstr "H4 Tag-instellingen"
-
-#: inc/Kirki_Option/Component.php:621
-msgid "H5 Tag Settings"
-msgstr "H5 Tag-instellingen"
-
-#: inc/Kirki_Option/Component.php:647
-msgid "H6 Tag Settings"
-msgstr "H6 Tag-instellingen"
-
-#: inc/Kirki_Option/Component.php:676
-msgid "Menu Settings"
-msgstr "Menu-instellingen"
-
-#: inc/Kirki_Option/Component.php:706
-msgid "Sub Menu Settings"
-msgstr "Instellingen submenu"
-
-#: inc/Kirki_Option/Component.php:734
-msgid "Settings"
-msgstr "Instellingen"
-
-#: inc/Kirki_Option/Component.php:763
-msgid "Enable Sticky Header ?"
-msgstr "Klevende koptekst inschakelen?"
-
-#: inc/Kirki_Option/Component.php:767 inc/Kirki_Option/Component.php:2017
-#: inc/Kirki_Option/Component.php:2030
-msgid "Yes"
-msgstr "Ja"
-
-#: inc/Kirki_Option/Component.php:768 inc/Kirki_Option/Component.php:2018
-#: inc/Kirki_Option/Component.php:2031
-msgid "No"
-msgstr "Nee"
-
-#: inc/Kirki_Option/Component.php:779
-msgid "Enable Search Icon"
-msgstr "Pictogram Zoeken inschakelen"
-
-#: inc/Kirki_Option/Component.php:796
-msgid "Enable Cart Icon"
-msgstr "Pictogram winkelwagentje inschakelen"
-
-#: inc/Kirki_Option/Component.php:813
-msgid "Enable Login Link"
-msgstr "Aanmeldlink inschakelen"
-
-#: inc/Kirki_Option/Component.php:829
-msgid "Enable Register Link"
-msgstr "Inschakelen Register Link"
-
-#: inc/Kirki_Option/Component.php:845 inc/Kirki_Option/Component.php:2209
-msgid "Customize Background ?"
-msgstr "Achtergrond aanpassen?"
-
-#: inc/Kirki_Option/Component.php:858 inc/Kirki_Option/Component.php:2222
-msgid "Background Control"
-msgstr "Achtergrondcontrole"
-
-#: inc/Kirki_Option/Component.php:887 inc/Welcome/Component.php:543
-msgid "Content Typography"
-msgstr "Inhoudstypografie"
-
-#: inc/Kirki_Option/Component.php:911
-msgid "Site Breadcrumbs?"
-msgstr "Site Breadcrumbs?"
-
-#: inc/Kirki_Option/Component.php:927
-msgid "Loader"
-msgstr "Lader"
-
-#: inc/Kirki_Option/Component.php:943
-msgid "Site Loader Background"
-msgstr "Achtergrond site lader"
-
-#: inc/Kirki_Option/Component.php:967 inc/Welcome/Component.php:458
-msgid "Header"
-msgstr "Header"
-
-#: inc/Kirki_Option/Component.php:976
-msgid "Site Title Color"
-msgstr "Site titel kleur"
-
-#: inc/Kirki_Option/Component.php:987
+#: inc/Kirki_Option/Component.php:415
 msgid "Site Title Hover Color"
 msgstr "Website titel hover kleur"
 
-#: inc/Kirki_Option/Component.php:1004
-msgid "Site Tagline Color"
-msgstr "Accentkleur trefwoorden"
+#: inc/Kirki_Option/Component.php:431
+msgid "Site Tagline Settings"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1015
-msgid "Header Background Color"
-msgstr "Achtergrondkleur Header"
+#: inc/Kirki_Option/Component.php:457
+msgid "H1 Tag Settings"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1044
-msgid "Menu Color"
-msgstr "Menu kleur"
+#: inc/Kirki_Option/Component.php:480
+msgid "H2 Tag Settings"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1055
+#: inc/Kirki_Option/Component.php:503
+msgid "H3 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:526
+msgid "H4 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:549
+msgid "H5 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:572
+msgid "H6 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:598
+msgid "Menu Settings"
+msgstr "Menu-instellingen"
+
+#: inc/Kirki_Option/Component.php:625
 msgid "Menu Hover Color"
 msgstr "Menu Hover kleur"
 
-#: inc/Kirki_Option/Component.php:1076
+#: inc/Kirki_Option/Component.php:645
 msgid "Menu Active Color"
 msgstr "Actief Menu kleur"
 
-#: inc/Kirki_Option/Component.php:1102 inc/Welcome/Component.php:568
+#: inc/Kirki_Option/Component.php:661
+msgid "Sub Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:686
+msgid "Settings"
+msgstr "Instellingen"
+
+#: inc/Kirki_Option/Component.php:712
+msgid "Header Background Color"
+msgstr "Achtergrondkleur Header"
+
+#: inc/Kirki_Option/Component.php:743
+msgid "Enable Search Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:759
+msgid "Enable Cart Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:775
+msgid "Enable Login Link"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:790
+msgid "Enable Register Link"
+msgstr "Inschakelen Register Link"
+
+#: inc/Kirki_Option/Component.php:805 inc/Kirki_Option/Component.php:1432
+msgid "Customize Background ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:817 inc/Kirki_Option/Component.php:1444
+msgid "Background Control"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:845 inc/Welcome/Component.php:322
+msgid "Content Typography"
+msgstr "Inhoudstypografie"
+
+#: inc/Kirki_Option/Component.php:867
+msgid "Site Breadcrumbs?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:882 inc/Welcome/Component.php:337
 msgid "Body Background Color"
 msgstr "Body Achtergrond Kleur"
 
-#: inc/Kirki_Option/Component.php:1119
-msgid "Body Text Color"
-msgstr "Body Tekstkleur"
-
-#: inc/Kirki_Option/Component.php:1130
-msgid "Content Background Color"
-msgstr "Achtergrondkleur Berichten"
-
-#: inc/Kirki_Option/Component.php:1131
-msgid "Note: This setting will only be used if the box layout is selected."
-msgstr ""
-"Opmerking: deze instelling wordt alleen gebruikt als de boxopmaak is "
-"geselecteerd."
-
-#: inc/Kirki_Option/Component.php:1154
-msgid "Subheader Title Color"
-msgstr "Titelkleur"
-
-#: inc/Kirki_Option/Component.php:1165 inc/Welcome/Component.php:573
+#: inc/Kirki_Option/Component.php:898 inc/Welcome/Component.php:342
 msgid "Theme Color"
 msgstr "Themakleuren"
 
-#: inc/Kirki_Option/Component.php:1243 inc/Welcome/Component.php:578
+#: inc/Kirki_Option/Component.php:974 inc/Kirki_Option/Component.php:1504
+#: inc/Kirki_Option/Component.php:1596 inc/Welcome/Component.php:347
 msgid "Link Color"
 msgstr "Linkkleur"
 
-#: inc/Kirki_Option/Component.php:1260
+#: inc/Kirki_Option/Component.php:990 inc/Kirki_Option/Component.php:1520
 msgid "Link Hover"
 msgstr "Link Hover"
 
-#: inc/Kirki_Option/Component.php:1287
-msgid "H1 Color"
-msgstr "H1 kleur"
-
-#: inc/Kirki_Option/Component.php:1298
-msgid "H2 Color"
-msgstr "H2 kleur"
-
-#: inc/Kirki_Option/Component.php:1309
-msgid "H3 Color"
-msgstr "H3 kleur"
-
-#: inc/Kirki_Option/Component.php:1320
-msgid "H4 Color"
-msgstr "H4 kleur"
-
-#: inc/Kirki_Option/Component.php:1331
-msgid "H5 Color"
-msgstr ""
-"H5 \n"
-"kleur"
-
-#: inc/Kirki_Option/Component.php:1342
-msgid "H6 Color"
-msgstr "H6 kleur"
-
-#: inc/Kirki_Option/Component.php:1353
-msgid "Buttons"
-msgstr "Knoppen"
-
-#: inc/Kirki_Option/Component.php:1363
+#: inc/Kirki_Option/Component.php:1015
 msgid "Button Background Color"
 msgstr "Button Achtergrondkleur"
 
-#: inc/Kirki_Option/Component.php:1399
+#: inc/Kirki_Option/Component.php:1050
 msgid "Button Background Hover Color"
 msgstr "Selecteer de achtergrondkleur bij zweven over de knop"
 
-#: inc/Kirki_Option/Component.php:1430
+#: inc/Kirki_Option/Component.php:1080
 msgid "Button Text Color"
 msgstr "Button Tekstkleur"
 
-#: inc/Kirki_Option/Component.php:1453
+#: inc/Kirki_Option/Component.php:1102
 msgid "Button Text Hover Color"
 msgstr "Knop tekst kleur (hover)"
 
-#: inc/Kirki_Option/Component.php:1476
+#: inc/Kirki_Option/Component.php:1124
 msgid "Button Border Color"
 msgstr "Button Randkleur"
 
-#: inc/Kirki_Option/Component.php:1499
+#: inc/Kirki_Option/Component.php:1146
 msgid "Button Border Hover Color"
 msgstr "Knop rand hover kleur"
 
-#: inc/Kirki_Option/Component.php:1538
-msgid "Footer Title Color"
-msgstr "Footer Titel Kleur"
-
-#: inc/Kirki_Option/Component.php:1555
-msgid "Footer Content Color"
-msgstr "Inhoud kleur"
-
-#: inc/Kirki_Option/Component.php:1572
-msgid "Footer Link Color"
-msgstr "Footer link kleur"
-
-#: inc/Kirki_Option/Component.php:1589
-msgid "Footer Link Hover"
-msgstr "Link Hover"
-
-#: inc/Kirki_Option/Component.php:1606
-msgid "Copyright"
-msgstr "Copyright"
-
-#: inc/Kirki_Option/Component.php:1622
-msgid "Copyright Background Color"
-msgstr "Copyright Achtergrondkleur"
-
-#: inc/Kirki_Option/Component.php:1639
-msgid "Copyright Border Color"
-msgstr "Copyright boder-kleur"
-
-#: inc/Kirki_Option/Component.php:1656
-msgid "Copyright Content Color"
-msgstr "Inhoud kleur"
-
-#: inc/Kirki_Option/Component.php:1673
-msgid "Copyright Link Color"
-msgstr "Copyright Link Kleur"
-
-#: inc/Kirki_Option/Component.php:1690
-msgid "Copyright Link Hover Color"
-msgstr "Copyright Link Hover Kleur"
-
-#: inc/Kirki_Option/Component.php:1710
+#: inc/Kirki_Option/Component.php:1171
 msgid "Blog Layout"
 msgstr "Blog layout"
 
-#: inc/Kirki_Option/Component.php:1726
+#: inc/Kirki_Option/Component.php:1186
 msgid "Image position"
 msgstr "Afbeeldingspositie"
 
-#: inc/Kirki_Option/Component.php:1731
+#: inc/Kirki_Option/Component.php:1191
 msgid "Left"
 msgstr "Links"
 
-#: inc/Kirki_Option/Component.php:1732
+#: inc/Kirki_Option/Component.php:1192
 msgid "Right"
 msgstr "Rechts"
 
-#: inc/Kirki_Option/Component.php:1747
+#: inc/Kirki_Option/Component.php:1206
 msgid "Grid Columns"
 msgstr "Raster Kolommen"
 
-#: inc/Kirki_Option/Component.php:1752
+#: inc/Kirki_Option/Component.php:1211
 msgid "One"
 msgstr "Eén"
 
-#: inc/Kirki_Option/Component.php:1753 inc/Kirki_Option/Component.php:1794
+#: inc/Kirki_Option/Component.php:1212 inc/Kirki_Option/Component.php:1251
 msgid "Two"
 msgstr "Twee"
 
-#: inc/Kirki_Option/Component.php:1768
+#: inc/Kirki_Option/Component.php:1226 inc/Welcome/Component.php:88
+#: inc/Welcome/Component.php:93 inc/Welcome/Component.php:98
+#: inc/Welcome/Component.php:103
 msgid "View"
 msgstr "Bekijk"
 
-#: inc/Kirki_Option/Component.php:1773
+#: inc/Kirki_Option/Component.php:1231
 msgid "Without Masonry"
-msgstr "Zonder metselwerk"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1774
+#: inc/Kirki_Option/Component.php:1232
 msgid "With Masonry"
-msgstr "Masonry Weergave"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1789 inc/Welcome/Component.php:633
+#: inc/Kirki_Option/Component.php:1246 inc/Welcome/Component.php:397
 msgid "Post Per Row"
-msgstr "Plaats per rij"
+msgstr ""
 
-#: inc/Kirki_Option/Component.php:1795
+#: inc/Kirki_Option/Component.php:1252
 msgid "Three"
 msgstr "Drie"
 
-#: inc/Kirki_Option/Component.php:1818
+#: inc/Kirki_Option/Component.php:1273
 msgid "Single Post Content Width"
-msgstr "Single Bericht Inhoud Breedte"
-
-#: inc/Kirki_Option/Component.php:1832
-msgid "Single Post Title Layout"
-msgstr "Lay-out enkele berichttitel"
-
-#: inc/Kirki_Option/Component.php:1848
-msgid "Image Overlay Color"
-msgstr "Kleur afbeelding overlay"
-
-#: inc/Kirki_Option/Component.php:1849
-msgid "Allow to add image overlay color on single post title layout one."
 msgstr ""
-"Toestaan om de kleur van de overlappende afbeelding toe te voegen aan de lay-"
-"out van de enkele posttitel."
 
-#: inc/Kirki_Option/Component.php:1877
+#: inc/Kirki_Option/Component.php:1286
+msgid "Single Post Title Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1304
 msgid "Sidebar Layout"
 msgstr "Indeling zijkant"
 
-#: inc/Kirki_Option/Component.php:1893
+#: inc/Kirki_Option/Component.php:1319
 msgid "Single Post Sidebar Layout"
 msgstr "Zijbalk-layout enkel bericht"
 
-#: inc/Kirki_Option/Component.php:1911
+#: inc/Kirki_Option/Component.php:1336
 msgid "Activity Directory Sidebar Layout"
-msgstr "Activiteitenoverzicht zijbalk indeling"
-
-#: inc/Kirki_Option/Component.php:1927
-msgid "Members Directory Sidebar Layout"
-msgstr "Ledenlijst zijbalkindeling"
-
-#: inc/Kirki_Option/Component.php:1943
-msgid "Groups Directory Sidebar Layout"
-msgstr "Zijbalkindeling Groepenlijst"
-
-#: inc/Kirki_Option/Component.php:1962
-msgid "bbPress Sidebar Layout"
-msgstr "bbPress Zijbalk Opmaak"
-
-#: inc/Kirki_Option/Component.php:1980
-msgid "WooCommerce Sidebar Layout"
-msgstr "WooCommerce zijbalkindeling"
-
-#: inc/Kirki_Option/Component.php:1997
-msgid "Sticky Sidebar ?"
-msgstr "Sticky zijbalk?"
-
-#: inc/Kirki_Option/Component.php:2013 inc/Welcome/Component.php:693
-msgid "Customize Your Logo Section"
-msgstr "Pas je logogedeelte aan"
-
-#: inc/Kirki_Option/Component.php:2026
-msgid "Disable Logo?"
-msgstr "Geen Logo?"
-
-#: inc/Kirki_Option/Component.php:2046
-msgid "Custom Logo"
-msgstr "Aangepast Logo"
-
-#: inc/Kirki_Option/Component.php:2069
-msgid "Logo Width"
-msgstr "Logo breedte"
-
-#: inc/Kirki_Option/Component.php:2070
-msgid "Select the logo width (px)"
-msgstr "Selecteer de logobreedte (px)"
-
-#: inc/Kirki_Option/Component.php:2093
-msgid "Logo Height"
-msgstr "Logo hoogte"
-
-#: inc/Kirki_Option/Component.php:2094
-msgid "Select the logo height (px)"
-msgstr "Selecteer de logo-hoogte (px)"
-
-#: inc/Kirki_Option/Component.php:2117
-msgid "Logo Space Bottom"
-msgstr "Aangepaste logo-ruimte onderaan"
-
-#: inc/Kirki_Option/Component.php:2118
-msgid "Select the logo bottom spacing (px)"
-msgstr "Selecteer de afstand tussen de onderkant van het logo (px)"
-
-#: inc/Kirki_Option/Component.php:2141
-msgid "Logo URL"
-msgstr "Logo URL"
-
-#: inc/Kirki_Option/Component.php:2164
-msgid "Logo Title"
-msgstr "Logo & titel"
-
-#: inc/Kirki_Option/Component.php:2187
-msgid "Login Page Title"
-msgstr "Inlogpagina"
-
-#: inc/Kirki_Option/Component.php:2188
-msgid "Login page title that is shown on WordPress login page."
 msgstr ""
-"Titel van de inlogpagina die wordt weergegeven op de WordPress-inlogpagina."
 
-#: inc/Kirki_Option/Component.php:2254
+#: inc/Kirki_Option/Component.php:1351
+msgid "Members Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1366
+msgid "Groups Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1384
+msgid "bbPress Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1401
+msgid "WooCommerce Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1417
+msgid "Sticky Sidebar ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1472
+msgid "Title Color"
+msgstr "Titelkleur"
+
+#: inc/Kirki_Option/Component.php:1488 inc/Kirki_Option/Component.php:1580
+msgid "Content Color"
+msgstr "Inhoud kleur"
+
+#: inc/Kirki_Option/Component.php:1539
 msgid "Add Content"
 msgstr "Inhoud toevoegen"
 
-#: inc/Kirki_Option/Component.php:2256
+#: inc/Kirki_Option/Component.php:1541
 msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
-"Copyright © [huidig_jaar] [site_titel] | Aangedreven door [theme_author]"
 
-#: inc/Kirki_Option/Component.php:2267
-msgid "Load Google Fonts Locally ?"
-msgstr "Lokaal Google lettertypen laden?"
+#: inc/Kirki_Option/Component.php:1548 inc/Welcome/Component.php:297
+msgid "Background Color"
+msgstr "Achtergrondkleur"
 
-#: inc/Kirki_Option/Component.php:2280
-msgid "Preload Local Fonts ?"
-msgstr "Lokale lettertypen vooraf laden?"
+#: inc/Kirki_Option/Component.php:1564
+msgid "Border Color"
+msgstr "Randkleur"
 
-#: inc/Kirki_Option/Component.php:2300
-msgid "Flush Local Fonts Cache"
-msgstr "Lokale lettertypen cache spoelen"
-
-#: inc/Kirki_Option/Component.php:2301
-msgid "Click the button to reset the local fonts cache."
-msgstr ""
-"Klik op de knop om de cache van de lokale lettertypen opnieuw in te stellen."
+#: inc/Kirki_Option/Component.php:1612
+msgid "Link Hover Color"
+msgstr "Link over kleur"
 
 #: inc/Nav_Menus/Component.php:74
 msgid "User Menu"
 msgstr "Gebruikersmenu"
 
-#: inc/Sidebars/Component.php:103 inc/Welcome/Component.php:653
+#: inc/Sidebars/Component.php:103 inc/Welcome/Component.php:417
 msgid "Right Sidebar"
 msgstr "Rechterzijbalk"
 
@@ -1366,84 +1109,75 @@ msgstr "Rechterzijbalk"
 #: inc/Sidebars/Component.php:131 inc/Sidebars/Component.php:143
 #: inc/Sidebars/Component.php:155 inc/Sidebars/Component.php:167
 #: inc/Sidebars/Component.php:179 inc/Sidebars/Component.php:191
-#: inc/Sidebars/Component.php:203 inc/Sidebars/Component.php:215
-#: inc/Sidebars/Component.php:230 inc/Sidebars/Component.php:242
-#: inc/Sidebars/Component.php:256 inc/Sidebars/Component.php:268
+#: inc/Sidebars/Component.php:206 inc/Sidebars/Component.php:218
+#: inc/Sidebars/Component.php:232 inc/Sidebars/Component.php:244
+#: inc/Sidebars/Component.php:257 inc/Sidebars/Component.php:269
 #: inc/Sidebars/Component.php:281 inc/Sidebars/Component.php:293
-#: inc/Sidebars/Component.php:305 inc/Sidebars/Component.php:317
 msgid "Add widgets here."
 msgstr "Voeg hier widgets toe."
 
-#: inc/Sidebars/Component.php:115 inc/Welcome/Component.php:648
+#: inc/Sidebars/Component.php:115 inc/Welcome/Component.php:412
 msgid "Left Sidebar"
 msgstr "Linkerzijbalk"
 
 #: inc/Sidebars/Component.php:129
 msgid "Community Left Sidebar"
-msgstr "Gemeenschap Linkerzijbalk"
+msgstr ""
 
 #: inc/Sidebars/Component.php:141
 msgid "Activity Directory Right Sidebar"
-msgstr "Activiteitenoverzicht rechter zijbalk"
+msgstr ""
 
 #: inc/Sidebars/Component.php:153
 msgid "Members Directory Right Sidebar"
-msgstr "Ledenlijst rechter zijbalk"
+msgstr ""
 
 #: inc/Sidebars/Component.php:165
 msgid "Groups Directory Right Sidebar"
-msgstr "Groepenlijst rechter zijbalk"
+msgstr ""
 
 #: inc/Sidebars/Component.php:177
 msgid "Members Single Profile Sidebar"
-msgstr "Zijbalk met enkel profiel voor leden"
+msgstr ""
 
 #: inc/Sidebars/Component.php:189
-msgid "Members Single User Activity"
-msgstr "Leden Activiteit afzonderlijke gebruiker"
-
-#: inc/Sidebars/Component.php:201
 msgid "Groups Single Group Sidebar"
-msgstr "Groepen Enkele groep Zijbalk"
+msgstr ""
 
-#: inc/Sidebars/Component.php:213
-msgid "Groups Single Group Activity"
-msgstr "Groepen Activiteit van één groep"
-
-#: inc/Sidebars/Component.php:228
+#: inc/Sidebars/Component.php:204
 msgid "bbPress Left Sidebar"
 msgstr "bbPress linker zijbalk"
 
-#: inc/Sidebars/Component.php:240
+#: inc/Sidebars/Component.php:216
 msgid "bbPress Right Sidebar"
 msgstr "bbPress rechter zijbalk"
 
-#: inc/Sidebars/Component.php:254
+#: inc/Sidebars/Component.php:230
 msgid "WooCommerce Left Sidebar"
 msgstr "WooCommerce Sidebar - Links"
 
-#: inc/Sidebars/Component.php:266
+#: inc/Sidebars/Component.php:242
 msgid "WooCommerce Right Sidebar"
 msgstr "WooCommerce Sidebar - Rechts"
 
-#: inc/Sidebars/Component.php:279
+#: inc/Sidebars/Component.php:255
 msgid "Footer 1"
 msgstr "Footer 1"
 
-#: inc/Sidebars/Component.php:291
+#: inc/Sidebars/Component.php:267
 msgid "Footer 2"
 msgstr "Footer 2"
 
-#: inc/Sidebars/Component.php:303
+#: inc/Sidebars/Component.php:279
 msgid "Footer 3"
 msgstr "Footer 3"
 
-#: inc/Sidebars/Component.php:315
+#: inc/Sidebars/Component.php:291
 msgid "Footer 4"
 msgstr "Footer 4"
 
 #. translators: %s: stylesheet handle
-#: inc/Styles/Component.php:344
+#: inc/Styles/Component.php:323
 #, php-format
 msgid "Invalid theme stylesheet handle: %s"
 msgstr "Ongeldige thema stylesheet handle: %s"
@@ -1494,994 +1228,540 @@ msgstr "De themacomponent %1$s implementeert de interface %2$s niet."
 msgid "No theme component with the slug %s exists."
 msgstr "Er bestaat geen themacomponent met de slug %s."
 
-#: inc/Welcome/Component.php:49 inc/Welcome/Component.php:50
+#: inc/Welcome/Component.php:44 inc/Welcome/Component.php:45
+#: inc/Welcome/Component.php:87
 msgid "Getting Started"
 msgstr "Aan de slag"
 
-#: inc/Welcome/Component.php:90
-msgid "Welcome to BuddyX Theme"
-msgstr "Welkom bij BuddyX Thema"
-
-#: inc/Welcome/Component.php:96
-msgid "Thank you for purchasing the BuddyX Theme!"
-msgstr "Bedankt voor je aankoop van het BuddyX Thema!"
-
-#: inc/Welcome/Component.php:97
-msgid ""
-"Below, you will find information on setting up the theme to start using it!"
+#: inc/Welcome/Component.php:54
+msgid "Getting started with BuddyX"
 msgstr ""
-"Hieronder vind je informatie over het instellen van het thema zodat je het "
-"kunt gaan gebruiken!"
 
-#: inc/Welcome/Component.php:107
+#: inc/Welcome/Component.php:60
 msgid "Programming Languages"
-msgstr "Programmeertalen"
+msgstr ""
 
-#: inc/Welcome/Component.php:108
-msgid "Dashboard"
-msgstr "Dashboard"
+#: inc/Welcome/Component.php:61 inc/class-buddyx-breadcrumbs.php:348
+msgid "Home"
+msgstr "Home"
 
-#: inc/Welcome/Component.php:109 inc/Welcome/Component.php:225
-#: inc/Welcome/Component.php:326
-msgid "Get BuddyX Pro"
+#: inc/Welcome/Component.php:62 inc/Welcome/Component.php:591
+msgid "Get Pro"
 msgstr "Krijg Pro"
 
-#: inc/Welcome/Component.php:110
+#: inc/Welcome/Component.php:63
 msgid "Community Addons"
-msgstr "Toevoegingen voor de gemeenschap"
+msgstr ""
+
+#: inc/Welcome/Component.php:65
+msgid "tab1"
+msgstr ""
+
+#: inc/Welcome/Component.php:67 inc/Welcome/Component.php:183
+#: inc/Welcome/Component.php:598
+msgid "Thank You"
+msgstr "Bedankt"
+
+#: inc/Welcome/Component.php:74 inc/Welcome/Component.php:80
+msgid "Knowledge Base"
+msgstr "Kennisbank"
+
+#: inc/Welcome/Component.php:75
+msgid ""
+"We have created full-proof documentation for you. It will help you to "
+"understand how our theme works."
+msgstr ""
+
+#: inc/Welcome/Component.php:76
+msgid "Take Me to The Knowledge Page"
+msgstr ""
+
+#: inc/Welcome/Component.php:92
+msgid "Menu Setting"
+msgstr "Menu-instelling"
+
+#: inc/Welcome/Component.php:97
+msgid "Customizer Settings"
+msgstr ""
+
+#: inc/Welcome/Component.php:102 inc/Welcome/Component.php:528
+msgid "Integrations"
+msgstr "Integraties"
 
 #: inc/Welcome/Component.php:112
-msgid "tab1"
-msgstr "tab1"
+msgid "Video Tutorial"
+msgstr "Video-instructie"
 
-#: inc/Welcome/Component.php:119
-msgid "Customizer Settings"
-msgstr "Aangepaste instellingen"
+#: inc/Welcome/Component.php:113
+msgid "How to use Floating Effects and manage CSS Transform?"
+msgstr ""
 
-#: inc/Welcome/Component.php:120
-msgid "Go to Customizer"
-msgstr "Ga naar Customizer"
+#: inc/Welcome/Component.php:120 inc/Welcome/Component.php:121
+msgid "BuddyX Demo installation"
+msgstr ""
 
-#: inc/Welcome/Component.php:127
-msgid "Upload Logo"
-msgstr "Logo Uploaden"
+#: inc/Welcome/Component.php:126 inc/Welcome/Component.php:127
+msgid "BuddyX Customizer Option"
+msgstr ""
 
-#: inc/Welcome/Component.php:128 inc/Welcome/Component.php:136
-#: inc/Welcome/Component.php:144 inc/Welcome/Component.php:152
-#: inc/Welcome/Component.php:160 inc/Welcome/Component.php:168
-msgid "Go to option"
-msgstr "Ga naar optie"
+#: inc/Welcome/Component.php:133
+msgid "View More Videos"
+msgstr ""
 
-#: inc/Welcome/Component.php:135
-msgid "Set Colors"
-msgstr "Kies kleuren"
+#: inc/Welcome/Component.php:141
+msgid "FAQ"
+msgstr "FAQ"
 
-#: inc/Welcome/Component.php:151
-msgid "Set Typography\t"
-msgstr "Typografie instellen "
+#: inc/Welcome/Component.php:142
+msgid "Frequently Asked Questions"
+msgstr "Veelgestelde vragen"
 
-#: inc/Welcome/Component.php:159 inc/Welcome/Component.php:473
-msgid "Header Layout"
-msgstr "Koptekst layout"
+#: inc/Welcome/Component.php:148
+msgid "Can I use these addons in my client project?"
+msgstr ""
 
-#: inc/Welcome/Component.php:182 inc/Welcome/Component.php:185
-msgid "Demo Installation"
-msgstr "Demo Installatie"
-
-#: inc/Welcome/Component.php:184
+#: inc/Welcome/Component.php:149
 msgid ""
-"The theme comes with one-click demo installation support. Try the demo and "
-"install it on your WordPress BuddyPress site."
+"Yes, absolutely, no holds barred. Use it to bring colorful moments to your "
+"customers. And don’t forget to check out our premium features."
 msgstr ""
-"Het thema wordt geleverd met één-klik demo installatie ondersteuning. "
-"Probeer de demo en installeer het op je WordPress BuddyPress site."
 
-#: inc/Welcome/Component.php:192
-msgid "Install Recommended Plugins"
-msgstr "Installeren van aanbevolen plugins"
+#: inc/Welcome/Component.php:152
+msgid "Is there any support policy available for the free users?"
+msgstr ""
 
-#: inc/Welcome/Component.php:194
+#: inc/Welcome/Component.php:153
 msgid ""
-"Enhancing your website functionality with WordPress plugins is easy. You can "
-"install, activate, and begin using WordPress plugins in minutes."
+"Free or pro version, both comes with excellent support from us. However, pro "
+"users will get priority support."
 msgstr ""
-"De functionaliteit van je website verbeteren met WordPress plugins is "
-"eenvoudig. Je kunt WordPress plugins binnen enkele minuten installeren, "
-"activeren en gebruiken."
 
-#: inc/Welcome/Component.php:196
-msgid "Install now"
-msgstr "Nu installeren"
+#: inc/Welcome/Component.php:162
+msgid "Rate Us"
+msgstr "Geef ons een waardering"
 
-#: inc/Welcome/Component.php:198
-msgid "Installed"
-msgstr "Geïnstalleerd"
-
-#: inc/Welcome/Component.php:209
-msgid "BuddyX Child Theme"
-msgstr "BuddyX Kinderthema"
-
-#: inc/Welcome/Component.php:211
+#: inc/Welcome/Component.php:163
 msgid ""
-"A child theme helps preserve customizations when the parent theme is "
-"updated, ensuring design consistency and security."
+"Never underestimate your rate! Your 5 star rate will encourage us so much!"
 msgstr ""
-"Een kinderthema helpt aanpassingen te behouden wanneer het hoofdthema wordt "
-"bijgewerkt, zodat de ontwerpconsistentie en veiligheid worden gewaarborgd."
 
-#: inc/Welcome/Component.php:212
-msgid "Download Now"
-msgstr "Download Nu"
+#: inc/Welcome/Component.php:164
+msgid "Rate Us ★★★★★"
+msgstr ""
 
-#: inc/Welcome/Component.php:222 inc/Welcome/Component.php:323
-msgid "Get BuddyX Pro Theme"
-msgstr "Ontvang BuddyX Pro Thema"
+#: inc/Welcome/Component.php:169
+msgid "Help Desk Hours"
+msgstr ""
 
-#: inc/Welcome/Component.php:224
+#: inc/Welcome/Component.php:170
+msgid "Days: Monday-Friday"
+msgstr ""
+
+#: inc/Welcome/Component.php:171
+msgid "Time: 10AM – 7PM IST"
+msgstr ""
+
+#: inc/Welcome/Component.php:172
 msgid ""
-"#1 WordPress Social Network and Community Theme Powered by BuddyPress or "
-"BuddyBoss Platform."
+"Inquiries received after the working hours or on weekends will be addressed "
+"on the next working day."
 msgstr ""
-"#Nr. 1 WordPress Sociaal Netwerk en Gemeenschapsthema Aangedreven door "
-"BuddyPress of BuddyBoss Platform."
 
-#: inc/Welcome/Component.php:235
-msgid "Document"
-msgstr "Document"
+#: inc/Welcome/Component.php:173
+msgid "Start Chat"
+msgstr "Chat starten"
 
-#: inc/Welcome/Component.php:243
-msgid ""
-"We have created foolproof documentation for you. It will help you to "
-"understand how our plugin works."
-msgstr ""
-"We hebben waterdichte documentatie voor je gemaakt. Het zal je helpen te "
-"begrijpen hoe onze plugin werkt."
-
-#: inc/Welcome/Component.php:245
-msgid "Go to Documentation"
-msgstr "Ga naar documentatie"
-
-#: inc/Welcome/Component.php:250
-msgid "Community"
-msgstr "Gemeenschap"
-
-#: inc/Welcome/Component.php:263
-msgid "Join our community! Share your site, ask a question, and help others."
-msgstr ""
-"Word lid van onze community! Deel uw site, stel een vraag en help anderen."
-
-#: inc/Welcome/Component.php:265
-msgid "Go to Facebook Group"
-msgstr "Ga naar de Facebook-groep"
-
-#: inc/Welcome/Component.php:270
-msgid "Videos"
-msgstr "Video's"
-
-#: inc/Welcome/Component.php:279
-msgid ""
-"Welcome to our WordPress theme video series! Whether you're a newbie or a "
-"seasoned website creator, our bite-sized tutorials are packed with tips, "
-"tricks, and hacks to supercharge your WordPress journey."
-msgstr ""
-"Welkom bij onze WordPress thema videoserie! Of je nu een newbie bent of een "
-"doorgewinterde website maker, onze hapklare tutorials zitten boordevol tips, "
-"trucs en hacks om je WordPress reis te superchargen."
-
-#: inc/Welcome/Component.php:281
-msgid "Watch Now"
-msgstr "Kijk nu"
-
-#: inc/Welcome/Component.php:286
-msgid "Support"
-msgstr "Ondersteuning"
-
-#: inc/Welcome/Component.php:292
-msgid ""
-"Have a question, we are happy to help! Get in touch with our support team."
-msgstr ""
-"Heb je een vraag? We helpen je graag! Neem contact op met ons "
-"ondersteuningsteam."
-
-#: inc/Welcome/Component.php:294
-msgid "Submit a Ticket"
+#: inc/Welcome/Component.php:174
+msgid "Create Ticket"
 msgstr "Ticket aanmaken"
 
-#: inc/Welcome/Component.php:299
-msgid "Give us feedback"
-msgstr "Geef ons feedback"
-
-#: inc/Welcome/Component.php:305
-msgid ""
-"Remember to pay attention to your rate! Your 5-star review will encourage us "
-"so much!"
-msgstr ""
-"Vergeet niet op je tarief te letten! Je 5-sterren review is een hart onder "
-"de riem voor ons!"
-
-#: inc/Welcome/Component.php:307
-msgid "Write a Review "
-msgstr "Schrijf een Beoordeling "
-
-#: inc/Welcome/Component.php:317
+#: inc/Welcome/Component.php:181
 msgid "tab2"
-msgstr "tab2"
-
-#: inc/Welcome/Component.php:325
-msgid ""
-"#1 WordPress Social Network and Community Theme Powered by BuddyPress or "
-"BuddyBoss Platform"
 msgstr ""
-"#WordPress thema voor sociale netwerken en gemeenschappen, ondersteund door "
-"BuddyPress of het BuddyBoss platform"
 
-#: inc/Welcome/Component.php:331
-msgid "Compare Features Of BuddyX With BuddyX Pro"
-msgstr "Vergelijk de functies van BuddyX met BuddyX Pro"
-
-#: inc/Welcome/Component.php:332
-msgid "Take Your Time & Compare Every Feature"
-msgstr "Neem de tijd en vergelijk elke functie"
-
-#: inc/Welcome/Component.php:341
+#: inc/Welcome/Component.php:187 inc/Welcome/Component.php:195
 msgid "Features"
 msgstr "Kenmerken"
 
 #. Theme Name of the plugin/theme
-#: inc/Welcome/Component.php:342
+#: inc/Welcome/Component.php:196
 msgid "BuddyX"
-msgstr "BuddyX"
+msgstr ""
 
-#: inc/Welcome/Component.php:343
+#: inc/Welcome/Component.php:197
 msgid "BuddyX Pro"
-msgstr "BuddyX Pro Thema"
+msgstr ""
 
-#: inc/Welcome/Component.php:348
+#: inc/Welcome/Component.php:202
 msgid "Layout"
 msgstr "Layout"
 
-#: inc/Welcome/Component.php:358
+#: inc/Welcome/Component.php:212
 msgid "Content Layout Width"
-msgstr "Breedte inhoudsopmaak"
+msgstr ""
 
-#: inc/Welcome/Component.php:363
-msgid "Sidebar Width"
-msgstr "Zijbalk breedte"
-
-#: inc/Welcome/Component.php:388
-msgid "Sign-in Popup | Register Form Fields"
-msgstr "Pop-up aanmelden | Velden registratieformulier"
-
-#: inc/Welcome/Component.php:393
-msgid "Scroll Top"
-msgstr "Naar boven scrollen"
-
-#: inc/Welcome/Component.php:403
-msgid "Loading Text"
-msgstr "Tekst laden"
-
-#: inc/Welcome/Component.php:433
+#: inc/Welcome/Component.php:247
 msgid "Google Fonts"
 msgstr "Google Fonts"
 
-#: inc/Welcome/Component.php:438
+#: inc/Welcome/Component.php:252
 msgid "Font Size (PX/EM)"
-msgstr "Lettergrootte (PX/EM)"
+msgstr ""
 
-#: inc/Welcome/Component.php:443
+#: inc/Welcome/Component.php:257
 msgid "Text Transform"
 msgstr "Teksttransformatie"
 
-#: inc/Welcome/Component.php:448
+#: inc/Welcome/Component.php:262
 msgid "Line Height"
 msgstr "Lijnhoogte"
 
-#: inc/Welcome/Component.php:453
+#: inc/Welcome/Component.php:267
 msgid "Letter Spacing"
 msgstr "Letterspatiëring"
 
-#: inc/Welcome/Component.php:463
+#: inc/Welcome/Component.php:272
+msgid "Header"
+msgstr "Header"
+
+#: inc/Welcome/Component.php:277
 msgid "Top Bar"
 msgstr "Hoofd balk"
 
-#: inc/Welcome/Component.php:468
+#: inc/Welcome/Component.php:282
 msgid "Sticky Header"
 msgstr "Sticky Header"
 
-#: inc/Welcome/Component.php:478
-msgid "Header Menu Position"
-msgstr "Positie kopmenu"
+#: inc/Welcome/Component.php:287
+msgid "Header Layout"
+msgstr "Koptekst layout"
 
-#: inc/Welcome/Component.php:483
+#: inc/Welcome/Component.php:292
 msgid "Menu Effects"
-msgstr "Menu-effecten"
+msgstr ""
 
-#: inc/Welcome/Component.php:488
-msgid "More Menu"
-msgstr "Gebruikersmenu"
-
-#: inc/Welcome/Component.php:493
-msgid "Site Search Style"
-msgstr "Titel-stijl"
-
-#: inc/Welcome/Component.php:498
-msgid "Login/Register Button Style"
-msgstr "Knopstijl aanmelden/inschrijven"
-
-#: inc/Welcome/Component.php:503
-msgid "Background Color"
-msgstr "Achtergrondkleur"
-
-#: inc/Welcome/Component.php:508
+#: inc/Welcome/Component.php:302
 msgid "Site Search"
-msgstr "Site zoeken"
+msgstr ""
 
-#: inc/Welcome/Component.php:513
+#: inc/Welcome/Component.php:307
 msgid "Site Cart"
-msgstr "Winkelwagen"
+msgstr ""
 
-#: inc/Welcome/Component.php:518
-msgid "BuddyPress Components"
-msgstr "BuddyPress-componenten"
-
-#: inc/Welcome/Component.php:523 inc/Welcome/Component.php:528
-#: inc/Welcome/Component.php:588
-msgid "Side Panel"
-msgstr "Side Panel"
-
-#: inc/Welcome/Component.php:533
+#: inc/Welcome/Component.php:312
 msgid "Sub Header"
 msgstr "Sub Header"
 
-#: inc/Welcome/Component.php:538
+#: inc/Welcome/Component.php:317
 msgid "Customize Background"
 msgstr "Customize Background"
 
-#: inc/Welcome/Component.php:548
+#: inc/Welcome/Component.php:327
 msgid "Breadcrumbs"
 msgstr "Kruimelpad"
 
-#: inc/Welcome/Component.php:553
+#: inc/Welcome/Component.php:332
 msgid "Skin Colors"
 msgstr "Skin kleuren"
 
-#: inc/Welcome/Component.php:558
-msgid "Dark Mode"
-msgstr "Donkere modus"
-
-#: inc/Welcome/Component.php:563
-msgid "Custom Colors"
-msgstr "Aangepaste kleuren"
-
-#: inc/Welcome/Component.php:583
+#: inc/Welcome/Component.php:352
 msgid "Primary Header"
-msgstr "Primaire Header"
+msgstr ""
 
-#: inc/Welcome/Component.php:593
+#: inc/Welcome/Component.php:357
 msgid "Button Background Color / Hover"
-msgstr "Knopkleur (Hover)"
+msgstr ""
 
-#: inc/Welcome/Component.php:598
+#: inc/Welcome/Component.php:362
 msgid "Button Text Color / Hover"
-msgstr "Knopkleur (Hover)"
+msgstr ""
 
-#: inc/Welcome/Component.php:603
+#: inc/Welcome/Component.php:367
 msgid "Button Border Color / Hover"
-msgstr "Kleur rand knop (Hover)"
+msgstr ""
 
-#: inc/Welcome/Component.php:613
+#: inc/Welcome/Component.php:377
 msgid "List Layout"
 msgstr "Lijst Layout"
 
-#: inc/Welcome/Component.php:618
+#: inc/Welcome/Component.php:382
 msgid "Grid Layout"
 msgstr "Grid Layout"
 
-#: inc/Welcome/Component.php:623
+#: inc/Welcome/Component.php:387
 msgid "Masonry Layout"
 msgstr "Mozaiek - lay-out"
 
-#: inc/Welcome/Component.php:628
+#: inc/Welcome/Component.php:392
 msgid "Blog Layout Style"
 msgstr "Blog Opmaakstijl"
 
-#: inc/Welcome/Component.php:643
+#: inc/Welcome/Component.php:407
 msgid "No Sidebar"
 msgstr "Geen zijbalk"
 
-#: inc/Welcome/Component.php:658
+#: inc/Welcome/Component.php:422
 msgid "Both Sidebar"
 msgstr "Zijbalk Links en Rechts"
 
-#: inc/Welcome/Component.php:663
+#: inc/Welcome/Component.php:427
 msgid "BuddyPress Sidebar"
 msgstr "BuddyPress pagina sidebar"
 
-#: inc/Welcome/Component.php:668
+#: inc/Welcome/Component.php:432
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce zijbalk"
 
-#: inc/Welcome/Component.php:673
+#: inc/Welcome/Component.php:437
 msgid "bbPress Sidebar"
 msgstr "bbPress zijbalk"
 
-#: inc/Welcome/Component.php:678
+#: inc/Welcome/Component.php:442
 msgid "LearnDash Sidebar"
 msgstr "LearnDash Zijbalk"
 
-#: inc/Welcome/Component.php:683
+#: inc/Welcome/Component.php:447
 msgid "Sticky Sidebar"
 msgstr "Sticky sidebar"
 
-#: inc/Welcome/Component.php:698
-msgid "Choose WP Login Theme"
-msgstr "Kies een WP-Login thema"
-
-#: inc/Welcome/Component.php:703
-msgid "Customize Login Form"
-msgstr "Aanpassen aanmeldingsformulier"
-
-#: inc/Welcome/Component.php:708
-msgid "Customize Forget Form"
-msgstr "Formulier vergeten aanpassen"
-
-#: inc/Welcome/Component.php:713
-msgid "Customize Button"
-msgstr "Knop aanpassen"
-
-#: inc/Welcome/Component.php:733 inc/Welcome/Component.php:829
+#: inc/Welcome/Component.php:467 inc/Welcome/Component.php:533
 msgid "BuddyPress"
 msgstr "Buddypress"
 
-#: inc/Welcome/Component.php:738
-msgid "Activity Control"
-msgstr "Activiteitencontrole"
+#: inc/Welcome/Component.php:472
+msgid "Activity Load More"
+msgstr ""
 
-#: inc/Welcome/Component.php:739 inc/Welcome/Component.php:754
-#: inc/Welcome/Component.php:759 inc/Welcome/Component.php:764
-#: inc/Welcome/Component.php:769 inc/Welcome/Component.php:774
-#: inc/Welcome/Component.php:779 inc/Welcome/Component.php:784
-#: inc/Welcome/Component.php:789 inc/Welcome/Component.php:794
-#: inc/Welcome/Component.php:840 inc/Welcome/Component.php:845
-#: inc/Welcome/Component.php:850 inc/Welcome/Component.php:855
-#: inc/Welcome/Component.php:860 inc/Welcome/Component.php:865
-#: inc/Welcome/Component.php:870 inc/Welcome/Component.php:875
+#: inc/Welcome/Component.php:473 inc/Welcome/Component.php:478
+#: inc/Welcome/Component.php:483 inc/Welcome/Component.php:488
+#: inc/Welcome/Component.php:493 inc/Welcome/Component.php:498
+#: inc/Welcome/Component.php:503 inc/Welcome/Component.php:508
+#: inc/Welcome/Component.php:513 inc/Welcome/Component.php:544
+#: inc/Welcome/Component.php:549 inc/Welcome/Component.php:554
+#: inc/Welcome/Component.php:559 inc/Welcome/Component.php:564
+#: inc/Welcome/Component.php:569 inc/Welcome/Component.php:574
 msgid "Limited"
 msgstr "Beperkt"
 
-#: inc/Welcome/Component.php:743
-msgid "BuddyPress Activity Share"
-msgstr "BuddyPress Activiteiten Delen Pro"
-
-#: inc/Welcome/Component.php:748
-msgid "Activity Reaction"
-msgstr "Activiteit"
-
-#: inc/Welcome/Component.php:753
-msgid "Activity Load More"
-msgstr "Activiteit Laad Meer"
-
-#: inc/Welcome/Component.php:758
+#: inc/Welcome/Component.php:477
 msgid "Members Multiple Directory Layout"
-msgstr "Leden Meervoudige Directory Layout"
+msgstr ""
 
-#: inc/Welcome/Component.php:763
+#: inc/Welcome/Component.php:482
 msgid "Members Default Cover Background"
-msgstr "Leden Standaard Cover Achtergrond"
+msgstr ""
 
-#: inc/Welcome/Component.php:768
+#: inc/Welcome/Component.php:487
 msgid "Groups Multiple Directory View"
-msgstr "Groepen Meerdere mappen weergeven"
+msgstr ""
 
-#: inc/Welcome/Component.php:773
+#: inc/Welcome/Component.php:492
 msgid "Group Default Cover Background"
-msgstr "Groep Standaard Cover Achtergrond"
+msgstr ""
 
-#: inc/Welcome/Component.php:778
+#: inc/Welcome/Component.php:497
 msgid "Member Multiple Header Layout"
-msgstr "Leden Meervoudige koptekstindeling"
+msgstr ""
 
-#: inc/Welcome/Component.php:783
+#: inc/Welcome/Component.php:502
 msgid "Member Primary Navigation Layout"
-msgstr "Lid Primaire Navigatie Layout"
+msgstr ""
 
-#: inc/Welcome/Component.php:788
+#: inc/Welcome/Component.php:507
 msgid "Group Multiple Header Layout"
-msgstr "Lay-out meerdere kopteksten groeperen"
+msgstr ""
 
-#: inc/Welcome/Component.php:793
+#: inc/Welcome/Component.php:512
 msgid "Group Primary Navigation Style"
-msgstr "Groep Primaire Navigatiestijl"
+msgstr ""
 
-#: inc/Welcome/Component.php:799 inc/Welcome/Component.php:839
+#: inc/Welcome/Component.php:518 inc/Welcome/Component.php:543
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: inc/Welcome/Component.php:804
+#: inc/Welcome/Component.php:523
 msgid "Product Listing Style"
-msgstr "Productlijst Stijl"
+msgstr ""
 
-#: inc/Welcome/Component.php:809
-msgid "Shop Products Per Page"
-msgstr "Winkelproducten per pagina"
-
-#: inc/Welcome/Component.php:814
-msgid "Display Filter Button"
-msgstr "Knop Weergavefilter"
-
-#: inc/Welcome/Component.php:819
-msgid "Sale Badge Style"
-msgstr "Stijl verkoopbadge"
-
-#: inc/Welcome/Component.php:824
-msgid "Integrations"
-msgstr "Integraties"
-
-#: inc/Welcome/Component.php:834
+#: inc/Welcome/Component.php:538
 msgid "BuddyBoss Platform"
 msgstr "BuddyBoss Platform"
 
-#: inc/Welcome/Component.php:844
+#: inc/Welcome/Component.php:548
 msgid "LearnDash"
 msgstr "LearnDash"
 
-#: inc/Welcome/Component.php:849
+#: inc/Welcome/Component.php:553
 msgid "LearnPress"
 msgstr "LearnPress"
 
-#: inc/Welcome/Component.php:854
+#: inc/Welcome/Component.php:558
 msgid "LifterLMS"
 msgstr "LifterLMS"
 
-#: inc/Welcome/Component.php:859
+#: inc/Welcome/Component.php:563
 msgid "TutorLMS"
 msgstr "TutorLMS"
 
-#: inc/Welcome/Component.php:864
+#: inc/Welcome/Component.php:568 inc/extra.php:157
 msgid "bbPress"
 msgstr "bbPress"
 
-#: inc/Welcome/Component.php:869
-msgid "Dokan"
-msgstr "Dokan"
-
-#: inc/Welcome/Component.php:874
+#: inc/Welcome/Component.php:573
 msgid "WC Vendors"
 msgstr "WC Vendors"
 
-#: inc/Welcome/Component.php:879
+#: inc/Welcome/Component.php:578
 msgid "GamiPress"
 msgstr "GamiPress"
 
-#: inc/Welcome/Component.php:884
-msgid "Paid Memberships"
-msgstr "Leden"
+#: inc/Welcome/Component.php:590
+msgid "Get Pro and Experience all those exciting features"
+msgstr ""
 
-#: inc/Welcome/Component.php:889
-msgid "The Event Calendar"
-msgstr "De evenementenagenda"
-
-#: inc/Welcome/Component.php:901
+#: inc/Welcome/Component.php:596
 msgid "tab3"
-msgstr "tab3"
-
-#: inc/Welcome/Component.php:910
-msgid "BuddyPress Premium add-ons"
-msgstr "BuddyPress Premium add-ons"
-
-#: inc/Welcome/Component.php:912
-msgid ""
-"Extend your social community website with our premium add-ons for BuddyPress."
 msgstr ""
-"Breid uw website voor sociale gemeenschappen uit met onze premium add-ons "
-"voor BuddyPress."
 
-#: inc/Welcome/Component.php:913
-msgid "View More Addons"
-msgstr "Meer addons bekijken"
-
-#: inc/Welcome/Component.php:921
-msgid "BuddyPress-Business-Profile"
-msgstr "BuddyPress-Bedrijfsprofiel"
-
-#: inc/Welcome/Component.php:924
-msgid "BuddyPress Business Profile"
-msgstr "BuddyPress pagina sidebar"
-
-#: inc/Welcome/Component.php:925
-msgid ""
-"BuddyPress Business Pages enable your members to connect with their "
-"customers, fans, and followers within your social community."
+#: inc/Welcome/Component.php:603 inc/Welcome/Component.php:613
+msgid "BuddyPress Status & Reaction"
 msgstr ""
-"Met BuddyPress Business Pages kunnen uw leden contact maken met hun klanten, "
-"fans en volgers binnen uw sociale gemeenschap."
 
-#: inc/Welcome/Component.php:926 inc/Welcome/Component.php:938
-#: inc/Welcome/Component.php:950 inc/Welcome/Component.php:962
-#: inc/Welcome/Component.php:974 inc/Welcome/Component.php:986
-#: inc/Welcome/Component.php:998 inc/Welcome/Component.php:1010
-#: inc/Welcome/Component.php:1022 inc/Welcome/Component.php:1034
-#: inc/Welcome/Component.php:1046 inc/Welcome/Component.php:1058
-#: inc/Welcome/Component.php:1070 inc/Welcome/Component.php:1082
-#: inc/Welcome/Component.php:1094 inc/Welcome/Component.php:1106
-#: inc/Welcome/Component.php:1118 inc/Welcome/Component.php:1130
-#: inc/Welcome/Component.php:1142 inc/Welcome/Component.php:1154
-#: inc/Welcome/Component.php:1166 inc/Welcome/Component.php:1178
-#: inc/Welcome/Component.php:1190 inc/Welcome/Component.php:1202
-msgid "Get It Now"
-msgstr "Nu aanschaffen"
-
-#: inc/Welcome/Component.php:933
-msgid "ideapush"
-msgstr "ideapush"
-
-#: inc/Welcome/Component.php:936
-msgid "BuddyPress Ideapush Integration"
-msgstr "BuddyPress pagina sidebar"
-
-#: inc/Welcome/Component.php:937
-msgid ""
-"The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you "
-"manage your created ideas through the BuddyPress Profile."
-msgstr ""
-"De BuddyPress IdeaPush Integratie is een addon van IdeaPush die je helpt je "
-"gecreëerde ideeën te beheren via het BuddyPress-profiel."
-
-#: inc/Welcome/Component.php:945
-msgid "BuddyPress-Contact-Me"
-msgstr "Buddypress"
-
-#: inc/Welcome/Component.php:948
-msgid "BuddyPress Contact Me"
-msgstr "Buddypress"
-
-#: inc/Welcome/Component.php:949
-msgid ""
-"BuddyPress Contact Me displays a contact form on a member's profiles, "
-"allowing logged-in and non-logged-in visitors can be in touch with our "
-"community members."
-msgstr ""
-"BuddyPress Contact Me geeft een contactformulier weer op het profiel van een "
-"lid, zodat ingelogde en niet-ingelogde bezoekers in contact kunnen komen met "
-"onze communityleden."
-
-#: inc/Welcome/Component.php:957
-msgid "WP_Story"
-msgstr "WP_Verhaal"
-
-#: inc/Welcome/Component.php:960
-msgid "WP Stories"
-msgstr "WP Verhalen"
-
-#: inc/Welcome/Component.php:961
-msgid ""
-"Social Stories offer a more personal way to interact with your audience."
-msgstr ""
-"Social Stories bieden een meer persoonlijke manier van interactie met je "
-"publiek."
-
-#: inc/Welcome/Component.php:969
-msgid "BP_profile-view"
-msgstr "Profiel velden"
-
-#: inc/Welcome/Component.php:972
-msgid "Who Viewed My Profile"
-msgstr "Wie heeft mijn profiel bekeken"
-
-#: inc/Welcome/Component.php:973
-msgid ""
-"The Who Viewed My Profile Plugin helps you to know about your profile "
-"visitors. It displays the count of the profile views on the member profile "
-"header..."
-msgstr ""
-"De Wie heeft mijn profiel bekeken-plugin helpt je om meer te weten te komen "
-"over de bezoekers van je profiel. Het toont het aantal bekeken profielen in "
-"de kop van het profiel van het lid."
-
-#: inc/Welcome/Component.php:981
-msgid "member-blog"
-msgstr "%s lid"
-
-#: inc/Welcome/Component.php:984
-msgid "BuddyPress Member Blog Pro"
-msgstr "BuddyPress pagina sidebar"
-
-#: inc/Welcome/Component.php:985
-msgid ""
-"BP Member Blog Pro plugin provides each of your site users their own writing "
-"environment with a fantastic user experience."
-msgstr ""
-"De plugin BP Member Blog Pro biedt elke gebruiker van je site een eigen "
-"schrijfomgeving met een fantastische gebruikerservaring."
-
-#: inc/Welcome/Component.php:993
-msgid "BuddyPress-multi-vendor-marketplace"
-msgstr "BuddyPress-multi-verkoper-marktplaats"
-
-#: inc/Welcome/Component.php:996
-msgid "BuddyVendor"
-msgstr "BuddyVendor"
-
-#: inc/Welcome/Component.php:997
-msgid ""
-"With the BuddyVendor plugin, you can quickly turn your BuddyPress community "
-"into a social marketplace."
-msgstr ""
-"Met de BuddyVendor plugin kun je snel van je BuddyPress community een "
-"sociale marktplaats maken."
-
-#: inc/Welcome/Component.php:1005
-msgid "stat"
-msgstr "stat"
-
-#: inc/Welcome/Component.php:1008
-msgid "BuddyPress Statistics"
-msgstr "BuddyPress Statistieken"
-
-#: inc/Welcome/Component.php:1009
-msgid ""
-"BuddyPress Stats plugin creates an activity log of everything that happens "
-"on your BuddyPress-powered community site..."
-msgstr ""
-"BuddyPress Stats plugin maakt een activiteitenlogboek van alles wat er "
-"gebeurt op je BuddyPress-gemeenschapssite..."
-
-#: inc/Welcome/Component.php:1017
-msgid "BuddyPress-places"
-msgstr "Buddypress"
-
-#: inc/Welcome/Component.php:1020
-msgid "BuddyPress Check-Ins Pro"
-msgstr "BuddyPress Inchecken Pro"
-
-#: inc/Welcome/Component.php:1021
-msgid ""
-"Allow community members and groups to post updates along with selecting "
-"their current location."
-msgstr ""
-"Laat leden van de gemeenschap en groepen updates posten en hun huidige "
-"locatie selecteren."
-
-#: inc/Welcome/Component.php:1029
-msgid "BuddyPress-Friend-Follow-Suggestion"
-msgstr "BuddyPress vriend & volg suggestie"
-
-#: inc/Welcome/Component.php:1032
-msgid "BuddyPress Friend & Follow Suggestion"
-msgstr "BuddyPress vriend & volg suggestie"
-
-#: inc/Welcome/Component.php:1033
-msgid ""
-"BuddyPress Friends and Follow suggestions plugin assists you with improving "
-"your BuddyPress or BuddyBoss Platform-based community."
-msgstr ""
-"BuddyPress Vrienden en Volg suggesties plugin helpt je bij het verbeteren "
-"van je BuddyPress of BuddyBoss Platform gebaseerde community."
-
-#: inc/Welcome/Component.php:1041
-msgid "BuddyPress-Animated-Gif-Share"
-msgstr "BuddyPress-Geanimeerd-Gif-Delen"
-
-#: inc/Welcome/Component.php:1044
-msgid "BuddyPress Giphy"
-msgstr "BuddyPress Giphy"
-
-#: inc/Welcome/Component.php:1045
-msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
-msgstr "Voeg GIF's toe aan uw BuddyPress-activiteit, opmerkingen en berichten."
-
-#: inc/Welcome/Component.php:1053
-msgid "BuddyPress-BuddyBoss-shortcodes"
-msgstr "BuddyPress-BuddyBoss-shortcodes"
-
-#: inc/Welcome/Component.php:1056
-msgid "Shortcodes For BuddyPress Pro"
-msgstr "Shortcodes voor BuddyPress Pro"
-
-#: inc/Welcome/Component.php:1057
-msgid ""
-"Add and Customize the BuddyPress components on any of the WordPress pages/"
-"posts using elementor widgets."
-msgstr ""
-"Voeg de BuddyPress-componenten toe aan WordPress pagina's/posts en pas ze "
-"aan met behulp van elementor widgets."
-
-#: inc/Welcome/Component.php:1065
-msgid "BuddyPress-Sticky-Post"
-msgstr "BuddyPress Sticky Post"
-
-#: inc/Welcome/Component.php:1068
-msgid "BuddyPress Sticky Post"
-msgstr "BuddyPress Sticky Post"
-
-#: inc/Welcome/Component.php:1069
-msgid ""
-"Make your posts sticky on BuddyPress by pinning site-wide and group "
-"activities on the top of the community wall."
-msgstr ""
-"Maak uw berichten sticky op BuddyPress door sitebrede en groepsactiviteiten "
-"bovenaan de communitymuur te prikken."
-
-#: inc/Welcome/Component.php:1077
-msgid "BuddyPress-color-background-activity"
-msgstr "BuddyPress-kleur-achtergrond-activiteit"
-
-#: inc/Welcome/Component.php:1080
-msgid "BuddyPress Quotes"
-msgstr "BuddyPress Citaten"
-
-#: inc/Welcome/Component.php:1081
-msgid ""
-"Allow BuddyPress users to post content with attractive background colors and "
-"beautiful images."
-msgstr ""
-"Laat BuddyPress-gebruikers inhoud posten met aantrekkelijke "
-"achtergrondkleuren en mooie afbeeldingen."
-
-#: inc/Welcome/Component.php:1089
-msgid "BuddyPress-BuddyBoss-autofriend"
-msgstr "BuddyPress-BuddyBoss-autofriend"
-
-#: inc/Welcome/Component.php:1092
-msgid "BuddyPress Auto Friends"
-msgstr "BuddyPress Auto Vrienden"
-
-#: inc/Welcome/Component.php:1093
-msgid "Add selected community members as common friends for all members."
-msgstr ""
-"Geselecteerde leden van de community toevoegen als gemeenschappelijke "
-"vrienden voor alle leden."
-
-#: inc/Welcome/Component.php:1101
-msgid "BuddyPress-Newsfeed-member-profile"
-msgstr "BuddyPress-nieuwsfeed-leden-profiel"
-
-#: inc/Welcome/Component.php:1104
-msgid "BuddyPress Newsfeed"
-msgstr "BuddyPress Nieuwsfeed"
-
-#: inc/Welcome/Component.php:1105
-msgid ""
-"Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
-msgstr ""
-"Organiseer alle BuddyPress-activiteitenstromen net als de nieuwsfeed van "
-"Facebook."
-
-#: inc/Welcome/Component.php:1113
-msgid "BuddyPress-Reactions-and-Status"
-msgstr "BuddyPress-Reacties-en-Status"
-
-#: inc/Welcome/Component.php:1116
-msgid "BuddyPress Status"
-msgstr "BuddyPress-status"
-
-#: inc/Welcome/Component.php:1117
+#: inc/Welcome/Component.php:604
 msgid ""
 "Allow members to add status on their profile and give their reactions to all "
 "the activity updates."
 msgstr ""
-"Laat leden een status toevoegen aan hun profiel en hun reacties geven op "
-"alle activiteitenupdates."
 
-#: inc/Welcome/Component.php:1125
-msgid "BuddyPress-Hashtags"
-msgstr "BuddyPress Hashtags"
-
-#: inc/Welcome/Component.php:1128
-msgid "BuddyPress Hashtags"
-msgstr "BuddyPress Hashtags"
-
-#: inc/Welcome/Component.php:1129
-msgid ""
-"Allow users to add multi-language hashtag links on BuddyPress community "
-"website."
+#: inc/Welcome/Component.php:605 inc/Welcome/Component.php:610
+#: inc/Welcome/Component.php:615 inc/Welcome/Component.php:622
+#: inc/Welcome/Component.php:627 inc/Welcome/Component.php:632
+#: inc/Welcome/Component.php:639 inc/Welcome/Component.php:644
+#: inc/Welcome/Component.php:649 inc/Welcome/Component.php:656
+#: inc/Welcome/Component.php:661 inc/Welcome/Component.php:666
+#: inc/Welcome/Component.php:673
+msgid "Try Now"
 msgstr ""
-"Sta gebruikers toe om hashtag-links in meerdere talen toe te voegen aan "
-"BuddyPress-communitywebsite."
 
-#: inc/Welcome/Component.php:1137
-msgid "BuddyPress-Moderation"
-msgstr "BuddyPress Moderatie Pro"
+#: inc/Welcome/Component.php:608
+msgid "BuddyPress Private Community Pro"
+msgstr ""
 
-#: inc/Welcome/Component.php:1140
-msgid "BuddyPress Moderation Pro"
-msgstr "BuddyPress Moderatie Pro"
+#: inc/Welcome/Component.php:609
+msgid "Lock down the BuddyPress components to make your member's profile safe."
+msgstr ""
 
-#: inc/Welcome/Component.php:1141
+#: inc/Welcome/Component.php:614
 msgid ""
 "Allow members to flag inappropriate content on your BuddyPress community "
 "site."
 msgstr ""
-"Sta leden toe om ongepaste inhoud op uw BuddyPress-gemeenschapssite te "
-"markeren."
 
-#: inc/Welcome/Component.php:1149
-msgid "BuddyPress-Private-Community-Pro"
-msgstr "BuddyPress Privé Gemeenschap Pro"
-
-#: inc/Welcome/Component.php:1152
-msgid "BuddyPress Private Community Pro"
-msgstr "BuddyPress Privé Gemeenschap Pro"
-
-#: inc/Welcome/Component.php:1153
-msgid "Lockdown the BuddyPress components to make your member's profile safe."
+#: inc/Welcome/Component.php:620
+msgid "BuddyPress Hashtags"
 msgstr ""
-"Vergrendel de BuddyPress-componenten om het profiel van je lid veilig te "
-"maken."
 
-#: inc/Welcome/Component.php:1161
-msgid "BuddyPress-Polls"
-msgstr "BuddyPress Polls"
+#: inc/Welcome/Component.php:621
+msgid ""
+"Allow users to add multi-language hashtag links on BuddyPress community "
+"website."
+msgstr ""
 
-#: inc/Welcome/Component.php:1164
+#: inc/Welcome/Component.php:625
 msgid "BuddyPress Polls"
-msgstr "BuddyPress Polls"
+msgstr ""
 
-#: inc/Welcome/Component.php:1165
+#: inc/Welcome/Component.php:626
 msgid ""
 "Allow users to create and respond to polls inside the BuddyPress activity or "
 "in groups."
 msgstr ""
-"Laat gebruikers polls maken en erop reageren binnen de BuddyPress-activiteit "
-"of in groepen."
 
-#: inc/Welcome/Component.php:1173
-msgid "BuddyPress-Profanity"
-msgstr "BuddyPress Scheldwoorden"
+#: inc/Welcome/Component.php:630
+msgid "BuddyPress Profile Pro"
+msgstr ""
 
-#: inc/Welcome/Component.php:1176
+#: inc/Welcome/Component.php:631
+msgid ""
+"Add repeate fields or group of fields to the front-end forms on the member's "
+"profile."
+msgstr ""
+
+#: inc/Welcome/Component.php:637
+msgid "BuddyPress Resume Manager"
+msgstr ""
+
+#: inc/Welcome/Component.php:638
+msgid ""
+"Allow members to create and display resumes on BuddyPress right form their "
+"profile page."
+msgstr ""
+
+#: inc/Welcome/Component.php:642
+msgid "BuddyPress Quotes"
+msgstr ""
+
+#: inc/Welcome/Component.php:643
+msgid ""
+"Allow BuddyPress users to post content with attractive background colors and "
+"beautiful images."
+msgstr ""
+
+#: inc/Welcome/Component.php:647
+msgid "BuddyPress Sticky Post"
+msgstr ""
+
+#: inc/Welcome/Component.php:648
+msgid ""
+"Make your posts stick on BuddyPress by pinning site-wide and group "
+"activities on the top of the community wall."
+msgstr ""
+
+#: inc/Welcome/Component.php:654
 msgid "BuddyPress Profanity"
-msgstr "BuddyPress Scheldwoorden"
+msgstr ""
 
-#: inc/Welcome/Component.php:1177
+#: inc/Welcome/Component.php:655
 msgid ""
 "Specify a list of bad words to control the content in your BuddyPress "
 "community."
 msgstr ""
-"Specificeer een lijst met slechte woorden om de inhoud in je BuddyPress-"
-"community te controleren."
 
-#: inc/Welcome/Component.php:1185
-msgid "BuddyPress-Resume-Manager"
-msgstr "BuddyPress cv-manager"
-
-#: inc/Welcome/Component.php:1188
-msgid "BuddyPress Resume Manager"
-msgstr "BuddyPress cv-manager"
-
-#: inc/Welcome/Component.php:1189
-msgid ""
-"Allow members to create and display resumes on BuddyPress right from their "
-"profile page."
+#: inc/Welcome/Component.php:659
+msgid "BuddyPress Newsfeed"
 msgstr ""
-"Geef leden de mogelijkheid om CV's aan te maken en weer te geven op "
-"BuddyPress, rechtstreeks vanaf hun profielpagina."
 
-#: inc/Welcome/Component.php:1197
-msgid "BuddyPress-Profile-Pro"
-msgstr "BuddyPress Profiel Pro"
-
-#: inc/Welcome/Component.php:1200
-msgid "BuddyPress Profile Pro"
-msgstr "BuddyPress Profiel Pro"
-
-#: inc/Welcome/Component.php:1201
+#: inc/Welcome/Component.php:660
 msgid ""
-"Add repeater fields or group of fields to the front-end forms on the "
-"member's profile."
+"Organize all the BuddyPress activity-streams just like Facebook newsfeed."
 msgstr ""
-"Voeg herhalingsvelden of een groep velden toe aan de front-end formulieren "
-"op het profiel van het lid."
+
+#: inc/Welcome/Component.php:664
+msgid "BuddyPress Auto Friends"
+msgstr ""
+
+#: inc/Welcome/Component.php:665
+msgid "Add selected community members as common friends for all members."
+msgstr ""
+
+#: inc/Welcome/Component.php:671
+msgid "Shortcodes for BuddyPress Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:672
+msgid ""
+"Full control on BuddyPress/BuddyBoss Platform template-driven pages. "
+"Introducing Elementor widgets for activity stream, group, and member "
+"directory with various parameters to set as per your choice."
+msgstr ""
 
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
 #: inc/back-compat.php:25
 #, php-format
 msgid ""
 "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You "
-"are running versions %3$s and %4$s respectively. Please update and try again."
+"are running versions %3$s and %3$s respectively. Please update and try again."
 msgstr ""
-"Buddyx vereist minimaal WordPress versie %1$s en PHP versie %2$s. Je "
-"gebruikt respectievelijk versie %3$s en %4$s. Update en probeer het opnieuw."
 
 #. translators: 1: required WP version number, 2: available WP version number
 #: inc/back-compat.php:30
@@ -2490,8 +1770,6 @@ msgid ""
 "Buddyx requires at least WordPress version %1$s. You are running version "
 "%2$s. Please update and try again."
 msgstr ""
-"Buddyx vereist minimaal WordPress versie %1$s. Je gebruikt versie %2$s. "
-"Update en probeer het opnieuw."
 
 #. translators: 1: required PHP version number, 2: available PHP version number
 #: inc/back-compat.php:35
@@ -2500,16 +1778,12 @@ msgid ""
 "Buddyx requires at least PHP version %1$s. You are running version %2$s. "
 "Please update and try again."
 msgstr ""
-"Buddyx vereist minimaal PHP versie %1$s. U gebruikt versie %2$s. Update en "
-"probeer het opnieuw."
 
 #: inc/back-compat.php:39
 msgid ""
 "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
 "Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
-"BuddyX vereist dat het BuddyPress Template Pack \"BP Nouveau\" actief is. "
-"Activeer dit Template Pack via de BuddyPress Options."
 
 #: inc/class-buddyx-breadcrumbs.php:346
 msgid "Browse:"
@@ -2519,10 +1793,6 @@ msgstr "Zoek:"
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr "Kruimelpad"
-
-#: inc/class-buddyx-breadcrumbs.php:348
-msgid "Home"
-msgstr "Home"
 
 #: inc/class-buddyx-breadcrumbs.php:349
 msgid "404 Not Found"
@@ -2570,7 +1840,7 @@ msgstr "i"
 #: inc/class-buddyx-breadcrumbs.php:854
 msgctxt "hour archives time format"
 msgid "g a"
-msgstr "g a"
+msgstr ""
 
 #: inc/class-buddyx-breadcrumbs.php:870 inc/class-buddyx-breadcrumbs.php:899
 #: inc/class-buddyx-breadcrumbs.php:926 inc/class-buddyx-breadcrumbs.php:953
@@ -2600,20 +1870,16 @@ msgid "View Shopping Cart"
 msgstr "Winkelmand bekijken"
 
 #: inc/extra.php:148
-msgid "Profile"
-msgstr "Profiel"
+msgid "Xprofile"
+msgstr ""
 
-#: inc/extra.php:151 inc/extra.php:173
+#: inc/extra.php:151 inc/extra.php:170
 msgid "Activity"
 msgstr "Activiteit"
 
 #: inc/extra.php:154
 msgid "Groups"
 msgstr "Groepen"
-
-#: inc/extra.php:157
-msgid "Forums"
-msgstr "Forums"
 
 #: inc/extra.php:160
 msgid "Friends"
@@ -2627,239 +1893,219 @@ msgstr "Leden"
 msgid "Blogs"
 msgstr "Blogs"
 
-#: inc/extra.php:169
-msgid "Business"
-msgstr "Bedrijf"
-
-#: inc/extra.php:237
+#: inc/extra.php:234
 msgid "View your shopping cart"
 msgstr "Bekijk je winkelwagen"
 
-#: inc/extra.php:372
+#: inc/extra.php:367
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
-msgstr[0] "Onlangs verdiende badge"
-msgstr[1] "Onlangs verdiende badges"
+msgstr[0] ""
+msgstr[1] ""
 
-#: inc/extra.php:399
+#: inc/extra.php:394
 msgid "BuddyX WordPress Theme"
-msgstr "BuddyX WordPress Thema"
+msgstr ""
 
-#: inc/extra.php:441
+#: inc/extra.php:436
 msgid "Sticky"
 msgstr "Sticky"
 
-#: inc/extra.php:452
+#: inc/extra.php:447
 msgid "Leave a comment"
 msgstr "Laat een reactie achter"
 
-#: inc/extra.php:452
+#: inc/extra.php:447
 msgid "1 Comment"
 msgstr "1 Reactie"
 
-#: inc/extra.php:452
+#: inc/extra.php:447
 msgid "% Comments"
 msgstr "% Reacties"
 
-#: inc/extra.php:457 template-parts/content/entry_meta.php:122
+#: inc/extra.php:452 template-parts/content/entry_meta.php:122
 msgid "Edit"
 msgstr "Bewerken"
 
-#: inc/extra.php:662
+#: inc/extra.php:657
 msgid "Post Settings"
 msgstr "Post"
 
-#: inc/extra.php:671
+#: inc/extra.php:666
 msgid "Post Format Settings"
 msgstr "Bericht opmaakinstellingen"
 
-#: inc/extra.php:691
+#: inc/extra.php:686
 msgid "Overwrite Title Customizer settings"
-msgstr "Instellingen titel customizer overschrijven"
+msgstr ""
 
-#: inc/extra.php:696
+#: inc/extra.php:691
 msgid "Title Style"
 msgstr "Titel-stijl"
 
-#: inc/extra.php:746
+#: inc/extra.php:741
 msgid "Enter Youtube, Vimeo and etc video url."
-msgstr "Voer Youtube, Vimeo en etc video url in."
+msgstr ""
 
-#: inc/extra.php:749
+#: inc/extra.php:744
 msgid "Video URL"
 msgstr "Video URL"
 
-#: inc/extra.php:752 inc/extra.php:765 inc/extra.php:994
+#: inc/extra.php:747 inc/extra.php:760 inc/extra.php:989
 msgid "Add Media"
 msgstr "Media toevoegen"
 
-#: inc/extra.php:759
+#: inc/extra.php:754
 msgid "Enter audio url."
-msgstr "Voer audio-url in."
+msgstr ""
 
-#: inc/extra.php:762
+#: inc/extra.php:757
 msgid "Audio URL"
 msgstr "Audio Bestand URL"
 
-#: inc/extra.php:772
+#: inc/extra.php:767
 msgid "Input your quote."
 msgstr "Voer citaat in."
 
-#: inc/extra.php:775
+#: inc/extra.php:770
 msgid "Quote Text"
 msgstr "Quote Tekst"
 
-#: inc/extra.php:781
+#: inc/extra.php:776
 msgid "Quote Author"
 msgstr "Quote Auteur"
 
-#: inc/extra.php:788
+#: inc/extra.php:783
 msgid "Input your link."
 msgstr "Voer uw link."
 
-#: inc/extra.php:791
+#: inc/extra.php:786
 msgid "Link Title"
 msgstr "Link Titel"
 
-#: inc/extra.php:797
+#: inc/extra.php:792
 msgid "Link URL"
 msgstr "Link URL"
 
-#: inc/extra.php:804
+#: inc/extra.php:799
 msgid ""
 "To create a gallery, upload your images and then select \"Uploaded to this "
 "post\" from the dropdown (in the media popup) to see images attached to this "
 "post. You can drag to re-order or delete them there."
 msgstr ""
-"Als je een galerij wilt maken, upload je je afbeeldingen en selecteer je "
-"vervolgens \"Geüpload naar deze post\" in de vervolgkeuzelijst (in het pop-"
-"upvenster Media) om de afbeeldingen te zien die aan deze post zijn "
-"gekoppeld. Je kunt ze daar slepen om ze opnieuw te ordenen of te verwijderen."
 
-#: inc/extra.php:826 inc/extra.php:933
+#: inc/extra.php:821 inc/extra.php:928
 msgid "Delete image"
 msgstr "Verwijder afbeelding"
 
-#: inc/extra.php:840 inc/extra.php:910
+#: inc/extra.php:835 inc/extra.php:905
 msgid "Add images gallery"
-msgstr "Galerij met afbeeldingen toevoegen"
+msgstr ""
 
-#: inc/extra.php:912
+#: inc/extra.php:907
 msgid "Add to gallery"
 msgstr "Aan galerij toevoegen"
 
-#: inc/extra.php:996
+#: inc/extra.php:991
 msgid "Add to Media"
-msgstr "Toevoegen aan media"
-
-#: inc/extra.php:1136 inc/extra.php:1160
-msgid "&hellip;"
-msgstr "&hellip;"
-
-#: inc/extra.php:1162
-msgid " Read more"
-msgstr " Verder Lezen"
+msgstr ""
 
 #: inc/widgets/bp-profile-completion-widget.php:20
 msgid "Show Logged in user Profile Completion Progress."
-msgstr "Ingelogde gebruiker Voortgang voltooiing profiel tonen."
+msgstr ""
 
 #: inc/widgets/bp-profile-completion-widget.php:26
 msgid "(BuddyPress) Profile Completion"
-msgstr "(BuddyPress) Profiel voltooiing"
+msgstr ""
 
-#: inc/widgets/bp-profile-completion-widget.php:73
+#: inc/widgets/bp-profile-completion-widget.php:66
 #, php-format
 msgid "%s Complete"
 msgstr "%s Voltooid"
 
-#: inc/widgets/bp-profile-completion-widget.php:95
+#: inc/widgets/bp-profile-completion-widget.php:88
 msgid "Complete"
 msgstr "Voltooid"
 
-#: inc/widgets/bp-profile-completion-widget.php:194
-#: inc/widgets/bp-profile-completion-widget.php:431
+#: inc/widgets/bp-profile-completion-widget.php:187
+#: inc/widgets/bp-profile-completion-widget.php:422
 msgid "Profile Photo"
 msgstr "Profielfoto"
 
-#: inc/widgets/bp-profile-completion-widget.php:214
-#: inc/widgets/bp-profile-completion-widget.php:434
+#: inc/widgets/bp-profile-completion-widget.php:207
+#: inc/widgets/bp-profile-completion-widget.php:425
 msgid "Cover Photo"
 msgstr "Omslagfoto"
 
-#: inc/widgets/bp-profile-completion-widget.php:296
+#: inc/widgets/bp-profile-completion-widget.php:289
 msgid "Profile Fields"
 msgstr "Profiel velden"
 
-#: inc/widgets/bp-profile-completion-widget.php:406
+#: inc/widgets/bp-profile-completion-widget.php:397
 msgid "Complete Your Profile"
 msgstr "Het profiel voltooien"
 
-#: inc/widgets/bp-profile-completion-widget.php:440
+#: inc/widgets/bp-profile-completion-widget.php:431
 msgid "Title:"
 msgstr "Titel:"
 
-#: inc/widgets/bp-profile-completion-widget.php:443
+#: inc/widgets/bp-profile-completion-widget.php:434
 msgid "Profile field sets:"
-msgstr "Je hebt geen veldengroepen:"
+msgstr ""
 
-#: inc/widgets/bp-profile-completion-widget.php:468
+#: inc/widgets/bp-profile-completion-widget.php:459
 msgid "Profile photos:"
-msgstr "Profielfoto's:"
+msgstr ""
 
-#: inc/widgets/bp-profile-completion-widget.php:487
+#: inc/widgets/bp-profile-completion-widget.php:478
 msgid "Hide widget once progress hits 100%"
 msgstr "Verberg widget zodra de vooruitgang 100% is bereikt"
 
-#: inc/widgets/bp-profile-completion-widget.php:493
+#: inc/widgets/bp-profile-completion-widget.php:484
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 "Opmerking: Deze widget wordt alleen weergegeven als een lid is ingelogd."
 
-#: rtmedia/main.php:97 rtmedia/main.php:208
-msgid "rtMedia menu"
-msgstr "rtMedia-menu"
+#: rtmedia/main.php:70 rtmedia/main.php:135
+msgid "Notifications menu"
+msgstr "Meldingen-menu"
 
-#: searchform.php:10
-msgid "Search for:"
-msgstr "Zoek naar:"
-
-#: searchform.php:11
+#: searchform.php:9
 msgid "Enter Keyword"
 msgstr "Vul steekwoord in"
 
-#: searchform.php:12
+#: searchform.php:13
 msgid "Go"
 msgstr "Ga"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content-bbpress.php:20
-#: template-parts/content-buddypress.php:20
-#: template-parts/content/entry-full-width.php:37
-#: template-parts/content/entry_content.php:21
+#: template-parts/content-bbpress.php:18
+#: template-parts/content-buddypress.php:18
+#: template-parts/content/entry-full-width.php:18
+#: template-parts/content/entry_content.php:19
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Verder lezen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-bbpress.php:33
-#: template-parts/content-buddypress.php:33
-#: template-parts/content/entry-full-width.php:50
-#: template-parts/content/entry-page.php:38
-#: template-parts/content/entry_content.php:38
+#: template-parts/content-bbpress.php:31
+#: template-parts/content-buddypress.php:31
+#: template-parts/content/entry-full-width.php:31
+#: template-parts/content/entry-page.php:36
+#: template-parts/content/entry_content.php:36
 msgid "Pages:"
 msgstr "Pagina’s:"
 
-#: template-parts/content/entry-attachment.php:35
-#: template-parts/content/entry-post.php:36 template-parts/content/entry.php:34
+#: template-parts/content/entry-attachment.php:33
+#: template-parts/content/entry-post.php:34 template-parts/content/entry.php:32
 msgid "Previous:"
 msgstr "Vorige:"
 
-#: template-parts/content/entry-attachment.php:45
-#: template-parts/content/entry-post.php:37 template-parts/content/entry.php:35
+#: template-parts/content/entry-attachment.php:43
+#: template-parts/content/entry-post.php:35 template-parts/content/entry.php:33
 msgid "Next:"
 msgstr "Volgende:"
 
-#: template-parts/content/entry-attachment.php:51
+#: template-parts/content/entry-attachment.php:49
 msgid "Post navigation"
 msgstr "Bericht navigatie"
 
@@ -2886,14 +2132,14 @@ msgstr "Geschreven door %s"
 #, php-format
 msgctxt "post author"
 msgid "Written by  %s"
-msgstr "Geschreven door %s"
+msgstr ""
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:93
 #, php-format
 msgctxt "post parent"
 msgid "In %s"
-msgstr "In %s"
+msgstr ""
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:96
@@ -3010,29 +2256,27 @@ msgstr "Volgende"
 msgid "Page navigation"
 msgstr "Pagina navigatie"
 
-#: template-parts/header/buddypress-profile.php:23
-#: template-parts/header/buddypress-profile.php:41
-msgid "9+"
-msgstr "+9"
+#: template-parts/header/buddypress-profile.php:30
+msgid "Notifications"
+msgstr "Meldingen"
 
-#: template-parts/header/buddypress-profile.php:70
-msgid "No notifications found."
-msgstr "Geen notificaties gevonden."
+#: template-parts/header/buddypress-profile.php:55
+msgid "View all notifications"
+msgstr "Alle meldingen weergeven"
 
-#: template-parts/header/buddypress-profile.php:74
-msgid "All Notifications"
-msgstr "Alle meldingen"
+#: template-parts/header/buddypress-profile.php:60
+msgid "No new notifications"
+msgstr "Geen nieuwe meldingen"
 
-#: template-parts/header/buddypress-profile.php:118
+#: template-parts/header/buddypress-profile.php:106
 msgid "Login"
 msgstr "Inloggen"
 
-#: template-parts/header/buddypress-profile.php:118
+#: template-parts/header/buddypress-profile.php:106
 msgid "Log in"
 msgstr "Inloggen"
 
-#: template-parts/header/buddypress-profile.php:125
-#: template-parts/header/buddypress-profile.php:131
+#: template-parts/header/buddypress-profile.php:113
 msgid "Register"
 msgstr "Registreren"
 
@@ -3052,126 +2296,66 @@ msgstr "Sluiten"
 msgid "My Account"
 msgstr "Mijn Account"
 
-#: woocommerce/cart/cart.php:30
-msgid "Remove item"
-msgstr "Verwijder item"
-
-#: woocommerce/cart/cart.php:31
-msgid "Thumbnail image"
-msgstr "Thumbnail afbeelding"
-
-#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:89
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:79
 msgid "Product"
 msgstr "Product"
 
-#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:114
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:99
 msgid "Price"
 msgstr "Prijs"
 
-#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:120
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:105
 msgid "Quantity"
 msgstr "Aantal"
 
-#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:146
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:127
 msgid "Subtotal"
 msgstr "Subtotaal"
 
-#. translators: %s is the product name
-#: woocommerce/cart/cart.php:68
-#, php-format
-msgid "Remove %s from cart"
-msgstr "Verwijder %s"
+#: woocommerce/cart/cart.php:58
+msgid "Remove this item"
+msgstr "Verwijder dit item"
 
-#: woocommerce/cart/cart.php:109
+#: woocommerce/cart/cart.php:94
 msgid "Available on backorder"
 msgstr "Beschikbaar via nabestelling"
 
-#: woocommerce/cart/cart.php:164
+#: woocommerce/cart/cart.php:145
 msgid "Coupon:"
 msgstr "Kortingscode:"
 
-#: woocommerce/cart/cart.php:164
-msgid "Coupon code"
-msgstr "Kortingscode"
-
-#: woocommerce/cart/cart.php:164
+#: woocommerce/cart/cart.php:147
 msgid "Apply coupon"
 msgstr "Kortingscode toepassen"
 
-#: woocommerce/cart/cart.php:169
+#: woocommerce/cart/cart.php:152
 msgid "Update cart"
 msgstr "Winkelwagen bijwerken"
 
 #. Theme URI of the plugin/theme
 msgid "https://wbcomdesigns.com/downloads/buddyx-theme/"
-msgstr "https://wbcomdesigns.com/downloads/buddyx-theme/"
+msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"BuddyX is an ideal theme for community and membership websites. It provides "
-"a solution to all kinds of communities. Thanks to its BuddyPress support, "
-"your website can now have member profiles, send private messages, create "
-"groups, and more. It is a lightweight, fully responsive, SEO-optimised RTL "
-"and translation-ready theme. BuddyX supports WooCommerce, WC Vendors, "
-"LearnDash, LearnPress, and Gamipress plugins. It is highly customizable and "
-"works perfectly with page builders like Elementor and Gutenberg. BuddyX is "
-"perfect for creating social learning, marketplace, and blogging websites "
-"using BuddyPress integration. BuddyX uses the latest best practices for "
-"progressive web content and optimization. It is well-tested with the latest "
-"BuddyPress version and popular BuddyPress add-ons. Wbcom Designs is "
-"responsible for developing, maintaining, and supporting it."
+"BuddyX is an ideal theme for community and membership websites. Providing a "
+"solution to all kinds of communities. Thanks to it's BuddyPress support, "
+"your website can now have member profiles, send a private message, create "
+"groups and so much more. It is a lightweight, fully responsive, seo "
+"optimised, RTL & translation ready theme. BuddyX provides support for "
+"WooCommerce, WC Vendors, LearnDash, LearnPress and Gamipress plugins. It is "
+"highly customizable and works perfectly with page builders such as Elementor "
+"and Gutenberg. BuddyX is perfect for creating social learning, marketplace "
+"and blogging websites using BuddyPress integration. BuddyX is built using "
+"the latest best practices for progressive web content and optimization. It "
+"is well tested with the latest BuddyPress version and popular BuddyPress "
+"addons. It is developed, maintained, and supported by Wbcom Designs."
 msgstr ""
-"BuddyX is een ideaal thema voor community- en lidmaatschapssites. Het biedt "
-"een oplossing voor alle soorten gemeenschappen. Dankzij de BuddyPress-"
-"ondersteuning kan je website nu profielen van leden hebben, privéberichten "
-"versturen, groepen maken en nog veel meer. Het is een lichtgewicht, volledig "
-"responsief, SEO-geoptimaliseerd RTL- en vertaalbaar thema. BuddyX "
-"ondersteunt WooCommerce, WC Vendors, LearnDash, LearnPress en Gamipress "
-"plugins. Het is zeer aanpasbaar en werkt perfect met page builders zoals "
-"Elementor en Gutenberg. BuddyX is perfect voor het maken van sociale leer-, "
-"marktplaats- en blogwebsites met behulp van BuddyPress-integratie. BuddyX "
-"maakt gebruik van de nieuwste best practices voor progressive web content en "
-"optimalisatie. Het is goed getest met de nieuwste BuddyPress-versie en "
-"populaire BuddyPress-add-ons. Wbcom Designs is verantwoordelijk voor de "
-"ontwikkeling, het onderhoud en de ondersteuning."
 
 #. Author of the plugin/theme
 msgid "wbcomdesigns,vapvarun"
-msgstr "wbcomdesigns,vapvarun"
+msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/vapvarun/buddyx"
-msgstr "https://github.com/vapvarun/buddyx"
-
-#~ msgid "Thank You"
-#~ msgstr "Bedankt"
-
-#~ msgid "Knowledge Base"
-#~ msgstr "Kennisbank"
-
-#~ msgid "Menu Setting"
-#~ msgstr "Menu-instelling"
-
-#~ msgid "Video Tutorial"
-#~ msgstr "Video-instructie"
-
-#~ msgid "FAQ"
-#~ msgstr "FAQ"
-
-#~ msgid "Frequently Asked Questions"
-#~ msgstr "Veelgestelde vragen"
-
-#~ msgid "Rate Us"
-#~ msgstr "Geef ons een waardering"
-
-#~ msgid "Start Chat"
-#~ msgstr "Chat starten"
-
-#~ msgid "Create Ticket"
-#~ msgstr "Ticket aanmaken"
-
-#~ msgid "Notifications menu"
-#~ msgstr "Meldingen-menu"
-
-#~ msgid "View all notifications"
-#~ msgstr "Alle meldingen weergeven"
+msgstr ""

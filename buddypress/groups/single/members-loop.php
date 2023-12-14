@@ -15,7 +15,7 @@
 
 	<?php bp_nouveau_group_hook( 'before', 'members_list' ); ?>
 
-	<ul id="members-list" class="<?php bp_nouveau_loop_classes(); ?>">
+	<ul id="members-list" class="<?php bp_nouveau_loop_classes(); ?>"> 
 
 		<?php
 		while ( bp_group_members() ) :
@@ -25,6 +25,8 @@
 			<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php echo esc_attr( bp_get_group_member_id() ); ?>" data-bp-item-component="members">
 
 				<div class="list-wrap">
+
+					<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
 
 					<div class="item-avatar">
 						<a href="<?php bp_group_member_domain(); ?>">
@@ -46,7 +48,14 @@
 
 							</div><!-- .member-info-wrapper -->
 							<div class="member-action-wrapper">
-								<?php bp_nouveau_members_loop_buttons(); ?>
+								<?php
+								bp_nouveau_members_loop_buttons(
+									array(
+										'container'      => 'ul',
+										'button_element' => 'button',
+									)
+								);
+								?>
 							</div><!-- .member-action-wrapper -->
 						</div>
 

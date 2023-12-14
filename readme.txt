@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.3.2
+Tested up to: 6.4.2
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.2 =
+* Fix: (#584) Managed follow buttom position
+* Fix: (#559) BuddyPress 12.0.0 fixes
+* Fix: (#581) Managed buddypress activity plus UI with latest update
+* Fix: (#580) Added bp v12 support
+* Enhancement: (#580) Added cover image in members and groups directory page
+* Enhancement: (#580) Separate bb platform override files
+* Enhancement: (#580) Separate buddypress override files
+
 = 4.6.1 =
 * Fix:  (#578) Managed pin post activity with bb platform and fixes
 * Fix:  (#577) Managed MediaPress gallery navigation arrows
