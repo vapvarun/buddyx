@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2023-12-06 08:19+0000\n"
+"POT-Creation-Date: 2023-12-18 13:47+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Comments are disabled."
 msgstr ""
 
-#: ../buddyx/footer.php:29, ../buddyx/inc/Kirki_Option/Component.php:1522
+#: ../buddyx/footer.php:29, ../buddyx/inc/Kirki_Option/Component.php:1565
 msgid "Footer"
 msgstr ""
 
@@ -484,83 +484,87 @@ msgstr ""
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:346
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:352
 msgid "Browse:"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:347
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:353
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:348
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:354
 msgid "Home"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:349
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:355
 msgid "404 Not Found"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:350
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:356
 msgid "Archives"
 msgstr ""
 
 #. translators: %s is the search query.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:352
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:358
 msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:354
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:360
 msgid "Page %s"
 msgstr ""
 
 #. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:356
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:362
 msgid "Comment Page %s"
 msgstr ""
 
 #. translators: Minute archive title. %s is the minute time format.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:358
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:364
 msgid "Minute %s"
 msgstr ""
 
 #. translators: Weekly archive title. %s is the week date format.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:360
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:366
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:820
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:129, ../buddyx/template-parts/header/buddypress-profile.php:129
+msgid "Register"
+msgstr ""
+
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:858
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:837
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:876
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:854
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:894
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:870, ../buddyx/inc/class-buddyx-breadcrumbs.php:899, ../buddyx/inc/class-buddyx-breadcrumbs.php:926, ../buddyx/inc/class-buddyx-breadcrumbs.php:953, ../buddyx/inc/class-buddyx-breadcrumbs.php:1293
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1377
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:871, ../buddyx/inc/class-buddyx-breadcrumbs.php:927, ../buddyx/inc/class-buddyx-breadcrumbs.php:1297
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1382
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:872, ../buddyx/inc/class-buddyx-breadcrumbs.php:1301
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1387
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:900
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:942
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
@@ -900,583 +904,599 @@ msgstr ""
 msgid "XL"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:121
+#: ../buddyx/inc/Kirki_Option/Component.php:136
 msgid "General"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:130, ../buddyx/inc/Kirki_Option/Component.php:331, ../buddyx/inc/Welcome/Component.php:143, ../buddyx/inc/Welcome/Component.php:353
+#: ../buddyx/inc/Kirki_Option/Component.php:145, ../buddyx/inc/Kirki_Option/Component.php:370, ../buddyx/inc/Welcome/Component.php:143, ../buddyx/inc/Welcome/Component.php:353
 msgid "Site Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:141, ../buddyx/inc/Welcome/Component.php:398
+#: ../buddyx/inc/Kirki_Option/Component.php:156, ../buddyx/inc/Welcome/Component.php:398
 msgid "Site Loader"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:152, ../buddyx/inc/Welcome/Component.php:383
+#: ../buddyx/inc/Kirki_Option/Component.php:167, ../buddyx/inc/Welcome/Component.php:383
 msgid "Page Mapping"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:163, ../buddyx/inc/Welcome/Component.php:408
+#: ../buddyx/inc/Kirki_Option/Component.php:178, ../buddyx/inc/Welcome/Component.php:408
 msgid "Typography"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:172
+#: ../buddyx/inc/Kirki_Option/Component.php:187
 msgid "Site Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:182, ../buddyx/inc/Kirki_Option/Component.php:1278, ../buddyx/inc/Welcome/Component.php:418
+#: ../buddyx/inc/Kirki_Option/Component.php:197, ../buddyx/inc/Kirki_Option/Component.php:1317, ../buddyx/inc/Welcome/Component.php:418
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:192, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:59
+#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:59
 msgid "Menu"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:202, ../buddyx/inc/Kirki_Option/Component.php:1093, ../buddyx/inc/Welcome/Component.php:428
+#: ../buddyx/inc/Kirki_Option/Component.php:217, ../buddyx/inc/Kirki_Option/Component.php:1132, ../buddyx/inc/Welcome/Component.php:428
 msgid "Body"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:213
+#: ../buddyx/inc/Kirki_Option/Component.php:228
 msgid "Site Header"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:223
+#: ../buddyx/inc/Kirki_Option/Component.php:238
 msgid "Site Sub Header"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:233
+#: ../buddyx/inc/Kirki_Option/Component.php:248
 msgid "Site Skin"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:243, ../buddyx/inc/Welcome/Component.php:167, ../buddyx/inc/Welcome/Component.php:608
+#: ../buddyx/inc/Kirki_Option/Component.php:258, ../buddyx/inc/Welcome/Component.php:167, ../buddyx/inc/Welcome/Component.php:608
 msgid "Site Blog"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:253, ../buddyx/inc/Welcome/Component.php:638
+#: ../buddyx/inc/Kirki_Option/Component.php:268, ../buddyx/inc/Welcome/Component.php:638
 msgid "Site Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:263, ../buddyx/inc/Welcome/Component.php:688
+#: ../buddyx/inc/Kirki_Option/Component.php:278, ../buddyx/inc/Welcome/Component.php:688
 msgid "WP Login"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:272
+#: ../buddyx/inc/Kirki_Option/Component.php:287
 msgid "Logo"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:283, ../buddyx/inc/Welcome/Component.php:718
+#: ../buddyx/inc/Kirki_Option/Component.php:300
+msgid "Community Settings"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:310
+msgid "General Setting"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Welcome/Component.php:718
 msgid "Site Footer"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:292, ../buddyx/inc/Welcome/Component.php:723
+#: ../buddyx/inc/Kirki_Option/Component.php:331, ../buddyx/inc/Welcome/Component.php:723
 msgid "Footer Section"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:303, ../buddyx/inc/Welcome/Component.php:728
+#: ../buddyx/inc/Kirki_Option/Component.php:342, ../buddyx/inc/Welcome/Component.php:728
 msgid "Copyright Section"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:314
+#: ../buddyx/inc/Kirki_Option/Component.php:353
 msgid "Site Performance"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:335
+#: ../buddyx/inc/Kirki_Option/Component.php:374
 msgid "You can select wide or box layout based on your preference."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:349
+#: ../buddyx/inc/Kirki_Option/Component.php:388
 msgid "Max Content Layout Width"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:350
+#: ../buddyx/inc/Kirki_Option/Component.php:389
 msgid "Select the maximum content width for your website (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:368, ../buddyx/inc/Welcome/Component.php:368
+#: ../buddyx/inc/Kirki_Option/Component.php:407, ../buddyx/inc/Welcome/Component.php:368
 msgid "Global Border Radius"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:369
+#: ../buddyx/inc/Kirki_Option/Component.php:408
 msgid "Set the content, various elements border radius for your website (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:380, ../buddyx/inc/Welcome/Component.php:373
+#: ../buddyx/inc/Kirki_Option/Component.php:419, ../buddyx/inc/Welcome/Component.php:373
 msgid "Buttons Border Radius"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:381
+#: ../buddyx/inc/Kirki_Option/Component.php:420
 msgid "Set the buttons border radius for your website (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:392, ../buddyx/inc/Welcome/Component.php:378
+#: ../buddyx/inc/Kirki_Option/Component.php:431, ../buddyx/inc/Welcome/Component.php:378
 msgid "Form Border Radius"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:393
+#: ../buddyx/inc/Kirki_Option/Component.php:432
 msgid "Set the form elements (except textarea) border radius for your website (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:407
+#: ../buddyx/inc/Kirki_Option/Component.php:446
 msgid "Site Loader ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:411, ../buddyx/inc/Kirki_Option/Component.php:783, ../buddyx/inc/Kirki_Option/Component.php:800, ../buddyx/inc/Kirki_Option/Component.php:817, ../buddyx/inc/Kirki_Option/Component.php:833, ../buddyx/inc/Kirki_Option/Component.php:849, ../buddyx/inc/Kirki_Option/Component.php:915, ../buddyx/inc/Kirki_Option/Component.php:2001, ../buddyx/inc/Kirki_Option/Component.php:2213, ../buddyx/inc/Kirki_Option/Component.php:2271, ../buddyx/inc/Kirki_Option/Component.php:2284
+#: ../buddyx/inc/Kirki_Option/Component.php:450, ../buddyx/inc/Kirki_Option/Component.php:822, ../buddyx/inc/Kirki_Option/Component.php:839, ../buddyx/inc/Kirki_Option/Component.php:856, ../buddyx/inc/Kirki_Option/Component.php:872, ../buddyx/inc/Kirki_Option/Component.php:888, ../buddyx/inc/Kirki_Option/Component.php:954, ../buddyx/inc/Kirki_Option/Component.php:2044, ../buddyx/inc/Kirki_Option/Component.php:2273, ../buddyx/inc/Kirki_Option/Component.php:2331, ../buddyx/inc/Kirki_Option/Component.php:2344
 msgid "Enable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:412, ../buddyx/inc/Kirki_Option/Component.php:784, ../buddyx/inc/Kirki_Option/Component.php:801, ../buddyx/inc/Kirki_Option/Component.php:818, ../buddyx/inc/Kirki_Option/Component.php:834, ../buddyx/inc/Kirki_Option/Component.php:850, ../buddyx/inc/Kirki_Option/Component.php:916, ../buddyx/inc/Kirki_Option/Component.php:2002, ../buddyx/inc/Kirki_Option/Component.php:2214, ../buddyx/inc/Kirki_Option/Component.php:2272, ../buddyx/inc/Kirki_Option/Component.php:2285
+#: ../buddyx/inc/Kirki_Option/Component.php:451, ../buddyx/inc/Kirki_Option/Component.php:823, ../buddyx/inc/Kirki_Option/Component.php:840, ../buddyx/inc/Kirki_Option/Component.php:857, ../buddyx/inc/Kirki_Option/Component.php:873, ../buddyx/inc/Kirki_Option/Component.php:889, ../buddyx/inc/Kirki_Option/Component.php:955, ../buddyx/inc/Kirki_Option/Component.php:2045, ../buddyx/inc/Kirki_Option/Component.php:2274, ../buddyx/inc/Kirki_Option/Component.php:2332, ../buddyx/inc/Kirki_Option/Component.php:2345
 msgid "Disable"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:423
+#: ../buddyx/inc/Kirki_Option/Component.php:462
 msgid "Login Page"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:424
+#: ../buddyx/inc/Kirki_Option/Component.php:463
 msgid "You can redirect user to custom login page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:435
+#: ../buddyx/inc/Kirki_Option/Component.php:474
 msgid "Registration Page"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:436
+#: ../buddyx/inc/Kirki_Option/Component.php:475
 msgid "You can redirect user to custom registration page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:447
+#: ../buddyx/inc/Kirki_Option/Component.php:486
 msgid "404"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:448
+#: ../buddyx/inc/Kirki_Option/Component.php:487
 msgid "You can redirect user to custom 404 page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:462, ../buddyx/inc/Welcome/Component.php:413
+#: ../buddyx/inc/Kirki_Option/Component.php:501, ../buddyx/inc/Welcome/Component.php:413
 msgid "Site Title Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:476, ../buddyx/inc/Kirki_Option/Component.php:502, ../buddyx/inc/Kirki_Option/Component.php:531, ../buddyx/inc/Kirki_Option/Component.php:557, ../buddyx/inc/Kirki_Option/Component.php:583, ../buddyx/inc/Kirki_Option/Component.php:609, ../buddyx/inc/Kirki_Option/Component.php:635, ../buddyx/inc/Kirki_Option/Component.php:661, ../buddyx/inc/Kirki_Option/Component.php:690, ../buddyx/inc/Kirki_Option/Component.php:719, ../buddyx/inc/Kirki_Option/Component.php:748
+#: ../buddyx/inc/Kirki_Option/Component.php:515, ../buddyx/inc/Kirki_Option/Component.php:541, ../buddyx/inc/Kirki_Option/Component.php:570, ../buddyx/inc/Kirki_Option/Component.php:596, ../buddyx/inc/Kirki_Option/Component.php:622, ../buddyx/inc/Kirki_Option/Component.php:648, ../buddyx/inc/Kirki_Option/Component.php:674, ../buddyx/inc/Kirki_Option/Component.php:700, ../buddyx/inc/Kirki_Option/Component.php:729, ../buddyx/inc/Kirki_Option/Component.php:758, ../buddyx/inc/Kirki_Option/Component.php:787
 msgid "We recommend using font size in pixels (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:488
+#: ../buddyx/inc/Kirki_Option/Component.php:527
 msgid "Site Tagline Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:517
+#: ../buddyx/inc/Kirki_Option/Component.php:556
 msgid "H1 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:543
+#: ../buddyx/inc/Kirki_Option/Component.php:582
 msgid "H2 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:569
+#: ../buddyx/inc/Kirki_Option/Component.php:608
 msgid "H3 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:595
+#: ../buddyx/inc/Kirki_Option/Component.php:634
 msgid "H4 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:621
+#: ../buddyx/inc/Kirki_Option/Component.php:660
 msgid "H5 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:647
+#: ../buddyx/inc/Kirki_Option/Component.php:686
 msgid "H6 Tag Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:676
+#: ../buddyx/inc/Kirki_Option/Component.php:715
 msgid "Menu Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:706
+#: ../buddyx/inc/Kirki_Option/Component.php:745
 msgid "Sub Menu Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:734
+#: ../buddyx/inc/Kirki_Option/Component.php:773
 msgid "Settings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:763
+#: ../buddyx/inc/Kirki_Option/Component.php:802
 msgid "Enable Sticky Header ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:767, ../buddyx/inc/Kirki_Option/Component.php:2017, ../buddyx/inc/Kirki_Option/Component.php:2030
+#: ../buddyx/inc/Kirki_Option/Component.php:806, ../buddyx/inc/Kirki_Option/Component.php:2060, ../buddyx/inc/Kirki_Option/Component.php:2073, ../buddyx/inc/Kirki_Option/Component.php:2256
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:768, ../buddyx/inc/Kirki_Option/Component.php:2018, ../buddyx/inc/Kirki_Option/Component.php:2031
+#: ../buddyx/inc/Kirki_Option/Component.php:807, ../buddyx/inc/Kirki_Option/Component.php:2061, ../buddyx/inc/Kirki_Option/Component.php:2074, ../buddyx/inc/Kirki_Option/Component.php:2257
 msgid "No"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:779
+#: ../buddyx/inc/Kirki_Option/Component.php:818
 msgid "Enable Search Icon"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:796
+#: ../buddyx/inc/Kirki_Option/Component.php:835
 msgid "Enable Cart Icon"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:813
+#: ../buddyx/inc/Kirki_Option/Component.php:852
 msgid "Enable Login Link"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:829
+#: ../buddyx/inc/Kirki_Option/Component.php:868
 msgid "Enable Register Link"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:845, ../buddyx/inc/Kirki_Option/Component.php:2209
+#: ../buddyx/inc/Kirki_Option/Component.php:884, ../buddyx/inc/Kirki_Option/Component.php:2269
 msgid "Customize Background ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:858, ../buddyx/inc/Kirki_Option/Component.php:2222
+#: ../buddyx/inc/Kirki_Option/Component.php:897, ../buddyx/inc/Kirki_Option/Component.php:2282
 msgid "Background Control"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:887, ../buddyx/inc/Welcome/Component.php:543
+#: ../buddyx/inc/Kirki_Option/Component.php:926, ../buddyx/inc/Welcome/Component.php:543
 msgid "Content Typography"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:911
+#: ../buddyx/inc/Kirki_Option/Component.php:950
 msgid "Site Breadcrumbs?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:927
+#: ../buddyx/inc/Kirki_Option/Component.php:966
 msgid "Loader"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:943
+#: ../buddyx/inc/Kirki_Option/Component.php:982
 msgid "Site Loader Background"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Welcome/Component.php:458
+#: ../buddyx/inc/Kirki_Option/Component.php:1006, ../buddyx/inc/Welcome/Component.php:458
 msgid "Header"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:976
+#: ../buddyx/inc/Kirki_Option/Component.php:1015
 msgid "Site Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:987
+#: ../buddyx/inc/Kirki_Option/Component.php:1026
 msgid "Site Title Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1004
+#: ../buddyx/inc/Kirki_Option/Component.php:1043
 msgid "Site Tagline Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1015
+#: ../buddyx/inc/Kirki_Option/Component.php:1054
 msgid "Header Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1044
+#: ../buddyx/inc/Kirki_Option/Component.php:1083
 msgid "Menu Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1055
+#: ../buddyx/inc/Kirki_Option/Component.php:1094
 msgid "Menu Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1076
+#: ../buddyx/inc/Kirki_Option/Component.php:1115
 msgid "Menu Active Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1102, ../buddyx/inc/Welcome/Component.php:568
+#: ../buddyx/inc/Kirki_Option/Component.php:1141, ../buddyx/inc/Welcome/Component.php:568
 msgid "Body Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1119
+#: ../buddyx/inc/Kirki_Option/Component.php:1158
 msgid "Body Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1130
+#: ../buddyx/inc/Kirki_Option/Component.php:1169
 msgid "Content Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1131
+#: ../buddyx/inc/Kirki_Option/Component.php:1170
 msgid "Note: This setting will only be used if the box layout is selected."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1154
+#: ../buddyx/inc/Kirki_Option/Component.php:1193
 msgid "Subheader Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1165, ../buddyx/inc/Welcome/Component.php:573
+#: ../buddyx/inc/Kirki_Option/Component.php:1204, ../buddyx/inc/Welcome/Component.php:573
 msgid "Theme Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1243, ../buddyx/inc/Welcome/Component.php:578
+#: ../buddyx/inc/Kirki_Option/Component.php:1282, ../buddyx/inc/Welcome/Component.php:578
 msgid "Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1260
+#: ../buddyx/inc/Kirki_Option/Component.php:1299
 msgid "Link Hover"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1287
+#: ../buddyx/inc/Kirki_Option/Component.php:1326
 msgid "H1 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1298
+#: ../buddyx/inc/Kirki_Option/Component.php:1337
 msgid "H2 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1309
+#: ../buddyx/inc/Kirki_Option/Component.php:1348
 msgid "H3 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1320
+#: ../buddyx/inc/Kirki_Option/Component.php:1359
 msgid "H4 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1331
+#: ../buddyx/inc/Kirki_Option/Component.php:1370
 msgid "H5 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1342
+#: ../buddyx/inc/Kirki_Option/Component.php:1381
 msgid "H6 Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1353
+#: ../buddyx/inc/Kirki_Option/Component.php:1392
 msgid "Buttons"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1363
+#: ../buddyx/inc/Kirki_Option/Component.php:1402
 msgid "Button Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1399
+#: ../buddyx/inc/Kirki_Option/Component.php:1439
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1430
+#: ../buddyx/inc/Kirki_Option/Component.php:1471
 msgid "Button Text Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1453
+#: ../buddyx/inc/Kirki_Option/Component.php:1494
 msgid "Button Text Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1476
+#: ../buddyx/inc/Kirki_Option/Component.php:1517
 msgid "Button Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1499
+#: ../buddyx/inc/Kirki_Option/Component.php:1541
 msgid "Button Border Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1538
+#: ../buddyx/inc/Kirki_Option/Component.php:1581
 msgid "Footer Title Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1555
+#: ../buddyx/inc/Kirki_Option/Component.php:1598
 msgid "Footer Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1572
+#: ../buddyx/inc/Kirki_Option/Component.php:1615
 msgid "Footer Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1589
+#: ../buddyx/inc/Kirki_Option/Component.php:1632
 msgid "Footer Link Hover"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1606
+#: ../buddyx/inc/Kirki_Option/Component.php:1649
 msgid "Copyright"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1622
+#: ../buddyx/inc/Kirki_Option/Component.php:1665
 msgid "Copyright Background Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1639
+#: ../buddyx/inc/Kirki_Option/Component.php:1682
 msgid "Copyright Border Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1656
+#: ../buddyx/inc/Kirki_Option/Component.php:1699
 msgid "Copyright Content Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1673
+#: ../buddyx/inc/Kirki_Option/Component.php:1716
 msgid "Copyright Link Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1690
+#: ../buddyx/inc/Kirki_Option/Component.php:1733
 msgid "Copyright Link Hover Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1710
+#: ../buddyx/inc/Kirki_Option/Component.php:1753
 msgid "Blog Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1726
+#: ../buddyx/inc/Kirki_Option/Component.php:1769
 msgid "Image position"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1731
+#: ../buddyx/inc/Kirki_Option/Component.php:1774
 msgid "Left"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1732
+#: ../buddyx/inc/Kirki_Option/Component.php:1775
 msgid "Right"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1747
+#: ../buddyx/inc/Kirki_Option/Component.php:1790
 msgid "Grid Columns"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1752
+#: ../buddyx/inc/Kirki_Option/Component.php:1795
 msgid "One"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1753, ../buddyx/inc/Kirki_Option/Component.php:1794
+#: ../buddyx/inc/Kirki_Option/Component.php:1796, ../buddyx/inc/Kirki_Option/Component.php:1837
 msgid "Two"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1768
+#: ../buddyx/inc/Kirki_Option/Component.php:1811
 msgid "View"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1773
+#: ../buddyx/inc/Kirki_Option/Component.php:1816
 msgid "Without Masonry"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1774
+#: ../buddyx/inc/Kirki_Option/Component.php:1817
 msgid "With Masonry"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1789, ../buddyx/inc/Welcome/Component.php:633
+#: ../buddyx/inc/Kirki_Option/Component.php:1832, ../buddyx/inc/Welcome/Component.php:633
 msgid "Post Per Row"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1795
+#: ../buddyx/inc/Kirki_Option/Component.php:1838
 msgid "Three"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1818
+#: ../buddyx/inc/Kirki_Option/Component.php:1861
 msgid "Single Post Content Width"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1832
+#: ../buddyx/inc/Kirki_Option/Component.php:1875
 msgid "Single Post Title Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1848
+#: ../buddyx/inc/Kirki_Option/Component.php:1891
 msgid "Image Overlay Color"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1849
+#: ../buddyx/inc/Kirki_Option/Component.php:1892
 msgid "Allow to add image overlay color on single post title layout one."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1877
+#: ../buddyx/inc/Kirki_Option/Component.php:1920
 msgid "Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1893
+#: ../buddyx/inc/Kirki_Option/Component.php:1936
 msgid "Single Post Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1911
+#: ../buddyx/inc/Kirki_Option/Component.php:1954
 msgid "Activity Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1927
+#: ../buddyx/inc/Kirki_Option/Component.php:1970
 msgid "Members Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1943
+#: ../buddyx/inc/Kirki_Option/Component.php:1986
 msgid "Groups Directory Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1962
+#: ../buddyx/inc/Kirki_Option/Component.php:2005
 msgid "bbPress Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1980
+#: ../buddyx/inc/Kirki_Option/Component.php:2023
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:1997
+#: ../buddyx/inc/Kirki_Option/Component.php:2040
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2013, ../buddyx/inc/Welcome/Component.php:693
+#: ../buddyx/inc/Kirki_Option/Component.php:2056, ../buddyx/inc/Welcome/Component.php:693
 msgid "Customize Your Logo Section"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2026
+#: ../buddyx/inc/Kirki_Option/Component.php:2069
 msgid "Disable Logo?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2046
+#: ../buddyx/inc/Kirki_Option/Component.php:2089
 msgid "Custom Logo"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2069
+#: ../buddyx/inc/Kirki_Option/Component.php:2112
 msgid "Logo Width"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2070
+#: ../buddyx/inc/Kirki_Option/Component.php:2113
 msgid "Select the logo width (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2093
+#: ../buddyx/inc/Kirki_Option/Component.php:2136
 msgid "Logo Height"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2094
+#: ../buddyx/inc/Kirki_Option/Component.php:2137
 msgid "Select the logo height (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2117
+#: ../buddyx/inc/Kirki_Option/Component.php:2160
 msgid "Logo Space Bottom"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2118
+#: ../buddyx/inc/Kirki_Option/Component.php:2161
 msgid "Select the logo bottom spacing (px)"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2141
+#: ../buddyx/inc/Kirki_Option/Component.php:2184
 msgid "Logo URL"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2164
+#: ../buddyx/inc/Kirki_Option/Component.php:2207
 msgid "Logo Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2187
+#: ../buddyx/inc/Kirki_Option/Component.php:2230
 msgid "Login Page Title"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2188
+#: ../buddyx/inc/Kirki_Option/Component.php:2231
 msgid "Login page title that is shown on WordPress login page."
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2254
+#: ../buddyx/inc/Kirki_Option/Component.php:2251
+msgid "Avatar Style"
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:2252
+msgid "Set the round style for member and group avatars."
+msgstr ""
+
+#: ../buddyx/inc/Kirki_Option/Component.php:2314
 msgid "Add Content"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2256
+#: ../buddyx/inc/Kirki_Option/Component.php:2316
 msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2267
+#: ../buddyx/inc/Kirki_Option/Component.php:2327
 msgid "Load Google Fonts Locally ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2280
+#: ../buddyx/inc/Kirki_Option/Component.php:2340
 msgid "Preload Local Fonts ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2300
+#: ../buddyx/inc/Kirki_Option/Component.php:2360
 msgid "Flush Local Fonts Cache"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:2301
+#: ../buddyx/inc/Kirki_Option/Component.php:2361
 msgid "Click the button to reset the local fonts cache."
 msgstr ""
 
@@ -2575,10 +2595,6 @@ msgstr ""
 
 #: ../buddyx/template-parts/header/buddypress-profile.php:122
 msgid "Log in"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:129, ../buddyx/template-parts/header/buddypress-profile.php:129
-msgid "Register"
 msgstr ""
 
 #: ../buddyx/template-parts/header/navigation.php:16

@@ -54,6 +54,9 @@ function buddyx_defaults( $key = '' ) {
 	// single post title layout
 	$defaults['single-post-title-layout'] = 'buddyx-section-title-above';
 
+	// buddypress avatar style
+	$defaults['buddypress-avatar-style'] = 'on';
+
 	if ( ! empty( $key ) && array_key_exists( $key, $defaults ) ) {
 		return $defaults[ $key ];
 	}

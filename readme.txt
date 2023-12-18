@@ -97,10 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.3 =
+* Fix: (#591) Managed rounded avatar style
+* Fix: (#589) Managed BuddyPress Block widgets UI+
+* Fix: (#588) Managed breadcrumb with bp register page
+
 = 4.6.2 =
-* Fix: (#584) Managed follow buttom position
+* Fix: (#584) Managed to follow button position
 * Fix: (#559) BuddyPress 12.0.0 fixes
-* Fix: (#581) Managed buddypress activity plus UI with latest update
+* Fix: (#581) Managed buddypress activity plus UI with the latest update
 * Fix: (#580) Added bp v12 support
 * Enhancement: (#580) Added cover image in members and groups directory page
 * Enhancement: (#580) Separate bb platform override files

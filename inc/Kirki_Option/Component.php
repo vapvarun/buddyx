@@ -21,7 +21,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'kirki_option';
 	}
 
@@ -40,12 +40,15 @@ class Component implements Component_Interface {
 		if ( class_exists( 'SFWD_LMS' ) ) {
 			add_filter( 'body_class', array( $this, 'site_learndash_body_classes' ) );
 		}
+		if ( class_exists( 'BuddyPress' ) ) {
+			add_filter( 'body_class', array( $this, 'site_buddypress_body_classes' ) );
+		}
 	}
 
 	/**
 	 * Site layout body class.
 	 */
-	public function site_width_body_classes( array $classes ) : array {
+	public function site_width_body_classes( array $classes ): array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
@@ -69,7 +72,7 @@ class Component implements Component_Interface {
 	/**
 	 * Site sticky sidebar body class.
 	 */
-	public function site_sticky_sidebar_body_classes( array $classes ) : array {
+	public function site_sticky_sidebar_body_classes( array $classes ): array {
 
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
 		if ( $sticky_sidebar ) {
@@ -82,7 +85,7 @@ class Component implements Component_Interface {
 	/**
 	 * Site single blog post body class.
 	 */
-	public function site_single_blog_post_body_classes( array $classes ) : array {
+	public function site_single_blog_post_body_classes( array $classes ): array {
 
 		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
 
@@ -105,6 +108,18 @@ class Component implements Component_Interface {
 	public function site_learndash_body_classes( array $classes ): array {
 		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] && is_user_logged_in() ) {
 			$classes[] = 'buddyx-dark-theme';
+		}
+
+		return $classes;
+	}
+
+	/**
+	 * BuddyPress body class.
+	 */
+	public function site_buddypress_body_classes( array $classes ): array {
+		$buddypress_avatar_style = get_theme_mod( 'buddypress_avatar_style', buddyx_defaults( 'buddypress-avatar-style' ) );
+		if ( $buddypress_avatar_style ) {
+			$classes[] = 'round-avatars';
 		}
 
 		return $classes;
@@ -275,6 +290,30 @@ class Component implements Component_Interface {
 				'panel'       => 'site_wp_login',
 			)
 		);
+
+		// BuddyPress Option.
+		if ( class_exists( 'BuddyPress' ) ) {
+			if ( ! class_exists( 'Youzify' ) ) {
+				new \Kirki\Panel(
+					'site_buddypress_panel',
+					array(
+						'title'       => esc_html__( 'Community Settings', 'buddyx' ),
+						'priority'    => 31,
+						'description' => '',
+					)
+				);
+			}
+
+			new \Kirki\Section(
+				'site_buddypress_general_section',
+				array(
+					'title'       => esc_html__( 'General Setting', 'buddyx' ),
+					'priority'    => 30,
+					'description' => '',
+					'panel'       => 'site_buddypress_panel',
+				)
+			);
+		}
 
 		// Site Footer.
 		new \Kirki\Panel(
@@ -652,7 +691,7 @@ class Component implements Component_Interface {
 					'font-size'       => '16px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'        => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -1371,6 +1410,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
 					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
 					.woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
+					.widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
                                         
                     .ld-course-list-items .ld_course_grid .btn-primary,
 					.learndash-wrapper .ld-expand-button,
@@ -1407,6 +1447,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
 					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
 					.woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
+					.widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
                                         
                     .ld-course-list-items .ld_course_grid .btn-primary:hover,
 					.learndash-wrapper .ld-expand-button:hover,
@@ -1437,7 +1478,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
 					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
 					.woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
-                    .learndash-course-widget-wrap .ld-course-status-action a,
+                    .learndash-course-widget-wrap .ld-course-status-action a, .widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
                     
                     .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
 					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link',
@@ -1460,7 +1501,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
 					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
 					.woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
-                    .learndash-course-widget-wrap .ld-course-status-action a:hover,
+                    .learndash-course-widget-wrap .ld-course-status-action a:hover, .widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
                     
                     .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover',
@@ -1483,6 +1524,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
 					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
                     .woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
+					.widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
                     
                     .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
 					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link,
@@ -1506,6 +1548,7 @@ class Component implements Component_Interface {
 						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
 					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
                     .woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
+					.widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
                     
                     .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
 					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
@@ -2199,6 +2242,23 @@ class Component implements Component_Interface {
 				),
 			)
 		);
+
+		if ( class_exists( 'BuddyPress' ) ) {
+
+			new \Kirki\Field\Checkbox_Switch(
+				array(
+					'settings'    => 'buddypress_avatar_style',
+					'label'       => esc_html__( 'Avatar Style', 'buddyx' ),
+					'description' => esc_html__( 'Set the round style for member and group avatars.', 'buddyx' ),
+					'section'     => 'site_buddypress_general_section',
+					'default'     => 'on',
+					'choices'     => array(
+						'on'  => esc_html__( 'Yes', 'buddyx' ),
+						'off' => esc_html__( 'No', 'buddyx' ),
+					),
+				)
+			);
+		}
 
 		/**
 		 *  Site Footer
