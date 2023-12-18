@@ -728,6 +728,10 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
     width: auto;
 }
 
+#buddypress #item-header-cover-image #item-header-avatar span.link-change-overlay {
+    display: none;
+}
+
 #item-header a.link-change-cover-image>i,
 #item-header a.position-change-cover-image>i,
 #item-header a.link-change-profile-image>i {
