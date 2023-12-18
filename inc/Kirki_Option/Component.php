@@ -21,7 +21,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'kirki_option';
 	}
 
@@ -40,12 +40,15 @@ class Component implements Component_Interface {
 		if ( class_exists( 'SFWD_LMS' ) ) {
 			add_filter( 'body_class', array( $this, 'site_learndash_body_classes' ) );
 		}
+		if ( class_exists( 'BuddyPress' ) ) {
+			add_filter( 'body_class', array( $this, 'site_buddypress_body_classes' ) );
+		}
 	}
 
 	/**
 	 * Site layout body class.
 	 */
-	public function site_width_body_classes( array $classes ) : array {
+	public function site_width_body_classes( array $classes ): array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
 
 		return $classes;
@@ -69,7 +72,7 @@ class Component implements Component_Interface {
 	/**
 	 * Site sticky sidebar body class.
 	 */
-	public function site_sticky_sidebar_body_classes( array $classes ) : array {
+	public function site_sticky_sidebar_body_classes( array $classes ): array {
 
 		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
 		if ( $sticky_sidebar ) {
@@ -82,7 +85,7 @@ class Component implements Component_Interface {
 	/**
 	 * Site single blog post body class.
 	 */
-	public function site_single_blog_post_body_classes( array $classes ) : array {
+	public function site_single_blog_post_body_classes( array $classes ): array {
 
 		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
 
@@ -105,6 +108,18 @@ class Component implements Component_Interface {
 	public function site_learndash_body_classes( array $classes ): array {
 		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] && is_user_logged_in() ) {
 			$classes[] = 'buddyx-dark-theme';
+		}
+
+		return $classes;
+	}
+
+	/**
+	 * BuddyPress body class.
+	 */
+	public function site_buddypress_body_classes( array $classes ): array {
+		$buddypress_avatar_style = get_theme_mod( 'buddypress_avatar_style', buddyx_defaults( 'buddypress-avatar-style' ) );
+		if ( $buddypress_avatar_style ) {
+			$classes[] = 'round-avatars';
 		}
 
 		return $classes;
@@ -275,6 +290,30 @@ class Component implements Component_Interface {
 				'panel'       => 'site_wp_login',
 			)
 		);
+
+		// BuddyPress Option.
+		if ( class_exists( 'BuddyPress' ) ) {
+			if ( ! class_exists( 'Youzify' ) ) {
+				new \Kirki\Panel(
+					'site_buddypress_panel',
+					array(
+						'title'       => esc_html__( 'Community Settings', 'buddyx' ),
+						'priority'    => 31,
+						'description' => '',
+					)
+				);
+			}
+
+			new \Kirki\Section(
+				'site_buddypress_general_section',
+				array(
+					'title'       => esc_html__( 'General Setting', 'buddyx' ),
+					'priority'    => 30,
+					'description' => '',
+					'panel'       => 'site_buddypress_panel',
+				)
+			);
+		}
 
 		// Site Footer.
 		new \Kirki\Panel(
@@ -652,7 +691,7 @@ class Component implements Component_Interface {
 					'font-size'       => '16px',
 					'line-height'     => '1.4',
 					'letter-spacing'  => '0',
-					'color'        => '#111111',
+					'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-align'      => '',
 					'text-decoration' => '',
@@ -2203,6 +2242,23 @@ class Component implements Component_Interface {
 				),
 			)
 		);
+
+		if ( class_exists( 'BuddyPress' ) ) {
+
+			new \Kirki\Field\Checkbox_Switch(
+				array(
+					'settings'    => 'buddypress_avatar_style',
+					'label'       => esc_html__( 'Avatar Style', 'buddyx' ),
+					'description' => esc_html__( 'Set the round style for member and group avatars.', 'buddyx' ),
+					'section'     => 'site_buddypress_general_section',
+					'default'     => 'on',
+					'choices'     => array(
+						'on'  => esc_html__( 'Yes', 'buddyx' ),
+						'off' => esc_html__( 'No', 'buddyx' ),
+					),
+				)
+			);
+		}
 
 		/**
 		 *  Site Footer

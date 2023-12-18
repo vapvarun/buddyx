@@ -357,6 +357,7 @@ body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
     border-radius: 3px;
 }
 
+body.round-avatars .buddypress-wrap .avatar,
 .buddypress.round-avatars .avatar {
     border-radius: 50%;
 }
@@ -1696,6 +1697,19 @@ input#rt_media_comment_submit {
 }
 
 li.load-more a.loading::after {
+    content: "\f110";
+    font-family: "FontAwesome";
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+    margin-left: 10px;
+    text-align: center;
+    display: inline-block;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+
+.buddypress .buddypress-wrap .generic-button .loading::after {
     content: "\f110";
     font-family: "FontAwesome";
     font-size: 18px;
