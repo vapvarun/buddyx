@@ -353,13 +353,25 @@ body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
     padding-left: 8px;
 }
 
-.buddypress .avatar {
+.buddypress .avatar,
+.grid > li .item-avatar .avatar {
     border-radius: 3px;
 }
 
 body.round-avatars .buddypress-wrap .avatar,
-.buddypress.round-avatars .avatar {
+.buddypress.round-avatars .avatar,
+body.round-avatars #buddypress #item-header-cover-image #item-header-avatar img.avatar {
     border-radius: 50%;
+}
+
+.round-avatars #buddypress #item-header-cover-image #item-header-avatar .member-status {
+    right: 15px;
+    top: 15px;
+}
+
+body:not(.round-avatars) .grid .member-status {
+    right: -2px;
+    top: -2px;
 }
 
 @media screen and (min-width: 46.8em) {
@@ -1781,7 +1793,7 @@ li.load-more a.loading::after {
     height: 80px;
     width: 80px;
     margin: 0 auto 10px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 .bp-member-preview-cover,
@@ -3338,6 +3350,7 @@ button#bp-delete-avatar {
 .widget .bp-block-member.avatar-full.has-cover .item-header-avatar,
 .widget .bp-block-group.avatar-full.has-cover .item-header-avatar {
     width: 100%;
+    text-align: center;
 }
 
 .widget .bp-block-group.avatar-full.has-cover img.avatar,
