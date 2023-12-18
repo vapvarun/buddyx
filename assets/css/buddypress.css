@@ -3085,6 +3085,8 @@ button#bp-delete-avatar {
 
 .buddypress-wrap .buddypress.widget .avatar-block,
 .buddypress.widget .avatar-block {
+    display: flex;
+    flex-flow: row wrap;
     margin: 0 -5px;
 }
 
@@ -3249,7 +3251,11 @@ button#bp-delete-avatar {
 
 .buddypress.widget div.activity-list blockquote .activity-item:not(.mini) {
     padding-top: 15px;
-    padding-bottom: 1px;
+    padding-bottom: 15px;
+}
+
+.buddypress.widget div.activity-list blockquote .activity-item:not(.mini) p {
+    margin: 0;
 }
 
 .wp-block-bp-login-form form#bp-login-widget-form {
@@ -3277,6 +3283,20 @@ button#bp-delete-avatar {
     outline: none;
 }
 
+.widget .bp-block-members .member-content .item-header-avatar img.avatar,
+.widget .bp-block-groups .group-content .item-header-avatar img.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.widget .bp-block-members.avatar-full .item-header-avatar,
+.widget .bp-block-groups.avatar-full .item-header-avatar {
+    width: 70px;
+}
+
+.widget .bp-dynamic-block-container .item-options {
+    font-size: 13px;
+}
 
 /*--------------------------------------------------------------
 # Extra Plugins Support
