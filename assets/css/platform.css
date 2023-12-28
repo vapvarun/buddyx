@@ -601,6 +601,15 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 /*--------------------------------------------------------------
 # Groups Directory
 --------------------------------------------------------------*/
+.round-avatars #buddypress #item-header-cover-image #item-header-avatar .member-status {
+    right: 15px;
+    top: 15px;
+}
+
+body:not(.round-avatars) .buddypress-wrap .members-list li .member-status {
+    right: -2px;
+    top: -2px;
+}
 
 .buddypress-wrap ul.bp-list.groups-dir-list:not(.grid) .item-entry .list-wrap {
     background: #fff;
@@ -649,6 +658,13 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     margin-top: auto;
     max-width: 126px;
     width: 100%;
+}
+
+.buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-enabled .group-avatar-wrap img.avatar {
+    border-radius: 3px;
+}
+
+body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-enabled .group-avatar-wrap img.avatar {
     border-radius: 50%;
 }
 
@@ -710,6 +726,10 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     float: left;
     overflow: visible;
     width: auto;
+}
+
+#buddypress #item-header-cover-image #item-header-avatar span.link-change-overlay {
+    display: none;
 }
 
 #item-header a.link-change-cover-image>i,
