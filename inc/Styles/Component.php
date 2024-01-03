@@ -238,7 +238,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( $pagenow === 'customize.php' ) {
 			wp_enqueue_script( 'buddyx-customizer-script', get_theme_file_uri( '/assets/js/buddyx-customizer.min.js' ), '', '', true );
 		}
-
 	}
 
 	/**
@@ -412,7 +411,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'preload_callback' => function () {
 					global $template;
 
-					return 'front-page.php' === basename( $template );
+					if ( $template ) {
+						return 'front-page.php' === basename( $template );
+					} else {
+						return false; // Or a different default behavior.
+					}
 				},
 			),
 			'buddyx-site-loader'      => array(
