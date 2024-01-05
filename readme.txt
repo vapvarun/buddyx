@@ -97,6 +97,11 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.4 =
+* Fix: (#598) Warning fixes with the BuddyPress private community plugin
+* Fix: Update reply form fieldset UI with bbpress
+* Fix: (#597) Managed animated button UI
+
 = 4.6.3 =
 * Fix: (#591) Managed rounded avatar style
 * Fix: (#589) Managed BuddyPress Block widgets UI+
