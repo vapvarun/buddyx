@@ -1721,7 +1721,7 @@ li.load-more a.loading::after {
     animation: spin 1s infinite linear;
 }
 
-.buddypress .buddypress-wrap .generic-button .loading::after {
+.buddypress .buddypress-wrap .generic-button .loading:not(.bp-tooltip):after {
     content: "\f110";
     font-family: "FontAwesome";
     font-size: 18px;
@@ -1732,6 +1732,10 @@ li.load-more a.loading::after {
     display: inline-block;
     -webkit-animation: spin 1s infinite linear;
     animation: spin 1s infinite linear;
+}
+
+.buddypress .buddypress-wrap .generic-button .loading {
+    animation: none;
 }
 
 @-ms-keyframes spin {
@@ -3626,6 +3630,7 @@ button#bp-delete-avatar {
     position: absolute;
     white-space: nowrap;
     z-index: 10;
+    animation: none !important;
 }
 
 [data-bp-tooltip][data-bp-tooltip-pos="right"]:after {
