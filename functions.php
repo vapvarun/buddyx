@@ -107,11 +107,6 @@ require get_template_directory() . '/inc/class-buddyx-breadcrumbs.php';
 // Load BuddyPress PRofile Completion widget.
 require get_template_directory() . '/inc/widgets/bp-profile-completion-widget.php';
 
-// Load BuddyPress functions.
-if ( class_exists( 'BuddyPress' ) ) {
-	require get_template_directory() . '/inc/compatibility/buddypress/buddypress-functions.php';
-}
-
 // Load webfont loader file.
 require get_template_directory() . '/inc/Webfont/class-buddyx-webfont-loader.php';
 
