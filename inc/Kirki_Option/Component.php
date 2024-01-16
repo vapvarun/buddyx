@@ -960,6 +960,19 @@ class Component implements Component_Interface {
 		/**
 		 * Site Skin
 		 */
+		new \Kirki\Field\Checkbox_Switch(
+			array(
+				'settings' => 'site_custom_colors',
+				'label'    => esc_html__( 'Set Custom Colors?', 'buddyx' ),
+				'section'  => 'site_skin_section',
+				'default'  => 'on',
+				'choices'  => array(
+					'on'  => esc_html__( 'Yes', 'buddyx' ),
+					'off' => esc_html__( 'No', 'buddyx' ),
+				),
+			)
+		);
+
 		new \Kirki\Field\Custom(
 			array(
 				'settings'        => 'custom-loader-divider',
@@ -967,6 +980,11 @@ class Component implements Component_Interface {
 				'section'         => 'site_skin_section',
 				'default'         => '<hr style="border-color: #c6c6c6">',
 				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
 					array(
 						'setting'  => 'site_loader',
 						'operator' => '==',
@@ -984,13 +1002,12 @@ class Component implements Component_Interface {
 				'default'         => '#ef5455',
 				'choices'         => array( 'alpha' => true ),
 				'priority'        => 10,
-				'output'          => array(
-					array(
-						'element'  => '.site-loader',
-						'property' => 'background-color',
-					),
-				),
 				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
 					array(
 						'setting'  => 'site_loader',
 						'operator' => '==',
@@ -1002,36 +1019,15 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-header-divider',
-				'label'    => esc_html__( 'Header', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #c6c6c6">',
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_title_typography_option[color]',
-				'label'    => esc_html__( 'Site Title Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_title_hover_color',
-				'label'    => esc_html__( 'Site Title Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'custom-header-divider',
+				'label'           => esc_html__( 'Header', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #c6c6c6">',
+				'active_callback' => array(
 					array(
-						'element'  => '.site-title a:hover',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1039,39 +1035,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_tagline_typography_option[color]',
-				'label'    => esc_html__( 'Site Tagline Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#757575',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_header_bg_color',
-				'label'    => esc_html__( 'Header Background Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_title_typography_option[color]',
+				'label'           => esc_html__( 'Site Title Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
 					array(
-						'element'  => '.site-header-wrapper, .layout-boxed .site-header-wrapper, .nav--toggle-sub ul ul, #user-profile-menu, .bp-header-submenu, .main-navigation .primary-menu-container, .main-navigation #user-profile-menu, .main-navigation .bp-header-submenu',
-						'property' => 'background-color',
-					),
-					array(
-						'element'  => '.site-header-wrapper',
-						'property' => 'border-color',
-					),
-					array(
-						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-						'property' => 'border-top-color',
-					),
-					array(
-						'element'  => '.menu-item--has-toggle>ul.sub-menu:before, .nav--toggle-sub ul.user-profile-menu .sub-menu:before, .bp-header-submenu:before, .user-profile-menu:before',
-						'property' => 'border-right-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1079,31 +1053,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'menu_typography_option[color]',
-				'label'    => esc_html__( 'Menu Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'menu_hover_color',
-				'label'    => esc_html__( 'Menu Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_title_hover_color',
+				'label'           => esc_html__( 'Site Title Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.main-navigation a:hover, .main-navigation ul li a:hover, .nav--toggle-sub li.menu-item-has-children:hover, .nav--toggle-small .menu-toggle:hover',
-						'property' => 'color',
-					),
-					array(
-						'element'  => '.nav--toggle-small .menu-toggle:hover',
-						'property' => 'border-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1111,16 +1071,89 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'menu_active_color',
-				'label'    => esc_html__( 'Menu Active Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_tagline_typography_option[color]',
+				'label'           => esc_html__( 'Site Tagline Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#757575',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
 					array(
-						'element'  => '.main-navigation ul li.current-menu-item>a',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_header_bg_color',
+				'label'           => esc_html__( 'Header Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'menu_typography_option[color]',
+				'label'           => esc_html__( 'Menu Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'menu_hover_color',
+				'label'           => esc_html__( 'Menu Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'menu_active_color',
+				'label'           => esc_html__( 'Menu Active Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1128,25 +1161,15 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-body-divider',
-				'label'    => esc_html__( 'Body', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #c6c6c6">',
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'body_background_color',
-				'label'    => esc_html__( 'Body Background Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#f7f7f9',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'custom-body-divider',
+				'label'           => esc_html__( 'Body', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #c6c6c6">',
+				'active_callback' => array(
 					array(
-						'element'  => 'body, body.layout-boxed',
-						'property' => 'background-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1154,12 +1177,37 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'typography_option[color]',
-				'label'    => esc_html__( 'Body Text Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#505050',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'body_background_color',
+				'label'           => esc_html__( 'Body Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#f7f7f9',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'typography_option[color]',
+				'label'           => esc_html__( 'Body Text Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#505050',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
@@ -1172,105 +1220,15 @@ class Component implements Component_Interface {
 				'default'         => '#f7f7f9',
 				'choices'         => array( 'alpha' => true ),
 				'priority'        => 10,
-				'output'          => array(
-					array(
-						'element'  => 'body.layout-boxed .site',
-						'property' => 'background-color',
-					),
-				),
 				'active_callback' => array(
 					array(
 						'setting' => 'site_layout',
 						'value'   => 'boxed',
 					),
-				),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_sub_header_typography[color]',
-				'label'    => esc_html__( 'Subheader Title Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-			)
-		);
-
-		new \Kirki\Field\Color(
-			array(
-				'settings' => 'site_primary_color',
-				'label'    => esc_html__( 'Theme Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
 					array(
-						'element'  => '.post-meta-category.post-meta-category a, .buddyx-breadcrumbs a, #breadcrumbs a, .pagination .current, .buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:focus, nav#object-nav.vertical .selected>a, .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.current a, .buddypress-wrap .main-navs:not(.dir-navs) li.selected a, .buddypress-wrap .bp-navs li.selected a:focus, .buddypress-wrap .bp-navs li.current a:focus,
-					.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a, .media .rtm-tabs li.active a, .buddypress.widget .item-options a.selected, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price,
-					
-                                        .learndash-wrapper .ld-expand-button.ld-button-alternate,
-					.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name:hover,
-					.learndash-wrapper .ld-table-list .ld-table-list-item .ld-table-list-title a:hover,
-					.learndash-wrapper .ld-table-list .ld-table-list-item .ld-table-list-title a:active,
-					.learndash-wrapper .ld-table-list .ld-table-list-item .ld-table-list-title a:focus,
-					.learndash-wrapper .ld-table-list a.ld-table-list-item-preview:hover,
-					.learndash-wrapper .ld-table-list a.ld-table-list-item-preview:active,
-					.learndash-wrapper .ld-table-list a.ld-table-list-item-preview:focus,
-					.learndash-wrapper .ld-expand-button.ld-button-alternate:hover,
-					.learndash-wrapper .ld-expand-button.ld-button-alternate:active,
-					.learndash-wrapper .ld-expand-button.ld-button-alternate:focus,
-					.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a:hover, .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a:active, .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a:focus, .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview:hover, .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview:active, .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview:focus,
-					
-					.learndash-wrapper .ld-status-unlocked,
-					#learndash_lesson_topics_list span a, #learndash_lessons a, #learndash_profile a, #learndash_profile a span, #learndash_quizzes a, .expand_collapse a, .learndash_topic_dots a, .learndash_topic_dots a>span,
-					#learndash_lessons h4>a, #learndash_quizzes h4>a, #learndash_lesson_topics_list ul>li>span a, #learndash_course_content .learndash_topic_dots ul>li a, #learndash_profile .learndash-course-link a, #learndash_profile .quiz_title a, #learndash_profile .profile_edit_profile a,
-					.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading, .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title,
-					.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading:hover,
-					.learndash-wrapper .ld-button.ld-button-transparent,
-					.learndash-wrapper .ld-focus .ld-focus-header .ld-button:hover,
-					.learndash-wrapper .ld-breadcrumbs a:hover, .learndash-wrapper .ld-breadcrumbs a:active, .learndash-wrapper .ld-breadcrumbs a:focus,
-					.learndash-wrapper .ld-content-actions>a:hover, .learndash-wrapper .ld-content-actions>a:active, .learndash-wrapper .ld-content-actions>a:focus,
-					.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active,
-					.learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-edit-link:hover,
-					.learndash-wrapper .ld-item-list .ld-section-heading .ld-search-prompt:hover,
-					#ld-profile .ld-item-list .ld-item-list-item a.ld-item-name:hover,
-					.learndash-wrapper .ld-item-list .ld-item-search .ld-closer:hover, .learndash-wrapper .ld-item-list .ld-item-search .ld-closer:active, .learndash-wrapper .ld-item-list .ld-item-search .ld-closer:focus, .learndash-wrapper .ld-home-link:hover, .learndash-wrapper .ld-home-link:active, .learndash-wrapper .ld-home-link:focus,
-					
-					#learndash_lessons h4>a:hover, #learndash_lessons h4>a:active, #learndash_lessons h4>a:focus, #learndash_quizzes h4>a:hover, #learndash_quizzes h4>a:active, #learndash_quizzes h4>a:focus, #learndash_lesson_topics_list ul>li>span a:hover, #learndash_lesson_topics_list ul>li>span a:active, #learndash_lesson_topics_list ul>li>span a:focus, #learndash_course_content .learndash_topic_dots ul>li a:hover, #learndash_course_content .learndash_topic_dots ul>li a:active, #learndash_course_content .learndash_topic_dots ul>li a:focus, #learndash_profile .learndash-course-link a:hover, #learndash_profile .learndash-course-link a:active, #learndash_profile .learndash-course-link a:focus, #learndash_profile .quiz_title a:hover, #learndash_profile .quiz_title a:active, #learndash_profile .quiz_title a:focus, #learndash_profile .profile_edit_profile a:hover, #learndash_profile .profile_edit_profile a:active, #learndash_profile .profile_edit_profile a:focus,
-                    ul.learn-press-courses .course .course-info .course-price .price, .widget .course-meta-field, .lp-single-course .course-price .price,
-                    
-                    .llms-student-dashboard .llms-sd-item.current>a, .llms-loop-item-content .llms-loop-title:hover, .llms-pagination ul li .page-numbers.current,
-					
-					.tribe-common--breakpoint-medium.tribe-events-pro .tribe-events-pro-map__event-datetime-featured-text, .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-datetime-featured-text, .tribe-common .tribe-common-c-svgicon, .tribe-common .tribe-common-cta--thin-alt:active, .tribe-common .tribe-common-cta--thin-alt:focus, .tribe-common .tribe-common-cta--thin-alt:hover, .tribe-common a:active, .tribe-common a:focus, .tribe-common a:hover, .tribe-events-cal-links .tribe-events-gcal, .tribe-events-cal-links .tribe-events-ical, .tribe-events-event-meta a, .tribe-events-event-meta a:visited, .tribe-events-pro .tribe-events-pro-organizer__meta-email-link, .tribe-events-pro .tribe-events-pro-organizer__meta-website-link, .tribe-events-pro .tribe-events-pro-photo__event-datetime-featured-text, .tribe-events-schedule .recurringinfo a, .tribe-events-single ul.tribe-related-events li .tribe-related-events-title a, .tribe-events-widget.tribe-events-widget .tribe-events-widget-events-list__view-more-link, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover, .tribe-events .tribe-events-c-ical__link, .tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date, .tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date-link, .tribe-related-event-info .recurringinfo a, .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum, .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum-link',
-						'property' => 'color',
-					),
-					array(
-						'element'  => '.buddypress-icons-wrapper .bp-msg sup, .buddypress-icons-wrapper .user-notifications sup, .menu-icons-wrapper .cart sup, .buddypress-wrap .bp-navs li.current a .count, .buddypress-wrap .bp-navs li.dynamic.current a .count, .buddypress-wrap .bp-navs li.selected a .count, .buddypress_object_nav .bp-navs li.current a .count, .buddypress_object_nav .bp-navs li.selected a .count, .buddypress-wrap .bp-navs li.dynamic.selected a .count, .buddypress_object_nav .bp-navs li.dynamic a .count, .buddypress_object_nav .bp-navs li.dynamic.current a .count, .buddypress_object_nav .bp-navs li.dynamic.selected a .count, .bp-navs ul li .count, .buddypress-wrap .bp-navs li.dynamic a .count, .bp-single-vert-nav .bp-navs.vertical li span, .buddypress-wrap .bp-navs li.dynamic a:hover .count, .buddypress_object_nav .bp-navs li.dynamic a:hover .count, .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span, .buddypress-wrap .rtm-bp-navs ul li.selected a>span, .users-header .bp-member-type, .bp-pagination-links span.page-numbers:not(.dots), .single-headers .group-status .group-type,
-                    .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after, .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after, .entry .post-categories a, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce span.onsale,
-                    .llms-progress .progress-bar-complete, body .llms-syllabus-wrapper .llms-section-title,
-					
-					.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after',
-						'property' => 'background-color',
-					),
-					array(
-						'element'  => '.tribe-events .datepicker .day.active, .tribe-events .datepicker .day.active.focused, .tribe-events .datepicker .day.active:focus, .tribe-events .datepicker .day.active:hover, .tribe-events .datepicker .month.active, .tribe-events .datepicker .month.active.focused, .tribe-events .datepicker .month.active:focus, .tribe-events .datepicker .month.active:hover, .tribe-events .datepicker .year.active, .tribe-events .datepicker .year.active.focused, .tribe-events .datepicker .year.active:focus, .tribe-events .datepicker .year.active:hover, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus, .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover, .tribe-events .tribe-events-c-ical__link:active, .tribe-events .tribe-events-c-ical__link:focus, .tribe-events .tribe-events-c-ical__link:hover, .widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after, .tribe-events-pro.tribe-events-view--week .datepicker .day.current:before',
-						'property' => 'background',
-					),
-					array(
-						'element'  => '.buddypress-wrap .bp-navs li.current a, .buddypress-wrap .bp-navs li.selected a, .avatar-history-table td .avatar.selected,
-					.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
-                    
-                    .llms-student-dashboard .llms-sd-item.current>a, .llms-student-dashboard .llms-sd-item>a:hover,
-					
-					.tribe-common .tribe-common-cta--thin-alt, .tribe-common .tribe-common-cta--thin-alt:active, .tribe-common .tribe-common-cta--thin-alt:focus, .tribe-common .tribe-common-cta--thin-alt:hover, .tribe-events-pro .tribe-events-pro-map__event-card-wrapper--active .tribe-events-pro-map__event-card-button, .tribe-events-pro .tribe-events-pro-week-day-selector__day--active, .tribe-events .tribe-events-c-ical__link',
-						'property' => 'border-color',
-					),
-					array(
-						'element'  => '.tribe-common .tribe-common-anchor-thin:active, .tribe-common .tribe-common-anchor-thin:focus, .tribe-common .tribe-common-anchor-thin:hover, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus, .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover',
-						'property' => 'border-bottom-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1278,16 +1236,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_links_color',
-				'label'    => esc_html__( 'Link Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'box_background_color',
+				'label'           => esc_html__( 'Box Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => 'a',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1295,17 +1254,89 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_links_focus_hover_color',
-				'label'    => esc_html__( 'Link Hover', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'secondary_background_color',
+				'label'           => esc_html__( 'Secondary Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#fafafa',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => 'a:hover, a:active, a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:hover, .rtmedia-actions-before-comments .rtmedia-comment-link:hover, .rtmedia-actions-before-comments .rtmedia-view-conversation:hover, #buddypress .rtmedia-actions-before-comments .rtmedia-like:hover, .buddypress-wrap .bp-navs li:not(.current) a:focus, .buddypress-wrap .bp-navs li:not(.current) a:hover, .buddypress-wrap .bp-navs li:not(.selected) a:focus, .buddypress-wrap .bp-navs li:not(.selected) a:hover, nav#object-nav.vertical a:hover,
-					.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_sub_header_typography[color]',
+				'label'           => esc_html__( 'Subheader Title Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_primary_color',
+				'label'           => esc_html__( 'Theme Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_links_color',
+				'label'           => esc_html__( 'Link Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Color(
+			array(
+				'settings'        => 'site_links_focus_hover_color',
+				'label'           => esc_html__( 'Link Hover', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1313,121 +1344,159 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-headings-divider',
-				'label'    => esc_html__( 'Headings', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #c6c6c6">',
+				'settings'        => 'custom-headings-divider',
+				'label'           => esc_html__( 'Headings', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #c6c6c6">',
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h1_typography_option[color]',
-				'label'    => esc_html__( 'H1 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h1_typography_option[color]',
+				'label'           => esc_html__( 'H1 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h2_typography_option[color]',
-				'label'    => esc_html__( 'H2 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h2_typography_option[color]',
+				'label'           => esc_html__( 'H2 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h3_typography_option[color]',
-				'label'    => esc_html__( 'H3 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h3_typography_option[color]',
+				'label'           => esc_html__( 'H3 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h4_typography_option[color]',
-				'label'    => esc_html__( 'H4 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h4_typography_option[color]',
+				'label'           => esc_html__( 'H4 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h5_typography_option[color]',
-				'label'    => esc_html__( 'H5 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h5_typography_option[color]',
+				'label'           => esc_html__( 'H5 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'h6_typography_option[color]',
-				'label'    => esc_html__( 'H6 Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
+				'settings'        => 'h6_typography_option[color]',
+				'label'           => esc_html__( 'H6 Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		new \Kirki\Field\Custom(
 			array(
-				'settings' => 'custom-button-divider',
-				'label'    => esc_html__( 'Buttons', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '<hr style="border-color: #c6c6c6">',
+				'settings'        => 'custom-button-divider',
+				'label'           => esc_html__( 'Buttons', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '<hr style="border-color: #c6c6c6">',
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			)
 		);
 
 		// Site Buttons.
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_background_color',
-				'label'    => esc_html__( 'Button Background Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-				'output'   => array(
+				'settings'        => 'site_buttons_background_color',
+				'label'           => esc_html__( 'Button Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
-					.woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
-					.widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
-                                        
-                    .ld-course-list-items .ld_course_grid .btn-primary,
-					.learndash-wrapper .ld-expand-button,
-					.learndash-wrapper .ld-expand-button.ld-button-alternate .ld-icon,
-					.learndash-wrapper .ld-table-list .ld-table-list-header,
-					.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading,
-					.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger,
-					.learndash-wrapper .ld-button,
-					.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a,
-					.learndash-wrapper .ld-button, .learndash-wrapper .ld-content-actions .ld-button, .learndash-wrapper .ld-expand-button, .learndash-wrapper .ld-alert .ld-button,
-					.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active:after,
-                    .learndash-wrapper .btn-join, .learndash-wrapper #btn-join, .learndash-wrapper .learndash_mark_complete_button, .learndash-wrapper #learndash_mark_complete_button, .ld-course-status-action .ld-button, .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button, .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button, .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary, .ldx-plugin .uo-toolkit-grid__course-action input, .learndash-resume-button input[type=submit], .learndash-reset-form .learndash-reset-button[type=submit], .learndash-wrapper .ld-login-modal input[type=submit], .learndash-wrapper .ld-login-button, .learndash-course-widget-wrap .ld-course-status-action a,
-                    
-                    .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
-					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link,
-					.tribe-common .tribe-common-c-btn, .tribe-common a.tribe-common-c-btn',
-						'property' => 'background',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1435,31 +1504,18 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_background_hover_color',
-				'label'    => esc_html__( 'Button Background Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#f83939',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'choices'  => array( 'alpha' => true ),
-				'output'   => array(
+				'settings'        => 'site_buttons_background_hover_color',
+				'label'           => esc_html__( 'Button Background Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#f83939',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'choices'         => array( 'alpha' => true ),
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
-					.woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
-					.widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
-                                        
-                    .ld-course-list-items .ld_course_grid .btn-primary:hover,
-					.learndash-wrapper .ld-expand-button:hover,
-					.learndash-wrapper .ld-button:hover,
-					.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a:hover,
-					.learndash-wrapper .ld-button:hover, .learndash-wrapper .ld-button:active, .learndash-wrapper .ld-button:focus, .learndash-wrapper .ld-content-actions .ld-button:hover, .learndash-wrapper .ld-content-actions .ld-button:active, .learndash-wrapper .ld-content-actions .ld-button:focus, .learndash-wrapper .ld-expand-button:hover, .learndash-wrapper .ld-expand-button:active, .learndash-wrapper .ld-expand-button:focus, .learndash-wrapper .ld-alert .ld-button:hover, .learndash-wrapper .ld-alert .ld-button:active, .learndash-wrapper .ld-alert .ld-button:focus,
-                    .learndash-wrapper .btn-join:hover, .learndash-wrapper .btn-join:active, .learndash-wrapper .btn-join:focus, .learndash-wrapper #btn-join:hover, .learndash-wrapper #btn-join:active, .learndash-wrapper #btn-join:focus, .learndash-wrapper .learndash_mark_complete_button:hover, .learndash-wrapper .learndash_mark_complete_button:active, .learndash-wrapper .learndash_mark_complete_button:focus, .learndash-wrapper #learndash_mark_complete_button:hover, .learndash-wrapper #learndash_mark_complete_button:active, .learndash-wrapper #learndash_mark_complete_button:focus, .ld-course-status-action .ld-button:hover, .ld-course-status-action .ld-button:active, .ld-course-status-action .ld-button:focus, .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button:hover, .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button:active, .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button:focus, .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button:hover, .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button:active, .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button:focus, .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary:hover, .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary:active, .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary:focus, .ldx-plugin .uo-toolkit-grid__course-action input:hover, .ldx-plugin .uo-toolkit-grid__course-action input:active, .ldx-plugin .uo-toolkit-grid__course-action input:focus, .learndash-resume-button input[type=submit]:hover, .learndash-resume-button input[type=submit]:active, .learndash-resume-button input[type=submit]:focus, .learndash-reset-form .learndash-reset-button[type=submit]:hover, .learndash-reset-form .learndash-reset-button[type=submit]:active, .learndash-reset-form .learndash-reset-button[type=submit]:focus, .learndash-wrapper .ld-login-modal input[type=submit]:hover, .learndash-wrapper .ld-login-modal input[type=submit]:active, .learndash-wrapper .ld-login-modal input[type=submit]:focus, .learndash-wrapper .ld-login-button:hover, .learndash-wrapper .ld-login-button:active, .learndash-wrapper .ld-login-button:focus, .learndash-course-widget-wrap .ld-course-status-action a:hover,
-                    
-                    .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
-					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
-					.tribe-common .tribe-common-c-btn:focus, .tribe-common .tribe-common-c-btn:hover, .tribe-common a.tribe-common-c-btn:focus, .tribe-common a.tribe-common-c-btn:hover',
-						'property' => 'background',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1467,22 +1523,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_text_color',
-				'label'    => esc_html__( 'Button Text Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_buttons_text_color',
+				'label'           => esc_html__( 'Button Text Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
-					.woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
-                    .learndash-course-widget-wrap .ld-course-status-action a, .widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
-                    
-                    .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
-					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1490,22 +1541,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_text_hover_color',
-				'label'    => esc_html__( 'Button Text Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_buttons_text_hover_color',
+				'label'           => esc_html__( 'Button Text Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
-					.woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
-                    .learndash-course-widget-wrap .ld-course-status-action a:hover, .widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
-                    
-                    .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
-					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1513,23 +1559,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_border_color',
-				'label'    => esc_html__( 'Button Border Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_buttons_border_color',
+				'label'           => esc_html__( 'Button Border Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle, a.read-more.button, input[type="button"], input[type="reset"], button[type=submit], input[type="submit"],
-					#buddypress.buddypress-wrap .activity-list .load-more a, #buddypress.buddypress-wrap .activity-list .load-newest a, #buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button, #buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset]:not(.text-button), #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button, .buddypress .buddypress-wrap .bp-list.grid .action a, .buddypress .buddypress-wrap .bp-list.grid .action button, a.bp-title-button, form#bp-data-export button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a, .buddypress .buddypress-wrap button.button, .buddypress .buddypress-wrap button.button.edit, .buddypress .buddypress-wrap .btn-default, .moderation-popup .modal-container .bb-model-footer .button.report-submit, button#bbp_topic_submit, button#bbp_reply_submit, .buddypress .buddypress-wrap button.mpp-button-primary, button#mpp-edit-media-submit, .ges-change, .buddypress .buddypress-wrap button.ges-change, .group-email-tooltip__close, .buddypress .buddypress-wrap button.group-email-tooltip__close, #bplock-login-btn, #bplock-register-btn, .bgr-submit-review, #bupr_save_review, button.friendship-button, button.group-button, .avatar-history-actions button.avatar-history-action.recycle, .avatar-history-actions button.avatar-history-action.delete, .avatar-history-actions button.recycle.disabled, .avatar-history-actions button.delete.disabled, #buddypress #header-cover-image .header-cover-reposition-wrap>.button, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button, button.gamipress-achievement-unlock-with-points-button,
-                    .woocommerce-product-search button[type=submit], .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button, .woocommerce input.button.alt, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
-					.widget .bp-block-group.has-description .bp-profile-button a.button, .widget .bp-block-member .bp-profile-button a.button,
-                    
-                    .llms-button-secondary, .llms-button-primary, .llms-button-action, .llms-button-primary:focus, .llms-button-primary:active, .llms-button-action:focus, .llms-button-action:active,
-					#wp-idea-stream a.button, #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:not(.ed_button), #wp-idea-stream input[type=reset], #wp-idea-stream input[type=submit]:not(.search-submit), a.wpis-title-button, body.single-ideas #comments .comment-reply-link,
-					.tribe-common .tribe-common-c-btn, .tribe-common a.tribe-common-c-btn',
-						'property' => 'border-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1537,23 +1577,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_buttons_border_hover_color',
-				'label'    => esc_html__( 'Button Border Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#f83939',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_buttons_border_hover_color',
+				'label'           => esc_html__( 'Button Border Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#f83939',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.buddyx-mobile-menu .dropdown-toggle:hover, a.read-more.button:hover, input[type="button"]:hover, input[type="reset"]:hover, button[type=submit]:hover, input[type="submit"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus,
-					#buddypress.buddypress-wrap .activity-list .load-more a:hover, #buddypress.buddypress-wrap .activity-list .load-newest a:hover, #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover, #buddypress a.button:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:not(.text-button):hover, #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover, #buddypress input[type=submit]:focus, .buddypress .buddypress-wrap .action button:hover, .buddypress .buddypress-wrap .bp-list.grid .action a:focus, .buddypress .buddypress-wrap .bp-list.grid .action a:hover, .buddypress .buddypress-wrap .bp-list.grid .action button:focus, .buddypress .buddypress-wrap .bp-list.grid .action button:hover, :hover a.bp-title-button:hover, form#bp-data-export button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content button:hover, body.bp-nouveau.media #buddypress div#item-header div#item-header-content a:hover, .buddypress .buddypress-wrap button.button:hover, .buddypress .buddypress-wrap button.button.edit:hover, .buddypress .buddypress-wrap .btn-default:hover, .moderation-popup .modal-container .bb-model-footer .button.report-submit:hover, button#bbp_topic_submit:hover, button#bbp_reply_submit:hover, .buddypress .buddypress-wrap button.mpp-button-primary:hover, button#mpp-edit-media-submit:hover, .ges-change:hover, .buddypress .buddypress-wrap button.ges-change:hover, .group-email-tooltip__close:hover, .buddypress .buddypress-wrap button.group-email-tooltip__close:hover, #bplock-login-btn:hover, #bplock-register-btn:hover, .bgr-submit-review:hover, #bupr_save_review:hover, button.friendship-button:hover, button.group-button:hover, .avatar-history-actions button.avatar-history-action.recycle:hover, .avatar-history-actions button.avatar-history-action.delete:hover, .avatar-history-actions button.recycle.disabled:hover, .avatar-history-actions button.delete.disabled:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:hover, #buddypress #header-cover-image .header-cover-reposition-wrap>.button:focus, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover, button.gamipress-achievement-unlock-with-points-button:hover,
-                    .woocommerce-product-search button[type=submit]:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce input.button:hover, .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
-					.widget .bp-block-group.has-description .bp-profile-button a.button:hover, .widget .bp-block-member .bp-profile-button a.button:hover,
-                    
-                    .llms-button-secondary:hover, .llms-button-primary:hover, .llms-button-action:hover, .llms-button-action.clicked,
-					#wp-idea-stream a.button:focus, #wp-idea-stream a.button:hover, #wp-idea-stream button:hover:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close), #wp-idea-stream input[type=button]:hover:not(.ed_button), #wp-idea-stream input[type=reset]:hover, #wp-idea-stream input[type=submit]:hover:not(.search-submit), a.wpis-title-button:focus, a.wpis-title-button:hover, body.single-ideas #comments .comment-reply-link:hover,
-					.tribe-common .tribe-common-c-btn:focus, .tribe-common .tribe-common-c-btn:hover, .tribe-common a.tribe-common-c-btn:focus, .tribe-common a.tribe-common-c-btn:hover',
-						'property' => 'border-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1577,16 +1611,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_footer_title_color',
-				'label'    => esc_html__( 'Footer Title Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_footer_title_color',
+				'label'           => esc_html__( 'Footer Title Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-footer .widget-title',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1594,16 +1629,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_footer_content_color',
-				'label'    => esc_html__( 'Footer Content Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#505050',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_footer_content_color',
+				'label'           => esc_html__( 'Footer Content Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#505050',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-footer',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1611,16 +1647,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_footer_links_color',
-				'label'    => esc_html__( 'Footer Link Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_footer_links_color',
+				'label'           => esc_html__( 'Footer Link Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-footer a',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1628,16 +1665,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_footer_links_hover_color',
-				'label'    => esc_html__( 'Footer Link Hover', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_footer_links_hover_color',
+				'label'           => esc_html__( 'Footer Link Hover', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-footer a:hover, .site-footer a:active',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1655,22 +1693,28 @@ class Component implements Component_Interface {
 						'operator' => '==',
 						'value'    => true,
 					),
+					array(
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
+					),
 				),
 			)
 		);
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_copyright_background_color',
-				'label'    => esc_html__( 'Copyright Background Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_copyright_background_color',
+				'label'           => esc_html__( 'Copyright Background Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-info',
-						'property' => 'background-color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1695,16 +1739,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_copyright_content_color',
-				'label'    => esc_html__( 'Copyright Content Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#505050',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_copyright_content_color',
+				'label'           => esc_html__( 'Copyright Content Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#505050',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-info',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1712,16 +1757,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_copyright_links_color',
-				'label'    => esc_html__( 'Copyright Link Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#111111',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_copyright_links_color',
+				'label'           => esc_html__( 'Copyright Link Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#111111',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-info a',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)
@@ -1729,16 +1775,17 @@ class Component implements Component_Interface {
 
 		new \Kirki\Field\Color(
 			array(
-				'settings' => 'site_copyright_links_hover_color',
-				'label'    => esc_html__( 'Copyright Link Hover Color', 'buddyx' ),
-				'section'  => 'site_skin_section',
-				'default'  => '#ef5455',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'output'   => array(
+				'settings'        => 'site_copyright_links_hover_color',
+				'label'           => esc_html__( 'Copyright Link Hover Color', 'buddyx' ),
+				'section'         => 'site_skin_section',
+				'default'         => '#ef5455',
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'active_callback' => array(
 					array(
-						'element'  => '.site-info a:hover',
-						'property' => 'color',
+						'setting'  => 'site_custom_colors',
+						'operator' => '==',
+						'value'    => true,
 					),
 				),
 			)

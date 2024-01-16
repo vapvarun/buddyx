@@ -31,7 +31,7 @@
 .wcvendors-pro-dashboard-wrapper .wcv-form .control-group button {
     font-family: inherit;
     font-size: inherit;
-    color: #fff;
+    color: var(--button-text-color);
     background-color: var(--button-background-color);
     border-radius: var(--button-border-radius);
     padding: 10px 20px;
@@ -54,7 +54,7 @@
 
 .wcvendors-pro-dashboard-wrapper .wcv-form .control-group .button:hover,
 .wcvendors-pro-dashboard-wrapper .wcv-form .control-group button:hover {
-    color: #fff;
+    color: var(--button-text-hover-color);
     background-color: var(--button-background-hover-color);
     border: 1px solid var(--button-border-hover-color);
 }
@@ -113,12 +113,12 @@
 }
 
 .wcv_vendorslist .vendor_list .vendor_list--shop-name a:hover {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 .vendor_list {
     position: relative;
-    border: 1px solid #e8e8e8;
+    border: 1px solid var(--global-border-color);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
@@ -164,20 +164,20 @@
 .wcv-dashboard-navigation ul li a {
     padding: 8px 13px;
     font-size: 14px;
-    background-color: var(--button_background_color);
-    color: #ffffff;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     border-radius: 3px;
     transition: all 0.3s;
 }
 
 .wcv-dashboard-navigation ul li a:hover {
-    background-color: var(--button_background_color);
-    color: #ffffff;
+    background-color: var(--button-background-color);
+    color: var(--button-text-hover-color);
 }
 
 .table-condensed {
     background: #ffffff;
-    border: 0px solid #e8e8e8;
+    border: 0px solid var(--global-border-color);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: 5px;
@@ -231,7 +231,7 @@
 
 table {
     background: #ffffff;
-    border: 0px solid #e8e8e8;
+    border: 0px solid var(--global-border-color);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: 5px;
@@ -326,7 +326,7 @@ table.table-condensed tr:nth-child(even) td {
 .wcv_shop_description {
     position: relative;
     background: #fff;
-    border: 1px solid #e8e8e8;
+    border: 1px solid var(--global-border-color);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);

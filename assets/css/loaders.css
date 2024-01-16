@@ -9,7 +9,7 @@
     top: 0;
     width: 100%;
     z-index: 999991;
-    background: #ef5455;
+    background: var(--color-theme-loader);
 }
 
 .loader-inner:before {
