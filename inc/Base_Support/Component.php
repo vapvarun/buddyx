@@ -34,7 +34,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'base_support';
 	}
 
@@ -42,12 +42,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_essential_theme_support' ] );
-		add_action( 'wp_head', [ $this, 'action_add_pingback_header' ] );
-		add_filter( 'body_class', [ $this, 'filter_body_classes_add_hfeed' ] );
-		add_filter( 'embed_defaults', [ $this, 'filter_embed_dimensions' ] );
-		add_filter( 'theme_scandir_exclusions', [ $this, 'filter_scandir_exclusions_for_optional_templates' ] );
-		add_filter( 'script_loader_tag', [ $this, 'filter_script_loader_tag' ], 10, 2 );
+		add_action( 'after_setup_theme', array( $this, 'action_essential_theme_support' ) );
+		add_action( 'wp_head', array( $this, 'action_add_pingback_header' ) );
+		add_filter( 'body_class', array( $this, 'filter_body_classes_add_hfeed' ) );
+		add_filter( 'embed_defaults', array( $this, 'filter_embed_dimensions' ) );
+		add_filter( 'theme_scandir_exclusions', array( $this, 'filter_scandir_exclusions_for_optional_templates' ) );
+		add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
+		add_action( 'init', array( $this, 'buddyx_theme_block_styles' ) );
+		add_action( 'init', array( $this, 'buddyx_register_block_patterns' ) );
 	}
 
 	/**
@@ -57,11 +59,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
 	 *               adding support for further arguments in the future.
 	 */
-	public function template_tags() : array {
-		return [
-			'get_version'       => [ $this, 'get_version' ],
-			'get_asset_version' => [ $this, 'get_asset_version' ],
-		];
+	public function template_tags(): array {
+		return array(
+			'get_version'       => array( $this, 'get_version' ),
+			'get_asset_version' => array( $this, 'get_asset_version' ),
+		);
 	}
 
 	/**
@@ -77,27 +79,30 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Ensure WordPress theme features render in HTML5 markup.
 		add_theme_support(
 			'html5',
-			[
+			array(
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			]
+			)
 		);
 
 		/*
 		 * Enable support for Post Formats.
 		 * See http://codex.wordpress.org/Post_Formats
 		 */
-		add_theme_support( 'post-formats', [
-			'image',
-			'gallery',
-			'quote',
-			'video',
-			'audio',
-			'link'
-		] );
+		add_theme_support(
+			'post-formats',
+			array(
+				'image',
+				'gallery',
+				'quote',
+				'video',
+				'audio',
+				'link',
+			)
+		);
 
 		// Add support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -108,6 +113,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Add support custom-header, custom-background.
 		add_theme_support( 'custom-header' );
 		add_theme_support( 'custom-background' );
+
+		// Add support for block styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Add support for block patterns.
+		add_theme_support( 'editor-patterns' );
 	}
 
 	/**
@@ -125,7 +136,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $classes Classes for the body element.
 	 * @return array Filtered body classes.
 	 */
-	public function filter_body_classes_add_hfeed( array $classes ) : array {
+	public function filter_body_classes_add_hfeed( array $classes ): array {
 		if ( ! is_singular() ) {
 			$classes[] = 'hfeed';
 		}
@@ -139,7 +150,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $dimensions An array of embed width and height values in pixels (in that order).
 	 * @return array Filtered dimensions array.
 	 */
-	public function filter_embed_dimensions( array $dimensions ) : array {
+	public function filter_embed_dimensions( array $dimensions ): array {
 		$dimensions['width'] = 720;
 		return $dimensions;
 	}
@@ -152,10 +163,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $exclusions the default directories to exclude.
 	 * @return array Filtered exclusions.
 	 */
-	public function filter_scandir_exclusions_for_optional_templates( array $exclusions ) : array {
+	public function filter_scandir_exclusions_for_optional_templates( array $exclusions ): array {
 		return array_merge(
 			$exclusions,
-			[ 'optional' ]
+			array( 'optional' )
 		);
 	}
 
@@ -170,9 +181,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param string $handle The script handle.
 	 * @return string Script HTML string.
 	 */
-	public function filter_script_loader_tag( string $tag, string $handle ) : string {
+	public function filter_script_loader_tag( string $tag, string $handle ): string {
 
-		foreach ( [ 'async', 'defer' ] as $attr ) {
+		foreach ( array( 'async', 'defer' ) as $attr ) {
 			if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
 				continue;
 			}
@@ -194,7 +205,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return string Theme version number.
 	 */
-	public function get_version() : string {
+	public function get_version(): string {
 		static $theme_version = null;
 
 		if ( null === $theme_version ) {
@@ -212,11 +223,53 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param string $filepath Asset file path.
 	 * @return string Asset version number.
 	 */
-	public function get_asset_version( string $filepath ) : string {
+	public function get_asset_version( string $filepath ): string {
 		if ( WP_DEBUG ) {
 			return (string) filemtime( $filepath );
 		}
 
 		return $this->get_version();
+	}
+
+	/**
+	 * Register block styles.
+	 */
+	public function buddyx_theme_block_styles() {
+		if ( function_exists( 'register_block_style' ) ) {
+			register_block_style(
+				'core/image',
+				array(
+					'name'  => 'buddyx-border',
+					'label' => esc_html__( 'Borders', 'buddyx' ),
+					'style' => 'buddyx-border-style'
+				)
+			);
+		}
+	}
+
+	/**
+	 * Register register block patterns.
+	 */
+	public function buddyx_register_block_patterns() {
+
+		if ( function_exists( 'register_block_pattern_category' ) ) {
+			register_block_pattern_category(
+				'buddyx',
+				array( 'label' => __( 'BuddyX', 'buddyx' ) )
+			);
+		}
+
+		if ( function_exists( 'register_block_pattern' ) ) {
+			$block_patterns = array(
+				'footer-small',
+			);
+
+			foreach ( $block_patterns as $block_pattern ) {
+				register_block_pattern(
+					'buddyx/' . $block_pattern,
+					require __DIR__ . '/patterns/' . $block_pattern . '.php'
+				);
+			}
+		}
 	}
 }

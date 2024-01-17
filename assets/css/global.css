@@ -28,8 +28,8 @@
 /*--------------------------------------------------------------
 # Imports
 --------------------------------------------------------------*/
-
 @import "_custom-properties.css";
+@import "_blocks-style.css";
 @import "_reset.css";
 @import "_typography.css";
 @import "_elements.css";
