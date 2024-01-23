@@ -133,7 +133,10 @@ if ( ! function_exists( 'buddyx_user_status' ) ) {
  * showing member cover image on member directory page
  */
 if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
-	add_action( 'buddyx_before_member_avatar_member_directory', 'buddyx_render_member_cover_image', 10 );
+
+	if ( ! bp_disable_cover_image_uploads() ) {
+		add_action( 'buddyx_before_member_avatar_member_directory', 'buddyx_render_member_cover_image', 10 );
+	}
 
 	function buddyx_render_member_cover_image() {
 		$cover_img_url = bp_attachments_get_attachment(
@@ -155,7 +158,9 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
  * Showing group cover image on groups directory page
  */
 if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
-	add_action( 'buddyx_before_group_avatar_group_directory', 'buddyx_render_group_cover_image', 10 );
+	if ( ! bp_disable_group_cover_image_uploads() ) {
+		add_action( 'buddyx_before_group_avatar_group_directory', 'buddyx_render_group_cover_image', 10 );
+	}
 
 	function buddyx_render_group_cover_image() {
 		$cover_img_url = bp_attachments_get_attachment(

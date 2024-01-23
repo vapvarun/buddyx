@@ -2096,7 +2096,12 @@ li.load-more a.loading::after {
     display: none;
 }
 
-.buddypress-wrap .grid.bp-list>li .list-wrap .item-avatar {
+.buddypress-wrap .grid.bp-list>li .list-wrap .buddyx-mem-cover-wrapper+.item-avatar {
+    margin-top: -80px;
+    margin-bottom: 15px;
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .buddyx-grp-cover-wrapper+.item-avatar {
     margin-top: -80px;
     margin-bottom: 15px;
 }
