@@ -180,21 +180,34 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 	 * @return mixed         Markup of custom text option.
 	 */
 	function buddyx_footer_custom_text() {
-		$copyright = esc_html( get_theme_mod( 'site_copyright_text' ) );
-		$output    = $copyright;
-		if ( '' != $output ) {
+
+		$copyright = get_theme_mod( 'site_copyright_text' );
+		if ( ! empty( $copyright ) ) {
+			$copyright    = str_replace( '[current_year]', date_i18n( 'Y' ), $copyright );
+			$copyright    = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $copyright );
+			$theme_author = apply_filters(
+				'buddyx_theme_author',
+				array(
+					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
+					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
+				)
+			);
+			$copyright    = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $copyright );
+			return apply_filters( 'buddyx_footer_copyright_text', $copyright );
+		} else {
+			$output       = 'Copyright © [current_year] [site_title] | Powered by [theme_author]';
 			$output       = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
 			$output       = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $output );
 			$theme_author = apply_filters(
 				'buddyx_theme_author',
 				array(
-					'theme_name'       => __( 'BuddyX WordPress Theme', 'buddyx' ),
+					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
 					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
 				)
 			);
 			$output       = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
+			return apply_filters( 'buddyx_footer_copyright_text', $output );
 		}
-		return apply_filters( 'buddyx_footer_copyright_text', $output, $copyright );
 	}
 }
 

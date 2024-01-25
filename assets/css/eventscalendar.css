@@ -91,7 +91,7 @@
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover,
 .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum,
 .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum-link {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 .tribe-common .tribe-common-anchor-thin:active,
@@ -100,11 +100,11 @@
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover {
-    border-bottom-color: var(--color-link-active);
+    border-bottom-color: var(--color-theme-primary);
 }
 
 .tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after {
-    background-color: var(--color-link-active);
+    background-color: var(--color-theme-primary);
 }
 
 .tribe-events .tribe-events-c-ical__link,
@@ -114,7 +114,7 @@
 .tribe-common .tribe-common-cta--thin-alt:focus,
 .tribe-common .tribe-common-cta--thin-alt:hover,
 .tribe-events-pro .tribe-events-pro-week-day-selector__day--active {
-    border-color: var(--color-link-active);
+    border-color: var(--color-theme-primary);
 }
 
 .tribe-events .datepicker .day.active,
@@ -133,28 +133,28 @@
 .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus,
 .widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover,
 .tribe-events-pro.tribe-events-view--week .datepicker .day.current:before {
-    background: var(--color-link-active);
+    background: var(--color-theme-primary);
 }
 
 .tribe-events .tribe-events-c-ical__link:active,
 .tribe-events .tribe-events-c-ical__link:focus,
 .tribe-events .tribe-events-c-ical__link:hover,
 .widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after {
-    background-color: var(--color-link-active);
+    background-color: var(--color-theme-primary);
 }
 
 .tribe-common .tribe-common-c-btn,
 .tribe-common a.tribe-common-c-btn {
-    background-color: var(--button_background_color);
-    border: 1px solid var(--button_border_color);
+    background-color: var(--button-background-color);
+    border: 1px solid var(--button-border-color);
 }
 
 .tribe-common .tribe-common-c-btn:focus,
 .tribe-common .tribe-common-c-btn:hover,
 .tribe-common a.tribe-common-c-btn:focus,
 .tribe-common a.tribe-common-c-btn:hover {
-    background-color: var(--button_background_hover_color);
-    border: 1px solid var(--button_border_hover_color);
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
 }
 
 

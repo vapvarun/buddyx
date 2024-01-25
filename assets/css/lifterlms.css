@@ -31,8 +31,8 @@
 .llms-button-action {
     font-family: inherit;
     font-size: initial;
-    color: #fff;
-    background-color: var(--button_background_color);
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
     border-radius: 3px !important;
     padding: 10px 20px;
     font-weight: 700;
@@ -42,7 +42,7 @@
     cursor: pointer;
     display: inline-block;
     line-height: 1.3;
-    border: 1px solid var(--button_border_color);
+    border: 1px solid var(--button-border-color);
     outline: 0;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -56,16 +56,16 @@
 .llms-button-primary:hover,
 .llms-button-action:hover,
 .llms-button-action.clicked {
-    background-color: var(--button_background_hover_color);
-    border: 1px solid var(--button_border_hover_color);
-    color: #fff;
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+    color: var(--button-text-hover-color);
 }
 
 .llms-button-primary:focus,
 .llms-button-primary:active,
 .llms-button-action:focus,
 .llms-button-action:active {
-    background-color: var(--button_background_color);
+    background-color: var(--button-background-color);
 }
 
 .llms-button-action.large,
@@ -124,16 +124,16 @@
 
 .llms-student-dashboard .llms-sd-item>a:hover {
     background: #fff;
-    border: 1px solid var(--color-link-hover);
+    border: 1px solid var(--color-theme-primary);
 }
 
 .llms-student-dashboard .llms-sd-item.current>a {
     background: #fff;
-    border: 1px solid var(--color-link-hover);
+    border: 1px solid var(--color-theme-primary);
 }
 
 .llms-student-dashboard .llms-sd-item.current>a {
-    color: var(--color-link-hover);
+    color: var(--color-theme-primary);
 }
 
 .llms-student-dashboard .llms-sd-item .llms-sep {
@@ -208,7 +208,7 @@
 }
 
 .llms-loop-item-content .llms-loop-title:hover {
-    color: var(--color-link-hover);
+    color: var(--color-theme-primary);
 }
 
 .llms-loop-item-content .llms-author {
@@ -246,7 +246,7 @@
 }
 
 .llms-progress .progress-bar-complete {
-    background: var(--color-link-hover);
+    background: var(--color-theme-primary);
 }
 
 
@@ -281,7 +281,7 @@ body .llms-syllabus-wrapper .llms-section-title {
     text-align: left;
     font-size: 1.1em;
     padding: 10px 15px;
-    background: var(--color-link-hover);
+    background: var(--color-theme-primary);
     color: #fff;
     font-weight: 600;
     line-height: 1.75;
@@ -450,5 +450,5 @@ body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
 }
 
 .llms-pagination ul li .page-numbers.current {
-    color: var(--color-link-hover);
+    color: var(--color-theme-primary);
 }

@@ -85,3 +85,8 @@ option {
 	padding-left: 2.5em;
 	padding-right: 2.5em;
 }
+
+.wp-block-image.is-style-buddyx-border img {
+    border: 2px solid var(--color-theme-primary); /* Adjust the border properties as needed */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+}

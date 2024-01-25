@@ -18,7 +18,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: var(--color-link-active);
+    color: var(--color-link-hover);
 }
 
 a:hover,

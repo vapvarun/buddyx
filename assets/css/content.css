@@ -110,7 +110,7 @@
 }
 
 .post-meta-category a {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
     font-size: 13px;
 }
 

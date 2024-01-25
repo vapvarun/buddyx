@@ -119,7 +119,7 @@ ul.learn-press-courses .course .course-info .course-price .price {
 }
 
 ul.learn-press-courses .course .course-info .course-price .price {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 ul.learn-press-courses .course .course-info .course-instructor a {
@@ -265,7 +265,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .lp-single-course .course-price .price {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 #learn-press-course .course-summary-sidebar .course-sidebar-preview .lp-course-buttons button.learn-press-course-wishlist {
@@ -459,7 +459,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 13px;
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 .widget .course-detail .course-meta-data a,
@@ -476,7 +476,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .widget_lp-widget-course-info .lp-widget .lp-course-info-fields .lp-course-info .lp-label {
-    background: var(--color-link-active);
+    background: var(--color-theme-primary);
 }
 
 
@@ -644,7 +644,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 }
 
 .lp-list-table thead tr th {
-    background: var(--color-link-active) !important;
+    background: var(--color-theme-primary) !important;
 }
 
 @media (max-width: 500px) {
@@ -671,7 +671,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
         background: #F5F5F5;
     }
     #learn-press-profile-nav:hover #profile-mobile-menu {
-        background: var(--color-link-active) !important;
+        background: var(--color-theme-primary) !important;
     }
     #learn-press-profile-nav .tabs>li.active ul,
     #learn-press-profile-nav .tabs>li.active a,

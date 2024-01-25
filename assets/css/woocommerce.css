@@ -72,8 +72,8 @@
 .woocommerce input.button:disabled[disabled] {
     font-family: inherit;
     font-size: inherit;
-    color: #fff;
-    background-color: var(--button_background_color);
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
     border-radius: var(--button-border-radius);
     padding: 8px 20px;
     font-weight: 700;
@@ -83,7 +83,7 @@
     cursor: pointer;
     display: inline-block;
     line-height: 1.3;
-    border: 1px solid var(--button_border_color);
+    border: 1px solid var(--button-border-color);
     outline: 0;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -114,18 +114,18 @@
 .woocommerce input.button.disabled:hover,
 .woocommerce input.button:disabled:hover,
 .woocommerce input.button:disabled[disabled]:hover {
-    background-color: var(--button_background_hover_color);
-    border: 1px solid var(--button_border_hover_color);
-    color: #fff;
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+    color: var(--button-text-hover-color);
 }
 
 .woocommerce nav.woocommerce-pagination ul li span.current {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:focus,
 .woocommerce nav.woocommerce-pagination ul li a:hover {
-    color: var(--color-link-hover);
+    color: var(--color-theme-primary);
 }
 
 
@@ -658,7 +658,7 @@ form.woocommerce-cart-form {
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a {
-    color: var(--color-link-active);
+    color: var(--color-theme-primary);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:after {
@@ -675,11 +675,11 @@ form.woocommerce-cart-form {
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:hover:after {
-    background: var(--color-link-active);
+    background: var(--color-theme-primary);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after {
-    background: var(--color-link-active);
+    background: var(--color-theme-primary);
 }
 
 .widget_product_search input[type=search] {
@@ -694,7 +694,7 @@ form.woocommerce-cart-form {
 
 .woocommerce .widget_price_filter .ui-slider .ui-slider-range,
 .woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
-    background-color: var(--color-link-active);
+    background-color: var(--color-theme-primary);
 }
 
 

@@ -1,0 +1,19 @@
+@import "_custom-properties.css";
+
+/*--------------------------------------------------------------
+## Blocks Style
+--------------------------------------------------------------*/
+
+/*
+ * Available block selectors:
+ * .core/image
+ */
+
+/*--------------------------------------------------------------
+# Block Style - core/image
+--------------------------------------------------------------*/
+
+.wp-block-image.is-style-buddyx-border img {
+    border: 2px solid var(--color-theme-primary); /* Adjust the border properties as needed */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+}
