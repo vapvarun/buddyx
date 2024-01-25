@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.5 =
+* Fix: (#603) Managed groups and members directory cover image, avatar enable and disable via setting
+* Fix: (#602) Update pattern alignment
+* Fix: (#602) Theme check warnings fixes
+* Fix: (#601) Managed site colors scheme apply via variables
+* Fix: (#600) Added fallback copyright when first activation
+
 = 4.6.4 =
 * Fix: (#598) Warning fixes with the BuddyPress private community plugin
 * Fix: Update reply form fieldset UI with bbpress
