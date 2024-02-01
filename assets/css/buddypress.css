@@ -53,6 +53,10 @@
 # Global Buddypress Css
 --------------------------------------------------------------*/
 
+body.buddypress article.page>.entry-header .entry-title {
+    color: var(--color-h1);
+}
+
 .buddypress .entry-meta {
     display: none;
 }

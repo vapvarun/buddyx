@@ -247,11 +247,11 @@
     min-width: 1.75em;
     line-height: 1.5;
     text-align: center;
-    background: #fff!important;
+    background: #fff !important;
     font-weight: 400;
     border-radius: .28571429rem;
     text-transform: none;
-    text-shadow: none!important;
+    text-shadow: none !important;
     box-shadow: inset 0 0 0 1px #e8e8e8;
     padding: 10px 15px;
     text-decoration: none;
@@ -357,6 +357,7 @@
 }
 
 @media only screen and (max-width: 767px) {
+
     .woocommerce div.product .woocommerce-tabs .panel,
     .woocommerce-page div.product .woocommerce-tabs .panel {
         padding: 1em;
@@ -616,6 +617,13 @@ form.woocommerce-cart-form {
 /*--------------------------------------------------------------
 # My Account Page
 --------------------------------------------------------------*/
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+    background: var(--color-theme-white-box);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
 
 .woocommerce .entry-content:not(.wc-tab) ol,
 .woocommerce-page .entry-content:not(.wc-tab) ol,
