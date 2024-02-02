@@ -12,6 +12,13 @@
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
+@media (min-width: 576px) {
+    .container,
+    .container-sm {
+        max-width: 100%;
+    }
+}
+
 div a {
     color: var(--color-link);
 }
@@ -103,6 +110,10 @@ div.entry-content div#mvx-store-conatiner {
     flex-wrap: wrap;
 }
 
+div#mvx-store-conatiner * .mvx-topProduct::after {
+    background: var(--global-border-color);
+}
+
 div#mvx-store-conatiner .mvx-store-list-wrap.list-3 .mvx-store-list.mvx-store-list-vendor {
     padding: 15px 12px 17px 20px;
     min-height: auto;
@@ -164,20 +175,30 @@ div#mvx-store-conatiner .mvx-store-map-filter {
 /*--------------------------------------------------------------
 # Single Store
 --------------------------------------------------------------*/
-.tax-dc_vendor_shop header.woocommerce-products-header {
+.product-vendor header.woocommerce-products-header {
     margin-top: 2rem;
 }
 
-.tax-dc_vendor_shop .woocommerce-products-header__title {
+.product-vendor .woocommerce-products-header__title {
     display: none;
+}
+
+.product-vendor #primary {
+    min-height: auto;
+}
+
+div.mvx_bannersec_start {
+    padding: 0;
 }
 
 .product a.by-vendor-name-link {
     margin: 0 16px;
 }
 
-.tax-dc_vendor_shop .mvx-main-section {
-    margin: 0 -14px;
+@media (min-width: 768px) {
+    .product-vendor .mvx-main-section {
+        margin: 0 -14px;
+    }
 }
 
 .mvx-main-section .mvx-tab-header {
@@ -192,6 +213,53 @@ div.mvx-tab-header {
     background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
+}
+
+div.mvx-banner-wrap {
+    background: var(--color-theme-white-box);
+}
+
+/* Theme 2 */
+.mvx-theme03 .mvx-banner-wrap {
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+    padding: 15px;
+}
+
+.mvx-theme03 .banner-img-cls {
+    overflow: hidden;
+    margin: -15px;
+    margin-bottom: 15px;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
+}
+
+.mvx-theme03 .mvx-banner-area {
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    #mvx-store-conatiner .mvx-store-locator-wrap~div.mvx-store-list-wrap .mvx-store-list.mvx-store-list-vendor {
+        width: 100% !important;
+    }
+
+    .mvx-theme02 .mvx-banner-area {
+        padding: 15px;
+        border: 1px solid #eee;
+        border-top: 0;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Store Reviews
+--------------------------------------------------------------*/
+div#mvx_vendor_reviews #comments h2 {
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+
+div#mvx_vendor_reviews #comments ol.commentlist {
+    padding: 0;
 }
 
 /*--------------------------------------------------------------
