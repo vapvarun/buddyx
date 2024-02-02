@@ -145,7 +145,7 @@
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
     position: relative;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
     box-shadow: none;
@@ -276,7 +276,7 @@
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
     height: 100%;
 }
 
@@ -351,7 +351,7 @@
 .woocommerce-page div.product .woocommerce-tabs .panel {
     margin: 0 0 2em;
     padding: 1.5em;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
 }
@@ -410,6 +410,11 @@
 
 .woocommerce-page div.product .woocommerce-tabs .panel ol.commentlist {
     padding-left: 0;
+}
+
+.woocommerce #reviews #comments ol.commentlist li .comment-text {
+    background: var(--color-theme-white-box);
+    border-color: var(--global-border-color);
 }
 
 .woocommerce #reviews #comments ol.commentlist li img.avatar {
@@ -493,7 +498,7 @@
 .woocommerce-cart .cart-collaterals .cart_totals table,
 .woocommerce-checkout .cart-collaterals .cart_totals table,
 form.woocommerce-cart-form {
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 form.woocommerce-cart-form {
@@ -509,7 +514,7 @@ form.woocommerce-cart-form {
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 #add_payment_method .wc-proceed-to-checkout a.checkout-button,
@@ -552,7 +557,7 @@ form.woocommerce-cart-form {
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .select2-container.select2-container--default span.select2-choice,
@@ -643,7 +648,7 @@ form.woocommerce-cart-form {
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .woocommerce-account .woocommerce-MyAccount-content .woocommerce-Button.button {

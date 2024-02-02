@@ -993,6 +993,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         content: "\f107";
         font-family: "FontAwesome";
         font-size: 18px;
+        border: 0;
     }
 
     .main-navigation ul.menu ul li {

@@ -443,7 +443,7 @@ article .entry-header {
     padding: 1em;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .buddyx-article--default .buddyx-article.sticky {
@@ -528,7 +528,7 @@ article .entry-header {
     padding: 1em;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .buddyx-article--list .buddyx-article.sticky {
@@ -862,7 +862,7 @@ article .entry-header {
     padding: 1rem;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
     display: flex;
     flex-direction: column;
 }
