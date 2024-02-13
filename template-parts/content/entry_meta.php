@@ -118,8 +118,5 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<?php
 	}?>
 	</div><!-- .entry-meta__content -->
-	<?php
-	edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
-	?>
 </div><!-- .entry-meta -->
 <?php

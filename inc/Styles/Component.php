@@ -195,7 +195,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css' );
 		}
 
-		// Enqueue WP_Job_Manager CSS.
+		// Enqueue MVX CSS.
 		if ( class_exists( 'MVX' ) ) {
 			wp_enqueue_style( 'multivendorx', $css_uri . 'multivendorx.min.css' );
 		}
