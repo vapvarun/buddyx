@@ -819,6 +819,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
 }
 
+.primary-menu-container .dropdown-toggle::after {
+    border: 0;
+}
+
 .main-navigation .user-profile-menu li a,
 .main-navigation .bp-header-submenu li a {
     padding: 6px 15px;
@@ -1560,7 +1564,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     position: relative;
 }
 
-.buddypress-icons-wrapper .user-link-wrap img.avatar {
+.buddypress-icons-wrapper .user-link-wrap img.avatar,
+.buddypress-icons-wrapper .user-link-wrap img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
