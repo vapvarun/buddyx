@@ -485,7 +485,7 @@ body.elementor-editor-active .site-wrapper {
 
     .left-sidebar,
     .woo-left-sidebar {
-        order: 2;
+        order: 10;
         width: 100%;
     }
 
