@@ -101,7 +101,6 @@ Released under the MIT license
 * Fix: (#612) Managed activities scrolling issue
 * Fix: (#611) Managed textbox auto zooming issue on iOS devices
 * Update: (#610) Update edit post link code and fixes
-* Removal: (#610) Removed edit post link
 * Enhancement: (#607) Managed BP docs comments
 * UI Update: Managed to get support button UI in a single product page
 * UI Update: (#605) Managed single vendor page UI
