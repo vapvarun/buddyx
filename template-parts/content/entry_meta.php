@@ -119,7 +119,9 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 	}?>
 	</div><!-- .entry-meta__content -->
 	<?php
-	edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+		edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
+	}
 	?>
 </div><!-- .entry-meta -->
 <?php

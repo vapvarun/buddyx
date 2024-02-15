@@ -474,7 +474,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 --------------------------------------------------------------*/
 
 .single-sfwd-courses .entry-content {
-    background: #fff;
+    background: var(--color-theme-white-box);
     margin: 0;
     padding: 25px;
     border: 1px solid var(--global-border-color);
@@ -575,7 +575,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     margin: 0;
     margin-top: -.5em;
     padding: 1em;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
 }

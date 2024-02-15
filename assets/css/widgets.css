@@ -18,7 +18,7 @@
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .widget-area .widget:first-child {
@@ -250,7 +250,7 @@ ol.wp-block-latest-comments {
     padding: 0.2em;
     font-size: 0.8em;
     text-align: center;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid #ccc;
 }
 

@@ -21,7 +21,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'dynamic_style';
 	}
 
@@ -73,9 +73,16 @@ class Component implements Component_Interface {
 				$site_copyright_links_hover_color    = get_theme_mod( 'site_copyright_links_hover_color' );
 
 				$light_attrs = 'body { ';
+
 				if ( isset( $site_loader_bg ) && ! empty( $site_loader_bg ) ) {
 					$color      = get_theme_mod( 'site_loader_bg' );
 					$color_var .= '--color-theme-loader: ' . $color . ' !important;';
+				}
+
+				$site_title_typography_option_color = get_theme_mod( 'site_title_typography_option' );
+				if ( isset( $site_title_typography_option_color['color'] ) && ! empty( $site_title_typography_option_color['color'] ) ) {
+					$color      = $site_title_typography_option_color['color'];
+					$color_var .= '--color-site-title: ' . $color . ' !important;';
 				}
 
 				if ( isset( $site_title_hover_color ) && ! empty( $site_title_hover_color ) ) {
@@ -83,9 +90,21 @@ class Component implements Component_Interface {
 					$color_var .= '--color-site-title-hover: ' . $color . ' !important;';
 				}
 
+				$site_tagline_typography_option_color = get_theme_mod( 'site_tagline_typography_option' );
+				if ( isset( $site_tagline_typography_option_color['color'] ) && ! empty( $site_tagline_typography_option_color['color'] ) ) {
+					$color      = $site_tagline_typography_option_color['color'];
+					$color_var .= '--color-site-tagline: ' . $color . ' !important;';
+				}
+
 				if ( isset( $site_header_bg_color ) && ! empty( $site_header_bg_color ) ) {
 					$color      = get_theme_mod( 'site_header_bg_color' );
 					$color_var .= '--color-header-bg: ' . $color . ' !important;';
+				}
+
+				$menu_typography_option_color = get_theme_mod( 'menu_typography_option' );
+				if ( isset( $menu_typography_option_color['color'] ) && ! empty( $menu_typography_option_color['color'] ) ) {
+					$color      = $menu_typography_option_color['color'];
+					$color_var .= '--color-menu: ' . $color . ' !important;';
 				}
 
 				if ( isset( $menu_hover_color ) && ! empty( $menu_hover_color ) ) {
@@ -96,6 +115,18 @@ class Component implements Component_Interface {
 				if ( isset( $menu_active_color ) && ! empty( $menu_active_color ) ) {
 					$color      = get_theme_mod( 'menu_active_color' );
 					$color_var .= '--color-menu-active: ' . $color . ' !important;';
+				}
+
+				$site_sub_header_typography_color = get_theme_mod( 'site_sub_header_typography' );
+				if ( isset( $site_sub_header_typography_color['color'] ) && ! empty( $site_sub_header_typography_color['color'] ) ) {
+					$color      = $site_sub_header_typography_color['color'];
+					$color_var .= '--color-subheader-title: ' . $color . ' !important;';
+				}
+
+				$typography_option_color = get_theme_mod( 'typography_option' );
+				if ( isset( $typography_option_color['color'] ) && ! empty( $typography_option_color['color'] ) ) {
+					$color      = $typography_option_color['color'];
+					$color_var .= '--global-font-color: ' . $color . ' !important;';
 				}
 
 				if ( isset( $body_background_color ) && ! empty( $body_background_color ) ) {
@@ -131,6 +162,44 @@ class Component implements Component_Interface {
 				if ( isset( $site_links_focus_hover_color ) && ! empty( $site_links_focus_hover_color ) ) {
 					$color      = get_theme_mod( 'site_links_focus_hover_color' );
 					$color_var .= '--color-link-hover: ' . $color . ' !important;';
+				}
+
+				// Heading color.
+				$h1_typography_color = get_theme_mod( 'h1_typography_option' );
+				$h2_typography_color = get_theme_mod( 'h2_typography_option' );
+				$h3_typography_color = get_theme_mod( 'h3_typography_option' );
+				$h4_typography_color = get_theme_mod( 'h4_typography_option' );
+				$h5_typography_color = get_theme_mod( 'h5_typography_option' );
+				$h6_typography_color = get_theme_mod( 'h6_typography_option' );
+
+				if ( isset( $h1_typography_color['color'] ) && ! empty( $h1_typography_color['color'] ) ) {
+					$color      = $h1_typography_color['color'];
+					$color_var .= '--color-h1: ' . $color . ' !important;';
+				}
+
+				if ( isset( $h2_typography_color['color'] ) && ! empty( $h2_typography_color['color'] ) ) {
+					$color      = $h2_typography_color['color'];
+					$color_var .= '--color-h2: ' . $color . ' !important;';
+				}
+
+				if ( isset( $h3_typography_color['color'] ) && ! empty( $h3_typography_color['color'] ) ) {
+					$color      = $h3_typography_color['color'];
+					$color_var .= '--color-h3: ' . $color . ' !important;';
+				}
+
+				if ( isset( $h4_typography_color['color'] ) && ! empty( $h4_typography_color['color'] ) ) {
+					$color      = $h4_typography_color['color'];
+					$color_var .= '--color-h4: ' . $color . ' !important;';
+				}
+
+				if ( isset( $h5_typography_color['color'] ) && ! empty( $h5_typography_color['color'] ) ) {
+					$color      = $h5_typography_color['color'];
+					$color_var .= '--color-h5: ' . $color . ' !important;';
+				}
+
+				if ( isset( $h6_typography_color['color'] ) && ! empty( $h6_typography_color['color'] ) ) {
+					$color      = $h6_typography_color['color'];
+					$color_var .= '--color-h6: ' . $color . ' !important;';
 				}
 
 				if ( isset( $site_border_color ) && ! empty( $site_border_color ) ) {

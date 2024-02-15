@@ -195,6 +195,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css' );
 		}
 
+		// Enqueue MVX CSS.
+		if ( class_exists( 'MVX' ) ) {
+			wp_enqueue_style( 'multivendorx', $css_uri . 'multivendorx.min.css' );
+		}
+
 		// Enqueue Slick CSS.
 		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css' );
 

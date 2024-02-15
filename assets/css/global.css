@@ -485,7 +485,7 @@ body.elementor-editor-active .site-wrapper {
 
     .left-sidebar,
     .woo-left-sidebar {
-        order: 2;
+        order: 10;
         width: 100%;
     }
 
@@ -761,7 +761,7 @@ select {
     font-weight: inherit;
     line-height: 1.4;
     word-wrap: break-word;
-    color: #757575;
+    color: var(--color-site-tagline);
 }
 
 
@@ -817,6 +817,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     body.admin-bar .has-sticky-header .main-navigation .primary-menu-container {
         top: 0;
     }
+}
+
+.primary-menu-container .dropdown-toggle::after {
+    border: 0;
 }
 
 .main-navigation .user-profile-menu li a,
@@ -993,6 +997,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         content: "\f107";
         font-family: "FontAwesome";
         font-size: 18px;
+        border: 0;
     }
 
     .main-navigation ul.menu ul li {
@@ -1264,7 +1269,13 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     width: 100%;
     padding: 0.5em 1em 0.5em 0;
     text-decoration: none;
-    color: #000;
+    color: var(--color-menu);
+}
+
+.main-navigation ul li a,
+.nav--toggle-sub li.menu-item-has-children,
+.nav--toggle-small .menu-toggle {
+    color: var(--color-menu);
 }
 
 .main-navigation a:hover,
@@ -1272,6 +1283,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .nav--toggle-sub li.menu-item-has-children:hover,
 .nav--toggle-small .menu-toggle:hover {
     color: var(--color-menu-hover);
+}
+
+.nav--toggle-small .menu-toggle {
+    border-color: var(--color-menu);
 }
 
 .nav--toggle-small .menu-toggle:hover {
@@ -1549,7 +1564,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     position: relative;
 }
 
-.buddypress-icons-wrapper .user-link-wrap img.avatar {
+.buddypress-icons-wrapper .user-link-wrap img.avatar,
+.buddypress-icons-wrapper .user-link-wrap img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -2105,7 +2121,7 @@ body.layout-boxed .site {
 .site-sub-header .page-title,
 .site-sub-header .page-header,
 .site-sub-header .entry-header-title {
-    color: #111;
+    color: var(--color-subheader-title);
     margin-right: auto;
 }
 

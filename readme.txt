@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.6 =
+* Fix: (#612) Managed activities scrolling issue
+* Fix: (#611) Managed textbox auto zooming issue on iOS devices
+* Update: (#610) Update edit post link code and fixes
+* Enhancement: (#607) Managed BP docs comments
+* UI Update: Managed to get support button UI in a single product page
+* UI Update: (#605) Managed single vendor page UI
+* Enhancement: Managed content background color via variable
+* UI Update: (#605) Managed multivendorx pages UI
+* Enhancement: (#606) Added Typography elements, color scheme dynamic
+
 = 4.6.5 =
 * Fix: (#603) Managed groups and members directory cover image, avatar enable and disable via setting
 * Fix: (#602) Update pattern alignment

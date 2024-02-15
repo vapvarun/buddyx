@@ -53,6 +53,10 @@
 # Global Buddypress Css
 --------------------------------------------------------------*/
 
+body.buddypress article.page>.entry-header .entry-title {
+    color: var(--color-h1);
+}
+
 .buddypress .entry-meta {
     display: none;
 }
@@ -1165,7 +1169,7 @@ body:not(.buddyx-mediapress) .mfp-arrow-right:before {
     position: relative;
     margin: 0 0 15px 0;
     padding: 0;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius) !important;
     box-shadow: none;
@@ -1306,7 +1310,7 @@ button.rtmedia-comment-media-upload {
     position: relative;
     margin: 2rem 0;
     padding: 0;
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius) !important;
@@ -1924,7 +1928,7 @@ li.load-more a.loading::after {
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius) !important;
-    background: #fff;
+    background: var(--color-theme-white-box);
     transition: box-shadow linear .2s;
 }
 
@@ -2225,7 +2229,7 @@ li.load-more a.loading::after {
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .buddypress-wrap .bp-invites-content .item-list li .invite-button span.icons:before {
@@ -2359,7 +2363,7 @@ body.buddypress.group-create #page #primary .entry-header {
 
 .item-header-cover-image-wrapper {
     position: relative;
-    background: #fff;
+    background: var(--color-theme-white-box);
     box-shadow: none;
     margin: 1rem 0;
     padding: 1em;
@@ -2437,7 +2441,7 @@ body.buddypress.group-create #page #primary .entry-header {
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius) !important;
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .media .buddypress-wrap:not(.bp-vertical-navs) .item-body {
@@ -2528,7 +2532,7 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 /* edit profile */
 
 .buddypress-wrap .profile.edit .editfield {
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius) !important;
 }
@@ -2749,7 +2753,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
     .bp-single-vert-nav .bp-wrap:not(.bp-fullwidth-wrap) {
         display: flex;
         flex-flow: row wrap;
-        background: #fff;
+        background: var(--color-theme-white-box);
         border: 1px solid var(--global-border-color);
         box-shadow: none;
         padding: 0;
@@ -2861,7 +2865,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         position: relative;
         margin: 15px 0;
         padding: 0;
-        background: #fff;
+        background: var(--color-theme-white-box);
         border: 1px solid var(--global-border-color);
         border-radius: var(--global-border-radius) !important;
         box-shadow: none;
@@ -2879,7 +2883,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         border: 1px solid var(--global-border-color);
         box-shadow: none;
         border-radius: var(--global-border-radius) !important;
-        background: #fff;
+        background: var(--color-theme-white-box);
     }
 
     #buddypress.buddypress-wrap #item-body {
@@ -2977,7 +2981,7 @@ body.single-item.groups #buddypress div#item-header #item-header-cover-image #it
 
 .groups-header .desc-wrap {
     position: relative;
-    background: #fff;
+    background: var(--color-theme-white-box);
     box-shadow: none;
     margin: 10px 0 0;
     padding: 1em;
@@ -3353,7 +3357,7 @@ button#bp-delete-avatar {
     padding: 1em;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 #bp-login-widget-form input[type=password],
@@ -3949,7 +3953,7 @@ body #buddypress #item-header-cover-image span.activity {
 .gamipress-user-points[class*="gamipress-columns"]>.gamipress-points,
 .gamipress-points-types[class*="gamipress-columns"]>.gamipress-points-type,
 .gamipress-ranks-container[class*="gamipress-columns"] .gamipress-rank {
-    background: #fff;
+    background: var(--color-theme-white-box);
     margin: 5px;
     border: 1px solid var(--global-border-color);
     border-radius: 4px;
@@ -4441,7 +4445,7 @@ table.mycred-table tfoot tr th {
     border: 1px solid var(--global-border-color) !important;
     box-shadow: none;
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .achievement-wrap.earned {

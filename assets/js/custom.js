@@ -219,6 +219,11 @@
             spacer: false,
         });
 
+        $(document).on('click', '.sticky-sidebar-enable.has-buddypress-sidebar-both #activity-stream li.load-more a.loading', function(e) {
+            e.preventDefault();
+            $('.sticky-sidebar').css('position', 'static');
+        });
+
     };
 
     // roundAvatarsBodyclass

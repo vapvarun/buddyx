@@ -966,3 +966,15 @@ function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) 
 
 	return $content;
 }
+
+if ( ! function_exists( 'buddyx_viewport_meta' ) ) {
+
+	/**
+	 * Add a viewport meta
+	 */
+	function buddyx_viewport_meta() {
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">';
+	}
+
+	add_action( 'wp_head', 'buddyx_viewport_meta' );
+}

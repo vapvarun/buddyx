@@ -222,7 +222,7 @@ a.bbp-topic-permalink {
 }
 
 .bbp-reply-form {
-    background: #fff;
+    background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
     padding: 15px;
     border-radius: var(--global-border-radius);

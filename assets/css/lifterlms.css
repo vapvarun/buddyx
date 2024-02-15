@@ -151,7 +151,7 @@
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 .llms-student-dashboard .llms-sd-section .llms-button-secondary {
@@ -193,7 +193,7 @@
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
     overflow: hidden;
 }
 
@@ -273,7 +273,7 @@
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--color-theme-white-box);
 }
 
 body .llms-syllabus-wrapper .llms-section-title {
