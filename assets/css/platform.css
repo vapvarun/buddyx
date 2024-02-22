@@ -1564,6 +1564,10 @@ ul.bbp-stats .bbp-count {
     margin-right: 2px;
 }
 
+.bpsp-pinned-post .bpsp-pinned-post-tag.bbplatform_pin_sticky {
+    top: 13px;
+}
+
 
 /*--------------------------------------------------------------
 ## BuddyPress Quotes
