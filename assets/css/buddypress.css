@@ -430,6 +430,14 @@ body:not(.round-avatars) .grid .member-status {
     overflow: initial;
 }
 
+ul.component-navigation.activity-nav li {
+    display: inline-block;
+}
+
+ul.component-navigation.activity-nav li a {
+    margin: 0;
+}
+
 .buddypress-wrap .bp-subnavs {
     margin: 0;
     border: 0 !important;
