@@ -1039,7 +1039,7 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
 }
 
 .activity-list .activity-item .bp-generic-meta.action .button span {
-    color: inherit;
+    color: inherit !important;
     vertical-align: middle;
 }
 
