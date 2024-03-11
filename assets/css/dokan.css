@@ -7,7 +7,7 @@
 # Single Store
 # My Account
 # Widgets
-	
+# Vendor Registration
 --------------------------------------------------------------*/
 
 
@@ -373,4 +373,30 @@ body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-lin
     content: "";
     display: table;
     clear: both;
+}
+
+/*--------------------------------------------------------------
+# Vendor Registration
+--------------------------------------------------------------*/
+form#dokan-vendor-register {
+    position: relative;
+    margin: 0 0 30px;
+    padding: 1em;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+    background: var(--color-theme-white-box);
+}
+
+form#dokan-vendor-register .form-group label {
+    display: block;
+}
+
+form#dokan-vendor-register .form-group input {
+    width: 100%;
+}
+
+.dps-pack {
+    margin-bottom: 20px;
+    padding: 1rem;
+    background: var(--global-body-lightcolor);
 }
