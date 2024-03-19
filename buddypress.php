@@ -28,28 +28,6 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 
 	<?php do_action( 'buddyx_before_content' ); ?>
 
-	<?php if ( is_active_sidebar( 'buddypress-sidebar-left' ) ) { ?>
-		<?php if ( bp_is_current_component( 'members' ) && ! bp_is_user() && ( $buddypress_members_sidebar == 'left' || $buddypress_members_sidebar == 'both' ) ) : ?>
-			<aside id="secondary" class="left-sidebar widget-area">
-				<div class="sticky-sidebar">
-					<?php buddyx()->display_buddypress_left_sidebar(); ?>
-				</div>
-			</aside>
-		<?php elseif ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_group_create() && ! bp_is_user() && ( $buddypress_groups_sidebar == 'left' || $buddypress_groups_sidebar == 'both' ) ) : ?>
-			<aside id="secondary" class="left-sidebar widget-area">
-				<div class="sticky-sidebar">
-					<?php buddyx()->display_buddypress_left_sidebar(); ?>
-				</div>
-			</aside>
-		<?php elseif ( bp_is_current_component( 'activity' ) && ! bp_is_user() && ( $buddypress_sidebar == 'left' || $buddypress_sidebar == 'both' ) ) : ?>
-			<aside id="secondary" class="left-sidebar widget-area">
-				<div class="sticky-sidebar">
-					<?php buddyx()->display_buddypress_left_sidebar(); ?>
-				</div>
-			</aside>
-		<?php endif; ?>
-	<?php } ?>
-
 	<main id="primary" class="site-main">
 
 		<?php
