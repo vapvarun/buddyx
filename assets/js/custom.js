@@ -214,16 +214,23 @@
         } else {
             var headerHeightExt = headerHeight;
         }
-        $('.sticky-sidebar-enable .sticky-sidebar').stick_in_parent({
-            offset_top: headerHeightExt,
-            spacer: false,
-        });
 
-        $(document).on('click', '.sticky-sidebar-enable.has-buddypress-sidebar-both #activity-stream li.load-more a.loading', function(e) {
-            e.preventDefault();
-            $('.sticky-sidebar').css('position', 'static');
-        });
-
+        if (window.innerWidth > 959) {
+            $('.sticky-sidebar-enable .sticky-sidebar').stick_in_parent({
+                offset_top: headerHeightExt,
+                spacer: false // Remove the trailing comma here
+            });
+        } else {
+            $('.sticky-sidebar-enable .sticky-sidebar').trigger('sticky_kit:detach');
+        }
+        
+        if ( $( '.sticky-sidebar-enable .sticky-sidebar' ).length > 0 ) {
+            $( document ).ajaxComplete( function ( event, request, settings ) {
+                setTimeout( function () {
+                    $( document.body ).trigger( 'sticky_kit:recalc' );
+                }, 150 );
+            } );
+        }
     };
 
     // roundAvatarsBodyclass

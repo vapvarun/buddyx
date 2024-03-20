@@ -475,7 +475,11 @@ body.elementor-editor-active .site-wrapper {
     }
 }
 
-@media screen and (max-width: 60em) {
+.community-directory-left-sidebar {
+    order: -1;
+}
+
+@media screen and (max-width: 60em) { 
 
     /* Sidebar and Content ordering in mobile */
     .site-wrapper {
@@ -483,10 +487,15 @@ body.elementor-editor-active .site-wrapper {
         flex-flow: row wrap;
     }
 
+    .community-directory-left-sidebar {
+        order: 0;
+    }
+
     .left-sidebar,
     .woo-left-sidebar {
-        order: 10;
+        order: 2;
         width: 100%;
+        margin-top: 1rem;
     }
 
     #primary {

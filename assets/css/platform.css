@@ -1039,7 +1039,7 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
 }
 
 .activity-list .activity-item .bp-generic-meta.action .button span {
-    color: inherit;
+    color: inherit !important;
     vertical-align: middle;
 }
 
@@ -1562,6 +1562,10 @@ ul.bbp-stats .bbp-count {
 #buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button.bpsp-pin-tool .fa {
     font-size: 14px;
     margin-right: 2px;
+}
+
+.bpsp-pinned-post .bpsp-pinned-post-tag.bbplatform_pin_sticky {
+    top: 13px;
 }
 
 

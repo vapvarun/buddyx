@@ -61,9 +61,59 @@
 /*--------------------------------------------------------------
 # Links/Buttons Color
 --------------------------------------------------------------*/
+.tribe_community_edit .button,
+.tribe_community_edit #tribe-add-exclusion,
+.tribe_community_edit .tribe-add-recurrence.tribe-button,
+.tribe_community_edit .tribe-button,
+.tribe_community_edit .button-secondary,
+.tribe_community_edit .button-primary,
+.tribe_community_list #tribe-add-exclusion,
+.tribe_community_list .tribe-add-recurrence.tribe-button,
+.tribe_community_list .button-secondary,
+.tribe_community_list .button-primary,
+header.my-events-header a.tribe-button,
+.tribe-events .tribe-events-c-search__button,
+.tribe-events button.tribe-events-c-search__button {
+    font-family: inherit;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    border-color: var(--button-border-color);
+}
+
+.tribe_community_edit .button:hover,
+.tribe_community_edit #tribe-add-exclusion:hover,
+.tribe_community_edit .tribe-add-recurrence.tribe-button:hover,
+.tribe_community_edit .tribe-button:hover,
+.tribe_community_edit .button-secondary:hover,
+.tribe_community_edit .button-primary:hover,
+.tribe_community_list #tribe-add-exclusion:hover,
+.tribe_community_list .tribe-add-recurrence.tribe-button:hover,
+.tribe_community_list .button-secondary:hover,
+.tribe_community_list .button-primary:hover,
+header.my-events-header a.tribe-button:hover,
+.tribe_community_edit .button:focus,
+.tribe_community_edit #tribe-add-exclusion:focus,
+.tribe_community_edit .tribe-add-recurrence.tribe-button:focus,
+.tribe_community_edit .tribe-button:focus,
+.tribe_community_edit .button-secondary:focus,
+.tribe_community_edit .button-primary:focus,
+.tribe_community_list #tribe-add-exclusion:focus,
+.tribe_community_list .tribe-add-recurrence.tribe-button:focus,
+.tribe_community_list .button-secondary:focus,
+.tribe_community_list .button-primary:focus,
+header.my-events-header a.tribe-button:focus {
+    color: var(--button-text-hover-color);
+    background-color: var(--button-background-hover-color);
+    border-color: var(--button-border-hover-color);
+}
+
+.tribe_community_edit .tribe-add-recurrence.tribe-button,
+.tribe_community_edit #tribe-add-exclusion {
+    border: 0;
+}
 
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-datetime-featured-text,
-.tribe-common .tribe-common-c-svgicon,
 .tribe-common a:active,
 .tribe-common a:focus,
 .tribe-common a:hover,
@@ -73,6 +123,8 @@
 .tribe-events-cal-links .tribe-events-gcal,
 .tribe-events-cal-links .tribe-events-ical,
 .tribe-events-event-meta a,
+.tribe-events-event-meta a:focus,
+.tribe-events-event-meta a:hover,
 .tribe-events-event-meta a:visited,
 .tribe-events-single ul.tribe-related-events li .tribe-related-events-title a,
 .tribe-events-pro .tribe-events-pro-organizer__meta-email-link,
@@ -91,7 +143,7 @@
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover,
 .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum,
 .tribe-events-pro .tribe-events-pro-week-grid__header-column--current .tribe-events-pro-week-grid__header-column-daynum-link {
-    color: var(--color-theme-primary);
+    color: var(--color-link-hover);
 }
 
 .tribe-common .tribe-common-anchor-thin:active,
@@ -100,11 +152,7 @@
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:active,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:focus,
 .tribe-events-widget.tribe-events-widget .tribe-events-widget-featured-venue__view-more-link:hover {
-    border-bottom-color: var(--color-theme-primary);
-}
-
-.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after {
-    background-color: var(--color-theme-primary);
+    border-bottom-color: var(--color-link-hover);
 }
 
 .tribe-events .tribe-events-c-ical__link,
@@ -114,7 +162,7 @@
 .tribe-common .tribe-common-cta--thin-alt:focus,
 .tribe-common .tribe-common-cta--thin-alt:hover,
 .tribe-events-pro .tribe-events-pro-week-day-selector__day--active {
-    border-color: var(--color-theme-primary);
+    border-color: var(--color-link-hover);
 }
 
 .tribe-events .datepicker .day.active,
@@ -129,18 +177,23 @@
 .tribe-events .datepicker .year.active.focused,
 .tribe-events .datepicker .year.active:focus,
 .tribe-events .datepicker .year.active:hover,
-.widget .tribe-events .tribe-events-calendar-month__day-cell--selected,
-.widget .tribe-events .tribe-events-calendar-month__day-cell--selected:focus,
-.widget .tribe-events .tribe-events-calendar-month__day-cell--selected:hover,
+.tribe-events .tribe-events-calendar-month__day-cell--selected,
+.tribe-events .tribe-events-calendar-month__day-cell--selected:focus,
+.tribe-events .tribe-events-calendar-month__day-cell--selected:hover,
+.tribe-events .tribe-events-c-events-bar__search-button:before,
+.tribe-events .tribe-events-c-events-bar__filter-button:before,
+.tribe-events .tribe-events-c-view-selector__button:before,
 .tribe-events-pro.tribe-events-view--week .datepicker .day.current:before {
-    background: var(--color-theme-primary);
+    background: var(--color-link-hover);
 }
 
+.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after,
+.tribe-events-pro .tribe-events-pro-week-day-selector__events-icon,
 .tribe-events .tribe-events-c-ical__link:active,
 .tribe-events .tribe-events-c-ical__link:focus,
 .tribe-events .tribe-events-c-ical__link:hover,
 .widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after {
-    background-color: var(--color-theme-primary);
+    background-color: var(--color-link-hover);
 }
 
 .tribe-common .tribe-common-c-btn,
@@ -155,6 +208,71 @@
 .tribe-common a.tribe-common-c-btn:hover {
     background-color: var(--button-background-hover-color);
     border: 1px solid var(--button-border-hover-color);
+}
+
+.tribe-common .tribe-common-c-btn-border,
+.tribe-common a.tribe-common-c-btn-border {
+    color: var(--button-background-color);
+    border: 1px solid var(--button-border-color);
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button.tribe-events-c-subscribe-dropdown__button--active,
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus,
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus-within,
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover,
+.tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button.tribe-events-c-subscribe-dropdown__button--active,
+.tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus,
+.tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus-within,
+.tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover {
+    background-color: var(--button-background-hover-color);
+}
+
+.tribe_community_edit .tribe-button.submit.submit,
+.tribe_community_list .tribe-button.submit.submit {
+    background-color: var(--button-background-color);
+    border: 1px solid var(--button-border-color);
+}
+
+.tribe_community_edit .tribe-button.submit.submit:hover,
+.tribe_community_edit .tribe-button.submit.submit:focus,
+.tribe_community_list .tribe-button.submit.submit:hover,
+.tribe_community_list .tribe-button.submit.submit:focus {
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+}
+
+.tribe_community_list .tribe-button.tribe-button-primary.tribe-button-primary,
+.tribe_community_list .button-primary.button-primary,
+.tribe-common.tribe-common button.tribe-common-c-btn--small,
+.tribe-common.tribe-common input[type="button"].tribe-common-c-btn--small,
+.tribe-common.tribe-common input[type="submit"].tribe-common-c-btn--small,
+.tribe-common.tribe-common a.tribe-common-c-btn--small,
+.event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:disabled,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:disabled,
+.entry .entry-content .event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:disabled,
+.entry .entry-content .event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:disabled {
+    background-color: var(--button-background-color);
+}
+
+.tribe_community_edit .tribe-button.tribe-button-primary.tribe-button-primary:hover,
+.tribe_community_edit .tribe-button.tribe-button-primary.tribe-button-primary:focus,
+.tribe_community_list .tribe-button.tribe-button-primary.tribe-button-primary:hover,
+.tribe_community_list .tribe-button.tribe-button-primary.tribe-button-primary:focus,
+.tribe_community_list .button-primary.button-primary:hover,
+.tribe_community_list .button-primary.button-primary:focus,
+.tribe-common.tribe-common .tribe-common-c-btn:focus,
+.tribe-common.tribe-common .tribe-common-c-btn:hover,
+.tribe-common.tribe-common a.tribe-common-c-btn:focus,
+.tribe-common.tribe-common a.tribe-common-c-btn:hover,
+.event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:focus,
+.event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:hover,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:focus,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:hover,
+.entry .entry-content .event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:focus,
+.entry .entry-content .event-tickets .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:hover,
+.entry .entry-content .event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:focus,
+.entry .entry-content .event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:hover {
+    background-color: var(--button-background-hover-color);
 }
 
 
@@ -204,6 +322,338 @@ ul.tribe-events-sub-nav {
     }
 }
 
+
+/*--------------------------------------------------------------
+# Filter Bar
+--------------------------------------------------------------*/
+
+.tribe-common--breakpoint-medium .tribe-filter-bar--vertical.tribe-filter-bar {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: var(--color-theme-white-box);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-events:not(.tribe-common--breakpoint-medium) .tribe-filter-bar.tribe-filter-bar--horizontal,
+.tribe-events:not(.tribe-common--breakpoint-medium) .tribe-filter-bar.tribe-filter-bar--vertical {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.14);
+}
+
+.tribe-filter-bar .tribe-filter-bar-c-pill--has-selections .tribe-filter-bar-c-pill__pill {
+    background-color: var(--color-theme-white-box);
+    border-color: var(--global-border-color);
+}
+
+.tribe-common--breakpoint-medium .tribe-filter-bar .tribe-filter-bar-c-clear-button {
+    background-color: transparent !important;
+}
+
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion .tribe-filter-bar-c-filter__toggle,
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion button.tribe-filter-bar-c-filter__toggle,
+.tribe-filter-bar .tribe-filter-bar-c-filter__toggle,
+.tribe-filter-bar button.tribe-filter-bar-c-filter__toggle {
+    color: var(--global-title-color);
+}
+
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion .tribe-filter-bar-c-filter__toggle:focus,
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion button.tribe-filter-bar-c-filter__toggle:focus,
+.tribe-filter-bar .tribe-filter-bar-c-filter__toggle:focus,
+.tribe-filter-bar button.tribe-filter-bar-c-filter__toggle:focus {
+    outline: none;
+}
+
+/*--------------------------------------------------------------
+# Community Events
+--------------------------------------------------------------*/
+.tribe-events-pg-template .tribe-community-events,
+.tribe-community-events.tribe-community-events .tribe-section {
+    background: var(--color-theme-white-box);
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-events-pg-template .tribe-community-events {
+    padding: 20px;
+}
+
+.tribe-community-events .tribe-section.tribe-section-image-uploader .tribe-image-upload-area.tribe-image-upload-area {
+    background-color: var(--color-theme-white-box);
+}
+
+.tribe-event-exclusion.tribe-event-exclusion:nth-child(2n+2),
+.tribe-event-recurrence.tribe-event-recurrence:nth-child(2n+2) {
+    background: var(--global-body-lightcolor);
+}
+
+.form.tribe-community-events .events-community-post-title>input,
+.form.tribe-community-events .events-community-post-title>textarea,
+.form.tribe-community-events .events-community-post-content>input,
+.form.tribe-community-events .events-community-post-content>textarea {
+    border-color: var(--global-border-color);
+}
+
+.my-events-header.my-events-header,
+.tribe-community-events.tribe-community-events .tribe-section .tribe-section-header,
+.tribe_community_list #tribe-add-exclusion,
+.tribe_community_list .tribe-add-recurrence.tribe-button,
+.tribe_community_list .button-secondary,
+.tribe_community_list .button-primary,
+.tribe-event-exclusion.tribe-event-exclusion,
+.tribe-event-recurrence.tribe-event-recurrence {
+    border-color: var(--global-border-color);
+}
+
+.my-events-header.my-events-header h2.my-events,
+.tribe-community-events .tribe-section .tribe-section-header.tribe-section-header,
+.tribe-community-events .tribe-section .tribe-section-header.tribe-section-header h3,
+.tribe-community-events .tribe-section.tribe-section-image-uploader .tribe-section-header.tribe-section-header label {
+    color: var(--global-title-color);
+}
+
+.tribe-community-events .tribe-section.tribe-section-image-uploader .tribe-image-upload-area .note.note p,
+.tribe-community-events .tribe-field-inline-text.tribe-field-inline-text,
+.tribe-community-events .tribe-event-recurrence .tribe-handle.tribe-handle,
+.tribe-community-events .tribe-event-exclusion .tribe-handle.tribe-handle,
+.tribe-community-events .req.req {
+    color: var(--color-meta);
+}
+
+.tribe-delete-this.tribe-delete-this {
+    color: var(--color-link);
+}
+
+.tribe-community-events .tribe-section .tribe-delete-this.tribe-delete-this:hover:hover,
+.tribe-community-events .tribe-section .tribe-delete-this.tribe-delete-this.hover-state:hover {
+    color: var(--color-link-hover);
+}
+
+.tribe-dropdown.tribe-dropdown .select2-selection--single .select2-selection__rendered,
+.tribe-ea-dropdown.tribe-ea-dropdown .select2-selection--single .select2-selection__rendered {
+    line-height: 32px;
+    padding-right: 28px;
+}
+
+.tribe-dropdown.tribe-dropdown .select2-selection--single,
+.tribe-ea-dropdown.tribe-ea-dropdown .select2-selection--single {
+    padding: 4px 10px !important;
+}
+
+.tribe-community-events .tribe-section.tribe-section-venue input[type="text"],
+.tribe-community-events .tribe-section.tribe-section-organizer input[type="text"],
+.tribe-events-pg-template .tribe-community-events .select2-container--default .select2-selection--single,
+.tribe-community-events input#EventWebsite,
+.tribe-community-events input#organizer-website,
+.tribe-community-events .tribe-section.tribe-section-cost .cost-input-field,
+.tribe-community-events .tribe-section.tribe-section-website input {
+    width: 100%;
+}
+
+table.tribe-section-content .select2-container--default.tribe-dropdown,
+.tribe-community-events .venue.tribe-linked-type-venue-country .select2-container--default.tribe-dropdown,
+.tribe-community-events .tribe-events-status__status-select {
+    width: 100% !important;
+}
+
+.tribe-events-community-footer .events-community-submit,
+.tribe_community_edit .tribe-events-community-footer .tribe-button.submit {
+    margin: 0;
+}
+
+.tribe-community-events .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 34px;
+}
+
+.tribe-community-events .tribe-section .tribe-dropdown .select2-choices .select2-input,
+.tribe-community-events .tribe-section .tribe-dropdown .select2-choices .select2-search__field,
+.tribe-community-events .tribe-section .tribe-dropdown .select2-selection--multiple .select2-input,
+.tribe-community-events .tribe-section .tribe-dropdown .select2-selection--multiple .select2-search__field {
+    border: 0;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,
+.tribe-events-admin__recent-log-filters-select-wrapper .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+    border-radius: var(--form-border-radius);
+}
+
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-choices .select2-search--inline,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-choices .select2-search-field,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-selection--multiple .select2-search--inline,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-selection--multiple .select2-search-field {
+    padding: 0;
+}
+
+.tribe-community-events .tribe-section.tribe-section-taxonomy .select2-container.select2-container--default span.select2-choice,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .select2-container.select2-container--default span.select2-selection {
+    padding: 0;
+}
+
+.tribe-dropdown .select2-selection--single,
+.tribe-ea-dropdown .select2-selection--single {
+    min-height: 32px;
+}
+
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-choices .select2-search-choice,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-choices .select2-selection__choice,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-selection--multiple .select2-search-choice,
+.tribe-community-events .tribe-section.tribe-section-taxonomy .tribe-dropdown .select2-selection--multiple .select2-selection__choice {
+    padding: 0 10px 0 0;
+}
+
+.tribe-community-events .tribe-section.tribe-section-taxonomy .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 8px;
+    padding: 0 5px 0 10px;
+}
+
+.tribe-community-events .tribe-section textarea#tribe-events-status-status-reason {
+    width: 100%;
+}
+
+.tribe-community-events-content {
+    background: var(--color-theme-white-box);
+    padding: 20px;
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-community-events-content form .events-community-post-title {
+    margin: 15px 0;
+}
+
+.tribe-community-events-content form .events-community-post-content {
+    margin: 0 0 15px;
+}
+
+.tribe-community-events-content form select#EventCountry,
+.tribe-community-events-content form input[type=text],
+.tribe-community-events-content input[type=date],
+.tribe-community-events-content input[type=month],
+.tribe-community-events-content input[type=number],
+.tribe-community-events-content input[type=tel],
+.tribe-community-events-content input[type=time],
+.tribe-community-events-content input[type=url] {
+    width: 100%;
+}
+
+.tribe-community-events-content form select#StateProvinceSelect {
+    width: 100%;
+    margin: 15px 0 0;
+}
+
+.tribe-community-events-content form select#StateProvinceSelect,
+.tribe-community-events-content form select#EventCountry {
+    min-height: 46px;
+}
+
+.tribe-events-community-details .tribe-community-event-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tribe-events-community-details .tribe-community-event-info>* {
+    margin: 0 0 15px;
+}
+
+.tribe-events-community-details .tribe_sectionheader h4 {
+    margin: 0;
+}
+
+header.my-events-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header.my-events-header .tribe-button {
+    margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Attendees
+--------------------------------------------------------------*/
+.event-tickets__attendees-admin-form {
+    margin: 20px 0;
+    padding: 1rem;
+    background: var(--color-theme-white-box);
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-report-panel .welcome-panel-content {
+    background: var(--color-theme-white-box);
+    color: var(--global-font-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-report-panel .welcome-panel-column-container {
+    border-color: var(--global-border-color);
+    border-radius: var(--global-border-radius);
+}
+
+.tribe-report-panel .welcome-panel-column.welcome-panel-last {
+    background-color: var(--global-body-lightcolor);
+}
+
+.tec-tickets__admin-attendees .tec-tickets__admin-attendees-overview-ticket-type-label,
+.tec-tickets__admin-attendees .tec-tickets__admin-attendees-overview-ticket-type-list-item-ticket-name,
+.tec-tickets__admin-attendees .tec-tickets__admin-attendees-overview-ticket-totals-title {
+    color: var(--global-title-color);
+}
+
+.tec-tickets__admin-attendees .tec-tickets__admin-attendees-overview-ticket-type-list-item-ticket-id {
+    color: var(--color-meta);
+}
+
+.dark-mode .tec-tickets__admin-attendees .tec-tickets__admin-attendees-overview-ticket-type-icon--ticket {
+    filter: invert(1);
+}
+
+.event-tickets__attendees-admin-form:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.wrap.tribe-report-page table tr {
+    border-color: var(--global-border-color);
+}
+
+.tribe-report-page .attendees-actions input.print {
+    font-size: 14px;
+    padding: 4px 10px;
+}
+
+.event-tickets__attendees-admin-form select.tribe-admin-search-type {
+    height: 45px;
+}
+
+.tribe-report-page .tablenav.top {
+    margin-bottom: 15px;
+}
+
+.event-tickets__attendees-admin-form .search-box {
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+}
+
+@media screen and (max-width: 460px) {
+
+    .event-tickets__attendees-admin-form .search-box input,
+    .event-tickets__attendees-admin-form .search-box select {
+        width: 100%;
+    }
+
+    .tribe-report-page .tablenav.top {
+        margin: 0;
+        padding: 0;
+    }
+}
 
 /*--------------------------------------------------------------
 # Sidebar Widgets

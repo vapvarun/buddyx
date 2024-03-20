@@ -72,6 +72,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_event_calendar_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_dokan_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'buddyx_enqueue_admin_style' ) );
 		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
@@ -90,6 +92,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return array(
 			'print_styles' => array( $this, 'print_styles' ),
 		);
+	}
+
+	/**
+	 * Register and enqueue a the event calendar stylesheet.
+	 */
+	public function buddyx_enqueue_event_calendar_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		// Enqueue EventsCalendar CSS.
+		if ( class_exists( 'Tribe__Events__Main' ) ) {
+			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', '', time() );
+		}
+	}
+
+	/**
+	 * Register and enqueue a youzify stylesheet.
+	 */
+	public function buddyx_enqueue_dokan_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		// Enqueue Dokan CSS.
+		if ( class_exists( 'WeDevs_Dokan' ) ) {
+			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', time() );
+		}
 	}
 
 	/**
@@ -170,19 +198,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css' );
 		}
 
-		// Enqueue Dokan CSS.
-		if ( class_exists( 'WeDevs_Dokan' ) ) {
-			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css' );
-		}
-
 		// Enqueue WooCommerce CSS.
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css' );
-		}
-
-		// Enqueue EventsCalendar CSS.
-		if ( class_exists( 'Tribe__Events__Main' ) ) {
-			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css' );
 		}
 
 		// Enqueue Youzify CSS.
