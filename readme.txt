@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.4.3
+Tested up to: 6.5.0
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,14 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.6.7 =
+* UI Enhancement: Managed activities scrolling with both sidebars for improved navigation and accessibility (#622).
+* UI Update: Updated Dokan single-store UI for a more streamlined and user-friendly interface (#621).
+* UI Management: Managed the Dokan vendor registration shortcode UI to enhance the registration process and visual coherence (#620).
+* CSS Update: Updated platform.min.css to ensure consistent styling and performance enhancements.
+* UI Fixes: Implemented UI fixes to improve integration with Youzify and its add-ons, enhancing user experience and compatibility (#615).
+* Community Event UI: Managed community event UI and introduced fixes for a more engaging and user-friendly event display (#613).
+
 = 4.6.6 =
 * Fix: (#612) Managed activities scrolling issue
 * Fix: (#611) Managed textbox auto zooming issue on iOS devices
