@@ -28,6 +28,12 @@
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
+.buddypress-wrap .bp-invites-search-form:before,
+.buddypress-wrap form.bp-dir-search-form:before,
+.buddypress-wrap form.bp-messages-search-form:before {
+    content: '' !important;
+}
+
 /* clears the ‘X’ from Internet Explorer */
 input[type=search]::-ms-clear {
     display: none;
@@ -399,10 +405,6 @@ span.bb-activity-edited-text {
 
 .activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
     width: 100%;
-}
-
-#buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete {
-    padding: 10px 14px !important;
 }
 
 #buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete:before {
@@ -1220,6 +1222,10 @@ body #buddypress .bp-list .activity-comments .action .generic-button a {
     line-height: normal;
     font-weight: inherit;
     color: var(--global-font-color);
+}
+
+body #buddypress .activity-list .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a {
+    padding: 10px 14px !important;
 }
 
 body #buddypress .bp-list .activity-comments .action .generic-button {
