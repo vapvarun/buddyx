@@ -2078,13 +2078,19 @@ body.layout-boxed .site {
 
 .site-sub-header {
     position: relative;
-    color: #505050;
+    color: var(--color-subheader-title);
     margin-bottom: 1rem;
     padding: 30px 0;
     background: rgba(255, 255, 255, 0.5);
     width: 100vw;
     margin-left: -50vw;
     left: 50%;
+}
+
+.layout-boxed .site-sub-header {
+    width: auto;
+    left: auto;
+    margin: 0 -15px;
 }
 
 .site-sub-header>.container,
@@ -2132,6 +2138,13 @@ body.layout-boxed .site {
 .site-sub-header .entry-header-title {
     color: var(--color-subheader-title);
     margin-right: auto;
+}
+
+.site-sub-header .entry-title a,
+.site-sub-header .page-title a,
+.site-sub-header .page-header a,
+.site-sub-header .entry-header-title a {
+    color: inherit;
 }
 
 @media (--narrow-menu-query) {

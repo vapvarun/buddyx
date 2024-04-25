@@ -28,6 +28,12 @@
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
+.buddypress-wrap .bp-invites-search-form:before,
+.buddypress-wrap form.bp-dir-search-form:before,
+.buddypress-wrap form.bp-messages-search-form:before {
+    content: '' !important;
+}
+
 /* clears the ‘X’ from Internet Explorer */
 input[type=search]::-ms-clear {
     display: none;
@@ -79,9 +85,9 @@ li#bp-activity-ajax-loader {
     top: 30px;
 }
 
-.activity-list .bb-pin-action {
+/* .activity-list .bb-pin-action {
     top: 5px;
-}
+} */
 
 .bb-action-popup .bb-model-header .bb-model-close-button .bb-icon-times {
     font-size: 24px;
@@ -336,6 +342,11 @@ img.emojioneemoji {
     font-size: 14px;
 }
 
+.activity-list .activity-item .activity-header .time-since,
+.activity-list .activity-item .activity-header p.activity-date a {
+    font-weight: 400;
+}
+
 .bb-media-privacy-wrap:before {
     content: '\00b7';
     display: inline-block;
@@ -353,6 +364,10 @@ span.bb-activity-edited-text {
 .activity-list .activity-item .activity-content .activity-inner {
     padding: 1em;
     padding-top: 0;
+}
+
+.activity-list .activity-item .activity-content .activity-state {
+    padding: 0 1em;
 }
 
 .buddypress-wrap .activity-inner p {
@@ -392,10 +407,6 @@ span.bb-activity-edited-text {
     width: 100%;
 }
 
-#buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete {
-    padding: 10px 14px;
-}
-
 #buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete:before {
     vertical-align: middle;
 }
@@ -410,6 +421,11 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     padding: 0;
     font-size: 14px !important;
     font-weight: normal;
+}
+
+.activity-list .activity-item.bb-closed-comments .bb-activity-closed-comments-notice {
+    margin: 0;
+    border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
 }
 
 
@@ -761,6 +777,7 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
 }
 
 @media screen and (max-width: 782px) {
+
     #buddypress #item-header-cover-image #item-header-avatar,
     .bp-user #buddypress #item-header #item-header-cover-image #item-header-avatar {
         float: none;
@@ -774,10 +791,10 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
 
     .single-headers .item-header-wrap {
         align-items: center;
-    }    
+    }
 }
 
-#cover-image-container.item-header-cover-image-wrapper { 
+#cover-image-container.item-header-cover-image-wrapper {
     width: 100%;
     height: auto;
     margin: -50px 0 0;
@@ -996,13 +1013,17 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
     color: rgba(0, 0, 0, .6);
 }
 
+.activity-list .activity-item .activity-content>.bp-generic-meta.activity-meta,
+.activity-list .activity-item>.bp-generic-meta.activity-meta,
+.activity-list .activity-item>.bp-generic-meta[class*="-meta"],
+.activity-list .activity-item .activity-content>.bp-generic-meta.groups-meta,
+.activity-list .activity-item>.bp-generic-meta.groups-meta,
 .activity-list .activity-item .bp-generic-meta.action {
     border: 0;
     border-top: 1px solid var(--global-border-color);
     background: rgba(0, 0, 0, .02);
     margin: 0;
-    padding: 15px;
-    padding-top: 0;
+    padding: 8px 15px;
     position: relative;
     text-align: left;
 }
@@ -1030,12 +1051,16 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
     padding: 6px 12px !important;
     background: 0 0;
     color: inherit;
-    background: #fff !important;
+    background: transparent !important;
     color: rgba(0, 0, 0, .6) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
     text-shadow: none !important;
+}
+
+.activity-list .activity-item .bp-generic-meta.action .button:hover {
+    background: var(--color-theme-white-box) !important;
 }
 
 .activity-list .activity-item .bp-generic-meta.action .button span {
@@ -1044,17 +1069,19 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
 }
 
 .activity-list .activity-item .activity-content>.bp-generic-meta.action .button {
-    border: 1px solid var(--global-border-color) !important;
+    border: 0 !important;
 }
 
 #buddypress .activity-list .activity-item .activity-content>.bp-generic-meta.action .button {
     font-weight: normal;
+    min-height: 44px;
     border-radius: .28571429rem !important;
 }
 
 .activity-list .activity-item .activity-content>.bp-generic-meta.action .button:hover {
-    border: 1px solid rgba(0, 0, 0, .8) !important;
-    color: rgba(0, 0, 0, .8) !important;
+    border: 0 !important;
+    background-color: var(--color-theme-white-box);
+    box-shadow: 0 0 5px 1px var(--global-border-color);
 }
 
 .activity-list .activity-item .bp-generic-meta.action .delete-activity:before {
@@ -1168,6 +1195,45 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
     line-height: normal;
     vertical-align: middle;
     text-decoration: none;
+}
+
+.buddypress-wrap .activity-item.has-comments .activity-comments>.ac-form,
+.bb-media-model-wrapper .activity-item.has-comments .activity-comments>.ac-form {
+    padding: 0 1em;
+}
+
+.bb-activity-model-wrapper .activity-modal .activity-list.bp-list .activity-item {
+    margin: 0 -15px;
+}
+
+.buddypress-wrap .activity-comments .acomment-content,
+body #buddypress .bp-list .activity-comments .action {
+    margin: 0;
+}
+
+body #buddypress .bp-list .activity-comments .action {
+    margin-left: 0;
+}
+
+#buddypress .bp-list .activity-comments .bp-generic-meta .generic-button a,
+body #buddypress .bp-list .activity-comments .action .generic-button a {
+    padding: 0 !important;
+    font-size: 13px;
+    line-height: normal;
+    font-weight: inherit;
+    color: var(--global-font-color);
+}
+
+body #buddypress .activity-list .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a {
+    padding: 10px 14px !important;
+}
+
+body #buddypress .bp-list .activity-comments .action .generic-button {
+    margin-bottom: 0;
+}
+
+#buddypress .bp-list .activity-comments .bp-generic-meta span {
+    font-size: inherit;
 }
 
 @media screen and (max-width: 782px) {

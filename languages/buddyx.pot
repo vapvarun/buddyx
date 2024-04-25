@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-03-19 05:43+0000\n"
+"POT-Creation-Date: 2024-04-19 10:30+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -768,8 +768,16 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/activity/entry.php:35
+#: ../buddyx/bb-buddypress/activity/entry.php:31
+msgid "%s's Post"
+msgstr ""
+
+#: ../buddyx/bb-buddypress/activity/entry.php:40
 msgid "Pinned Post"
+msgstr ""
+
+#: ../buddyx/bb-buddypress/activity/entry.php:47
+msgid "Turned off notifications"
 msgstr ""
 
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
