@@ -8,6 +8,7 @@
 # My Account
 # Widgets
 # Vendor Registration
+# Theme Color Scheme
 --------------------------------------------------------------*/
 
 
@@ -40,19 +41,6 @@
 /*--------------------------------------------------------------
 # Dashboard
 --------------------------------------------------------------*/
-
-
-/* .dokan-dashboard .site-wrapper>aside {
-    display: none;
-}
-
-.dokan-dashboard .site-wrapper {
-    grid-template-columns: 1fr !important;
-} */
-
-.dokan-dashboard-wrap {
-    margin-top: 2em;
-}
 
 .dokan-dashboard.dokan-dashboard .dokan-dashboard-content {
     background: var(--color-theme-white-box);
@@ -220,6 +208,12 @@ button.mfp-arrow {
     .buddyx-dokan .dokan-store-wrap.layout-left .dokan-store-sidebar {
         margin-right: 30px;
     }
+}
+
+.dokan-store-products-filter-area .search-store-products {
+    padding: 8px 20px;
+    height: auto;
+    line-height: inherit;
 }
 
 /* Store Header Template */
@@ -470,4 +464,104 @@ form#dokan-vendor-register .form-group input {
     margin-bottom: 20px;
     padding: 1rem;
     background: var(--global-body-lightcolor);
+}
+
+/*--------------------------------------------------------------
+# Theme Color Scheme
+--------------------------------------------------------------*/
+.woocommerce-MyAccount-content a.dokan-btn.dokan-btn.dokan-btn,
+.woocommerce-Tabs-panel--description a.dokan-btn {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    border-color: var(--button-border-color);
+}
+
+.woocommerce-MyAccount-content a.dokan-btn.dokan-btn.dokan-btn:hover,
+.woocommerce-MyAccount-content a.dokan-btn.dokan-btn.dokan-btn:focus,
+.woocommerce-Tabs-panel--description a.dokan-btn:hover,
+.woocommerce-Tabs-panel--description a.dokan-btn:focus {
+    color: var(--button-text-hover-color);
+    background-color: var(--button-background-hover-color);
+    border-color: var(--button-border-hover-color);
+}
+
+.dokan-dashboard-wrap .dokan-form-group #insert-media-button,
+input[type="submit"].dokan-btn-theme,
+a.dokan-btn-theme,
+.dokan-btn-theme {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    border-color: var(--button-border-color)
+}
+
+.dokan-btn-theme.active,
+.open .dropdown-toggle.dokan-btn-theme,
+.open .dropdown-togglea.dokan-btn-theme,
+input[type="submit"].dokan-btn-theme:hover,
+input[type="submit"].dokan-btn-theme:focus,
+input[type="submit"].dokan-btn-theme:active,
+a.dokan-btn-theme:hover,
+.dokan-btn-theme:hover,
+a.dokan-btn-theme:focus,
+.dokan-btn-theme:focus,
+a.dokan-btn-theme:active,
+.dokan-btn-theme:active,
+.dokan-geo-filters-column .dokan-geo-product-search-btn,
+.open .dropdown-toggleinput[type="submit"].dokan-btn-theme,
+.dokan-dashboard-wrap .dokan-subscription-content .pack_price,
+.dokan-dashboard-wrap .dokan-dashboard-content .wpo_wcpdf:hover,
+.dashboard-content-area .woocommerce-importer .wc-actions a.button,
+.dokan-dashboard-wrap .dokan-form-group #insert-media-button:hover,
+input[type="submit"].dokan-btn-theme.active,
+a.dokan-btn-theme.active,
+.dokan-dashboard-wrap .dokan-modal-content .modal-footer .inner button,
+.dashboard-content-area .woocommerce-importer .wc-actions button.button-next,
+.wc-setup .wc-setup-content .checkbox input[type=checkbox]:checked+label::before,
+.dokan-dashboard-wrap .dokan-dashboard-content .my_account_quotes td:last-child a:hover,
+.dokan-dashboard-wrap .dokan-dashboard-content .dokan-btn:not(.disconnect, .wc-pao-remove-option, .dokan-btn-success):hover,
+.dokan-dashboard-wrap .dokan-dashboard-content .dokan-btn:not(.disconnect, .wc-pao-remove-option, .dokan-btn-success):focus,
+.dokan-dashboard-wrap .dokan-dashboard-content #delivery-time-calendar .fc-button-primary:not(.fc-button-active):not(:disabled):hover {
+    color: var(--button-text-hover-color);
+    background-color: var(--button-background-hover-color);
+    border-color: var(--button-border-hover-color);
+}
+
+#dokan-store-listing-filter-wrap .right .toggle-view .active,
+.dokan-dashboard-wrap .dokan-settings-area .dokan-page-help p a,
+.dokan-dashboard-wrap .dokan-dashboard-header .entry-title small a,
+.dokan-dashboard-wrap .dokan-settings-area .dokan-ajax-response+a,
+.dokan-dashboard-wrap .dokan-settings-area .dokan-pa-all-addons div a,
+.dokan-dashboard-wrap .dokan-subscription-content .seller_subs_info p span,
+.dokan-table.product-listing-table .product-advertisement-th i.fa-stack-2x,
+.dokan-dashboard-wrap .dokan-stuffs-content .entry-title span.dokan-right a,
+.dokan-dashboard-wrap .dokan-settings-area #dokan-shipping-zone .router-link-active,
+.dokan-dashboard-wrap .dokan-settings-area .dokan-ajax-response~.dokan-text-left p a,
+.dokan-dashboard-wrap .dokan-settings-area .dokan-pa-create-addons .back-to-addon-lists-btn,
+.dokan-dashboard-wrap .dokan-withdraw-content .dokan-panel-inner-container .dokan-w8 strong a,
+.dokan-dashboard-wrap .dokan-settings-area #dokan-shipping-zone .dokan-form-group .limit-location-link,
+.dokan-dashboard-wrap .dashboard-content-area .woocommerce-importer .woocommerce-importer-done::before,
+.product-edit-new-container .dokan-proudct-advertisement .dokan-section-heading h2 span.fa-stack i.fa-stack-2x {
+    color: var(--color-theme-primary);
+}
+
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.dokan-common-links a:hover {
+    background-color: var(--color-theme-primary);
+}
+
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active ul.navigation-submenu {
+    border-bottom-color: var(--color-theme-primary);
+}
+
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover:before,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current:before {
+    border-color: var(--color-theme-primary);
+}
+
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover a,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current a {
+    color: var(--color-theme-primary);
 }
