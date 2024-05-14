@@ -226,6 +226,26 @@ button.mfp-arrow {
     border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
 }
 
+.dokan-store-products-filter-area input.product-name-search.dokan-store-products-filter-search {
+    margin-right: 15px;
+}
+
+@media (max-width: 480px) {
+    .dokan-store-products-filter-area .dokan-store-products-ordeby input.product-name-search {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .dokan-store-products-filter-area .dokan-store-products-ordeby input.search-store-products {
+        width: 100%;
+    }
+
+    .dokan-store-products-filter-area select.orderby.orderby-search {
+        margin-top: 15px;
+    }
+}
+
 @media (min-width: 1200px) {
     .dokan-single-store .profile-frame .profile-info-box.profile-layout-default .profile-info-summery-wrapper .profile-info-summery {
         border-radius: var(--global-border-radius) 0 0 0;
