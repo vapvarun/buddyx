@@ -93,9 +93,14 @@ body.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper {
 /* Breadcrumbs */
 
 .buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-topic-status {
-    background: rgba(255, 255, 255, 0.05);
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-topic-status,
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper pre {
+    background: var(--ld-dark-mode-header-bg);
     color: var(--ld-dark-mode-text-secondary);
+}
+
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs {
+    border-radius: 0;
 }
 
 
@@ -106,7 +111,7 @@ body.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper {
 }
 
 .buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation::after {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--ld-dark-mode-header-bg);
 }
 
 
