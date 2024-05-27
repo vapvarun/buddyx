@@ -19,6 +19,7 @@
 	# GamiPress
     # BuddyPress Reshare
     # bbPress(Activity)
+    # BP Business Profile
 # Profile Completion Widget
 # Live Notification
 # Network Search
@@ -1765,6 +1766,18 @@ body.wb-quote .activity-update-form #whats-new {
     padding-left: 15px;
 }
 
+
+/*--------------------------------------------------------------
+## BP Business Profile
+--------------------------------------------------------------*/
+.bp-business-single .activity-list .activity-item .activity-content .activity-header {
+    padding: 15px;
+    padding-right: 50px;
+}
+
+.bp-business-single .activity-list .activity-item .activity-avatar {
+    margin: 15px;
+}
 
 /*--------------------------------------------------------------
 # Profile Completion Widget
