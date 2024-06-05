@@ -23,7 +23,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'image_sizes';
 	}
 
@@ -31,9 +31,9 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_filter( 'wp_calculate_image_sizes', [ $this, 'filter_content_image_sizes_attr' ], 10, 2 );
-		add_filter( 'get_header_image_tag', [ $this, 'filter_header_image_tag' ], 10, 3 );
-		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'filter_post_thumbnail_sizes_attr' ], 10, 3 );
+		add_filter( 'wp_calculate_image_sizes', array( $this, 'filter_content_image_sizes_attr' ), 10, 2 );
+		add_filter( 'get_header_image_tag', array( $this, 'filter_header_image_tag' ), 10, 3 );
+		add_filter( 'wp_get_attachment_image_attributes', array( $this, 'filter_post_thumbnail_sizes_attr' ), 10, 3 );
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Component implements Component_Interface {
 	 *                      values in pixels (in that order).
 	 * @return string A source size value for use in a content image 'sizes' attribute.
 	 */
-	public function filter_content_image_sizes_attr( string $sizes, array $size ) : string {
+	public function filter_content_image_sizes_attr( string $sizes, array $size ): string {
 		$width = $size[0];
 
 		if ( 740 <= $width ) {
@@ -66,7 +66,7 @@ class Component implements Component_Interface {
 	 * @param array  $attr   Array of the attributes for the image tag.
 	 * @return string The filtered header image HTML.
 	 */
-	public function filter_header_image_tag( string $html, $header, array $attr ) : string {
+	public function filter_header_image_tag( string $html, $header, array $attr ): string {
 		if ( isset( $attr['sizes'] ) ) {
 			$html = str_replace( $attr['sizes'], '100vw', $html );
 		}
@@ -78,11 +78,16 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes attribute to enhance responsive image functionality for post thumbnails.
 	 *
 	 * @param array        $attr       Attributes for the image markup.
-	 * @param WP_Post      $attachment Attachment post object.
+	 * @param mixed        $attachment Attachment post object or other types.
 	 * @param string|array $size       Registered image size or flat array of height and width dimensions.
 	 * @return array The filtered attributes for the image markup.
 	 */
-	public function filter_post_thumbnail_sizes_attr( array $attr, WP_Post $attachment, $size ) : array {
+	public function filter_post_thumbnail_sizes_attr( array $attr, $attachment, $size ): array {
+		// Ensure $attachment is an instance of WP_Post.
+		if ( ! $attachment instanceof WP_Post ) {
+			return $attr; // Return the original attributes if $attachment is not a WP_Post instance.
+		}
+
 		$attr['sizes'] = '100vw';
 
 		if ( buddyx()->is_right_sidebar_active() ) {
