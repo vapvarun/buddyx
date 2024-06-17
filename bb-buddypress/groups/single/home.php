@@ -8,6 +8,13 @@
 
 $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 
+if ( bp_is_group_subgroups() ) {
+	ob_start();
+	bp_nouveau_group_template_part();
+	$template_content = ob_get_contents();
+	ob_end_clean();
+}
+
 if ( bp_has_groups() ) :
 	while ( bp_groups() ) :
 		bp_the_group();
@@ -40,9 +47,13 @@ if ( bp_has_groups() ) :
 				<?php endif; ?>
 
 				<div id="item-body" class="item-body">
-
-					<?php bp_nouveau_group_template_part(); ?>
-
+					<?php
+					if ( bp_is_group_subgroups() ) {
+						echo $template_content; // phpcs:ignore
+					} else {
+						bp_nouveau_group_template_part();
+					}
+					?>
 				</div><!-- #item-body -->
 
 			</div><!-- // .bp-wrap -->
