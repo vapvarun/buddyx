@@ -44,10 +44,6 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 
 				get_template_part( 'template-parts/content-bbpress' );
 			}
-
-			if ( ! is_singular() ) {
-				get_template_part( 'template-parts/content/pagination' );
-			}
 		} else {
 			get_template_part( 'template-parts/content/error' );
 		}

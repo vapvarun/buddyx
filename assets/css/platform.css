@@ -19,6 +19,7 @@
 	# GamiPress
     # BuddyPress Reshare
     # bbPress(Activity)
+    # BP Business Profile
 # Profile Completion Widget
 # Live Notification
 # Network Search
@@ -1242,6 +1243,67 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
     }
 }
 
+.groups-header .group-actions-wrap .parent-list {
+    display: none;
+}
+
+.groups-header .parent-list .parent-title {
+    display: none;
+}
+
+#buddypress #item-header .bp-group-parent-wrap {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px;
+}
+
+#buddypress #item-header .bp-group-parent-wrap ul#group-parent {
+    line-height: 1;
+}
+
+@media screen and (max-width: 782px) {
+    
+    #buddypress #item-header .bp-group-parent-wrap {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list {
+    margin: 0;
+    padding: 0;        
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .avatar {
+    max-width: 26px;
+    height: auto;
+    border-radius: 50%;
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .group-list {
+    margin: 0 10px 0 0;
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .group-list li {
+    margin: 0;
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .bp-parent-group-title-wrap {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .bp-parent-group-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#buddypress #item-header .bp-group-parent-wrap .parent-list .bp-current-group-title {
+    font-size: 14px;
+}
+
 /*--------------------------------------------------------------
 # Sidebar Widegts
 --------------------------------------------------------------*/
@@ -1765,6 +1827,18 @@ body.wb-quote .activity-update-form #whats-new {
     padding-left: 15px;
 }
 
+
+/*--------------------------------------------------------------
+## BP Business Profile
+--------------------------------------------------------------*/
+.bp-business-single .activity-list .activity-item .activity-content .activity-header {
+    padding: 15px;
+    padding-right: 50px;
+}
+
+.bp-business-single .activity-list .activity-item .activity-avatar {
+    margin: 15px;
+}
 
 /*--------------------------------------------------------------
 # Profile Completion Widget

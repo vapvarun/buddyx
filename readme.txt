@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.5.2
+Tested up to: 6.5.3
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,19 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.0 =
+* Update: Updated override template to align with the latest BB platform update.
+* Fix: Resolved fatal error with a third-party plugin.
+* Update: Updated entry.php to be compatible with the latest BB platform version.
+* Fix: Applied UI fixes to single business activity pages.
+* Enhancement: Managed LearnPress single course comment section UI.
+* Enhancement: Managed LD status background in dark mode for better visibility.
+* Update: Improved single vendor product search UI (#634).
+* Fix: Resolved pagination issue on bbPress forum pages (#636).
+* Enhancement: Applied theme color scheme compatibility with Dokan (#634).
+* Enhancement: Managed single vendor header layouts UI with the latest Dokan version (#634).
+* Enhancement: Displayed featured images in search results for better visual content (#631).
+
 = 4.6.8 =
 * Update: Enhanced archive-product.php to improve functionality and layout in product archives (#629).
 * Enhancement: Improved the user interface of the edit comment button, providing a smoother user experience (#627).

@@ -280,6 +280,20 @@ ul.learn-press-nav-tabs .course-nav a:after {
     line-height: normal;
 }
 
+.lp-content-area .comment-form-author,
+.lp-content-area .comment-form-email,
+.lp-content-area .comment-form-url {
+    margin: 15px 0;
+}
+
+.lp-content-area .comment-form-cookies-consent {
+    margin: 0 0 15px;
+}
+
+.lp-content-area #respond .comment-form .form-submit {
+    margin-top: 15px;
+}
+
 @media only screen and (max-width: 1199px) {
     .lp-archive-courses .course-summary .course-summary-content .lp-entry-content.lp-content-area .course-summary-sidebar.course-summary-sidebar {
         margin-top: 0;
