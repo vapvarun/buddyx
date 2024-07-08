@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-07-08 09:57+0000\n"
+"POT-Creation-Date: 2024-07-08 10:42+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -567,6 +567,10 @@ msgstr ""
 #: ../buddyx/inc/class-buddyx-breadcrumbs.php:942
 msgctxt "weekly archives date format"
 msgid "W"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:103
+msgid "Search"
 msgstr ""
 
 #: ../buddyx/inc/extra.php:113
@@ -2599,6 +2603,10 @@ msgstr ""
 
 #: ../buddyx/template-parts/content/pagination.php:15
 msgid "Page navigation"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:19
+msgid "Messages"
 msgstr ""
 
 #: ../buddyx/template-parts/header/buddypress-profile.php:23, ../buddyx/template-parts/header/buddypress-profile.php:41

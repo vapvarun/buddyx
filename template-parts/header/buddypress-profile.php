@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // User Messages.
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messages' ) ) { ?>
 	<div class="bp-msg">
-		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>">
+		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>" title="<?php esc_attr_e( 'Messages', 'buddyx' ); ?>">
 			<span class="fa fa-envelope"></span>
 			<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 0 ) : ?>
 				<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 9 ) : ?>
@@ -34,7 +34,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 	global $bp;
 	?>
 	<div class="user-notifications">
-		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr__( 'Notifications', 'buddyx' ); ?>">
+		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr_e( 'Notifications', 'buddyx' ); ?>">
 			<span class="fa fa-bell"></span>
 			<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 0 ) : ?>
 				<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 9 ) : ?>
