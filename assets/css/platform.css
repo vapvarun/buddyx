@@ -735,7 +735,15 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
 /*--------------------------------------------------------------
 # Member Single
 --------------------------------------------------------------*/
+#cover-image-container {
+    height: auto;
+}
+
 #buddypress #header-cover-image.cover-small {
+    height: 225px;
+}
+
+#buddypress #header-cover-image.cover-large {
     height: 300px;
 }
 
