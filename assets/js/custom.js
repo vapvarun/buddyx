@@ -185,23 +185,50 @@
     // fitVids
     BUDDYX.fitVids = function() {
 
-        var doFitVids = function() {
-            setTimeout(function() {
-                $('iframe[src*="youtube"], iframe[src*="vimeo"]').parent().fitVids();
-            }, 300);
+        // LearnDash Player fix
+        if ( $( '.ld-video iframe' ).length > 0 ) {
+            $( '.ld-video iframe' ).addClass( 'fitvidsignore' );
+        }
+
+        // Tutor Player fix
+        if ( $( '.tutor-video-player iframe' ).length > 0 ) {
+            $( '.tutor-video-player iframe' ).addClass( 'fitvidsignore' );
+        }
+
+        var doFitVids = function () {
+            setTimeout(
+                function () {
+                    var youtubeSelector = 'iframe[src*="youtube"]';
+                    var vimeoSelector = '';
+                    if (
+                        ! $( '.tutor-course-details-page' ).length > 0 &&
+                        ! $( '.tutor-course-single-content-wrapper' ).length > 0
+                    ) {
+                        vimeoSelector = 'iframe[src*="vimeo"]';
+                    }
+                    var dynamicSelector = youtubeSelector + ( vimeoSelector ? ',' + vimeoSelector : '' );
+                    $( dynamicSelector ).parent().fitVids();
+                },
+                300
+            );
         };
         doFitVids();
-        $(document).ajaxComplete(doFitVids);
+        $( document ).ajaxComplete( function () {
+            if ( !$( '.elementor-popup-modal .elementor-widget-video' ).length ) {
+                doFitVids();
+            }
+            $( '.elementor-video-container' ).addClass( 'fitvidsignore' );
+        } );
 
-        var doFitVidsOnLazyLoad = function(event, data) {
-            if (typeof data !== 'undefined' && typeof data.element !== 'undefined') {
-                //load iframe in correct dimension
-                if (data.element.getAttribute('data-lazy-type') == 'iframe') {
+        var doFitVidsOnLazyLoad = function ( event, data ) {
+            if ( typeof data !== 'undefined' && typeof data.element !== 'undefined' ) {
+                // load iframe in correct dimension
+                if ( data.element.getAttribute( 'data-lazy-type' ) == 'iframe' ) {
                     doFitVids();
                 }
             }
         };
-        $(document).on('bp_nouveau_lazy_load', doFitVidsOnLazyLoad);
+        $( document ).on( 'bp_nouveau_lazy_load', doFitVidsOnLazyLoad );
 
     };
 

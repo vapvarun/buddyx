@@ -100,7 +100,7 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 			if ( ! empty( $searchicon ) ) :
 				?>
 					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-						<a href="#" id="overlay-search" class="search-icon"> <span class="fa fa-search"> </span> </a>
+						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>"> <span class="fa fa-search"> </span> </a>
 						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 							<?php get_search_form(); ?>
 						</div>

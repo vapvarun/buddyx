@@ -182,9 +182,11 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 							<?php echo wp_kses_post( $followers_count ); ?>
 						</div>
 
-						<div class="flex only-grid-view align-items-center primary-action justify-center">
-							<?php echo wp_kses_post( $profile_actions['primary'] ); ?>
-						</div>
+						<?php if ( ! empty( $profile_actions['primary'] ) ) { ?>
+							<div class="flex only-grid-view align-items-center primary-action justify-center">
+								<?php echo wp_kses_post( $profile_actions['primary'] ); ?>
+							</div>
+						<?php } ?>
 
 					</div>
 

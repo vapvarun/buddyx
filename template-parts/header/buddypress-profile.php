@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // User Messages.
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messages' ) ) { ?>
 	<div class="bp-msg">
-		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>">
+		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>" title="<?php esc_attr_e( 'Messages', 'buddyx' ); ?>">
 			<span class="fa fa-envelope"></span>
 			<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 0 ) : ?>
 				<?php if ( messages_get_unread_count( bp_loggedin_user_id() ) > 9 ) : ?>
@@ -34,7 +34,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 	global $bp;
 	?>
 	<div class="user-notifications">
-		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr( 'Notifications', 'buddyx' ); ?>">
+		<a class="bp-icon-wrap" href="<?php echo esc_url( bp_loggedin_user_domain() . $bp->notifications->slug ); ?>" title="<?php esc_attr_e( 'Notifications', 'buddyx' ); ?>">
 			<span class="fa fa-bell"></span>
 			<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 0 ) : ?>
 				<?php if ( bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) > 9 ) : ?>
@@ -78,37 +78,30 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'notif
 	<?php
 }
 // User Account Details.
-if (is_user_logged_in()) {
+if ( is_user_logged_in() ) {
 	$loggedin_user = wp_get_current_user();
-	if ($loggedin_user instanceof WP_User) {
-		$user_link = '#'; // Default fallback link.
-
-		if (function_exists('buddypress')) {
-			$user_link = '#'; // Default fallback link.
-
-			// Check for BuddyPress version and function existence.
-			if (version_compare(buddypress()->version, '12.0', '>=') && function_exists('bp_members_get_user_url')) {
-				$user_link = bp_members_get_user_url(get_current_user_id());
-			} elseif (function_exists('bp_core_get_user_domain')) {
-				$user_link = bp_core_get_user_domain(get_current_user_id());
-			}
+	if ( ( $loggedin_user instanceof WP_User ) ) {
+		if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
+			$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( get_current_user_id() ) : '#';
+		} else {
+			$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
 		}
-
-		// User link and profile display.
 		echo '<div class="user-link-wrap">';
-		echo '<a class="user-link" href="' . esc_url($user_link) . '">';
-		echo '<span class="bp-user">' . esc_html($loggedin_user->display_name) . '</span>';
-		echo get_avatar($loggedin_user->user_email, 100);
+		echo '<a class="user-link" href="' . esc_url( $user_link ) . '">';
+		?>
+	<span class="bp-user"><?php echo esc_html( $loggedin_user->display_name ); ?></span>
+		<?php
+		echo get_avatar( $loggedin_user->user_email, 100 );
 		echo '</a>';
-
-		// User profile menu.
-		wp_nav_menu(array(
-			'theme_location' => 'user_menu',
-			'menu_id'        => 'user-profile-menu',
-			'fallback_cb'    => '',
-			'container'      => false,
-			'menu_class'     => 'user-profile-menu',
-		));
+		wp_nav_menu(
+			array(
+				'theme_location' => 'user_menu',
+				'menu_id'        => 'user-profile-menu',
+				'fallback_cb'    => '',
+				'container'      => false,
+				'menu_class'     => 'user-profile-menu',
+			)
+		);
 		echo '</div>';
 	}
 } else {

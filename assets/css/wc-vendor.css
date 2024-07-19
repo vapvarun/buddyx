@@ -229,15 +229,6 @@
     padding: 10px;
 }
 
-table {
-    background: #ffffff;
-    border: 0px solid var(--global-border-color);
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
 table th,
 table td {
     border: 0px;

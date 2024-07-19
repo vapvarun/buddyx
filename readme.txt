@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.5.3
+Tested up to: 6.6.0
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,14 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.1 =
+* Fix: Notification setting UI with bb platform
+* Fix: Manage font size issue with WP 6.6
+* Fix: Manage cover image height with bb platform pro and fixes
+* Fix: Remove unwanted override template with bb platform
+* Fix: Manage header icons string translated
+* Fix: Manage learndash mark complete button does not appear on the lesson video
+
 = 4.7.0 =
 * Update: Updated override template to align with the latest BB platform update.
 * Fix: Resolved fatal error with a third-party plugin.
