@@ -433,6 +433,11 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 /*--------------------------------------------------------------
 # Members Directory
 --------------------------------------------------------------*/
+#buddypress .bb_more_options .bb_more_options_list:after,
+.bb_more_options .bb_more_options_list:after {
+    content: none;
+}
+
 .directory.document .document-options,
 .directory.media .media-options,
 .directory.video .video-options {
@@ -614,6 +619,15 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     }
 }
 
+@media screen and (max-width: 590px) {
+    .buddypress-wrap .grid.bp-list.members-list>li,
+    .buddypress-wrap .grid.bp-list.members-list>li {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
 
 /*--------------------------------------------------------------
 # Groups Directory
@@ -1300,7 +1314,7 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
 }
 
 @media screen and (max-width: 782px) {
-    
+
     #buddypress #item-header .bp-group-parent-wrap {
         flex-flow: row wrap;
         justify-content: center;
@@ -1309,7 +1323,7 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
 
 #buddypress #item-header .bp-group-parent-wrap .parent-list {
     margin: 0;
-    padding: 0;        
+    padding: 0;
 }
 
 #buddypress #item-header .bp-group-parent-wrap .parent-list .avatar {
