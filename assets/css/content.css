@@ -189,6 +189,20 @@
     max-width: var(--content-width);
 }
 
+.entry-content .wp-audio-shortcode,
+.entry-content .wp-embedded-audio,
+.entry-content .wp-embedded-video,
+.entry-content .wp-video,
+.entry-content p {
+    margin: 0;
+    margin-bottom: 1.5em;
+}
+
+.entry-content ul li,
+.entry-content ol li {
+    margin-bottom: 10px;
+}
+
 article .entry-header {
     max-width: max-content;
 }
@@ -205,6 +219,7 @@ article .entry-header {
 }
 
 @media (--content-query) {
+
     .page-content>*,
     .entry-content>*,
     .entry-summary>*,
@@ -216,6 +231,10 @@ article .entry-header {
     .comments-area {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .entry-content>*.wp-block-code {
+        padding: .8em 1em;
     }
 }
 
@@ -651,14 +670,17 @@ article .entry-header {
     .buddyx-article-list-inner {
         flex-flow: wrap;
     }
+
     .buddyx-article-list-thumbnail {
         flex: 0 0 100%;
         margin-right: 0;
         margin-bottom: 15px;
     }
+
     .buddyx-article--list .format-gallery .buddyx-article-list-thumbnail {
         max-width: 100%;
     }
+
     .buddyx-article--list.thumb-right .buddyx-article-list-thumbnail {
         margin-left: auto;
     }
@@ -905,6 +927,7 @@ article .entry-header {
 }
 
 @media (max-width: 992px) {
+
     .buddyx-masonry-3 .buddyx-grid-sizer,
     .buddyx-masonry-3 .buddyx-article-col {
         width: 50%;
@@ -912,6 +935,7 @@ article .entry-header {
 }
 
 @media (max-width: 768px) {
+
     .buddyx-masonry-2 .buddyx-grid-sizer,
     .buddyx-masonry-2 .buddyx-article-col,
     .buddyx-masonry-3 .buddyx-grid-sizer,
@@ -1200,6 +1224,7 @@ article .entry-header {
     .buddyx-content--small {
         max-width: var(--container-md);
     }
+
     .single-post .site-wrapper,
     .buddyx-post-section:not(.has-featured-image) {
         margin-top: calc(var(--el-spacing) * 2);
@@ -1207,6 +1232,7 @@ article .entry-header {
 }
 
 @media (min-width: 992px) {
+
     .single-post .site-wrapper,
     .buddyx-post-section:not(.has-featured-image) {
         margin-top: calc(var(--el-spacing) * 3);
@@ -1225,6 +1251,7 @@ article .entry-header {
         overflow: hidden;
         padding-top: 100%;
     }
+
     .buddyx-post-section.buddyx-section-title-over .post-thumbnail>img {
         object-fit: cover;
         object-position: 50% 50%;
@@ -1234,6 +1261,7 @@ article .entry-header {
         top: 0;
         left: 0;
     }
+
     .buddyx-post-section .post-thumbnail {
         position: relative;
         z-index: 0;
@@ -1244,6 +1272,7 @@ article .entry-header {
         overflow: hidden;
         padding-top: 52.56%;
     }
+
     .buddyx-post-section .post-thumbnail>img {
         object-fit: cover;
         object-position: 50% 50%;
@@ -1323,12 +1352,14 @@ article .entry-header {
 }
 
 @media (min-width: 768px) {
+
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-quote-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-video-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-audio-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-gallery-block {
         margin-bottom: calc(var(--el-spacing) * 2);
     }
+
     .single-format-quote .buddyx-section-title-over.has-featured-image .entry-header--default,
     .single-format-video .buddyx-section-title-over.has-featured-image .entry-header--default,
     .single-format-audio .buddyx-section-title-over.has-featured-image .entry-header--default,
@@ -1338,12 +1369,14 @@ article .entry-header {
 }
 
 @media (min-width: 992px) {
+
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-quote-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-video-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-audio-block,
     .buddyx-section-title-over:not(.has-featured-image) .buddyx-gallery-block {
         margin-bottom: calc(var(--el-spacing) * 3);
     }
+
     .single-format-quote .buddyx-section-title-over.has-featured-image .entry-header--default,
     .single-format-video .buddyx-section-title-over.has-featured-image .entry-header--default,
     .single-format-audio .buddyx-section-title-over.has-featured-image .entry-header--default,
@@ -1379,6 +1412,7 @@ article .entry-header {
     .buddyx-section-half:not(.has-featured-image) .buddyx-post-thumbnail:not(.buddyx-link-block) {
         margin-bottom: calc(var(--el-spacing) * 3);
     }
+
     .buddyx-section-half.has-featured-image {
         display: flex;
         flex-direction: row-reverse;
@@ -1388,6 +1422,7 @@ article .entry-header {
         max-width: 1600px;
         background: #f5f5f5;
     }
+
     .single-post-main-wrapper .buddyx-section-half.has-featured-image .entry-media-image {
         width: 50%;
         margin: 0;
@@ -1395,6 +1430,7 @@ article .entry-header {
         -ms-transform: none;
         transform: none;
     }
+
     .buddyx-section-half.has-featured-image .entry-header--default {
         width: 50%;
         bottom: calc(var(--el-spacing) * 3);
@@ -1403,6 +1439,7 @@ article .entry-header {
         align-self: flex-end;
         margin-top: 0;
     }
+
     .buddyx-section-half.has-featured-image .post-thumbnail {
         position: relative;
         z-index: 0;
@@ -1413,6 +1450,7 @@ article .entry-header {
         overflow: hidden;
         padding-bottom: 100%;
     }
+
     .buddyx-section-half.has-featured-image .post-thumbnail>img {
         object-fit: cover;
         object-position: 50% 50%;
@@ -1422,12 +1460,14 @@ article .entry-header {
         top: 0;
         left: 0;
     }
+
     .buddyx-section-half.has-featured-image .buddyx-quote-block {
         height: 500px;
     }
 }
 
 @media (max-width: 992px) {
+
     .buddyx-section-half.has-featured-image .post-thumbnail,
     .single-format-link .buddyx-section-half .buddyx-link-block,
     .single-format-quote .buddyx-section-half .buddyx-quote-block,
@@ -1463,6 +1503,7 @@ article .entry-header {
         margin-top: calc(var(--el-spacing) * 2);
         margin-bottom: calc(var(--el-spacing) * 2);
     }
+
     .single-format-link .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
     .single-format-quote .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
     .single-format-video .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
@@ -1477,6 +1518,7 @@ article .entry-header {
         margin-top: calc(var(--el-spacing) * 3);
         margin-bottom: calc(var(--el-spacing) * 3);
     }
+
     .single-format-link .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
     .single-format-quote .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
     .single-format-video .buddyx-section-title-above:not(.has-featured-image) .entry-header--default,
