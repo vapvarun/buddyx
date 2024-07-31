@@ -400,6 +400,10 @@ body:not(.round-avatars) .grid .member-status {
     }
 }
 
+.buddypress-wrap .bp-navs li {
+    margin-bottom: 0;
+}
+
 .buddypress-wrap .bp-navs li:not(.current) a:focus,
 .buddypress-wrap .bp-navs li:not(.current) a:hover,
 .buddypress-wrap .bp-navs li:not(.selected) a:focus,
