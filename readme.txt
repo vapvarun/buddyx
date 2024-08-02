@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.6.0
+Tested up to: 6.6.1
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,16 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.2 =
+* Update: Improved widget spacing for better layout.
+* Fix: Managed button outline color for consistent styling.
+* Fix: Ensured rtMedia images display full size.
+* Fix: Applied UI fixes for BP member blog.
+* Update: Enhanced Gutenberg editor UI for a better editing experience.
+* Fix: Managed wp-block-code frontend UI for proper display.
+* Update: Updated override files to be compatible with the latest BB platform.
+* Enhancement: Managed Gutenberg editor font and font size for consistency.
+
 = 4.7.1 =
 * Fix: Notification setting UI with bb platform
 * Fix: Manage font size issue with WP 6.6

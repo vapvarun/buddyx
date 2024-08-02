@@ -195,7 +195,8 @@ button.group-button,
 .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button,
 button.gamipress-achievement-unlock-with-points-button,
 .buddypress .buddypress-wrap button.ges-change,
-.buddypress .buddypress-wrap button.group-email-tooltip__close {
+.buddypress .buddypress-wrap button.group-email-tooltip__close,
+.bp-member-blog-post-form button.button {
     font-family: inherit;
     font-size: initial;
     color: var(--button-text-color);
@@ -263,7 +264,9 @@ button.group-button:hover,
 .buddypress .buddypress-wrap button.gamipress-achievement-unlock-with-points-button:hover,
 button.gamipress-achievement-unlock-with-points-button:hover,
 .buddypress .buddypress-wrap button.ges-change:hover,
-.buddypress .buddypress-wrap button.group-email-tooltip__close:hover {
+.buddypress .buddypress-wrap button.group-email-tooltip__close:hover,
+.bp-member-blog-post-form button.button:hover,
+.bp-member-blog-post-form button.button:focus {
     background-color: var(--button-background-hover-color);
     border: 1px solid var(--button-border-hover-color);
     color: var(--button-text-hover-color);
@@ -395,6 +398,10 @@ body:not(.round-avatars) .grid .member-status {
     .buddypress-wrap:not(.bp-single-vert-nav) .bp-navs:not(.bp-subnavs) li {
         background: #f5f5f5;
     }
+}
+
+.buddypress-wrap .bp-navs li {
+    margin-bottom: 0;
 }
 
 .buddypress-wrap .bp-navs li:not(.current) a:focus,

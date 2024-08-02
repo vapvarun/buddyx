@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-07-18 07:27+0000\n"
+"POT-Creation-Date: 2024-08-01 13:21+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -798,11 +798,11 @@ msgstr ""
 msgid "Are you sure you want to leave "
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:135, ../buddyx/bb-buddypress/members/members-loop.php:277, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:261, ../buddyx/bb-buddypress/members/single/cover-image-header.php:89, ../buddyx/bb-buddypress/members/single/cover-image-header.php:275, ../buddyx/bb-buddypress/members/single/member-header.php:211
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:135, ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:89, ../buddyx/bb-buddypress/members/single/cover-image-header.php:275, ../buddyx/bb-buddypress/members/single/member-header.php:211
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:136, ../buddyx/bb-buddypress/members/members-loop.php:278, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:262, ../buddyx/bb-buddypress/members/single/cover-image-header.php:276, ../buddyx/bb-buddypress/members/single/member-header.php:212
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:136, ../buddyx/bb-buddypress/members/members-loop.php:282, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:264, ../buddyx/bb-buddypress/members/single/cover-image-header.php:276, ../buddyx/bb-buddypress/members/single/member-header.php:212
 msgid "Confirm"
 msgstr ""
 
@@ -810,13 +810,13 @@ msgstr ""
 msgid "More Options"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/members-loop.php:260, ../buddyx/bb-buddypress/groups/single/members-loop.php:244, ../buddyx/bb-buddypress/members/single/cover-image-header.php:258, ../buddyx/bb-buddypress/members/single/member-header.php:194
+#: ../buddyx/bb-buddypress/members/members-loop.php:264, ../buddyx/bb-buddypress/groups/single/members-loop.php:246, ../buddyx/bb-buddypress/members/single/cover-image-header.php:258, ../buddyx/bb-buddypress/members/single/member-header.php:194
 msgid "Remove Connection"
 msgstr ""
 
 #. translators: %s: The member name with HTML tags
 #. translators: %s: The member name with HTML tags.
-#: ../buddyx/bb-buddypress/members/members-loop.php:270, ../buddyx/bb-buddypress/groups/single/members-loop.php:254, ../buddyx/bb-buddypress/members/single/cover-image-header.php:268, ../buddyx/bb-buddypress/members/single/member-header.php:204
+#: ../buddyx/bb-buddypress/members/members-loop.php:274, ../buddyx/bb-buddypress/groups/single/members-loop.php:256, ../buddyx/bb-buddypress/members/single/cover-image-header.php:268, ../buddyx/bb-buddypress/members/single/member-header.php:204
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 

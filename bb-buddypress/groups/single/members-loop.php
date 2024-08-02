@@ -202,14 +202,16 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 				</div>
 
 				<?php if ( ! empty( $member_switch_button ) ) { ?>
-				<div class="bb_more_options member-dropdown">
-					<a href="#" class="bb_more_options_action">
-						<i class="bb-icon-menu-dots-h"></i>
-					</a>
-					<div class="bb_more_options_list">
-						<?php echo wp_kses_post( bp_get_add_switch_button( bp_get_member_user_id() ) ); ?>
-					</div>
-				</div><!-- .bb_more_options -->
+					<div class="bb_more_options member-dropdown">
+						<a href="#" class="bb_more_options_action">
+							<i class="bb-icon-menu-dots-h"></i>
+						</a>
+						<div class="bb_more_options_list bb_more_dropdown">
+							<?php bp_get_template_part( 'common/more-options-view' ); ?>
+							<?php echo wp_kses_post( bp_get_add_switch_button( bp_get_member_user_id() ) ); ?>
+						</div>
+						<div class="bb_more_dropdown_overlay"></div>
+					</div><!-- .bb_more_options -->
 				<?php } ?>
 
 			</div><!-- // .list-wrap -->

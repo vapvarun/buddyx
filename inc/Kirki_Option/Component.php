@@ -783,7 +783,7 @@ class Component implements Component_Interface {
 				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
 				'output'   => array(
 					array(
-						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), body:not(.block-editor-page):not(.wp-core-ui) pre, input, optgroup, select, textarea',
+						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), input, optgroup, select, textarea',
 					),
 				),
 			)

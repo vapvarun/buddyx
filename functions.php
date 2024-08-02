@@ -121,6 +121,11 @@ if ( class_exists( 'BuddyPress' ) ) {
 	require get_template_directory() . '/inc/compatibility/buddypress/buddypress-functions.php';
 }
 
+// Load rtMedia functions.
+if ( class_exists( 'RTMedia' ) ) {
+	require get_template_directory() . '/inc/compatibility/rtmedia/rtmedia-functions.php';
+}
+
 // bp_nouveau_appearance default option.
 $optionKey = 'buddyx_theme_is_activated';
 if ( ! get_option( $optionKey ) ) {
