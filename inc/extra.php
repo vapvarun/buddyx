@@ -266,8 +266,8 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
 /**
  * Managing 404 URL in Frontend
  */
-if ( ! function_exists( 'buddyx_custom_404_redirect' ) ) {
-	add_action( 'template_redirect', 'buddyx_custom_404_redirect' );
+if ( ! function_exists( 'buddyx_404_redirect' ) ) {
+	add_action( 'template_redirect', 'buddyx_404_redirect' );
 
 	/**
 	 * Redirects users to a custom 404 page.
@@ -278,7 +278,7 @@ if ( ! function_exists( 'buddyx_custom_404_redirect' ) ) {
 	 *
 	 * @return void
 	 */
-	function buddyx_custom_404_redirect() {
+	function buddyx_404_redirect() {
 		if ( is_404() ) {
 			$error_404_page_id = get_theme_mod( 'buddyx_404_page', 0 );
 

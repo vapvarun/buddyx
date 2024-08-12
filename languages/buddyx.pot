@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-08-07 12:49+0000\n"
+"POT-Creation-Date: 2024-08-12 05:56+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:135, ../buddyx/template-parts/header/buddypress-profile.php:129, ../buddyx/template-parts/header/buddypress-profile.php:129
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:136, ../buddyx/template-parts/header/buddypress-profile.php:137, ../buddyx/template-parts/header/buddypress-profile.php:128, ../buddyx/template-parts/header/buddypress-profile.php:129
 msgid "Register"
 msgstr ""
 
@@ -605,87 +605,87 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:463
+#: ../buddyx/inc/extra.php:377
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:472
+#: ../buddyx/inc/extra.php:386
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:491
+#: ../buddyx/inc/extra.php:405
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:496
+#: ../buddyx/inc/extra.php:410
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:546
+#: ../buddyx/inc/extra.php:460
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:549
+#: ../buddyx/inc/extra.php:463
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:552, ../buddyx/inc/extra.php:565, ../buddyx/inc/extra.php:794
+#: ../buddyx/inc/extra.php:466, ../buddyx/inc/extra.php:479, ../buddyx/inc/extra.php:708
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:559
+#: ../buddyx/inc/extra.php:473
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:562
+#: ../buddyx/inc/extra.php:476
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:572
+#: ../buddyx/inc/extra.php:486
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:575
+#: ../buddyx/inc/extra.php:489
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:581
+#: ../buddyx/inc/extra.php:495
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:588
+#: ../buddyx/inc/extra.php:502
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:591
+#: ../buddyx/inc/extra.php:505
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:597
+#: ../buddyx/inc/extra.php:511
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:604
+#: ../buddyx/inc/extra.php:518
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:626, ../buddyx/inc/extra.php:733
+#: ../buddyx/inc/extra.php:540, ../buddyx/inc/extra.php:647
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:640, ../buddyx/inc/extra.php:710
+#: ../buddyx/inc/extra.php:554, ../buddyx/inc/extra.php:624
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:712
+#: ../buddyx/inc/extra.php:626
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:796
+#: ../buddyx/inc/extra.php:710
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:961
+#: ../buddyx/inc/extra.php:875
 msgid " Read more"
 msgstr ""
 
@@ -2625,11 +2625,11 @@ msgstr ""
 msgid "All Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:122
+#: ../buddyx/template-parts/header/buddypress-profile.php:119
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:122
+#: ../buddyx/template-parts/header/buddypress-profile.php:120
 msgid "Log in"
 msgstr ""
 
