@@ -193,13 +193,13 @@
 .entry-content .wp-embedded-audio,
 .entry-content .wp-embedded-video,
 .entry-content .wp-video,
-.entry-content p {
+p {
     margin: 0;
     margin-bottom: 1.5em;
 }
 
-.entry-content ul li,
-.entry-content ol li {
+.entry-content ul.wp-block-list li,
+.entry-content ol.wp-block-list li {
     margin-bottom: 10px;
 }
 

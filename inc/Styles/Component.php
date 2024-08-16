@@ -419,10 +419,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					return ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() );
 				},
 			),
-			'buddyx-content'          => array(
-				'file'             => 'content.min.css',
-				'preload_callback' => '__return_true',
-			),
 			'buddyx-sidebar'          => array(
 				'file' => 'sidebar.min.css',
 			),
