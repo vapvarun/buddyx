@@ -5686,7 +5686,8 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary,
 .components-button.is-primary,
 .components-button.is-secondary,
 .components-button.is-tertiary,
-body.personal.attachments #bp-media-library .split-button .split-button-toggle {
+body.personal.attachments #bp-media-library .split-button .split-button-toggle,
+.activity-update-form #whats-new-buttons > li button {
     font-family: inherit;
     font-size: initial;
     color: var(--button-text-color) !important;
@@ -5722,7 +5723,8 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary:hover
 .components-button.is-primary:hover,
 .components-button.is-secondary:hover,
 .components-button.is-tertiary:hover,
-body.personal.attachments #bp-media-library .split-button .split-button-toggle:hover {
+body.personal.attachments #bp-media-library .split-button .split-button-toggle:hover,
+.activity-update-form #whats-new-buttons > li button:hover {
     background-color: var(--button-background-hover-color) !important;
     border: 1px solid var(--button-border-hover-color) !important;
     color: var(--button-text-hover-color) !important;
