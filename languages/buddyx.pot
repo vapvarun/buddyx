@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-08-21 08:17+0000\n"
+"POT-Creation-Date: 2024-08-22 06:37+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -2750,39 +2750,39 @@ msgstr ""
 msgid "Small footer"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:57
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:53
 msgid "Profile"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:60, ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:82
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:54, ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:67
 msgid "Activity"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:63
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:55
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:66
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:56
 msgid "Forums"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:69
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:57
 msgid "Friends"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:72
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:58
 msgid "Members"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:75
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:59
 msgid "Blogs"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:78
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:60
 msgid "Business"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:294
+#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:291
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""

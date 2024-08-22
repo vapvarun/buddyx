@@ -39,77 +39,74 @@ add_filter( 'bp_get_template_stack', 'buddyx_bp_get_template_stack', 10, 1 );
  * Buddyx_bp_get_activity_css_first_class
  *
  */
-
 if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
+	/**
+	 * Get the first CSS class for BuddyPress activity based on the component.
+	 *
+	 * @return string The CSS class for the activity component.
+	 */
 	function buddyx_bp_get_activity_css_first_class() {
 		global $activities_template;
+
+		// Define the mapping of components to CSS classes.
+		$mini_activity_actions = array(
+			'xprofile' => __( 'Profile', 'buddyx' ),
+			'activity' => __( 'Activity', 'buddyx' ),
+			'groups'   => __( 'Groups', 'buddyx' ),
+			'bbpress'  => __( 'Forums', 'buddyx' ),
+			'friends'  => __( 'Friends', 'buddyx' ),
+			'members'  => __( 'Members', 'buddyx' ),
+			'blogs'    => __( 'Blogs', 'buddyx' ),
+			'business' => __( 'Business', 'buddyx' ),
+		);
+
+		// Get the component for the current activity.
+		$component = $activities_template->activity->component;
+
+		// Default to 'Activity' if the component is not in the mapping.
+		$mini_activity_actions = isset( $mini_activity_actions[ $component ] ) ? $mini_activity_actions[ $component ] : __( 'Activity', 'buddyx' );
+
 		/**
-		 * Filters the available mini activity actions available as CSS classes.
+		 * Filter the first CSS class for BuddyPress activity.
 		 *
-		 * @since 1.2.0
-		 *
-		 * @param array $value Array of classes used to determine classes applied to HTML element.
+		 * @param string $mini_activity_actions The CSS class for the activity component.
+		 * @param string $component   The component of the current activity.
 		 */
-		$mini_activity_actions = '';
-
-		switch ( $activities_template->activity->component ) {
-			case 'xprofile':
-				$mini_activity_actions = __( 'Profile', 'buddyx' );
-				break;
-			case 'activity':
-				$mini_activity_actions = __( 'Activity', 'buddyx' );
-				break;
-			case 'groups':
-				$mini_activity_actions = __( 'Groups', 'buddyx' );
-				break;
-			case 'bbpress':
-				$mini_activity_actions = __( 'Forums', 'buddyx' );
-				break;
-			case 'friends':
-				$mini_activity_actions = __( 'Friends', 'buddyx' );
-				break;
-			case 'members':
-				$mini_activity_actions = __( 'Members', 'buddyx' );
-				break;
-			case 'blogs':
-				$mini_activity_actions = __( 'Blogs', 'buddyx' );
-				break;
-			case 'business':
-				$mini_activity_actions = __( 'Business', 'buddyx' );
-				break;
-
-			default:
-				$mini_activity_actions = __( 'Activity', 'buddyx' );
-				break;
-		}
-
-		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $mini_activity_actions, $activities_template->activity->component );
+		return apply_filters( 'buddyx_bp_get_activity_css_first_class', $mini_activity_actions, $component );
 	}
 }
 
 /*
- * Is the current user online
- *
- * @param $user_id
- *
- * @return bool
+ * User online function
  */
 if ( ! function_exists( 'buddyx_is_user_online' ) ) {
-
+	/**
+	 * Check if the current user is online.
+	 *
+	 * @param int $user_id The ID of the user to check.
+	 *
+	 * @return bool True if the user is online, false otherwise.
+	 */
 	function buddyx_is_user_online( $user_id ) {
 		if ( ! function_exists( 'bp_get_user_last_activity' ) ) {
-			return;
+			return false;
 		}
 
-		$last_activity = strtotime( bp_get_user_last_activity( $user_id ) );
+		// Attempt to get the cached last activity.
+		$cache_key     = 'buddyx_last_activity_' . $user_id;
+		$last_activity = wp_cache_get( $cache_key );
+
+		if ( false === $last_activity ) {
+			// Fetch from the database if not cached.
+			$last_activity = strtotime( bp_get_user_last_activity( $user_id ) );
+			wp_cache_set( $cache_key, $last_activity, '', 5 * MINUTE_IN_SECONDS );
+		}
 
 		if ( empty( $last_activity ) ) {
 			return false;
 		}
 
-		// the activity timeframe is 5 minutes
 		$activity_timeframe = 5 * MINUTE_IN_SECONDS;
-
 		return time() - $last_activity <= $activity_timeframe;
 	}
 }
