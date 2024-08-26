@@ -83,6 +83,7 @@
     --global-border-radius: 8px;
     --button-border-radius: 6px;
     --form-border-radius: 6px;
+    --textarea-border-radius: 6px;
     /* Article */
     --line-clamp-title: 2;
     --line-clamp-with-media: 2;
