@@ -134,7 +134,11 @@ ol.wp-block-latest-comments {
 }
 
 .wp-block-latest-posts.wp-block-latest-posts__list li {
-    margin-bottom: 1em;
+    margin-bottom: 10px;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li:last-child {
+    margin-bottom: 0;
 }
 
 .wp-block-latest-comments__comment {
