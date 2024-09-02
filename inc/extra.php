@@ -229,27 +229,39 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
  * Managing 404 URL in Frontend
  */
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
-	add_action( 'template_redirect', 'buddyx_404_redirect' );
-
 	/**
-	 * Redirects users to a custom 404 page.
+	 * Redirects 404 error pages to a custom page set in the theme customizer.
+	 * This function checks if the current page is a 404 error page. If so, it retrieves the custom page ID set in the theme customizer
+	 * and redirects the user to that page using a 301 (permanent) redirect.
+	 * If no custom page ID is set, the user remains on the 404 error page.
 	 *
-	 * This function is hooked to the 'template_redirect' action. It checks if the current request
-	 * is a 404 error page. If a custom 404 page is set in the theme customizer, the user is redirected
-	 * to that page.
+	 * It uses `wp_safe_redirect()` to prevent redirection to potentially unsafe URLs and ensures no further code is executed
+	 * after the redirection.
 	 *
 	 * @return void
 	 */
 	function buddyx_404_redirect() {
+		// Check if the current page is a 404 error page.
 		if ( is_404() ) {
-			$error_404_page_id = get_theme_mod( 'buddyx_404_page', 0 );
+			// Retrieve the custom page ID for 404 redirects from the theme customizer.
+			$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
 
-			if ( $error_404_page_id && $error_404_page_id != '-1' ) {
-				wp_redirect( get_permalink( $error_404_page_id ) );
+			// If a valid page ID is found, redirect to that page.
+			if ( $redirect_page_id ) {
+				// Get the URL of the redirect page.
+				$redirect_url = get_permalink( $redirect_page_id );
+
+				// Perform a safe redirect to the custom page URL.
+				wp_safe_redirect( $redirect_url, 301 );
+
+				// Exit to ensure no further code is executed after the redirect.
 				exit;
 			}
 		}
 	}
+
+	// Hook the function to the `template_redirect` action to ensure it runs before the template is loaded.
+	add_action( 'template_redirect', 'buddyx_404_redirect' );
 }
 
 /**
