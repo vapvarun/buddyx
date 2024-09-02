@@ -133,41 +133,43 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
  */
 if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 	/**
-	 * Function Footer Custom Text
+	 * Retrieves and formats the custom footer text based on theme settings.
+	 * This function checks if a custom copyright text is set in the theme customizer.
+	 * If a custom text is provided, it replaces placeholders with the current year, site title, and theme author link.
+	 * If no custom text is set, it generates a default copyright message with the site title and a link to the BuddyX theme.
 	 *
-	 * @since 1.0.14
-	 * @param string $option Custom text option name.
-	 * @return mixed         Markup of custom text option.
+	 * @return string The formatted footer text.
 	 */
 	function buddyx_footer_custom_text() {
-
+		// Get the custom copyright text from the theme customizer.
 		$copyright = get_theme_mod( 'site_copyright_text' );
-		if ( ! empty( $copyright ) ) {
-			$copyright    = str_replace( '[current_year]', date_i18n( 'Y' ), $copyright );
-			$copyright    = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $copyright );
-			$theme_author = apply_filters(
-				'buddyx_theme_author',
+
+		// Check if custom copyright text is set.
+		if ( $copyright ) {
+			// Replace placeholders with actual values.
+			$output = str_replace(
+				array( '[current_year]', '[site_title]', '[theme_author]' ),
 				array(
-					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
-					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
-				)
+					date_i18n( 'Y' ), // Current year.
+					esc_html( get_bloginfo( 'name' ) ), // Site title.
+					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
+				),
+				$copyright
 			);
-			$copyright    = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $copyright );
-			return apply_filters( 'buddyx_footer_copyright_text', $copyright );
 		} else {
-			$output       = 'Copyright © [current_year] [site_title] | Powered by [theme_author]';
-			$output       = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
-			$output       = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $output );
-			$theme_author = apply_filters(
-				'buddyx_theme_author',
-				array(
-					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
-					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
-				)
+			// Generate default copyright text.
+			$output = sprintf(
+				'Copyright &copy; %s <span class="buddyx-footer-site-title"><a href="%s">%s</a></span> | Powered by <a href="%s">%s</a>',
+				date_i18n( 'Y' ), // Current year.
+				esc_url( home_url( '/' ) ), // Site URL.
+				esc_html( get_bloginfo( 'name' ) ), // Site title.
+				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ), // Theme URL.
+				esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) // Translated theme name.
 			);
-			$output       = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
-			return apply_filters( 'buddyx_footer_copyright_text', $output );
 		}
+
+		// Apply filter to allow modifications to the footer text.
+		return apply_filters( 'buddyx_footer_copyright_text', $output );
 	}
 }
 
