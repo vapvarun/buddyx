@@ -87,86 +87,46 @@ if ( ! function_exists( 'buddyx_site_loader' ) ) {
 	}
 }
 
-// Site Search and Woo icon
+// Site Search and WooCommerce Cart Icon.
 if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
+	/**
+	 * Renders site menu icons, including a search icon and a WooCommerce cart icon.
+	 * The function checks the theme settings to determine if the icons should be displayed.
+	 */
 	function buddyx_site_menu_icon() {
-		// menu icons
+		// Get the settings for search and cart icons from the theme customizer.
 		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
 		$carticon   = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+
+		// Check if either search or cart icon is enabled.
 		if ( ! empty( $searchicon ) || ! empty( $carticon ) ) :
 			?>
 			<div class="menu-icons-wrapper">
-			<?php
-			if ( ! empty( $searchicon ) ) :
-				?>
-					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>"> <span class="fa fa-search"> </span> </a>
-						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+				<?php
+				// Render the search icon if enabled.
+				if ( ! empty( $searchicon ) ) :
+					?>
+					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); ?>>
+						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>">
+							<span class="fa fa-search"></span>
+						</a>
+						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); ?>>
 							<?php get_search_form(); ?>
 						</div>
 					</div>
-					<?php
+				<?php endif; ?>
+
+				<?php
+				// Render the cart icon if enabled and WooCommerce is active.
+				if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
+					buddyx_render_cart_icon();
 				endif;
-			if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
 				?>
-					<div class="cart">
-						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
-							<span class="fa fa-shopping-cart"> </span>
-							<?php
-							$count = WC()->cart->cart_contents_count;
-							if ( $count > 0 ) {
-								?>
-								<sup><?php echo esc_html( $count ); ?></sup>
-								<?php
-							}
-							?>
-						</a>
-					</div>
-					<?php
-				endif;
-			?>
 			</div>
 			<?php
 		endif;
 	}
 }
-
-/**
- * woocommerce_cart_collaterals
- */
-remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
-add_action( 'woocommerce_after_cart_form', 'woocommerce_cross_sell_display', 10 );
-
-
-/* Ensure cart contents update when products are added to the cart via AJAX */
-add_filter( 'woocommerce_add_to_cart_fragments', 'buddyx_header_add_to_cart_fragment' );
-
-if ( ! function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
-	function buddyx_header_add_to_cart_fragment( $fragments ) {
-		$count = WC()->cart->get_cart_contents_count();
-		ob_start();
-		?>
-		<a class="menu-icons-wrapper cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'buddyx' ); ?>">
-			<span class="fa fa-shopping-cart"></span>
-			<?php if ( $count > 0 ) { ?>
-				<sup><?php echo esc_html( $count ); ?></sup>
-			<?php } ?>
-		</a>
-		<?php
-		$fragments['.menu-icons-wrapper .cart a'] = ob_get_clean();
-		return $fragments;
-	}
-}
-
-/**
- * buddyx_disable_woo_commerce_sidebar
- */
-if ( ! function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
-	function buddyx_disable_woo_commerce_sidebar() {
-		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-	}
-}
-add_action( 'init', 'buddyx_disable_woo_commerce_sidebar' );
 
 /**
  * Function Footer Custom Text
