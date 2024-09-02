@@ -268,11 +268,26 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
  * Add Elementor Locations Support
  */
 if ( ! function_exists( 'buddyx_register_elementor_locations' ) ) {
+	/**
+	 * Registers custom locations for Elementor templates, such as header and footer.
+	 * This function checks if Elementor's functions are available before attempting to register
+	 * custom theme locations like 'header' and 'footer'. These locations can be used in Elementor
+	 * to replace the default theme parts.
+	 *
+	 * @param \ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager Elementor theme manager instance.
+	 *
+	 * @return void
+	 */
 	function buddyx_register_elementor_locations( $elementor_theme_manager ) {
-
-		$elementor_theme_manager->register_location( 'header' );
-		$elementor_theme_manager->register_location( 'footer' );
+		// Check if Elementor plugin is active.
+		if ( function_exists( 'elementor_load_plugin_textdomain' ) ) {
+			// Register custom theme locations with Elementor.
+			$elementor_theme_manager->register_location( 'header' );
+			$elementor_theme_manager->register_location( 'footer' );
+		}
 	}
+
+	// Hook into Elementor's theme locations registration.
 	add_action( 'elementor/theme/register_locations', 'buddyx_register_elementor_locations' );
 }
 
