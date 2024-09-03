@@ -40,13 +40,13 @@ $classes = array(
 
 				get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
+				get_template_part( 'template-parts/content/entry_meta', get_post_type() );
+
 				get_template_part( 'template-parts/content/entry_content', get_post_type() );
 
 				if ( ! empty( $blog_tags ) ) {
 					get_template_part( 'template-parts/content/entry_tags', get_post_type() );
 				}
-
-				get_template_part( 'template-parts/content/entry_meta', get_post_type() );
 				?>
 			</article><!-- #post-<?php the_ID(); ?> -->
 		</div>
