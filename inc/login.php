@@ -26,9 +26,9 @@ function buddyx_is_login_page() {
 function buddyx_login_logo_url() {
 	$custom_login_logo_url = get_theme_mod( 'custom_login_logo_url' );
 	if ( isset( $custom_login_logo_url ) && ! empty( $custom_login_logo_url ) ) {
-		return $custom_login_logo_url;
+		return esc_url( $custom_login_logo_url );
 	} else {
-		return home_url();
+		return esc_url( home_url() );
 	}
 }
 add_filter( 'login_headerurl', 'buddyx_login_logo_url' );
@@ -39,9 +39,9 @@ add_filter( 'login_headerurl', 'buddyx_login_logo_url' );
 function buddyx_login_title() {
 	$custom_login_logo_title = get_theme_mod( 'custom_login_logo_title' );
 	if ( isset( $custom_login_logo_title ) && ! empty( $custom_login_logo_title ) ) {
-		return $custom_login_logo_title;
+		return esc_html( $custom_login_logo_title );
 	} else {
-		return get_option( 'blogname' );
+		return esc_html( get_option( 'blogname' ) );
 	}
 }
 add_filter( 'login_headertext', 'buddyx_login_title' );
