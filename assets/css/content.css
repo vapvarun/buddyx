@@ -283,6 +283,34 @@ article .entry-header {
     }
 }
 
+.post-meta-tags .post-meta-tag__item {
+    display: inline-block;
+}
+
+.post-meta-tags .post-meta-tag__item>a {
+    color: var(--color-theme-primary);
+}
+
+.post-meta-tags.badge {
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+}
+
+.post-meta-tags.badge .post-meta-tag__item>a {
+    background-color: var(--color-theme-primary);
+    color: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
+.post-meta-tags.underline .post-meta-tag__item>a {
+    text-decoration: underline;
+}
 
 /*--------------------------------------------------------------
 ## Alignments
