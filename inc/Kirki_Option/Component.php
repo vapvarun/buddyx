@@ -1890,6 +1890,56 @@ class Component implements Component_Interface {
 			)
 		);
 
+		new \Kirki\Field\Checkbox_Switch(
+			array(
+				'settings' => 'blog_show_tags',
+				'label'    => esc_html__( 'Show Tags', 'buddyx' ),
+				'section'  => 'site_blog_section',
+				'default'  => '',
+				'choices'  => array(
+					'on'  => esc_html__( 'Enable', 'buddyx' ),
+					'off' => esc_html__( 'Disable', 'buddyx' ),
+				),
+				'tooltip'  => esc_html__( 'Display tags on blog layouts.', 'buddyx' ),
+			)
+		);
+
+		new \Kirki\Field\Radio(
+			array(
+				'settings'        => 'blog_show_tags_style',
+				'label'           => esc_html__( 'Tags Style', 'buddyx' ),
+				'section'         => 'site_blog_section',
+				'priority'        => 10,
+				'default'         => 'default',
+				'choices'         => array(
+					'default'   => esc_html__( 'Default', 'buddyx' ),
+					'badge'     => esc_html__( 'Badge', 'buddyx' ),
+					'underline' => esc_html__( 'Underline', 'buddyx' ),
+				),
+				'active_callback' => array(
+					array(
+						'setting'  => 'blog_show_tags',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			)
+		);
+
+		new \Kirki\Field\Checkbox_Switch(
+			array(
+				'settings' => 'blog_edit_link',
+				'label'    => esc_html__( 'Show Edit Link', 'buddyx' ),
+				'section'  => 'site_blog_section',
+				'default'  => '',
+				'choices'  => array(
+					'on'  => esc_html__( 'Enable', 'buddyx' ),
+					'off' => esc_html__( 'Disable', 'buddyx' ),
+				),
+				'tooltip'  => esc_html__( 'Please remember that the results will be shown in the frontend.', 'buddyx' ),
+			)
+		);
+
 		new \Kirki\Field\Custom(
 			array(
 				'settings' => 'custom-skin-divider1',

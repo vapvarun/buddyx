@@ -18,6 +18,7 @@ $classes = array(
 );
 
 $post_style = get_theme_mod( 'blog_layout_style', buddyx_defaults( 'blog-layout-style' ) );
+$blog_tags  = get_theme_mod( 'blog_show_tags', '' );
 ?>
 
 <div class="post-layout <?php echo esc_attr( $post_layout ); ?>">
@@ -29,17 +30,19 @@ $post_style = get_theme_mod( 'blog_layout_style', buddyx_defaults( 'blog-layout-
 			<div class="buddyx-article-col">
 				<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 					<?php
+					get_template_part( 'template-parts/content/entry_categories', get_post_type() );
 
-						get_template_part( 'template-parts/content/entry_categories', get_post_type() );
+					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
-						get_template_part( 'template-parts/content/entry_title', get_post_type() );
+					get_template_part( 'template-parts/content/entry_meta', get_post_type() );
 
-						get_template_part( 'template-parts/content/entry_meta', get_post_type() );
+					get_template_part( 'template-parts/content/entry_media', get_post_type() );
 
-						get_template_part( 'template-parts/content/entry_media', get_post_type() );
+					get_template_part( 'template-parts/content/entry_content', get_post_type() );
 
-						get_template_part( 'template-parts/content/entry_content', get_post_type() );
-
+					if ( ! empty( $blog_tags ) ) {
+						get_template_part( 'template-parts/content/entry_tags', get_post_type() );
+					}
 					?>
 				</article><!-- #post-<?php the_ID(); ?> -->
 			</div>
