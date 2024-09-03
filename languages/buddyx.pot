@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-09-03 10:14+0000\n"
+"POT-Creation-Date: 2024-09-03 12:28+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -569,124 +569,120 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:103
+#: ../buddyx/inc/extra.php:110
 msgid "Search"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:113
-msgid "View Shopping Cart"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:149
-msgid "View your shopping cart"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:204, ../buddyx/inc/extra.php:191
+#: ../buddyx/inc/extra.php:167, ../buddyx/inc/extra.php:155
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:246
+#: ../buddyx/inc/extra.php:208
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:257
+#: ../buddyx/inc/extra.php:219
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:257
+#: ../buddyx/inc/extra.php:219
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:257
+#: ../buddyx/inc/extra.php:219
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:262, ../buddyx/template-parts/content/entry_meta.php:124
+#: ../buddyx/inc/extra.php:224, ../buddyx/template-parts/content/entry_meta.php:124
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:377
+#: ../buddyx/inc/extra.php:366
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:386
+#: ../buddyx/inc/extra.php:375
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:405
+#: ../buddyx/inc/extra.php:394
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:410
+#: ../buddyx/inc/extra.php:399
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:460
+#: ../buddyx/inc/extra.php:449
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:463
+#: ../buddyx/inc/extra.php:452
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:466, ../buddyx/inc/extra.php:479, ../buddyx/inc/extra.php:708
+#: ../buddyx/inc/extra.php:455, ../buddyx/inc/extra.php:468, ../buddyx/inc/extra.php:697
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:473
+#: ../buddyx/inc/extra.php:462
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:476
+#: ../buddyx/inc/extra.php:465
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:486
+#: ../buddyx/inc/extra.php:475
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:489
+#: ../buddyx/inc/extra.php:478
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:495
+#: ../buddyx/inc/extra.php:484
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:502
+#: ../buddyx/inc/extra.php:491
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:505
+#: ../buddyx/inc/extra.php:494
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:511
+#: ../buddyx/inc/extra.php:500
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:518
+#: ../buddyx/inc/extra.php:507
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:540, ../buddyx/inc/extra.php:647
+#: ../buddyx/inc/extra.php:529, ../buddyx/inc/extra.php:636
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:554, ../buddyx/inc/extra.php:624
+#: ../buddyx/inc/extra.php:543, ../buddyx/inc/extra.php:613
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:626
+#: ../buddyx/inc/extra.php:615
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:710
+#: ../buddyx/inc/extra.php:699
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:875
+#: ../buddyx/inc/extra.php:864
 msgid " Read more"
+msgstr ""
+
+#: ../buddyx/inc/login.php:89
+msgid "Log In"
 msgstr ""
 
 #. translators: 1: classname/type of the variable, 2: interface name
@@ -2819,6 +2815,14 @@ msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
+
+#: ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
+msgid "View Shopping Cart"
+msgstr ""
+
+#: ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:68
+msgid "View your shopping cart"
+msgstr ""
 
 #: ../buddyx/bb-buddypress/members/single/groups/invites.php:10, ../buddyx/buddypress/members/single/groups/invites.php:10
 msgid "Group Invites"
