@@ -1900,7 +1900,7 @@ class Component implements Component_Interface {
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),
-				'tooltip'  => esc_html__( 'Display tags on archive page layouts.', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Display tags on blog layouts.', 'buddyx' ),
 			)
 		);
 
