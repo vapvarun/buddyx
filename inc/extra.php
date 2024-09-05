@@ -264,116 +264,30 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
 }
 
 /**
- * Managing Login and Register URL in Frontend
- */
-
-if ( ! function_exists( 'buddyx_alter_login_url_at_frontend' ) ) {
-
-	add_filter( 'login_url', 'buddyx_alter_login_url_at_frontend', 10, 3 );
-
-	function buddyx_alter_login_url_at_frontend( $login_url, $redirect, $force_reauth ) {
-		if ( is_admin() ) {
-			return $login_url;
-		}
-
-		$buddyx_login_page_id = get_theme_mod( 'buddyx_login_page', '0' );
-		if ( $buddyx_login_page_id ) {
-			$buddyx_login_page_url = get_permalink( $buddyx_login_page_id );
-			if ( $buddyx_login_page_url ) {
-				$login_url = $buddyx_login_page_url;
-			}
-		}
-		return $login_url;
-	}
-}
-
-if ( ! function_exists( 'buddyx_alter_register_url_at_frontend' ) ) {
-
-	add_filter( 'register_url', 'buddyx_alter_register_url_at_frontend', 10, 1 );
-
-	function buddyx_alter_register_url_at_frontend( $register_url ) {
-		if ( is_admin() ) {
-			return $register_url;
-		}
-
-		$buddyx_registration_page_id = get_theme_mod( 'buddyx_registration_page', '0' );
-		if ( $buddyx_registration_page_id ) {
-			$buddyx_registration_page_url = get_permalink( $buddyx_registration_page_id );
-			if ( $buddyx_registration_page_url ) {
-				$register_url = $buddyx_registration_page_url;
-			}
-		}
-		return $register_url;
-	}
-}
-
-/**
- * Redirect to selected login page from options.
- */
-if ( ! function_exists( 'buddyx_redirect_login_page' ) ) {
-	function buddyx_redirect_login_page() {
-
-		/* removing conflict with logout url */
-		if ( isset( $_GET['action'] ) && ( $_GET['action'] == 'logout' ) ) {
-			return;
-		}
-
-		global $wbtm_buddyx_settings;
-		$login_page_id    = $wbtm_buddyx_settings['buddyx_pages']['buddyx_login_page'];
-		$register_page_id = $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'];
-
-		$login_page      = get_permalink( $login_page_id );
-		$register_page   = get_permalink( $register_page_id );
-		$page_viewed_url = basename( $_SERVER['REQUEST_URI'] );
-		$exploded_Url    = wp_parse_url( $page_viewed_url );
-
-		if ( ! isset( $exploded_Url['path'] ) ) {
-			return;
-		}
-
-		// For register page
-		if ( $register_page && 'wp-login.php' == $exploded_Url['path'] && 'action=register' == $exploded_Url['query'] && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
-			wp_redirect( $register_page );
-			exit;
-		}
-
-		// For login page
-		if ( $login_page && $exploded_Url['path'] == 'wp-login.php' && $_SERVER['REQUEST_METHOD'] == 'GET' ) {
-			wp_redirect( $login_page );
-			exit;
-		}
-	}
-}
-
-/**
- * Add 404 page redirect
+ * Managing 404 URL in Frontend
  */
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
+	add_action( 'template_redirect', 'buddyx_404_redirect' );
+
+	/**
+	 * Redirects users to a custom 404 page.
+	 *
+	 * This function is hooked to the 'template_redirect' action. It checks if the current request
+	 * is a 404 error page. If a custom 404 page is set in the theme customizer, the user is redirected
+	 * to that page.
+	 *
+	 * @return void
+	 */
 	function buddyx_404_redirect() {
+		if ( is_404() ) {
+			$error_404_page_id = get_theme_mod( 'buddyx_404_page', 0 );
 
-		// media popup fix
-		if ( strpos( $_SERVER['REQUEST_URI'], 'media' ) !== false ) {
-			return;
-		}
-
-		// media upload fix
-		if ( strpos( $_SERVER['REQUEST_URI'], 'upload' ) !== false ) {
-			return;
-		}
-
-		if ( ! is_404() ) {
-			return;
-		}
-
-		$buddyx_404_page_id = get_theme_mod( 'buddyx_404_page', '0' );
-
-		if ( $buddyx_404_page_id ) {
-			$buddyx_404_page_url = get_permalink( $buddyx_404_page_id );
-			wp_redirect( $buddyx_404_page_url );
-			exit;
+			if ( $error_404_page_id && $error_404_page_id != '-1' ) {
+				wp_redirect( get_permalink( $error_404_page_id ) );
+				exit;
+			}
 		}
 	}
-	add_action( 'template_redirect', 'buddyx_404_redirect' );
 }
 
 /**

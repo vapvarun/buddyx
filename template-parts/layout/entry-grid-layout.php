@@ -18,6 +18,7 @@ $classes = array(
 );
 
 $blog_grid_columns = get_theme_mod( 'blog_grid_columns', buddyx_defaults( 'blog-grid-columns' ) );
+$blog_tags         = get_theme_mod( 'blog_show_tags', '' );
 
 ?>
 
@@ -30,25 +31,24 @@ $blog_grid_columns = get_theme_mod( 'blog_grid_columns', buddyx_defaults( 'blog-
 			<div class="buddyx-article-col">
 				<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 					<?php
+					echo '<div class="buddyx-article-grid-thumbnail">';
+						get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
+					echo '</div>';
 
-						echo '<div class="buddyx-article-grid-thumbnail">';
+					echo '<div class="buddyx-article-grid-content">';
 
-							get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
+					get_template_part( 'template-parts/content/entry_categories', get_post_type() );
 
-						echo '</div>';
+					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
-						echo '<div class="buddyx-article-grid-content">';
+					get_template_part( 'template-parts/content/entry_meta', get_post_type() );
 
-							get_template_part( 'template-parts/content/entry_categories', get_post_type() );
+					get_template_part( 'template-parts/content/entry_content', get_post_type() );
 
-							get_template_part( 'template-parts/content/entry_title', get_post_type() );
-
-							get_template_part( 'template-parts/content/entry_content', get_post_type() );
-
-							get_template_part( 'template-parts/content/entry_meta', get_post_type() );
-
-						echo '</div>';
-
+					if ( ! empty( $blog_tags ) ) {
+						get_template_part( 'template-parts/content/entry_tags', get_post_type() );
+					}
+					echo '</div>';
 					?>
 				</article><!-- #post-<?php the_ID(); ?> -->
 			</div>

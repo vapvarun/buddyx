@@ -193,13 +193,13 @@
 .entry-content .wp-embedded-audio,
 .entry-content .wp-embedded-video,
 .entry-content .wp-video,
-.entry-content p {
+p {
     margin: 0;
     margin-bottom: 1.5em;
 }
 
-.entry-content ul li,
-.entry-content ol li {
+.entry-content ul.wp-block-list li,
+.entry-content ol.wp-block-list li {
     margin-bottom: 10px;
 }
 
@@ -283,6 +283,34 @@ article .entry-header {
     }
 }
 
+.post-meta-tags .post-meta-tag__item {
+    display: inline-block;
+}
+
+.post-meta-tags .post-meta-tag__item>a {
+    color: var(--color-theme-primary);
+}
+
+.post-meta-tags.badge {
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+}
+
+.post-meta-tags.badge .post-meta-tag__item>a {
+    background-color: var(--color-theme-primary);
+    color: #fff;
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
+.post-meta-tags.underline .post-meta-tag__item>a {
+    text-decoration: underline;
+}
 
 /*--------------------------------------------------------------
 ## Alignments
