@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.3 =
+* Enhancement: Updated entry_meta positioning and added blog tags with an option to hide the edit link for better content management.
+* Enhancement: Improved the sticky sidebar functionality when the admin bar is hidden.
+* Enhancement: Refined the search widget UI on Elementor pages for a more cohesive look.
+* Enhancement: Updated BuddyPress attachments button UI, now supporting shortcodes for a smoother user experience.
+* Enhancement: Enhanced the messaging system with a more intuitive bulk select UI.
+* Update: Added language files to support broader localization and improved the login page mapping to avoid conflicts with third-party plugins.
+* Fix: Addressed various warnings across the platform to ensure smoother performance.
+
 = 4.7.2 =
 * Update: Improved widget spacing for better layout.
 * Fix: Managed button outline color for consistent styling.
