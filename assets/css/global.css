@@ -2163,6 +2163,7 @@ body.layout-boxed .site {
 .buddyx-breadcrumbs,
 #breadcrumbs {
     font-size: 14px;
+    margin: 0;
 }
 
 .buddyx-breadcrumbs a,

@@ -63,17 +63,48 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 /*
  * BREADCRUMBS
  */
-// to include in functions.php
 if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
+	/**
+	 * Displays breadcrumb navigation for BuddyX theme, with caching.
+	 *
+	 * This function checks if Yoast SEO breadcrumbs are enabled. If so, it uses
+	 * `yoast_breadcrumb` to display them. If not, it falls back to the `buddyx_get_breadcrumb`
+	 * function to display custom breadcrumbs. The output is cached using `wp_cache` to improve
+	 * performance and avoid regenerating breadcrumbs on every page load.
+	 *
+	 * Caching is performed based on the current post or page ID, and the cache duration is set
+	 * to 12 hours.
+	 *
+	 * @return void
+	 */
 	function buddyx_the_breadcrumb() {
-		$wpseo_titles = get_option( 'wpseo_titles' );
-		if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-			yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-		} else {
-			echo '<div class="buddyx-breadcrumbs">';
-				buddyx_get_breadcrumb();
-			echo '</div>';
+		// Generate a unique cache key based on the post ID or page ID.
+		$post_id   = get_the_ID();
+		$cache_key = 'buddyx_breadcrumb_' . $post_id;
+
+		// Try to get the cached breadcrumb.
+		$breadcrumb = wp_cache_get( $cache_key, 'buddyx_breadcrumb' );
+
+		if ( false === $breadcrumb ) {
+			// No cached breadcrumb, generate it.
+			ob_start();
+
+			$wpseo_titles = get_option( 'wpseo_titles' );
+			if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
+				yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+			} else {
+				echo '<div class="buddyx-breadcrumbs">';
+					buddyx_get_breadcrumb();
+				echo '</div>';
+			}
+
+			// Store the generated breadcrumb.
+			$breadcrumb = ob_get_clean();
+			wp_cache_set( $cache_key, $breadcrumb, 'buddyx_breadcrumb', 12 * HOUR_IN_SECONDS ); // Cache for 12 hours.
 		}
+
+		// Output the breadcrumb.
+		echo wp_kses_post( $breadcrumb );
 	}
 }
 
