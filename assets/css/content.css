@@ -192,10 +192,14 @@
 .entry-content .wp-audio-shortcode,
 .entry-content .wp-embedded-audio,
 .entry-content .wp-embedded-video,
-.entry-content .wp-video,
-p {
+.entry-content .wp-video {
     margin: 0;
     margin-bottom: 1.5em;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 15px;
 }
 
 .entry-content ul.wp-block-list li,

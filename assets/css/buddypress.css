@@ -2609,6 +2609,13 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 
 /* message-threads */
 
+.buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap select {
+    padding: 0 40px 0 12px;
+    font-size: inherit;
+    border:1px solid var(--global-border-color);
+    -webkit-appearance: none;
+}
+
 .bp-messages-content #bp-message-thread-list {
     border-top: 0;
 }

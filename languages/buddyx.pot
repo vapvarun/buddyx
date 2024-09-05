@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-09-05 11:57+0000\n"
+"POT-Creation-Date: 2024-09-05 12:48+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -816,11 +816,11 @@ msgstr ""
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
-#: ../buddyx/inc/Accessibility/Component.php:75
+#: ../buddyx/inc/Accessibility/Component.php:72
 msgid "Expand child menu"
 msgstr ""
 
-#: ../buddyx/inc/Accessibility/Component.php:76
+#: ../buddyx/inc/Accessibility/Component.php:73
 msgid "Collapse child menu"
 msgstr ""
 
@@ -2465,39 +2465,39 @@ msgstr ""
 msgid "Complete"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:198, ../buddyx/inc/widgets/bp-profile-completion-widget.php:435
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:195, ../buddyx/inc/widgets/bp-profile-completion-widget.php:432
 msgid "Profile Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:218, ../buddyx/inc/widgets/bp-profile-completion-widget.php:438
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:215, ../buddyx/inc/widgets/bp-profile-completion-widget.php:435
 msgid "Cover Photo"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:300
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:297
 msgid "Profile Fields"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:410
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:407
 msgid "Complete Your Profile"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:444
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:441
 msgid "Title:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:447
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:445
 msgid "Profile field sets:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:472
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:466
 msgid "Profile photos:"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:491
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:483
 msgid "Hide widget once progress hits 100%"
 msgstr ""
 
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:497
+#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:488
 msgid "Note: This widget is only displayed if a member is logged in."
 msgstr ""
 
