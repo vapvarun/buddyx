@@ -97,6 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.3 =
+* Enhancement: Updated entry_meta positioning and added blog tags with an option to hide the edit link for better content management.
+* Enhancement: Improved the sticky sidebar functionality when the admin bar is hidden.
+* Enhancement: Refined the search widget UI on Elementor pages for a more cohesive look.
+* Enhancement: Updated BuddyPress attachments button UI, now supporting shortcodes for a smoother user experience.
+* Enhancement: Enhanced the messaging system with a more intuitive bulk select UI.
+* Update: Added language files to support broader localization and improved the login page mapping to avoid conflicts with third-party plugins.
+* Fix: Addressed various warnings across the platform to ensure smoother performance.
+
 = 4.7.2 =
 * Update: Improved widget spacing for better layout.
 * Fix: Managed button outline color for consistent styling.

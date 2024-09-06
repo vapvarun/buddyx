@@ -234,31 +234,37 @@
 
     // stickySidebar
     BUDDYX.stickySidebar = function() {
-
         var headerHeight = $('.site-header-wrapper').outerHeight();
-        if ($('body').hasClass('sticky-header')) {
-            var headerHeightExt = headerHeight + 54;
+        var offsetTop = 32;
+    
+        // Calculate the offset based on the presence of sticky-header and admin-bar classes
+        if ($('body').hasClass('sticky-header') && $('body').hasClass('admin-bar')) {
+            offsetTop = headerHeight + 62;
+        } else if ($('body').hasClass('sticky-header')) {
+            offsetTop = headerHeight + 32;
         } else {
-            var headerHeightExt = headerHeight;
+            offsetTop = headerHeight;
         }
-
+    
+        // Check the window width and apply sticky sidebar accordingly
         if (window.innerWidth > 959) {
             $('.sticky-sidebar-enable .sticky-sidebar').stick_in_parent({
-                offset_top: headerHeightExt,
+                offset_top: offsetTop,
                 spacer: false // Remove the trailing comma here
             });
         } else {
             $('.sticky-sidebar-enable .sticky-sidebar').trigger('sticky_kit:detach');
         }
-        
-        if ( $( '.sticky-sidebar-enable .sticky-sidebar' ).length > 0 ) {
-            $( document ).ajaxComplete( function ( event, request, settings ) {
-                setTimeout( function () {
-                    $( document.body ).trigger( 'sticky_kit:recalc' );
-                }, 150 );
-            } );
+    
+        // Recalculate sticky sidebar position after an Ajax call is completed
+        if ($('.sticky-sidebar-enable .sticky-sidebar').length > 0) {
+            $(document).on('ajaxComplete', function(event, request, settings) {
+                setTimeout(function() {
+                    $(document.body).trigger('sticky_kit:recalc');
+                }, 150);
+            });
         }
-    };
+    };       
 
     // roundAvatarsBodyclass
     BUDDYX.roundAvatarsBodyclass = function() {
@@ -389,6 +395,7 @@
         BUDDYX.headerSearch();
         BUDDYX.desktopMenuToggle();
         BUDDYX.mobileNav();
+        BUDDYX.stickySidebar();
         BUDDYX.fitVids();
         BUDDYX.roundAvatarsBodyclass();
         BUDDYX.tableDataAtt();
@@ -411,7 +418,6 @@
     $(window).load(function() {
         BUDDYX.headerClass();
         BUDDYX.siteLoader();
-        BUDDYX.stickySidebar();
         BUDDYX.blogLayout();
     });
 

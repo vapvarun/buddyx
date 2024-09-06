@@ -105,34 +105,37 @@ if ( is_user_logged_in() ) {
 		echo '</div>';
 	}
 } else {
-	global $wbtm_buddyx_settings;
-	$login_page_url = wp_login_url();
-	if ( isset( $settings['buddyx_pages']['buddyx_login_page'] ) && ( $wbtm_buddyx_settings['buddyx_pages']['buddyx_login_page'] != '-1' ) ) {
-		$login_page_id  = $wbtm_buddyx_settings['buddyx_pages']['buddyx_login_page'];
-		$login_page_url = get_permalink( $login_page_id );
-	}
-		$registration_page_url = wp_registration_url();
-	if ( isset( $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'] ) && ( $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'] != '-1' ) ) {
-		$registration_page_id  = $wbtm_buddyx_settings['buddyx_pages']['buddyx_register_page'];
-		$registration_page_url = get_permalink( $registration_page_id );
-	}
+	// Login Page Redirect.
+	$login_page_id  = get_theme_mod( 'buddyx_login_page', 0 );
+	$login_page_url = ( $login_page_id ) ? get_permalink( $login_page_id ) : wp_login_url();
+
+	// Register Page Redirect.
+	$registration_page_id  = get_theme_mod( 'buddyx_registration_page', 0 );
+	$registration_page_url = ( $registration_page_id ) ? get_permalink( $registration_page_id ) : wp_registration_url();
+
 	?>
-	<?php if ( true == get_theme_mod( 'site_login_link', true ) ) : ?>
+	<?php if ( true === get_theme_mod( 'site_login_link', true ) ) : ?>
 		<div class="bp-icon-wrap">
-			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>"> <span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?></a>
+			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>">
+				<span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?>
+			</a>
 		</div>
 	<?php endif; ?>
 	<?php
-	if ( get_option( 'users_can_register' ) && true == get_theme_mod( 'site_register_link', true ) ) {
+	if ( get_option( 'users_can_register' ) && true === get_theme_mod( 'site_register_link', true ) ) {
 		?>
 		<div class="bp-icon-wrap">
-			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>">
+				<span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?>
+			</a>
 		</div>
 		<?php
 	} elseif ( function_exists( 'bp_is_active' ) && bp_get_option( 'bp-enable-membership-requests' ) && true === get_theme_mod( 'site_register_link', true ) ) {
 		?>
 		<div class="bp-icon-wrap">
-			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>"><span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?></a>
+			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>">
+				<span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?>
+			</a>
 		</div>
 		<?php
 	}
