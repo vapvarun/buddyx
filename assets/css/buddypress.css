@@ -3724,18 +3724,6 @@ button#bp-delete-avatar {
 .activity-list li.blogs .activity-content .activity-inner {
     border: 0;
     padding: 0 15px;
-    max-width: 100%;
-}
-
-.activity-list li.blogs .activity-content .activity-inner img {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 15px;
-}
-
-.activity-list li.blogs .activity-content .activity-inner img,
-.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
-    border-radius: 4px;
 }
 
 .activity-list li.blogs .activity-content .activity-inner .buddyx-content-wrp {
@@ -3766,6 +3754,20 @@ button#bp-delete-avatar {
     color: inherit;
 }
 
+.activity-list li .activity-content .activity-inner a.buddyx-post-img-link {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 0 15px;
+    background: var(--global-body-lightcolor);
+    border-radius: 4px;
+}
+
+.activity-list li .activity-content .activity-inner a.buddyx-post-img-link img {
+    margin: 0 auto;
+    width: auto;
+    max-height: 640px;
+    border-radius: 4px;
+}
 
 /*--------------------------------------------------------------
 # Register Page

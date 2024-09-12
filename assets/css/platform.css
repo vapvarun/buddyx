@@ -400,12 +400,14 @@ span.bb-activity-edited-text {
     }
 }
 
-.activity-list li.blogs .activity-content .activity-inner {
-    max-width: 100%;
+.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link {
+    background-color: var(--global-body-lightcolor);
+    border-radius: 4px;
 }
 
 .activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
-    width: 100%;
+    width: auto;
+    border-radius: 4px;
 }
 
 #buddypress .activity-list .comment-item .bb-activity-more-options-wrap .bb-activity-more-options .generic-button a.delete:before {
