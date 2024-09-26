@@ -1413,6 +1413,10 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
     margin-bottom: 15px !important;
 }
 
+.buddypress-wrap .activity-list .activity-item.new_blog_comment .activity-content .activity-inner {
+    margin-bottom: 15px;
+}
+
 .activity-list .activity-item .activity-meta.action .fav:before,
 .activity-list .activity-item .activity-meta.action .unfav:before {
     content: "\f487";

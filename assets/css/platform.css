@@ -375,6 +375,10 @@ span.bb-activity-edited-text {
     padding: 0;
 }
 
+.buddypress-wrap .activity-list .activity-item.new_blog_comment .activity-content .activity-inner {
+    margin-bottom: 0;
+}
+
 .bb-media-length-1 .bb-activity-media-elem .entry-img {
     padding-top: 0 !important;
 }
