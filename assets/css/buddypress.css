@@ -2565,6 +2565,18 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     background: transparent;
 }
 
+.buddypress-wrap .standard-form .field-visibility-settings-header {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+#buddypress.buddypress-wrap .standard-form .field-visibility-settings-header button.visibility-toggle-link,
+#buddypress.buddypress-wrap .standard-form .field-visibility-settings-open button.field-visibility-settings-close {
+    display: block;
+    margin: 10px 0 0;
+    font-size: 14px;
+    padding: 5px 10px;
+}
 
 /* change photo */
 
