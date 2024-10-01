@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.4 =
+* Enhanced: Blog grid layout updated to remove masonry UI for a cleaner, more structured appearance.
+* Enhanced: Welcome screen community addons images path updated for improved accuracy and display.
+* Fixed: Profile field visibility settings toggle UI for better functionality and user experience.
+* Fixed: Blog post comment activity UI managed for consistency across all post types.
+* Fixed: Theme typography component issues resolved to ensure proper rendering of text elements.
+* Fixed: Duplicate CSS loading issues resolved to improve page load speed and performance.
+* Updated: Blog activity image max height setting to ensure proper image scaling.
+
 = 4.7.3 =
 * Enhancement: Updated entry_meta positioning and added blog tags with an option to hide the edit link for better content management.
 * Enhancement: Improved the sticky sidebar functionality when the admin bar is hidden.

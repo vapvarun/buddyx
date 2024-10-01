@@ -37,6 +37,7 @@ if ( get_post_type() == 'post' ) {
 		$classes = 'has-single-post-no-sidebar';
 	}
 }
+
 ?>
 <div class="single-post-main-wrapper buddyx-content--<?php echo esc_attr( $single_post_content_width ); ?> <?php echo esc_attr( $classes ); ?>">
 
@@ -65,6 +66,7 @@ if ( get_post_type() == 'post' ) {
 			the_post();
 
 			get_template_part( 'template-parts/content/entry', get_post_type() );
+
 		}
 		?>
 

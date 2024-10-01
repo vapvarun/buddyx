@@ -954,7 +954,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/07/WP_Story.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'WP_Story', 'buddyx' ); ?>" />
+												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/07/WP_Story.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'WP_Story', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></h4>
@@ -966,7 +966,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/06/BP_profile-view.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BP_profile-view', 'buddyx' ); ?>" />
+												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/BP_profile-view.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BP_profile-view', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Who Viewed My Profile', 'buddyx' ); ?></h4>
@@ -978,7 +978,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/1-member-blog.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'member-blog', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/1-member-blog.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'member-blog', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Member Blog Pro', 'buddyx' ); ?></h4>
@@ -990,7 +990,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-multi-vendor-marketplace.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-multi-vendor-marketplace', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-multi-vendor-marketplace.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-multi-vendor-marketplace', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyVendor', 'buddyx' ); ?></h4>
@@ -1002,7 +1002,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/06/stat.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'stat', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/stat.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'stat', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Statistics', 'buddyx' ); ?></h4>
@@ -1014,7 +1014,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-places.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-places', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-places.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-places', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Check-Ins Pro', 'buddyx' ); ?></h4>
@@ -1026,7 +1026,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Friend-Follow-Suggestion.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Friend-Follow-Suggestion', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Friend-Follow-Suggestion.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Friend-Follow-Suggestion', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Friend & Follow Suggestion', 'buddyx' ); ?></h4>
@@ -1038,7 +1038,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Animated-Gif-Share.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Animated-Gif-Share', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Animated-Gif-Share.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Animated-Gif-Share', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Giphy', 'buddyx' ); ?></h4>
@@ -1050,7 +1050,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-shortcodes.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-shortcodes', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-shortcodes.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-shortcodes', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Shortcodes For BuddyPress Pro', 'buddyx' ); ?></h4>
@@ -1062,7 +1062,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Sticky-Post.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Sticky-Post', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Sticky-Post.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Sticky-Post', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Sticky Post', 'buddyx' ); ?></h4>
@@ -1074,7 +1074,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-color-background-activity.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-color-background-activity', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-color-background-activity.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-color-background-activity', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Quotes', 'buddyx' ); ?></h4>
@@ -1086,7 +1086,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-autofriend.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-autofriend', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-autofriend.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-autofriend', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Auto Friends', 'buddyx' ); ?></h4>
@@ -1098,7 +1098,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Newsfeed-member-profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Newsfeed-member-profile', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Newsfeed-member-profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Newsfeed-member-profile', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Newsfeed', 'buddyx' ); ?></h4>
@@ -1110,7 +1110,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Reactions-and-Status.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Reactions-and-Status', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Reactions-and-Status.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Reactions-and-Status', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Status', 'buddyx' ); ?></h4>
@@ -1122,7 +1122,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Hashtags-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Hashtags', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Hashtags-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Hashtags', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Hashtags', 'buddyx' ); ?></h4>
@@ -1134,7 +1134,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Moderation-BuddyBoss-1.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Moderation', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Moderation-BuddyBoss-1.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Moderation', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Moderation Pro', 'buddyx' ); ?></h4>
@@ -1146,7 +1146,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Private-Community-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Private-Community-Pro', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Private-Community-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Private-Community-Pro', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Private Community Pro', 'buddyx' ); ?></h4>
@@ -1158,7 +1158,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Polls-BuddyBoss-Platform.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Polls', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Polls-BuddyBoss-Platform.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Polls', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Polls', 'buddyx' ); ?></h4>
@@ -1170,7 +1170,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profanity-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profanity', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profanity-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profanity', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profanity', 'buddyx' ); ?></h4>
@@ -1182,7 +1182,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Resume-Manager.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Resume-Manager', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Resume-Manager.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Resume-Manager', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Resume Manager', 'buddyx' ); ?></h4>
@@ -1194,7 +1194,7 @@ class Component implements Component_Interface {
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
 											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profile-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profile-Pro', 'buddyx' ); ?>" />
+											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profile-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profile-Pro', 'buddyx' ); ?>" />
 											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profile Pro', 'buddyx' ); ?></h4>

@@ -63,17 +63,48 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 /*
  * BREADCRUMBS
  */
-// to include in functions.php
 if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
+	/**
+	 * Displays breadcrumb navigation for BuddyX theme, with caching.
+	 *
+	 * This function checks if Yoast SEO breadcrumbs are enabled. If so, it uses
+	 * `yoast_breadcrumb` to display them. If not, it falls back to the `buddyx_get_breadcrumb`
+	 * function to display custom breadcrumbs. The output is cached using `wp_cache` to improve
+	 * performance and avoid regenerating breadcrumbs on every page load.
+	 *
+	 * Caching is performed based on the current post or page ID, and the cache duration is set
+	 * to 12 hours.
+	 *
+	 * @return void
+	 */
 	function buddyx_the_breadcrumb() {
-		$wpseo_titles = get_option( 'wpseo_titles' );
-		if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-			yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-		} else {
-			echo '<div class="buddyx-breadcrumbs">';
-				buddyx_get_breadcrumb();
-			echo '</div>';
+		// Generate a unique cache key based on the post ID or page ID.
+		$post_id   = get_the_ID();
+		$cache_key = 'buddyx_breadcrumb_' . $post_id;
+
+		// Try to get the cached breadcrumb.
+		$breadcrumb = wp_cache_get( $cache_key, 'buddyx_breadcrumb' );
+
+		if ( false === $breadcrumb ) {
+			// No cached breadcrumb, generate it.
+			ob_start();
+
+			$wpseo_titles = get_option( 'wpseo_titles' );
+			if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
+				yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+			} else {
+				echo '<div class="buddyx-breadcrumbs">';
+					buddyx_get_breadcrumb();
+				echo '</div>';
+			}
+
+			// Store the generated breadcrumb.
+			$breadcrumb = ob_get_clean();
+			wp_cache_set( $cache_key, $breadcrumb, 'buddyx_breadcrumb', 12 * HOUR_IN_SECONDS ); // Cache for 12 hours.
 		}
+
+		// Output the breadcrumb.
+		echo wp_kses_post( $breadcrumb );
 	}
 }
 
@@ -87,44 +118,41 @@ if ( ! function_exists( 'buddyx_site_loader' ) ) {
 	}
 }
 
-// Site Search and Woo icon
+// Site Search and WooCommerce Cart Icon.
 if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
+	/**
+	 * Renders site menu icons, including a search icon and a WooCommerce cart icon.
+	 * The function checks the theme settings to determine if the icons should be displayed.
+	 */
 	function buddyx_site_menu_icon() {
-		// menu icons
+		// Get the settings for search and cart icons from the theme customizer.
 		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
 		$carticon   = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+
+		// Check if either search or cart icon is enabled.
 		if ( ! empty( $searchicon ) || ! empty( $carticon ) ) :
 			?>
 			<div class="menu-icons-wrapper">
-			<?php
-			if ( ! empty( $searchicon ) ) :
-				?>
-					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>"> <span class="fa fa-search"> </span> </a>
-						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+				<?php
+				// Render the search icon if enabled.
+				if ( ! empty( $searchicon ) ) :
+					?>
+					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); ?>>
+						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>">
+							<span class="fa fa-search"></span>
+						</a>
+						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); ?>>
 							<?php get_search_form(); ?>
 						</div>
 					</div>
-					<?php
+				<?php endif; ?>
+
+				<?php
+				// Render the cart icon if enabled and WooCommerce is active.
+				if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
+					buddyx_render_cart_icon();
 				endif;
-			if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
 				?>
-					<div class="cart">
-						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
-							<span class="fa fa-shopping-cart"> </span>
-							<?php
-							$count = WC()->cart->cart_contents_count;
-							if ( $count > 0 ) {
-								?>
-								<sup><?php echo esc_html( $count ); ?></sup>
-								<?php
-							}
-							?>
-						</a>
-					</div>
-					<?php
-				endif;
-			?>
 			</div>
 			<?php
 		endif;
@@ -132,82 +160,47 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 }
 
 /**
- * woocommerce_cart_collaterals
- */
-remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
-add_action( 'woocommerce_after_cart_form', 'woocommerce_cross_sell_display', 10 );
-
-
-/* Ensure cart contents update when products are added to the cart via AJAX */
-add_filter( 'woocommerce_add_to_cart_fragments', 'buddyx_header_add_to_cart_fragment' );
-
-if ( ! function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
-	function buddyx_header_add_to_cart_fragment( $fragments ) {
-		$count = WC()->cart->get_cart_contents_count();
-		ob_start();
-		?>
-		<a class="menu-icons-wrapper cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'buddyx' ); ?>">
-			<span class="fa fa-shopping-cart"></span>
-			<?php if ( $count > 0 ) { ?>
-				<sup><?php echo esc_html( $count ); ?></sup>
-			<?php } ?>
-		</a>
-		<?php
-		$fragments['.menu-icons-wrapper .cart a'] = ob_get_clean();
-		return $fragments;
-	}
-}
-
-/**
- * buddyx_disable_woo_commerce_sidebar
- */
-if ( ! function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
-	function buddyx_disable_woo_commerce_sidebar() {
-		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-	}
-}
-add_action( 'init', 'buddyx_disable_woo_commerce_sidebar' );
-
-/**
  * Function Footer Custom Text
  */
 if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 	/**
-	 * Function Footer Custom Text
+	 * Retrieves and formats the custom footer text based on theme settings.
+	 * This function checks if a custom copyright text is set in the theme customizer.
+	 * If a custom text is provided, it replaces placeholders with the current year, site title, and theme author link.
+	 * If no custom text is set, it generates a default copyright message with the site title and a link to the BuddyX theme.
 	 *
-	 * @since 1.0.14
-	 * @param string $option Custom text option name.
-	 * @return mixed         Markup of custom text option.
+	 * @return string The formatted footer text.
 	 */
 	function buddyx_footer_custom_text() {
-
+		// Get the custom copyright text from the theme customizer.
 		$copyright = get_theme_mod( 'site_copyright_text' );
-		if ( ! empty( $copyright ) ) {
-			$copyright    = str_replace( '[current_year]', date_i18n( 'Y' ), $copyright );
-			$copyright    = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $copyright );
-			$theme_author = apply_filters(
-				'buddyx_theme_author',
+
+		// Check if custom copyright text is set.
+		if ( $copyright ) {
+			// Replace placeholders with actual values.
+			$output = str_replace(
+				array( '[current_year]', '[site_title]', '[theme_author]' ),
 				array(
-					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
-					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
-				)
+					date_i18n( 'Y' ), // Current year.
+					esc_html( get_bloginfo( 'name' ) ), // Site title.
+					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
+				),
+				$copyright
 			);
-			$copyright    = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $copyright );
-			return apply_filters( 'buddyx_footer_copyright_text', $copyright );
 		} else {
-			$output       = 'Copyright © [current_year] [site_title] | Powered by [theme_author]';
-			$output       = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
-			$output       = str_replace( '[site_title]', '<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>', $output );
-			$theme_author = apply_filters(
-				'buddyx_theme_author',
-				array(
-					'theme_name'       => esc_html__( 'BuddyX WordPress Theme', 'buddyx' ),
-					'theme_author_url' => esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ),
-				)
+			// Generate default copyright text.
+			$output = sprintf(
+				'Copyright &copy; %s <span class="buddyx-footer-site-title"><a href="%s">%s</a></span> | Powered by <a href="%s">%s</a>',
+				date_i18n( 'Y' ), // Current year.
+				esc_url( home_url( '/' ) ), // Site URL.
+				esc_html( get_bloginfo( 'name' ) ), // Site title.
+				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ), // Theme URL.
+				esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) // Translated theme name.
 			);
-			$output       = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . esc_html( $theme_author['theme_name'] ) . '</a>', $output );
-			return apply_filters( 'buddyx_footer_copyright_text', $output );
 		}
+
+		// Apply filter to allow modifications to the footer text.
+		return apply_filters( 'buddyx_footer_copyright_text', $output );
 	}
 }
 
@@ -267,38 +260,65 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
  * Managing 404 URL in Frontend
  */
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
-	add_action( 'template_redirect', 'buddyx_404_redirect' );
-
 	/**
-	 * Redirects users to a custom 404 page.
+	 * Redirects 404 error pages to a custom page set in the theme customizer.
+	 * This function checks if the current page is a 404 error page. If so, it retrieves the custom page ID set in the theme customizer
+	 * and redirects the user to that page using a 301 (permanent) redirect.
+	 * If no custom page ID is set, the user remains on the 404 error page.
 	 *
-	 * This function is hooked to the 'template_redirect' action. It checks if the current request
-	 * is a 404 error page. If a custom 404 page is set in the theme customizer, the user is redirected
-	 * to that page.
+	 * It uses `wp_safe_redirect()` to prevent redirection to potentially unsafe URLs and ensures no further code is executed
+	 * after the redirection.
 	 *
 	 * @return void
 	 */
 	function buddyx_404_redirect() {
+		// Check if the current page is a 404 error page.
 		if ( is_404() ) {
-			$error_404_page_id = get_theme_mod( 'buddyx_404_page', 0 );
+			// Retrieve the custom page ID for 404 redirects from the theme customizer.
+			$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
 
-			if ( $error_404_page_id && $error_404_page_id != '-1' ) {
-				wp_redirect( get_permalink( $error_404_page_id ) );
+			// If a valid page ID is found, redirect to that page.
+			if ( $redirect_page_id ) {
+				// Get the URL of the redirect page.
+				$redirect_url = get_permalink( $redirect_page_id );
+
+				// Perform a safe redirect to the custom page URL.
+				wp_safe_redirect( $redirect_url, 301 );
+
+				// Exit to ensure no further code is executed after the redirect.
 				exit;
 			}
 		}
 	}
+
+	// Hook the function to the `template_redirect` action to ensure it runs before the template is loaded.
+	add_action( 'template_redirect', 'buddyx_404_redirect' );
 }
 
 /**
  * Add Elementor Locations Support
  */
 if ( ! function_exists( 'buddyx_register_elementor_locations' ) ) {
+	/**
+	 * Registers custom locations for Elementor templates, such as header and footer.
+	 * This function checks if Elementor's functions are available before attempting to register
+	 * custom theme locations like 'header' and 'footer'. These locations can be used in Elementor
+	 * to replace the default theme parts.
+	 *
+	 * @param \ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager Elementor theme manager instance.
+	 *
+	 * @return void
+	 */
 	function buddyx_register_elementor_locations( $elementor_theme_manager ) {
-
-		$elementor_theme_manager->register_location( 'header' );
-		$elementor_theme_manager->register_location( 'footer' );
+		// Check if Elementor plugin is active.
+		if ( function_exists( 'elementor_load_plugin_textdomain' ) ) {
+			// Register custom theme locations with Elementor.
+			$elementor_theme_manager->register_location( 'header' );
+			$elementor_theme_manager->register_location( 'footer' );
+		}
 	}
+
+	// Hook into Elementor's theme locations registration.
 	add_action( 'elementor/theme/register_locations', 'buddyx_register_elementor_locations' );
 }
 

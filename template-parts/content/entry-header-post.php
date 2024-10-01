@@ -42,26 +42,23 @@ $content_classes = implode( ' ', $content_classes );
 
 while ( have_posts() ) {
 	the_post(); ?>
-	<div class="container">
-		<div class="buddyx-post-section <?php echo esc_attr( $content_classes ); ?> <?php echo esc_attr( $format_class ); ?>">
-			
-			<div class="entry-media-image">
-			
-				<?php get_template_part( 'template-parts/content/entry_media', get_post_type() ); ?>
-			
-			</div>
-			<header class="entry-header entry-header--default">
-				<?php
-				get_template_part( 'template-parts/content/entry_categories', get_post_type() );
+	<div class="buddyx-post-section <?php echo esc_attr( $content_classes ); ?> <?php echo esc_attr( $format_class ); ?>">
+		
+		<div class="entry-media-image">
+		
+			<?php get_template_part( 'template-parts/content/entry_media', get_post_type() ); ?>
+		
+		</div><!-- .entry-media-image -->
+		<header class="entry-header entry-header--default">
+			<?php
+			get_template_part( 'template-parts/content/entry_categories', get_post_type() );
 
-				get_template_part( 'template-parts/content/entry_title', get_post_type() );
+			get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
-				get_template_part( 'template-parts/content/entry_meta', get_post_type() );
+			get_template_part( 'template-parts/content/entry_meta', get_post_type() );
+			?>
+		</header><!-- .entry-header -->
 
-				?>
-			</header><!-- .entry-header -->
-
-		</div><!-- .buddyx-post-section -->
-	</div><!-- .container -->    
+	</div><!-- .buddyx-post-section -->
 	<?php
 }

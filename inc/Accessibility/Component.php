@@ -7,16 +7,16 @@
 
 namespace BuddyX\Buddyx\Accessibility;
 
-use BuddyX\Buddyx\Component_Interface;
-use function BuddyX\Buddyx\buddyx;
-use WP_Post;
 use function add_action;
 use function add_filter;
-use function wp_enqueue_script;
-use function get_theme_file_uri;
 use function get_theme_file_path;
-use function wp_script_add_data;
+use function get_theme_file_uri;
+use function wp_enqueue_script;
 use function wp_localize_script;
+use WP_Post;
+use BuddyX\Buddyx\Component_Interface;
+use function BuddyX\Buddyx\buddyx;
+use function wp_script_add_data;
 
 /**
  * Class for improving accessibility among various core features.
@@ -26,9 +26,9 @@ class Component implements Component_Interface {
 	/**
 	 * Gets the unique identifier for the theme component.
 	 *
-	 * @return string Component slug.
+	 * @return string component slug
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'accessibility';
 	}
 
@@ -36,21 +36,20 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_navigation_script' ] );
-		add_action( 'wp_head', [ $this, 'action_wp_head_amp_script' ] );
-                if ( class_exists( 'SFWD_LMS' ) ) {
-			add_action( 'wp_ajax_buddyx_lms_toggle_theme_color', [ $this, 'toggle_theme_color' ] );
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_navigation_script' ) );
+		add_action( 'wp_head', array( $this, 'action_wp_head_amp_script' ) );
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			add_action( 'wp_ajax_buddyx_lms_toggle_theme_color', array( $this, 'toggle_theme_color' ) );
 		}
-		add_action( 'wp_print_footer_scripts', [ $this, 'action_print_skip_link_focus_fix' ] );
-		add_filter( 'nav_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
-		add_filter( 'page_menu_link_attributes', [ $this, 'filter_nav_menu_link_attributes_aria_current' ], 10, 2 );
+		add_action( 'wp_print_footer_scripts', array( $this, 'action_print_skip_link_focus_fix' ) );
+		add_filter( 'nav_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
+		add_filter( 'page_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
 	}
 
 	/**
 	 * Enqueues a script that improves navigation menu accessibility.
 	 */
 	public function action_enqueue_navigation_script() {
-
 		// If the AMP plugin is active, return early.
 		if ( buddyx()->is_amp() ) {
 			return;
@@ -60,7 +59,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'buddyx-navigation',
 			get_theme_file_uri( '/assets/js/navigation.min.js' ),
-			['jquery'],
+			array(),
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
 			true
 		);
@@ -69,31 +68,31 @@ class Component implements Component_Interface {
 		wp_localize_script(
 			'buddyx-navigation',
 			'buddyxScreenReaderText',
-			[
+			array(
 				'expand'   => esc_attr__( 'Expand child menu', 'buddyx' ),
 				'collapse' => esc_attr__( 'Collapse child menu', 'buddyx' ),
-			]
+			)
 		);
 	}
-	
+
 	/**
-        * AMP accessibility.
-        */
-        public function action_wp_head_amp_script(){
+	 * AMP accessibility.
+	 */
+	public function action_wp_head_amp_script() {
 		if ( ! buddyx()->is_amp() ) {
 			?>
 			<script>document.documentElement.classList.remove( 'no-js' );</script>
 			<?php
 		}
 	}
-        
-        /**
-	 * LearnDash dark mode toggle.
+
+	/**
+	 * Learndash dark mode toggle.
 	 */
 	public function toggle_theme_color() {
-		$cookie_name  = "bxtheme";
+		$cookie_name  = 'bxtheme';
 		$cookie_value = ! empty( $_POST['color'] ) ? $_POST['color'] : '';
-		setcookie( $cookie_name, $cookie_value, time() + ( 86400 * 30 ), "/" ); // 86400 = 1 day
+		setcookie( $cookie_name, $cookie_value, time() + ( 86400 * 30 ), '/' ); // 86400 = 1 day
 		die();
 	}
 
@@ -105,10 +104,9 @@ class Component implements Component_Interface {
 	 *
 	 * Since it will never need to be changed, it is simply printed in its minified version.
 	 *
-	 * @link https://git.io/vWdr2
+	 * @see https://git.io/vWdr2
 	 */
 	public function action_print_skip_link_focus_fix() {
-
 		// If the AMP plugin is active, return early.
 		if ( buddyx()->is_amp() ) {
 			return;
@@ -127,11 +125,12 @@ class Component implements Component_Interface {
 	 *
 	 * Checks if the menu item is the current menu item and adds the aria "current" attribute.
 	 *
-	 * @param array   $atts The HTML attributes applied to the menu item's `<a>` element.
-	 * @param WP_Post $item The current menu item.
+	 * @param array   $atts the HTML attributes applied to the menu item's `<a>` element
+	 * @param WP_Post $item the current menu item
+	 *
 	 * @return array Modified HTML attributes
 	 */
-	public function filter_nav_menu_link_attributes_aria_current( array $atts, $item ) : array {
+	public function filter_nav_menu_link_attributes_aria_current( array $atts, $item ): array {
 		if ( isset( $item->current ) ) {
 			if ( $item->current ) {
 				$atts['aria-current'] = 'page';
