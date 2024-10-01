@@ -25,12 +25,24 @@ function buddyx_is_login_page() {
  */
 function buddyx_login_logo_url() {
 	$custom_login_logo_url = get_theme_mod( 'custom_login_logo_url' );
-	if ( isset( $custom_login_logo_url ) && ! empty( $custom_login_logo_url ) ) {
-		return $custom_login_logo_url;
+
+	if ( is_multisite() ) {
+		if ( isset( $custom_login_logo_url ) && ! empty( $custom_login_logo_url ) ) {
+			// If a custom URL is set, use it.
+			return esc_url( $custom_login_logo_url );
+		} else {
+			// Default to the network's main site homepage if no custom URL is set.
+			return esc_url( network_home_url( '/' ) );
+		}
+	} elseif ( isset( $custom_login_logo_url ) && ! empty( $custom_login_logo_url ) ) {
+		// If a custom URL is set, use it.
+		return esc_url( $custom_login_logo_url );
 	} else {
-		return home_url();
+		// Default to the current site's homepage if no custom URL is set.
+		return esc_url( home_url() );
 	}
 }
+
 add_filter( 'login_headerurl', 'buddyx_login_logo_url' );
 
 /**
@@ -38,10 +50,22 @@ add_filter( 'login_headerurl', 'buddyx_login_logo_url' );
  */
 function buddyx_login_title() {
 	$custom_login_logo_title = get_theme_mod( 'custom_login_logo_title' );
-	if ( isset( $custom_login_logo_title ) && ! empty( $custom_login_logo_title ) ) {
-		return $custom_login_logo_title;
+
+	if ( is_multisite() ) {
+		if ( isset( $custom_login_logo_title ) && ! empty( $custom_login_logo_title ) ) {
+			// If a custom title is set, use it.
+			return esc_html( $custom_login_logo_title );
+		} else {
+			// Default to the main site's name in the network if no custom title is set.
+			$main_site_id = get_main_site_id(); // Get the main site ID.
+			return esc_html( get_blog_option( $main_site_id, 'blogname' ) );
+		}
+	} elseif ( ! empty( $custom_login_logo_title ) ) {
+		// If a custom title is set, use it.
+		return esc_html( $custom_login_logo_title );
 	} else {
-		return get_option( 'blogname' );
+		// Default to the current site's name if no custom title is set.
+		return esc_html( get_option( 'blogname' ) );
 	}
 }
 add_filter( 'login_headertext', 'buddyx_login_title' );
@@ -53,10 +77,23 @@ add_filter( 'login_headertext', 'buddyx_login_title' );
  */
 function buddyx_login_page_title( $title ) {
 	$custom_login_page_title = get_theme_mod( 'custom_login_page_title' );
-	if ( isset( $custom_login_page_title ) && ! empty( $custom_login_page_title ) ) {
-		return $custom_login_page_title;
+
+	if ( is_multisite() ) {
+		if ( ! empty( $custom_login_page_title ) ) {
+			// If a custom page title is set, use it.
+			return esc_html( $custom_login_page_title );
+		} else {
+			// Default to the network's main site name as the title if no custom title is set.
+			$main_site_id   = get_main_site_id(); // Get the main site ID in the network.
+			$main_site_name = get_blog_option( $main_site_id, 'blogname' ); // Get the main site's name.
+			return esc_html( $main_site_name ) . ' &rsaquo; ' . esc_html__( 'Log In', 'buddyx' );
+		}
+	} elseif ( ! empty( $custom_login_page_title ) ) {
+		// If a custom page title is set, use it.
+		return esc_html( $custom_login_page_title );
 	} else {
-		return $title;
+		// Default to the original title.
+		return esc_html( $title );
 	}
 }
 add_filter( 'login_title', 'buddyx_login_page_title' );

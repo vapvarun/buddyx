@@ -31,7 +31,7 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_add_editor_support' ] );
+		add_action( 'after_setup_theme', array( $this, 'action_add_editor_support' ) );
 	}
 
 	/**
@@ -60,63 +60,63 @@ class Component implements Component_Interface {
 		 */
 		add_theme_support(
 			'editor-color-palette',
-			[
-				[
+			array(
+				array(
 					'name'  => __( 'Primary', 'buddyx' ),
 					'slug'  => 'theme-primary',
 					'color' => '#e36d60',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Secondary', 'buddyx' ),
 					'slug'  => 'theme-secondary',
 					'color' => '#41848f',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Red', 'buddyx' ),
 					'slug'  => 'theme-red',
 					'color' => '#C0392B',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Green', 'buddyx' ),
 					'slug'  => 'theme-green',
 					'color' => '#27AE60',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Blue', 'buddyx' ),
 					'slug'  => 'theme-blue',
 					'color' => '#2980B9',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Yellow', 'buddyx' ),
 					'slug'  => 'theme-yellow',
 					'color' => '#F1C40F',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Black', 'buddyx' ),
 					'slug'  => 'theme-black',
 					'color' => '#1C2833',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Grey', 'buddyx' ),
 					'slug'  => 'theme-grey',
 					'color' => '#95A5A6',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'White', 'buddyx' ),
 					'slug'  => 'theme-white',
 					'color' => '#ECF0F1',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Dusty daylight', 'buddyx' ),
 					'slug'  => 'custom-daylight',
 					'color' => '#97c0b7',
-				],
-				[
+				),
+				array(
 					'name'  => __( 'Dusty sun', 'buddyx' ),
 					'slug'  => 'custom-sun',
 					'color' => '#eee9d1',
-				],
-			]
+				),
+			)
 		);
 
 		/*
@@ -127,32 +127,32 @@ class Component implements Component_Interface {
 		 */
 		add_theme_support(
 			'editor-font-sizes',
-			[
-				[
+			array(
+				array(
 					'name'      => __( 'Small', 'buddyx' ),
 					'shortName' => __( 'S', 'buddyx' ),
 					'size'      => 16,
 					'slug'      => 'small',
-				],
-				[
+				),
+				array(
 					'name'      => __( 'Medium', 'buddyx' ),
 					'shortName' => __( 'M', 'buddyx' ),
 					'size'      => 25,
 					'slug'      => 'medium',
-				],
-				[
+				),
+				array(
 					'name'      => __( 'Large', 'buddyx' ),
 					'shortName' => __( 'L', 'buddyx' ),
 					'size'      => 31,
 					'slug'      => 'large',
-				],
-				[
+				),
+				array(
 					'name'      => __( 'Larger', 'buddyx' ),
 					'shortName' => __( 'XL', 'buddyx' ),
 					'size'      => 39,
 					'slug'      => 'larger',
-				],
-			]
+				),
+			)
 		);
 	}
 }

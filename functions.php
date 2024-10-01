@@ -126,6 +126,11 @@ if ( class_exists( 'RTMedia' ) ) {
 	require get_template_directory() . '/inc/compatibility/rtmedia/rtmedia-functions.php';
 }
 
+// Load WooCommerce functions.
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/compatibility/woocommerce/woocommerce-functions.php';
+}
+
 // bp_nouveau_appearance default option.
 $optionKey = 'buddyx_theme_is_activated';
 if ( ! get_option( $optionKey ) ) {

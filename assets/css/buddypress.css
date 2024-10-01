@@ -1413,6 +1413,10 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
     margin-bottom: 15px !important;
 }
 
+.buddypress-wrap .activity-list .activity-item.new_blog_comment .activity-content .activity-inner {
+    margin-bottom: 15px;
+}
+
 .activity-list .activity-item .activity-meta.action .fav:before,
 .activity-list .activity-item .activity-meta.action .unfav:before {
     content: "\f487";
@@ -2561,6 +2565,18 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     background: transparent;
 }
 
+.buddypress-wrap .standard-form .field-visibility-settings-header {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+#buddypress.buddypress-wrap .standard-form .field-visibility-settings-header button.visibility-toggle-link,
+#buddypress.buddypress-wrap .standard-form .field-visibility-settings-open button.field-visibility-settings-close {
+    display: block;
+    margin: 10px 0 0;
+    font-size: 14px;
+    padding: 5px 10px;
+}
 
 /* change photo */
 
@@ -2608,6 +2624,13 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 
 
 /* message-threads */
+
+.buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap select {
+    padding: 0 40px 0 12px;
+    font-size: inherit;
+    border:1px solid var(--global-border-color);
+    -webkit-appearance: none;
+}
 
 .bp-messages-content #bp-message-thread-list {
     border-top: 0;
@@ -3717,18 +3740,6 @@ button#bp-delete-avatar {
 .activity-list li.blogs .activity-content .activity-inner {
     border: 0;
     padding: 0 15px;
-    max-width: 100%;
-}
-
-.activity-list li.blogs .activity-content .activity-inner img {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 15px;
-}
-
-.activity-list li.blogs .activity-content .activity-inner img,
-.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
-    border-radius: 4px;
 }
 
 .activity-list li.blogs .activity-content .activity-inner .buddyx-content-wrp {
@@ -3759,6 +3770,20 @@ button#bp-delete-avatar {
     color: inherit;
 }
 
+.activity-list li .activity-content .activity-inner a.buddyx-post-img-link {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 0 15px;
+    background: var(--global-body-lightcolor);
+    border-radius: 4px;
+}
+
+.activity-list li .activity-content .activity-inner a.buddyx-post-img-link img {
+    margin: 0 auto;
+    width: auto;
+    max-height: 640px;
+    border-radius: 4px;
+}
 
 /*--------------------------------------------------------------
 # Register Page

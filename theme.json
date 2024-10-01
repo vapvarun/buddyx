@@ -68,6 +68,30 @@
 				"vw"
 			]
 		},
+		"typography": {
+			"fontSizes": [
+				{
+					"size": "13px",
+					"name": "Small",
+					"slug": "small"
+				},
+				{
+					"size": "20px",
+					"name": "Medium",
+					"slug": "medium"
+				},
+				{
+					"size": "36px",
+					"name": "Large",
+					"slug": "large"
+				},
+				{
+					"size": "42px",
+					"name": "Extra Large",
+					"slug": "x-large"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "840px",
 			"wideSize": "1200px",
