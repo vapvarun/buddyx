@@ -1040,7 +1040,8 @@ h2.screen-heading.email-settings-screen {
 }
 
 .item-header-wrap span.group-visibility::before {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
     font-style: normal;
     display: inline-block;
     margin-right: 3px;

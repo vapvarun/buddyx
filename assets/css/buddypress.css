@@ -1150,7 +1150,7 @@ body:not(.buddyx-mediapress) .mfp-arrow:after {
 
 body:not(.buddyx-mediapress) .mfp-arrow-left:after,
 body:not(.buddyx-mediapress) .mfp-arrow-right:after {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
     font-size: 24px;
     font-weight: 900;
     color: #fff;
@@ -1772,7 +1772,7 @@ input#rt_media_comment_submit {
 
 li.load-more a.loading::after {
     content: "\f110";
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
     font-size: 18px;
     font-weight: 900;
     line-height: 1;
@@ -1785,7 +1785,7 @@ li.load-more a.loading::after {
 
 .buddypress .buddypress-wrap .generic-button .loading:not(.bp-tooltip):after {
     content: "\f110";
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
     font-size: 18px;
     font-weight: 900;
     line-height: 1;
@@ -5306,7 +5306,7 @@ button.ges-change:hover {
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 18px;
 }

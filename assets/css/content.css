@@ -101,9 +101,9 @@
 .entry-meta .entry-edit-link a::before,
 .entry-meta .entry-featured::before {
     margin-right: 4px;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 6 Free';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 900;
     display: inline-block;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
