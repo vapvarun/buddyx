@@ -45,6 +45,7 @@
     # BuddyPress Resume Manager
     # Activity Link Preview
     # BP Attachments
+    # BuddyPress Member Review
 
 --------------------------------------------------------------*/
 
@@ -5859,4 +5860,11 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
 
 .components-form-file-upload .components-button {
     height: 100%;
+}
+
+/*--------------------------------------------------------------
+## BuddyPress Member Review
+--------------------------------------------------------------*/
+.bupr-shortcode-top-members-contents {
+    margin: 0 0 2rem;
 }
