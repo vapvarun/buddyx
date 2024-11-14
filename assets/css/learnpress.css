@@ -134,12 +134,19 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 --------------------------------------------------------------*/
 
 .lp-archive-courses .course-summary .course-summary-content .course-detail-info.course-detail-info {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 50px;
+}
+
+.lp-archive-courses .course-summary .course-summary-content .course-detail-info.course-detail-info .lp-content-area {
+    padding: 0;
 }
 
 .lp-archive-courses .course-summary .course-summary-content .lp-entry-content.lp-content-area .course-summary-sidebar {
-    right: 15px;
+    right: 0;
+}
+
+.single-lp_course .lp-archive-courses .lp-entry-content {
+    padding: 0;
 }
 
 .single-lp_course .course-learning-summary .course-meta,
@@ -194,12 +201,23 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 }
 
 #learn-press-course-tabs ul.learn-press-nav-tabs {
+    border-color: var(--global-border-color);
     border-bottom: none;
     margin: 0;
+    column-gap: 10px;
+}
+
+.course-tabs .wrapper-course-nav-tabs {
+    border-color: var(--global-border-color);
 }
 
 #learn-press-course-tabs {
     margin-bottom: 20px !important;
+}
+
+#learn-press-course-tabs ul.learn-press-nav-tabs li label {
+    padding: 16px;
+    color: var(--global-font-color);
 }
 
 ul.learn-press-nav-tabs .course-nav {
@@ -209,13 +227,6 @@ ul.learn-press-nav-tabs .course-nav {
     border: 1px solid #e8e8e8;
     margin-bottom: -1px !important;
     border-bottom: 0;
-}
-
-ul.learn-press-nav-tabs .course-nav.active::after,
-ul.learn-press-nav-tabs .course-nav:hover::after {
-    top: -1px;
-    bottom: unset;
-    background-color: #f0546d;
 }
 
 ul.learn-press-nav-tabs .course-nav a {
@@ -253,9 +264,9 @@ ul.learn-press-nav-tabs .course-nav a:after {
 
 #learn-press-course-tabs .course-tab-panel {
     background: #fff;
-    border: 1px solid #e8e8e8;
+    border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-    border-radius: 0px 8px 8px 8px;
+    border-radius: 0px 0 8px 8px;
     overflow: hidden;
     padding: 1em 1.2em;
 }
