@@ -16,13 +16,16 @@ define( 'BUDDYX_MINIMUM_PHP_VERSION', '7.0' );
  *              True otherwise.
  */
 function buddyx_template_pack_check() {
-	$retval = false;
+	if ( is_admin() ) {
+		$retval = false;
 
-	if ( function_exists( 'buddypress' ) ) {
-		$retval = 'nouveau' !== bp_get_theme_compat_id();
+		if ( function_exists( 'buddypress' ) ) {
+			$retval = 'nouveau' !== bp_get_theme_compat_id();
+		}
+		return $retval;
 	}
 
-	return $retval;
+	return false;
 }
 
 /**

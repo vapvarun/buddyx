@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-11-18 06:28+0000\n"
+"POT-Creation-Date: 2024-11-18 08:37+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: ../buddyx/functions.php:35
+#: ../buddyx/functions.php:38
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options.%2$s"
 msgstr ""
 
@@ -2766,11 +2766,11 @@ msgstr ""
 msgid "Group Type"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:67, ../buddyx/buddypress/members/single/member-header.php:50
+#: ../buddyx/buddypress/members/single/cover-image-header.php:69, ../buddyx/buddypress/members/single/member-header.php:52
 msgid "Member Types"
 msgstr ""
 
-#: ../buddyx/buddypress/members/single/cover-image-header.php:68, ../buddyx/buddypress/members/single/member-header.php:51
+#: ../buddyx/buddypress/members/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/member-header.php:53
 msgid "Member Type"
 msgstr ""
 
