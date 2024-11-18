@@ -138,9 +138,14 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 
 		if ( isset( $custom_login_logo_image ) && ! empty( $custom_login_logo_image ) ) {
 			?>
-			.login h1 a {
+			.login h1 a,
+			.login .wp-login-logo a {
 				background-image: url( <?php echo esc_url( $custom_login_logo_image ); ?> );
 				background-size: contain;
+				background-repeat: no-repeat;
+				display: block;
+				width: 84px;
+				height: 84px;
 				<?php
 				if ( isset( $custom_login_logo_image_width ) && ! empty( $custom_login_logo_image_width ) ) {
 					echo 'width:' . esc_attr( $custom_login_logo_image_width ) . ';';

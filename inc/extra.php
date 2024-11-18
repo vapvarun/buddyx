@@ -277,6 +277,12 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 			// Retrieve the custom page ID for 404 redirects from the theme customizer.
 			$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
 
+			// Exclude rtMedia routes by checking the request URI.
+			if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/media/' ) !== false ) {
+				// The current URL contains `/media/`, so skip redirection.
+				return;
+			}
+
 			// If a valid page ID is found, redirect to that page.
 			if ( $redirect_page_id ) {
 				// Get the URL of the redirect page.

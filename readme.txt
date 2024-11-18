@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.6.2
+Tested up to: 6.7.0
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.7.5 =
+* Fixed a fatal error when BuddyPress template was changed to Legacy.
+* Displayed the user's full name in the cover image header template when the BuddyPress Activity component is disabled.
+* Fixed issue where custom login page logo did not display with WordPress 6.7 compatibility.
+* Managed rtMedia tab mapping to prevent 404 errors.
+* Improved button class and color management for consistent styling.
+* Enhanced LearnPress course tab UI for better user experience.
+* Improved UI for member reviews using the member review shortcode.
+
 = 4.7.4 =
 * Enhanced: Blog grid layout updated to remove masonry UI for a cleaner, more structured appearance.
 * Enhanced: Welcome screen community addons images path updated for improved accuracy and display.
