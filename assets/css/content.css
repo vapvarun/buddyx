@@ -133,10 +133,9 @@
     display: none;
 }
 
-.post-thumbnail img {
-    width: 100%;
+/* .post-thumbnail img {
     margin: 0 auto;
-}
+} */
 
 .page-content,
 .entry-content,

@@ -58,7 +58,7 @@ if ( is_singular( get_post_type() ) ) {
 		global $wp_query;
 		if ( 0 === $wp_query->current_post ) {
 			the_post_thumbnail(
-				'post-thumbnail',
+				$thumbnail_size,
 				array(
 					'class' => 'skip-lazy',
 					'alt'   => the_title_attribute(
@@ -70,7 +70,7 @@ if ( is_singular( get_post_type() ) ) {
 			);
 		} else {
 			the_post_thumbnail(
-				'post-thumbnail',
+				$thumbnail_size,
 				array(
 					'alt' => the_title_attribute(
 						array(

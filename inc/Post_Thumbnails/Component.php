@@ -25,7 +25,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'post_thumbnails';
 	}
 
@@ -33,8 +33,8 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_add_post_thumbnail_support' ] );
-		add_action( 'after_setup_theme', [ $this, 'action_add_image_sizes' ] );
+		add_action( 'after_setup_theme', array( $this, 'action_add_post_thumbnail_support' ) );
+		add_action( 'after_setup_theme', array( $this, 'action_add_image_sizes' ) );
 	}
 
 	/**
@@ -58,26 +58,39 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes.
 	 */
 	public function action_add_image_sizes() {
-		/**
-		 * Filter the custom image sizes to add.
-		 *
-		 * @since 1.0.0
-		 * @param array $image_sizes Array of custom image sizes. Each size is an associative array with 'name', 'width', 'height', and 'crop' keys.
-		 */
-		$image_sizes = apply_filters( 'buddyx_custom_image_sizes', [
-			[ 'name' => 'buddyx-featured', 'width' => 900, 'height' => 515, 'crop' => true ],
-			[ 'name' => 'buddyx-thumbnail', 'width' => 150, 'height' => 150, 'crop' => true ],
-			[ 'name' => 'buddyx-medium', 'width' => 300, 'height' => 300, 'crop' => true ],
-			[ 'name' => 'buddyx-large', 'width' => 1024, 'height' => 508, 'crop' => true ],
-			[ 'name' => 'buddyx-list', 'width' => 300, 'height' => 250, 'crop' => true ],
-			[ 'name' => 'buddyx-col-two', 'width' => 450, 'height' => 300, 'crop' => true ],
-			[ 'name' => 'buddyx-col-three', 'width' => 350, 'height' => 250, 'crop' => true ],
-		] );
 
-		foreach ( $image_sizes as $size ) {
-			if ( isset( $size['name'], $size['width'], $size['height'], $size['crop'] ) ) {
-				add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
-			}
-		}
+		// Add 'buddyx-featured' size dynamically.
+		$featured_width  = apply_filters( 'buddyx_featured_width', 900 );
+		$featured_height = apply_filters( 'buddyx_featured_height', 515 );
+		$featured_crop   = apply_filters( 'buddyx_featured_crop', true );
+		add_image_size( 'buddyx-featured', $featured_width, $featured_height, $featured_crop );
+
+		add_image_size(
+			'buddyx-large',
+			apply_filters( 'buddyx_large_width', 1024 ),
+			apply_filters( 'buddyx_large_height', 508 ),
+			apply_filters( 'buddyx_large_crop', false )
+		);
+
+		add_image_size(
+			'buddyx-list',
+			apply_filters( 'buddyx_list_width', 300 ),
+			apply_filters( 'buddyx_list_height', 250 ),
+			apply_filters( 'buddyx_list_crop', true )
+		);
+
+		add_image_size(
+			'buddyx-col-two',
+			apply_filters( 'buddyx_col_two_width', 450 ),
+			apply_filters( 'buddyx_col_two_height', 300 ),
+			apply_filters( 'buddyx_col_two_crop', true )
+		);
+
+		add_image_size(
+			'buddyx-col-three',
+			apply_filters( 'buddyx_col_three_width', 350 ),
+			apply_filters( 'buddyx_col_three_height', 250 ),
+			apply_filters( 'buddyx_col_three_crop', true )
+		);
 	}
 }
