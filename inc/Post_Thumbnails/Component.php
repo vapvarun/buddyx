@@ -11,6 +11,7 @@ use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function add_image_size;
+use function apply_filters;
 
 /**
  * Class for managing post thumbnail support.
@@ -40,19 +41,43 @@ class Component implements Component_Interface {
 	 * Adds support for post thumbnails.
 	 */
 	public function action_add_post_thumbnail_support() {
-		add_theme_support( 'post-thumbnails' );
+		/**
+		 * Filter whether to add support for post thumbnails.
+		 *
+		 * @since 1.0.0
+		 * @param bool $enable_post_thumbnails Whether to enable post thumbnails. Default true.
+		 */
+		$enable_post_thumbnails = apply_filters( 'buddyx_enable_post_thumbnails', true );
+
+		if ( $enable_post_thumbnails ) {
+			add_theme_support( 'post-thumbnails' );
+		}
 	}
 
 	/**
 	 * Adds custom image sizes.
 	 */
 	public function action_add_image_sizes() {
-		add_image_size( 'buddyx-featured', 900, 515, true );
-		add_image_size( 'buddyx-thumbnail', 150, 150, true );
-        add_image_size( 'buddyx-medium', 300, 300, true );
-        add_image_size( 'buddyx-large', 1024, 508, true );
-        add_image_size( 'buddyx-list', 300, 250, true );     
-        add_image_size( 'buddyx-col-two', 450, 300, true );
-        add_image_size( 'buddyx-col-three', 350, 250, true );
+		/**
+		 * Filter the custom image sizes to add.
+		 *
+		 * @since 1.0.0
+		 * @param array $image_sizes Array of custom image sizes. Each size is an associative array with 'name', 'width', 'height', and 'crop' keys.
+		 */
+		$image_sizes = apply_filters( 'buddyx_custom_image_sizes', [
+			[ 'name' => 'buddyx-featured', 'width' => 900, 'height' => 515, 'crop' => true ],
+			[ 'name' => 'buddyx-thumbnail', 'width' => 150, 'height' => 150, 'crop' => true ],
+			[ 'name' => 'buddyx-medium', 'width' => 300, 'height' => 300, 'crop' => true ],
+			[ 'name' => 'buddyx-large', 'width' => 1024, 'height' => 508, 'crop' => true ],
+			[ 'name' => 'buddyx-list', 'width' => 300, 'height' => 250, 'crop' => true ],
+			[ 'name' => 'buddyx-col-two', 'width' => 450, 'height' => 300, 'crop' => true ],
+			[ 'name' => 'buddyx-col-three', 'width' => 350, 'height' => 250, 'crop' => true ],
+		] );
+
+		foreach ( $image_sizes as $size ) {
+			if ( isset( $size['name'], $size['width'], $size['height'], $size['crop'] ) ) {
+				add_image_size( $size['name'], $size['width'], $size['height'], $size['crop'] );
+			}
+		}
 	}
 }
