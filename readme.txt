@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.7.0
+Tested up to: 6.7.1
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,13 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 4.7.6 =
+* Fixed issue with `content.min.css` being called twice.
+* Added apply filter for post thumbnails to enhance customization.
+* [Enhancement] Added filters for post thumbnail support and custom image sizes for better developer flexibility.
+* Fixed issue with Elementor header and footer not working.
+
 = 4.7.5 =
 * Fixed a fatal error when BuddyPress template was changed to Legacy.
 * Displayed the user's full name in the cover image header template when the BuddyPress Activity component is disabled.

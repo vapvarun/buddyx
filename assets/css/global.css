@@ -2286,6 +2286,256 @@ button.media-menu-item {
 }
 
 /*--------------------------------------------------------------
+# Post and page content
+--------------------------------------------------------------*/
+
+.entry {
+    margin-bottom: 1rem;
+}
+
+.post-layout .entry-layout {
+    position: relative;
+}
+
+.entry-header {
+    position: relative;
+}
+
+.entry-meta,
+.single-post .entry-footer {
+    font-size: inherit;
+}
+
+
+/* Entry meta */
+
+.entry-meta {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    font-size: 12px;
+}
+
+.entry-meta .posted-by img {
+    margin-right: 5px;
+    border-radius: 100px;
+}
+
+.entry-meta .posted-by {
+    display: block;
+    margin: 0;
+    font-weight: 700;
+}
+
+.entry-meta .author.vcard,
+.entry-meta span.posted-by>a {
+    text-transform: inherit;
+    margin-left: 0;
+}
+
+.entry-meta .posted-by img {
+    float: left;
+    margin-right: 15px;
+}
+
+.entry-edit-link {
+    margin-left: auto;
+}
+
+.post-edit-link {
+    text-transform: uppercase;
+}
+
+.post-meta-category {
+    margin-bottom: 5px !important;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.post-meta-category a {
+    color: var(--color-theme-primary);
+    font-size: 13px;
+}
+
+.entry-meta .entry-cat-links::before,
+.entry-meta .entry-comments-link a::before,
+.entry-meta .entry-edit-link a::before,
+.entry-meta .entry-featured::before {
+    margin-right: 4px;
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    display: inline-block;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.entry-meta .entry-cat-links::before {
+    content: "\f115";
+}
+
+.entry-meta .entry-edit-link a::before {
+    content: "\f040";
+}
+
+.entry-meta .entry-comments-link a::before {
+    content: "\f0e5";
+}
+
+.entry-meta .entry-featured::before {
+    content: "\f041";
+}
+
+
+/* Hides the update date and time. */
+
+.updated:not(.published) {
+    display: none;
+}
+
+/* .post-thumbnail img {
+    margin: 0 auto;
+} */
+
+.page-content,
+.entry-content,
+.entry-summary {
+    margin: 1em 0 0;
+}
+
+.page-content>*,
+.entry-content>*,
+.entry-summary>* {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--content-width);
+}
+
+.page-content ul,
+.entry-content ul,
+.entry-summary ul,
+.page-content ol:not(.comment-list),
+.entry-content ol:not(.comment-list),
+.entry-summary ol:not(.comment-list) {
+    margin-left: 1.05em;
+}
+
+.page-header,
+.entry-header,
+.entry-footer,
+.post-navigation,
+.page-navigation,
+.comments-area {
+    margin: 0 0 1.5em;
+    max-width: var(--content-width);
+}
+
+.entry-content .wp-audio-shortcode,
+.entry-content .wp-embedded-audio,
+.entry-content .wp-embedded-video,
+.entry-content .wp-video {
+    margin: 0;
+    margin-bottom: 1.5em;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.entry-content ul.wp-block-list li,
+.entry-content ol.wp-block-list li {
+    margin-bottom: 10px;
+}
+
+article .entry-header {
+    max-width: max-content;
+}
+
+.type-grade .entry-header,
+.type-grade .entry-footer,
+.type-level .entry-header,
+.type-level .entry-footer,
+.type-quests .entry-header,
+.type-quests .entry-footer,
+.type-badges .entry-header,
+.type-badges .entry-footer {
+    display: none;
+}
+
+@media (--content-query) {
+
+    .page-content>*,
+    .entry-content>*,
+    .entry-summary>*,
+    .page-header,
+    .entry-header,
+    .entry-footer,
+    .post-navigation,
+    .page-navigation,
+    .comments-area {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .entry-content>*.wp-block-code {
+        padding: .8em 1em;
+    }
+}
+
+.single-post .entry-content ul:not(.blocks-gallery-grid),
+.single-post .entry-content ol {
+    margin-left: 0;
+    padding: 0;
+    padding-left: 16px;
+}
+
+.entry-content ul ul,
+.entry-content ol ol {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+}
+
+
+/* Align .more-link with the content. */
+
+.entry-content>.more-link {
+    display: block;
+}
+
+.page-links {
+    clear: both;
+    margin-bottom: 1.5em;
+}
+
+.entry-footer span {
+    margin-right: 1em;
+}
+
+.entry-footer {
+    clear: both;
+    margin-bottom: 0;
+    padding: 1.5em 0 0;
+    border-top: 1px solid #e8e8e8;
+}
+
+@media (--content-query) {
+    .entry-footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/*--------------------------------------------------------------
 ## Post Default Layout.
 --------------------------------------------------------------*/
 
@@ -2378,6 +2628,7 @@ button.media-menu-item {
 }
 
 .buddyx-article--default .post-thumbnail img {
+    width: 100%;
     border-radius: var(--global-border-radius);
 }
 
@@ -3040,6 +3291,19 @@ button.media-menu-item {
     margin-left: auto;
 }
 
+.single-post .post-thumbnail img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .single-post .buddyx-section-title-above .post-thumbnail img,
+    .single-post .buddyx-section-title-below .post-thumbnail img {
+        max-height: 640px;
+        object-fit: contain;
+    }
+}
+
 .single-post .site-wrapper,
 .buddyx-post-section:not(.has-featured-image) {
     margin-top: var(--el-spacing);
@@ -3126,13 +3390,13 @@ button.media-menu-item {
     }
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 
     .single-post .site-wrapper,
     .buddyx-post-section:not(.has-featured-image) {
-        margin-top: calc(var(--el-spacing) * 3);
+        margin-top: calc(var(--el-spacing) * 2);
     }
-}
+} */
 
 @media (max-width: 767px) {
     .buddyx-post-section.buddyx-section-title-over .post-thumbnail {
@@ -3342,7 +3606,7 @@ button.media-menu-item {
         margin: 0 auto;
         display: block;
         overflow: hidden;
-        padding-bottom: 100%;
+        padding-bottom: 80%;
     }
 
     .buddyx-section-half.has-featured-image .post-thumbnail>img {
@@ -3407,7 +3671,7 @@ button.media-menu-item {
     }
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     .buddyx-section-title-above.has-featured-image .entry-header--default {
         margin-top: calc(var(--el-spacing) * 3);
         margin-bottom: calc(var(--el-spacing) * 3);
@@ -3420,7 +3684,7 @@ button.media-menu-item {
     .single-format-gallery .buddyx-section-title-above:not(.has-featured-image) .entry-header--default {
         margin-bottom: calc(var(--el-spacing) * 3);
     }
-}
+} */
 
 
 /*--------------------------------------------------------------

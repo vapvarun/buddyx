@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-11-18 08:37+0000\n"
+"POT-Creation-Date: 2024-11-29 12:06+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -597,87 +597,87 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:403
+#: ../buddyx/inc/extra.php:389
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:412
+#: ../buddyx/inc/extra.php:398
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:431
+#: ../buddyx/inc/extra.php:417
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:436
+#: ../buddyx/inc/extra.php:422
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:486
+#: ../buddyx/inc/extra.php:472
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:489
+#: ../buddyx/inc/extra.php:475
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:492, ../buddyx/inc/extra.php:505, ../buddyx/inc/extra.php:734
+#: ../buddyx/inc/extra.php:478, ../buddyx/inc/extra.php:491, ../buddyx/inc/extra.php:720
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:499
+#: ../buddyx/inc/extra.php:485
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:502
+#: ../buddyx/inc/extra.php:488
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:512
+#: ../buddyx/inc/extra.php:498
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:515
+#: ../buddyx/inc/extra.php:501
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:521
+#: ../buddyx/inc/extra.php:507
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:528
+#: ../buddyx/inc/extra.php:514
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:531
+#: ../buddyx/inc/extra.php:517
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:537
+#: ../buddyx/inc/extra.php:523
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:544
+#: ../buddyx/inc/extra.php:530
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:566, ../buddyx/inc/extra.php:673
+#: ../buddyx/inc/extra.php:552, ../buddyx/inc/extra.php:659
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:580, ../buddyx/inc/extra.php:650
+#: ../buddyx/inc/extra.php:566, ../buddyx/inc/extra.php:636
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:652
+#: ../buddyx/inc/extra.php:638
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:736
+#: ../buddyx/inc/extra.php:722
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:901
+#: ../buddyx/inc/extra.php:887
 msgid " Read more"
 msgstr ""
 
