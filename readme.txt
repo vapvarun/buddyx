@@ -98,6 +98,12 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.7.7 = 
+* Updated: Managed BuddyWoo order tab pagination UI with Youzify compatibility.  
+* Updated: Improved UI for BuddyWoo tabs with Youzify integration.  
+* Updated: Resizable text areas for better user experience.  
+* Updated: Enhanced `members-loop.php` to align with BuddyBoss Platform updates.  
+
 = 4.7.6 =
 * Fixed issue with `content.min.css` being called twice.
 * Added apply filter for post thumbnails to enhance customization.
