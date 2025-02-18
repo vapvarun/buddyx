@@ -253,6 +253,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function buddyx_register_block_pattern_categories() {
 
 		register_block_pattern_category(
+			'buddyx-general',
+			array(
+				'label' => __( 'BuddyX General', 'buddyx' ),
+			)
+		);
+
+		register_block_pattern_category(
 			'buddyx-footer',
 			array(
 				'label' => __( 'BuddyX Footer', 'buddyx' ),
@@ -267,6 +274,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'footer-mega',
 				'footer-simple',
 				'footer-small',
+				'general-banner',
+				'general-banner-light',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
