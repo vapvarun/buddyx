@@ -278,6 +278,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'general-banner-light',
 				'general-faq',
 				'general-features-light',
+				'general-pricing',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
