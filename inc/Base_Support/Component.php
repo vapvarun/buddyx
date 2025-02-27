@@ -260,6 +260,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 
 		register_block_pattern_category(
+			'buddyx-hero',
+			array(
+				'label' => __( 'BuddyX Hero Sections', 'buddyx' ),
+			)
+		);
+
+		register_block_pattern_category(
 			'buddyx-footer',
 			array(
 				'label' => __( 'BuddyX Footer', 'buddyx' ),
@@ -279,6 +286,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'general-faq',
 				'general-features-light',
 				'general-pricing',
+				'header-centered',
+				'hero-two',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {

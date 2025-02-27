@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-02-25 05:24+0000\n"
+"POT-Creation-Date: 2025-02-27 07:27+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -833,6 +833,10 @@ msgid "BuddyX General"
 msgstr ""
 
 #: ../buddyx/inc/Base_Support/Component.php:265
+msgid "BuddyX Hero Sections"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/Component.php:272
 msgid "BuddyX Footer"
 msgstr ""
 
@@ -2824,6 +2828,14 @@ msgstr ""
 
 #: ../buddyx/inc/Base_Support/patterns/general-pricing.php:9
 msgid "Pricing table"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/header-centered.php:9
+msgid "Header centered with social icons"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/hero-two.php:9
+msgid "Hero block with two columns"
 msgstr ""
 
 #: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:53
