@@ -286,7 +286,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'general-faq',
 				'general-features-light',
 				'general-pricing',
-				'header-centered',
+				'hero-main',
 				'hero-two',
 			);
 
