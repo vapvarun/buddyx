@@ -299,6 +299,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'query-cover-featured',
 				'query-cover-grid',
 				'query-grid-excerpt',
+				'query-listbig',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
