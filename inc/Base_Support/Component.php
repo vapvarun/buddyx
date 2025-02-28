@@ -288,6 +288,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'general-pricing',
 				'hero-main',
 				'hero-two',
+				'hero-count',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
