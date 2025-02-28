@@ -273,6 +273,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			)
 		);
 
+		register_block_pattern_category(
+			'buddyx-query',
+			array(
+				'label' => __( 'BuddyX Query', 'buddyx' ),
+			)
+		);
+
 		if ( function_exists( 'register_block_pattern' ) ) {
 			$block_patterns = array(
 				'footer-default',
@@ -289,6 +296,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'hero-main',
 				'hero-two',
 				'hero-count',
+				'query-cover-featured',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
