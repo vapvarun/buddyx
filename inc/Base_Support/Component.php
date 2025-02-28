@@ -298,6 +298,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'hero-count',
 				'query-cover-featured',
 				'query-cover-grid',
+				'query-grid-excerpt',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
