@@ -6,7 +6,7 @@
  */
 
 return array(
-	'title'      => __( 'Title: List with big images', 'buddyx' ),
+	'title'      => __( 'List with big images', 'buddyx' ),
 	'categories' => array( 'buddyx-query' ),
 	'content'    => '<!-- wp:group {"metadata":{"categories":["buddyx-query"],"patternName":"buddyx/query-listbig","name":"Title: List with big images"},"align":"wide","layout":{"type":"constrained"}} -->
     <div class="wp-block-group alignwide"><!-- wp:query {"queryId":10,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->

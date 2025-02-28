@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-02-28 12:31+0000\n"
+"POT-Creation-Date: 2025-02-28 13:19+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -2859,7 +2859,11 @@ msgid "Grid of posts with excerpt"
 msgstr ""
 
 #: ../buddyx/inc/Base_Support/patterns/query-listbig.php:9
-msgid "Title: List with big images"
+msgid "List with big images"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-simple-list.php:9
+msgid "Simple item list"
 msgstr ""
 
 #: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:53

@@ -300,6 +300,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'query-cover-grid',
 				'query-grid-excerpt',
 				'query-listbig',
+				'query-simple-list',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
