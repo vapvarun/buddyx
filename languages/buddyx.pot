@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Buddyx
+# Copyright (C) 2025 Buddyx
 # This file is distributed under the same license as the Buddyx package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2024-11-29 12:06+0000\n"
+"POT-Creation-Date: 2025-02-28 13:19+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -828,8 +828,20 @@ msgstr ""
 msgid "Borders"
 msgstr ""
 
-#: ../buddyx/inc/Base_Support/Component.php:258, ../buddyx/inc/Welcome/Component.php:342
-msgid "BuddyX"
+#: ../buddyx/inc/Base_Support/Component.php:258
+msgid "BuddyX General"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/Component.php:265
+msgid "BuddyX Hero Sections"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/Component.php:272
+msgid "BuddyX Footer"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/Component.php:279
+msgid "BuddyX Query"
 msgstr ""
 
 #: ../buddyx/inc/Comments/Component.php:132
@@ -1825,6 +1837,10 @@ msgstr ""
 msgid "Features"
 msgstr ""
 
+#: ../buddyx/inc/Welcome/Component.php:342
+msgid "BuddyX"
+msgstr ""
+
 #: ../buddyx/inc/Welcome/Component.php:343
 msgid "BuddyX Pro"
 msgstr ""
@@ -2774,8 +2790,80 @@ msgstr ""
 msgid "Member Type"
 msgstr ""
 
+#: ../buddyx/inc/Base_Support/patterns/footer-central.php:9
+msgid "Central Footer with banner"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/footer-default-mega.php:9
+msgid "Default Mega Footer"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/footer-default.php:9
+msgid "Default Footer"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/footer-mega.php:9
+msgid "Mega menu in 5 columns"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/footer-simple.php:9
+msgid "Simple footer with social icons"
+msgstr ""
+
 #: ../buddyx/inc/Base_Support/patterns/footer-small.php:9
-msgid "Small footer"
+msgid "Small Footer"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/general-banner-light.php:9
+msgid "Banner block light"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/general-banner.php:9
+msgid "Banner block"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/general-faq.php:9
+msgid "FAQ block"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/general-features-light.php:9
+msgid "Features block light"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/general-pricing.php:9
+msgid "Pricing table"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/hero-count.php:9
+msgid "Hero Counter"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/hero-main.php:9
+msgid "Hero block for Homepage"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/hero-two.php:9
+msgid "Hero block with two columns"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-cover-featured.php:9
+msgid "Featured section with cover images"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-cover-grid.php:9
+msgid "Grid with cover images"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-grid-excerpt.php:9
+msgid "Grid of posts with excerpt"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-listbig.php:9
+msgid "List with big images"
+msgstr ""
+
+#: ../buddyx/inc/Base_Support/patterns/query-simple-list.php:9
+msgid "Simple item list"
 msgstr ""
 
 #: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:53

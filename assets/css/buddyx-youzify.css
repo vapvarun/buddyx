@@ -17,6 +17,7 @@
     # Block Members
     # BuddyPress Moderation
     # BuddyPress Activity Reactions
+    # BuddyPress WooCommerce Integration
 --------------------------------------------------------------*/
 
 
@@ -1676,4 +1677,85 @@ div.yzpr-users-who-list .yzpr-list-item .yzpr-item-name a:hover {
 
 div.yzpr-users-who-list .yzpr-list-item .yzpr-item-meta {
     color: var(--global-font-color);
+}
+
+/*--------------------------------------------------------------
+## BuddyPress WooCommerce Integration
+--------------------------------------------------------------*/
+body #youzify .woocommerce,
+.youzify .woocommerce {
+    padding: 35px 40px;
+    background-color: var(--color-theme-white-box);
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+body #youzify .woocommerce .woocommerce-info,
+body #youzify .woocommerce .woocommerce .col2-set,
+body #youzify .woocommerce .woocommerce-page .col2-set,
+.youzify .woocommerce .woocommerce-info,
+.youzify .woocommerce .woocommerce .col2-set,
+.youzify .woocommerce .woocommerce-page .col2-set  {
+    margin-top: 20px;
+}
+
+body #youzify .woocommerce .woocommerce-Address-title h2,
+.youzify .woocommerce .woocommerce-Address-title h2 {
+    margin-bottom: 20px;
+}
+
+body #youzify .youzify-main-column>h2,
+body #youzify .woocommerce .youzify-main-column .cart_totals h2,
+.youzify .youzify-main-column>h2,
+.youzify .woocommerce .youzify-main-column .cart_totals h2 {
+    line-height: 1.5;
+}
+
+.youzify-main-column a#bpwoo-subnav-item-icon i,
+.youzify-main-column a#bpwoo-subnav-checkout-item-icon i {
+    display: none;
+}
+
+.youzify-main-column .woocommerce table.shop_table th {
+    background-color: inherit;
+}
+
+.youzify-main-column .woocommerce [class^="col-"] {
+    width: 100%;
+}
+
+.youzify .youzify-main-column .pagination .page-numbers {
+    min-width: 35px;
+    width: auto;
+}
+
+.youzify .youzify-main-column .woocommerce-pagination {
+    text-align: left;
+}
+
+.youzify .woocommerce-pagination .button {
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    padding: 8px 20px;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.3;
+    border: 1px solid var(--button-border-color);
+    outline: 0;
+    vertical-align: middle;
+    transition: all linear .2s;
+}
+
+.youzify .woocommerce-pagination .button:hover,
+.youzify .woocommerce-pagination .button:focus {
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+    color: var(--button-text-hover-color);
 }

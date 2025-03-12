@@ -137,8 +137,8 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 				// Render the search icon if enabled.
 				if ( ! empty( $searchicon ) ) :
 					?>
-					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); ?>>
-						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>">
+					<div class="search" role="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); ?>>
+						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>" aria-label="Toggle search overlay">
 							<span class="fa fa-search"></span>
 						</a>
 						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); ?>>
@@ -902,5 +902,5 @@ if ( ! function_exists( 'buddyx_viewport_meta' ) ) {
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">';
 	}
 
-	add_action( 'wp_head', 'buddyx_viewport_meta' );
+	// add_action( 'wp_head', 'buddyx_viewport_meta' );
 }

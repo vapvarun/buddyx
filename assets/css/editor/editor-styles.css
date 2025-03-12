@@ -48,9 +48,9 @@ option {
 }
 
 /* Main column width */
-.wp-block {
+/* .wp-block {
     max-width: calc(45rem + 30px);
-}
+} */
 
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
@@ -81,9 +81,8 @@ option {
     margin-right: auto;
 }
 
-.wp-block-latest-comments {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
+.blocks-widgets-container .wp-block-widget-area__inner-blocks.editor-styles-wrapper>.block-editor-block-list__layout>.wp-block {
+    margin-bottom: 28px;
 }
 
 .wp-block-image.is-style-buddyx-border img {
@@ -119,6 +118,20 @@ option {
 
 .editor-styles-wrapper h1.editor-post-title__input {
     margin-bottom: 20px;
+}
+
+.wp-block-list.is-style-nounderline {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wp-block-list.is-style-nounderline li {
+	list-style: none
+}
+
+.wp-block-list.is-style-nounderline a {
+	text-decoration: none
 }
 
 /* Buttons */

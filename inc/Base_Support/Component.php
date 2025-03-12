@@ -49,7 +49,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_filter( 'theme_scandir_exclusions', array( $this, 'filter_scandir_exclusions_for_optional_templates' ) );
 		add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
 		add_action( 'init', array( $this, 'buddyx_theme_block_styles' ) );
-		add_action( 'init', array( $this, 'buddyx_register_block_patterns' ) );
+		add_action( 'init', array( $this, 'buddyx_register_block_pattern_categories' ) );
 	}
 
 	/**
@@ -241,7 +241,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				array(
 					'name'  => 'buddyx-border',
 					'label' => esc_html__( 'Borders', 'buddyx' ),
-					'style' => 'buddyx-border-style'
+					'style' => 'buddyx-border-style',
 				)
 			);
 		}
@@ -250,18 +250,57 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Register register block patterns.
 	 */
-	public function buddyx_register_block_patterns() {
+	public function buddyx_register_block_pattern_categories() {
 
-		if ( function_exists( 'register_block_pattern_category' ) ) {
-			register_block_pattern_category(
-				'buddyx',
-				array( 'label' => __( 'BuddyX', 'buddyx' ) )
-			);
-		}
+		register_block_pattern_category(
+			'buddyx-general',
+			array(
+				'label' => __( 'BuddyX General', 'buddyx' ),
+			)
+		);
+
+		register_block_pattern_category(
+			'buddyx-hero',
+			array(
+				'label' => __( 'BuddyX Hero Sections', 'buddyx' ),
+			)
+		);
+
+		register_block_pattern_category(
+			'buddyx-footer',
+			array(
+				'label' => __( 'BuddyX Footer', 'buddyx' ),
+			)
+		);
+
+		register_block_pattern_category(
+			'buddyx-query',
+			array(
+				'label' => __( 'BuddyX Query', 'buddyx' ),
+			)
+		);
 
 		if ( function_exists( 'register_block_pattern' ) ) {
 			$block_patterns = array(
+				'footer-default',
+				'footer-central',
+				'footer-default-mega',
+				'footer-mega',
+				'footer-simple',
 				'footer-small',
+				'general-banner',
+				'general-banner-light',
+				'general-faq',
+				'general-features-light',
+				'general-pricing',
+				'hero-main',
+				'hero-two',
+				'hero-count',
+				'query-cover-featured',
+				'query-cover-grid',
+				'query-grid-excerpt',
+				'query-listbig',
+				'query-simple-list',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {

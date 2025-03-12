@@ -7,6 +7,7 @@
 # Post Formats
 # Single Post Title Style
 # rtMedia Notice
+# BB Platform Pro
 --------------------------------------------------------------*/
 
 .appearance_page_buddyxpro-welcome .notice.notice-error.is-dismissible.learndash-license-is-dismissible,
@@ -1242,5 +1243,12 @@ input#buddyx_post_video {
 # rtMedia Notice
 --------------------------------------------------------------*/
 .error.rtmedia-update-template-notice {
+    display: none;
+}
+
+/*--------------------------------------------------------------
+# BB Platform Pro
+--------------------------------------------------------------*/
+.bb-pro-inactive {
     display: none;
 }

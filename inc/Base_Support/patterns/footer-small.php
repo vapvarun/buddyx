@@ -1,13 +1,13 @@
 <?php
 /**
- * Small footer
+ * Footer Small
  *
  * @package buddyx
  */
 
 return array(
-	'title'      => __( 'Small footer', 'buddyx' ),
-	'categories' => array( 'buddyx' ),
+	'title'      => __( 'Small Footer', 'buddyx' ),
+	'categories' => array( 'buddyx-footer' ),
 	'blockTypes' => array( 'core/template-part/footer' ),
 	'content'    => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"20px","right":"0","bottom":"20px","left":"0"},"margin":{"top":"0","bottom":"0"}}},"className":"has-background-color","layout":{"type":"default"}} -->
 	<div class="wp-block-group has-background-color" style="margin-top:0;margin-bottom:0;padding-top:20px;padding-right:0;padding-bottom:20px;padding-left:0"><!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"},"fontSize":"small"} -->
