@@ -745,42 +745,76 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 
 add_action( 'save_post', 'buddyx_save_post_meta', 10, 1 );
 if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
-	function buddyx_save_post_meta( $post_id ) {
-		// Bail if we're doing an auto save.
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-		// if our current user can't edit this post, bail.
-		if ( ! current_user_can( 'edit_posts' ) ) {
-			return;
-		}
+    /**
+     * Saves custom post meta when a post is saved.
+     * Handles various post formats and custom settings.
+     *
+     * @param int $post_id The ID of the post being saved.
+     * @return void
+     */
+    function buddyx_save_post_meta( $post_id ) {
+        // Skip if this is an autosave
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return;
+        }
 
-		if ( isset( $_POST['post_type'] ) && $_POST['post_type'] == 'post' ) {
-			if ( isset( $_POST['buddyx_post_video'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_video', sanitize_text_field( wp_unslash( $_POST['buddyx_post_video'] ) ) );
-			}
-			if ( isset( $_POST['buddyx_post_audio'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_audio', sanitize_text_field( wp_unslash( $_POST['buddyx_post_audio'] ) ) );
-			}
-			if ( isset( $_POST['buddyx_post_quote'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_quote', sanitize_text_field( wp_unslash( $_POST['buddyx_post_quote'] ) ) );
-				update_post_meta( $post_id, '_buddyx_post_quote_author', sanitize_text_field( wp_unslash( $_POST['buddyx_post_quote_author'] ) ) );
-			}
-			if ( isset( $_POST['buddyx_post_link_title'] ) ) {
-				update_post_meta( $post_id, '_buddyx_post_link_title', sanitize_text_field( wp_unslash( $_POST['buddyx_post_link_title'] ) ) );
-				update_post_meta( $post_id, '_buddyx_post_link_url', sanitize_text_field( wp_unslash( $_POST['buddyx_post_link_url'] ) ) );
-			}
-			if ( isset( $_POST['buddyx_image_gallery'] ) ) {
-				update_post_meta( $post_id, '_buddyx_image_gallery', sanitize_text_field( wp_unslash( $_POST['buddyx_image_gallery'] ) ) );
-			}
-			if ( isset( $_POST['_post_title_overwrite'] ) ) {
-				update_post_meta( $post_id, '_post_title_overwrite', $_POST['_post_title_overwrite'] );
-			}
-			if ( isset( $_POST['_post_title_position'] ) ) {
-				update_post_meta( $post_id, '_post_title_position', sanitize_text_field( wp_unslash( $_POST['_post_title_position'] ) ) );
-			}
-		}
-	}
+        // Skip if current user can't edit posts
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+
+        // Check if we're working with a post
+        if ( ! isset( $_POST['post_type'] ) || 'post' !== $_POST['post_type'] ) {
+            return;
+        }
+
+        // Verify nonce if needed
+        // Uncomment this block to add nonce verification - requires adding nonce field to forms
+        /*
+        if ( ! isset( $_POST['buddyx_post_meta_nonce'] ) || 
+             ! wp_verify_nonce( $_POST['buddyx_post_meta_nonce'], 'buddyx_save_post_meta' ) ) {
+            return;
+        }
+        */
+
+        // Array of text fields to update
+        $text_fields = array(
+            'buddyx_post_video' => '_buddyx_post_video',
+            'buddyx_post_audio' => '_buddyx_post_audio',
+            'buddyx_post_quote' => '_buddyx_post_quote',
+            'buddyx_post_quote_author' => '_buddyx_post_quote_author',
+            'buddyx_post_link_title' => '_buddyx_post_link_title',
+            'buddyx_post_link_url' => '_buddyx_post_link_url',
+            'buddyx_image_gallery' => '_buddyx_image_gallery',
+        );
+
+        // Process and save text fields
+        foreach ( $text_fields as $field_name => $meta_key ) {
+            if ( isset( $_POST[$field_name] ) ) {
+                $value = sanitize_text_field( wp_unslash( $_POST[$field_name] ) );
+                update_post_meta( $post_id, $meta_key, $value );
+            }
+        }
+
+        // Handle checkbox for title overwrite (separate because it needs different handling)
+        if ( isset( $_POST['_post_title_overwrite'] ) ) {
+            update_post_meta( $post_id, '_post_title_overwrite', sanitize_text_field( $_POST['_post_title_overwrite'] ) );
+        } else {
+            // Remove the meta if the checkbox is unchecked
+            delete_post_meta( $post_id, '_post_title_overwrite' );
+        }
+
+        // Handle title position
+        if ( isset( $_POST['_post_title_position'] ) ) {
+            // Validate against allowed values (optional security enhancement)
+            $allowed_positions = array('title-over', 'half', 'title-above', 'title-below');
+            $position = sanitize_text_field( wp_unslash( $_POST['_post_title_position'] ) );
+            
+            if ( in_array( $position, $allowed_positions ) ) {
+                update_post_meta( $post_id, '_post_title_position', $position );
+            }
+        }
+    }
 }
 
 /**
