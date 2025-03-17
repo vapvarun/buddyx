@@ -262,43 +262,39 @@ if ( ! function_exists( 'buddyx_posted_on' ) ) {
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 	/**
 	 * Redirects 404 error pages to a custom page set in the theme customizer.
-	 * This function checks if the current page is a 404 error page. If so, it retrieves the custom page ID set in the theme customizer
-	 * and redirects the user to that page using a 301 (permanent) redirect.
-	 * If no custom page ID is set, the user remains on the 404 error page.
-	 *
-	 * It uses `wp_safe_redirect()` to prevent redirection to potentially unsafe URLs and ensures no further code is executed
-	 * after the redirection.
+	 * This optimized version only runs necessary code when on a 404 page and
+	 * adds more efficient checks.
 	 *
 	 * @return void
 	 */
 	function buddyx_404_redirect() {
-		// Check if the current page is a 404 error page.
-		if ( is_404() ) {
-			// Retrieve the custom page ID for 404 redirects from the theme customizer.
-			$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
-
-			// Exclude rtMedia routes by checking the request URI.
-			if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/media/' ) !== false ) {
-				// The current URL contains `/media/`, so skip redirection.
-				return;
-			}
-
-			// If a valid page ID is found, redirect to that page.
-			if ( $redirect_page_id ) {
-				// Get the URL of the redirect page.
-				$redirect_url = get_permalink( $redirect_page_id );
-
-				// Perform a safe redirect to the custom page URL.
+		// Only proceed if we're on a 404 page - avoid unnecessary processing
+		if ( ! is_404() ) {
+			return;
+		}
+		
+		// Check for rtMedia routes early to avoid unnecessary theme mod retrieval
+		if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/media/' ) !== false ) {
+			return;
+		}
+		
+		// Get the custom 404 page ID - retrieve from theme mod only once
+		$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
+		
+		// Only proceed with redirection if a valid page ID exists
+		if ( ! empty( $redirect_page_id ) && get_post_status( $redirect_page_id ) === 'publish' ) {
+			$redirect_url = get_permalink( $redirect_page_id );
+			
+			// Only redirect if we got a valid URL
+			if ( ! empty( $redirect_url ) ) {
 				wp_safe_redirect( $redirect_url, 301 );
-
-				// Exit to ensure no further code is executed after the redirect.
 				exit;
 			}
 		}
 	}
 
-	// Hook the function to the `template_redirect` action to ensure it runs before the template is loaded.
-	add_action( 'template_redirect', 'buddyx_404_redirect' );
+	// Hook the function to the `template_redirect` action
+	add_action( 'template_redirect', 'buddyx_404_redirect', 10 );
 }
 
 /**
