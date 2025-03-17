@@ -868,59 +868,104 @@ function buddyx_bp_blogs_activity_content_set_temp_content() {
 add_filter( 'bp_get_activity_content_body', 'buddyx_bp_blogs_activity_content_with_read_more', 9999, 2 );
 
 /**
- * Function which set the content on activity blog post.
+ * Function which enhances activity blog post content with formatting, featured images, and read more links.
  *
- * @param $content
- * @param $activity
+ * @param string $content  The current activity content.
+ * @param object $activity The activity object.
  *
- * @return string
+ * @return string Modified activity content.
  *
  * @since 4.2.2
  */
 function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) {
-
-	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
-
-		if ( ( 'blogs' === $activity->component ) && isset( $activity->secondary_item_id ) && 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
-			$blog_post = get_post( $activity->secondary_item_id );
-			// If we converted $content to an object earlier, flip it back to a string.
-			if ( is_a( $blog_post, 'WP_Post' ) ) {
-				$content_img = apply_filters( 'buddyx_add_feature_image_blog_post_as_activity_content', '', $blog_post->ID );
-				$post_title  = sprintf( '<a class="buddyx-post-title-link" href="%s"><span class="buddyx-post-title">%s</span></a>', esc_url( get_permalink( $blog_post->ID ) ), esc_html( $blog_post->post_title ) );
-				$content     = bp_create_excerpt( bp_strip_script_and_style_tags( html_entity_decode( get_the_excerpt( $blog_post->ID ) ) ) );
-				if ( false !== strrpos( $content, __( '&hellip;', 'buddyx' ) ) ) {
-					$content = str_replace( ' [&hellip;]', '&hellip;', $content );
-					$content = apply_filters_ref_array( 'bp_get_activity_content', array( $content, $activity ) );
-					preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $content, $matches );
-					if ( isset( $matches ) && array_key_exists( 0, $matches ) && ! empty( $matches[0] ) ) {
-						$iframe  = $matches[0];
-						$content = strip_tags( preg_replace( '/<iframe.*?\/iframe>/i', '', $content ), '<a>' );
-
-						$content .= $iframe;
-					}
-					$content = sprintf( '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>', $content_img, $post_title, wpautop( $content ) );
-				} else {
-					$content = apply_filters_ref_array( 'bp_get_activity_content', array( $content, $activity ) );
-					$content = strip_tags( $content, '<a><iframe><img><span><div>' );
-					preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $content, $matches );
-					if ( isset( $matches ) && array_key_exists( 0, $matches ) && ! empty( $matches[0] ) ) {
-						$content = $content;
-					}
-					$content = sprintf( '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>', $content_img, $post_title, wpautop( $content ) );
-				}
-			}
-		} elseif ( 'blogs' === $activity->component && 'new_blog_comment' === $activity->type && $activity->secondary_item_id && $activity->secondary_item_id > 0 ) {
-			$comment = get_comment( $activity->secondary_item_id );
-			$content = bp_create_excerpt( html_entity_decode( $comment->comment_content ) );
-			if ( false !== strrpos( $content, __( '&hellip;', 'buddyx' ) ) ) {
-				$content     = str_replace( ' [&hellip;]', '&hellip;', $content );
-				$append_text = apply_filters( 'bp_activity_excerpt_append_text', __( ' Read more', 'buddyx' ) );
-				$content     = wpautop( sprintf( '%1$s<span class="activity-blog-post-link"><a href="%2$s" rel="nofollow">%3$s</a></span>', $content, get_comment_link( $activity->secondary_item_id ), $append_text ) );
-			}
-		}
-	}
-
-	return $content;
+    // Only proceed if BuddyPress is active and not BuddyBoss
+    if ( !function_exists( 'buddypress' ) || isset( buddypress()->buddyboss ) ) {
+        return $content;
+    }
+    
+    // Handle blog posts in activity stream
+    if ( 'blogs' === $activity->component && isset( $activity->secondary_item_id ) ) {
+        // Handle new blog posts
+        if ( 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
+            $blog_post = get_post( $activity->secondary_item_id );
+            
+            if ( !is_a( $blog_post, 'WP_Post' ) ) {
+                return $content;
+            }
+            
+            // Get featured image
+            $content_img = apply_filters( 'buddyx_add_feature_image_blog_post_as_activity_content', '', $blog_post->ID );
+            
+            // Format post title with link
+            $post_title = sprintf( 
+                '<a class="buddyx-post-title-link" href="%s"><span class="buddyx-post-title">%s</span></a>', 
+                esc_url( get_permalink( $blog_post->ID ) ), 
+                esc_html( $blog_post->post_title )
+            );
+            
+            // Get and process post excerpt
+            $excerpt = bp_create_excerpt( 
+                bp_strip_script_and_style_tags( html_entity_decode( get_the_excerpt( $blog_post->ID ) ) )
+            );
+            
+            // Check if excerpt ends with ellipsis
+            $has_ellipsis = (strpos( $excerpt, __( '&hellip;', 'buddyx' ) ) !== false);
+            
+            // Clean up the excerpt
+            if ( $has_ellipsis ) {
+                $excerpt = str_replace( ' [&hellip;]', '&hellip;', $excerpt );
+            }
+            
+            // Apply BP filters
+            $excerpt = apply_filters_ref_array( 'bp_get_activity_content', array( $excerpt, $activity ) );
+            
+            // Extract and preserve iframes
+            $has_iframe = preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $excerpt, $matches );
+            
+            // Strip tags but preserve links and allowed elements
+            if ( $has_iframe && !empty( $matches[0] ) ) {
+                $iframe = $matches[0];
+                $excerpt = strip_tags( preg_replace( '/<iframe.*?\/iframe>/i', '', $excerpt ), '<a>' );
+                $excerpt .= $iframe;
+            } else {
+                $excerpt = strip_tags( $excerpt, '<a><iframe><img><span><div>' );
+            }
+            
+            // Format final content
+            return sprintf(
+                '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>',
+                $content_img,
+                $post_title,
+                wpautop( $excerpt )
+            );
+        }
+        // Handle blog comments
+        elseif ( 'new_blog_comment' === $activity->type && $activity->secondary_item_id > 0 ) {
+            $comment = get_comment( $activity->secondary_item_id );
+            if ( !$comment ) {
+                return $content;
+            }
+            
+            $content = bp_create_excerpt( html_entity_decode( $comment->comment_content ) );
+            
+            // Check if comment excerpt has ellipsis and add read more link if it does
+            if ( false !== strpos( $content, __( '&hellip;', 'buddyx' ) ) ) {
+                $content = str_replace( ' [&hellip;]', '&hellip;', $content );
+                $append_text = apply_filters( 'bp_activity_excerpt_append_text', __( ' Read more', 'buddyx' ) );
+                
+                return wpautop( sprintf( 
+                    '%1$s<span class="activity-blog-post-link"><a href="%2$s" rel="nofollow">%3$s</a></span>', 
+                    $content, 
+                    get_comment_link( $activity->secondary_item_id ), 
+                    $append_text 
+                ) );
+            }
+            
+            return wpautop( $content );
+        }
+    }
+    
+    return $content;
 }
 
 if ( ! function_exists( 'buddyx_viewport_meta' ) ) {
