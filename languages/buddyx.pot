@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-03-18 06:47+0000\n"
+"POT-Creation-Date: 2025-03-18 07:48+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:136, ../buddyx/template-parts/header/buddypress-profile.php:137, ../buddyx/template-parts/header/buddypress-profile.php:128, ../buddyx/template-parts/header/buddypress-profile.php:129
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:160, ../buddyx/template-parts/header/buddypress-profile.php:161
 msgid "Register"
 msgstr ""
 
@@ -2643,32 +2643,28 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:19
-msgid "Messages"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:23, ../buddyx/template-parts/header/buddypress-profile.php:41
-msgid "9+"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:37
-msgid "Notifications"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:70
-msgid "No notifications found."
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:74
-msgid "All Notifications"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:119
+#: ../buddyx/template-parts/header/buddypress-profile.php:144
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:120
+#: ../buddyx/template-parts/header/buddypress-profile.php:145
 msgid "Log in"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:39
+msgid "Messages"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:57
+msgid "Notifications"
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:87
+msgid "No notifications found."
+msgstr ""
+
+#: ../buddyx/template-parts/header/buddypress-profile.php:91
+msgid "All Notifications"
 msgstr ""
 
 #: ../buddyx/template-parts/header/navigation.php:38
