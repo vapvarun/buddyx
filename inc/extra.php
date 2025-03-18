@@ -268,24 +268,24 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 	 * @return void
 	 */
 	function buddyx_404_redirect() {
-		// Only proceed if we're on a 404 page - avoid unnecessary processing
+		// Only proceed if we're on a 404 page - avoid unnecessary processing.
 		if ( ! is_404() ) {
 			return;
 		}
-		
-		// Check for rtMedia routes early to avoid unnecessary theme mod retrieval
+
+		// Check for rtMedia routes early to avoid unnecessary theme mod retrieval.
 		if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/media/' ) !== false ) {
 			return;
 		}
-		
-		// Get the custom 404 page ID - retrieve from theme mod only once
+
+		// Get the custom 404 page ID - retrieve from theme mod only once.
 		$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
-		
-		// Only proceed with redirection if a valid page ID exists
+
+		// Only proceed with redirection if a valid page ID exists.
 		if ( ! empty( $redirect_page_id ) && get_post_status( $redirect_page_id ) === 'publish' ) {
 			$redirect_url = get_permalink( $redirect_page_id );
-			
-			// Only redirect if we got a valid URL
+
+			// Only redirect if we got a valid URL.
 			if ( ! empty( $redirect_url ) ) {
 				wp_safe_redirect( $redirect_url, 301 );
 				exit;
@@ -293,7 +293,7 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 		}
 	}
 
-	// Hook the function to the `template_redirect` action
+	// Hook the function to the `template_redirect` action.
 	add_action( 'template_redirect', 'buddyx_404_redirect', 10 );
 }
 
@@ -301,13 +301,12 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
  * Add Elementor Locations Support
  */
 if ( ! function_exists( 'buddyx_register_elementor_locations' ) ) {
-    function buddyx_register_elementor_locations( $elementor_theme_manager ) {
+	function buddyx_register_elementor_locations( $elementor_theme_manager ) {
 
-        $elementor_theme_manager->register_location( 'header' );
-        $elementor_theme_manager->register_location( 'footer' );
-
-    }
-    add_action( 'elementor/theme/register_locations', 'buddyx_register_elementor_locations' );
+		$elementor_theme_manager->register_location( 'header' );
+		$elementor_theme_manager->register_location( 'footer' );
+	}
+	add_action( 'elementor/theme/register_locations', 'buddyx_register_elementor_locations' );
 }
 
 /**
@@ -745,76 +744,76 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 
 add_action( 'save_post', 'buddyx_save_post_meta', 10, 1 );
 if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
-    /**
-     * Saves custom post meta when a post is saved.
-     * Handles various post formats and custom settings.
-     *
-     * @param int $post_id The ID of the post being saved.
-     * @return void
-     */
-    function buddyx_save_post_meta( $post_id ) {
-        // Skip if this is an autosave
-        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-            return;
-        }
+	/**
+	 * Saves custom post meta when a post is saved.
+	 * Handles various post formats and custom settings.
+	 *
+	 * @param int $post_id The ID of the post being saved.
+	 * @return void
+	 */
+	function buddyx_save_post_meta( $post_id ) {
+		// Skip if this is an autosave.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
 
-        // Skip if current user can't edit posts
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
-            return;
-        }
+		// Skip if current user can't edit posts.
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
 
-        // Check if we're working with a post
-        if ( ! isset( $_POST['post_type'] ) || 'post' !== $_POST['post_type'] ) {
-            return;
-        }
+		// Check if we're working with a post.
+		if ( ! isset( $_POST['post_type'] ) || 'post' !== $_POST['post_type'] ) {
+			return;
+		}
 
-        // Verify nonce if needed
-        // Uncomment this block to add nonce verification - requires adding nonce field to forms
-        /*
-        if ( ! isset( $_POST['buddyx_post_meta_nonce'] ) || 
-             ! wp_verify_nonce( $_POST['buddyx_post_meta_nonce'], 'buddyx_save_post_meta' ) ) {
-            return;
-        }
-        */
+		// Verify nonce if needed
+		// Uncomment this block to add nonce verification - requires adding nonce field to forms
+		/*
+		if ( ! isset( $_POST['buddyx_post_meta_nonce'] ) ||
+			! wp_verify_nonce( $_POST['buddyx_post_meta_nonce'], 'buddyx_save_post_meta' ) ) {
+			return;
+		}
+		*/
 
-        // Array of text fields to update
-        $text_fields = array(
-            'buddyx_post_video' => '_buddyx_post_video',
-            'buddyx_post_audio' => '_buddyx_post_audio',
-            'buddyx_post_quote' => '_buddyx_post_quote',
-            'buddyx_post_quote_author' => '_buddyx_post_quote_author',
-            'buddyx_post_link_title' => '_buddyx_post_link_title',
-            'buddyx_post_link_url' => '_buddyx_post_link_url',
-            'buddyx_image_gallery' => '_buddyx_image_gallery',
-        );
+		// Array of text fields to update.
+		$text_fields = array(
+			'buddyx_post_video'        => '_buddyx_post_video',
+			'buddyx_post_audio'        => '_buddyx_post_audio',
+			'buddyx_post_quote'        => '_buddyx_post_quote',
+			'buddyx_post_quote_author' => '_buddyx_post_quote_author',
+			'buddyx_post_link_title'   => '_buddyx_post_link_title',
+			'buddyx_post_link_url'     => '_buddyx_post_link_url',
+			'buddyx_image_gallery'     => '_buddyx_image_gallery',
+		);
 
-        // Process and save text fields
-        foreach ( $text_fields as $field_name => $meta_key ) {
-            if ( isset( $_POST[$field_name] ) ) {
-                $value = sanitize_text_field( wp_unslash( $_POST[$field_name] ) );
-                update_post_meta( $post_id, $meta_key, $value );
-            }
-        }
+		// Process and save text fields.
+		foreach ( $text_fields as $field_name => $meta_key ) {
+			if ( isset( $_POST[ $field_name ] ) ) {
+				$value = sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) );
+				update_post_meta( $post_id, $meta_key, $value );
+			}
+		}
 
-        // Handle checkbox for title overwrite (separate because it needs different handling)
-        if ( isset( $_POST['_post_title_overwrite'] ) ) {
-            update_post_meta( $post_id, '_post_title_overwrite', sanitize_text_field( $_POST['_post_title_overwrite'] ) );
-        } else {
-            // Remove the meta if the checkbox is unchecked
-            delete_post_meta( $post_id, '_post_title_overwrite' );
-        }
+		// Handle checkbox for title overwrite (separate because it needs different handling).
+		if ( isset( $_POST['_post_title_overwrite'] ) ) {
+			update_post_meta( $post_id, '_post_title_overwrite', sanitize_text_field( $_POST['_post_title_overwrite'] ) );
+		} else {
+			// Remove the meta if the checkbox is unchecked.
+			delete_post_meta( $post_id, '_post_title_overwrite' );
+		}
 
-        // Handle title position
-        if ( isset( $_POST['_post_title_position'] ) ) {
-            // Validate against allowed values (optional security enhancement)
-            $allowed_positions = array('title-over', 'half', 'title-above', 'title-below');
-            $position = sanitize_text_field( wp_unslash( $_POST['_post_title_position'] ) );
-            
-            if ( in_array( $position, $allowed_positions ) ) {
-                update_post_meta( $post_id, '_post_title_position', $position );
-            }
-        }
-    }
+		// Handle title position.
+		if ( isset( $_POST['_post_title_position'] ) ) {
+			// Validate against allowed values (optional security enhancement).
+			$allowed_positions = array( 'title-over', 'half', 'title-above', 'title-below' );
+			$position          = sanitize_text_field( wp_unslash( $_POST['_post_title_position'] ) );
+
+			if ( in_array( $position, $allowed_positions ) ) {
+				update_post_meta( $post_id, '_post_title_position', $position );
+			}
+		}
+	}
 }
 
 /**
@@ -878,94 +877,96 @@ add_filter( 'bp_get_activity_content_body', 'buddyx_bp_blogs_activity_content_wi
  * @since 4.2.2
  */
 function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) {
-    // Only proceed if BuddyPress is active and not BuddyBoss
-    if ( !function_exists( 'buddypress' ) || isset( buddypress()->buddyboss ) ) {
-        return $content;
-    }
-    
-    // Handle blog posts in activity stream
-    if ( 'blogs' === $activity->component && isset( $activity->secondary_item_id ) ) {
-        // Handle new blog posts
-        if ( 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
-            $blog_post = get_post( $activity->secondary_item_id );
-            
-            if ( !is_a( $blog_post, 'WP_Post' ) ) {
-                return $content;
-            }
-            
-            // Get featured image
-            $content_img = apply_filters( 'buddyx_add_feature_image_blog_post_as_activity_content', '', $blog_post->ID );
-            
-            // Format post title with link
-            $post_title = sprintf( 
-                '<a class="buddyx-post-title-link" href="%s"><span class="buddyx-post-title">%s</span></a>', 
-                esc_url( get_permalink( $blog_post->ID ) ), 
-                esc_html( $blog_post->post_title )
-            );
-            
-            // Get and process post excerpt
-            $excerpt = bp_create_excerpt( 
-                bp_strip_script_and_style_tags( html_entity_decode( get_the_excerpt( $blog_post->ID ) ) )
-            );
-            
-            // Check if excerpt ends with ellipsis
-            $has_ellipsis = (strpos( $excerpt, __( '&hellip;', 'buddyx' ) ) !== false);
-            
-            // Clean up the excerpt
-            if ( $has_ellipsis ) {
-                $excerpt = str_replace( ' [&hellip;]', '&hellip;', $excerpt );
-            }
-            
-            // Apply BP filters
-            $excerpt = apply_filters_ref_array( 'bp_get_activity_content', array( $excerpt, $activity ) );
-            
-            // Extract and preserve iframes
-            $has_iframe = preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $excerpt, $matches );
-            
-            // Strip tags but preserve links and allowed elements
-            if ( $has_iframe && !empty( $matches[0] ) ) {
-                $iframe = $matches[0];
-                $excerpt = strip_tags( preg_replace( '/<iframe.*?\/iframe>/i', '', $excerpt ), '<a>' );
-                $excerpt .= $iframe;
-            } else {
-                $excerpt = strip_tags( $excerpt, '<a><iframe><img><span><div>' );
-            }
-            
-            // Format final content
-            return sprintf(
-                '%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>',
-                $content_img,
-                $post_title,
-                wpautop( $excerpt )
-            );
-        }
-        // Handle blog comments
-        elseif ( 'new_blog_comment' === $activity->type && $activity->secondary_item_id > 0 ) {
-            $comment = get_comment( $activity->secondary_item_id );
-            if ( !$comment ) {
-                return $content;
-            }
-            
-            $content = bp_create_excerpt( html_entity_decode( $comment->comment_content ) );
-            
-            // Check if comment excerpt has ellipsis and add read more link if it does
-            if ( false !== strpos( $content, __( '&hellip;', 'buddyx' ) ) ) {
-                $content = str_replace( ' [&hellip;]', '&hellip;', $content );
-                $append_text = apply_filters( 'bp_activity_excerpt_append_text', __( ' Read more', 'buddyx' ) );
-                
-                return wpautop( sprintf( 
-                    '%1$s<span class="activity-blog-post-link"><a href="%2$s" rel="nofollow">%3$s</a></span>', 
-                    $content, 
-                    get_comment_link( $activity->secondary_item_id ), 
-                    $append_text 
-                ) );
-            }
-            
-            return wpautop( $content );
-        }
-    }
-    
-    return $content;
+	// Only proceed if BuddyPress is active and not BuddyBoss.
+	if ( ! function_exists( 'buddypress' ) || isset( buddypress()->buddyboss ) ) {
+		return $content;
+	}
+
+	// Handle blog posts in activity stream.
+	if ( 'blogs' === $activity->component && isset( $activity->secondary_item_id ) ) {
+		// Handle new blog posts.
+		if ( 'new_blog_' . get_post_type( $activity->secondary_item_id ) === $activity->type ) {
+			$blog_post = get_post( $activity->secondary_item_id );
+
+			if ( ! is_a( $blog_post, 'WP_Post' ) ) {
+				return $content;
+			}
+
+			// Get featured image.
+			$content_img = apply_filters( 'buddyx_add_feature_image_blog_post_as_activity_content', '', $blog_post->ID );
+
+			// Format post title with link.
+			$post_title = sprintf(
+				'<a class="buddyx-post-title-link" href="%s"><span class="buddyx-post-title">%s</span></a>',
+				esc_url( get_permalink( $blog_post->ID ) ),
+				esc_html( $blog_post->post_title )
+			);
+
+			// Get and process post excerpt.
+			$excerpt = bp_create_excerpt(
+				bp_strip_script_and_style_tags( html_entity_decode( get_the_excerpt( $blog_post->ID ) ) )
+			);
+
+			// Check if excerpt ends with ellipsis.
+			$has_ellipsis = ( strpos( $excerpt, __( '&hellip;', 'buddyx' ) ) !== false );
+
+			// Clean up the excerpt.
+			if ( $has_ellipsis ) {
+				$excerpt = str_replace( ' [&hellip;]', '&hellip;', $excerpt );
+			}
+
+			// Apply BP filters.
+			$excerpt = apply_filters_ref_array( 'bp_get_activity_content', array( $excerpt, $activity ) );
+
+			// Extract and preserve iframes.
+			$has_iframe = preg_match( '/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $excerpt, $matches );
+
+			// Strip tags but preserve links and allowed elements.
+			if ( $has_iframe && ! empty( $matches[0] ) ) {
+				$iframe   = $matches[0];
+				$excerpt  = strip_tags( preg_replace( '/<iframe.*?\/iframe>/i', '', $excerpt ), '<a>' );
+				$excerpt .= $iframe;
+			} else {
+				$excerpt = strip_tags( $excerpt, '<a><iframe><img><span><div>' );
+			}
+
+			// Format final content.
+			return sprintf(
+				'%1$s <div class="buddyx-content-wrp">%2$s %3$s</div>',
+				$content_img,
+				$post_title,
+				wpautop( $excerpt )
+			);
+		}
+		// Handle blog comments.
+		elseif ( 'new_blog_comment' === $activity->type && $activity->secondary_item_id > 0 ) {
+			$comment = get_comment( $activity->secondary_item_id );
+			if ( ! $comment ) {
+				return $content;
+			}
+
+			$content = bp_create_excerpt( html_entity_decode( $comment->comment_content ) );
+
+			// Check if comment excerpt has ellipsis and add read more link if it does.
+			if ( false !== strpos( $content, __( '&hellip;', 'buddyx' ) ) ) {
+				$content     = str_replace( ' [&hellip;]', '&hellip;', $content );
+				$append_text = apply_filters( 'bp_activity_excerpt_append_text', __( ' Read more', 'buddyx' ) );
+
+				return wpautop(
+					sprintf(
+						'%1$s<span class="activity-blog-post-link"><a href="%2$s" rel="nofollow">%3$s</a></span>',
+						$content,
+						get_comment_link( $activity->secondary_item_id ),
+						$append_text
+					)
+				);
+			}
+
+			return wpautop( $content );
+		}
+	}
+
+	return $content;
 }
 
 if ( ! function_exists( 'buddyx_viewport_meta' ) ) {
