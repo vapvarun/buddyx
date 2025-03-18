@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-03-18 05:36+0000\n"
+"POT-Creation-Date: 2025-03-18 06:47+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -960,7 +960,7 @@ msgstr ""
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:59
+#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:58
 msgid "Menu"
 msgstr ""
 
@@ -2671,19 +2671,19 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:16
+#: ../buddyx/template-parts/header/navigation.php:38
 msgid "Main menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:44
+#: ../buddyx/template-parts/header/navigation.php:50
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:63
+#: ../buddyx/template-parts/header/navigation.php:59
 msgid "Close"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:83
+#: ../buddyx/template-parts/header/navigation.php:89
 msgid "My Account"
 msgstr ""
 
