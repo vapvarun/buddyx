@@ -53,6 +53,10 @@
 /*--------------------------------------------------------------
 # Global Buddypress Css
 --------------------------------------------------------------*/
+.avatar {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
 
 body.buddypress article.page>.entry-header .entry-title {
     color: var(--color-h1);
@@ -1412,6 +1416,10 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
 .buddypress-wrap .activity-inner p {
     padding: 0 15px;
     margin-bottom: 15px !important;
+}
+
+.buddypress-wrap .new_blog_comment .activity-inner p {
+    padding: 0;
 }
 
 .buddypress-wrap .activity-list .activity-item.new_blog_comment .activity-content .activity-inner {

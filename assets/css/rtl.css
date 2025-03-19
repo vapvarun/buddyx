@@ -467,11 +467,6 @@ a.prev.page-numbers {
     transform: rotate(180deg);
 }
 
-.bp-pagination-links .next,
-.bp-pagination-links .prev {
-    display: none;
-}
-
 .nav-links a.prev.page-numbers,
 .nav-links a.next.page-numbers {
     -webkit-transform: rotate(0deg);

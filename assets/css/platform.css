@@ -937,12 +937,7 @@ body .select2-container .select2-dropdown.bb-compose-input {
     background: #fff;
 }
 
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #f6f6f6;
-}
-
 body .select2-container .select2-dropdown.bb-compose-input .select2-results__option {
-    color: var(--color-link);
     border-radius: var(--global-border-radius);
     font-size: 13px;
     font-weight: 500;
