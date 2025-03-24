@@ -14,7 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Cache the current user ID once.
-$current_user_id = is_user_logged_in() ? bp_loggedin_user_id() : 0;
+$current_user_id = 0;
+
+if ( is_user_logged_in() ) {
+	if ( function_exists( 'bp_loggedin_user_id' ) ) {
+		$current_user_id = bp_loggedin_user_id();
+	} else {
+		$current_user_id = get_current_user_id();
+	}
+}
 
 // Only proceed with BuddyPress components if user is logged in and BuddyPress exists.
 if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
