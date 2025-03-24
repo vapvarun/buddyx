@@ -102,8 +102,10 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 		</div>
 		<?php
 	}
+}
 
-	// User Account Section.
+// User Account Section.
+if ( is_user_logged_in() ) {
 	$loggedin_user = wp_get_current_user();
 	if ( ( $loggedin_user instanceof WP_User ) ) {
 		// Determine user profile URL based on BP version.
