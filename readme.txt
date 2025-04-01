@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 4.8.1 = 
+* Added: Input validation, permission checks, and sanitization to improve overall security.  
+* Fixed: Console JavaScript deprecated warnings.  
+* Fixed: Issue by checking if BuddyPress is active before calling dependent functions.  
+* Updated: `buddypress-profile.php`, `extra.php`, `navigation.php`, and `entry_meta.php` with improved formatting and structure.  
+* Updated: CSS files for better UI consistency.  
+* Updated: BB Platform override templates for compatibility and performance.  
+* Improved: Code efficiency and readability by restructuring conditionals and optimizing string operations.  
+* Improved: WordPress template performance and caching by avoiding redundant data retrieval.  
+
 = 4.8.0 = 
 * Added: Query patterns including simple list, list, grid excerpt, cover grid, and cover featured for better content display.  
 * Added: Hero patterns including hero main, hero section, and hero count for enhanced page layouts.  
