@@ -19,6 +19,10 @@ textarea {
     line-height: var(--global-font-line-height);
 }
 
+button {
+    font-family: inherit;
+}
+
 
 /* stylelint-enable */
 
