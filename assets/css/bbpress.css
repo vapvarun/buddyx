@@ -235,6 +235,14 @@ a.bbp-topic-permalink {
     padding: 0!important;
 }
 
+body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropdown {
+    top: 34px;
+}
+
+#bbp_topic_tags_dropdown+.select2-container input {
+    padding: 0 10px;
+}
+
 /*--------------------------------------------------------------
 # Activity Page
 --------------------------------------------------------------*/

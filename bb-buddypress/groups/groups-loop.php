@@ -38,12 +38,12 @@ $group_cover_height = function_exists( 'bb_get_group_cover_image_height' ) ? bb_
 	bp_nouveau_loop_classes();
 	echo esc_attr( ' ' . $cover_class . ' ' . $group_alignment );
 	?>
-	 groups-dir-list">
+	groups-dir-list">
 
 	<?php
 	while ( bp_groups() ) :
 		bp_the_group();
-	?>
+		?>
 
 		<li <?php bp_group_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups">
 			<div class="list-wrap">

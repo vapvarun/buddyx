@@ -2242,10 +2242,10 @@ body.layout-boxed .site {
     border-color: #e2e2e2;
 }
 
-.mce-container iframe,
+/* .mce-container iframe,
 .wp-editor-container textarea.wp-editor-area {
     height: 250px !important;
-}
+} */
 
 .mce-toolbar .mce-btn-group .mce-btn:focus,
 .mce-toolbar .mce-btn-group .mce-btn:hover,
@@ -2453,6 +2453,10 @@ p {
 .entry-content ul.wp-block-list li,
 .entry-content ol.wp-block-list li {
     margin-bottom: 10px;
+}
+
+.entry-content ul.wp-block-post-template {
+    margin-left: 0;
 }
 
 article .entry-header {

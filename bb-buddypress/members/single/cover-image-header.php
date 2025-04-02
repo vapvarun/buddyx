@@ -6,21 +6,22 @@
  * @version 3.0.0
  */
 
+$bp_displayed_user_id     = bp_displayed_user_id();
 $has_cover_image          = '';
 $has_cover_image_position = '';
-$has_default_cover        = bb_attachment_get_cover_image_class( bp_displayed_user_id(), 'user' );
+$has_default_cover        = bb_attachment_get_cover_image_class( $bp_displayed_user_id, 'user' );
 $profile_cover_width      = bb_get_profile_cover_image_width();
 $profile_cover_height     = bb_get_profile_cover_image_height();
 $cover_image_url          = bp_attachments_get_attachment(
 	'url',
 	array(
 		'object_dir' => 'members',
-		'item_id'    => bp_displayed_user_id(),
+		'item_id'    => $bp_displayed_user_id,
 	)
 );
 
 if ( ! empty( $cover_image_url ) ) {
-	$cover_image_position = bp_get_user_meta( bp_displayed_user_id(), 'bp_cover_position', true );
+	$cover_image_position = bp_get_user_meta( $bp_displayed_user_id, 'bp_cover_position', true );
 	$has_cover_image      = ' has-cover-image';
 	if ( '' !== $cover_image_position ) {
 		$has_cover_image_position = ' has-position';
@@ -80,7 +81,7 @@ if ( bp_is_my_profile() ) {
 				</a>
 
 				<?php
-				if ( ! empty( $cover_image_url ) && bp_attachments_get_user_has_cover_image( bp_displayed_user_id() ) ) {
+				if ( ! empty( $cover_image_url ) && bp_attachments_get_user_has_cover_image( $bp_displayed_user_id ) ) {
 					?>
 					<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
 						<i class="bb-icon-bf bb-icon-arrows"></i>
@@ -101,13 +102,13 @@ if ( bp_is_my_profile() ) {
 	<div class="item-header-cover-image-wrapper">
 		<div id="item-header-cover-image" class="item-header-wrap <?php echo esc_attr( bp_disable_cover_image_uploads() ? 'bb-disable-cover-img' : 'bb-enable-cover-img' ); ?>">
 			<?php
-			$moderation_class = function_exists( 'bp_moderation_is_user_suspended' ) && bp_moderation_is_user_suspended( bp_displayed_user_id() ) ? 'bp-user-suspended' : '';
-			$moderation_class = function_exists( 'bp_moderation_is_user_blocked' ) && bp_moderation_is_user_blocked( bp_displayed_user_id() ) ? $moderation_class . ' bp-user-blocked' : $moderation_class;
+			$moderation_class = function_exists( 'bp_moderation_is_user_suspended' ) && bp_moderation_is_user_suspended( $bp_displayed_user_id ) ? 'bp-user-suspended' : '';
+			$moderation_class = function_exists( 'bp_moderation_is_user_blocked' ) && bp_moderation_is_user_blocked( $bp_displayed_user_id ) ? $moderation_class . ' bp-user-blocked' : $moderation_class;
 			?>
 			<div id="item-header-avatar" class="<?php echo esc_attr( $moderation_class ); ?>">
 				<?php
 				if ( $is_enabled_online_status ) {
-					bb_user_presence_html( bp_displayed_user_id() );
+					bb_user_presence_html( $bp_displayed_user_id );
 				}
 
 				if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) {
@@ -120,7 +121,7 @@ if ( bp_is_my_profile() ) {
 				}
 				bp_displayed_user_avatar( 'type=full' );
 				if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() && $is_enabled_profile_type ) {
-					echo wp_kses_post( bp_get_user_member_type( bp_displayed_user_id() ) );
+					echo wp_kses_post( bp_get_user_member_type( $bp_displayed_user_id ) );
 				}
 				?>
 			</div><!-- #item-header-avatar -->
@@ -128,11 +129,11 @@ if ( bp_is_my_profile() ) {
 			<div id="item-header-content">
 
 				<div class="flex align-items-center member-title-wrap">
-					<h2 class="user-nicename"><?php echo wp_kses_post( bp_core_get_user_displayname( bp_displayed_user_id() ) ); ?></h2>
+					<h2 class="user-nicename"><?php echo wp_kses_post( bp_core_get_user_displayname( $bp_displayed_user_id ) ); ?></h2>
 
 					<?php
 					if ( true === bp_member_type_enable_disable() && true === bp_member_type_display_on_profile() && $is_enabled_profile_type ) {
-						echo wp_kses_post( bp_get_user_member_type( bp_displayed_user_id() ) );
+						echo wp_kses_post( bp_get_user_member_type( $bp_displayed_user_id ) );
 					}
 					?>
 				</div>

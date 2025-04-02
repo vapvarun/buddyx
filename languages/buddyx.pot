@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-02-28 13:19+0000\n"
+"POT-Creation-Date: 2025-03-25 06:06+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -530,7 +530,7 @@ msgstr ""
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:136, ../buddyx/template-parts/header/buddypress-profile.php:137, ../buddyx/template-parts/header/buddypress-profile.php:128, ../buddyx/template-parts/header/buddypress-profile.php:129
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:170, ../buddyx/template-parts/header/buddypress-profile.php:171
 msgid "Register"
 msgstr ""
 
@@ -593,92 +593,96 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:255, ../buddyx/template-parts/content/entry_meta.php:124
+#: ../buddyx/inc/extra.php:255, ../buddyx/template-parts/content/entry_meta.php:148
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:389
+#: ../buddyx/inc/extra.php:384
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:398
+#: ../buddyx/inc/extra.php:393
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:417
+#: ../buddyx/inc/extra.php:412
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:422
+#: ../buddyx/inc/extra.php:417
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:472
+#: ../buddyx/inc/extra.php:467
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:475
+#: ../buddyx/inc/extra.php:470
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:478, ../buddyx/inc/extra.php:491, ../buddyx/inc/extra.php:720
+#: ../buddyx/inc/extra.php:473, ../buddyx/inc/extra.php:486, ../buddyx/inc/extra.php:715
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:485
+#: ../buddyx/inc/extra.php:480
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:488
+#: ../buddyx/inc/extra.php:483
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:498
+#: ../buddyx/inc/extra.php:493
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:501
+#: ../buddyx/inc/extra.php:496
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:507
+#: ../buddyx/inc/extra.php:502
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:514
+#: ../buddyx/inc/extra.php:509
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:517
+#: ../buddyx/inc/extra.php:512
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:523
+#: ../buddyx/inc/extra.php:518
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:530
+#: ../buddyx/inc/extra.php:525
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:552, ../buddyx/inc/extra.php:659
+#: ../buddyx/inc/extra.php:547, ../buddyx/inc/extra.php:654
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:566, ../buddyx/inc/extra.php:636
+#: ../buddyx/inc/extra.php:561, ../buddyx/inc/extra.php:631
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:638
+#: ../buddyx/inc/extra.php:633
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:722
+#: ../buddyx/inc/extra.php:717
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:887
+#: ../buddyx/inc/extra.php:953
 msgid " Read more"
+msgstr ""
+
+#: ../buddyx/inc/extra.php:911
+msgid "&hellip;"
 msgstr ""
 
 #: ../buddyx/inc/login.php:89
@@ -794,11 +798,11 @@ msgstr ""
 msgid "Are you sure you want to leave "
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:135, ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:89, ../buddyx/bb-buddypress/members/single/cover-image-header.php:275, ../buddyx/bb-buddypress/members/single/member-header.php:211
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:135, ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/bb-buddypress/members/single/cover-image-header.php:276, ../buddyx/bb-buddypress/members/single/member-header.php:223
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:136, ../buddyx/bb-buddypress/members/members-loop.php:282, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:264, ../buddyx/bb-buddypress/members/single/cover-image-header.php:276, ../buddyx/bb-buddypress/members/single/member-header.php:212
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:136, ../buddyx/bb-buddypress/members/members-loop.php:282, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:264, ../buddyx/bb-buddypress/members/single/cover-image-header.php:277, ../buddyx/bb-buddypress/members/single/member-header.php:224
 msgid "Confirm"
 msgstr ""
 
@@ -806,13 +810,13 @@ msgstr ""
 msgid "More Options"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/members-loop.php:264, ../buddyx/bb-buddypress/groups/single/members-loop.php:246, ../buddyx/bb-buddypress/members/single/cover-image-header.php:258, ../buddyx/bb-buddypress/members/single/member-header.php:194
+#: ../buddyx/bb-buddypress/members/members-loop.php:264, ../buddyx/bb-buddypress/groups/single/members-loop.php:246, ../buddyx/bb-buddypress/members/single/cover-image-header.php:259, ../buddyx/bb-buddypress/members/single/member-header.php:206
 msgid "Remove Connection"
 msgstr ""
 
 #. translators: %s: The member name with HTML tags
 #. translators: %s: The member name with HTML tags.
-#: ../buddyx/bb-buddypress/members/members-loop.php:274, ../buddyx/bb-buddypress/groups/single/members-loop.php:256, ../buddyx/bb-buddypress/members/single/cover-image-header.php:268, ../buddyx/bb-buddypress/members/single/member-header.php:204
+#: ../buddyx/bb-buddypress/members/members-loop.php:274, ../buddyx/bb-buddypress/groups/single/members-loop.php:256, ../buddyx/bb-buddypress/members/single/cover-image-header.php:269, ../buddyx/bb-buddypress/members/single/member-header.php:216
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
@@ -960,7 +964,7 @@ msgstr ""
 msgid "Headings"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:59
+#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:423, ../buddyx/template-parts/header/navigation.php:58
 msgid "Menu"
 msgstr ""
 
@@ -2539,31 +2543,25 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: ../buddyx/template-parts/content/entry_meta.php:69
-msgctxt "post author"
-msgid "Written by  %s"
-msgstr ""
-
-#. translators: %s: post author
-#: ../buddyx/template-parts/content/entry_meta.php:66, ../buddyx/template-parts/content/entry_meta.php:74
+#: ../buddyx/template-parts/content/entry_meta.php:98, ../buddyx/template-parts/content/entry_meta.php:93
 msgctxt "post author"
 msgid "Written by %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:93
+#: ../buddyx/template-parts/content/entry_meta.php:115
 msgctxt "post parent"
 msgid "In %s"
 msgstr ""
 
 #. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:96
+#: ../buddyx/template-parts/content/entry_meta.php:118
 msgctxt "post parent"
 msgid "in %s"
 msgstr ""
 
 #. translators: %s: post date
-#: ../buddyx/template-parts/content/entry_meta.php:113
+#: ../buddyx/template-parts/content/entry_meta.php:135
 msgctxt "post date"
 msgid "%s"
 msgstr ""
@@ -2649,47 +2647,43 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:19
+#: ../buddyx/template-parts/header/buddypress-profile.php:47
 msgid "Messages"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:23, ../buddyx/template-parts/header/buddypress-profile.php:41
-msgid "9+"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:37
+#: ../buddyx/template-parts/header/buddypress-profile.php:65
 msgid "Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:70
+#: ../buddyx/template-parts/header/buddypress-profile.php:95
 msgid "No notifications found."
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:74
+#: ../buddyx/template-parts/header/buddypress-profile.php:99
 msgid "All Notifications"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:119
+#: ../buddyx/template-parts/header/buddypress-profile.php:154
 msgid "Login"
 msgstr ""
 
-#: ../buddyx/template-parts/header/buddypress-profile.php:120
+#: ../buddyx/template-parts/header/buddypress-profile.php:155
 msgid "Log in"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:16
+#: ../buddyx/template-parts/header/navigation.php:38
 msgid "Main menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:44
+#: ../buddyx/template-parts/header/navigation.php:50
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:63
+#: ../buddyx/template-parts/header/navigation.php:59
 msgid "Close"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:83
+#: ../buddyx/template-parts/header/navigation.php:89
 msgid "My Account"
 msgstr ""
 
@@ -2742,23 +2736,23 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:78, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:79, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/members/single/cover-image-header.php:85
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/members/single/cover-image-header.php:86
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:64, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:64, ../buddyx/bb-buddypress/members/single/cover-image-header.php:91
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:65, ../buddyx/bb-buddypress/members/single/cover-image-header.php:91
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:65, ../buddyx/bb-buddypress/members/single/cover-image-header.php:92
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:66, ../buddyx/bb-buddypress/members/single/cover-image-header.php:92
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:66, ../buddyx/bb-buddypress/members/single/cover-image-header.php:93
 msgid "Cover photo"
 msgstr ""
 
@@ -2770,7 +2764,7 @@ msgstr ""
 msgid "Group Description"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/single/cover-image-header.php:115, ../buddyx/bb-buddypress/members/single/member-header.php:54, ../buddyx/buddypress/members/single/cover-image-header.php:26, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/bb-buddypress/members/single/cover-image-header.php:116, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/buddypress/members/single/cover-image-header.php:26, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 
@@ -2916,7 +2910,7 @@ msgstr ""
 msgid "Group Invites"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/single/groups/invites.php:42
+#: ../buddyx/bb-buddypress/members/single/groups/invites.php:45
 msgid "Invited by %1$s &middot; %2$s."
 msgstr ""
 
