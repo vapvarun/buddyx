@@ -31,10 +31,15 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 			<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 				<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 				<?php
-					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+
+				do_action( 'buddyx_before_breadcrumb' );
+
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
+
+				do_action( 'buddyx_after_breadcrumb' );
 				?>
 			<?php endif; ?>
 
