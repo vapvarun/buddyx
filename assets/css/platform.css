@@ -767,6 +767,7 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 }
 
 @media screen and (max-width: 590px) {
+
     .buddypress-wrap .grid.bp-list.members-list>li,
     .buddypress-wrap .grid.bp-list.members-list>li {
         -webkit-box-flex: 0;
@@ -1073,7 +1074,6 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
 }
 
 body .select2-container .select2-dropdown.bb-compose-input {
-    margin: 40px 0 0 0px;
     max-width: 230px;
     background: #fff;
 }
@@ -1091,6 +1091,66 @@ body .select2-container .select2-dropdown.bb-compose-input .avatar {
     border-radius: 50%;
     display: inline;
     vertical-align: middle;
+}
+
+.messages-wrapper #subnav #compose-action-personal-li {
+    margin: 0 0 0 auto !important;
+}
+
+#buddypress .bp-messages-container .message_action__list li {
+    width: 100%;
+}
+
+#compose-personal-li a,
+.bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li#compose-personal-li a {
+    font-size: 0;
+    border: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+dl.thread-participants+.actions {
+    position: absolute;
+    right: 20px;
+}
+
+#buddypress .bp-messages-container .message_action__list li a:hover {
+    background-color: var(--global-body-lightcolor) !important;
+}
+
+#message-new-submit,
+#message-reply-new-submit {
+    background-color: var(--color-theme-primary);
+}
+
+body .bp-messages-user-threads {
+    min-height: 550px;
+}
+
+.messages-wrapper #subnav .subnav {
+    background: transparent;
+    border: 0;
+}
+
+.messages-wrapper #subnav .subnav #back-to-thread {
+    padding: 0 !important;
+}
+
+.bp-messages.bp-user-messages-feedback {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.bp-messages-content .bp-messages-notice .bp-user-messages-feedback .bp-feedback {
+    border: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+
+.messages-wrapper #subnav .subnav #back-to-thread > [class*="bb-icon"] {
+    padding: 0;
 }
 
 /* Notification Settings */

@@ -2044,6 +2044,10 @@ li.load-more a.loading::after {
     padding: 0 15px;
 }
 
+.buddypress-wrap .groups-list>li.hidden {
+    display: block;
+}
+
 .grid>li {
     width: 100%;
 }
