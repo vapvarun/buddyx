@@ -43,7 +43,7 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 
-				do_action( 'buddyx_after_breadcrumb' );
+				do_action( 'buddyx_before_breadcrumb' );
 
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
@@ -55,7 +55,7 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 				get_template_part( 'template-parts/content/entry_title', get_post_type() );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 
-				do_action( 'buddyx_after_breadcrumb' );
+				do_action( 'buddyx_before_breadcrumb' );
 
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
