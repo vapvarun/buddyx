@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.7.2
+Tested up to: 6.8.0
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -10,17 +10,17 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-If you are looking for a theme for your community or membership website, BuddyX is the perfect choice. It offers a comprehensive solution for all types of communities. With BuddyPress & BuddyBoss Platform support, your website can feature member profiles, private messaging, group creation, and many other features.
+If you're looking for a theme for your community or membership website, BuddyX is the ideal choice. It offers a comprehensive solution for all types of communities. With BuddyPress & BuddyBoss Platform support, your website can feature member profiles, private messaging, group creation, and many other features.
 
-BuddyX is an excellent choice for various website creation needs, including business, community, and blog sites. Its impressive lightweight and scalability features make the process effortless. This free theme is fully compatible with WooCommerce, enabling you to create a visually appealing and professional digital storefront. Additionally, it supports popular LMS plugins like LearnDash & TutorLMS, making it the ideal solution for all your website requirements.
+BuddyX is an excellent choice for various website creation needs, including business, community, and blog sites. Its impressive lightweight and scalability features make the process effortless. This free theme is fully compatible with WooCommerce, enabling you to create a visually appealing and professional digital storefront. Additionally, it supports popular LMS plugins, such as LearnDash and TutorLMS, making it the ideal solution for all your website requirements.
 
 Our theme offers a wide range of premium plugins and is consistently updated and maintained by Wbcom Designs. Additionally, we provide dedicated support to all of our customers.
 
-Our platform boasts many impressive features, such as WooCommerce compatibility, responsive design, RTL and translation support, expandability with premium add-ons, and regular updates. Our team is wholly committed to the continuous development and maintenance of the platform to guarantee its reliability and optimal functionality.
+Our platform boasts numerous impressive features, including WooCommerce compatibility, responsive design, RTL and translation support, expandability with premium add-ons, and regular updates. Our team is wholly committed to the continuous development and maintenance of the platform to guarantee its reliability and optimal functionality.
 
 == BuddyX Child Theme ==
 
-There are multiple ways you can use a child theme with the BuddyX Theme, Use any one method mentioned below to create a child theme or use a child theme we have created.
+There are multiple ways you can use a child theme with the BuddyX Theme. Use any of the methods mentioned below to create a child theme or use one of the child themes we have created.
 
 1. Download the child theme from Github - https://github.com/vapvarun/buddyx-child-theme
 2. More information on creating a child theme - https://codex.wordpress.org/Child_Themes
@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 4.8.2 = 
+* Added: New hookable positions before and after the breadcrumb for easier customizations.  
+* Updated: Group activity UI improvements when using BuddyPress Member Blog Pro.  
+* Updated: Activity action buttons UI for better integration with BuddyPress Shortcodes.  
+* Updated: Messages UI compatibility fixes with BuddyBoss Platform.  
+* Updated: Single note UI improvements when using LMS Notes integration.  
+* Updated: Search form accessibility improvements and better data escaping for security.  
+* Updated: General UI enhancements with the latest BuddyBoss Platform updates.  
+* Fixed: Input field RTL view issues when using Kirki toolkit.  
+* Fixed: Hidden groups visibility issue when using bbPress.
 
 = 4.8.1 = 
 * Added: Input validation, permission checks, and sanitization to improve overall security.  
