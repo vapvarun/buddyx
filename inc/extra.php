@@ -42,16 +42,26 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 				get_template_part( 'template-parts/content/page_header' );
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+
+				do_action( 'buddyx_before_breadcrumb' );
+
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
+
+				do_action( 'buddyx_after_breadcrumb' );
 			} elseif ( get_post_type() === 'page' || is_singular() ) {
-					// PAGE
-					get_template_part( 'template-parts/content/entry_title', get_post_type() );
-					$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				// PAGE
+				get_template_part( 'template-parts/content/entry_title', get_post_type() );
+				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+
+				do_action( 'buddyx_before_breadcrumb' );
+
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
+
+				do_action( 'buddyx_after_breadcrumb' );
 			}
 			?>
 		</div>
@@ -137,11 +147,11 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 				// Render the search icon if enabled.
 				if ( ! empty( $searchicon ) ) :
 					?>
-					<div class="search" role="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); ?>>
+					<div class="search" <?php echo esc_attr( apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ) ); ?>>
 						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>" aria-label="Toggle search overlay">
 							<span class="fa fa-search"></span>
 						</a>
-						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); ?>>
+						<div class="top-menu-search-container" <?php echo esc_attr( apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ) ); ?>>
 							<?php get_search_form(); ?>
 						</div>
 					</div>

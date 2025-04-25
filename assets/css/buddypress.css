@@ -46,6 +46,7 @@
     # Activity Link Preview
     # BP Attachments
     # BuddyPress Member Review
+    # BuddyPress Member Blog
 
 --------------------------------------------------------------*/
 
@@ -2042,6 +2043,10 @@ li.load-more a.loading::after {
     margin: 0;
     margin-bottom: 30px;
     padding: 0 15px;
+}
+
+.buddypress-wrap .groups-list>li.hidden {
+    display: block;
 }
 
 .grid>li {
@@ -5875,4 +5880,57 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
 --------------------------------------------------------------*/
 .bupr-shortcode-top-members-contents {
     margin: 0 0 2rem;
+}
+
+/*--------------------------------------------------------------
+## BuddyPress Member Blog
+--------------------------------------------------------------*/
+/* Group Activity */
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner {
+    border: 0;
+    padding: 0 15px
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .buddyx-content-wrp {
+    display: block;
+    padding: 0
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .buddyx-content-wrp p {
+    padding: 0
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .bb-content-wrp {
+    display: block;
+    padding: 12px 0 0;
+    background-color: transparent
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .bb-post-title,
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .buddyx-post-title {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner .bb-post-title {
+    color: inherit
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner a.reign-post-img-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    margin: 0 0 15px;
+    background: var(--global-body-lightcolor);
+    border-radius: 4px;
+}
+
+.activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner a.reign-post-img-link img {
+    margin: 0 auto;
+    width: auto;
+    max-height: 640px;
+    border-radius: 4px;
 }

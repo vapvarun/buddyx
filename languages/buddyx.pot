@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-03-25 06:06+0000\n"
+"POT-Creation-Date: 2025-04-16 12:57+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -569,119 +569,119 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:141
+#: ../buddyx/inc/extra.php:151
 msgid "Search"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:198, ../buddyx/inc/extra.php:186
+#: ../buddyx/inc/extra.php:208, ../buddyx/inc/extra.php:196
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:239
+#: ../buddyx/inc/extra.php:249
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:250
+#: ../buddyx/inc/extra.php:260
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:250
+#: ../buddyx/inc/extra.php:260
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:250
+#: ../buddyx/inc/extra.php:260
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:255, ../buddyx/template-parts/content/entry_meta.php:148
+#: ../buddyx/inc/extra.php:265, ../buddyx/template-parts/content/entry_meta.php:148
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:384
+#: ../buddyx/inc/extra.php:394
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:393
+#: ../buddyx/inc/extra.php:403
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:412
+#: ../buddyx/inc/extra.php:422
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:417
+#: ../buddyx/inc/extra.php:427
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:467
+#: ../buddyx/inc/extra.php:477
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:470
+#: ../buddyx/inc/extra.php:480
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:473, ../buddyx/inc/extra.php:486, ../buddyx/inc/extra.php:715
+#: ../buddyx/inc/extra.php:483, ../buddyx/inc/extra.php:496, ../buddyx/inc/extra.php:725
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:480
+#: ../buddyx/inc/extra.php:490
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:483
+#: ../buddyx/inc/extra.php:493
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:493
+#: ../buddyx/inc/extra.php:503
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:496
+#: ../buddyx/inc/extra.php:506
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:502
+#: ../buddyx/inc/extra.php:512
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:509
+#: ../buddyx/inc/extra.php:519
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:512
+#: ../buddyx/inc/extra.php:522
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:518
+#: ../buddyx/inc/extra.php:528
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:525
+#: ../buddyx/inc/extra.php:535
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:547, ../buddyx/inc/extra.php:654
+#: ../buddyx/inc/extra.php:557, ../buddyx/inc/extra.php:664
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:561, ../buddyx/inc/extra.php:631
+#: ../buddyx/inc/extra.php:571, ../buddyx/inc/extra.php:641
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:633
+#: ../buddyx/inc/extra.php:643
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:717
+#: ../buddyx/inc/extra.php:727
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:953
+#: ../buddyx/inc/extra.php:963
 msgid " Read more"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:911
+#: ../buddyx/inc/extra.php:921
 msgid "&hellip;"
 msgstr ""
 

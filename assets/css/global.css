@@ -38,6 +38,7 @@
     # Title Below
 # WP Idea Stream
 # Events Manager
+# LMS Notes
 --------------------------------------------------------------*/
 
 
@@ -3830,4 +3831,11 @@ ul#ideas-main-nav form#searchform {
     margin: 0;
     padding: 4px 8px;
     border: 1px solid;
+}
+
+/*--------------------------------------------------------------
+# LMS Notes
+--------------------------------------------------------------*/
+body.single-lcn_notes .content-wrapper {
+    margin: 2rem auto;
 }
