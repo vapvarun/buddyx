@@ -147,11 +147,11 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 				// Render the search icon if enabled.
 				if ( ! empty( $searchicon ) ) :
 					?>
-					<div class="search" <?php echo esc_attr( apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ) ); ?>>
+					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore ?>>
 						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>" aria-label="Toggle search overlay">
 							<span class="fa fa-search"></span>
 						</a>
-						<div class="top-menu-search-container" <?php echo esc_attr( apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ) ); ?>>
+						<div class="top-menu-search-container" <?php echo apply_filters( 'buddyx_search_field_toggle_data_attrs', '' ); // phpcs:ignore ?>>
 							<?php get_search_form(); ?>
 						</div>
 					</div>
