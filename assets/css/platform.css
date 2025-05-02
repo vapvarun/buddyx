@@ -893,6 +893,11 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
     font-family: dashicons;
 }
 
+@media screen and (max-width: 375px) {
+    .buddypress-wrap ul.bp-list.groups-dir-list:not(.grid) .item-entry .item-avatar {
+        margin-left: 0;
+    }
+}
 
 /*--------------------------------------------------------------
 # Member Single
@@ -1149,7 +1154,7 @@ body .bp-messages-user-threads {
     padding-bottom: 10px;
 }
 
-.messages-wrapper #subnav .subnav #back-to-thread > [class*="bb-icon"] {
+.messages-wrapper #subnav .subnav #back-to-thread>[class*="bb-icon"] {
     padding: 0;
 }
 
@@ -1284,17 +1289,22 @@ h2.screen-heading.email-settings-screen {
     text-align: left;
 }
 
+.activity-list .activity-item .activity-content .bp-generic-meta.action {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .activity-list .activity-item.has-comments .activity-content>.bp-generic-meta.action {
     border-bottom: 1px solid var(--global-border-color);
 }
 
-.activity-list.bp-list .activity-item .bp-generic-meta.action .generic-button {
-    margin-right: 11px;
-    margin-top: 15px;
-}
-
 .activity-list .activity-item .bp-generic-meta.action .acomment-reply.button {
     max-height: 37px;
+}
+
+.activity-list.bp-list .activity-item .bp-generic-meta.action .generic-button {
+    margin: 0;
 }
 
 .activity-list.bp-list .activity-item .bp-generic-meta.action .generic-button .fa {
@@ -1473,6 +1483,7 @@ body #buddypress .bp-list .activity-comments .action {
 
 #buddypress .bp-list .activity-comments .bp-generic-meta .generic-button a,
 body #buddypress .bp-list .activity-comments .action .generic-button a {
+    margin-right: 10px;
     padding: 0 !important;
     font-size: 13px;
     line-height: normal;

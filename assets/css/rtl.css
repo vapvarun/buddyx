@@ -24,6 +24,13 @@ body:not(.block-editor-page):not(.wp-core-ui) pre {
     text-align: right !important;
 }
 
+input,
+optgroup,
+select,
+textarea {
+    text-align: right !important;
+}
+
 .wp-block-quote {
     border-left: 0;
     border-right: 4px solid #000;
