@@ -27,6 +27,7 @@
 }
 
 .llms-button-secondary,
+a.llms-button-secondary,
 .llms-button-primary,
 .llms-button-action {
     font-family: inherit;
@@ -53,6 +54,7 @@
 }
 
 .llms-button-secondary:hover,
+a.llms-button-secondary:hover,
 .llms-button-primary:hover,
 .llms-button-action:hover,
 .llms-button-action.clicked {
@@ -62,6 +64,7 @@
 }
 
 .llms-button-primary:focus,
+a.llms-button-secondary:focus,
 .llms-button-primary:active,
 .llms-button-action:focus,
 .llms-button-action:active {
@@ -179,6 +182,15 @@
     overflow-x: auto;
 }
 
+@media (min-width: 600px) {
+    .llms-student-dashboard .llms-sd-item {
+        width: 100%;
+    }
+
+    .llms-student-dashboard .llms-sd-title {
+        margin-top: 0;
+    }
+}
 
 /*--------------------------------------------------------------
 # Course Archive
@@ -342,6 +354,16 @@ body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
     .llms-lesson-preview .llms-lesson-title {
         font-size: 14px;
     }
+}
+
+.single-course .review_box label {
+    display: block;
+    margin: 0 0 5px;
+}
+
+.single-course .review_box [type=text] {
+    width: 100%;
+    margin-top: 0;
 }
 
 
