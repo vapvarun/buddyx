@@ -97,6 +97,16 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.8.3 = 
+* Updated: Group list view layout optimized for tablet devices.
+* Updated: User interface enhancements across various BuddyBoss Platform tabs.
+* Updated: Improved review section styling and group listing layout for LifterLMS.
+* Fixed: Typing indicator not visible in messages with BuddyBoss Platform.
+* Updated: Default widget borders refined for a cleaner appearance.
+* Updated: UI adjustments for improved compatibility with LifterLMS.
+* Updated: LearnDash and BuddyBoss Platform design consistency improvements.
+* Fixed: Mobile auto-zoom on text input fields now prevented for smoother UX.
+* Updated: Search form behavior improved with better filter handling.
 
 = 4.8.2 = 
 * Added: New hookable positions before and after the breadcrumb for easier customizations.  
