@@ -86,3 +86,16 @@ if ( ! function_exists( 'buddyx_disable_woo_commerce_sidebar' ) ) {
 
 // Hook the function to the 'init' action.
 add_action( 'init', 'buddyx_disable_woo_commerce_sidebar' );
+
+// Check if the Infinite Loader class exists.
+function buddyx_add_body_class_for_infinite_loade( $classes ) {
+    
+    if ( class_exists( 'Infinite_Loader_For_Woocommerce' ) ) {
+
+        if (is_post_type_archive('product') || is_product_category() || is_product_tag()) {
+            $classes[] = 'infinite-loader-active';
+        }
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'buddyx_add_body_class_for_infinite_loade' );
