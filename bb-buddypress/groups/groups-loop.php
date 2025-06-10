@@ -43,9 +43,11 @@ $group_cover_height = function_exists( 'bb_get_group_cover_image_height' ) ? bb_
 	<?php
 	while ( bp_groups() ) :
 		bp_the_group();
+
+		$bp_group_id = bp_get_group_id();
 		?>
 
-		<li <?php bp_group_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_group_id(); ?>" data-bp-item-component="groups">
+		<li <?php bp_group_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php echo esc_attr( $bp_group_id ); ?>" data-bp-item-component="groups">
 			<div class="list-wrap">
 
 				<?php
