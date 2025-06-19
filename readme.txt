@@ -2,7 +2,7 @@
 Contributors: wbcomdesigns
 Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
 Requires at least: 4.8
-Tested up to: 6.8.0
+Tested up to: 6.8.2
 Requires PHP: 7.4
 Stable tag: trunk
 License: GNU General Public License v3.0 (or later)
@@ -97,6 +97,23 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+= 4.8.4 = 
+* Updated: Platform stylesheet for improved visual consistency.
+* Improved: UI of the “Send Messages” tab in group pages.
+* Updated: BuddyBoss Platform override templates for better compatibility.
+* Enhanced: Product listing layout with infinite scroll support for WooCommerce.
+* Refined: UI for Mutual Connections tab when using BuddyBoss.
+
+= 4.8.3 = 
+* Updated: Group list view layout optimized for tablet devices.
+* Updated: User interface enhancements across various BuddyBoss Platform tabs.
+* Updated: Improved review section styling and group listing layout for LifterLMS.
+* Fixed: Typing indicator not visible in messages with BuddyBoss Platform.
+* Updated: Default widget borders refined for a cleaner appearance.
+* Updated: UI adjustments for improved compatibility with LifterLMS.
+* Updated: LearnDash and BuddyBoss Platform design consistency improvements.
+* Fixed: Mobile auto-zoom on text input fields now prevented for smoother UX.
+* Updated: Search form behavior improved with better filter handling.
 
 = 4.8.2 = 
 * Added: New hookable positions before and after the breadcrumb for easier customizations.  

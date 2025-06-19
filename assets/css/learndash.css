@@ -473,6 +473,10 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 # Single Course
 --------------------------------------------------------------*/
 
+.single-sfwd-courses .sfwd-courses header.entry-header {
+    display: none;
+}
+
 .single-sfwd-courses .entry-content {
     background: var(--color-theme-white-box);
     margin: 0;

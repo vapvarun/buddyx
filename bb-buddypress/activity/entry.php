@@ -32,7 +32,7 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyx' ), bp_core_g
 
 ?>
 
-<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php echo esc_attr( $activity_id ); ?>" data-bp-activity-id="<?php echo esc_attr( $activity_id ); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bb-updated-timestamp="<?php bb_nouveau_activity_updated_timestamp(); ?>" data-bp-activity="<?php bp_nouveau_edit_activity_data(); ?>" data-link-preview='<?php echo esc_html( $link_preview_string ); ?>' data-link-url='<?php echo empty( $link_url ) ? '' : esc_url( $link_url ); ?>' data-activity-popup-title='<?php echo empty( $activity_popup_title ) ? '' : esc_html( $activity_popup_title ); ?>'>
+<li class="<?php bp_activity_css_class(); ?>" id="activity-<?php echo esc_attr( $activity_id ); ?>" data-bp-activity-id="<?php echo esc_attr( $activity_id ); ?>" data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>" data-bb-updated-timestamp="<?php echo function_exists( 'bb_nouveau_activity_updated_timestamp' ) ? esc_attr( bb_nouveau_activity_updated_timestamp() ) : ''; ?>" data-bp-activity="<?php ( function_exists( 'bp_nouveau_edit_activity_data' ) ) ? bp_nouveau_edit_activity_data() : ''; ?>" data-link-preview='<?php echo esc_html( $link_preview_string ); ?>' data-link-url='<?php echo empty( $link_url ) ? '' : esc_url( $link_url ); ?>' data-activity-popup-title='<?php echo empty( $activity_popup_title ) ? '' : esc_html( $activity_popup_title ); ?>'>
 
 	<?php bb_nouveau_activity_entry_bubble_buttons(); ?>
 
@@ -106,7 +106,22 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyx' ), bp_core_g
 					<div class="activity-group-heading"><a href="<?php echo esc_url( $group_permalink ); ?>"><?php echo esc_html( $group_name ); ?></a></div>
 					<div class="activity-group-post-meta">
 						<span class="activity-post-author">
-							<?php bp_activity_action(); ?>
+							<?php
+							$activity_type   = bp_get_activity_type();
+							$activity_object = bp_get_activity_object_name();
+
+							if ( 'groups' === $activity_object && 'activity_update' === $activity_type ) {
+								// Show only user link and display name
+								?>
+								<a href="<?php echo esc_url( $user_link ); ?>" data-bb-hp-profile="<?php echo esc_attr( bp_get_activity_user_id() ); ?>">
+									<?php echo esc_html( bp_core_get_user_displayname( $activities_template->activity->user_id ) ); ?>
+								</a>
+								<?php
+							} else {
+								// Show the default activity action
+								bp_activity_action();
+							}
+							?>
 						</span>
 						<a href="<?php echo esc_url( $activity_link ); ?>">
 							<?php
@@ -141,15 +156,27 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyx' ), bp_core_g
 				<?php bp_activity_action(); ?>
 
 				<p class="activity-date">
-					<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>"><?php echo bp_core_time_since( bp_get_activity_date_recorded() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+					<a href="<?php echo esc_url( bp_activity_get_permalink( $activity_id ) ); ?>">
+						<?php
+						$activity_date_recorded = bp_get_activity_date_recorded();
+						printf(
+							'<span class="time-since" data-livestamp="%1$s">%2$s</span>',
+							bp_core_get_iso8601_date( $activity_date_recorded ),
+							bp_core_time_since( $activity_date_recorded )
+						);
+						?>
+					</a>
 					<?php
 					if ( function_exists( 'bp_nouveau_activity_is_edited' ) ) {
 						bp_nouveau_activity_is_edited();
 					}
 					?>
 				</p>
-
-				<?php bp_nouveau_activity_privacy(); ?>
+				<?php
+				if ( function_exists( 'bp_nouveau_activity_privacy' ) ) {
+					bp_nouveau_activity_privacy();
+				}
+				?>
 
 			</div>
 

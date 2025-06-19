@@ -19,15 +19,13 @@ $enabled_profile_type  = ! function_exists( 'bb_enabled_member_directory_element
 $enabled_followers     = ! function_exists( 'bb_enabled_member_directory_element' ) || bb_enabled_member_directory_element( 'followers' );
 $enabled_last_active   = ! function_exists( 'bb_enabled_member_directory_element' ) || bb_enabled_member_directory_element( 'last-active' );
 $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element' ) || bb_enabled_member_directory_element( 'joined-date' );
-?>
 
-<?php if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) . '&type=group_role' ) ) : ?>
+if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) . '&type=group_role' ) ) {
 
-	<?php bp_nouveau_group_hook( 'before', 'members_content' ); ?>
-
-	<?php bp_nouveau_pagination( 'top' ); ?>
-
-	<?php bp_nouveau_group_hook( 'before', 'members_list' ); ?>
+	bp_nouveau_group_hook( 'before', 'members_content' );
+	bp_nouveau_pagination( 'top' );
+	bp_nouveau_group_hook( 'before', 'members_list' );
+	?>
 
 	<ul id="members-list" class="<?php bp_nouveau_loop_classes(); ?> members-list">
 
@@ -222,18 +220,13 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 
 	</ul>
 
-	<?php bp_nouveau_group_hook( 'after', 'members_list' ); ?>
-
-	<?php bp_nouveau_pagination( 'bottom' ); ?>
-
-	<?php bp_nouveau_group_hook( 'after', 'members_content' ); ?>
-
 	<?php
-else :
-
+	bp_nouveau_group_hook( 'after', 'members_list' );
+	bp_nouveau_pagination( 'bottom' );
+	bp_nouveau_group_hook( 'after', 'members_content' );
+} else {
 	bp_nouveau_user_feedback( 'group-members-none' );
-
-endif;
+}
 ?>
 
 <!-- Remove Connection confirmation popup -->
