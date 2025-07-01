@@ -24,7 +24,7 @@ body:not(.block-editor-page):not(.wp-core-ui) pre {
     text-align: right !important;
 }
 
-input,
+input:not([type="submit"]),
 optgroup,
 select,
 textarea {
