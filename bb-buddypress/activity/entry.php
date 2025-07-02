@@ -32,7 +32,7 @@ if ( ! empty( $link_embed ) ) {
 }
 
 // translators: %s: User display name.
-$activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyx' ), bp_core_get_user_displayname( bp_get_activity_user_id() ) );
+$activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_get_user_displayname( bp_get_activity_user_id() ) );
 
 ?>
 
@@ -67,8 +67,8 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'buddyx' ), bp_core_g
 		<?php
 		global $activities_template;
 
-		$user_link = bp_get_activity_user_link();
-		$user_link = ! empty( $user_link ) ? esc_url( $user_link ) : '';
+		$user_link       = bp_get_activity_user_link();
+		$user_id         = bp_get_activity_user_id();
 		$hp_profile_attr = ! empty( $user_id ) ? 'data-bb-hp-profile="' . esc_attr( $user_id ) . '"' : '';
 
 		if ( bp_is_active( 'groups' ) && ! bp_is_group() && buddypress()->groups->id === bp_get_activity_object_name() ) :
