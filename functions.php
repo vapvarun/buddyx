@@ -145,7 +145,7 @@ function buddyx_load_contextual() {
  */
 function _buddyx_autoload( $class_name ) {
 	// Quick namespace validation - fail fast for non-theme classes
-	if ( 0 !== strpos( $class_name, 'WP_Rig\\' ) ) {
+	if ( 0 !== strpos( $class_name, 'BuddyX\\' ) ) {
 		return false;
 	}
 
