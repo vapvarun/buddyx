@@ -564,10 +564,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
-		if ( is_plugin_active( 'buddypress-global-search/buddypress-global-search.php' ) ) {
-			$classes[] = 'buddypress-global-search';
-		}
-
 		// Dokan Class.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			$classes[] = 'buddyx-dokan';

@@ -169,17 +169,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Enqueue Platform CSS.
-		if ( is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
 		}
 
 		// Enqueue bbPress CSS.
-		if ( function_exists( 'is_bbpress' ) || is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ) {
+		if ( function_exists( 'is_bbpress' ) || function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css' );
 		}
 
 		// Enqueue WC Vendors CSS.
-		if ( is_plugin_active( 'wc-vendors/class-wc-vendors.php' ) ) {
+		if ( class_exists( 'WC_Vendors' ) ) {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
 		}
 
