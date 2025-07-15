@@ -2261,11 +2261,78 @@ li.load-more a.loading::after {
 #group-create-body {
     position: relative;
     margin: 1rem 0 30px;
-    padding: 1em;
+    padding: 1rem;
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     border-radius: var(--global-border-radius);
     background: var(--color-theme-white-box);
+}
+
+.groups.group-create .buddypress-wrap #group-create-tabs {
+    background: var(--global-body-lightcolor);
+    border-bottom: 1px solid var(--global-border-color);
+    margin: -1rem -1rem 40px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
+}
+
+.groups.group-create .buddypress-wrap .item-body .group-create-buttons {
+    list-style: none;
+    margin: 0;
+    border-bottom: 0;
+}
+
+.groups.group-create .buddypress-wrap .item-body .group-create-buttons li.current {
+    border: 0;
+    padding: 0;
+}
+
+.groups.group-create .buddypress-wrap .item-body .group-create-buttons li.current a {
+    color: var(--color-theme-primary);
+    border: 0;
+}
+
+.groups.group-create .buddypress-wrap.bp-dir-hori-nav .group-create-links li:after {
+    content: none !important;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li {
+    background: transparent;
+    margin: 0;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li a,
+.groups.group-create .buddypress-wrap .group-create-buttons li span {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li a {
+    background: transparent;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li a:hover,
+.groups.group-create .buddypress-wrap .group-create-buttons li a:focus {
+    background: transparent !important;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a:after,
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) span:after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--global-font-color);
+    margin: 0 15px;
+}
+
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a:after {
+    background: var(--color-theme-primary);
 }
 
 .buddypress-wrap .bp-invites-content .item-list li .invite-button span.icons:before {

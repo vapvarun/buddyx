@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-06-18 11:47+0000\n"
+"POT-Creation-Date: 2025-07-08 13:46+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -36,8 +36,9 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: ../buddyx/functions.php:38
-msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options.%2$s"
+#. translators: %1$s: opening link tag, %2$s: closing link tag
+#: ../buddyx/functions.php:365
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options%2$s."
 msgstr ""
 
 #: ../buddyx/header.php:35
@@ -772,15 +773,16 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/activity/entry.php:31
-msgid "%s's Post"
+#. translators: %s: User display name.
+#: ../buddyx/bb-buddypress/activity/entry.php:35
+msgid "%s's post"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/activity/entry.php:40
+#: ../buddyx/bb-buddypress/activity/entry.php:44
 msgid "Pinned Post"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/activity/entry.php:47
+#: ../buddyx/bb-buddypress/activity/entry.php:51
 msgid "Turned off notifications"
 msgstr ""
 

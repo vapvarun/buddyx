@@ -189,6 +189,43 @@ li#bp-activity-ajax-loader {
 /*--------------------------------------------------------------
 # Activity Directory
 --------------------------------------------------------------*/
+.buddypress .activity-topic-selector>ul {
+    margin-top: 20px;
+    padding-bottom: 16px;
+    border-color: var(--global-border-color);
+}
+
+.activity-topic-selector>ul>li>a {
+    color: var(--global-title-color);
+    background-color: var(--global-body-lightcolor);
+    border-color: var(--global-border-color);
+}
+
+.activity-topic-selector>ul>li>a:hover,
+.activity-topic-selector>ul>li>a.selected {
+    border-color: var(--global-border-color);
+    background-color: var(--color-theme-white-box);
+}
+
+#buddypress .activity-topic-selector>ul .bb_nav_more_dropdown {
+    background-color: var(--color-theme-white-box);
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, .05), 0 6px 32px 0 rgba(18, 43, 70, .1);
+}
+
+#buddypress .activity-topic-selector>ul .bb_nav_more_dropdown li a {
+    color: var(--global-title-color);
+}
+
+#buddypress .activity-topic-selector>ul .bb_nav_more_dropdown li a:hover {
+    background-color: var(--global-body-lightcolor);
+}
+
+@media screen and (max-width: 980px) {
+    #buddypress .activity-topic-selector>ul .bb_nav_more_dropdown.open .bb_more_dropdown__title {
+        background-color: var(--global-body-lightcolor);
+    }
+}
+
 .bb-popup-card {
     background-color: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
@@ -453,7 +490,7 @@ img.emojioneemoji {
 .dropzone .dz-default .dz-button,
 .dropzone .dz-default .dz-button:hover {
     background-color: transparent !important;
-    border: 0;
+    border: 0 !important;
     color: rgba(18, 43, 70, .5) !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -1903,6 +1940,10 @@ label.bp-group-message-label {
 
 #group-messages-container .bb-groups-messages-right .bb-title-wrap .add-more-members {
     margin-top: 0;
+}
+
+.bp-group-messages-attached-gif-container.closed .gif-image-remove {
+    display: none;
 }
 
 @media screen and (max-width: 1080px) {
