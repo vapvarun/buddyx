@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 4.8.5 =
+* New: Added support for activity topics with BuddyBoss Platform.
+* Improved: Forum search UI for better usability.
+* Improved: Compose message section UI on BuddyBoss Platform.
+* Improved: Group creation page navigation interface.
+* Improved: Submit button alignment for RTL languages.
+* Improved: Theme memory optimization for better performance.
+* Updated: Override templates for enhanced BuddyBoss Platform compatibility.
+* Fixed: PHP warning message on frontend.
+
 = 4.8.4 = 
 * Updated: Platform stylesheet for improved visual consistency.
 * Improved: UI of the “Send Messages” tab in group pages.
