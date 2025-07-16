@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 7.9.0
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 10.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -29,10 +29,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<tr>
 						<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'buddyx' ); ?></span></th>
 						<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'buddyx' ); ?></span></th>
-						<th class="product-name"><?php esc_html_e( 'Product', 'buddyx' ); ?></th>
-						<th class="product-price"><?php esc_html_e( 'Price', 'buddyx' ); ?></th>
-						<th class="product-quantity"><?php esc_html_e( 'Quantity', 'buddyx' ); ?></th>
-						<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'buddyx' ); ?></th>
+						<th scope="col" class="product-name"><?php esc_html_e( 'Product', 'buddyx' ); ?></th>
+						<th scope="col" class="product-price"><?php esc_html_e( 'Price', 'buddyx' ); ?></th>
+						<th scope="col" class="product-quantity"><?php esc_html_e( 'Quantity', 'buddyx' ); ?></th>
+						<th scope="col" class="product-subtotal"><?php esc_html_e( 'Subtotal', 'buddyx' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -76,6 +76,19 @@ do_action( 'woocommerce_before_cart' ); ?>
 		
 								<td class="product-thumbnail">
 								<?php
+								/**
+								 * Filter the product thumbnail displayed in the WooCommerce cart.
+								 *
+								 * This filter allows developers to customize the HTML output of the product
+								 * thumbnail. It passes the product image along with cart item data
+								 * for potential modifications before being displayed in the cart.
+								 *
+								 * @param string $thumbnail     The HTML for the product image.
+								 * @param array  $cart_item     The cart item data.
+								 * @param string $cart_item_key Unique key for the cart item.
+								 *
+								 * @since 2.1.0
+								 */
 								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 		
 								if ( ! $product_permalink ) {

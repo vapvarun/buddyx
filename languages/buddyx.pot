@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-07-08 13:46+0000\n"
+"POT-Creation-Date: 2025-07-16 05:04+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -2697,19 +2697,19 @@ msgstr ""
 msgid "Thumbnail image"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:89
+#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:102
 msgid "Product"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:114
+#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:127
 msgid "Price"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:120
+#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:133
 msgid "Quantity"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:146
+#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:159
 msgid "Subtotal"
 msgstr ""
 
@@ -2718,23 +2718,23 @@ msgstr ""
 msgid "Remove %s from cart"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:109
+#: ../buddyx/woocommerce/cart/cart.php:122
 msgid "Available on backorder"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:164
+#: ../buddyx/woocommerce/cart/cart.php:177
 msgid "Coupon:"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:164
+#: ../buddyx/woocommerce/cart/cart.php:177
 msgid "Coupon code"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:164, ../buddyx/woocommerce/cart/cart.php:164
+#: ../buddyx/woocommerce/cart/cart.php:177, ../buddyx/woocommerce/cart/cart.php:177
 msgid "Apply coupon"
 msgstr ""
 
-#: ../buddyx/woocommerce/cart/cart.php:169, ../buddyx/woocommerce/cart/cart.php:169
+#: ../buddyx/woocommerce/cart/cart.php:182, ../buddyx/woocommerce/cart/cart.php:182
 msgid "Update cart"
 msgstr ""
 
