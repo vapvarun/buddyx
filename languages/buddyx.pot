@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-07-16 05:04+0000\n"
+"POT-Creation-Date: 2025-07-28 05:06+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -2180,294 +2180,198 @@ msgid "View More Addons"
 msgstr ""
 
 #: ../buddyx/inc/Welcome/Component.php:921
-msgid "BuddyPress-Business-Profile"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:924
 msgid "BuddyPress Business Profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:925
+#: ../buddyx/inc/Welcome/Component.php:922
 msgid "BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:926, ../buddyx/inc/Welcome/Component.php:938, ../buddyx/inc/Welcome/Component.php:950, ../buddyx/inc/Welcome/Component.php:962, ../buddyx/inc/Welcome/Component.php:974, ../buddyx/inc/Welcome/Component.php:986, ../buddyx/inc/Welcome/Component.php:998, ../buddyx/inc/Welcome/Component.php:1010, ../buddyx/inc/Welcome/Component.php:1022, ../buddyx/inc/Welcome/Component.php:1034, ../buddyx/inc/Welcome/Component.php:1046, ../buddyx/inc/Welcome/Component.php:1058, ../buddyx/inc/Welcome/Component.php:1070, ../buddyx/inc/Welcome/Component.php:1082, ../buddyx/inc/Welcome/Component.php:1094, ../buddyx/inc/Welcome/Component.php:1106, ../buddyx/inc/Welcome/Component.php:1118, ../buddyx/inc/Welcome/Component.php:1130, ../buddyx/inc/Welcome/Component.php:1142, ../buddyx/inc/Welcome/Component.php:1154, ../buddyx/inc/Welcome/Component.php:1166, ../buddyx/inc/Welcome/Component.php:1178, ../buddyx/inc/Welcome/Component.php:1190, ../buddyx/inc/Welcome/Component.php:1202
+#: ../buddyx/inc/Welcome/Component.php:923, ../buddyx/inc/Welcome/Component.php:932, ../buddyx/inc/Welcome/Component.php:941, ../buddyx/inc/Welcome/Component.php:950, ../buddyx/inc/Welcome/Component.php:959, ../buddyx/inc/Welcome/Component.php:968, ../buddyx/inc/Welcome/Component.php:977, ../buddyx/inc/Welcome/Component.php:986, ../buddyx/inc/Welcome/Component.php:995, ../buddyx/inc/Welcome/Component.php:1004, ../buddyx/inc/Welcome/Component.php:1013, ../buddyx/inc/Welcome/Component.php:1022, ../buddyx/inc/Welcome/Component.php:1031, ../buddyx/inc/Welcome/Component.php:1040, ../buddyx/inc/Welcome/Component.php:1049, ../buddyx/inc/Welcome/Component.php:1058, ../buddyx/inc/Welcome/Component.php:1067, ../buddyx/inc/Welcome/Component.php:1076, ../buddyx/inc/Welcome/Component.php:1085, ../buddyx/inc/Welcome/Component.php:1094, ../buddyx/inc/Welcome/Component.php:1103, ../buddyx/inc/Welcome/Component.php:1112, ../buddyx/inc/Welcome/Component.php:1121, ../buddyx/inc/Welcome/Component.php:1130
 msgid "Get It Now"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:933
-msgid "ideapush"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:936
+#: ../buddyx/inc/Welcome/Component.php:930
 msgid "BuddyPress Ideapush Integration"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:937
+#: ../buddyx/inc/Welcome/Component.php:931
 msgid "The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:945
-msgid "BuddyPress-Contact-Me"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:948
+#: ../buddyx/inc/Welcome/Component.php:939
 msgid "BuddyPress Contact Me"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:949
+#: ../buddyx/inc/Welcome/Component.php:940
 msgid "BuddyPress Contact Me displays a contact form on a member's profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:957
-msgid "WP_Story"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:960
+#: ../buddyx/inc/Welcome/Component.php:948
 msgid "WP Stories"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:961
+#: ../buddyx/inc/Welcome/Component.php:949
 msgid "Social Stories offer a more personal way to interact with your audience."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:969
-msgid "BP_profile-view"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:972
+#: ../buddyx/inc/Welcome/Component.php:957
 msgid "Who Viewed My Profile"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:973
+#: ../buddyx/inc/Welcome/Component.php:958
 msgid "The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header..."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:981
-msgid "member-blog"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:984
+#: ../buddyx/inc/Welcome/Component.php:966
 msgid "BuddyPress Member Blog Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:985
+#: ../buddyx/inc/Welcome/Component.php:967
 msgid "BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:993
-msgid "BuddyPress-multi-vendor-marketplace"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:996
+#: ../buddyx/inc/Welcome/Component.php:975
 msgid "BuddyVendor"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:997
+#: ../buddyx/inc/Welcome/Component.php:976
 msgid "With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1005
-msgid "stat"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1008
+#: ../buddyx/inc/Welcome/Component.php:984
 msgid "BuddyPress Statistics"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1009
+#: ../buddyx/inc/Welcome/Component.php:985
 msgid "BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site..."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1017
-msgid "BuddyPress-places"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1020
+#: ../buddyx/inc/Welcome/Component.php:993
 msgid "BuddyPress Check-Ins Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1021
+#: ../buddyx/inc/Welcome/Component.php:994
 msgid "Allow community members and groups to post updates along with selecting their current location."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1029
-msgid "BuddyPress-Friend-Follow-Suggestion"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1032
+#: ../buddyx/inc/Welcome/Component.php:1002
 msgid "BuddyPress Friend & Follow Suggestion"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1033
+#: ../buddyx/inc/Welcome/Component.php:1003
 msgid "BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1041
-msgid "BuddyPress-Animated-Gif-Share"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1044
+#: ../buddyx/inc/Welcome/Component.php:1011
 msgid "BuddyPress Giphy"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1045
+#: ../buddyx/inc/Welcome/Component.php:1012
 msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1053
-msgid "BuddyPress-BuddyBoss-shortcodes"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1056
+#: ../buddyx/inc/Welcome/Component.php:1020
 msgid "Shortcodes For BuddyPress Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1057
+#: ../buddyx/inc/Welcome/Component.php:1021
 msgid "Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1065
-msgid "BuddyPress-Sticky-Post"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1068
+#: ../buddyx/inc/Welcome/Component.php:1029
 msgid "BuddyPress Sticky Post"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1069
+#: ../buddyx/inc/Welcome/Component.php:1030
 msgid "Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1077
-msgid "BuddyPress-color-background-activity"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1080
+#: ../buddyx/inc/Welcome/Component.php:1038
 msgid "BuddyPress Quotes"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1081
+#: ../buddyx/inc/Welcome/Component.php:1039
 msgid "Allow BuddyPress users to post content with attractive background colors and beautiful images."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1089
-msgid "BuddyPress-BuddyBoss-autofriend"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1092
+#: ../buddyx/inc/Welcome/Component.php:1047
 msgid "BuddyPress Auto Friends"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1093
+#: ../buddyx/inc/Welcome/Component.php:1048
 msgid "Add selected community members as common friends for all members."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1101
-msgid "BuddyPress-Newsfeed-member-profile"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1104
+#: ../buddyx/inc/Welcome/Component.php:1056
 msgid "BuddyPress Newsfeed"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1105
+#: ../buddyx/inc/Welcome/Component.php:1057
 msgid "Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1113
-msgid "BuddyPress-Reactions-and-Status"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1116
+#: ../buddyx/inc/Welcome/Component.php:1065
 msgid "BuddyPress Status"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1117
+#: ../buddyx/inc/Welcome/Component.php:1066
 msgid "Allow members to add status on their profile and give their reactions to all the activity updates."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1125
-msgid "BuddyPress-Hashtags"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1128
+#: ../buddyx/inc/Welcome/Component.php:1074
 msgid "BuddyPress Hashtags"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1129
+#: ../buddyx/inc/Welcome/Component.php:1075
 msgid "Allow users to add multi-language hashtag links on BuddyPress community website."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1137
-msgid "BuddyPress-Moderation"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1140
+#: ../buddyx/inc/Welcome/Component.php:1083
 msgid "BuddyPress Moderation Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1141
+#: ../buddyx/inc/Welcome/Component.php:1084
 msgid "Allow members to flag inappropriate content on your BuddyPress community site."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1149
-msgid "BuddyPress-Private-Community-Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1152
+#: ../buddyx/inc/Welcome/Component.php:1092
 msgid "BuddyPress Private Community Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1153
+#: ../buddyx/inc/Welcome/Component.php:1093
 msgid "Lockdown the BuddyPress components to make your member's profile safe."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1161
-msgid "BuddyPress-Polls"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1164
+#: ../buddyx/inc/Welcome/Component.php:1101
 msgid "BuddyPress Polls"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1165
+#: ../buddyx/inc/Welcome/Component.php:1102
 msgid "Allow users to create and respond to polls inside the BuddyPress activity or in groups."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1173
-msgid "BuddyPress-Profanity"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1176
+#: ../buddyx/inc/Welcome/Component.php:1110
 msgid "BuddyPress Profanity"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1177
+#: ../buddyx/inc/Welcome/Component.php:1111
 msgid "Specify a list of bad words to control the content in your BuddyPress community."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1185
-msgid "BuddyPress-Resume-Manager"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1188
+#: ../buddyx/inc/Welcome/Component.php:1119
 msgid "BuddyPress Resume Manager"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1189
+#: ../buddyx/inc/Welcome/Component.php:1120
 msgid "Allow members to create and display resumes on BuddyPress right from their profile page."
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1197
-msgid "BuddyPress-Profile-Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1200
+#: ../buddyx/inc/Welcome/Component.php:1128
 msgid "BuddyPress Profile Pro"
 msgstr ""
 
-#: ../buddyx/inc/Welcome/Component.php:1201
+#: ../buddyx/inc/Welcome/Component.php:1129
 msgid "Add repeater fields or group of fields to the front-end forms on the member's profile."
 msgstr ""
 

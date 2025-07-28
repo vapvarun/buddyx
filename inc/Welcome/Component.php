@@ -917,9 +917,6 @@ class Component implements Component_Interface {
 								<div class="buddyx-row addons">
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Business-Profile', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
@@ -929,9 +926,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/06/ideapush.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'ideapush', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
@@ -941,9 +935,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Contact-Me', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
@@ -953,9 +944,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/07/WP_Story.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'WP_Story', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Social Stories offer a more personal way to interact with your audience.', 'buddyx' ); ?></p>
@@ -965,9 +953,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/BP_profile-view.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BP_profile-view', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Who Viewed My Profile', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header...', 'buddyx' ); ?></p>
@@ -977,9 +962,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/1-member-blog.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'member-blog', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Member Blog Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience.', 'buddyx' ); ?></p>
@@ -989,9 +971,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-multi-vendor-marketplace.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-multi-vendor-marketplace', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyVendor', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace.', 'buddyx' ); ?></p>
@@ -1001,9 +980,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/stat.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'stat', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Statistics', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site...', 'buddyx' ); ?></p>
@@ -1013,9 +989,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-places.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-places', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Check-Ins Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow community members and groups to post updates along with selecting their current location.', 'buddyx' ); ?></p>
@@ -1025,9 +998,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Friend-Follow-Suggestion.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Friend-Follow-Suggestion', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Friend & Follow Suggestion', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community.', 'buddyx' ); ?></p>
@@ -1037,9 +1007,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Animated-Gif-Share.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Animated-Gif-Share', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Giphy', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Attach GIF's into your BuddyPress activity, comments, and messages.", 'buddyx' ); ?></p>
@@ -1049,9 +1016,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-shortcodes.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-shortcodes', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Shortcodes For BuddyPress Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets.', 'buddyx' ); ?></p>
@@ -1061,9 +1025,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Sticky-Post.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Sticky-Post', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Sticky Post', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall.', 'buddyx' ); ?></p>
@@ -1073,9 +1034,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-color-background-activity.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-color-background-activity', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Quotes', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow BuddyPress users to post content with attractive background colors and beautiful images.', 'buddyx' ); ?></p>
@@ -1085,9 +1043,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-autofriend.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-autofriend', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Auto Friends', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Add selected community members as common friends for all members.', 'buddyx' ); ?></p>
@@ -1097,9 +1052,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Newsfeed-member-profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Newsfeed-member-profile', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Newsfeed', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed.', 'buddyx' ); ?></p>
@@ -1109,9 +1061,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Reactions-and-Status.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Reactions-and-Status', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Status', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to add status on their profile and give their reactions to all the activity updates.', 'buddyx' ); ?></p>
@@ -1121,9 +1070,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Hashtags-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Hashtags', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Hashtags', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to add multi-language hashtag links on BuddyPress community website.', 'buddyx' ); ?></p>
@@ -1133,9 +1079,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Moderation-BuddyBoss-1.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Moderation', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Moderation Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to flag inappropriate content on your BuddyPress community site.', 'buddyx' ); ?></p>
@@ -1145,9 +1088,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Private-Community-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Private-Community-Pro', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Private Community Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Lockdown the BuddyPress components to make your member's profile safe.", 'buddyx' ); ?></p>
@@ -1157,9 +1097,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Polls-BuddyBoss-Platform.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Polls', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Polls', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to create and respond to polls inside the BuddyPress activity or in groups.', 'buddyx' ); ?></p>
@@ -1169,9 +1106,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profanity-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profanity', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profanity', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Specify a list of bad words to control the content in your BuddyPress community.', 'buddyx' ); ?></p>
@@ -1181,9 +1115,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Resume-Manager.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Resume-Manager', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Resume Manager', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to create and display resumes on BuddyPress right from their profile page.', 'buddyx' ); ?></p>
@@ -1193,9 +1124,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profile-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profile-Pro', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profile Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Add repeater fields or group of fields to the front-end forms on the member's profile.", 'buddyx' ); ?></p>
