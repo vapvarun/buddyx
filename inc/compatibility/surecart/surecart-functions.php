@@ -385,27 +385,6 @@ class BuddyX_SureCart_Support {
 		if ( ! $cart_enabled ) {
 			return;
 		}
-		?>
-		<style id="buddyx-surecart-cart-styles">
-			.cart-widget-wrapper .cart sc-cart-icon {
-				font-size: 18px;
-				color: currentColor;
-			}
-			.cart-widget-wrapper .cart .wp-block-surecart-cart-menu-icon {
-				display: inline-flex;
-				align-items: center;
-			}
-			.cart-widget-wrapper .cart a {
-				color: inherit;
-				text-decoration: none;
-			}
-			@media (max-width: 768px) {
-				.cart-widget-wrapper .cart sc-cart-icon {
-					font-size: 16px;
-				}
-			}
-		</style>
-		<?php
 	}
 }
 

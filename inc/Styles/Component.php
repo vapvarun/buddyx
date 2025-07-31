@@ -233,6 +233,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue Dark Mode CSS.
 		wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css' );
+
+		// Enqueue SureCart CSS.
+		if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
+			wp_enqueue_style( 'buddyx-surecart', $css_uri . 'surecart.min.css' );
+		}
 	}
 
 	/**
