@@ -98,6 +98,13 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.8.6 =
+* New: Added integration support for SureCart – enabling better compatibility with the eCommerce experience.
+* Enhancement: Improved SureCart UI styling for a seamless visual match with theme elements.
+* Fix: Resolved multiple console errors occurring on frontend pages.
+* Fix: Removed broken addon image paths for a cleaner backend experience.
+* Fix: Managed WooCommerce outdated template files as per the latest version.
+
 = 4.8.5 =
 * New: Added support for activity topics with BuddyBoss Platform.
 * Improved: Forum search UI for better usability.

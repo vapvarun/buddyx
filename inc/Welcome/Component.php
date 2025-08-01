@@ -232,12 +232,8 @@ class Component implements Component_Interface {
 							<!-- Welcome Page Sidebar -->
 							<div class="buddyx-theme-sidebar">
 								<div class="list-section-wrap-widgets">
-									<h3><?php esc_html_e( 'Document', 'buddyx' ); ?> <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12.9399 22.5202H15.0133H6.71994C6.17006 22.5202 5.6427 22.3024 5.25387 21.9146C4.86505 21.5269 4.64661 21.001 4.64661 20.4527V5.97968C4.64661 5.43132 4.86505 4.90543 5.25387 4.51769C5.6427 4.12994 6.17006 3.91211 6.71994 3.91211H19.1599C19.7098 3.91211 20.2372 4.12994 20.626 4.51769C21.0148 4.90543 21.2333 5.43132 21.2333 5.97968V14.2499" stroke="#1F2229" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path fill-rule="evenodd" clip-rule="evenodd" d="M18.1233 18.3851C18.1233 18.6593 18.2325 18.9222 18.4269 19.1161C18.6213 19.31 18.885 19.4189 19.16 19.4189H22.27C22.5449 19.4189 22.8086 19.31 23.003 19.1161C23.1974 18.9222 23.3066 18.6593 23.3066 18.3851C23.3066 18.1109 23.1974 17.848 23.003 17.6541C22.8086 17.4602 22.5449 17.3513 22.27 17.3513H19.16C18.885 17.3513 18.6213 17.4602 18.4269 17.6541C18.2325 17.848 18.1233 18.1109 18.1233 18.3851ZM23.3066 22.5202C23.3066 22.2461 23.1974 21.9831 23.003 21.7892C22.8086 21.5954 22.5449 21.4865 22.27 21.4865H19.16C18.885 21.4865 18.6213 21.5954 18.4269 21.7892C18.2325 21.9831 18.1233 22.2461 18.1233 22.5202C18.1233 22.7944 18.2325 23.0574 18.4269 23.2512C18.6213 23.4451 18.885 23.554 19.16 23.554H22.27C22.5449 23.554 22.8086 23.4451 23.003 23.2512C23.1974 23.0574 23.3066 22.7944 23.3066 22.5202Z" fill="#1F2229"></path>
-									<path d="M9.82996 15.8007L12.658 9.69102C12.683 9.63746 12.7228 9.59212 12.7727 9.56036C12.8227 9.52859 12.8807 9.51172 12.94 9.51172C12.9992 9.51172 13.0572 9.52859 13.1072 9.56036C13.1571 9.59212 13.1969 9.63746 13.2219 9.69102L16.05 15.8007" stroke="#1F2229" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M10.452 13.2162H15.428V15.077H10.452V13.2162Z" fill="#1F2229"></path>
-									</svg>
+									<h3><?php esc_html_e( 'Document', 'buddyx' ); ?>
+										<svg width="26" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22H4C3.44772 22 3 21.5523 3 21V3C3 2.44772 3.44772 2 4 2H20C20.5523 2 21 2.44772 21 3V21C21 21.5523 20.5523 22 20 22ZM19 20V4H5V20H19ZM7 6H11V10H7V6ZM7 12H17V14H7V12ZM7 16H17V18H7V16ZM13 7H17V9H13V7Z"></path></svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'We have created foolproof documentation for you. It will help you to understand how our plugin works.', 'buddyx' ); ?></p>
@@ -248,16 +244,7 @@ class Component implements Component_Interface {
 								</div>
 								<div class="list-section-wrap-widgets">
 									<h3><?php esc_html_e( 'Community', 'buddyx' ); ?>
-									<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<g clip-path="url(#clip0_44_2454)">
-										<path d="M25.5366 12C25.5366 5.3725 19.9671 0 13.0966 0C6.22611 0 0.656616 5.3725 0.656616 12C0.656616 17.9895 5.20551 22.954 11.1529 23.854V15.469H7.99414V12H11.1529V9.356C11.1529 6.349 13.0101 4.6875 15.8516 4.6875C17.2122 4.6875 18.636 4.922 18.636 4.922V7.875H17.0676C15.5224 7.875 15.0404 8.8 15.0404 9.75V12H18.4904L17.9389 15.469H15.0404V23.854C20.9877 22.954 25.5366 17.989 25.5366 12Z" fill="black"></path>
-									</g>
-									<defs>
-										<clipPath id="clip0_44_2454">
-										<rect width="24.88" height="24" fill="white" transform="translate(0.656616)"></rect>
-										</clipPath>
-									</defs>
-									</svg>
+										<svg width="26" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path></svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'Join our community! Share your site, ask a question, and help others.', 'buddyx' ); ?></p>
@@ -268,12 +255,7 @@ class Component implements Component_Interface {
 								</div>
 								<div class="list-section-wrap-widgets">
 									<h3><?php esc_html_e( 'Videos', 'buddyx' ); ?>
-									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M19.5617 7C19.7904 5.69523 18.7863 4.5 17.4617 4.5H6.53788C5.21323 4.5 4.20922 5.69523 4.43784 7" stroke="#1C274C" stroke-width="1.5"/>
-									<path d="M17.4999 4.5C17.5283 4.24092 17.5425 4.11135 17.5427 4.00435C17.545 2.98072 16.7739 2.12064 15.7561 2.01142C15.6497 2 15.5194 2 15.2588 2H8.74099C8.48035 2 8.35002 2 8.2436undefined1142C7.22584 2.12064 6.45481 2.98072 6.45704 4.00434C6.45727 4.11135 6.47146 4.2409 6.49983 4.5" stroke="#1C274C" stroke-width="1.5"/>
-									<path d="M21.1935 16.793C20.8437 19.2739 20.6689 20.5143 19.7717 21.2572C18.8745 22 17.5512 22 14.9046 22H9.09536C6.44881 22 5.12553 22 4.22834 21.2572C3.33115 20.5143 3.15626 19.2739 2.80648 16.793L2.38351 13.793C1.93748 10.6294 1.71447 9.04765 2.66232 8.02383C3.61017 7 5.29758 7 8.67239 7H15.3276C18.7024 7 20.3898 7 21.3377 8.02383C22.0865 8.83268 22.1045 9.98979 21.8592 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-									<path d="M14.5812 13.6159C15.1396 13.9621 15.1396 14.8582 14.5812 15.2044L11.2096 17.2945C10.6669 17.6309 10 17.1931 10 16.5003L10 12.32C10 11.6273 10.6669 11.1894 11.2096 11.5258L14.5812 13.6159Z" stroke="#1C274C" stroke-width="1.5"/>
-									</svg>
+										<svg width="26" height="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.9934C3 3.44476 3.44495 3 3.9934 3H20.0066C20.5552 3 21 3.44495 21 3.9934V20.0066C21 20.5552 20.5551 21 20.0066 21H3.9934C3.44476 21 3 20.5551 3 20.0066V3.9934ZM5 5V19H19V5H5ZM10.6219 8.41459L15.5008 11.6672C15.6846 11.7897 15.7343 12.0381 15.6117 12.2219C15.5824 12.2658 15.5447 12.3035 15.5008 12.3328L10.6219 15.5854C10.4381 15.708 10.1897 15.6583 10.0672 15.4745C10.0234 15.4088 10 15.3316 10 15.2526V8.74741C10 8.52649 10.1791 8.34741 10.4 8.34741C10.479 8.34741 10.5562 8.37078 10.6219 8.41459Z"></path></svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'Welcome to our WordPress theme video series! Whether you\'re a newbie or a seasoned website creator, our bite-sized tutorials are packed with tips, tricks, and hacks to supercharge your WordPress journey.', 'buddyx' ); ?></p>
@@ -284,9 +266,7 @@ class Component implements Component_Interface {
 								</div>
 								<div class="list-section-wrap-widgets">
 									<h3><?php esc_html_e( 'Support', 'buddyx' ); ?>
-										<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9301 1.5C22.205 1.5 22.4687 1.60536 22.6631 1.79289C22.8575 1.98043 22.9667 2.23478 22.9667 2.5V18.5C22.9667 18.7652 22.8575 19.0196 22.6631 19.2071C22.4687 19.3946 22.205 19.5 21.9301 19.5H16.6311L13.2931 22.398C13.1027 22.5631 12.8558 22.6545 12.5998 22.6545C12.3438 22.6545 12.0969 22.5631 11.9065 22.398L8.56847 19.5H3.27007C2.99512 19.5 2.73144 19.3946 2.53703 19.2071C2.34262 19.0196 2.2334 18.7652 2.2334 18.5V2.5C2.2334 2.23478 2.34262 1.98043 2.53703 1.79289C2.73144 1.60536 2.99512 1.5 3.27007 1.5H21.9301ZM20.8934 3.5H4.30673V17.5H9.36411L12.6001 20.309L15.8355 17.5H20.8934V3.5ZM17.7834 10C17.7834 9.86739 17.7288 9.74021 17.6316 9.64645C17.5344 9.55268 17.4025 9.5 17.2651 9.5H7.93506C7.79759 9.5 7.66575 9.55268 7.56855 9.64645C7.47134 9.74021 7.41673 9.86739 7.41673 10V11C7.41673 11.1326 7.47134 11.2598 7.56855 11.3536C7.66575 11.4473 7.79759 11.5 7.93506 11.5H17.2651C17.4025 11.5 17.5344 11.4473 17.6316 11.3536C17.7288 11.2598 17.7834 11.1326 17.7834 11V10Z" fill="black"></path>
-									</svg>
+										<svg width="26" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455ZM5.76282 17H20V5H4V18.3851L5.76282 17ZM8 10H16V12H8V10Z"></path></svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'Have a question, we are happy to help! Get in touch with our support team.', 'buddyx' ); ?></p>
@@ -297,9 +277,7 @@ class Component implements Component_Interface {
 								</div>
 								<div class="list-section-wrap-widgets">
 									<h3><?php esc_html_e( 'Give us feedback', 'buddyx' ); ?>
-										<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9301 1.5C22.205 1.5 22.4687 1.60536 22.6631 1.79289C22.8575 1.98043 22.9667 2.23478 22.9667 2.5V18.5C22.9667 18.7652 22.8575 19.0196 22.6631 19.2071C22.4687 19.3946 22.205 19.5 21.9301 19.5H16.6311L13.2931 22.398C13.1027 22.5631 12.8558 22.6545 12.5998 22.6545C12.3438 22.6545 12.0969 22.5631 11.9065 22.398L8.56847 19.5H3.27007C2.99512 19.5 2.73144 19.3946 2.53703 19.2071C2.34262 19.0196 2.2334 18.7652 2.2334 18.5V2.5C2.2334 2.23478 2.34262 1.98043 2.53703 1.79289C2.73144 1.60536 2.99512 1.5 3.27007 1.5H21.9301ZM20.8934 3.5H4.30673V17.5H9.36411L12.6001 20.309L15.8355 17.5H20.8934V3.5ZM17.7834 10C17.7834 9.86739 17.7288 9.74021 17.6316 9.64645C17.5344 9.55268 17.4025 9.5 17.2651 9.5H7.93506C7.79759 9.5 7.66575 9.55268 7.56855 9.64645C7.47134 9.74021 7.41673 9.86739 7.41673 10V11C7.41673 11.1326 7.47134 11.2598 7.56855 11.3536C7.66575 11.4473 7.79759 11.5 7.93506 11.5H17.2651C17.4025 11.5 17.5344 11.4473 17.6316 11.3536C17.7288 11.2598 17.7834 11.1326 17.7834 11V10Z" fill="black"></path>
-									</svg>
+										<svg width="26" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455ZM4 18.3851L5.76282 17H20V5H4V18.3851ZM11 13H13V15H11V13ZM11 7H13V12H11V7Z"></path></svg>
 									</h3>
 									<div class="buddyx-quick-setting-section">
 									<p><?php esc_html_e( 'Remember to pay attention to your rate! Your 5-star review will encourage us so much!', 'buddyx' ); ?></p>
@@ -917,9 +895,6 @@ class Component implements Component_Interface {
 								<div class="buddyx-row addons">
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/05/BuddyPress-Business-Profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Business-Profile', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
@@ -929,9 +904,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/06/ideapush.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'ideapush', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
@@ -941,9 +913,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://wbcom.b-cdn.net/wp-content/uploads/edd/2023/03/BuddyPress-Contact-Me.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Contact-Me', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
@@ -953,9 +922,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/07/WP_Story.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'WP_Story', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Social Stories offer a more personal way to interact with your audience.', 'buddyx' ); ?></p>
@@ -965,9 +931,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-												<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/BP_profile-view.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BP_profile-view', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Who Viewed My Profile', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header...', 'buddyx' ); ?></p>
@@ -977,9 +940,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/1-member-blog.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'member-blog', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Member Blog Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience.', 'buddyx' ); ?></p>
@@ -989,9 +949,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-multi-vendor-marketplace.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-multi-vendor-marketplace', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyVendor', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace.', 'buddyx' ); ?></p>
@@ -1001,9 +958,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/06/stat.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'stat', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Statistics', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site...', 'buddyx' ); ?></p>
@@ -1013,9 +967,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-places.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-places', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Check-Ins Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow community members and groups to post updates along with selecting their current location.', 'buddyx' ); ?></p>
@@ -1025,9 +976,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Friend-Follow-Suggestion.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Friend-Follow-Suggestion', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Friend & Follow Suggestion', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community.', 'buddyx' ); ?></p>
@@ -1037,9 +985,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Animated-Gif-Share.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Animated-Gif-Share', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Giphy', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Attach GIF's into your BuddyPress activity, comments, and messages.", 'buddyx' ); ?></p>
@@ -1049,9 +994,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-shortcodes.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-shortcodes', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Shortcodes For BuddyPress Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets.', 'buddyx' ); ?></p>
@@ -1061,9 +1003,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Sticky-Post.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Sticky-Post', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Sticky Post', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall.', 'buddyx' ); ?></p>
@@ -1073,9 +1012,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-color-background-activity.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-color-background-activity', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Quotes', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow BuddyPress users to post content with attractive background colors and beautiful images.', 'buddyx' ); ?></p>
@@ -1085,9 +1021,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-BuddyBoss-autofriend.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-BuddyBoss-autofriend', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Auto Friends', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Add selected community members as common friends for all members.', 'buddyx' ); ?></p>
@@ -1097,9 +1030,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Newsfeed-member-profile.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Newsfeed-member-profile', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Newsfeed', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed.', 'buddyx' ); ?></p>
@@ -1109,9 +1039,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Reactions-and-Status.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Reactions-and-Status', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Status', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to add status on their profile and give their reactions to all the activity updates.', 'buddyx' ); ?></p>
@@ -1121,9 +1048,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Hashtags-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Hashtags', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Hashtags', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to add multi-language hashtag links on BuddyPress community website.', 'buddyx' ); ?></p>
@@ -1133,9 +1057,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Moderation-BuddyBoss-1.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Moderation', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Moderation Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to flag inappropriate content on your BuddyPress community site.', 'buddyx' ); ?></p>
@@ -1145,9 +1066,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Private-Community-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Private-Community-Pro', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Private Community Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Lockdown the BuddyPress components to make your member's profile safe.", 'buddyx' ); ?></p>
@@ -1157,9 +1075,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Polls-BuddyBoss-Platform.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Polls', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Polls', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to create and respond to polls inside the BuddyPress activity or in groups.', 'buddyx' ); ?></p>
@@ -1169,9 +1084,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profanity-BuddyBoss.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profanity', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profanity', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Specify a list of bad words to control the content in your BuddyPress community.', 'buddyx' ); ?></p>
@@ -1181,9 +1093,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Resume-Manager.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Resume-Manager', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Resume Manager', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to create and display resumes on BuddyPress right from their profile page.', 'buddyx' ); ?></p>
@@ -1193,9 +1102,6 @@ class Component implements Component_Interface {
 									</div>
 									<div class="buddyx-col col-same">
 										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-image">
-											<img width="768" height="768" src="<?php echo esc_url( 'https://cdn.wbcomdesigns.com/wp-content/uploads/edd/2022/03/BuddyPress-Profile-Pro.jpg' ); ?>" class="size-medium_large" alt="<?php esc_attr_e( 'BuddyPress-Profile-Pro', 'buddyx' ); ?>" />
-											</div>
 											<div class="buddyx-col-text">
 												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profile Pro', 'buddyx' ); ?></h4>
 												<p class="buddyx-col-content"><?php esc_html_e( "Add repeater fields or group of fields to the front-end forms on the member's profile.", 'buddyx' ); ?></p>

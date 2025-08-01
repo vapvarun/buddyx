@@ -93,6 +93,14 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
+	// SureCart compatibility
+	if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
+		$surecart_file = $base_path . '/inc/compatibility/surecart/surecart-functions.php';
+		if ( file_exists( $surecart_file ) ) {
+			require_once $surecart_file;
+		}
+	}
+
 	$plugins_checked = true;
 }
 
