@@ -52,6 +52,12 @@ bp_nouveau_before_loop(); ?>
 								</p><!-- .item-meta -->
 							<?php endif; ?>
 
+							<?php if ( bp_nouveau_member_has_extra_content() ) : ?>
+								<div class="item-extra-content">
+									<?php bp_nouveau_member_extra_content() ; ?>
+								</div><!-- .item-extra-content -->
+							<?php endif ; ?>
+
 						</div><!-- .member-info-wrapper -->
 
 						<div class="member-action-wrapper">
@@ -66,6 +72,12 @@ bp_nouveau_before_loop(); ?>
 						</div><!-- .member-action-wrapper -->
 
 					</div>
+
+					<?php if ( bp_get_member_latest_update() && ! bp_nouveau_loop_is_grid() ) : ?>
+						<div class="user-update">
+							<p class="update"> <?php bp_member_latest_update(); ?></p>
+						</div>
+					<?php endif; ?>
 
 				</div><!-- // .item -->
 
