@@ -12,7 +12,7 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 10.0.0
+ * @version 10.1.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -51,7 +51,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						 * @param string $cart_item_key Key for the product in the cart.
 						 */
 						$product_name = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
-		
+
 						if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 							$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 							?>
@@ -90,7 +90,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								 * @since 2.1.0
 								 */
 								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-		
+
 								if ( ! $product_permalink ) {
 									echo $thumbnail; // PHPCS: XSS ok.
 								} else {
@@ -113,10 +113,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 								}
 
 								do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
-		
+
 								// Meta data.
 								echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
-		
+
 								// Backorder notification.
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 									echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'buddyx' ) . '</p>', $product_id ) );
@@ -139,7 +139,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									$min_quantity = 0;
 									$max_quantity = $_product->get_max_purchase_quantity();
 								}
-		
+
 								$product_quantity = woocommerce_quantity_input(
 									array(
 										'input_name'   => "cart[{$cart_item_key}][qty]",
@@ -151,7 +151,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									$_product,
 									false
 								);
-		
+
 								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 								?>
 								</td>
