@@ -34,6 +34,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_custom_js_script' ) );
+		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute' ), 10, 2 );
 	}
 
 	/**
@@ -118,5 +119,30 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);
+	}
+
+	/**
+	 * Add defer attribute to non-critical scripts for better performance.
+	 *
+	 * @param string $tag    The script tag.
+	 * @param string $handle The script handle.
+	 * @return string Modified script tag.
+	 */
+	public function add_defer_attribute( $tag, $handle ) {
+		// Scripts that should be deferred for better performance
+		$defer_scripts = array(
+			'buddyx-isotope-pkgd',
+			'buddyx-fitvids',
+			'buddyx-sticky-kit',
+			'buddyx-slick',
+			'buddyx-gamipress',
+		);
+
+		// Add defer attribute to specified scripts
+		if ( in_array( $handle, $defer_scripts, true ) ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+
+		return $tag;
 	}
 }

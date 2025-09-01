@@ -98,6 +98,18 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.8.8 =
+* Performance: Implemented advanced script optimization with defer loading for better page speed.
+* Performance: Reduced render-blocking CSS by implementing lazy-loading for non-critical stylesheets.
+* Performance: Disabled site loader animation by default to improve First Contentful Paint.
+* Accessibility: Fixed mobile viewport zoom restrictions for better user experience.
+* Enhancement: Optimized JavaScript loading order to prevent blocking main thread.
+* Enhancement: Improved Core Web Vitals scores through resource prioritization.
+* Update: All WooCommerce template overrides verified compatible with WooCommerce 10.1.2.
+
+= 4.8.7 =
+* Internal development version - performance optimization testing.
+
 = 4.8.6 =
 * New: Added integration support for SureCart – enabling better compatibility with the eCommerce experience.
 * Enhancement: Improved SureCart UI styling for a seamless visual match with theme elements.
