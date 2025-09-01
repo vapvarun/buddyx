@@ -98,6 +98,13 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.8.7 =
+* Tweak: Improved grid filters UI for better usability on mobile devices.
+* Updated: BuddyBoss Platform override templates to stay compatible with the latest changes.
+* Updated: WooCommerce template files to replace outdated copies and ensure compatibility.
+* Updated: Customizer screen with Kirki Customizer Framework notice improvements.
+* Updated: BuddyPress override template for better stability and integration.
+
 = 4.8.6 =
 * New: Added integration support for SureCart – enabling better compatibility with the eCommerce experience.
 * Enhancement: Improved SureCart UI styling for a seamless visual match with theme elements.
@@ -818,3 +825,4 @@ Released under the MIT license
 
 = 1.0.0 =
 * Initial Release
+
