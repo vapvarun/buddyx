@@ -468,8 +468,7 @@ form.migrate-buddyx-form label {
 }
 
 .video-tutorial .buddyx-col-image,
-.buddyx-support-body .buddyx-col-image,
-.buddyx-row.addons .buddyx-col-image {
+.buddyx-support-body .buddyx-col-image {
     margin-bottom: 17px;
 }
 
@@ -479,12 +478,12 @@ form.migrate-buddyx-form label {
     font-size: 18px;
     line-height: 22px;
     color: #242424;
-    overflow: hidden;
+    /* overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     line-clamp: 1;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
 }
 
 .video-tutorial .buddyx-col-text h4.buddyx-feature-title {
@@ -537,10 +536,6 @@ form.migrate-buddyx-form label {
 
 .buddyx-row.addons .buddyx-col-wrapper .buddyx-col-text .buddyx-btn {
     margin-top: auto;
-}
-
-.buddyx-row.addons .buddyx-col-image img {
-    border-radius: 15px;
 }
 
 @media screen and (min-width: 768px) {

@@ -1983,6 +1983,14 @@ li.load-more a.loading::after {
     width: auto;
 }
 
+.buddypress-wrap .members-list li .user-update {
+    font-size: inherit;
+}
+
+.bp-list.members-list:not(.grid) li .item .item-block {
+    float: none;
+}
+
 @media screen and (min-width: 46.8em) {
     .bp-list:not(.grid) li .item .item-block {
         float: left;
