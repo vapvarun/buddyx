@@ -74,6 +74,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_event_calendar_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_dokan_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_learndash_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'buddyx_enqueue_admin_style' ) );
 		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
@@ -109,7 +110,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Register and enqueue a youzify stylesheet.
+	 * Register and enqueue a dokan stylesheet.
 	 */
 	public function buddyx_enqueue_dokan_style() {
 		$css_uri = get_theme_file_uri( '/assets/css/' );
@@ -118,6 +119,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue Dokan CSS.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', time() );
+		}
+	}
+
+	/**
+	 * Register and enqueue a learndash stylesheet.
+	 */
+	public function buddyx_enqueue_learndash_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		// Enqueue Learndash CSS.
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
 		}
 	}
 
@@ -182,11 +196,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue WC Vendors CSS.
 		if ( class_exists( 'WC_Vendors' ) ) {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
-		}
-
-		// Enqueue Learndash CSS.
-		if ( class_exists( 'SFWD_LMS' ) ) {
-			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
 		}
 
 		// Enqueue LearnPress CSS.
