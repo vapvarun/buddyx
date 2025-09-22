@@ -63,7 +63,7 @@ if ( $bp_is_my_profile ) {
 
 			if ( $bp_is_my_profile && ! bp_disable_avatar_uploads() ) {
 				?>
-				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-balloon-pos="down" data-balloon="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-balloon-pos="down" data-balloon="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
 					<i class="bb-icon-rf bb-icon-camera"></i>
 				</a>
 				<span class="link-change-overlay"></span>

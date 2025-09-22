@@ -50,13 +50,13 @@ add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerp
 			?>
 
 			<?php if ( bp_is_item_admin() ) { ?>
-				<a href="<?php echo esc_url( $group_cover_link ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
+				<a href="<?php echo esc_url( $group_cover_link ); ?>" class="link-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Cover Photo', 'buddyx' ); ?>">
 					<i class="bb-icon-bf bb-icon-camera"></i>
 				</a>
 			<?php } ?>
 
 			<?php if ( ! empty( $group_cover_image ) && bp_is_item_admin() && bp_attachments_get_group_has_cover_image( bp_get_group_id() ) ) { ?>
-				<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
+				<a href="#" class="position-change-cover-image bp-tooltip" data-bp-tooltip-pos="right" data-bp-tooltip="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Reposition Cover Photo', 'buddyx' ); ?>">
 					<i class="bb-icon-bf bb-icon-arrows"></i>
 				</a>
 				<div class="header-cover-reposition-wrap">
@@ -76,7 +76,7 @@ add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerp
 		<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 			<div id="item-header-avatar">
 				<?php if ( bp_is_item_admin() ) { ?>
-					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="down" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
+					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="down" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
 						<i class="bb-icon-rf bb-icon-camera"></i>
 					</a>
 					<span class="link-change-overlay"></span>
