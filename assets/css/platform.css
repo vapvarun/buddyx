@@ -658,6 +658,10 @@ span.bb-activity-edited-text {
     padding-top: 0;
 }
 
+.activity-list .activity-item  .activity-title {
+    padding: 0 1em;
+}
+
 .activity-list .activity-item .activity-content .activity-state {
     padding: 0 1em;
 }
@@ -1440,6 +1444,17 @@ h2.screen-heading.email-settings-screen {
     font-size: 20px;
 }
 
+.bulk-select-all input#select-all-notifications+label,
+td.bulk-select-check .bs-styled-checkbox+label {
+    width: 20px;
+    height: 20px;
+}
+
+span.notifications-order-actions a,
+td.notification-actions a {
+    display: inline-block;
+}
+
 /*--------------------------------------------------------------
 # Group Single
 --------------------------------------------------------------*/
@@ -1975,6 +1990,10 @@ label.bp-group-message-label {
     body #buddypress .group-messages-members-listing .bp-list .action {
         margin: 0;
     }
+}
+
+.buddypress-wrap #group-settings-form input#save {
+    margin-top: 1rem;
 }
 
 /*--------------------------------------------------------------

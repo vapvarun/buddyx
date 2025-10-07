@@ -484,6 +484,9 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /*--------------------------------------------------------------
 # Single Course
 --------------------------------------------------------------*/
+.single-sfwd-courses article .entry-header {
+    max-width: 100%;
+}
 
 .single-sfwd-courses .sfwd-courses:has(.learndash-wrapper--modern) .entry-header {
     display: none;
@@ -596,6 +599,10 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     display: block;
 }
 
+.learndash-course-reviews-container .reviews-list .ld_review .learndash-course-reviews-author img.avatar {
+    border: 0 !important;
+}
+
 .learndash-course-reviews-container .reviews-list .ld_review .learndash-course-reviews-author .learndash-course-reviews-metadata {
     display: flex;
     align-items: center;
@@ -655,8 +662,17 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /*--------------------------------------------------------------
 # LD Groups
 --------------------------------------------------------------*/
+.single-groups article .entry-header {
+    max-width: 100%;
+}
+
 .single-groups article:has(.learndash-wrapper--modern)>.entry-header {
     display: none;
+}
+
+.single-groups .post-thumbnail img {
+    width: 100%;
+    border-radius: var(--global-border-radius);
 }
 
 .single-groups .learndash-wrapper.learndash-wrapper--modern .ld-tab-bar--single,
