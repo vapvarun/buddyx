@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-08-19 09:41+0000\n"
+"POT-Creation-Date: 2025-10-08 13:01+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -800,29 +800,29 @@ msgstr ""
 msgid "Are you sure you want to leave "
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:137, ../buddyx/bb-buddypress/members/members-loop.php:288, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:262, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/bb-buddypress/members/single/cover-image-header.php:276, ../buddyx/bb-buddypress/members/single/member-header.php:223
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:137, ../buddyx/bb-buddypress/members/members-loop.php:288, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:262, ../buddyx/bb-buddypress/members/single/cover-image-header.php:101, ../buddyx/bb-buddypress/members/single/cover-image-header.php:289, ../buddyx/bb-buddypress/members/single/member-header.php:223
 msgid "Cancel"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:138, ../buddyx/bb-buddypress/members/members-loop.php:289, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:277, ../buddyx/bb-buddypress/members/single/member-header.php:224
+#: ../buddyx/bb-buddypress/groups/groups-loop.php:138, ../buddyx/bb-buddypress/members/members-loop.php:289, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:290, ../buddyx/bb-buddypress/members/single/member-header.php:224
 msgid "Confirm"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/members-loop.php:230
-msgid "More Options"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/members/members-loop.php:232, ../buddyx/bb-buddypress/groups/single/members-loop.php:211
+#: ../buddyx/bb-buddypress/members/members-loop.php:221, ../buddyx/bb-buddypress/members/members-loop.php:232, ../buddyx/bb-buddypress/groups/single/members-loop.php:200, ../buddyx/bb-buddypress/groups/single/members-loop.php:209, ../buddyx/bb-buddypress/groups/single/members-loop.php:211
 msgid "More options"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/members-loop.php:271, ../buddyx/bb-buddypress/groups/single/members-loop.php:245, ../buddyx/bb-buddypress/members/single/cover-image-header.php:259, ../buddyx/bb-buddypress/members/single/member-header.php:206
+#: ../buddyx/bb-buddypress/members/members-loop.php:230, ../buddyx/bb-buddypress/members/members-loop.php:230
+msgid "More Options"
+msgstr ""
+
+#: ../buddyx/bb-buddypress/members/members-loop.php:271, ../buddyx/bb-buddypress/groups/single/members-loop.php:245, ../buddyx/bb-buddypress/members/single/cover-image-header.php:272, ../buddyx/bb-buddypress/members/single/member-header.php:206
 msgid "Remove Connection"
 msgstr ""
 
 #. translators: %s: The member name with HTML tags
 #. translators: %s: The member name with HTML tags.
-#: ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/members-loop.php:255, ../buddyx/bb-buddypress/members/single/cover-image-header.php:269, ../buddyx/bb-buddypress/members/single/member-header.php:216
+#: ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/members-loop.php:255, ../buddyx/bb-buddypress/members/single/cover-image-header.php:282, ../buddyx/bb-buddypress/members/single/member-header.php:216
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
@@ -1655,7 +1655,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:371
+#: ../buddyx/inc/Styles/Component.php:381
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -2589,7 +2589,7 @@ msgstr ""
 msgid "Open menu"
 msgstr ""
 
-#: ../buddyx/template-parts/header/navigation.php:59
+#: ../buddyx/template-parts/header/navigation.php:59, ../buddyx/bb-buddypress/groups/single/group-header.php:140
 msgid "Close"
 msgstr ""
 
@@ -2646,27 +2646,27 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:79, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
 msgid "Change Cover Photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/members/single/cover-image-header.php:86
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/members/single/cover-image-header.php:97, ../buddyx/bb-buddypress/members/single/cover-image-header.php:97
 msgid "Reposition Cover Photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:64, ../buddyx/bb-buddypress/members/single/cover-image-header.php:91
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:64, ../buddyx/bb-buddypress/members/single/cover-image-header.php:102
 msgid "Save Changes"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:65, ../buddyx/bb-buddypress/members/single/cover-image-header.php:92
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:65, ../buddyx/bb-buddypress/members/single/cover-image-header.php:103
 msgid "Drag to move cover photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:66, ../buddyx/bb-buddypress/members/single/cover-image-header.php:93
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:66, ../buddyx/bb-buddypress/members/single/cover-image-header.php:104
 msgid "Cover photo"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/buddypress/groups/single/cover-image-header.php:40, ../buddyx/buddypress/groups/single/group-header.php:23
+#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/buddypress/groups/single/cover-image-header.php:40, ../buddyx/buddypress/groups/single/group-header.php:23
 msgid "Change Group Photo"
 msgstr ""
 
@@ -2674,7 +2674,7 @@ msgstr ""
 msgid "Group Description"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/single/cover-image-header.php:116, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/buddypress/members/single/cover-image-header.php:26, ../buddyx/buddypress/members/single/member-header.php:14
+#: ../buddyx/bb-buddypress/members/single/cover-image-header.php:127, ../buddyx/bb-buddypress/members/single/cover-image-header.php:127, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/buddypress/members/single/cover-image-header.php:26, ../buddyx/buddypress/members/single/member-header.php:14
 msgid "Change Profile Photo"
 msgstr ""
 

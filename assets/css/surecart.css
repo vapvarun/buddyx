@@ -1,0 +1,46 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Cart Icon
+# Single Product
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Cart Icon
+--------------------------------------------------------------*/
+.cart-widget-wrapper .sc-cart-icon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-widget-wrapper .sc-cart-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5px;
+}
+
+.cart-widget-wrapper .wp-block-surecart-cart-menu-icon-button .sc-cart-count {
+    inset: -10px -10px auto auto;
+    padding: 1px 5px;
+}
+
+/*--------------------------------------------------------------
+# Single Product
+--------------------------------------------------------------*/
+.wp-block-button.is-style-outline.wp-block-surecart-product-buy-button button.wp-block-button__link.wp-element-button:not(.has-background, :hover, :focus) {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border: 1px solid var(--button-border-color);
+}
+
+.wp-block-button.is-style-outline.wp-block-surecart-product-buy-button button.wp-block-button__link.wp-element-button:not(.has-background, :hover, :focus):hover,
+.wp-block-button.is-style-outline.wp-block-surecart-product-buy-button button.wp-block-button__link.wp-element-button:not(.has-background, :hover, :focus):focus {
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+    color: var(--button-text-hover-color);
+}
+
+.single-sc_product .entry-footer {
+    display: none;
+}

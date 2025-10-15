@@ -74,11 +74,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_event_calendar_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_dokan_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_learndash_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'buddyx_enqueue_admin_style' ) );
 		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_styles' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
+		add_filter( 'style_loader_tag', array( $this, 'add_preload_for_critical_css' ), 10, 4 );
 	}
 
 	/**
@@ -108,7 +110,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Register and enqueue a youzify stylesheet.
+	 * Register and enqueue a dokan stylesheet.
 	 */
 	public function buddyx_enqueue_dokan_style() {
 		$css_uri = get_theme_file_uri( '/assets/css/' );
@@ -117,6 +119,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue Dokan CSS.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', time() );
+		}
+	}
+
+	/**
+	 * Register and enqueue a learndash stylesheet.
+	 */
+	public function buddyx_enqueue_learndash_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		// Enqueue Learndash CSS.
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
 		}
 	}
 
@@ -181,11 +196,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue WC Vendors CSS.
 		if ( class_exists( 'WC_Vendors' ) ) {
 			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
-		}
-
-		// Enqueue Learndash CSS.
-		if ( class_exists( 'SFWD_LMS' ) ) {
-			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
 		}
 
 		// Enqueue LearnPress CSS.
@@ -549,5 +559,44 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 
 		return add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	/**
+	 * Add preload for critical CSS files to improve performance.
+	 *
+	 * @param string $html   The link tag for the enqueued style.
+	 * @param string $handle The style's registered handle.
+	 * @param string $href   The stylesheet's source URL.
+	 * @param string $media  The stylesheet's media attribute.
+	 * @return string Modified link tag.
+	 */
+	public function add_preload_for_critical_css( $html, $handle, $href, $media ) {
+		// Define non-critical styles that should be loaded with media="print" and onload
+		$non_critical_styles = array(
+			'buddyx-slick',
+			'buddyx-eventscalendar',
+			'buddyx-dokan',
+			'buddyx-youzify',
+			'buddyx-wpjobmanager',
+			'multivendorx',
+		);
+
+		// Load non-critical styles with print media and switch to all on load
+		if ( in_array( $handle, $non_critical_styles, true ) ) {
+			$html = sprintf(
+				'<link rel="stylesheet" id="%s-css" href="%s" media="print" onload="this.media=\'all\'" />',
+				esc_attr( $handle ),
+				esc_url( $href )
+			);
+			// Add noscript fallback
+			$html .= sprintf(
+				'<noscript><link rel="stylesheet" id="%s-css-noscript" href="%s" media="%s" /></noscript>',
+				esc_attr( $handle ),
+				esc_url( $href ),
+				esc_attr( $media )
+			);
+		}
+
+		return $html;
 	}
 }

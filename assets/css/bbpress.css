@@ -157,6 +157,7 @@ a.bbp-topic-permalink {
 
 #bbpress-forums #bbp-search-form>div {
     display: flex;
+    gap: 10px;
 }
 
 @media only screen and (max-width: 767px) {
