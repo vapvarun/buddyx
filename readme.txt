@@ -98,12 +98,29 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.8.9 =
+* New: Updated override templates to match the latest BuddyBoss Platform update.
+* Improved: Refined UI for BuddyBoss Platform, LearnDash, and LifterLMS components.
+* Improved: Adjusted activity titles and message navigation for better clarity.
+* Improved: Enhanced avatar image display in the LearnDash review tab.
+* Improved: Optimized featured image handling for LearnDash single courses and group pages.
+* Improved: Updated and optimized platform and LearnDash CSS files for consistency.
+* Improved: Updated LifterLMS course and membership listing layouts.
+* Improved: Enhanced UI for blocked templates in BP Moderation Pro.
+* Improved: Minor design tweaks to buttons and spacing across various sections.
+* Fixed: Hidden unnecessary custom color options from Customizer for a cleaner user experience.
+
+= 4.8.8 =
+* Performance: Implemented advanced script optimization with defer loading for better page speed.
+* Performance: Reduced render-blocking CSS by implementing lazy-loading for non-critical stylesheets.
+* Performance: Disabled site loader animation by default to improve First Contentful Paint.
+* Accessibility: Fixed mobile viewport zoom restrictions for better user experience.
+* Enhancement: Optimized JavaScript loading order to prevent blocking main thread.
+* Enhancement: Improved Core Web Vitals scores through resource prioritization.
+* Update: All WooCommerce template overrides verified compatible with WooCommerce 10.1.2.
+
 = 4.8.7 =
-* Tweak: Improved grid filters UI for better usability on mobile devices.
-* Updated: BuddyBoss Platform override templates to stay compatible with the latest changes.
-* Updated: WooCommerce template files to replace outdated copies and ensure compatibility.
-* Updated: Customizer screen with Kirki Customizer Framework notice improvements.
-* Updated: BuddyPress override template for better stability and integration.
+* Internal development version - performance optimization testing.
 
 = 4.8.6 =
 * New: Added integration support for SureCart – enabling better compatibility with the eCommerce experience.
@@ -825,4 +842,3 @@ Released under the MIT license
 
 = 1.0.0 =
 * Initial Release
-

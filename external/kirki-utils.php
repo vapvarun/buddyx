@@ -6,7 +6,7 @@ function buddyx_defaults( $key = '' ) {
 	// site layout
 	$defaults['site-layout'] = 'wide';
 
-	// site loader
+	// site loader - disabled by default for better performance
 	$defaults['site-loader'] = '2';
 
 	// site search

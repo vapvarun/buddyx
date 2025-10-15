@@ -658,6 +658,10 @@ span.bb-activity-edited-text {
     padding-top: 0;
 }
 
+.activity-list .activity-item  .activity-title {
+    padding: 0 1em;
+}
+
 .activity-list .activity-item .activity-content .activity-state {
     padding: 0 1em;
 }
@@ -1310,10 +1314,21 @@ body.round-avatars .buddypress-wrap ul.bp-list.groups-dir-list.grid.bb-cover-ena
     font-size: 0 !important;
 }
 
+#send_message_form .select2-selection--multiple {
+    display: block;
+}
+
 body .select2-container .select2-dropdown.bb-compose-input {
+    display: block;
     max-width: 230px;
     background: #fff;
     margin-top: 32px;
+}
+
+body .select2-container .select2-dropdown.bb-compose-input ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 body .select2-container .select2-dropdown.bb-compose-input .select2-results__option {
@@ -1427,6 +1442,17 @@ h2.screen-heading.email-settings-screen {
 
 .bb-password-wrap a.bb-toggle-password .bb-icon-eye {
     font-size: 20px;
+}
+
+.bulk-select-all input#select-all-notifications+label,
+td.bulk-select-check .bs-styled-checkbox+label {
+    width: 20px;
+    height: 20px;
+}
+
+span.notifications-order-actions a,
+td.notification-actions a {
+    display: inline-block;
 }
 
 /*--------------------------------------------------------------
@@ -1817,6 +1843,20 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
     display: none;
 }
 
+@media screen and (max-width: 32em) {
+    .item-body > .bb-item-count.bb-group-members-count + .members-search {
+        float: none;
+    }
+
+    .buddypress-wrap .bp-subnavs {
+        margin-bottom: 10px;
+    }
+
+    .buddypress-wrap .subnav-filters .grid-filters {
+        display: inline-flex;
+    }
+}
+
 /* Send Messages */
 .select2-hidden-accessible {
     border: 0 !important;
@@ -1950,6 +1990,10 @@ label.bp-group-message-label {
     body #buddypress .group-messages-members-listing .bp-list .action {
         margin: 0;
     }
+}
+
+.buddypress-wrap #group-settings-form input#save {
+    margin-top: 1rem;
 }
 
 /*--------------------------------------------------------------

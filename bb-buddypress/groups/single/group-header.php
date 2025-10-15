@@ -20,7 +20,7 @@ add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerp
 		<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 			<div id="item-header-avatar">
 				<?php if ( bp_is_item_admin() ) { ?>
-					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
+					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
 						<i class="bb-icon-rf bb-icon-camera"></i>
 					</a>
 					<span class="link-change-overlay"></span>
@@ -137,7 +137,7 @@ add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerp
 				<div class="modal-container">
 					<header class="bb-model-header">
 						<h4><span class="target_name"><?php echo esc_html__( 'Group Description', 'buddyx' ); ?></span></h4>
-						<a class="bb-close-action-popup bb-model-close-button" href="#">
+						<a class="bb-close-action-popup bb-model-close-button" href="#" aria-label="<?php esc_attr_e( 'Close', 'buddyx' ); ?>">
 							<span class="bb-icon-l bb-icon-times"></span>
 						</a>
 					</header>
