@@ -358,8 +358,8 @@ add_action(
 	function ( $course_id, $user_id ) {
 		?>
 		<a href="#" id="buddyx-toggle-track">
-			<span class="learndash-dark-mode"><i class="fa fa-moon-o"></i></span>
-			<span class="learndash-light-mode"><i class="fa fa-sun-o"></i></span>
+			<span class="learndash-dark-mode"><i class="fa fa-moon"></i></span>
+			<span class="learndash-light-mode"><i class="fa fa-sun"></i></span>
 		</a>
 		<?php
 	},
