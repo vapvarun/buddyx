@@ -347,7 +347,7 @@ class BuddyX_FluentCart_Support {
 						<a href="#" class="cart-icon-wrap fcart-cart-toogle-button" aria-label="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
 							<span class="fa fa-shopping-cart"></span>
 							<?php if ( $item_count > 0 ) : ?>
-								<sup class="fc-cart-count"><?php echo esc_html( $item_count ); ?></sup>
+								<sup class="count fc-cart-count"><?php echo esc_html( $item_count ); ?></sup>
 							<?php endif; ?>
 						</a>
 					</div>
@@ -372,38 +372,6 @@ class BuddyX_FluentCart_Support {
 		}
 		?>
 		<style id="buddyx-fluentcart-cart-styles">
-			/* FluentCart Cart Icon Styles */
-			.cart-widget-wrapper .cart {
-				position: relative;
-				display: inline-block;
-			}
-
-			.cart-widget-wrapper .cart-icon-wrap {
-				display: flex;
-				align-items: center;
-				color: inherit;
-				text-decoration: none;
-				cursor: pointer;
-			}
-
-			.cart-widget-wrapper .cart-icon-wrap .fa-shopping-cart {
-				font-size: 18px;
-			}
-
-			.cart-widget-wrapper .fc-cart-count {
-				position: absolute;
-				top: -8px;
-				right: -8px;
-				background-color: var(--color-theme-primary, #ef5455);
-				color: white;
-				border-radius: 50%;
-				padding: 2px 6px;
-				font-size: 11px;
-				font-weight: bold;
-				min-width: 18px;
-				text-align: center;
-			}
-
 			/* Hide FluentCart floating button on specific pages */
 			body.fluent-cart-checkout .fc-cart-drawer-wrapper,
 			body.fluent-cart-receipt .fc-cart-drawer-wrapper {

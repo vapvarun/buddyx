@@ -17,22 +17,8 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 // Get FluentCart product sidebar option
 $default_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
-$single_post_content_width = '';
-$classes                   = '';
-
-// Sidebar Classes
-if ( $default_sidebar == 'left' ) {
-	$classes = 'has-single-post-left-sidebar';
-} elseif ( $default_sidebar == 'right' ) {
-	$classes = 'has-single-post-right-sidebar';
-} elseif ( $default_sidebar == 'both' ) {
-	$classes = 'has-single-post-both-sidebar';
-} else {
-	$classes = 'has-single-post-no-sidebar';
-}
-
 ?>
-<div class="single-post-main-wrapper buddyx-content--<?php echo esc_attr( $single_post_content_width ); ?> <?php echo esc_attr( $classes ); ?>">
+<div class="single-post-main-wrapper">
 
 	<?php do_action( 'buddyx_sub_header' ); ?>
 
