@@ -90,9 +90,28 @@ class Component implements Component_Interface {
 	 * Learndash dark mode toggle.
 	 */
 	public function toggle_theme_color() {
+		// Verify nonce
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'buddyx_toggle_theme_color' ) ) {
+			die( 'Security check failed' );
+		}
+		
 		$cookie_name  = 'bxtheme';
-		$cookie_value = ! empty( $_POST['color'] ) ? $_POST['color'] : '';
-		setcookie( $cookie_name, $cookie_value, time() + ( 86400 * 30 ), '/' ); // 86400 = 1 day
+		$cookie_value = ! empty( $_POST['color'] ) ? sanitize_text_field( $_POST['color'] ) : 'light';
+		
+		// Validate allowed values
+		if ( ! in_array( $cookie_value, array( 'light', 'dark' ) ) ) {
+			$cookie_value = 'light';
+		}
+		
+		setcookie( 
+			$cookie_name, 
+			$cookie_value, 
+			time() + ( 86400 * 30 ), 
+			'/', 
+			'', 
+			is_ssl(),  // Secure flag
+			true       // HttpOnly flag
+		);
 		die();
 	}
 

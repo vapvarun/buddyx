@@ -119,6 +119,12 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/custom.min.js' ) ),
 			true
 		);
+
+		// Add localization script.
+		wp_localize_script( 'buddyx-custom', 'buddyx_ajax', array(
+			'nonce' => wp_create_nonce( 'buddyx_toggle_theme_color' ),
+			'ajaxurl' => admin_url( 'admin-ajax.php' )
+		) );
 	}
 
 	/**
