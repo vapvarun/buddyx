@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-10-17 05:06+0000\n"
+"POT-Creation-Date: 2025-10-17 05:29+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -550,17 +550,17 @@ msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1377
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1375
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1382
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1380
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1387
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1385
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
