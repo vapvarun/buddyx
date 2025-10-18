@@ -76,6 +76,16 @@ class BuddyX_FluentCart_Support {
 		// Single product page modifications.
 		add_action( 'wp', array( $this, 'buddyx_fluentcart_single_page_setup' ) );
 
+		// Archive page modifications.
+		add_action( 'wp', array( $this, 'buddyx_fluentcart_archive_page_setup' ) );
+
+		// Add sub-header to FluentCart archive pages.
+		add_action( 'fluent_cart/generic_template/before_content', array( $this, 'buddyx_fluentcart_render_archive_sub_header' ) );
+
+		// Override sidebar for single products based on customizer setting.
+		add_filter( 'theme_mod_sidebar_option', array( $this, 'buddyx_fluentcart_override_sidebar_option' ) );
+		add_filter( 'theme_mod_single_post_sidebar_option', array( $this, 'buddyx_fluentcart_override_sidebar_option' ) );
+
 		// Theme activation - run once.
 		add_action( 'after_switch_theme', array( $this, 'buddyx_fluentcart_set_theme_defaults' ) );
 
@@ -111,22 +121,10 @@ class BuddyX_FluentCart_Support {
 		add_action( 'wp_head', array( $this, 'buddyx_fluentcart_add_single_page_styles' ), 999 );
 
 		// Remove all actions from buddyx_sub_header hook.
-		$this->buddyx_fluentcart_remove_sub_header_actions();
+		remove_all_actions( 'buddyx_sub_header' );
 
 		// Prevent entry header from being loaded.
 		add_filter( 'get_post_type', array( $this, 'buddyx_fluentcart_prevent_entry_header' ), 10, 2 );
-	}
-
-	/**
-	 * Remove sub-header actions for FluentCart pages.
-	 *
-	 * @since 1.0.0
-	 * @access private
-	 * @return void
-	 */
-	private function buddyx_fluentcart_remove_sub_header_actions() {
-		// Remove all actions hooked to buddyx_sub_header.
-		remove_all_actions( 'buddyx_sub_header' );
 	}
 
 	/**
@@ -175,6 +173,8 @@ class BuddyX_FluentCart_Support {
 	 * @return void
 	 */
 	public function buddyx_fluentcart_add_single_page_styles() {
+		// Get the customizer setting for product sidebar.
+		$product_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 		?>
 		<style id="buddyx-fluentcart-single-styles">
 			/* Hide duplicate title and featured image */
@@ -185,23 +185,99 @@ class BuddyX_FluentCart_Support {
 				display: none !important;
 			}
 
-			/* Hide sub-header/breadcrumb section */
-			.single-fluent-products .buddyx-breadcrumbs,
-			.single-fluent-products .buddyx-breadcrumbs-wrapper {
-				display: none !important;
-			}
-
-			/* Ensure proper spacing and full width */
+			/* Ensure proper spacing */
 			.single-fluent-products .entry-content {
 				margin-top: 0;
 			}
 
+			<?php if ( $product_sidebar === 'none' ) : ?>
+			/* Full-width layout when no sidebar */
 			.single-fluent-products .site-main {
-				width: 100%;
-				max-width: 100%;
+				width: 100% !important;
+				max-width: 100% !important;
+				flex: 0 0 100% !important;
+			}
+
+			.single-fluent-products .site-wrapper {
+				display: block !important;
+			}
+			<?php endif; ?>
+		</style>
+		<?php
+	}
+
+	/**
+	 * Setup modifications for FluentCart archive pages.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function buddyx_fluentcart_archive_page_setup() {
+		// Early return if not a FluentCart archive page.
+		if ( ! is_tax( 'product-categories' ) && ! is_tax( 'product-brands' ) && ! is_post_type_archive( 'fluent-products' ) ) {
+			return;
+		}
+
+		// Add inline CSS for full-width layout.
+		add_action( 'wp_head', array( $this, 'buddyx_fluentcart_archive_styles' ), 999 );
+	}
+
+	/**
+	 * Add CSS for FluentCart archive pages.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function buddyx_fluentcart_archive_styles() {
+		?>
+		<style id="buddyx-fluentcart-archive-styles">
+			/* Full-width layout for product archives */
+			.tax-product-categories .site-wrapper,
+			.tax-product-brands .site-wrapper,
+			.post-type-archive-fluent-products .site-wrapper {
+				max-width: 100% !important;
+			}
+
+			.tax-product-categories .site-main,
+			.tax-product-brands .site-main,
+			.post-type-archive-fluent-products .site-main {
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+
+			/* Hide sidebars on archive pages */
+			.tax-product-categories #secondary,
+			.tax-product-brands #secondary,
+			.post-type-archive-fluent-products #secondary {
+				display: none !important;
+			}
+
+			/* Hide FluentCart's duplicate archive title */
+			.tax-product-categories .fc-archive-header-wrap,
+			.tax-product-brands .fc-archive-header-wrap {
+				display: none !important;
 			}
 		</style>
 		<?php
+	}
+
+	/**
+	 * Render sub-header on FluentCart archive pages.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function buddyx_fluentcart_render_archive_sub_header() {
+		// Only render on FluentCart archive pages.
+		if ( ! is_tax( 'product-categories' ) && ! is_tax( 'product-brands' ) && ! is_post_type_archive( 'fluent-products' ) ) {
+			return;
+		}
+
+		// Render the theme's sub-header.
+		do_action( 'buddyx_sub_header' );
 	}
 
 	/**
@@ -330,15 +406,13 @@ class BuddyX_FluentCart_Support {
 					return;
 				}
 
-				// Get cart status from FluentCart.
-				$cart_items = array();
+				// Get cart count from FluentCart.
 				$item_count = 0;
 
 				if ( class_exists( '\\FluentCart\\Api\\Resource\\FrontendResource\\CartResource' ) ) {
 					$cart_status = \FluentCart\Api\Resource\FrontendResource\CartResource::getStatus();
 					if ( ! empty( $cart_status['cart_data'] ) ) {
-						$cart_items = $cart_status['cart_data'];
-						$item_count = count( $cart_items );
+						$item_count = count( $cart_status['cart_data'] );
 					}
 				}
 				?>
