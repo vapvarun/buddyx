@@ -248,6 +248,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
 			wp_enqueue_style( 'buddyx-surecart', $css_uri . 'surecart.min.css' );
 		}
+
+		// Enqueue FluentCart CSS.
+		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
+			wp_enqueue_style( 'buddyx-fluentcart', $css_uri . 'fluentcart.min.css' );
+		}
 	}
 
 	/**

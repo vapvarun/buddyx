@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-10-22 11:31+0000\n"
+"POT-Creation-Date: 2025-10-22 12:04+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -1154,11 +1154,11 @@ msgstr ""
 msgid "Enable Sticky Header ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:966, ../buddyx/inc/Kirki_Option/Component.php:2153, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2349, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:324, ../buddyx/inc/compatibility/surecart/surecart-functions.php:303
+#: ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:966, ../buddyx/inc/Kirki_Option/Component.php:2153, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2349, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:240, ../buddyx/inc/compatibility/surecart/surecart-functions.php:303
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:803, ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Kirki_Option/Component.php:2154, ../buddyx/inc/Kirki_Option/Component.php:2167, ../buddyx/inc/Kirki_Option/Component.php:2350, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:325, ../buddyx/inc/compatibility/surecart/surecart-functions.php:304
+#: ../buddyx/inc/Kirki_Option/Component.php:803, ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Kirki_Option/Component.php:2154, ../buddyx/inc/Kirki_Option/Component.php:2167, ../buddyx/inc/Kirki_Option/Component.php:2350, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:241, ../buddyx/inc/compatibility/surecart/surecart-functions.php:304
 msgid "No"
 msgstr ""
 
@@ -1663,7 +1663,7 @@ msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:381
+#: ../buddyx/inc/Styles/Component.php:386
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -2816,23 +2816,23 @@ msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:319, ../buddyx/inc/compatibility/surecart/surecart-functions.php:298
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:235, ../buddyx/inc/compatibility/surecart/surecart-functions.php:298
 msgid "Enable Cart Icon?"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:327
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:243
 msgid "Display FluentCart cart icon in header"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:337
-msgid "FluentCart Product Sidebar"
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:253
+msgid "Single Product Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:347
-msgid "Choose sidebar layout for FluentCart single product pages"
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:263
+msgid "Choose sidebar layout for single product page."
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:418, ../buddyx/inc/compatibility/surecart/surecart-functions.php:365, ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:334, ../buddyx/inc/compatibility/surecart/surecart-functions.php:365, ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
 msgid "View Shopping Cart"
 msgstr ""
 

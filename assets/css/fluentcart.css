@@ -1,0 +1,69 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Shop Page
+# Single Product
+# Cart Page
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Shop Page
+--------------------------------------------------------------*/
+@media screen and (max-width: 60em) {
+    .wp-block-fluent-cart-products {
+        margin: 2rem 0;
+    }
+}
+
+/* Hide FluentCart's duplicate archive title */
+.tax-product-categories .fc-archive-header-wrap,
+.tax-product-brands .fc-archive-header-wrap {
+    display: none !important;
+}
+
+/*--------------------------------------------------------------
+# Single Product
+--------------------------------------------------------------*/
+/* Hide duplicate title and featured image */
+.single-fluent-products .entry-header .entry-title,
+.single-fluent-products .entry-header-post,
+.single-fluent-products .post-thumbnail,
+.single-fluent-products .featured-wrap {
+    display: none !important;
+}
+
+/* Ensure proper spacing */
+.single-fluent-products .entry-content {
+    margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+# Cart Page
+--------------------------------------------------------------*/
+
+.fc-cart-item, 
+.fluent-cart-cart-list-item-wrapper {
+    background: var(--color-theme-white-box);
+    border-color: var(--global-border-color);
+}
+
+.fc-cart-item:first-of-type, 
+.fluent-cart-cart-list-item-wrapper:first-of-type {
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
+}
+
+.fluent-cart-cart-total-wrapper {
+    background: var(--color-theme-white-box);
+    border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
+}
+
+.fluent-cart-cart-cart-button-wrap {
+    margin: 1rem 0;
+}
+
+@media screen and (max-width: 480px) {
+    .fc-cart-item, 
+    .fluent-cart-cart-list-item-wrapper {
+        flex-flow: row wrap;
+    }
+}

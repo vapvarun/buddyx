@@ -117,9 +117,6 @@ class BuddyX_FluentCart_Support {
 			return;
 		}
 
-		// Add inline CSS to hide duplicate elements.
-		add_action( 'wp_head', array( $this, 'buddyx_fluentcart_add_single_page_styles' ), 999 );
-
 		// Remove all actions from buddyx_sub_header hook.
 		remove_all_actions( 'buddyx_sub_header' );
 
@@ -166,47 +163,6 @@ class BuddyX_FluentCart_Support {
 	}
 
 	/**
-	 * Add CSS to hide duplicate elements on single pages.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function buddyx_fluentcart_add_single_page_styles() {
-		// Get the customizer setting for product sidebar.
-		$product_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
-		?>
-		<style id="buddyx-fluentcart-single-styles">
-			/* Hide duplicate title and featured image */
-			.single-fluent-products .entry-header .entry-title,
-			.single-fluent-products .entry-header-post,
-			.single-fluent-products .post-thumbnail,
-			.single-fluent-products .featured-wrap {
-				display: none !important;
-			}
-
-			/* Ensure proper spacing */
-			.single-fluent-products .entry-content {
-				margin-top: 0;
-			}
-
-			<?php if ( $product_sidebar === 'none' ) : ?>
-			/* Full-width layout when no sidebar */
-			.single-fluent-products .site-main {
-				width: 100% !important;
-				max-width: 100% !important;
-				flex: 0 0 100% !important;
-			}
-
-			.single-fluent-products .site-wrapper {
-				display: block !important;
-			}
-			<?php endif; ?>
-		</style>
-		<?php
-	}
-
-	/**
 	 * Setup modifications for FluentCart archive pages.
 	 *
 	 * @since 1.0.0
@@ -218,49 +174,6 @@ class BuddyX_FluentCart_Support {
 		if ( ! is_tax( 'product-categories' ) && ! is_tax( 'product-brands' ) && ! is_post_type_archive( 'fluent-products' ) ) {
 			return;
 		}
-
-		// Add inline CSS for full-width layout.
-		add_action( 'wp_head', array( $this, 'buddyx_fluentcart_archive_styles' ), 999 );
-	}
-
-	/**
-	 * Add CSS for FluentCart archive pages.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function buddyx_fluentcart_archive_styles() {
-		?>
-		<style id="buddyx-fluentcart-archive-styles">
-			/* Full-width layout for product archives */
-			.tax-product-categories .site-wrapper,
-			.tax-product-brands .site-wrapper,
-			.post-type-archive-fluent-products .site-wrapper {
-				max-width: 100% !important;
-			}
-
-			.tax-product-categories .site-main,
-			.tax-product-brands .site-main,
-			.post-type-archive-fluent-products .site-main {
-				width: 100% !important;
-				max-width: 100% !important;
-			}
-
-			/* Hide sidebars on archive pages */
-			.tax-product-categories #secondary,
-			.tax-product-brands #secondary,
-			.post-type-archive-fluent-products #secondary {
-				display: none !important;
-			}
-
-			/* Hide FluentCart's duplicate archive title */
-			.tax-product-categories .fc-archive-header-wrap,
-			.tax-product-brands .fc-archive-header-wrap {
-				display: none !important;
-			}
-		</style>
-		<?php
 	}
 
 	/**

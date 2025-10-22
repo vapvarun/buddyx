@@ -189,12 +189,13 @@ body.elementor-editor-active .site-wrapper {
 
 @media (--sidebar-query) {
 
-    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
+    .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-wrapper,
     .has-sidebar-right.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-right.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-right:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
     .has-bbpress-sidebar-right.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-right .site-wrapper,
+    .has-fluentcart-sidebar-right.single-fluent-products .site-wrapper,
     .has-sidebar-right.buddypress.search-results .site-wrapper {
         display: grid;
         grid-template-columns: 3fr 260px;
@@ -202,12 +203,13 @@ body.elementor-editor-active .site-wrapper {
         justify-content: center;
     }
 
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-wrapper,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-left.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
     .has-bbpress-sidebar-left.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-left .site-wrapper,
+    .has-fluentcart-sidebar-left.single-fluent-products .site-wrapper,
     .has-sidebar-left.buddypress.search-results .site-wrapper {
         display: grid;
         grid-template-columns: 260px 3fr;
@@ -215,12 +217,13 @@ body.elementor-editor-active .site-wrapper {
         justify-content: center;
     }
 
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-wrapper,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-wrapper,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container) .site-wrapper,
     .has-sidebar-both.bpsh-buddypress .site-wrapper,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-wrapper,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .site-wrapper,
     .has-woocommerce-sidebar-both .site-wrapper,
+    .has-fluentcart-sidebar-both.single-fluent-products .site-wrapper,
     .has-sidebar-both.buddypress.search-results .site-wrapper {
         display: grid;
         grid-template-columns: 260px 2fr 260px;
@@ -228,35 +231,38 @@ body.elementor-editor-active .site-wrapper {
         justify-content: center;
     }
 
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .primary-sidebar,
     .has-woocommerce-sidebar-both .primary-sidebar,
+    .has-fluentcart-sidebar-both.single-fluent-products .primary-sidebar,
     .has-sidebar-both.buddypress.search-results .primary-sidebar {
         padding: 0;
         grid-column: 3;
         min-width: 0;
     }
 
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-main,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-main,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-both.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .site-main,
     .has-woocommerce-sidebar-both .site-main,
+    .has-fluentcart-sidebar-both.single-fluent-products .site-main,
     .has-sidebar-both.buddypress.search-results .site-main {
         grid-column: 2;
         min-width: 0;
     }
 
-    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .primary-sidebar,
+    .has-sidebar-both:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .primary-sidebar,
     .has-sidebar-both.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .primary-sidebar,
     .has-sidebar-both.bpsh-buddypress .primary-sidebar,
     .has-buddypress-sidebar-both:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .primary-sidebar,
     .has-bbpress-sidebar-both.bbpress:not(.buddypress) .primary-sidebar,
     .has-woocommerce-sidebar-both .primary-sidebar,
+    .has-fluentcart-sidebar-both.single-fluent-products .primary-sidebar,
     .has-sidebar-both.buddypress.search-results .primary-sidebar {
         grid-column: 3;
         min-width: 0;
@@ -267,17 +273,19 @@ body.elementor-editor-active .site-wrapper {
     }
 
     .site-main,
-    .has-woocommerce-sidebar-right .site-wrapper>.content-area {
+    .has-woocommerce-sidebar-right .site-wrapper>.content-area,
+    .has-fluentcart-sidebar-right.single-fluent-products .site-wrapper>.content-area {
         grid-column: 1;
         min-width: 0;
     }
 
-    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress) .site-main,
+    .has-sidebar-left:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-main,
     .has-sidebar-left.buddyx-dokan.woocommerce:not(.buddypress):not(.bbpress):not(.woocommerce-page):not(.page-template-full-width-container) .site-main,
     .has-sidebar-left.bpsh-buddypress .site-main,
     .has-buddypress-sidebar-left:not(.bp-user):not(.single-item):not(.group-create):not(.page-template-full-width-container) .site-main,
     .has-bbpress-sidebar-left.bbpress:not(.buddypress) .site-main,
     .has-woocommerce-sidebar-left .site-main,
+    .has-fluentcart-sidebar-left.single-fluent-products .site-main,
     .has-sidebar-left.buddypress.search-results .site-main {
         grid-column: 2;
         min-width: 0;
@@ -285,7 +293,9 @@ body.elementor-editor-active .site-wrapper {
 
     .primary-sidebar,
     .has-woocommerce-sidebar-left .site-wrapper>.content-area,
-    .has-woocommerce-sidebar-both .site-wrapper>.content-area {
+    .has-woocommerce-sidebar-both .site-wrapper>.content-area,
+    .has-fluentcart-sidebar-left.single-fluent-products .site-wrapper>.content-area,
+    .has-fluentcart-sidebar-both.single-fluent-products .site-wrapper>.content-area {
         grid-column: 2;
         min-width: 0;
     }
