@@ -538,16 +538,20 @@ class BuddyX_FluentCart_Support {
 	 * @return bool
 	 */
 	public function buddyx_fluentcart_disable_floating_button( $enabled, $args ) {
-		// Disable on checkout and receipt pages.
-		$checkout_page_id = get_option( 'fluent_cart_checkout_page_id', 0 );
-		$receipt_page_id = get_option( 'fluent_cart_receipt_page_id', 0 );
+		$post_id = get_queried_object_id();
+		$content = get_post_field( 'post_content', $post_id );
 
-		if ( is_page( $checkout_page_id ) || is_page( $receipt_page_id ) ) {
-			return false;
+		$shortcodes = [ 'fluent_cart_cart', 'fluent_cart_receipt' ];
+
+		foreach ( $shortcodes as $shortcode ) {
+			if ( has_shortcode( $content, $shortcode ) ) {
+				return false;
+			}
 		}
 
 		return $enabled;
 	}
+
 }
 
 /**
