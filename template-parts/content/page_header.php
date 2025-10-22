@@ -35,7 +35,13 @@ if ( is_404() ) {
 	?>
 	<header class="page-header">
 		<h1 class="page-title">
-			<?php esc_html_e( 'Search Results', 'buddyx' ); ?>
+			<?php
+			printf(
+				/* translators: %s: search query */
+				esc_html__( 'Search Results for: %s', 'buddyx' ),
+				'<span class="search-query">' . esc_html( get_search_query() ) . '</span>'
+			);
+			?>
 		</h1>
 	</header><!-- .page-header -->
 	<?php

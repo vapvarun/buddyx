@@ -41,7 +41,11 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 				<?php
 				// Handle search results separately
 				if ( is_search() ) {
-					get_template_part( 'template-parts/content/page_header' );
+					?>
+					<h2 class="page-title">
+						<?php esc_html_e( 'Search', 'buddyx' ); ?>
+					</h2>
+					<?php
 				} elseif ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
 					get_template_part( 'template-parts/content/page_header' );
 				} elseif ( get_post_type() === 'page' || is_singular() ) {
