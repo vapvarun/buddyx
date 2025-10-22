@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-10-17 13:37+0000\n"
+"POT-Creation-Date: 2025-10-22 07:34+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -752,11 +752,11 @@ msgstr ""
 msgid "Full Width - Small container"
 msgstr ""
 
-#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:626
+#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:122, ../buddyx/inc/Welcome/Component.php:626
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:631
+#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:110, ../buddyx/inc/Welcome/Component.php:631
 msgid "Right Sidebar"
 msgstr ""
 
@@ -1586,71 +1586,79 @@ msgstr ""
 msgid "User Menu"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:105, ../buddyx/inc/Sidebars/Component.php:117, ../buddyx/inc/Sidebars/Component.php:131, ../buddyx/inc/Sidebars/Component.php:143, ../buddyx/inc/Sidebars/Component.php:155, ../buddyx/inc/Sidebars/Component.php:167, ../buddyx/inc/Sidebars/Component.php:179, ../buddyx/inc/Sidebars/Component.php:191, ../buddyx/inc/Sidebars/Component.php:203, ../buddyx/inc/Sidebars/Component.php:215, ../buddyx/inc/Sidebars/Component.php:230, ../buddyx/inc/Sidebars/Component.php:242, ../buddyx/inc/Sidebars/Component.php:256, ../buddyx/inc/Sidebars/Component.php:268, ../buddyx/inc/Sidebars/Component.php:281, ../buddyx/inc/Sidebars/Component.php:293, ../buddyx/inc/Sidebars/Component.php:305, ../buddyx/inc/Sidebars/Component.php:317
+#: ../buddyx/inc/Sidebars/Component.php:112, ../buddyx/inc/Sidebars/Component.php:124, ../buddyx/inc/Sidebars/Component.php:138, ../buddyx/inc/Sidebars/Component.php:150, ../buddyx/inc/Sidebars/Component.php:162, ../buddyx/inc/Sidebars/Component.php:174, ../buddyx/inc/Sidebars/Component.php:186, ../buddyx/inc/Sidebars/Component.php:198, ../buddyx/inc/Sidebars/Component.php:210, ../buddyx/inc/Sidebars/Component.php:222, ../buddyx/inc/Sidebars/Component.php:237, ../buddyx/inc/Sidebars/Component.php:249, ../buddyx/inc/Sidebars/Component.php:263, ../buddyx/inc/Sidebars/Component.php:275, ../buddyx/inc/Sidebars/Component.php:290, ../buddyx/inc/Sidebars/Component.php:302, ../buddyx/inc/Sidebars/Component.php:315, ../buddyx/inc/Sidebars/Component.php:327, ../buddyx/inc/Sidebars/Component.php:339, ../buddyx/inc/Sidebars/Component.php:351
 msgid "Add widgets here."
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:129
+#: ../buddyx/inc/Sidebars/Component.php:136
 msgid "Community Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:141
+#: ../buddyx/inc/Sidebars/Component.php:148
 msgid "Activity Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:153
+#: ../buddyx/inc/Sidebars/Component.php:160
 msgid "Members Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:165
+#: ../buddyx/inc/Sidebars/Component.php:172
 msgid "Groups Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:177
+#: ../buddyx/inc/Sidebars/Component.php:184
 msgid "Members Single Profile Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:189
+#: ../buddyx/inc/Sidebars/Component.php:196
 msgid "Members Single User Activity"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:201
+#: ../buddyx/inc/Sidebars/Component.php:208
 msgid "Groups Single Group Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:213
+#: ../buddyx/inc/Sidebars/Component.php:220
 msgid "Groups Single Group Activity"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:228
+#: ../buddyx/inc/Sidebars/Component.php:235
 msgid "bbPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:240
+#: ../buddyx/inc/Sidebars/Component.php:247
 msgid "bbPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:254
+#: ../buddyx/inc/Sidebars/Component.php:261
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:266
+#: ../buddyx/inc/Sidebars/Component.php:273
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:279
+#: ../buddyx/inc/Sidebars/Component.php:288
+msgid "FluentCart Left Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:300
+msgid "FluentCart Right Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:313
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:291
+#: ../buddyx/inc/Sidebars/Component.php:325
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:303
+#: ../buddyx/inc/Sidebars/Component.php:337
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:315
+#: ../buddyx/inc/Sidebars/Component.php:349
 msgid "Footer 4"
 msgstr ""
 

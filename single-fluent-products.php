@@ -15,7 +15,7 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 // Get FluentCart product sidebar option
-$default_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
+$fluentcart_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
 ?>
 <div class="single-post-main-wrapper">
@@ -24,10 +24,10 @@ $default_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
 	<?php do_action( 'buddyx_before_content' ); ?>
 
-	<?php if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
+	<?php if ( $fluentcart_sidebar == 'left' || $fluentcart_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
-				<?php buddyx()->display_left_sidebar(); ?>
+				<?php buddyx()->display_fluentcart_left_sidebar(); ?>
 			</div>
 		</aside>
 	<?php endif; ?>
@@ -45,10 +45,10 @@ $default_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
 	</main><!-- #primary -->
 
-	<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
+	<?php if ( $fluentcart_sidebar == 'right' || $fluentcart_sidebar == 'both' ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
-				<?php buddyx()->display_right_sidebar(); ?>
+				<?php buddyx()->display_fluentcart_right_sidebar(); ?>
 			</div>
 		</aside>
 	<?php endif; ?>
