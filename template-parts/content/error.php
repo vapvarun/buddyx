@@ -9,7 +9,10 @@ namespace BuddyX\Buddyx;
 
 ?>
 <section class="error">
-	<?php get_template_part( 'template-parts/content/page_header' ); ?>
+	<?php if ( ! is_search() ) {
+		get_template_part( 'template-parts/content/page_header' ); 
+	}
+	?>
 
 	<div class="page-content">
 		<?php
