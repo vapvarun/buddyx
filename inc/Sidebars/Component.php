@@ -285,7 +285,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
 			register_sidebar(
 				array(
-					'name'          => esc_html__( 'FluentCart Left Sidebar', 'buddyx' ),
+					'name'          => esc_html__( 'Single Product Left Sidebar', 'buddyx' ),
 					'id'            => static::FLUENTCART_LEFT_SIDEBAR_SLUG,
 					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -297,7 +297,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 			register_sidebar(
 				array(
-					'name'          => esc_html__( 'FluentCart Right Sidebar', 'buddyx' ),
+					'name'          => esc_html__( 'Single Product Right Sidebar', 'buddyx' ),
 					'id'            => static::FLUENTCART_RIGHT_SIDEBAR_SLUG,
 					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),	
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',

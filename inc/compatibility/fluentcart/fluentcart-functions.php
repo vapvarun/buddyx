@@ -250,7 +250,7 @@ class BuddyX_FluentCart_Support {
 			new \Kirki\Field\Radio_Image(
 				array(
 					'settings'    => 'fluentcart_product_sidebar',
-					'label'       => esc_html__( 'FluentCart Product Sidebar', 'buddyx' ),
+					'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
 					'section'     => 'site_sidebar_layout',
 					'default'     => 'none',
 					'priority'    => 10,
@@ -260,7 +260,7 @@ class BuddyX_FluentCart_Support {
 						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
 						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
 					),
-					'tooltip'     => esc_html__( 'Choose sidebar layout for FluentCart single product pages', 'buddyx' ),
+					'tooltip'     => esc_html__( 'Choose sidebar layout for single product page.', 'buddyx' ),
 					'transport'   => 'refresh',
 				)
 			);
