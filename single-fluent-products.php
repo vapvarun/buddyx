@@ -38,7 +38,7 @@ $fluentcart_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 		while ( have_posts() ) {
 			the_post();
 
-			get_template_part( 'template-parts/content/entry', get_post_type() );
+			get_template_part( 'template-parts/content/entry_content', get_post_type() );
 
 		}
 		?>
