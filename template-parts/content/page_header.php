@@ -39,7 +39,7 @@ if ( is_404() ) {
 			printf(
 				/* translators: %s: search query */
 				esc_html__( 'Search Results for: %s', 'buddyx' ),
-				'<span>' . get_search_query() . '</span>'
+				'<span class="search-query">' . esc_html( get_search_query() ) . '</span>'
 			);
 			?>
 		</h1>

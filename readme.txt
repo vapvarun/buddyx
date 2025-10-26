@@ -98,6 +98,30 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.9.1 =
+* Improvement: Updated shop price range UI with FluentCart integration.
+* Improvement: Enhanced UI compatibility with FluentCart plugin.
+* Fix: Managed UI fixes for LearnDash and wpForo compatibility.
+
+= 4.9.0 =
+* New: Full FluentCart eCommerce integration support for creating high-performance online stores.
+* New: Added dedicated FluentCart single product sidebars (left and right) for better layout control.
+* New: Quick view product modal for faster browsing experience.
+* Improvement: Enhanced cart page UI with better organization and visual consistency.
+* Improvement: Refined shop page layout for improved product display.
+* Improvement: Search results now display the search query in the page title for better context.
+* Improvement: Streamlined search results by removing duplicate titles.
+* Improvement: Cleaner navigation by removing unnecessary categories and navigation elements.
+* Improvement: Updated internal option names for better code organization.
+* Security: Fixed XSS vulnerability in search form input value.
+* Security: Fixed XSS vulnerability in search results page header.
+* Security: Fixed XSS vulnerability in breadcrumb search query output.
+* Security: Improved cookie handling with proper security flags.
+* Security: Enhanced input sanitization across the theme.
+* Fix: Resolved zoom issue on Safari browser for better iOS compatibility.
+* Fix: Fixed LearnDash Focus Mode dark theme styling issues.
+* Documentation: Added comprehensive FluentCart integration guide.
+
 = 4.8.9 =
 * New: Updated override templates to match the latest BuddyBoss Platform update.
 * Improved: Refined UI for BuddyBoss Platform, LearnDash, and LifterLMS components.

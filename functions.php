@@ -101,6 +101,14 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
+	// FluentCart compatibility
+	if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
+		$fluentcart_file = $base_path . '/inc/compatibility/fluentcart/fluentcart-functions.php';
+		if ( file_exists( $fluentcart_file ) ) {
+			require_once $fluentcart_file;
+		}
+	}
+
 	$plugins_checked = true;
 }
 

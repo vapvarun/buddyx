@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-10-08 13:01+0000\n"
+"POT-Creation-Date: 2025-10-24 13:27+0000\n"
 "Report-Msgid-Bugs-To: Buddyx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -37,7 +37,7 @@ msgid "Footer"
 msgstr ""
 
 #. translators: %1$s: opening link tag, %2$s: closing link tag
-#: ../buddyx/functions.php:373
+#: ../buddyx/functions.php:381
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options%2$s."
 msgstr ""
 
@@ -550,17 +550,17 @@ msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1377
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1375
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1382
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1380
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1387
+#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1385
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
@@ -570,119 +570,119 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:151
+#: ../buddyx/inc/extra.php:46, ../buddyx/inc/extra.php:147
 msgid "Search"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:208, ../buddyx/inc/extra.php:196
+#: ../buddyx/inc/extra.php:204, ../buddyx/inc/extra.php:192
 msgid "BuddyX WordPress Theme"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:249
+#: ../buddyx/inc/extra.php:245
 msgid "Sticky"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:260
+#: ../buddyx/inc/extra.php:256
 msgid "Leave a comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:260
+#: ../buddyx/inc/extra.php:256
 msgid "1 Comment"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:260
+#: ../buddyx/inc/extra.php:256
 msgid "% Comments"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:265, ../buddyx/template-parts/content/entry_meta.php:148
+#: ../buddyx/inc/extra.php:261, ../buddyx/template-parts/content/entry_meta.php:148
 msgid "Edit"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:394
+#: ../buddyx/inc/extra.php:390
 msgid "Post Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:403
+#: ../buddyx/inc/extra.php:399
 msgid "Post Format Settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:422
+#: ../buddyx/inc/extra.php:418
 msgid "Overwrite Title Customizer settings"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:427
+#: ../buddyx/inc/extra.php:423
 msgid "Title Style"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:477
+#: ../buddyx/inc/extra.php:473
 msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:480
+#: ../buddyx/inc/extra.php:476
 msgid "Video URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:483, ../buddyx/inc/extra.php:496, ../buddyx/inc/extra.php:725
+#: ../buddyx/inc/extra.php:479, ../buddyx/inc/extra.php:492, ../buddyx/inc/extra.php:721
 msgid "Add Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:490
+#: ../buddyx/inc/extra.php:486
 msgid "Enter audio url."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:493
+#: ../buddyx/inc/extra.php:489
 msgid "Audio URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:503
+#: ../buddyx/inc/extra.php:499
 msgid "Input your quote."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:506
+#: ../buddyx/inc/extra.php:502
 msgid "Quote Text"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:512
+#: ../buddyx/inc/extra.php:508
 msgid "Quote Author"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:519
+#: ../buddyx/inc/extra.php:515
 msgid "Input your link."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:522
+#: ../buddyx/inc/extra.php:518
 msgid "Link Title"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:528
+#: ../buddyx/inc/extra.php:524
 msgid "Link URL"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:535
+#: ../buddyx/inc/extra.php:531
 msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
 msgstr ""
 
-#: ../buddyx/inc/extra.php:557, ../buddyx/inc/extra.php:664
+#: ../buddyx/inc/extra.php:553, ../buddyx/inc/extra.php:660
 msgid "Delete image"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:571, ../buddyx/inc/extra.php:641
+#: ../buddyx/inc/extra.php:567, ../buddyx/inc/extra.php:637
 msgid "Add images gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:643
+#: ../buddyx/inc/extra.php:639
 msgid "Add to gallery"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:727
+#: ../buddyx/inc/extra.php:723
 msgid "Add to Media"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:963
+#: ../buddyx/inc/extra.php:959
 msgid " Read more"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:921
+#: ../buddyx/inc/extra.php:917
 msgid "&hellip;"
 msgstr ""
 
@@ -752,11 +752,11 @@ msgstr ""
 msgid "Full Width - Small container"
 msgstr ""
 
-#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:115, ../buddyx/inc/Welcome/Component.php:626
+#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:122, ../buddyx/inc/Welcome/Component.php:626
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:103, ../buddyx/inc/Welcome/Component.php:631
+#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:110, ../buddyx/inc/Welcome/Component.php:631
 msgid "Right Sidebar"
 msgstr ""
 
@@ -1154,11 +1154,11 @@ msgstr ""
 msgid "Enable Sticky Header ?"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:966, ../buddyx/inc/Kirki_Option/Component.php:2153, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2349, ../buddyx/inc/compatibility/surecart/surecart-functions.php:303
+#: ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:966, ../buddyx/inc/Kirki_Option/Component.php:2153, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2349, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:240, ../buddyx/inc/compatibility/surecart/surecart-functions.php:303
 msgid "Yes"
 msgstr ""
 
-#: ../buddyx/inc/Kirki_Option/Component.php:803, ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Kirki_Option/Component.php:2154, ../buddyx/inc/Kirki_Option/Component.php:2167, ../buddyx/inc/Kirki_Option/Component.php:2350, ../buddyx/inc/compatibility/surecart/surecart-functions.php:304
+#: ../buddyx/inc/Kirki_Option/Component.php:803, ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Kirki_Option/Component.php:2154, ../buddyx/inc/Kirki_Option/Component.php:2167, ../buddyx/inc/Kirki_Option/Component.php:2350, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:241, ../buddyx/inc/compatibility/surecart/surecart-functions.php:304
 msgid "No"
 msgstr ""
 
@@ -1586,76 +1586,84 @@ msgstr ""
 msgid "User Menu"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:105, ../buddyx/inc/Sidebars/Component.php:117, ../buddyx/inc/Sidebars/Component.php:131, ../buddyx/inc/Sidebars/Component.php:143, ../buddyx/inc/Sidebars/Component.php:155, ../buddyx/inc/Sidebars/Component.php:167, ../buddyx/inc/Sidebars/Component.php:179, ../buddyx/inc/Sidebars/Component.php:191, ../buddyx/inc/Sidebars/Component.php:203, ../buddyx/inc/Sidebars/Component.php:215, ../buddyx/inc/Sidebars/Component.php:230, ../buddyx/inc/Sidebars/Component.php:242, ../buddyx/inc/Sidebars/Component.php:256, ../buddyx/inc/Sidebars/Component.php:268, ../buddyx/inc/Sidebars/Component.php:281, ../buddyx/inc/Sidebars/Component.php:293, ../buddyx/inc/Sidebars/Component.php:305, ../buddyx/inc/Sidebars/Component.php:317
+#: ../buddyx/inc/Sidebars/Component.php:112, ../buddyx/inc/Sidebars/Component.php:124, ../buddyx/inc/Sidebars/Component.php:138, ../buddyx/inc/Sidebars/Component.php:150, ../buddyx/inc/Sidebars/Component.php:162, ../buddyx/inc/Sidebars/Component.php:174, ../buddyx/inc/Sidebars/Component.php:186, ../buddyx/inc/Sidebars/Component.php:198, ../buddyx/inc/Sidebars/Component.php:210, ../buddyx/inc/Sidebars/Component.php:222, ../buddyx/inc/Sidebars/Component.php:237, ../buddyx/inc/Sidebars/Component.php:249, ../buddyx/inc/Sidebars/Component.php:263, ../buddyx/inc/Sidebars/Component.php:275, ../buddyx/inc/Sidebars/Component.php:290, ../buddyx/inc/Sidebars/Component.php:302, ../buddyx/inc/Sidebars/Component.php:315, ../buddyx/inc/Sidebars/Component.php:327, ../buddyx/inc/Sidebars/Component.php:339, ../buddyx/inc/Sidebars/Component.php:351
 msgid "Add widgets here."
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:129
+#: ../buddyx/inc/Sidebars/Component.php:136
 msgid "Community Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:141
+#: ../buddyx/inc/Sidebars/Component.php:148
 msgid "Activity Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:153
+#: ../buddyx/inc/Sidebars/Component.php:160
 msgid "Members Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:165
+#: ../buddyx/inc/Sidebars/Component.php:172
 msgid "Groups Directory Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:177
+#: ../buddyx/inc/Sidebars/Component.php:184
 msgid "Members Single Profile Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:189
+#: ../buddyx/inc/Sidebars/Component.php:196
 msgid "Members Single User Activity"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:201
+#: ../buddyx/inc/Sidebars/Component.php:208
 msgid "Groups Single Group Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:213
+#: ../buddyx/inc/Sidebars/Component.php:220
 msgid "Groups Single Group Activity"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:228
+#: ../buddyx/inc/Sidebars/Component.php:235
 msgid "bbPress Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:240
+#: ../buddyx/inc/Sidebars/Component.php:247
 msgid "bbPress Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:254
+#: ../buddyx/inc/Sidebars/Component.php:261
 msgid "WooCommerce Left Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:266
+#: ../buddyx/inc/Sidebars/Component.php:273
 msgid "WooCommerce Right Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:279
+#: ../buddyx/inc/Sidebars/Component.php:288
+msgid "Single Product Left Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:300
+msgid "Single Product Right Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/Sidebars/Component.php:313
 msgid "Footer 1"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:291
+#: ../buddyx/inc/Sidebars/Component.php:325
 msgid "Footer 2"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:303
+#: ../buddyx/inc/Sidebars/Component.php:337
 msgid "Footer 3"
 msgstr ""
 
-#: ../buddyx/inc/Sidebars/Component.php:315
+#: ../buddyx/inc/Sidebars/Component.php:349
 msgid "Footer 4"
 msgstr ""
 
 #. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:381
+#: ../buddyx/inc/Styles/Component.php:386
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -2808,16 +2816,28 @@ msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/compatibility/surecart/surecart-functions.php:298
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:235, ../buddyx/inc/compatibility/surecart/surecart-functions.php:298
 msgid "Enable Cart Icon?"
+msgstr ""
+
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:243
+msgid "Display FluentCart cart icon in header"
+msgstr ""
+
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:253
+msgid "Single Product Sidebar"
+msgstr ""
+
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:263
+msgid "Choose sidebar layout for single product page."
+msgstr ""
+
+#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:334, ../buddyx/inc/compatibility/surecart/surecart-functions.php:365, ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
+msgid "View Shopping Cart"
 msgstr ""
 
 #: ../buddyx/inc/compatibility/surecart/surecart-functions.php:306
 msgid "Display SureCart cart icon in header"
-msgstr ""
-
-#: ../buddyx/inc/compatibility/surecart/surecart-functions.php:365, ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
-msgid "View Shopping Cart"
 msgstr ""
 
 #: ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:68

@@ -36,36 +36,32 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 			return;
 		}
 		?>
-	<div class="site-sub-header">
-		<div class="container">
-			<?php
-			if ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
-				get_template_part( 'template-parts/content/page_header' );
+		<div class="site-sub-header">
+			<div class="container">
+				<?php
+				// Handle search results separately
+				if ( is_search() ) {
+					?>
+					<h2 class="page-title">
+						<?php esc_html_e( 'Search', 'buddyx' ); ?>
+					</h2>
+					<?php
+				} elseif ( get_post_type() === 'post' || is_single() || is_archive( 'post-type-archive-forum' ) || is_archive( 'post-type-archive-topic' ) || is_archive( 'post-type-archive-ideas' ) && ( function_exists( 'is_shop' ) && ! is_shop() ) ) {
+					get_template_part( 'template-parts/content/page_header' );
+				} elseif ( get_post_type() === 'page' || is_singular() ) {
+					get_template_part( 'template-parts/content/entry_title', get_post_type() );
+				}
+				
+				// Breadcrumbs for all cases
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-
 				do_action( 'buddyx_before_breadcrumb' );
-
 				if ( ! empty( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
-
 				do_action( 'buddyx_after_breadcrumb' );
-			} elseif ( get_post_type() === 'page' || is_singular() ) {
-				// PAGE
-				get_template_part( 'template-parts/content/entry_title', get_post_type() );
-				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
-
-				do_action( 'buddyx_before_breadcrumb' );
-
-				if ( ! empty( $breadcrumbs ) ) {
-					buddyx_the_breadcrumb();
-				}
-
-				do_action( 'buddyx_after_breadcrumb' );
-			}
-			?>
+				?>
+			</div>
 		</div>
-	</div>
 		<?php
 	}
 }
@@ -358,8 +354,8 @@ add_action(
 	function ( $course_id, $user_id ) {
 		?>
 		<a href="#" id="buddyx-toggle-track">
-			<span class="learndash-dark-mode"><i class="fa fa-moon-o"></i></span>
-			<span class="learndash-light-mode"><i class="fa fa-sun-o"></i></span>
+			<span class="learndash-dark-mode"><i class="fa fa-moon"></i></span>
+			<span class="learndash-light-mode"><i class="fa fa-sun"></i></span>
 		</a>
 		<?php
 	},

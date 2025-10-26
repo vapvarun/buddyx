@@ -39,6 +39,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	const BBPRESS_RIGHT_SIDEBAR_SLUG     = 'bbpress-sidebar-right';
 	const WOOCOMMERCE_LEFT_SIDEBAR_SLUG  = 'woocommerce-sidebar-left';
 	const WOOCOMMERCE_RIGHT_SIDEBAR_SLUG = 'woocommerce-sidebar-right';
+	const FLUENTCART_LEFT_SIDEBAR_SLUG  = 'fluentcart-sidebar-left';
+	const FLUENTCART_RIGHT_SIDEBAR_SLUG = 'fluentcart-sidebar-right';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -91,6 +93,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'is_woocommerce_left_sidebar_active'         => array( $this, 'is_woocommerce_left_sidebar_active' ),
 			'display_woocommerce_right_sidebar'          => array( $this, 'display_woocommerce_right_sidebar' ),
 			'is_woocommerce_right_sidebar_active'        => array( $this, 'is_woocommerce_right_sidebar_active' ),
+
+			'display_fluentcart_left_sidebar'           => array( $this, 'display_fluentcart_left_sidebar' ),
+			'is_fluentcart_left_sidebar_active'         => array( $this, 'is_fluentcart_left_sidebar_active' ),
+			'display_fluentcart_right_sidebar'          => array( $this, 'display_fluentcart_right_sidebar' ),
+			'is_fluentcart_right_sidebar_active'        => array( $this, 'is_fluentcart_right_sidebar_active' ),
 		);
 	}
 
@@ -266,6 +273,33 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					'name'          => esc_html__( 'WooCommerce Right Sidebar', 'buddyx' ),
 					'id'            => static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG,
 					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
+		}
+
+		// FluentCart.
+		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Single Product Left Sidebar', 'buddyx' ),
+					'id'            => static::FLUENTCART_LEFT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
+
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Single Product Right Sidebar', 'buddyx' ),
+					'id'            => static::FLUENTCART_RIGHT_SIDEBAR_SLUG,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),	
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</section>',
 					'before_title'  => '<h2 class="widget-title">',
@@ -558,6 +592,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
+		// FluentCart.
+		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
+			$fluentcart_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
+
+			if ( $this->is_fluentcart_left_sidebar_active() && $fluentcart_sidebar == 'left' ) {
+				global $template;
+
+				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
+					$classes[] = 'has-fluentcart-sidebar-left';
+				}
+			} elseif ( $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'right' ) {
+				global $template;
+
+				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
+					$classes[] = 'has-fluentcart-sidebar-right';
+				}
+			} elseif ( $this->is_fluentcart_right_sidebar_active() && $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'both' ) {
+				global $template;
+
+				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
+					$classes[] = 'has-fluentcart-sidebar-both';
+				}
+			}
+		}
+
+		// Youzify.
 		if ( class_exists( 'Youzify' ) ) {
 			if ( bp_current_component() ) {
 				$classes[] = 'youzify-active';
@@ -770,5 +830,37 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function display_woocommerce_right_sidebar() {
 		dynamic_sidebar( static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the FluentCart left sidebar is active.
+	 *
+	 * @return bool True if the FluentCart left sidebar is active, false otherwise.
+	 */
+	public function is_fluentcart_left_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::FLUENTCART_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the FluentCart left sidebar.
+	 */
+	public function display_fluentcart_left_sidebar() {
+		dynamic_sidebar( static::FLUENTCART_LEFT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Checks whether the FluentCart right sidebar is active.
+	 *
+	 * @return bool True if the FluentCart right sidebar is active, false otherwise.
+	 */
+	public function is_fluentcart_right_sidebar_active() : bool {
+		return (bool) is_active_sidebar( static::FLUENTCART_RIGHT_SIDEBAR_SLUG );
+	}
+
+	/**
+	 * Displays the fluentcart right sidebar.
+	 */
+	public function display_fluentcart_right_sidebar() {
+		dynamic_sidebar( static::FLUENTCART_RIGHT_SIDEBAR_SLUG );
 	}
 }
