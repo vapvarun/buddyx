@@ -98,6 +98,11 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.9.1 =
+* Improvement: Updated shop price range UI with FluentCart integration.
+* Improvement: Enhanced UI compatibility with FluentCart plugin.
+* Fix: Managed UI fixes for LearnDash and wpForo compatibility.
+
 = 4.9.0 =
 * New: Full FluentCart eCommerce integration support for creating high-performance online stores.
 * New: Added dedicated FluentCart single product sidebars (left and right) for better layout control.
