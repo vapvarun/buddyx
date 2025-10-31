@@ -111,6 +111,28 @@ class Component implements Component_Interface {
 			);
 		}
 
+		// Enqueue the buddypress script.
+		if ( class_exists( 'BuddyPress' ) ) {
+			wp_enqueue_script(
+				'buddyx-buddypress',
+				get_theme_file_uri( '/assets/js/buddyx-buddypress.min.js' ),
+				array( 'jquery' ),
+				buddyx()->get_asset_version( get_theme_file_path( '/assets/js/buddyx-buddypress.min.js' ) ),
+				true
+			);
+		}
+
+		// Enqueue the learndash script.
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			wp_enqueue_script(
+				'buddyx-learndash',
+				get_theme_file_uri( '/assets/js/buddyx-learndash.min.js' ),
+				array( 'jquery' ),
+				buddyx()->get_asset_version( get_theme_file_path( '/assets/js/buddyx-learndash.min.js' ) ),
+				true
+			);
+		}
+
 		// Enqueue the custom script.
 		wp_enqueue_script(
 			'buddyx-custom',
