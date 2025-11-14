@@ -98,6 +98,15 @@ Released under the MIT license
 
 == Changelog ==
 
+= 4.9.2 =
+* Enhancement: Improved user interface compatibility with bbPress forums for better community discussions.
+* Fix: Resolved dark mode display issues in LearnDash focus mode for enhanced visibility and learning experience.
+* Performance: Optimized JavaScript loading - scripts now load only when their required plugins are active, improving page speed.
+* Enhancement: Improved directory page filter interface for better usability and easier member/group browsing.
+* Enhancement: Refined sidebar layout and styling across the theme for consistent visual appearance.
+* Enhancement: Updated footer code structure for improved performance and maintainability.
+* Enhancement: Updated CSS files for better styling consistency throughout the theme.
+
 = 4.9.1 =
 * Improvement: Updated shop price range UI with FluentCart integration.
 * Improvement: Enhanced UI compatibility with FluentCart plugin.
