@@ -265,15 +265,6 @@
                 }, 150);
             });
         }
-    };       
-
-    // roundAvatarsBodyclass
-    BUDDYX.roundAvatarsBodyclass = function() {
-
-        if ($('.buddypress-wrap').hasClass('round-avatars')) {
-            $('body').addClass('round-avatars');
-        }
-
     };
 
     // tableDataAtt
@@ -285,38 +276,6 @@
                 return $th.eq($(this).index()).text();
             });
         }
-    };
-
-    // Toggle Theme
-    BUDDYX.toggleTheme = function() {
-
-        $(document).on('click', '#buddyx-toggle-track', function(e) {
-            e.preventDefault();
-            var color = '';
-            if (!$('body').hasClass('buddyx-dark-theme')) {
-                $.cookie('bxtheme', 'dark', { path: '/' });
-                $('body').addClass('buddyx-dark-theme');
-                color = 'dark';
-            } else {
-                $.removeCookie('bxtheme', { path: '/' });
-                $('body').removeClass('buddyx-dark-theme');
-            }
-
-            if (typeof(toggle_theme_ajax) != 'undefined' && toggle_theme_ajax != null) {
-                toggle_theme_ajax.abort();
-            }
-
-            var data = {
-                'action': 'buddyboss_lms_toggle_theme_color',
-                'color': color
-            };
-
-            // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-            if (typeof(toggle_theme_ajax) != 'undefined' && toggle_theme_ajax != null) {
-                toggle_theme_ajax = $.post(ajaxurl, data, function(response) {});
-            }
-        });
-
     };
 
     // Gallery Slider
@@ -379,31 +338,15 @@
 
     };
 
-    // MediaPress
-    BUDDYX.mediaPress = function() {
-
-        /**
-         * Activity upload Form handling
-         * Prepend the upload buttons to Activity form
-         */
-        $('.activity-update-form #whats-new-form').append($('#mpp-activity-upload-buttons'));
-
-    };
-
     $(function() {
-
         BUDDYX.headerClass();
         BUDDYX.headerSearch();
         BUDDYX.desktopMenuToggle();
         BUDDYX.mobileNav();
         BUDDYX.stickySidebar();
         BUDDYX.fitVids();
-        BUDDYX.roundAvatarsBodyclass();
         BUDDYX.tableDataAtt();
-        BUDDYX.toggleTheme();
         BUDDYX.galleryPostSlider();
-        BUDDYX.mediaPress();
-
     });
 
     $(window).on('resize', function() {

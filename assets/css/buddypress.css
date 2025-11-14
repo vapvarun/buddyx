@@ -407,6 +407,11 @@ body:not(.round-avatars) .grid .member-status {
     .buddypress-wrap:not(.bp-single-vert-nav) .bp-navs:not(.bp-subnavs) li {
         background: #f5f5f5;
     }
+
+    .buddypress-wrap .subnav-filters div#activity-filter-select,
+    .buddypress-wrap .subnav-filters .select-wrap {
+        width: 100%;
+    }
 }
 
 .buddypress-wrap .bp-navs li {
@@ -5608,6 +5613,9 @@ body.bmpro_moderation_content .member-home aside {
     }
 }
 
+#bmpro-blocked-template {
+    min-height: calc(100vh - 236px);
+}
 
 /*--------------------------------------------------------------
 ## BuddyPress Status
