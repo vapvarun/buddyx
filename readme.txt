@@ -99,6 +99,7 @@ Released under the MIT license
 == Changelog ==
 
 = 4.9.2 =
+* Enhancement: Manage UI with buddyboss sharing
 * Enhancement: Improved user interface compatibility with bbPress forums for better community discussions.
 * Fix: Resolved dark mode display issues in LearnDash focus mode for enhanced visibility and learning experience.
 * Performance: Optimized JavaScript loading - scripts now load only when their required plugins are active, improving page speed.
@@ -875,3 +876,4 @@ Released under the MIT license
 
 = 1.0.0 =
 * Initial Release
+
