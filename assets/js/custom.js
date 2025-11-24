@@ -79,21 +79,32 @@
         });
 
         $("#primary-menu a, .desktop-icons a, .bp-icon-wrap").on('focusin', function() {
-            $('.user-link-wrap, .user-notifications').removeClass("active");
+            $('.user-link-wrap').removeClass("active");
         });
 
-        $(".site-title a, .user-link-wrap .user-link, button.menu-toggle").on('focusin', function() {
+        $(".site-title a, .bp-msg .bp-icon-wrap, .user-link-wrap .user-link, button.menu-toggle").on('focusin', function() {
             $('.user-notifications').removeClass("active");
         });
 
-        $(".user-link-wrap .user-link, .user-notifications .bp-icon-wrap").on('focusin', function() {
+        $(".user-link-wrap .user-link").on('focusin', function() {
             $(this).parent().removeClass("active");
             $(this).parent().addClass("active");
         });
 
-        $(document).on('click', '.user-link-wrap .user-link, .user-notifications .bp-icon-wrap', function(e) {
+        $(document).on('click', '.user-link-wrap .user-link', function(e) {
             var container = $(".user-link-wrap");
             container.removeClass('active');
+        });
+
+        $('.user-notifications .bp-icon-wrap').on('click', function(e) {
+            e.preventDefault();
+            $(this).parent().toggleClass('active');
+        });
+
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.user-notifications').length) {
+                $('.user-notifications').removeClass('active');
+            }
         });
 
         $(".user-link-wrap ul#user-profile-menu > li:last-child a").on('focusout', function() {
@@ -103,8 +114,6 @@
         $(".buddyx-mobile-menu").on('focusout', function() {
             $('.mobile-menu-heading .close-menu').trigger('focusin');
         });
-        
-
     };
 
     // Mobile Menu Toggle

@@ -79,8 +79,7 @@
 
 .wp-block-latest-posts,
 .wp-block-latest-comments {
-	padding: 1.5em;
-	border: 1px solid hsl(0, 0%, 80%);
+	margin: 0;
 }
 
 ul.wp-block-latest-posts.alignwide,
