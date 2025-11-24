@@ -9,7 +9,7 @@ namespace BuddyX\Buddyx;
 
 $blog_edit_link = get_theme_mod( 'blog_edit_link', '' );
 ?>
-<div class="entry-actions"> 
+<div class="entry-actions">
 	<?php
 	if ( ! is_singular( get_post_type() ) && ! post_password_required() && post_type_supports( get_post_type(), 'comments' ) && comments_open() ) {
 		?>

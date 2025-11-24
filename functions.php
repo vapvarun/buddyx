@@ -1,10 +1,12 @@
 <?php
 /**
- * Buddyx functions and definitions.
+ * BuddyX functions and definitions
  *
  * This file must be parseable by PHP 5.2.
  *
- * @see https://developer.wordpress.org/themes/basics/theme-functions/
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package buddyx
  */
 
 // Prevent direct access
@@ -12,8 +14,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BUDDYX_MINIMUM_WP_VERSION', '4.5' );
-define( 'BUDDYX_MINIMUM_PHP_VERSION', '7.0' );
+/**
+ * Add LiveReload script in development mode.
+ */
+
+define( 'BUDDYX_MINIMUM_WP_VERSION', '5.4' );
+define( 'BUDDYX_MINIMUM_PHP_VERSION', '8.0' );
+
+
+// Add custom WP CLI commands.
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once get_template_directory() . '/wp-cli/buddyx-commands.php';
+}
+
+// @dev-only:start
+/**
+ * Load development-only helpers (LiveReload for dev proxy).
+ * This file resides under optional/ and is not bundled for production.
+ */
+$buddyx_dev_helpers = get_template_directory() . '/optional/dev/dev-proxy-livereload.php';
+if ( file_exists( $buddyx_dev_helpers ) ) {
+	require_once $buddyx_dev_helpers;
+}
+// @dev-only:end
 
 /**
  * Load core theme files
@@ -66,8 +89,6 @@ function buddyx_load_plugin_support() {
 	}
 
 	$base_path = get_template_directory();
-
-	
 
 	// BuddyPress compatibility
 	if ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) {
@@ -447,11 +468,11 @@ function buddyx_load_external_dependencies() {
 /**
  * Filters whether the current BuddyBoss page is a directory page.
  *
- * This function checks if the currently viewed page is either the "Register" or "Activate" page 
- * defined in BuddyBoss/BuddyPress settings. If so, it sets the `$bp_is_directory` flag to false 
+ * This function checks if the currently viewed page is either the "Register" or "Activate" page
+ * defined in BuddyBoss/BuddyPress settings. If so, it sets the `$bp_is_directory` flag to false
  * to indicate that these pages are not considered directory pages.
  *
- * This is useful for preventing certain directory-specific behaviors or templates from applying 
+ * This is useful for preventing certain directory-specific behaviors or templates from applying
  * to the registration or activation pages.
  *
  * @param bool $bp_is_directory Indicates if the current page is a BuddyBoss directory page.

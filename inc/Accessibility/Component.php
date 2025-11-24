@@ -7,16 +7,17 @@
 
 namespace BuddyX\Buddyx\Accessibility;
 
+use BuddyX\Buddyx\Component_Interface;
+use WP_Post;
+
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
-use function get_theme_file_path;
-use function get_theme_file_uri;
 use function wp_enqueue_script;
-use function wp_localize_script;
-use WP_Post;
-use BuddyX\Buddyx\Component_Interface;
-use function BuddyX\Buddyx\buddyx;
+use function get_theme_file_uri;
+use function get_theme_file_path;
 use function wp_script_add_data;
+use function wp_localize_script;
 
 /**
  * Class for improving accessibility among various core features.

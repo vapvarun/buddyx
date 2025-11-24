@@ -11,9 +11,6 @@
     // AMD
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], factory);
-        // CommonJS
-    } else if (typeof exports === 'object') {
-        factory(require('jquery'));
         // Browser globals
     } else {
         factory(jQuery);

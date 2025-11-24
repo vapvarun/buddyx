@@ -26,9 +26,9 @@ class Theme {
 	/**
 	 * The template tags instance, providing access to all available template tags.
 	 *
-	 * @var Template_Tags
+	 * @var \BuddyX\Buddyx\Template_Tags
 	 */
-	protected $template_tags;
+	protected \BuddyX\Buddyx\Template_Tags $template_tags;
 
 	/**
 	 * Constructor.
@@ -42,7 +42,7 @@ class Theme {
 	 * @throws InvalidArgumentException Thrown if one of the $components does not implement Component_Interface.
 	 */
 	public function __construct( array $components = array() ) {
-		if ( empty( $components ) ) {
+		if ( array() === $components ) {
 			$components = $this->get_default_components();
 		}
 
@@ -54,8 +54,8 @@ class Theme {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: classname/type of the variable, 2: interface name */
-						__( 'The theme component %1$s does not implement the %2$s interface.', 'buddyx' ),
-						gettype( $component ),
+						esc_html__( 'The theme component %1$s does not implement the %2$s interface.', 'buddyx' ),
+						esc_html( gettype( $component ) ),
 						Component_Interface::class
 					)
 				);
@@ -68,7 +68,7 @@ class Theme {
 		$this->template_tags = new Template_Tags(
 			array_filter(
 				$this->components,
-				function( Component_Interface $component ) {
+				function ( Component_Interface $component ) {
 					return $component instanceof Templating_Component_Interface;
 				}
 			)
@@ -83,7 +83,7 @@ class Theme {
 	public function initialize() {
 		array_walk(
 			$this->components,
-			function( Component_Interface $component ) {
+			function ( Component_Interface $component ) {
 				$component->initialize();
 			}
 		);
@@ -98,7 +98,7 @@ class Theme {
 	 *
 	 * @return Template_Tags Template tags instance.
 	 */
-	public function template_tags() : Template_Tags {
+	public function template_tags(): Template_Tags {
 		return $this->template_tags;
 	}
 
@@ -112,13 +112,13 @@ class Theme {
 	 *
 	 * @throws InvalidArgumentException Thrown when no theme component with the given slug exists.
 	 */
-	public function component( string $slug ) : Component_Interface {
+	public function component( string $slug ): Component_Interface {
 		if ( ! isset( $this->components[ $slug ] ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
 					/* translators: %s: slug */
-					__( 'No theme component with the slug %s exists.', 'buddyx' ),
-					$slug
+					esc_html__( 'No theme component with the slug %s exists.', 'buddyx' ),
+					esc_html( $slug )
 				)
 			);
 		}
@@ -129,11 +129,14 @@ class Theme {
 	/**
 	 * Gets the default theme components.
 	 *
-	 * This method is called if no components are passed to the constructor, which is the common scenario.
+	 * This method is called if no components are passed to the constructor, which is the common scenario.Theme Editor
+	 *
+	 * Theme Editor: 'editor-styles'
+	 * Block Styles: 'wp-block-styles'
 	 *
 	 * @return array List of theme components to use by default.
 	 */
-	protected function get_default_components() : array {
+	protected function get_default_components(): array {
 		$components = array(
 			new Localization\Component(),
 			new Base_Support\Component(),
@@ -150,10 +153,15 @@ class Theme {
 			new Custom_Logo\Component(),
 			new Post_Thumbnails\Component(),
 			new Customizer\Component(),
+			//new EZ_Customizer\Component(),
+			new Fonts\Component(),
 			new Styles\Component(),
+			new Scripts\Component(),
+			new Excerpts\Component(),
+			new Options\Component(),
 			new Kirki\Component(),
 			new Kirki_Option\Component(),
-			new Custom_Js\Component(),
+			new Blocks\Component(),
 			new Welcome\Component(),
 		);
 

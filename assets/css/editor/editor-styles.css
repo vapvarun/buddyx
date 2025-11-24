@@ -7,10 +7,10 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Imports
-   # Custom properties
-   # Typography
-   # Elements
-   # Links
+	# Custom properties
+	# Typography
+	# Elements
+	# Links
 # Adjustments for the editor
 
 --------------------------------------------------------------*/
@@ -18,8 +18,13 @@
 /*--------------------------------------------------------------
 # Imports
 --------------------------------------------------------------*/
+
+@import "../_custom-properties.css";
+@import "../_typography.css";
 @import "../_elements.css";
+@import "../_links.css";
 @import "../_media.css";
+@import "../_blocks.css";
 @import "../_grid.css";
 
 /*--------------------------------------------------------------

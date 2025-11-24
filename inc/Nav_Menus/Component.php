@@ -7,13 +7,15 @@
 
 namespace BuddyX\Buddyx\Nav_Menus;
 
+use WP_Post;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
-use WP_Post;
+
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function register_nav_menus;
-// use function esc_html__;
+use function esc_html__;
 use function has_nav_menu;
 use function wp_nav_menu;
 

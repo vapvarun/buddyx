@@ -117,4 +117,8 @@
     --bx-article-grid-title-sm: 1.5rem;
     --bx-article-grid-title-md: 1.75rem;
     --bx-article-grid-title-lg: 2.25rem;
+
+	@media (prefers-color-scheme: dark) {
+		
+	}
 }

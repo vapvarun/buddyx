@@ -22,7 +22,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'custom_background';
 	}
 
@@ -30,7 +30,7 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_add_custom_background_support' ] );
+		add_action( 'after_setup_theme', array( $this, 'action_add_custom_background_support' ) );
 	}
 
 	/**
@@ -41,10 +41,10 @@ class Component implements Component_Interface {
 			'custom-background',
 			apply_filters(
 				'buddyx_custom_background_args',
-				[
+				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
-				]
+				)
 			)
 		);
 	}

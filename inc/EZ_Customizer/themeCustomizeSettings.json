@@ -1,0 +1,19 @@
+{
+  "theme_name": "buddyx",
+  "settings_id": "buddyx_theme",
+  "sections": [
+    {
+      "id": "global",
+      "title": "BuddyX Settings",
+      "priority": 30
+    }
+  ],
+  "settings": [
+    {
+      "id": "ga_id",
+      "label": "Google Analytics ID",
+      "section": "global",
+      "refresh": false
+    }
+  ]
+}

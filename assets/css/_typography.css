@@ -3,10 +3,7 @@
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-
-
 /* stylelint-disable */
-
 body,
 button,
 input,
@@ -22,8 +19,6 @@ textarea {
 button {
     font-family: inherit;
 }
-
-
 /* stylelint-enable */
 
 h1,
@@ -124,9 +119,7 @@ address {
     margin: 0 0 1.5em;
 }
 
-
 /* stylelint-disable */
-
 pre {
     background: #eee;
     font-family: "Courier 10 Pitch", Courier, monospace;
@@ -137,8 +130,6 @@ pre {
     overflow: auto;
     padding: 1.5em;
 }
-
-
 /* stylelint-enable */
 
 code,

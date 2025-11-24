@@ -2,9 +2,7 @@
 # Widgets
 --------------------------------------------------------------*/
 
-
 /* Make sure select elements fit in widgets. */
-
 .widget {
     margin-top: 0;
     margin-bottom: 1.5em;
@@ -257,7 +255,7 @@ ol.wp-block-latest-comments {
 
 .widget_calendar thead {
     background: transparent;
-    color: #333;
+    color: var(--global-title-color);
 }
 
 .widget_calendar th {
@@ -274,13 +272,12 @@ ol.wp-block-latest-comments {
     font-size: 0.8em;
     text-align: center;
     background: var(--color-theme-white-box);
-    border: 1px solid #ccc;
+    border: 1px solid var(--global-border-color);
 }
 
 .widget_calendar .pad {
     background: #eaeaea;
 }
-
 
 /* ld courses widget */
 
@@ -293,13 +290,15 @@ ol.wp-block-latest-comments {
     margin-bottom: 0;
 }
 
-
 /* stylelint-disable */
-
 .widget_calendar a {
     font-weight: 900;
     text-decoration: none;
 }
-
-
 /* stylelint-enable */
+
+/* Text widget */
+.textwidget {
+	font-size: 80%;
+	line-height: 1.3;
+}

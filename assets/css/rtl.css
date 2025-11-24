@@ -59,6 +59,11 @@ textarea {
     }
 }
 
+.site-logo-wrapper > a {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
 .user-link-wrap .bp-user {
     padding-left: 15px;
     padding-right: 0;

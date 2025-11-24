@@ -24,6 +24,7 @@
 # Live Notification
 # Network Search
 # Activity Link Preview
+# Buddyboss Share
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -2999,4 +3000,22 @@ body.admin-bar.bp-search .bp-search-ac {
 
 .activity-link-preview-container:hover .activity-link-preview-image::before {
     border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
+}
+
+/*--------------------------------------------------------------
+# Buddyboss Share
+--------------------------------------------------------------*/
+body {
+    --bb-sharing-background-white-color: var(--color-theme-white-box);
+    --bb-sharing-background-secondary-hover-color: var(--global-body-lightcolor);
+    --bb-sharing-text-color: var(--global-font-color);
+    --bb-sharing-text-regular-color: var(--global-font-color);
+    --bb-sharing-icon-color: var(--global-font-color);
+    --bb-sharing-text-secondary-color: var(--global-title-color);
+    --bb-sharing-border-color: var(--global-border-color);
+    --bb-sharing-radius-lg: var(--global-border-radius);
+}
+
+.buddyboss-share-dropdown {
+    margin-top: -24px;
 }

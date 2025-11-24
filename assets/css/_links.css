@@ -3,16 +3,11 @@
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
-
-
 /* stylelint-disable */
-
 a {
     color: var(--color-link);
     text-decoration: none;
 }
-
-
 /* stylelint-enable */
 
 a:hover,
