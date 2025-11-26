@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-24T09:30:54+00:00\n"
+"POT-Creation-Date: 2025-11-26T05:30:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: buddyx\n"
@@ -82,21 +82,21 @@ msgstr ""
 #: bb-buddypress/groups/single/cover-image-header.php:63
 #: bb-buddypress/groups/single/cover-image-header.php:230
 #: bb-buddypress/groups/single/group-header.php:169
-#: bb-buddypress/groups/single/members-loop.php:262
-#: bb-buddypress/members/members-loop.php:288
+#: bb-buddypress/groups/single/members-loop.php:264
+#: bb-buddypress/members/members-loop.php:292
 #: bb-buddypress/members/single/cover-image-header.php:101
 #: bb-buddypress/members/single/cover-image-header.php:289
-#: bb-buddypress/members/single/member-header.php:223
+#: bb-buddypress/members/single/member-header.php:225
 msgid "Cancel"
 msgstr ""
 
 #: bb-buddypress/groups/groups-loop.php:138
 #: bb-buddypress/groups/single/cover-image-header.php:231
 #: bb-buddypress/groups/single/group-header.php:170
-#: bb-buddypress/groups/single/members-loop.php:263
-#: bb-buddypress/members/members-loop.php:289
+#: bb-buddypress/groups/single/members-loop.php:265
+#: bb-buddypress/members/members-loop.php:293
 #: bb-buddypress/members/single/cover-image-header.php:290
-#: bb-buddypress/members/single/member-header.php:224
+#: bb-buddypress/members/single/member-header.php:226
 msgid "Confirm"
 msgstr ""
 
@@ -144,32 +144,32 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: bb-buddypress/groups/single/members-loop.php:200
-#: bb-buddypress/groups/single/members-loop.php:209
+#: bb-buddypress/groups/single/members-loop.php:202
 #: bb-buddypress/groups/single/members-loop.php:211
-#: bb-buddypress/members/members-loop.php:221
-#: bb-buddypress/members/members-loop.php:232
+#: bb-buddypress/groups/single/members-loop.php:213
+#: bb-buddypress/members/members-loop.php:225
+#: bb-buddypress/members/members-loop.php:236
 msgid "More options"
 msgstr ""
 
-#: bb-buddypress/groups/single/members-loop.php:245
-#: bb-buddypress/members/members-loop.php:271
+#: bb-buddypress/groups/single/members-loop.php:247
+#: bb-buddypress/members/members-loop.php:275
 #: bb-buddypress/members/single/cover-image-header.php:272
-#: bb-buddypress/members/single/member-header.php:206
+#: bb-buddypress/members/single/member-header.php:208
 msgid "Remove Connection"
 msgstr ""
 
 #. translators: %s: The member name with HTML tags
 #. translators: %s: The member name with HTML tags.
-#: bb-buddypress/groups/single/members-loop.php:255
-#: bb-buddypress/members/members-loop.php:281
+#: bb-buddypress/groups/single/members-loop.php:257
+#: bb-buddypress/members/members-loop.php:285
 #: bb-buddypress/members/single/cover-image-header.php:282
-#: bb-buddypress/members/single/member-header.php:216
+#: bb-buddypress/members/single/member-header.php:218
 #, php-format
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
-#: bb-buddypress/members/members-loop.php:230
+#: bb-buddypress/members/members-loop.php:234
 msgid "More Options"
 msgstr ""
 

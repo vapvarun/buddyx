@@ -128,6 +128,8 @@ if ( $bp_is_my_profile ) {
 					<?php
 				endif;
 
+				bp_nouveau_member_hook( '', 'header_profile_meta' );
+
 				if ( function_exists( 'bp_is_activity_follow_active' ) && $is_activity_enabled && bp_is_activity_follow_active() && ( $is_enabled_followers || $is_enabled_following ) ) {
 					?>
 					<div class="flex align-items-top member-social">

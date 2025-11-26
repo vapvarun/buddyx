@@ -184,6 +184,10 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 							?>
 						</div><!-- .member-info-wrapper -->
 
+						<?php
+							bp_nouveau_member_hook( '', 'members_list_meta' );
+						?>
+
 						<div class="flex align-items-center follow-container justify-center">
 							<?php echo wp_kses_post( $followers_count ); ?>
 						</div>

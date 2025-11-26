@@ -156,7 +156,9 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) . '&type=group
 							?>
 
 						</div><!-- .member-info-wrapper -->
-
+						<?php
+							bp_nouveau_member_hook( '', 'members_list_meta' );
+						?>
 						<?php
 						if ( ! $is_blocked ) {
 							?>
