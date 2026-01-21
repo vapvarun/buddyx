@@ -547,6 +547,10 @@ img.emojioneemoji {
     max-width: 100%;
 }
 
+#buddypress .gif-image-remove.gif-image-overlay .bb-icon-times{
+    font-size: inherit;
+}
+
 .bb-media-info-section .activity-comments form {
     margin: 0;
 }
@@ -738,6 +742,37 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
 
 .activity-list .has-featured-image .bb-activity-more-options-wrap {
     top: 202px;
+}
+
+/* Poll */
+.bb-poll-form .bb-poll_option_draggable:hover .bb-poll-edit-option_remove {
+    right: -10px;
+}
+
+/* Schedule Post */
+#buddypress .bb-schedule-post_dropdown_section .bb-model-footer .button.button-outline {
+    margin-right: 6px;
+}
+
+/* Gif */
+@media screen and (max-width: 580px) {
+    #whats-new-form-placeholder #whats-new-toolbar .post-gif .gif-media-search-dropdown, #whats-new-form #whats-new-toolbar .post-gif .gif-media-search-dropdown {
+        left: unset;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .ac-reply-toolbar .post-gif .gif-media-search-dropdown {
+        left: unset;
+        transform: translateX(-65%);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .activity-comments > .ac-form .ac-reply-toolbar .post-gif .gif-media-search-dropdown {
+        transform: translateX(-40%);
+    }
 }
 
 /*--------------------------------------------------------------
@@ -2005,6 +2040,10 @@ label.bp-group-message-label {
     margin-top: 1rem;
 }
 
+.bp-manage-group-container .bs-styled-checkbox + label::before {
+    margin-bottom: 10px;
+}
+
 /*--------------------------------------------------------------
 # Sidebar Widegts
 --------------------------------------------------------------*/
@@ -2104,8 +2143,6 @@ label.bp-group-message-label {
 /*--------------------------------------------------------------
 # Forums
 --------------------------------------------------------------*/
-
-
 #bbpress-forums .bp-pagination.top {
     display: block;
     clear: both;
@@ -2263,6 +2300,13 @@ ul.bbp-stats .bbp-count {
     font-size: 20px;
 }
 
+@media only screen and (max-width: 480px) {
+    #bbpress-forums div.bbp-reply-author img.avatar {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+}
 
 /*--------------------------------------------------------------
 # Documents
