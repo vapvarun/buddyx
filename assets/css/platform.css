@@ -396,6 +396,11 @@ img.emojioneemoji {
     height: 18px !important;
 }
 
+.activity-update-form .activity-form.focus-in #editor-toolbar .post-elements-buttons-item.post-emoji {
+    display: flex;
+    align-items: center;
+}
+
 .activity-update-form #whats-new-avatar {
     padding: 0;
 }
@@ -731,6 +736,9 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
 }
 
+.activity-list .has-featured-image .bb-activity-more-options-wrap {
+    top: 202px;
+}
 
 /*--------------------------------------------------------------
 # Members Directory
