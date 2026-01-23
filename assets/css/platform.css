@@ -754,6 +754,19 @@ form.ac-form .ac-reply-content .ac-textarea .ac-input[contenteditable="true"] {
     margin-right: 6px;
 }
 
+.schedule-posts-content .activity-list.bp-list .activity-item {
+    padding: 1rem;
+}
+
+.bb-schedule-post_dropdown_section .bb-schedule-posts_modal .activity-list .bp-activity-head {
+    margin-bottom: 15px;
+}
+
+.schedule-posts-content .activity-list .activity-item .activity-title,
+.schedule-posts-content .activity-list .activity-item .activity-content .activity-inner {
+    padding: 0;
+}
+
 /* Gif */
 @media screen and (max-width: 580px) {
     #whats-new-form-placeholder #whats-new-toolbar .post-gif .gif-media-search-dropdown, #whats-new-form #whats-new-toolbar .post-gif .gif-media-search-dropdown {
