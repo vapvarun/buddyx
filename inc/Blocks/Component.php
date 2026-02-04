@@ -99,7 +99,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				if ( file_exists( $editor_js ) ) {
 					// Register unminified script for development.
 					wp_register_script(
-						"wprig-{$block_name}-editor",
+						"buddyx-{$block_name}-editor",
 						"{$blocks_uri}/{$block_name}/src/index.js",
 						array(
 							'wp-blocks',

@@ -44,7 +44,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function initialize(): void {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_fonts' ) );
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_fonts' ) );
-		add_action( 'init', array( $this, 'wprig_register_fonts' ) );
+		add_action( 'init', array( $this, 'buddyx_register_fonts' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}
 
@@ -93,7 +93,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Registers font collections with WordPress if the wp_register_font_collection function exists.
 	 */
-	public function wprig_register_fonts(): void {
+	public function buddyx_register_fonts(): void {
 		if ( function_exists( 'wp_register_font_collection' ) ) {
 			wp_register_font_collection(
 				'modern-stacks',

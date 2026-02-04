@@ -148,7 +148,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$is_valid = isset( $js_files[ $handle ] ) && ! $js_files[ $handle ]['global'];
 				if ( ! $is_valid ) {
 					/* translators: %s: JS handle */
-					_doing_it_wrong( __CLASS__ . '::print_scripts()', esc_html( sprintf( __( 'Invalid theme JS handle: %s', 'buddyx' ), $handle ) ), 'BuddyX 2.0.0' );
+					_doing_it_wrong( __CLASS__ . '::print_scripts()', esc_html( sprintf( __( 'Invalid theme JS handle: %s', 'buddyx' ), $handle ) ), 'BuddyX 3.1.0' );
 				}
 				return $is_valid;
 			}

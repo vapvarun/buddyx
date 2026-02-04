@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "slug": "buddyx",
+    "dist_slug": "buddyx",
+    "name": "BuddyX"
+  },
+  "dev": {
+    "browserSync": {
+      "proxyURL": "buddyx.local/",
+      "bypassPort": "8181",
+      "live": true,
+      "https": true
+    }
+  }
+}
