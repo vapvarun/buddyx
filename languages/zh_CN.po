@@ -1,0 +1,3519 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyX\n"
+"POT-Creation-Date: 2024-08-16 22:37+0530\n"
+"PO-Revision-Date: 2024-08-16 22:37+0530\n"
+"Last-Translator: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Language-Team: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: bb-buddypress/activity/entry.php:35
+#, fuzzy
+msgid "Pinned Post"
+msgstr "置顶帖子"
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#. translators: %s: last activity timestamp (e.g. "Active 1 hour ago")
+#: bb-buddypress/groups/groups-loop.php:84
+#: bb-buddypress/groups/single/cover-image-header.php:149
+#: bb-buddypress/groups/single/group-header.php:91
+#: buddypress/groups/groups-loop.php:57
+#: buddypress/groups/single/cover-image-header.php:60
+#: buddypress/groups/single/group-header.php:43
+#, fuzzy, php-format
+msgid "Active %s"
+msgstr "激活 %s"
+
+#: bb-buddypress/groups/groups-loop.php:126
+#: bb-buddypress/groups/single/cover-image-header.php:221
+#: bb-buddypress/groups/single/group-header.php:159
+#, fuzzy
+msgid "Leave Group"
+msgstr "离开组"
+
+#: bb-buddypress/groups/groups-loop.php:132
+#: bb-buddypress/groups/single/cover-image-header.php:227
+#: bb-buddypress/groups/single/group-header.php:165
+#, fuzzy
+msgid "Are you sure you want to leave "
+msgstr "您确定要退出 "
+
+#: bb-buddypress/groups/groups-loop.php:135
+#: bb-buddypress/groups/single/cover-image-header.php:63
+#: bb-buddypress/groups/single/cover-image-header.php:230
+#: bb-buddypress/groups/single/group-header.php:168
+#: bb-buddypress/groups/single/members-loop.php:257
+#: bb-buddypress/members/members-loop.php:275
+#: bb-buddypress/members/single/cover-image-header.php:89
+#: bb-buddypress/members/single/cover-image-header.php:275
+#: bb-buddypress/members/single/member-header.php:211
+#, fuzzy
+msgid "Cancel"
+msgstr "取消"
+
+#: bb-buddypress/groups/groups-loop.php:136
+#: bb-buddypress/groups/single/cover-image-header.php:231
+#: bb-buddypress/groups/single/group-header.php:169
+#: bb-buddypress/groups/single/members-loop.php:258
+#: bb-buddypress/members/members-loop.php:276
+#: bb-buddypress/members/single/cover-image-header.php:276
+#: bb-buddypress/members/single/member-header.php:212
+#, fuzzy
+msgid "Confirm"
+msgstr "确认"
+
+#: bb-buddypress/groups/single/cover-image-header.php:53
+#: bb-buddypress/members/single/cover-image-header.php:78
+#: buddypress/groups/single/cover-image-header.php:25
+#: buddypress/members/single/cover-image-header.php:15
+#, fuzzy
+msgid "Change Cover Photo"
+msgstr "更换封面照片"
+
+#: bb-buddypress/groups/single/cover-image-header.php:59
+#: bb-buddypress/members/single/cover-image-header.php:85
+#, fuzzy
+msgid "Reposition Cover Photo"
+msgstr "重新定位封面照片"
+
+#: bb-buddypress/groups/single/cover-image-header.php:64
+#: bb-buddypress/members/single/cover-image-header.php:90
+#, fuzzy
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: bb-buddypress/groups/single/cover-image-header.php:65
+#: bb-buddypress/members/single/cover-image-header.php:91
+#, fuzzy
+msgid "Drag to move cover photo"
+msgstr "拖动封面照片"
+
+#: bb-buddypress/groups/single/cover-image-header.php:66
+#: bb-buddypress/members/single/cover-image-header.php:92
+#, fuzzy
+msgid "Cover photo"
+msgstr "封面图片"
+
+#: bb-buddypress/groups/single/cover-image-header.php:79
+#: bb-buddypress/groups/single/group-header.php:23
+#: buddypress/groups/single/cover-image-header.php:40
+#: buddypress/groups/single/group-header.php:23
+#, fuzzy
+msgid "Change Group Photo"
+msgstr "更改群组照片"
+
+#: bb-buddypress/groups/single/cover-image-header.php:199
+#: bb-buddypress/groups/single/group-header.php:138
+#, fuzzy
+msgid "Group Description"
+msgstr "群组描述"
+
+#: bb-buddypress/groups/single/members-loop.php:240
+#: bb-buddypress/members/members-loop.php:258
+#: bb-buddypress/members/single/cover-image-header.php:258
+#: bb-buddypress/members/single/member-header.php:194
+#, fuzzy
+msgid "Remove Connection"
+msgstr "移除好友连结"
+
+#. translators: %s: The member name with HTML tags
+#. translators: %s: The member name with HTML tags.
+#: bb-buddypress/groups/single/members-loop.php:250
+#: bb-buddypress/members/members-loop.php:268
+#: bb-buddypress/members/single/cover-image-header.php:268
+#: bb-buddypress/members/single/member-header.php:204
+#, fuzzy, php-format
+msgid "Are you sure you want to remove %s from your connections?"
+msgstr "你确定要将 %s从你的好友圈移除?"
+
+#: bb-buddypress/members/members-loop.php:222
+#, fuzzy
+msgid "More Options"
+msgstr "更多选项"
+
+#: bb-buddypress/members/single/cover-image-header.php:115
+#: bb-buddypress/members/single/member-header.php:54
+#: buddypress/members/single/cover-image-header.php:26
+#: buddypress/members/single/member-header.php:14
+#, fuzzy
+msgid "Change Profile Photo"
+msgstr "更改头像"
+
+#: bb-buddypress/members/single/friends/requests-loop.php:10
+#, fuzzy
+msgid "Requests to Connect"
+msgstr "好友请求"
+
+#: bb-buddypress/members/single/groups/invites.php:10
+#: buddypress/members/single/groups/invites.php:10
+#, fuzzy
+msgid "Group Invites"
+msgstr "群组邀请"
+
+#: bb-buddypress/members/single/groups/invites.php:42
+#, fuzzy, php-format
+msgid "Invited by %1$s &middot; %2$s."
+msgstr "被 %1$s &middot; %2$s邀请。"
+
+#: buddypress/groups/single/cover-image-header.php:76
+#: buddypress/groups/single/group-header.php:58
+#, fuzzy
+msgid "Group Types"
+msgstr "群组类型"
+
+#: buddypress/groups/single/cover-image-header.php:77
+#: buddypress/groups/single/group-header.php:59
+#, fuzzy
+msgid "Group Type"
+msgstr "群组类型"
+
+#: buddypress/members/single/cover-image-header.php:67
+#: buddypress/members/single/member-header.php:50
+#, fuzzy
+msgid "Member Types"
+msgstr "会员类型"
+
+#: buddypress/members/single/cover-image-header.php:68
+#: buddypress/members/single/member-header.php:51
+#, fuzzy
+msgid "Member Type"
+msgstr "会员类型"
+
+#: buddypress/members/single/groups/invites.php:46
+#, fuzzy, php-format
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] "%s 成员"
+
+#. translators: 1: title.
+#: comments.php:38
+#, fuzzy, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "&ldquo;%1$s&rdquo;上有 1 个回复"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:44
+#, fuzzy, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s 条评论在 &ldquo;%2$s&rdquo;"
+
+#: comments.php:60
+#, fuzzy
+msgid "Comments are disabled."
+msgstr "评论已禁用。"
+
+#: external/class-tgm-plugin-activation.php:325
+#, fuzzy
+msgid "Install Required Plugins"
+msgstr "安装所需的插件"
+
+#: external/class-tgm-plugin-activation.php:326
+#, fuzzy
+msgid "Install Plugins"
+msgstr "安装插件"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:328
+#, fuzzy, php-format
+msgid "Installing Plugin: %s"
+msgstr "安装插件: %s"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:330
+#, fuzzy, php-format
+msgid "Updating Plugin: %s"
+msgstr "更新插件: %s"
+
+#: external/class-tgm-plugin-activation.php:331
+#, fuzzy
+msgid "Something went wrong with the plugin API."
+msgstr "插件API出错了。"
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:334
+#, fuzzy, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "此主题必须安装以下插件: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:340
+#, fuzzy, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "此主题推荐安装以下插件: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:346
+#, fuzzy, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] "以下插件需要更新为最新版本，以确保与此主题的最大兼容性：%1$s。"
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:352
+#, fuzzy, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "有更新可用于: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:358
+#, fuzzy, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "以下所需的插件目前处于非活动状态：%1$s。"
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:364
+#, fuzzy, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "以下推荐的插件目前处于非活动状态：%1$s。"
+
+#: external/class-tgm-plugin-activation.php:369
+#, fuzzy
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "开始安装插件"
+
+#: external/class-tgm-plugin-activation.php:374
+#, fuzzy
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "开始更新插件"
+
+#: external/class-tgm-plugin-activation.php:379
+#, fuzzy
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "开始激活插件"
+
+#: external/class-tgm-plugin-activation.php:383
+#, fuzzy
+msgid "Return to Required Plugins Installer"
+msgstr "返回所需的插件安装程序"
+
+#: external/class-tgm-plugin-activation.php:384
+#: external/class-tgm-plugin-activation.php:825
+#: external/class-tgm-plugin-activation.php:2551
+#: external/class-tgm-plugin-activation.php:3602
+#, fuzzy
+msgid "Return to the Dashboard"
+msgstr "返回仪表板"
+
+#: external/class-tgm-plugin-activation.php:385
+#: external/class-tgm-plugin-activation.php:3177
+#, fuzzy
+msgid "Plugin activated successfully."
+msgstr "插件激活成功。"
+
+#: external/class-tgm-plugin-activation.php:386
+#: external/class-tgm-plugin-activation.php:2970
+#, fuzzy
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "以下插件已成功激活："
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:388
+#, fuzzy, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "没有采取行动。插件 %1$s 已经激活。"
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:390
+#, fuzzy, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr "插件未激活。此主题需要更高版本的%s。请更新插件。"
+
+#. translators: 1: dashboard link.
+#: external/class-tgm-plugin-activation.php:392
+#, fuzzy, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "所有插件已成功安装并激活。%1$s"
+
+#: external/class-tgm-plugin-activation.php:393
+#, fuzzy
+msgid "Dismiss this notice"
+msgstr "关闭此通知"
+
+#: external/class-tgm-plugin-activation.php:394
+#, fuzzy
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr "有一个或多个必需或推荐的插件来安装，更新或激活。"
+
+#: external/class-tgm-plugin-activation.php:395
+#, fuzzy
+msgid "Please contact the administrator of this site for help."
+msgstr "请联系本网站的管理员寻求帮助。"
+
+#: external/class-tgm-plugin-activation.php:520
+#, fuzzy
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "此插件需要更新才能与您的主题兼容。"
+
+#: external/class-tgm-plugin-activation.php:521
+#, fuzzy
+msgid "Update Required"
+msgstr "需要更新"
+
+#: external/class-tgm-plugin-activation.php:934
+#, fuzzy
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr "远程插件包不包含具有所需段落的文件夹，重命名无效。"
+
+#: external/class-tgm-plugin-activation.php:934
+#: external/class-tgm-plugin-activation.php:944
+#, fuzzy
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr "请联系插件提供商，并要求他们根据WordPress指南打包他们的插件。"
+
+#: external/class-tgm-plugin-activation.php:944
+#, fuzzy
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr "远程插件包由多个文件组成，但文件不打包在一个文件夹中。"
+
+#: external/class-tgm-plugin-activation.php:1133
+#: external/class-tgm-plugin-activation.php:2966
+#, fuzzy
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "和"
+
+#. translators: %s: version number
+#: external/class-tgm-plugin-activation.php:2000
+#, fuzzy, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: external/class-tgm-plugin-activation.php:2291
+msgid "Required"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:2294
+#, fuzzy
+msgid "Recommended"
+msgstr "推荐"
+
+#: external/class-tgm-plugin-activation.php:2310
+#, fuzzy
+msgid "WordPress Repository"
+msgstr "WordPress库"
+
+#: external/class-tgm-plugin-activation.php:2313
+#, fuzzy
+msgid "External Source"
+msgstr "外部源"
+
+#: external/class-tgm-plugin-activation.php:2316
+#, fuzzy
+msgid "Pre-Packaged"
+msgstr "预包装"
+
+#: external/class-tgm-plugin-activation.php:2333
+#, fuzzy
+msgid "Not Installed"
+msgstr "未安装"
+
+#: external/class-tgm-plugin-activation.php:2337
+#, fuzzy
+msgid "Installed But Not Activated"
+msgstr "已安装但未激活"
+
+#: external/class-tgm-plugin-activation.php:2339
+msgid "Active"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:2345
+#, fuzzy
+msgid "Required Update not Available"
+msgstr "所需更新不可用"
+
+#: external/class-tgm-plugin-activation.php:2348
+#, fuzzy
+msgid "Requires Update"
+msgstr "需要更新"
+
+#: external/class-tgm-plugin-activation.php:2351
+#, fuzzy
+msgid "Update recommended"
+msgstr "推荐更新"
+
+#. translators: 1: install status, 2: update status
+#: external/class-tgm-plugin-activation.php:2360
+#, fuzzy, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2406
+#, fuzzy, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "全部 <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2410
+#, fuzzy, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "安装 <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2414
+#, fuzzy, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "更新可用 <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2418
+#, fuzzy, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "激活 <span class=\"count\">(%s)</span>"
+
+#: external/class-tgm-plugin-activation.php:2500
+#, fuzzy
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "未知"
+
+#: external/class-tgm-plugin-activation.php:2508
+#, fuzzy
+msgid "Installed version:"
+msgstr "安装版本："
+
+#: external/class-tgm-plugin-activation.php:2516
+#, fuzzy
+msgid "Minimum required version:"
+msgstr "最低要求版本："
+
+#: external/class-tgm-plugin-activation.php:2528
+#, fuzzy
+msgid "Available version:"
+msgstr "可用版本："
+
+#: external/class-tgm-plugin-activation.php:2551
+#, fuzzy
+msgid "No plugins to install, update or activate."
+msgstr "没有插件来安装，更新或激活。"
+
+#: external/class-tgm-plugin-activation.php:2565
+#, fuzzy
+msgid "Plugin"
+msgstr "插件"
+
+#: external/class-tgm-plugin-activation.php:2566
+#, fuzzy
+msgid "Source"
+msgstr "来源"
+
+#: external/class-tgm-plugin-activation.php:2567
+#, fuzzy
+msgid "Type"
+msgstr "类型"
+
+#: external/class-tgm-plugin-activation.php:2571 inc/Welcome/Component.php:93
+#, fuzzy
+msgid "Version"
+msgstr "版本"
+
+#: external/class-tgm-plugin-activation.php:2572
+#, fuzzy
+msgid "Status"
+msgstr "状态"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2621
+#, fuzzy, php-format
+msgid "Install %2$s"
+msgstr "安装 %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2626
+#, fuzzy, php-format
+msgid "Update %2$s"
+msgstr "更新 %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2632
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:2702
+#, fuzzy
+msgid "Upgrade message from the plugin author:"
+msgstr "从插件作者升级消息："
+
+#: external/class-tgm-plugin-activation.php:2735
+#, fuzzy
+msgid "Install"
+msgstr "安装"
+
+#: external/class-tgm-plugin-activation.php:2741
+#, fuzzy
+msgid "Update"
+msgstr "更新"
+
+#: external/class-tgm-plugin-activation.php:2744
+#, fuzzy
+msgid "Activate"
+msgstr "启用"
+
+#: external/class-tgm-plugin-activation.php:2775
+#, fuzzy
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "没有选择要安装的插件。没有采取行动。"
+
+#: external/class-tgm-plugin-activation.php:2777
+#, fuzzy
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "没有选择要更新的插件。没有采取行动。"
+
+#: external/class-tgm-plugin-activation.php:2818
+#, fuzzy
+msgid "No plugins are available to be installed at this time."
+msgstr "目前没有可以安装的插件。"
+
+#: external/class-tgm-plugin-activation.php:2820
+#, fuzzy
+msgid "No plugins are available to be updated at this time."
+msgstr "目前没有可以更新的插件。"
+
+#: external/class-tgm-plugin-activation.php:2926
+#, fuzzy
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "没有选择插件被激活。没有采取行动。"
+
+#: external/class-tgm-plugin-activation.php:2952
+#, fuzzy
+msgid "No plugins are available to be activated at this time."
+msgstr "目前没有插件可用于激活。"
+
+#: external/class-tgm-plugin-activation.php:3176
+#, fuzzy
+msgid "Plugin activation failed."
+msgstr "插件激活失败。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3520
+#, fuzzy, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "更新插件 %1$s (%2$d/%3$d)"
+
+#. translators: 1: plugin name, 2: error message.
+#: external/class-tgm-plugin-activation.php:3523
+#, fuzzy, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "安装时发生错误 %1$s: <strong>%2$s</strong>."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3525
+#, fuzzy, php-format
+msgid "The installation of %1$s failed."
+msgstr "安装 %1$s 失败。"
+
+#: external/class-tgm-plugin-activation.php:3529
+#, fuzzy
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr "安装和激活过程开始。这个过程可能需要一段时间一些主机上,请耐心等待。"
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3531
+#, fuzzy, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s 安装和激活成功。"
+
+#: external/class-tgm-plugin-activation.php:3531
+#: external/class-tgm-plugin-activation.php:3539
+#, fuzzy
+msgid "Show Details"
+msgstr "显示详细信息"
+
+#: external/class-tgm-plugin-activation.php:3531
+#: external/class-tgm-plugin-activation.php:3539
+#, fuzzy
+msgid "Hide Details"
+msgstr "隐藏细节"
+
+#: external/class-tgm-plugin-activation.php:3532
+#, fuzzy
+msgid "All installations and activations have been completed."
+msgstr "所有安装和激活都已完成。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3534
+#, fuzzy, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "安装和激活插件 %1$s (%2$d/%3$d)"
+
+#: external/class-tgm-plugin-activation.php:3537
+#, fuzzy
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr "安装过程开始。这个过程可能需要一段时间一些主机上,请耐心等待。"
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3539
+#, fuzzy, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s 安装成功。"
+
+#: external/class-tgm-plugin-activation.php:3540
+#, fuzzy
+msgid "All installations have been completed."
+msgstr "所有安装已完成。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3542
+#, fuzzy, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "安装插件 %1$s (%2$d/%3$d)"
+
+#: external/include-kirki.php:54
+#, fuzzy
+msgid ""
+"A plugin is required to take advantage of this theme's features in the "
+"customizer."
+msgstr "需要插件才能利用自定义程序中此主题的功能。"
+
+#: external/include-kirki.php:55
+#, fuzzy
+msgid "Install Kirki Toolkit now"
+msgstr "立即安装Kirki工具包"
+
+#: external/include-kirki.php:56
+#, fuzzy
+msgid "Install Now"
+msgstr "现在安装"
+
+#: external/include-kirki.php:59
+#, fuzzy
+msgid ""
+"You have installed Kirki. Activate it to take advantage of this theme's "
+"features in the customizer."
+msgstr "您已经安装了Kirki。 激活它以利用定制器中该主题的功能。"
+
+#: external/include-kirki.php:60
+#, fuzzy
+msgid "Activate Kirki Toolkit now"
+msgstr "立即激活Kirki工具包"
+
+#: external/include-kirki.php:61
+#, fuzzy
+msgid "Activate Now"
+msgstr "立即激活"
+
+#: footer.php:29 inc/Kirki_Option/Component.php:1595
+#, fuzzy
+msgid "Footer"
+msgstr "页脚"
+
+#: functions.php:35
+#, php-format
+msgid ""
+"BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
+"Please activate this Template Pack from the %1$sBuddyPress Options.%2$s"
+msgstr ""
+
+#: header.php:35
+#, fuzzy
+msgid "Skip to content"
+msgstr "跳到内容"
+
+#: inc/Accessibility/Component.php:73
+#, fuzzy
+msgid "Expand child menu"
+msgstr "展开子菜单"
+
+#: inc/Accessibility/Component.php:74
+#, fuzzy
+msgid "Collapse child menu"
+msgstr "折叠子菜单"
+
+#: inc/Base_Support/Component.php:243
+#, fuzzy
+msgid "Borders"
+msgstr "边框"
+
+#. Theme Name of the plugin/theme
+#: inc/Base_Support/Component.php:258 inc/Welcome/Component.php:342
+msgid "BuddyX"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-small.php:9
+msgid "Small footer"
+msgstr ""
+
+#: inc/Comments/Component.php:132
+#, fuzzy
+msgid "New comment(s)"
+msgstr "评论"
+
+#: inc/Customizer/Component.php:85
+msgid "Theme Options"
+msgstr ""
+
+#: inc/Dropdown_Select/Component.php:48
+#, fuzzy
+msgid "-- Select a Page --"
+msgstr "选择一个页面"
+
+#: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
+#, fuzzy
+msgid "Primary"
+msgstr "主要"
+
+#: inc/Editor/Component.php:70
+#, fuzzy
+msgid "Secondary"
+msgstr "次要"
+
+#: inc/Editor/Component.php:75
+#, fuzzy
+msgid "Red"
+msgstr "红色"
+
+#: inc/Editor/Component.php:80
+#, fuzzy
+msgid "Green"
+msgstr "绿色"
+
+#: inc/Editor/Component.php:85
+#, fuzzy
+msgid "Blue"
+msgstr "蓝色"
+
+#: inc/Editor/Component.php:90
+#, fuzzy
+msgid "Yellow"
+msgstr "黄色"
+
+#: inc/Editor/Component.php:95
+#, fuzzy
+msgid "Black"
+msgstr "黑色"
+
+#: inc/Editor/Component.php:100
+#, fuzzy
+msgid "Grey"
+msgstr "灰色"
+
+#: inc/Editor/Component.php:105
+#, fuzzy
+msgid "White"
+msgstr "白色"
+
+#: inc/Editor/Component.php:110
+#, fuzzy
+msgid "Dusty daylight"
+msgstr "尘土飞扬的日光"
+
+#: inc/Editor/Component.php:115
+#, fuzzy
+msgid "Dusty sun"
+msgstr "尘土飞扬的太阳"
+
+#: inc/Editor/Component.php:132
+#, fuzzy
+msgid "Small"
+msgstr "小"
+
+#: inc/Editor/Component.php:133
+#, fuzzy
+msgid "S"
+msgstr "S"
+
+#: inc/Editor/Component.php:138
+#, fuzzy
+msgid "Medium"
+msgstr "中"
+
+#: inc/Editor/Component.php:139
+#, fuzzy
+msgid "M"
+msgstr "M"
+
+#: inc/Editor/Component.php:144
+msgid "Large"
+msgstr ""
+
+#: inc/Editor/Component.php:145
+#, fuzzy
+msgid "L"
+msgstr "L"
+
+#: inc/Editor/Component.php:150
+#, fuzzy
+msgid "Larger"
+msgstr "较大"
+
+#: inc/Editor/Component.php:151
+#, fuzzy
+msgid "XL"
+msgstr "XL"
+
+#: inc/Kirki_Option/Component.php:136
+#, fuzzy
+msgid "General"
+msgstr "常规"
+
+#: inc/Kirki_Option/Component.php:145 inc/Kirki_Option/Component.php:370
+#: inc/Welcome/Component.php:143 inc/Welcome/Component.php:353
+#, fuzzy
+msgid "Site Layout"
+msgstr "网站布局"
+
+#: inc/Kirki_Option/Component.php:156 inc/Welcome/Component.php:398
+#, fuzzy
+msgid "Site Loader"
+msgstr "网站加载器"
+
+#: inc/Kirki_Option/Component.php:167 inc/Welcome/Component.php:383
+#, fuzzy
+msgid "Page Mapping"
+msgstr "页面映射"
+
+#: inc/Kirki_Option/Component.php:178 inc/Welcome/Component.php:408
+#, fuzzy
+msgid "Typography"
+msgstr "排版"
+
+#: inc/Kirki_Option/Component.php:187
+#, fuzzy
+msgid "Site Title"
+msgstr "网站标题"
+
+#: inc/Kirki_Option/Component.php:197 inc/Kirki_Option/Component.php:1344
+#: inc/Welcome/Component.php:418
+#, fuzzy
+msgid "Headings"
+msgstr "标题"
+
+#: inc/Kirki_Option/Component.php:207 inc/Welcome/Component.php:423
+#: template-parts/header/navigation.php:51
+#, fuzzy
+msgid "Menu"
+msgstr "菜单"
+
+#: inc/Kirki_Option/Component.php:217 inc/Kirki_Option/Component.php:1161
+#: inc/Welcome/Component.php:428
+#, fuzzy
+msgid "Body"
+msgstr "主体"
+
+#: inc/Kirki_Option/Component.php:228
+#, fuzzy
+msgid "Site Header"
+msgstr "网站页眉"
+
+#: inc/Kirki_Option/Component.php:238
+msgid "Site Sub Header"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:248
+#, fuzzy
+msgid "Site Skin"
+msgstr "站点外观"
+
+#: inc/Kirki_Option/Component.php:258 inc/Welcome/Component.php:167
+#: inc/Welcome/Component.php:608
+#, fuzzy
+msgid "Site Blog"
+msgstr "网站博客"
+
+#: inc/Kirki_Option/Component.php:268 inc/Welcome/Component.php:638
+#, fuzzy
+msgid "Site Sidebar"
+msgstr "网站边栏"
+
+#: inc/Kirki_Option/Component.php:278 inc/Welcome/Component.php:688
+#, fuzzy
+msgid "WP Login"
+msgstr "WP Login"
+
+#: inc/Kirki_Option/Component.php:287
+#, fuzzy
+msgid "Logo"
+msgstr "Logo"
+
+#: inc/Kirki_Option/Component.php:300
+#, fuzzy
+msgid "Community Settings"
+msgstr "社区设置"
+
+#: inc/Kirki_Option/Component.php:310
+#, fuzzy
+msgid "General Setting"
+msgstr "常规设置"
+
+#: inc/Kirki_Option/Component.php:322 inc/Welcome/Component.php:718
+#, fuzzy
+msgid "Site Footer"
+msgstr "网站页脚"
+
+#: inc/Kirki_Option/Component.php:331 inc/Welcome/Component.php:723
+#, fuzzy
+msgid "Footer Section"
+msgstr "页脚部分"
+
+#: inc/Kirki_Option/Component.php:342 inc/Welcome/Component.php:728
+#, fuzzy
+msgid "Copyright Section"
+msgstr "版权区域"
+
+#: inc/Kirki_Option/Component.php:353
+msgid "Site Performance"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:374
+msgid "You can select wide or box layout based on your preference."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:388
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:389
+msgid "Select the maximum content width for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:407 inc/Welcome/Component.php:368
+#, fuzzy
+msgid "Global Border Radius"
+msgstr "全局边框圆角弧度"
+
+#: inc/Kirki_Option/Component.php:408
+msgid "Set the content, various elements border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:419 inc/Welcome/Component.php:373
+#, fuzzy
+msgid "Buttons Border Radius"
+msgstr "按钮边框半径"
+
+#: inc/Kirki_Option/Component.php:420
+msgid "Set the buttons border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:431 inc/Welcome/Component.php:378
+#, fuzzy
+msgid "Form Border Radius"
+msgstr "表单边框半径"
+
+#: inc/Kirki_Option/Component.php:432
+msgid ""
+"Set the form elements (except textarea) border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:446
+msgid "Site Loader ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:450 inc/Kirki_Option/Component.php:818
+#: inc/Kirki_Option/Component.php:835 inc/Kirki_Option/Component.php:852
+#: inc/Kirki_Option/Component.php:868 inc/Kirki_Option/Component.php:884
+#: inc/Kirki_Option/Component.php:950 inc/Kirki_Option/Component.php:2087
+#: inc/Kirki_Option/Component.php:2316 inc/Kirki_Option/Component.php:2374
+#: inc/Kirki_Option/Component.php:2387
+#, fuzzy
+msgid "Enable"
+msgstr "启用"
+
+#: inc/Kirki_Option/Component.php:451 inc/Kirki_Option/Component.php:819
+#: inc/Kirki_Option/Component.php:836 inc/Kirki_Option/Component.php:853
+#: inc/Kirki_Option/Component.php:869 inc/Kirki_Option/Component.php:885
+#: inc/Kirki_Option/Component.php:951 inc/Kirki_Option/Component.php:2088
+#: inc/Kirki_Option/Component.php:2317 inc/Kirki_Option/Component.php:2375
+#: inc/Kirki_Option/Component.php:2388
+#, fuzzy
+msgid "Disable"
+msgstr "禁用"
+
+#: inc/Kirki_Option/Component.php:462
+#, fuzzy
+msgid "Login Page"
+msgstr "登录页面"
+
+#: inc/Kirki_Option/Component.php:463
+msgid "You can redirect user to custom login page."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:474
+#, fuzzy
+msgid "Registration Page"
+msgstr "注册页面"
+
+#: inc/Kirki_Option/Component.php:475
+#, fuzzy
+msgid "You can redirect user to custom registration page."
+msgstr "您可以将用户重定向到自定义注册页面。"
+
+#: inc/Kirki_Option/Component.php:486
+#, fuzzy
+msgid "404"
+msgstr "404"
+
+#: inc/Kirki_Option/Component.php:487
+#, fuzzy
+msgid "You can redirect user to custom 404 page."
+msgstr "您可以将用户重定向到自定义 404 页面。"
+
+#: inc/Kirki_Option/Component.php:501 inc/Welcome/Component.php:413
+msgid "Site Title Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:515 inc/Kirki_Option/Component.php:541
+#: inc/Kirki_Option/Component.php:570 inc/Kirki_Option/Component.php:596
+#: inc/Kirki_Option/Component.php:622 inc/Kirki_Option/Component.php:648
+#: inc/Kirki_Option/Component.php:674 inc/Kirki_Option/Component.php:700
+#: inc/Kirki_Option/Component.php:729 inc/Kirki_Option/Component.php:754
+#: inc/Kirki_Option/Component.php:783
+msgid "We recommend using font size in pixels (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:527
+msgid "Site Tagline Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:556
+#, fuzzy
+msgid "H1 Tag Settings"
+msgstr "H1 标签设置"
+
+#: inc/Kirki_Option/Component.php:582
+#, fuzzy
+msgid "H2 Tag Settings"
+msgstr "H2 标签设置"
+
+#: inc/Kirki_Option/Component.php:608
+#, fuzzy
+msgid "H3 Tag Settings"
+msgstr "H3 标签设置"
+
+#: inc/Kirki_Option/Component.php:634
+#, fuzzy
+msgid "H4 Tag Settings"
+msgstr "H4 标签设置"
+
+#: inc/Kirki_Option/Component.php:660
+#, fuzzy
+msgid "H5 Tag Settings"
+msgstr "H5 标签设置"
+
+#: inc/Kirki_Option/Component.php:686
+#, fuzzy
+msgid "H6 Tag Settings"
+msgstr "H6 标签设置"
+
+#: inc/Kirki_Option/Component.php:715
+#, fuzzy
+msgid "Menu Settings"
+msgstr "菜单设置"
+
+#: inc/Kirki_Option/Component.php:741
+#, fuzzy
+msgid "Sub Menu Settings"
+msgstr "子菜单设置"
+
+#: inc/Kirki_Option/Component.php:769
+#, fuzzy
+msgid "Settings"
+msgstr "设置"
+
+#: inc/Kirki_Option/Component.php:798
+msgid "Enable Sticky Header ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:802 inc/Kirki_Option/Component.php:966
+#: inc/Kirki_Option/Component.php:2103 inc/Kirki_Option/Component.php:2116
+#: inc/Kirki_Option/Component.php:2299
+#, fuzzy
+msgid "Yes"
+msgstr "是"
+
+#: inc/Kirki_Option/Component.php:803 inc/Kirki_Option/Component.php:967
+#: inc/Kirki_Option/Component.php:2104 inc/Kirki_Option/Component.php:2117
+#: inc/Kirki_Option/Component.php:2300
+msgid "No"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:814
+#, fuzzy
+msgid "Enable Search Icon"
+msgstr "启用搜索图标"
+
+#: inc/Kirki_Option/Component.php:831
+#, fuzzy
+msgid "Enable Cart Icon"
+msgstr "启用购物车图标"
+
+#: inc/Kirki_Option/Component.php:848
+msgid "Enable Login Link"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:864
+msgid "Enable Register Link"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:880 inc/Kirki_Option/Component.php:2312
+#, fuzzy
+msgid "Customize Background ?"
+msgstr "自定义背景？"
+
+#: inc/Kirki_Option/Component.php:893 inc/Kirki_Option/Component.php:2325
+#, fuzzy
+msgid "Background Control"
+msgstr "背景控件"
+
+#: inc/Kirki_Option/Component.php:922 inc/Welcome/Component.php:543
+#, fuzzy
+msgid "Content Typography"
+msgstr "内容排版"
+
+#: inc/Kirki_Option/Component.php:946
+msgid "Site Breadcrumbs?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:962
+msgid "Set Custom Colors?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:975
+#, fuzzy
+msgid "Loader"
+msgstr "加载"
+
+#: inc/Kirki_Option/Component.php:996
+msgid "Site Loader Background"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1019 inc/Welcome/Component.php:458
+#, fuzzy
+msgid "Header"
+msgstr "页眉"
+
+#: inc/Kirki_Option/Component.php:1035
+#, fuzzy
+msgid "Site Title Color"
+msgstr "网站标题颜色"
+
+#: inc/Kirki_Option/Component.php:1053
+#, fuzzy
+msgid "Site Title Hover Color"
+msgstr "网站标题悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1071
+#, fuzzy
+msgid "Site Tagline Color"
+msgstr "网站标语颜色"
+
+#: inc/Kirki_Option/Component.php:1089
+#, fuzzy
+msgid "Header Background Color"
+msgstr "页眉背景颜色"
+
+#: inc/Kirki_Option/Component.php:1107
+#, fuzzy
+msgid "Menu Color"
+msgstr "菜单颜色"
+
+#: inc/Kirki_Option/Component.php:1125
+#, fuzzy
+msgid "Menu Hover Color"
+msgstr "菜单悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1143
+#, fuzzy
+msgid "Menu Active Color"
+msgstr "菜单激活颜色"
+
+#: inc/Kirki_Option/Component.php:1177 inc/Welcome/Component.php:568
+#, fuzzy
+msgid "Body Background Color"
+msgstr "主体背景颜色"
+
+#: inc/Kirki_Option/Component.php:1195
+#, fuzzy
+msgid "Body Text Color"
+msgstr "正文文本颜色"
+
+#: inc/Kirki_Option/Component.php:1213
+#, fuzzy
+msgid "Content Background Color"
+msgstr "内容背景颜色"
+
+#: inc/Kirki_Option/Component.php:1214
+msgid "Note: This setting will only be used if the box layout is selected."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1236
+#, fuzzy
+msgid "Box Background Color"
+msgstr "框背景颜色"
+
+#: inc/Kirki_Option/Component.php:1254
+#, fuzzy
+msgid "Secondary Background Color"
+msgstr "次要背景颜色"
+
+#: inc/Kirki_Option/Component.php:1272
+msgid "Subheader Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1290 inc/Welcome/Component.php:573
+#, fuzzy
+msgid "Theme Color"
+msgstr "主题颜色"
+
+#: inc/Kirki_Option/Component.php:1308 inc/Welcome/Component.php:578
+#, fuzzy
+msgid "Link Color"
+msgstr "链接颜色"
+
+#: inc/Kirki_Option/Component.php:1326
+#, fuzzy
+msgid "Link Hover"
+msgstr "链接悬停"
+
+#: inc/Kirki_Option/Component.php:1360
+#, fuzzy
+msgid "H1 Color"
+msgstr "H1颜色"
+
+#: inc/Kirki_Option/Component.php:1378
+#, fuzzy
+msgid "H2 Color"
+msgstr "H2颜色"
+
+#: inc/Kirki_Option/Component.php:1396
+#, fuzzy
+msgid "H3 Color"
+msgstr "H3颜色"
+
+#: inc/Kirki_Option/Component.php:1414
+#, fuzzy
+msgid "H4 Color"
+msgstr "H4颜色"
+
+#: inc/Kirki_Option/Component.php:1432
+#, fuzzy
+msgid "H5 Color"
+msgstr "H5颜色"
+
+#: inc/Kirki_Option/Component.php:1450
+#, fuzzy
+msgid "H6 Color"
+msgstr "H6颜色"
+
+#: inc/Kirki_Option/Component.php:1468
+#, fuzzy
+msgid "Buttons"
+msgstr "按钮"
+
+#: inc/Kirki_Option/Component.php:1485
+#, fuzzy
+msgid "Button Background Color"
+msgstr "按钮背景颜色"
+
+#: inc/Kirki_Option/Component.php:1504
+#, fuzzy
+msgid "Button Background Hover Color"
+msgstr "按钮背景悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1523
+#, fuzzy
+msgid "Button Text Color"
+msgstr "按钮文本颜色"
+
+#: inc/Kirki_Option/Component.php:1541
+#, fuzzy
+msgid "Button Text Hover Color"
+msgstr "按钮文本悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1559
+#, fuzzy
+msgid "Button Border Color"
+msgstr "按钮边框颜色"
+
+#: inc/Kirki_Option/Component.php:1577
+#, fuzzy
+msgid "Button Border Hover Color"
+msgstr "按钮边框悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1611
+#, fuzzy
+msgid "Footer Title Color"
+msgstr "页脚标题颜色"
+
+#: inc/Kirki_Option/Component.php:1629
+#, fuzzy
+msgid "Footer Content Color"
+msgstr "页脚内容颜色"
+
+#: inc/Kirki_Option/Component.php:1647
+#, fuzzy
+msgid "Footer Link Color"
+msgstr "页脚链接颜色"
+
+#: inc/Kirki_Option/Component.php:1665
+#, fuzzy
+msgid "Footer Link Hover"
+msgstr "页脚链接悬停"
+
+#: inc/Kirki_Option/Component.php:1683
+#, fuzzy
+msgid "Copyright"
+msgstr "版权"
+
+#: inc/Kirki_Option/Component.php:1704
+#, fuzzy
+msgid "Copyright Background Color"
+msgstr "版权背景颜色"
+
+#: inc/Kirki_Option/Component.php:1722
+#, fuzzy
+msgid "Copyright Border Color"
+msgstr "版权边框颜色"
+
+#: inc/Kirki_Option/Component.php:1739
+msgid "Copyright Content Color"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1757
+#, fuzzy
+msgid "Copyright Link Color"
+msgstr "版权链接颜色"
+
+#: inc/Kirki_Option/Component.php:1775
+#, fuzzy
+msgid "Copyright Link Hover Color"
+msgstr "版权链接悬停颜色"
+
+#: inc/Kirki_Option/Component.php:1796
+#, fuzzy
+msgid "Blog Layout"
+msgstr "博客布局"
+
+#: inc/Kirki_Option/Component.php:1812
+#, fuzzy
+msgid "Image position"
+msgstr "图像位置"
+
+#: inc/Kirki_Option/Component.php:1817
+#, fuzzy
+msgid "Left"
+msgstr "左侧"
+
+#: inc/Kirki_Option/Component.php:1818
+#, fuzzy
+msgid "Right"
+msgstr "右侧"
+
+#: inc/Kirki_Option/Component.php:1833
+#, fuzzy
+msgid "Grid Columns"
+msgstr "网格列数"
+
+#: inc/Kirki_Option/Component.php:1838
+#, fuzzy
+msgid "One"
+msgstr "一"
+
+#: inc/Kirki_Option/Component.php:1839 inc/Kirki_Option/Component.php:1880
+#, fuzzy
+msgid "Two"
+msgstr "二"
+
+#: inc/Kirki_Option/Component.php:1854
+#, fuzzy
+msgid "View"
+msgstr "查看"
+
+#: inc/Kirki_Option/Component.php:1859
+msgid "Without Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1860
+msgid "With Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1875 inc/Welcome/Component.php:633
+msgid "Post Per Row"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1881
+#, fuzzy
+msgid "Three"
+msgstr "三"
+
+#: inc/Kirki_Option/Component.php:1904
+#, fuzzy
+msgid "Single Post Content Width"
+msgstr "单篇文章内容宽度"
+
+#: inc/Kirki_Option/Component.php:1918
+#, fuzzy
+msgid "Single Post Title Layout"
+msgstr "单一的文章标题布局"
+
+#: inc/Kirki_Option/Component.php:1934
+#, fuzzy
+msgid "Image Overlay Color"
+msgstr "图像叠加颜色"
+
+#: inc/Kirki_Option/Component.php:1935
+msgid "Allow to add image overlay color on single post title layout one."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:1963
+#, fuzzy
+msgid "Sidebar Layout"
+msgstr "侧边栏布局"
+
+#: inc/Kirki_Option/Component.php:1979
+#, fuzzy
+msgid "Single Post Sidebar Layout"
+msgstr "单柱边栏布局"
+
+#: inc/Kirki_Option/Component.php:1997
+msgid "Activity Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2013
+msgid "Members Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2029
+msgid "Groups Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2048
+msgid "bbPress Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2066
+msgid "WooCommerce Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2083
+#, fuzzy
+msgid "Sticky Sidebar ?"
+msgstr "粘性侧边栏？"
+
+#: inc/Kirki_Option/Component.php:2099 inc/Welcome/Component.php:693
+#, fuzzy
+msgid "Customize Your Logo Section"
+msgstr "自定义Logo部分"
+
+#: inc/Kirki_Option/Component.php:2112
+#, fuzzy
+msgid "Disable Logo?"
+msgstr "禁用Logo？"
+
+#: inc/Kirki_Option/Component.php:2132
+#, fuzzy
+msgid "Custom Logo"
+msgstr "自定义Logo"
+
+#: inc/Kirki_Option/Component.php:2155
+#, fuzzy
+msgid "Logo Width"
+msgstr "标志宽度"
+
+#: inc/Kirki_Option/Component.php:2156
+msgid "Select the logo width (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2179
+#, fuzzy
+msgid "Logo Height"
+msgstr "LOGO高度"
+
+#: inc/Kirki_Option/Component.php:2180
+msgid "Select the logo height (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2203
+msgid "Logo Space Bottom"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2204
+msgid "Select the logo bottom spacing (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2227
+#, fuzzy
+msgid "Logo URL"
+msgstr "Logo网址"
+
+#: inc/Kirki_Option/Component.php:2250
+#, fuzzy
+msgid "Logo Title"
+msgstr "Logo标题"
+
+#: inc/Kirki_Option/Component.php:2273
+#, fuzzy
+msgid "Login Page Title"
+msgstr "登录页面标题"
+
+#: inc/Kirki_Option/Component.php:2274
+msgid "Login page title that is shown on WordPress login page."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2294
+#, fuzzy
+msgid "Avatar Style"
+msgstr "头像样式"
+
+#: inc/Kirki_Option/Component.php:2295
+msgid "Set the round style for member and group avatars."
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2357
+#, fuzzy
+msgid "Add Content"
+msgstr "添加内容"
+
+#: inc/Kirki_Option/Component.php:2359
+msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2370
+msgid "Load Google Fonts Locally ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2383
+msgid "Preload Local Fonts ?"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:2403
+#, fuzzy
+msgid "Flush Local Fonts Cache"
+msgstr "刷新本地字体缓存"
+
+#: inc/Kirki_Option/Component.php:2404
+msgid "Click the button to reset the local fonts cache."
+msgstr ""
+
+#: inc/Nav_Menus/Component.php:74
+#, fuzzy
+msgid "User Menu"
+msgstr "用户菜单"
+
+#: inc/Sidebars/Component.php:103 inc/Welcome/Component.php:653
+#, fuzzy
+msgid "Right Sidebar"
+msgstr "右侧边栏"
+
+#: inc/Sidebars/Component.php:105 inc/Sidebars/Component.php:117
+#: inc/Sidebars/Component.php:131 inc/Sidebars/Component.php:143
+#: inc/Sidebars/Component.php:155 inc/Sidebars/Component.php:167
+#: inc/Sidebars/Component.php:179 inc/Sidebars/Component.php:191
+#: inc/Sidebars/Component.php:203 inc/Sidebars/Component.php:215
+#: inc/Sidebars/Component.php:230 inc/Sidebars/Component.php:242
+#: inc/Sidebars/Component.php:256 inc/Sidebars/Component.php:268
+#: inc/Sidebars/Component.php:281 inc/Sidebars/Component.php:293
+#: inc/Sidebars/Component.php:305 inc/Sidebars/Component.php:317
+#, fuzzy
+msgid "Add widgets here."
+msgstr "在这里添加小部件。"
+
+#: inc/Sidebars/Component.php:115 inc/Welcome/Component.php:648
+#, fuzzy
+msgid "Left Sidebar"
+msgstr "左侧边栏"
+
+#: inc/Sidebars/Component.php:129
+msgid "Community Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:141
+msgid "Activity Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:153
+msgid "Members Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:165
+msgid "Groups Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:177
+#, fuzzy
+msgid "Members Single Profile Sidebar"
+msgstr "成员单配置文件边栏"
+
+#: inc/Sidebars/Component.php:189
+msgid "Members Single User Activity"
+msgstr ""
+
+#: inc/Sidebars/Component.php:201
+msgid "Groups Single Group Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:213
+msgid "Groups Single Group Activity"
+msgstr ""
+
+#: inc/Sidebars/Component.php:228
+#, fuzzy
+msgid "bbPress Left Sidebar"
+msgstr "bbPress的左侧边栏"
+
+#: inc/Sidebars/Component.php:240
+#, fuzzy
+msgid "bbPress Right Sidebar"
+msgstr "bbPress的右侧栏"
+
+#: inc/Sidebars/Component.php:254
+#, fuzzy
+msgid "WooCommerce Left Sidebar"
+msgstr "Woomerce左侧边栏"
+
+#: inc/Sidebars/Component.php:266
+#, fuzzy
+msgid "WooCommerce Right Sidebar"
+msgstr "Woomerce右侧栏"
+
+#: inc/Sidebars/Component.php:279
+#, fuzzy
+msgid "Footer 1"
+msgstr "页脚1"
+
+#: inc/Sidebars/Component.php:291
+#, fuzzy
+msgid "Footer 2"
+msgstr "页脚2"
+
+#: inc/Sidebars/Component.php:303
+#, fuzzy
+msgid "Footer 3"
+msgstr "页脚3"
+
+#: inc/Sidebars/Component.php:315
+#, fuzzy
+msgid "Footer 4"
+msgstr "页脚4"
+
+#. translators: %s: stylesheet handle
+#: inc/Styles/Component.php:366
+#, fuzzy, php-format
+msgid "Invalid theme stylesheet handle: %s"
+msgstr "无效主题样式表句柄：%s"
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Template_Tags.php:54
+#, fuzzy, php-format
+msgid ""
+"The theme templating component %1$s does not implement the %2$s interface."
+msgstr "主题模板组件%1$s没有实现%2$s接口。"
+
+#. translators: %s: template tag name
+#: inc/Template_Tags.php:81
+#, fuzzy, php-format
+msgid "The template tag %s does not exist."
+msgstr "模板标签%s不存在。"
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:110
+#, fuzzy, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s must either "
+"be a callable or an array."
+msgstr "主题组件%2$s注册的模板标记方法%1$s必须是可调用的或数组。"
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:121
+#, fuzzy, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s conflicts "
+"with an already registered template tag of the same name."
+msgstr "主题组件%2$s注册的模板标签方法%1$s与已经注册的同名模板标签冲突。"
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Theme.php:57
+#, fuzzy, php-format
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr "主题组件%1$s没有实现%2$s接口。"
+
+#. translators: %s: slug
+#: inc/Theme.php:120
+#, fuzzy, php-format
+msgid "No theme component with the slug %s exists."
+msgstr "不存在带有%s的主题组件。"
+
+#: inc/Welcome/Component.php:49 inc/Welcome/Component.php:50
+#, fuzzy
+msgid "Getting Started"
+msgstr "入门指南"
+
+#: inc/Welcome/Component.php:90
+msgid "Welcome to BuddyX Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:96
+msgid "Thank you for purchasing the BuddyX Theme!"
+msgstr ""
+
+#: inc/Welcome/Component.php:97
+msgid ""
+"Below, you will find information on setting up the theme to start using it!"
+msgstr ""
+
+#: inc/Welcome/Component.php:107
+msgid "Programming Languages"
+msgstr ""
+
+#: inc/Welcome/Component.php:108
+#, fuzzy
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: inc/Welcome/Component.php:109 inc/Welcome/Component.php:225
+#: inc/Welcome/Component.php:326
+msgid "Get BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:110
+msgid "Community Addons"
+msgstr ""
+
+#: inc/Welcome/Component.php:112
+msgid "tab1"
+msgstr ""
+
+#: inc/Welcome/Component.php:119
+#, fuzzy
+msgid "Customizer Settings"
+msgstr "Divi 自定义设置"
+
+#: inc/Welcome/Component.php:120
+#, fuzzy
+msgid "Go to Customizer"
+msgstr "去编辑器"
+
+#: inc/Welcome/Component.php:127
+#, fuzzy
+msgid "Upload Logo"
+msgstr "上传Logo"
+
+#: inc/Welcome/Component.php:128 inc/Welcome/Component.php:136
+#: inc/Welcome/Component.php:144 inc/Welcome/Component.php:152
+#: inc/Welcome/Component.php:160 inc/Welcome/Component.php:168
+#, fuzzy
+msgid "Go to option"
+msgstr "转到选项"
+
+#: inc/Welcome/Component.php:135
+#, fuzzy
+msgid "Set Colors"
+msgstr "设置颜色"
+
+#: inc/Welcome/Component.php:151
+msgid "Set Typography\t"
+msgstr ""
+
+#: inc/Welcome/Component.php:159 inc/Welcome/Component.php:473
+#, fuzzy
+msgid "Header Layout"
+msgstr "页眉布局"
+
+#: inc/Welcome/Component.php:182 inc/Welcome/Component.php:185
+#, fuzzy
+msgid "Demo Installation"
+msgstr "演示安装"
+
+#: inc/Welcome/Component.php:184
+msgid ""
+"The theme comes with one-click demo installation support. Try the demo and "
+"install it on your WordPress BuddyPress site."
+msgstr ""
+
+#: inc/Welcome/Component.php:192
+#, fuzzy
+msgid "Install Recommended Plugins"
+msgstr "安装推荐插件"
+
+#: inc/Welcome/Component.php:194
+msgid ""
+"Enhancing your website functionality with WordPress plugins is easy. You can "
+"install, activate, and begin using WordPress plugins in minutes."
+msgstr ""
+
+#: inc/Welcome/Component.php:196
+#, fuzzy
+msgid "Install now"
+msgstr "现在安装"
+
+#: inc/Welcome/Component.php:198
+#, fuzzy
+msgid "Installed"
+msgstr "已安装"
+
+#: inc/Welcome/Component.php:209
+msgid "BuddyX Child Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:211
+msgid ""
+"A child theme helps preserve customizations when the parent theme is "
+"updated, ensuring design consistency and security."
+msgstr ""
+
+#: inc/Welcome/Component.php:212
+#, fuzzy
+msgid "Download Now"
+msgstr "立即下载"
+
+#: inc/Welcome/Component.php:222 inc/Welcome/Component.php:323
+msgid "Get BuddyX Pro Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:224
+msgid ""
+"#1 WordPress Social Network and Community Theme Powered by BuddyPress or "
+"BuddyBoss Platform."
+msgstr ""
+
+#: inc/Welcome/Component.php:235
+#, fuzzy
+msgid "Document"
+msgstr "文档"
+
+#: inc/Welcome/Component.php:243
+msgid ""
+"We have created foolproof documentation for you. It will help you to "
+"understand how our plugin works."
+msgstr ""
+
+#: inc/Welcome/Component.php:245
+#, fuzzy
+msgid "Go to Documentation"
+msgstr "转到文档"
+
+#: inc/Welcome/Component.php:250
+#, fuzzy
+msgid "Community"
+msgstr "社区"
+
+#: inc/Welcome/Component.php:263
+msgid "Join our community! Share your site, ask a question, and help others."
+msgstr ""
+
+#: inc/Welcome/Component.php:265
+msgid "Go to Facebook Group"
+msgstr ""
+
+#: inc/Welcome/Component.php:270
+#, fuzzy
+msgid "Videos"
+msgstr "视频"
+
+#: inc/Welcome/Component.php:279
+msgid ""
+"Welcome to our WordPress theme video series! Whether you're a newbie or a "
+"seasoned website creator, our bite-sized tutorials are packed with tips, "
+"tricks, and hacks to supercharge your WordPress journey."
+msgstr ""
+
+#: inc/Welcome/Component.php:281
+#, fuzzy
+msgid "Watch Now"
+msgstr "立即观看"
+
+#: inc/Welcome/Component.php:286
+#, fuzzy
+msgid "Support"
+msgstr "支持"
+
+#: inc/Welcome/Component.php:292
+#, fuzzy
+msgid ""
+"Have a question, we are happy to help! Get in touch with our support team."
+msgstr "有问题，我们很乐意提供帮助！与我们的支持团队联系。"
+
+#: inc/Welcome/Component.php:294
+#, fuzzy
+msgid "Submit a Ticket"
+msgstr "提交工单"
+
+#: inc/Welcome/Component.php:299
+msgid "Give us feedback"
+msgstr ""
+
+#: inc/Welcome/Component.php:305
+msgid ""
+"Remember to pay attention to your rate! Your 5-star review will encourage us "
+"so much!"
+msgstr ""
+
+#: inc/Welcome/Component.php:307
+#, fuzzy
+msgid "Write a Review "
+msgstr "写一个评论 "
+
+#: inc/Welcome/Component.php:317
+msgid "tab2"
+msgstr ""
+
+#: inc/Welcome/Component.php:325
+msgid ""
+"#1 WordPress Social Network and Community Theme Powered by BuddyPress or "
+"BuddyBoss Platform"
+msgstr ""
+
+#: inc/Welcome/Component.php:331
+msgid "Compare Features Of BuddyX With BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:332
+msgid "Take Your Time & Compare Every Feature"
+msgstr ""
+
+#: inc/Welcome/Component.php:341
+#, fuzzy
+msgid "Features"
+msgstr "特征"
+
+#: inc/Welcome/Component.php:343
+msgid "BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:348
+#, fuzzy
+msgid "Layout"
+msgstr "布局"
+
+#: inc/Welcome/Component.php:358
+msgid "Content Layout Width"
+msgstr ""
+
+#: inc/Welcome/Component.php:363
+#, fuzzy
+msgid "Sidebar Width"
+msgstr "侧边栏宽度"
+
+#: inc/Welcome/Component.php:388
+#, fuzzy
+msgid "Sign-in Popup | Register Form Fields"
+msgstr "登录弹出窗口|注册表单字段"
+
+#: inc/Welcome/Component.php:393
+#, fuzzy
+msgid "Scroll Top"
+msgstr "回到顶部"
+
+#: inc/Welcome/Component.php:403
+#, fuzzy
+msgid "Loading Text"
+msgstr "加载文本"
+
+#: inc/Welcome/Component.php:433
+#, fuzzy
+msgid "Google Fonts"
+msgstr "谷歌字体"
+
+#: inc/Welcome/Component.php:438
+msgid "Font Size (PX/EM)"
+msgstr ""
+
+#: inc/Welcome/Component.php:443
+#, fuzzy
+msgid "Text Transform"
+msgstr "文本转换"
+
+#: inc/Welcome/Component.php:448
+#, fuzzy
+msgid "Line Height"
+msgstr "线高度"
+
+#: inc/Welcome/Component.php:453
+#, fuzzy
+msgid "Letter Spacing"
+msgstr "字母间距"
+
+#: inc/Welcome/Component.php:463
+#, fuzzy
+msgid "Top Bar"
+msgstr "顶栏"
+
+#: inc/Welcome/Component.php:468
+#, fuzzy
+msgid "Sticky Header"
+msgstr "粘性标题"
+
+#: inc/Welcome/Component.php:478
+#, fuzzy
+msgid "Header Menu Position"
+msgstr "标题菜单位置"
+
+#: inc/Welcome/Component.php:483
+#, fuzzy
+msgid "Menu Effects"
+msgstr "菜单效果"
+
+#: inc/Welcome/Component.php:488
+msgid "More Menu"
+msgstr ""
+
+#: inc/Welcome/Component.php:493
+msgid "Site Search Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:498
+msgid "Login/Register Button Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:503
+#, fuzzy
+msgid "Background Color"
+msgstr "背景颜色"
+
+#: inc/Welcome/Component.php:508
+#, fuzzy
+msgid "Site Search"
+msgstr "网站搜索"
+
+#: inc/Welcome/Component.php:513
+msgid "Site Cart"
+msgstr ""
+
+#: inc/Welcome/Component.php:518
+#, fuzzy
+msgid "BuddyPress Components"
+msgstr "BuddyPress组件"
+
+#: inc/Welcome/Component.php:523 inc/Welcome/Component.php:528
+#: inc/Welcome/Component.php:588
+#, fuzzy
+msgid "Side Panel"
+msgstr "侧边面板"
+
+#: inc/Welcome/Component.php:533
+#, fuzzy
+msgid "Sub Header"
+msgstr "副标题"
+
+#: inc/Welcome/Component.php:538
+#, fuzzy
+msgid "Customize Background"
+msgstr "自定义背景"
+
+#: inc/Welcome/Component.php:548
+#, fuzzy
+msgid "Breadcrumbs"
+msgstr "面包屑"
+
+#: inc/Welcome/Component.php:553
+#, fuzzy
+msgid "Skin Colors"
+msgstr "配色"
+
+#: inc/Welcome/Component.php:558
+#, fuzzy
+msgid "Dark Mode"
+msgstr "深色模式"
+
+#: inc/Welcome/Component.php:563
+#, fuzzy
+msgid "Custom Colors"
+msgstr "自定义颜色"
+
+#: inc/Welcome/Component.php:583
+#, fuzzy
+msgid "Primary Header"
+msgstr "主页眉"
+
+#: inc/Welcome/Component.php:593
+msgid "Button Background Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:598
+msgid "Button Text Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:603
+msgid "Button Border Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:613
+#, fuzzy
+msgid "List Layout"
+msgstr "列表布局"
+
+#: inc/Welcome/Component.php:618
+#, fuzzy
+msgid "Grid Layout"
+msgstr "网格布局"
+
+#: inc/Welcome/Component.php:623
+#, fuzzy
+msgid "Masonry Layout"
+msgstr "瀑布流布局"
+
+#: inc/Welcome/Component.php:628
+#, fuzzy
+msgid "Blog Layout Style"
+msgstr "博客布局样式"
+
+#: inc/Welcome/Component.php:643
+#, fuzzy
+msgid "No Sidebar"
+msgstr "无侧边栏"
+
+#: inc/Welcome/Component.php:658
+#, fuzzy
+msgid "Both Sidebar"
+msgstr "双边栏"
+
+#: inc/Welcome/Component.php:663
+#, fuzzy
+msgid "BuddyPress Sidebar"
+msgstr "BuddyPress侧边栏"
+
+#: inc/Welcome/Component.php:668
+#, fuzzy
+msgid "WooCommerce Sidebar"
+msgstr "WooCommerce侧边栏"
+
+#: inc/Welcome/Component.php:673
+#, fuzzy
+msgid "bbPress Sidebar"
+msgstr "bbPress侧边栏"
+
+#: inc/Welcome/Component.php:678
+#, fuzzy
+msgid "LearnDash Sidebar"
+msgstr "LearnDash边栏"
+
+#: inc/Welcome/Component.php:683
+#, fuzzy
+msgid "Sticky Sidebar"
+msgstr "粘性边栏"
+
+#: inc/Welcome/Component.php:698
+msgid "Choose WP Login Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:703
+#, fuzzy
+msgid "Customize Login Form"
+msgstr "自定义登录表单"
+
+#: inc/Welcome/Component.php:708
+#, fuzzy
+msgid "Customize Forget Form"
+msgstr "自定义忘记表单"
+
+#: inc/Welcome/Component.php:713
+#, fuzzy
+msgid "Customize Button"
+msgstr "自定义按钮"
+
+#: inc/Welcome/Component.php:733 inc/Welcome/Component.php:829
+#, fuzzy
+msgid "BuddyPress"
+msgstr "BuddyPress"
+
+#: inc/Welcome/Component.php:738
+#, fuzzy
+msgid "Activity Control"
+msgstr "活动控制"
+
+#: inc/Welcome/Component.php:739 inc/Welcome/Component.php:754
+#: inc/Welcome/Component.php:759 inc/Welcome/Component.php:764
+#: inc/Welcome/Component.php:769 inc/Welcome/Component.php:774
+#: inc/Welcome/Component.php:779 inc/Welcome/Component.php:784
+#: inc/Welcome/Component.php:789 inc/Welcome/Component.php:794
+#: inc/Welcome/Component.php:840 inc/Welcome/Component.php:845
+#: inc/Welcome/Component.php:850 inc/Welcome/Component.php:855
+#: inc/Welcome/Component.php:860 inc/Welcome/Component.php:865
+#: inc/Welcome/Component.php:870 inc/Welcome/Component.php:875
+#, fuzzy
+msgid "Limited"
+msgstr "限制"
+
+#: inc/Welcome/Component.php:743
+msgid "BuddyPress Activity Share"
+msgstr ""
+
+#: inc/Welcome/Component.php:748
+msgid "Activity Reaction"
+msgstr ""
+
+#: inc/Welcome/Component.php:753
+msgid "Activity Load More"
+msgstr ""
+
+#: inc/Welcome/Component.php:758
+msgid "Members Multiple Directory Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:763
+msgid "Members Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:768
+msgid "Groups Multiple Directory View"
+msgstr ""
+
+#: inc/Welcome/Component.php:773
+msgid "Group Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:778
+msgid "Member Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:783
+msgid "Member Primary Navigation Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:788
+msgid "Group Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:793
+msgid "Group Primary Navigation Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:799 inc/Welcome/Component.php:839
+#, fuzzy
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: inc/Welcome/Component.php:804
+#, fuzzy
+msgid "Product Listing Style"
+msgstr "产品列表样式"
+
+#: inc/Welcome/Component.php:809
+#, fuzzy
+msgid "Shop Products Per Page"
+msgstr "每页产品数量"
+
+#: inc/Welcome/Component.php:814
+#, fuzzy
+msgid "Display Filter Button"
+msgstr "显示过滤器按钮"
+
+#: inc/Welcome/Component.php:819
+#, fuzzy
+msgid "Sale Badge Style"
+msgstr "销售徽章样式"
+
+#: inc/Welcome/Component.php:824
+#, fuzzy
+msgid "Integrations"
+msgstr "集成"
+
+#: inc/Welcome/Component.php:834
+#, fuzzy
+msgid "BuddyBoss Platform"
+msgstr "BuddyBoss Platform"
+
+#: inc/Welcome/Component.php:844
+#, fuzzy
+msgid "LearnDash"
+msgstr "LearnDash"
+
+#: inc/Welcome/Component.php:849
+#, fuzzy
+msgid "LearnPress"
+msgstr "LearnPress"
+
+#: inc/Welcome/Component.php:854
+#, fuzzy
+msgid "LifterLMS"
+msgstr "LifterLMS"
+
+#: inc/Welcome/Component.php:859
+#, fuzzy
+msgid "TutorLMS"
+msgstr "导师"
+
+#: inc/Welcome/Component.php:864
+#, fuzzy
+msgid "bbPress"
+msgstr "bbPress"
+
+#: inc/Welcome/Component.php:869
+msgid "Dokan"
+msgstr ""
+
+#: inc/Welcome/Component.php:874
+#, fuzzy
+msgid "WC Vendors"
+msgstr "WC 供应商"
+
+#: inc/Welcome/Component.php:879
+#, fuzzy
+msgid "GamiPress"
+msgstr "GamiPress"
+
+#: inc/Welcome/Component.php:884
+msgid "Paid Memberships"
+msgstr ""
+
+#: inc/Welcome/Component.php:889
+#, fuzzy
+msgid "The Event Calendar"
+msgstr "The Event Calendar"
+
+#: inc/Welcome/Component.php:901
+msgid "tab3"
+msgstr ""
+
+#: inc/Welcome/Component.php:910
+msgid "BuddyPress Premium add-ons"
+msgstr ""
+
+#: inc/Welcome/Component.php:912
+msgid ""
+"Extend your social community website with our premium add-ons for BuddyPress."
+msgstr ""
+
+#: inc/Welcome/Component.php:913
+msgid "View More Addons"
+msgstr ""
+
+#: inc/Welcome/Component.php:921
+msgid "BuddyPress-Business-Profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:924
+msgid "BuddyPress Business Profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:925
+msgid ""
+"BuddyPress Business Pages enable your members to connect with their "
+"customers, fans, and followers within your social community."
+msgstr ""
+
+#: inc/Welcome/Component.php:926 inc/Welcome/Component.php:938
+#: inc/Welcome/Component.php:950 inc/Welcome/Component.php:962
+#: inc/Welcome/Component.php:974 inc/Welcome/Component.php:986
+#: inc/Welcome/Component.php:998 inc/Welcome/Component.php:1010
+#: inc/Welcome/Component.php:1022 inc/Welcome/Component.php:1034
+#: inc/Welcome/Component.php:1046 inc/Welcome/Component.php:1058
+#: inc/Welcome/Component.php:1070 inc/Welcome/Component.php:1082
+#: inc/Welcome/Component.php:1094 inc/Welcome/Component.php:1106
+#: inc/Welcome/Component.php:1118 inc/Welcome/Component.php:1130
+#: inc/Welcome/Component.php:1142 inc/Welcome/Component.php:1154
+#: inc/Welcome/Component.php:1166 inc/Welcome/Component.php:1178
+#: inc/Welcome/Component.php:1190 inc/Welcome/Component.php:1202
+#, fuzzy
+msgid "Get It Now"
+msgstr "现在获取"
+
+#: inc/Welcome/Component.php:933
+msgid "ideapush"
+msgstr ""
+
+#: inc/Welcome/Component.php:936
+msgid "BuddyPress Ideapush Integration"
+msgstr ""
+
+#: inc/Welcome/Component.php:937
+msgid ""
+"The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you "
+"manage your created ideas through the BuddyPress Profile."
+msgstr ""
+
+#: inc/Welcome/Component.php:945
+msgid "BuddyPress-Contact-Me"
+msgstr ""
+
+#: inc/Welcome/Component.php:948
+msgid "BuddyPress Contact Me"
+msgstr ""
+
+#: inc/Welcome/Component.php:949
+msgid ""
+"BuddyPress Contact Me displays a contact form on a member's profiles, "
+"allowing logged-in and non-logged-in visitors can be in touch with our "
+"community members."
+msgstr ""
+
+#: inc/Welcome/Component.php:957
+msgid "WP_Story"
+msgstr ""
+
+#: inc/Welcome/Component.php:960
+msgid "WP Stories"
+msgstr ""
+
+#: inc/Welcome/Component.php:961
+msgid ""
+"Social Stories offer a more personal way to interact with your audience."
+msgstr ""
+
+#: inc/Welcome/Component.php:969
+msgid "BP_profile-view"
+msgstr ""
+
+#: inc/Welcome/Component.php:972
+msgid "Who Viewed My Profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:973
+msgid ""
+"The Who Viewed My Profile Plugin helps you to know about your profile "
+"visitors. It displays the count of the profile views on the member profile "
+"header..."
+msgstr ""
+
+#: inc/Welcome/Component.php:981
+msgid "member-blog"
+msgstr ""
+
+#: inc/Welcome/Component.php:984
+msgid "BuddyPress Member Blog Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:985
+msgid ""
+"BP Member Blog Pro plugin provides each of your site users their own writing "
+"environment with a fantastic user experience."
+msgstr ""
+
+#: inc/Welcome/Component.php:993
+msgid "BuddyPress-multi-vendor-marketplace"
+msgstr ""
+
+#: inc/Welcome/Component.php:996
+msgid "BuddyVendor"
+msgstr ""
+
+#: inc/Welcome/Component.php:997
+msgid ""
+"With the BuddyVendor plugin, you can quickly turn your BuddyPress community "
+"into a social marketplace."
+msgstr ""
+
+#: inc/Welcome/Component.php:1005
+#, fuzzy
+msgid "stat"
+msgstr "统计"
+
+#: inc/Welcome/Component.php:1008
+msgid "BuddyPress Statistics"
+msgstr ""
+
+#: inc/Welcome/Component.php:1009
+msgid ""
+"BuddyPress Stats plugin creates an activity log of everything that happens "
+"on your BuddyPress-powered community site..."
+msgstr ""
+
+#: inc/Welcome/Component.php:1017
+msgid "BuddyPress-places"
+msgstr ""
+
+#: inc/Welcome/Component.php:1020
+msgid "BuddyPress Check-Ins Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1021
+msgid ""
+"Allow community members and groups to post updates along with selecting "
+"their current location."
+msgstr ""
+
+#: inc/Welcome/Component.php:1029
+msgid "BuddyPress-Friend-Follow-Suggestion"
+msgstr ""
+
+#: inc/Welcome/Component.php:1032
+msgid "BuddyPress Friend & Follow Suggestion"
+msgstr ""
+
+#: inc/Welcome/Component.php:1033
+#, fuzzy
+msgid ""
+"BuddyPress Friends and Follow suggestions plugin assists you with improving "
+"your BuddyPress or BuddyBoss Platform-based community."
+msgstr ""
+"BuddyPress Friends和Follow Advice插件可帮助您改善基于BuddyPress或BuddyBoss平"
+"台的社区。"
+
+#: inc/Welcome/Component.php:1041
+msgid "BuddyPress-Animated-Gif-Share"
+msgstr ""
+
+#: inc/Welcome/Component.php:1044
+msgid "BuddyPress Giphy"
+msgstr ""
+
+#: inc/Welcome/Component.php:1045
+msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
+msgstr ""
+
+#: inc/Welcome/Component.php:1053
+msgid "BuddyPress-BuddyBoss-shortcodes"
+msgstr ""
+
+#: inc/Welcome/Component.php:1056
+msgid "Shortcodes For BuddyPress Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1057
+msgid ""
+"Add and Customize the BuddyPress components on any of the WordPress pages/"
+"posts using elementor widgets."
+msgstr ""
+
+#: inc/Welcome/Component.php:1065
+msgid "BuddyPress-Sticky-Post"
+msgstr ""
+
+#: inc/Welcome/Component.php:1068
+#, fuzzy
+msgid "BuddyPress Sticky Post"
+msgstr "好友新闻粘滞帖子"
+
+#: inc/Welcome/Component.php:1069
+#, fuzzy
+msgid ""
+"Make your posts sticky on BuddyPress by pinning site-wide and group "
+"activities on the top of the community wall."
+msgstr ""
+"通过在社区墙的顶部固定站点范围和小组活动，使您的帖子在BuddyPress上具有粘性。"
+
+#: inc/Welcome/Component.php:1077
+msgid "BuddyPress-color-background-activity"
+msgstr ""
+
+#: inc/Welcome/Component.php:1080
+msgid "BuddyPress Quotes"
+msgstr ""
+
+#: inc/Welcome/Component.php:1081
+#, fuzzy
+msgid ""
+"Allow BuddyPress users to post content with attractive background colors and "
+"beautiful images."
+msgstr "允许BuddyPress用户发布具有吸引人的背景颜色和美丽图像的内容。"
+
+#: inc/Welcome/Component.php:1089
+msgid "BuddyPress-BuddyBoss-autofriend"
+msgstr ""
+
+#: inc/Welcome/Component.php:1092
+msgid "BuddyPress Auto Friends"
+msgstr ""
+
+#: inc/Welcome/Component.php:1093
+msgid "Add selected community members as common friends for all members."
+msgstr ""
+
+#: inc/Welcome/Component.php:1101
+msgid "BuddyPress-Newsfeed-member-profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:1104
+msgid "BuddyPress Newsfeed"
+msgstr ""
+
+#: inc/Welcome/Component.php:1105
+msgid ""
+"Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
+msgstr ""
+
+#: inc/Welcome/Component.php:1113
+msgid "BuddyPress-Reactions-and-Status"
+msgstr ""
+
+#: inc/Welcome/Component.php:1116
+#, fuzzy
+msgid "BuddyPress Status"
+msgstr "好友新闻状态"
+
+#: inc/Welcome/Component.php:1117
+msgid ""
+"Allow members to add status on their profile and give their reactions to all "
+"the activity updates."
+msgstr ""
+
+#: inc/Welcome/Component.php:1125
+msgid "BuddyPress-Hashtags"
+msgstr ""
+
+#: inc/Welcome/Component.php:1128
+msgid "BuddyPress Hashtags"
+msgstr ""
+
+#: inc/Welcome/Component.php:1129
+msgid ""
+"Allow users to add multi-language hashtag links on BuddyPress community "
+"website."
+msgstr ""
+
+#: inc/Welcome/Component.php:1137
+msgid "BuddyPress-Moderation"
+msgstr ""
+
+#: inc/Welcome/Component.php:1140
+#, fuzzy
+msgid "BuddyPress Moderation Pro"
+msgstr "好友新闻审核专业版"
+
+#: inc/Welcome/Component.php:1141
+msgid ""
+"Allow members to flag inappropriate content on your BuddyPress community "
+"site."
+msgstr ""
+
+#: inc/Welcome/Component.php:1149
+msgid "BuddyPress-Private-Community-Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1152
+#, fuzzy
+msgid "BuddyPress Private Community Pro"
+msgstr "巴迪新闻私人社区专业"
+
+#: inc/Welcome/Component.php:1153
+msgid "Lockdown the BuddyPress components to make your member's profile safe."
+msgstr ""
+
+#: inc/Welcome/Component.php:1161
+msgid "BuddyPress-Polls"
+msgstr ""
+
+#: inc/Welcome/Component.php:1164
+#, fuzzy
+msgid "BuddyPress Polls"
+msgstr "好友新闻投票"
+
+#: inc/Welcome/Component.php:1165
+msgid ""
+"Allow users to create and respond to polls inside the BuddyPress activity or "
+"in groups."
+msgstr ""
+
+#: inc/Welcome/Component.php:1173
+msgid "BuddyPress-Profanity"
+msgstr ""
+
+#: inc/Welcome/Component.php:1176
+#, fuzzy
+msgid "BuddyPress Profanity"
+msgstr "巴迪新闻Profanity"
+
+#: inc/Welcome/Component.php:1177
+#, fuzzy
+msgid ""
+"Specify a list of bad words to control the content in your BuddyPress "
+"community."
+msgstr "指定坏词列表以控制好友社区中的内容。"
+
+#: inc/Welcome/Component.php:1185
+msgid "BuddyPress-Resume-Manager"
+msgstr ""
+
+#: inc/Welcome/Component.php:1188
+#, fuzzy
+msgid "BuddyPress Resume Manager"
+msgstr "巴迪新闻简历经理"
+
+#: inc/Welcome/Component.php:1189
+msgid ""
+"Allow members to create and display resumes on BuddyPress right from their "
+"profile page."
+msgstr ""
+
+#: inc/Welcome/Component.php:1197
+msgid "BuddyPress-Profile-Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1200
+#, fuzzy
+msgid "BuddyPress Profile Pro"
+msgstr "好友新闻个人资料专业版"
+
+#: inc/Welcome/Component.php:1201
+msgid ""
+"Add repeater fields or group of fields to the front-end forms on the "
+"member's profile."
+msgstr ""
+
+#. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
+#: inc/back-compat.php:25
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s and PHP version %2$s. You "
+"are running versions %3$s and %4$s respectively. Please update and try again."
+msgstr ""
+
+#. translators: 1: required WP version number, 2: available WP version number
+#: inc/back-compat.php:30
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s. You are running version "
+"%2$s. Please update and try again."
+msgstr ""
+
+#. translators: 1: required PHP version number, 2: available PHP version number
+#: inc/back-compat.php:35
+#, php-format
+msgid ""
+"Buddyx requires at least PHP version %1$s. You are running version %2$s. "
+"Please update and try again."
+msgstr ""
+
+#: inc/back-compat.php:39
+msgid ""
+"BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
+"Please activate this Template Pack from the BuddyPress Options."
+msgstr ""
+
+#: inc/class-buddyx-breadcrumbs.php:352
+#, fuzzy
+msgid "Browse:"
+msgstr "浏览："
+
+#: inc/class-buddyx-breadcrumbs.php:353
+#, fuzzy
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "面包屑"
+
+#: inc/class-buddyx-breadcrumbs.php:354
+#, fuzzy
+msgid "Home"
+msgstr "首页"
+
+#: inc/class-buddyx-breadcrumbs.php:355
+#, fuzzy
+msgid "404 Not Found"
+msgstr "404未找到"
+
+#: inc/class-buddyx-breadcrumbs.php:356
+#, fuzzy
+msgid "Archives"
+msgstr "归档"
+
+#: inc/class-buddyx-breadcrumbs.php:358
+#, fuzzy, php-format
+msgid "Search results for: %s"
+msgstr "搜索结果：%s"
+
+#: inc/class-buddyx-breadcrumbs.php:360
+#, fuzzy, php-format
+msgid "Page %s"
+msgstr "页面 %s"
+
+#: inc/class-buddyx-breadcrumbs.php:362
+#, fuzzy, php-format
+msgid "Comment Page %s"
+msgstr "评论页 %s"
+
+#: inc/class-buddyx-breadcrumbs.php:364
+#, fuzzy, php-format
+msgid "Minute %s"
+msgstr "分钟 %s"
+
+#: inc/class-buddyx-breadcrumbs.php:366
+#, fuzzy, php-format
+msgid "Week %s"
+msgstr "周 %s"
+
+#: inc/class-buddyx-breadcrumbs.php:375
+#: template-parts/header/buddypress-profile.php:136
+#: template-parts/header/buddypress-profile.php:142
+#, fuzzy
+msgid "Register"
+msgstr "注册"
+
+#: inc/class-buddyx-breadcrumbs.php:858
+#, fuzzy
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#: inc/class-buddyx-breadcrumbs.php:876
+#, fuzzy
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: inc/class-buddyx-breadcrumbs.php:894
+#, fuzzy
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "g a"
+
+#: inc/class-buddyx-breadcrumbs.php:911 inc/class-buddyx-breadcrumbs.php:941
+#: inc/class-buddyx-breadcrumbs.php:981 inc/class-buddyx-breadcrumbs.php:1009
+#: inc/class-buddyx-breadcrumbs.php:1377
+#, fuzzy
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/class-buddyx-breadcrumbs.php:912 inc/class-buddyx-breadcrumbs.php:982
+#: inc/class-buddyx-breadcrumbs.php:1382
+#, fuzzy
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: inc/class-buddyx-breadcrumbs.php:913 inc/class-buddyx-breadcrumbs.php:1387
+#, fuzzy
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: inc/class-buddyx-breadcrumbs.php:942
+#, fuzzy
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:57
+#, fuzzy
+msgid "Profile"
+msgstr "个人资料"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:60
+#: inc/compatibility/buddypress/buddypress-functions.php:82
+#, fuzzy
+msgid "Activity"
+msgstr "动态"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:63
+#, fuzzy
+msgid "Groups"
+msgstr "群组"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:66
+#, fuzzy
+msgid "Forums"
+msgstr "论坛"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:69
+#, fuzzy
+msgid "Friends"
+msgstr "好友"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:72
+#, fuzzy
+msgid "Members"
+msgstr "会员"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:75
+#, fuzzy
+msgid "Blogs"
+msgstr "博客"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:78
+#, fuzzy
+msgid "Business"
+msgstr "商业"
+
+#: inc/compatibility/buddypress/buddypress-functions.php:294
+msgid "Recently earned badge"
+msgid_plural "Recently earned badges"
+msgstr[0] ""
+
+#: inc/extra.php:113
+#, fuzzy
+msgid "View Shopping Cart"
+msgstr "查看购物车"
+
+#: inc/extra.php:149
+#, fuzzy
+msgid "View your shopping cart"
+msgstr "查看您的购物车"
+
+#: inc/extra.php:191 inc/extra.php:204
+msgid "BuddyX WordPress Theme"
+msgstr ""
+
+#: inc/extra.php:246
+#, fuzzy
+msgid "Sticky"
+msgstr "置顶"
+
+#: inc/extra.php:257
+#, fuzzy
+msgid "Leave a comment"
+msgstr "发表评论"
+
+#: inc/extra.php:257
+#, fuzzy
+msgid "1 Comment"
+msgstr "1 条评论"
+
+#: inc/extra.php:257
+#, fuzzy
+msgid "% Comments"
+msgstr "% 评论"
+
+#: inc/extra.php:262 template-parts/content/entry_meta.php:123
+#, fuzzy
+msgid "Edit"
+msgstr "编辑"
+
+#: inc/extra.php:463
+#, fuzzy
+msgid "Post Settings"
+msgstr "文章设置"
+
+#: inc/extra.php:472
+#, fuzzy
+msgid "Post Format Settings"
+msgstr "文章格式设置"
+
+#: inc/extra.php:491
+msgid "Overwrite Title Customizer settings"
+msgstr ""
+
+#: inc/extra.php:496
+#, fuzzy
+msgid "Title Style"
+msgstr "标题样式"
+
+#: inc/extra.php:546
+#, fuzzy
+msgid "Enter Youtube, Vimeo and etc video url."
+msgstr "输入Youtube，Vimeo等视频网址。"
+
+#: inc/extra.php:549
+#, fuzzy
+msgid "Video URL"
+msgstr "视频网址"
+
+#: inc/extra.php:552 inc/extra.php:565 inc/extra.php:794
+#, fuzzy
+msgid "Add Media"
+msgstr "添加媒体"
+
+#: inc/extra.php:559
+#, fuzzy
+msgid "Enter audio url."
+msgstr "输入音频URL"
+
+#: inc/extra.php:562
+#, fuzzy
+msgid "Audio URL"
+msgstr "音频网址"
+
+#: inc/extra.php:572
+#, fuzzy
+msgid "Input your quote."
+msgstr "输入您的报价"
+
+#: inc/extra.php:575
+#, fuzzy
+msgid "Quote Text"
+msgstr "引用文本"
+
+#: inc/extra.php:581
+#, fuzzy
+msgid "Quote Author"
+msgstr "引用作者"
+
+#: inc/extra.php:588
+#, fuzzy
+msgid "Input your link."
+msgstr "输入您的链接"
+
+#: inc/extra.php:591
+#, fuzzy
+msgid "Link Title"
+msgstr "链接标题"
+
+#: inc/extra.php:597
+#, fuzzy
+msgid "Link URL"
+msgstr "链接网址"
+
+#: inc/extra.php:604
+#, fuzzy
+msgid ""
+"To create a gallery, upload your images and then select \"Uploaded to this "
+"post\" from the dropdown (in the media popup) to see images attached to this "
+"post. You can drag to re-order or delete them there."
+msgstr ""
+"要创建画廊，请上载图像，然后从下拉列表中（在媒体弹出窗口中）选择“上传至此帖"
+"子”以查看附加到该帖子的图像。您可以拖动以重新排序或在此处将其删除。"
+
+#: inc/extra.php:626 inc/extra.php:733
+#, fuzzy
+msgid "Delete image"
+msgstr "删除图片"
+
+#: inc/extra.php:640 inc/extra.php:710
+#, fuzzy
+msgid "Add images gallery"
+msgstr "添加图像库"
+
+#: inc/extra.php:712
+#, fuzzy
+msgid "Add to gallery"
+msgstr "添加到图库"
+
+#: inc/extra.php:796
+#, fuzzy
+msgid "Add to Media"
+msgstr "添加到媒体"
+
+#: inc/extra.php:935 inc/extra.php:959
+#, fuzzy
+msgid "&hellip;"
+msgstr "&hellip;"
+
+#: inc/extra.php:961
+#, fuzzy
+msgid " Read more"
+msgstr " 阅读更多"
+
+#: inc/widgets/bp-profile-completion-widget.php:23
+#, fuzzy
+msgid "Show Logged in user Profile Completion Progress."
+msgstr "显示已登录的用户配置文件完成进度。"
+
+#: inc/widgets/bp-profile-completion-widget.php:29
+msgid "(BuddyPress) Profile Completion"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:77
+#, fuzzy, php-format
+msgid "%s Complete"
+msgstr "%s已完成"
+
+#: inc/widgets/bp-profile-completion-widget.php:114
+#, fuzzy
+msgid "Complete"
+msgstr "完成"
+
+#: inc/widgets/bp-profile-completion-widget.php:215
+#: inc/widgets/bp-profile-completion-widget.php:453
+#, fuzzy
+msgid "Profile Photo"
+msgstr "头像"
+
+#: inc/widgets/bp-profile-completion-widget.php:235
+#: inc/widgets/bp-profile-completion-widget.php:456
+#, fuzzy
+msgid "Cover Photo"
+msgstr "封面照片"
+
+#: inc/widgets/bp-profile-completion-widget.php:316
+#, fuzzy
+msgid "Profile Fields"
+msgstr "个人资料项"
+
+#: inc/widgets/bp-profile-completion-widget.php:428
+#, fuzzy
+msgid "Complete Your Profile"
+msgstr "完善你的个人资料"
+
+#: inc/widgets/bp-profile-completion-widget.php:462
+#, fuzzy
+msgid "Title:"
+msgstr "标题："
+
+#: inc/widgets/bp-profile-completion-widget.php:466
+#, fuzzy
+msgid "Profile field sets:"
+msgstr "个人资料字段集："
+
+#: inc/widgets/bp-profile-completion-widget.php:489
+#, fuzzy
+msgid "Profile photos:"
+msgstr "个人资料照片："
+
+#: inc/widgets/bp-profile-completion-widget.php:508
+#, fuzzy
+msgid "Hide widget once progress hits 100%"
+msgstr "进度达到100％时隐藏小部件"
+
+#: inc/widgets/bp-profile-completion-widget.php:514
+#, fuzzy
+msgid "Note: This widget is only displayed if a member is logged in."
+msgstr "注意：仅当成员登录后才显示此小部件。"
+
+#: rtmedia/main.php:97 rtmedia/main.php:208
+#, fuzzy
+msgid "rtMedia menu"
+msgstr "rtMedia菜单"
+
+#: searchform.php:10
+#, fuzzy
+msgid "Search for:"
+msgstr "搜索："
+
+#: searchform.php:11
+#, fuzzy
+msgid "Enter Keyword"
+msgstr "输入关键字"
+
+#: searchform.php:12
+#, fuzzy
+msgid "Go"
+msgstr "开始"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-bbpress.php:20
+#: template-parts/content-buddypress.php:20
+#: template-parts/content/entry-full-width.php:37
+#: template-parts/content/entry_content.php:21
+#, fuzzy, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "继续阅读<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content-bbpress.php:33
+#: template-parts/content-buddypress.php:33
+#: template-parts/content/entry-full-width.php:50
+#: template-parts/content/entry-page.php:38
+#: template-parts/content/entry_content.php:38
+#, fuzzy
+msgid "Pages:"
+msgstr "页面："
+
+#: template-parts/content/entry-attachment.php:35
+#: template-parts/content/entry-post.php:36 template-parts/content/entry.php:34
+#, fuzzy
+msgid "Previous:"
+msgstr "上一篇："
+
+#: template-parts/content/entry-attachment.php:45
+#: template-parts/content/entry-post.php:37 template-parts/content/entry.php:35
+#, fuzzy
+msgid "Next:"
+msgstr "下一个:"
+
+#: template-parts/content/entry-attachment.php:51
+#, fuzzy
+msgid "Post navigation"
+msgstr "文章导航"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:21
+#, fuzzy, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "留下你的评论<span class=\"screen-reader-text\"> 在 %s</span>"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:40
+#, fuzzy, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "编辑<span class=\"screen-reader-text\">%s</span>"
+
+#: template-parts/content/entry_meta.php:66
+#: template-parts/content/entry_meta.php:74
+#, fuzzy, php-format
+msgctxt "post author"
+msgid "Written by %s"
+msgstr "作者： %s"
+
+#: template-parts/content/entry_meta.php:69
+#, php-format
+msgctxt "post author"
+msgid "Written by  %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:93
+#, fuzzy, php-format
+msgctxt "post parent"
+msgid "In %s"
+msgstr "在 %s"
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:96
+#, fuzzy, php-format
+msgctxt "post parent"
+msgid "in %s"
+msgstr "在%s"
+
+#. translators: %s: post date
+#: template-parts/content/entry_meta.php:113
+#, fuzzy, php-format
+msgctxt "post date"
+msgid "%s"
+msgstr "%s"
+
+#. translators: separator between taxonomy terms
+#: template-parts/content/entry_taxonomies.php:24
+#, fuzzy
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:31
+#, fuzzy, php-format
+msgid "Posted in %s"
+msgstr "发表于 %s"
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:37
+#, fuzzy, php-format
+msgid "Tagged %s"
+msgstr "标记 %s"
+
+#. translators: %s: taxonomy name
+#: template-parts/content/entry_taxonomies.php:44
+#, fuzzy, php-format
+msgid "%s:"
+msgstr "%s:"
+
+#: template-parts/content/error-404.php:16
+#, fuzzy
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr "看起来在这个位置没有发现任何东西。 也许尝试下面的链接之一或搜索？"
+
+#: template-parts/content/error-404.php:27
+#, fuzzy
+msgid "Most Used Categories"
+msgstr "最常用的类别"
+
+#. translators: %1$s: smiley
+#: template-parts/content/error-404.php:45
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: template-parts/content/error-500.php:14
+#, fuzzy
+msgid "Oops! Something went wrong."
+msgstr "哎呀！发生了一些错误。"
+
+#: template-parts/content/error-offline.php:14
+#, fuzzy
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr "哎呀！看起来您&#8217;离线。"
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/error.php:23
+#, fuzzy, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "准备好发布您的第一篇文章？ <a href=\"%1$s\">立即开始</a>。"
+
+#: template-parts/content/error.php:38
+#, fuzzy
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "对不起，没有匹配您的搜索条件。请用一些不同的关键字再试一次。"
+
+#: template-parts/content/error.php:44
+#, fuzzy
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "看来我们无法找到您所需要的东西。 也许搜索可以帮助。"
+
+#: template-parts/content/page_header.php:14
+#, fuzzy
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "哎呀！ 该页面无法找到。"
+
+#: template-parts/content/page_header.php:22
+#, fuzzy
+msgid "Nothing Found"
+msgstr "什么都没找到"
+
+#. translators: %s: search query
+#: template-parts/content/page_header.php:41
+#, fuzzy, php-format
+msgid "Search Results for: %s"
+msgstr "搜索结果: %s"
+
+#: template-parts/content/pagination.php:13
+#, fuzzy
+msgctxt "previous set of search results"
+msgid "Previous"
+msgstr "上一个"
+
+#: template-parts/content/pagination.php:14
+msgctxt "next set of search results"
+msgid "Next"
+msgstr ""
+
+#: template-parts/content/pagination.php:15
+#, fuzzy
+msgid "Page navigation"
+msgstr "页面导航"
+
+#: template-parts/header/buddypress-profile.php:23
+#: template-parts/header/buddypress-profile.php:41
+#, fuzzy
+msgid "9+"
+msgstr "9+"
+
+#: template-parts/header/buddypress-profile.php:70
+#, fuzzy
+msgid "No notifications found."
+msgstr "没有提醒。"
+
+#: template-parts/header/buddypress-profile.php:74
+#, fuzzy
+msgid "All Notifications"
+msgstr "所有通知"
+
+#: template-parts/header/buddypress-profile.php:129
+#, fuzzy
+msgid "Login"
+msgstr "登录"
+
+#: template-parts/header/buddypress-profile.php:129
+#, fuzzy
+msgid "Log in"
+msgstr "登录"
+
+#: template-parts/header/navigation.php:17
+#, fuzzy
+msgid "Main menu"
+msgstr "主菜单"
+
+#: template-parts/header/navigation.php:41
+#, fuzzy
+msgid "Open menu"
+msgstr "打开菜单"
+
+#: template-parts/header/navigation.php:52
+msgid "Close"
+msgstr ""
+
+#: template-parts/header/navigation.php:76
+#, fuzzy
+msgid "My Account"
+msgstr "我的账户"
+
+#: woocommerce/cart/cart.php:30
+#, fuzzy
+msgid "Remove item"
+msgstr "删除项目"
+
+#: woocommerce/cart/cart.php:31
+#, fuzzy
+msgid "Thumbnail image"
+msgstr "缩略图"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:89
+#, fuzzy
+msgid "Product"
+msgstr "产品"
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:114
+#, fuzzy
+msgid "Price"
+msgstr "价格"
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:120
+#, fuzzy
+msgid "Quantity"
+msgstr "数量"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:146
+#, fuzzy
+msgid "Subtotal"
+msgstr "小计"
+
+#. translators: %s is the product name
+#: woocommerce/cart/cart.php:68
+#, fuzzy, php-format
+msgid "Remove %s from cart"
+msgstr "从购物车中删除 %s"
+
+#: woocommerce/cart/cart.php:109
+#, fuzzy
+msgid "Available on backorder"
+msgstr "可以推迟订单"
+
+#: woocommerce/cart/cart.php:164
+#, fuzzy
+msgid "Coupon:"
+msgstr "优惠券："
+
+#: woocommerce/cart/cart.php:164
+#, fuzzy
+msgid "Coupon code"
+msgstr "优惠券代码"
+
+#: woocommerce/cart/cart.php:164
+#, fuzzy
+msgid "Apply coupon"
+msgstr "使用优惠券"
+
+#: woocommerce/cart/cart.php:169
+#, fuzzy
+msgid "Update cart"
+msgstr "更新购物车"
+
+#. Theme URI of the plugin/theme
+msgid "https://wbcomdesigns.com/downloads/buddyx-theme/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"BuddyX is an ideal theme for community and membership websites. It provides "
+"a solution to all kinds of communities. Thanks to its BuddyPress support, "
+"your website can now have member profiles, send private messages, create "
+"groups, and more. It is a lightweight, fully responsive, SEO-optimised RTL "
+"and translation-ready theme. BuddyX supports WooCommerce, WC Vendors, "
+"LearnDash, LearnPress, and Gamipress plugins. It is highly customizable and "
+"works perfectly with page builders like Elementor and Gutenberg. BuddyX is "
+"perfect for creating social learning, marketplace, and blogging websites "
+"using BuddyPress integration. BuddyX uses the latest best practices for "
+"progressive web content and optimization. It is well-tested with the latest "
+"BuddyPress version and popular BuddyPress add-ons. Wbcom Designs is "
+"responsible for developing, maintaining, and supporting it."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "wbcomdesigns,vapvarun"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/vapvarun/buddyx"
+msgstr ""

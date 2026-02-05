@@ -26,3 +26,6 @@ npm-debug.log*
 CLAUDE.md
 bundled/
 .phpunit.result.cache
+
+# Map files
+*.map

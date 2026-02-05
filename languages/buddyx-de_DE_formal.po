@@ -1,0 +1,1605 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyX v2.x\n"
+"POT-Creation-Date: 2020-05-29 16:47+0200\n"
+"PO-Revision-Date: 2020-05-29 16:48+0200\n"
+"Last-Translator: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
+"Language-Team: Thorsten Wollenhöfer <thorsten.wollenhoefer@gmail.com>\n"
+"Language: de_DE@formal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#: buddypress/groups/groups-loop.php:51
+#: buddypress/groups/single/cover-image-header.php:35
+#, php-format
+msgid "active %s"
+msgstr "aktiv %s"
+
+#: buddypress/members/single/groups/invites.php:10
+msgid "Group Invites"
+msgstr "Gruppeneinladungen"
+
+#: buddypress/members/single/groups/invites.php:42
+#, php-format
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] "%s Mitglied"
+msgstr[1] "%s Mitglieder"
+
+#. translators: 1: title.
+#: comments.php:38
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Ein Gedanke zu &ldquo;%1$s&rdquo;"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:44
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Ein Gedanke zu &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Gedanken zu &ldquo;%2$s&rdquo;"
+
+#: comments.php:60
+msgid "Comments are closed."
+msgstr "Kommentarbereich ist geschlossen."
+
+#: external/class-tgm-plugin-activation.php:327
+msgid "Install Required Plugins"
+msgstr "Erforderliche Plugins installieren"
+
+#: external/class-tgm-plugin-activation.php:328
+msgid "Install Plugins"
+msgstr "Plugins installieren"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:330
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Plugin wird installiert: %s"
+
+#. translators: %s: plugin name.
+#: external/class-tgm-plugin-activation.php:332
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "Plugin wird aktualisiert: %s"
+
+#: external/class-tgm-plugin-activation.php:333
+msgid "Something went wrong with the plugin API."
+msgstr "Es ist ein Fehler mit der Plugin-API aufgetreten."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:336
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Dieses Theme erfordert das folgende Plugin: %1$s."
+msgstr[1] "Dieses Theme erfordert die folgende Plugins: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:342
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Dieses Theme empfiehlt das folgende Plugin: %1$s."
+msgstr[1] "Dieses Theme empfiehlt die folgenden Plugins: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:348
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"Das folgende Plugin muss auf die neueste Version aktualisiert werden, um die "
+"maximale Kompatibilität mit diesem Theme sicherzustellen: %1$s."
+msgstr[1] ""
+"Die folgenden Plugins müssen auf die neueste Version aktualisiert werden, um "
+"die maximale Kompatibilität mit diesem Theme sicherzustellen: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:354
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "Es ist eine Aktualisierung verfügbar, für: %1$s."
+msgstr[1] "Es sind Aktualisierungen verfügbar, für: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:360
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende benötigte Plugin ist derzeit inaktiv: %1$s."
+msgstr[1] "Die folgenden benötigten Plugins sind derzeit inaktiv: %1$s."
+
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:366
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende empfohlene Plugin ist derzeit inaktiv: %1$s."
+msgstr[1] "Die folgenden empfohlenen Plugins sind derzeit inaktiv: %1$s."
+
+#: external/class-tgm-plugin-activation.php:371
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Installation des Plugins beginnen"
+msgstr[1] "Installation der Plugins beginnen"
+
+#: external/class-tgm-plugin-activation.php:376
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "Mit der Plugin-Aktualisierung beginnen"
+msgstr[1] "Mit den Plugins-Aktualisierung beginnen"
+
+#: external/class-tgm-plugin-activation.php:381
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Beginnen Sie mit der Aktivierung des Plugins"
+msgstr[1] "Beginnen Sie mit der Aktivierung von Plugins"
+
+#: external/class-tgm-plugin-activation.php:385
+msgid "Return to Required Plugins Installer"
+msgstr "Zurück zur Installation der benötigten Plugins"
+
+#: external/class-tgm-plugin-activation.php:386
+#: external/class-tgm-plugin-activation.php:827
+#: external/class-tgm-plugin-activation.php:2533
+#: external/class-tgm-plugin-activation.php:3580
+msgid "Return to the Dashboard"
+msgstr "Zurück zur Übersicht"
+
+#: external/class-tgm-plugin-activation.php:387
+#: external/class-tgm-plugin-activation.php:3159
+msgid "Plugin activated successfully."
+msgstr "Plugin erfolgreich aktiviert."
+
+#: external/class-tgm-plugin-activation.php:388
+#: external/class-tgm-plugin-activation.php:2952
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "Das folgende Plugin wurde erfolgreich aktiviert:"
+msgstr[1] "Das folgenden Plugins wurden erfolgreich aktiviert:"
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:390
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "Keine Maßnahmen ergriffen. Plugin %1$s war bereits aktiv."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:392
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"Das Plugin wurde nicht aktiviert. Eine neuere Version des %s ist für dieses "
+"Theme erforderlich. Bitte aktualisieren Sie das Plugin."
+
+#. translators: 1: dashboard link.
+#: external/class-tgm-plugin-activation.php:394
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %1$s"
+
+#: external/class-tgm-plugin-activation.php:395
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: external/class-tgm-plugin-activation.php:396
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Es existieren ein oder mehrere benötigte oder empfohlene Plugins, die "
+"installiert, aktualisiert oder aktiviert werden müssen."
+
+#: external/class-tgm-plugin-activation.php:397
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+"Bitte kontaktieren Sie den Administrator dieser Website, wenn Sie Hilfe "
+"benötigen."
+
+#: external/class-tgm-plugin-activation.php:522
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+"Dieses Plugin muss aktualisiert werden, um mit Ihrem Theme kompatibel zu "
+"sein."
+
+#: external/class-tgm-plugin-activation.php:523
+msgid "Update Required"
+msgstr "Aktualisierung erforderlich"
+
+#: external/class-tgm-plugin-activation.php:934
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"Das Remote-Plugin-Paket enthält keinen Ordner mit dem gewünschten Kürzel und "
+"eine Umbenennung hat nicht funktioniert."
+
+#: external/class-tgm-plugin-activation.php:934
+#: external/class-tgm-plugin-activation.php:937
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"Bitte kontaktieren Sie den Plugin-Anbieter und bitten Sie ihn, seine Plugins "
+"nach den Wordpress-Richtlinien zu komprimieren."
+
+#: external/class-tgm-plugin-activation.php:937
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"Das Remote-Plugin-Paket besteht aus mehreren Dateien, aber die Dateien sind "
+"nicht in einem Ordner gepackt."
+
+#: external/class-tgm-plugin-activation.php:1121
+#: external/class-tgm-plugin-activation.php:2948
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "und"
+
+#. translators: %s: version number
+#: external/class-tgm-plugin-activation.php:1982
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: external/class-tgm-plugin-activation.php:2273
+msgid "Required"
+msgstr "Erforderlich"
+
+#: external/class-tgm-plugin-activation.php:2276
+msgid "Recommended"
+msgstr "Empfohlen"
+
+#: external/class-tgm-plugin-activation.php:2292
+msgid "WordPress Repository"
+msgstr "WordPress-Repository"
+
+#: external/class-tgm-plugin-activation.php:2295
+msgid "External Source"
+msgstr "Externe Quelle"
+
+#: external/class-tgm-plugin-activation.php:2298
+msgid "Pre-Packaged"
+msgstr "Vorverpackt"
+
+#: external/class-tgm-plugin-activation.php:2315
+msgid "Not Installed"
+msgstr "Nicht installiert"
+
+#: external/class-tgm-plugin-activation.php:2319
+msgid "Installed But Not Activated"
+msgstr "Installiert aber nicht aktiviert"
+
+#: external/class-tgm-plugin-activation.php:2321
+msgid "Active"
+msgstr "Aktiv"
+
+#: external/class-tgm-plugin-activation.php:2327
+msgid "Required Update not Available"
+msgstr "Erforderliche Aktualisierung nicht verfügbar"
+
+#: external/class-tgm-plugin-activation.php:2330
+msgid "Requires Update"
+msgstr "Update erforderlich"
+
+#: external/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
+msgstr "Update empfohlen"
+
+#. translators: 1: install status, 2: update status
+#: external/class-tgm-plugin-activation.php:2342
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2388
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alle <span class=\"count\">(%s)</span>"
+msgstr[1] "Alle <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2392
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "Zu installieren <span class=\"count\">(%s)</span>"
+msgstr[1] "Zu installieren <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2396
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "Aktualisierung verfügbar <span class=\"count\">(%s)</span>"
+msgstr[1] "Aktualisierung verfügbar <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: external/class-tgm-plugin-activation.php:2400
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "Zu Aktivieren <span class=\"count\">(%s)</span>"
+msgstr[1] "Zu Aktivieren <span class=\"count\">(%s)</span>"
+
+#: external/class-tgm-plugin-activation.php:2482
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "unbekannt"
+
+#: external/class-tgm-plugin-activation.php:2490
+msgid "Installed version:"
+msgstr "Installierte Version:"
+
+#: external/class-tgm-plugin-activation.php:2498
+msgid "Minimum required version:"
+msgstr "Minimal erforderliche Version:"
+
+#: external/class-tgm-plugin-activation.php:2510
+msgid "Available version:"
+msgstr "Verfügbare Version:"
+
+#: external/class-tgm-plugin-activation.php:2533
+msgid "No plugins to install, update or activate."
+msgstr "Keine Plugins zum Installieren, Aktualisieren oder Aktivieren."
+
+#: external/class-tgm-plugin-activation.php:2547
+msgid "Plugin"
+msgstr "Plugin"
+
+#: external/class-tgm-plugin-activation.php:2548
+msgid "Source"
+msgstr "Quelle"
+
+#: external/class-tgm-plugin-activation.php:2549
+msgid "Type"
+msgstr "Art"
+
+#: external/class-tgm-plugin-activation.php:2553
+msgid "Version"
+msgstr "Version"
+
+#: external/class-tgm-plugin-activation.php:2554
+msgid "Status"
+msgstr "Status"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2603
+#, php-format
+msgid "Install %2$s"
+msgstr "%2$s installieren"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2608
+#, php-format
+msgid "Update %2$s"
+msgstr "Aktualisiere %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2614
+#, php-format
+msgid "Activate %2$s"
+msgstr "%2$s aktivieren"
+
+#: external/class-tgm-plugin-activation.php:2684
+msgid "Upgrade message from the plugin author:"
+msgstr "Aktualisierungsnachricht vom Plugin-Autor:"
+
+#: external/class-tgm-plugin-activation.php:2717
+msgid "Install"
+msgstr "Installieren"
+
+#: external/class-tgm-plugin-activation.php:2723
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: external/class-tgm-plugin-activation.php:2726
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: external/class-tgm-plugin-activation.php:2757
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+"Es wurden keine Plugins zur Installation ausgewählt. Es wurde nichts "
+"unternommen."
+
+#: external/class-tgm-plugin-activation.php:2759
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+"Es wurden keine Plugins zur Aktualisierung ausgewählt. Es wurde nichts "
+"unternommen."
+
+#: external/class-tgm-plugin-activation.php:2800
+msgid "No plugins are available to be installed at this time."
+msgstr "Derzeit stehen keine Plugins zur Installation zur Verfügung."
+
+#: external/class-tgm-plugin-activation.php:2802
+msgid "No plugins are available to be updated at this time."
+msgstr "Derzeit stehen keine Plugins zur Aktualisierung zur Verfügung."
+
+#: external/class-tgm-plugin-activation.php:2908
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+"Es wurden keine Plugins zur Aktivierung ausgewählt. Es wurde nichts "
+"unternommen."
+
+#: external/class-tgm-plugin-activation.php:2934
+msgid "No plugins are available to be activated at this time."
+msgstr "Derzeit stehen keine Plugins zur Aktivierung zur Verfügung."
+
+#: external/class-tgm-plugin-activation.php:3158
+msgid "Plugin activation failed."
+msgstr "Plugin-Aktivierung fehlgeschlagen."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3498
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Aktualisierung des Plugins %1$s (%2$d/%3$d)"
+
+#. translators: 1: plugin name, 2: error message.
+#: external/class-tgm-plugin-activation.php:3501
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Während der Installation von %1$s: <strong>%2$s</strong> ist ein Fehler "
+"aufgetreten."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3503
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "Die Installation von %1$s ist fehlgeschlagen."
+
+#: external/class-tgm-plugin-activation.php:3507
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"Der Installations- und Aktivierungsprozess wurde gestartet. Dies kann eine "
+"Weile dauern, haben Sie etwas Geduld."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3509
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s wurde erfolgreich installiert und aktiviert."
+
+#: external/class-tgm-plugin-activation.php:3509
+#: external/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr "Details anzeigen"
+
+#: external/class-tgm-plugin-activation.php:3509
+#: external/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr "Details ausblenden"
+
+#: external/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr "Alle Installationen und Aktivierungen sind abgeschlossen."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3512
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Plugin installieren und aktivieren %1$s (%2$d/%3$d)"
+
+#: external/class-tgm-plugin-activation.php:3515
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"Der Installationsprozess wird gestartet. Dieser Prozess kann auf manchen "
+"Servern etwas Zeit in Anspruch nehmen. Bitte haben Sie Geduld."
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3517
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s wurde erfolgreich installiert."
+
+#: external/class-tgm-plugin-activation.php:3518
+msgid "All installations have been completed."
+msgstr "Alle Installationen wurden abgeschlossen."
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3520
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installation des Plugins %1$s (%2$d/%3$d)"
+
+#: external/include-kirki.php:54
+msgid ""
+"A plugin is required to take advantage of this theme's features in the "
+"customizer."
+msgstr ""
+"Ein Plugin ist erforderlich, um diese Theme-Funktionen im Customizer zu "
+"nutzen."
+
+#: external/include-kirki.php:55
+msgid "Install Kirki Toolkit now"
+msgstr "Installieren Sie das Kirki-Toolkit jetzt"
+
+#: external/include-kirki.php:56
+msgid "Install Now"
+msgstr "Jetzt installieren"
+
+#: external/include-kirki.php:59
+msgid ""
+"You have installed Kirki. Activate it to take advantage of this theme's "
+"features in the customizer."
+msgstr ""
+"Sie haben Kirki installiert. Aktivieren Sie es, um die Funktionen dieses "
+"Themes im Customizer zu nutzen."
+
+#: external/include-kirki.php:60
+msgid "Activate Kirki Toolkit now"
+msgstr "Aktivieren Sie jetzt das Kirki-Toolkit"
+
+#: external/include-kirki.php:61
+msgid "Activate Now"
+msgstr "Jetzt aktivieren"
+
+#: footer.php:24
+msgid "Footer"
+msgstr "Footer"
+
+#: header.php:39
+msgid "Skip to content"
+msgstr "Zum Inhalt springen"
+
+#: inc/Accessibility/Component.php:69
+msgid "Expand child menu"
+msgstr "Untermenü ausklappen"
+
+#: inc/Accessibility/Component.php:70
+msgid "Collapse child menu"
+msgstr "Untermenü einklappen"
+
+#: inc/Comments/Component.php:132
+msgid "New comment(s)"
+msgstr "Neuer Kommentar"
+
+#: inc/Customizer/Component.php:79
+msgid "Theme Options"
+msgstr "Theme Optionen"
+
+#: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
+msgid "Primary"
+msgstr "Primär"
+
+#: inc/Editor/Component.php:70
+msgid "Secondary"
+msgstr "Sekundäre"
+
+#: inc/Editor/Component.php:75
+msgid "Red"
+msgstr "Rot"
+
+#: inc/Editor/Component.php:80
+msgid "Green"
+msgstr "Grün"
+
+#: inc/Editor/Component.php:85
+msgid "Blue"
+msgstr "Blau"
+
+#: inc/Editor/Component.php:90
+msgid "Yellow"
+msgstr "Gelb"
+
+#: inc/Editor/Component.php:95
+msgid "Black"
+msgstr "Schwarz"
+
+#: inc/Editor/Component.php:100
+msgid "Grey"
+msgstr "Grau"
+
+#: inc/Editor/Component.php:105
+msgid "White"
+msgstr "Weiß"
+
+#: inc/Editor/Component.php:110
+msgid "Dusty daylight"
+msgstr "Trübes Tageslicht"
+
+#: inc/Editor/Component.php:115
+msgid "Dusty sun"
+msgstr "Staubige Sonne"
+
+#: inc/Editor/Component.php:132
+msgid "Small"
+msgstr "Schmal"
+
+#: inc/Editor/Component.php:133
+msgid "S"
+msgstr "S"
+
+#: inc/Editor/Component.php:138
+msgid "Medium"
+msgstr "Mittel"
+
+#: inc/Editor/Component.php:139
+msgid "M"
+msgstr "M"
+
+#: inc/Editor/Component.php:144
+msgid "Large"
+msgstr "Groß"
+
+#: inc/Editor/Component.php:145
+msgid "L"
+msgstr "L"
+
+#: inc/Editor/Component.php:150
+msgid "Larger"
+msgstr "Larger"
+
+#: inc/Editor/Component.php:151
+msgid "XL"
+msgstr "XL"
+
+#: inc/Kirki_Option/Component.php:63 inc/Kirki_Option/Component.php:72
+#: inc/Kirki_Option/Component.php:229
+msgid "Site Layout"
+msgstr "Website-Layout"
+
+#: inc/Kirki_Option/Component.php:83
+msgid "Site Loader"
+msgstr "Site-Loader"
+
+#: inc/Kirki_Option/Component.php:94
+msgid "Typography"
+msgstr "Typografie"
+
+#: inc/Kirki_Option/Component.php:103
+msgid "Site Title"
+msgstr "Website-Titel"
+
+#: inc/Kirki_Option/Component.php:113
+msgid "Headings"
+msgstr "Überschriften"
+
+#: inc/Kirki_Option/Component.php:123 template-parts/header/navigation.php:54
+msgid "Menu"
+msgstr "Menü"
+
+#: inc/Kirki_Option/Component.php:133
+msgid "Body"
+msgstr "Body"
+
+#: inc/Kirki_Option/Component.php:144
+msgid "Site Header"
+msgstr "Website-Header"
+
+#: inc/Kirki_Option/Component.php:154
+msgid "Site Sub Header"
+msgstr "Website-Unterheader"
+
+#: inc/Kirki_Option/Component.php:164
+msgid "Site Skin"
+msgstr "Website-Skin"
+
+#: inc/Kirki_Option/Component.php:174
+msgid "Site Blog"
+msgstr "Website-Blog"
+
+#: inc/Kirki_Option/Component.php:184
+msgid "Site Sidebar"
+msgstr "Website-Sidebar"
+
+#: inc/Kirki_Option/Component.php:194
+msgid "Site Footer"
+msgstr "Website-Footer"
+
+#: inc/Kirki_Option/Component.php:203
+msgid "Footer Section"
+msgstr "Footer-Abschnitt"
+
+#: inc/Kirki_Option/Component.php:214
+msgid "Copyright Section"
+msgstr "Copyright-Abschnitt"
+
+#: inc/Kirki_Option/Component.php:245
+msgid "Max Content Layout Width"
+msgstr "Max. Layout-Breite für den Inhalt"
+
+#: inc/Kirki_Option/Component.php:246
+msgid "Select the maximum content width for your website (px)"
+msgstr "Wähle die maximale Breite der Inhalte für Ihre Website (px)"
+
+#: inc/Kirki_Option/Component.php:266
+msgid "Site Loader ?"
+msgstr "Website-Loader ?"
+
+#: inc/Kirki_Option/Component.php:270 inc/Kirki_Option/Component.php:620
+#: inc/Kirki_Option/Component.php:633 inc/Kirki_Option/Component.php:649
+#: inc/Kirki_Option/Component.php:998 inc/Kirki_Option/Component.php:1013
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/Kirki_Option/Component.php:271 inc/Kirki_Option/Component.php:621
+#: inc/Kirki_Option/Component.php:634 inc/Kirki_Option/Component.php:650
+#: inc/Kirki_Option/Component.php:999 inc/Kirki_Option/Component.php:1014
+msgid "No"
+msgstr "Nein"
+
+#: inc/Kirki_Option/Component.php:278
+msgid "Site Loader Background"
+msgstr "Website-Loader-Hintergrund"
+
+#: inc/Kirki_Option/Component.php:299
+msgid "Site Title Settings"
+msgstr "Website-Titeleinstellungen"
+
+#: inc/Kirki_Option/Component.php:322
+msgid "Site Title Hover Color"
+msgstr "Website-Titel-Farbe (Hover)"
+
+#: inc/Kirki_Option/Component.php:337
+msgid "Site Tagline Settings"
+msgstr "Website-Tagline-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:363
+msgid "H1 Tag Settings"
+msgstr "H1-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:386
+msgid "H2 Tag Settings"
+msgstr "H2-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:409
+msgid "H3 Tag Settings"
+msgstr "H3-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:432
+msgid "H4 Tag Settings"
+msgstr "H4-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:455
+msgid "H5 Tag Settings"
+msgstr "H5-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:478
+msgid "H6 Tag Settings"
+msgstr "H6-Tag-Einstellungen"
+
+#: inc/Kirki_Option/Component.php:504
+msgid "Menu Settings"
+msgstr "Menüeinstellungen"
+
+#: inc/Kirki_Option/Component.php:531
+msgid "Menu Hover Color"
+msgstr "Menüfarbe (Hover)"
+
+#: inc/Kirki_Option/Component.php:550
+msgid "Menu Active Color"
+msgstr "Menüfarbe (Aktiv)"
+
+#: inc/Kirki_Option/Component.php:568
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: inc/Kirki_Option/Component.php:594
+msgid "Header Background Color"
+msgstr "Header Hintergrundfarbe"
+
+#: inc/Kirki_Option/Component.php:616
+msgid "Site Search ?"
+msgstr "Website-Suche ?"
+
+#: inc/Kirki_Option/Component.php:629
+msgid "Site Cart ?"
+msgstr "Website-Warenkorb ?"
+
+#: inc/Kirki_Option/Component.php:645 inc/Kirki_Option/Component.php:1009
+msgid "Customize Background ?"
+msgstr "Hintergrund anpassen ?"
+
+#: inc/Kirki_Option/Component.php:657 inc/Kirki_Option/Component.php:1021
+msgid "Background Control"
+msgstr "Hintergrund-Steuerelement"
+
+#: inc/Kirki_Option/Component.php:681
+msgid "Content Typography"
+msgstr "Inhalt Typografie"
+
+#: inc/Kirki_Option/Component.php:707
+msgid "Body Background Color"
+msgstr "Body Hintergrundfarbe"
+
+#: inc/Kirki_Option/Component.php:722
+msgid "Theme Color"
+msgstr "Theme-Farbe"
+
+#: inc/Kirki_Option/Component.php:747 inc/Kirki_Option/Component.php:1075
+#: inc/Kirki_Option/Component.php:1162
+msgid "Link Color"
+msgstr "Linkfarbe"
+
+#: inc/Kirki_Option/Component.php:762 inc/Kirki_Option/Component.php:1090
+msgid "Link Hover"
+msgstr "Link (Hover)"
+
+#: inc/Kirki_Option/Component.php:786
+msgid "Button Background Color"
+msgstr "Hintergrundfarbe der Schaltfläche"
+
+#: inc/Kirki_Option/Component.php:804
+msgid "Button Background Hover Color"
+msgstr "Hintergrundfarbe der Schaltfläche (Hover)"
+
+#: inc/Kirki_Option/Component.php:822
+msgid "Button Text Color"
+msgstr "Schaltflächentextfarbe"
+
+#: inc/Kirki_Option/Component.php:839
+msgid "Button Text Hover Color"
+msgstr "Schaltflächentextfarbe (Hover)"
+
+#: inc/Kirki_Option/Component.php:856
+msgid "Button Border Color"
+msgstr "Schaltflächenrahmenfarbe"
+
+#: inc/Kirki_Option/Component.php:873
+msgid "Button Border Hover Color"
+msgstr "Schaltflächenrahmenfarbe (Hover)"
+
+#: inc/Kirki_Option/Component.php:893
+msgid "Blog Layout"
+msgstr "Blog-Layout"
+
+#: inc/Kirki_Option/Component.php:907
+msgid "Post Per Row"
+msgstr "Beitrag pro Reihe"
+
+#: inc/Kirki_Option/Component.php:912
+msgid "Column 1"
+msgstr "Spalte 1"
+
+#: inc/Kirki_Option/Component.php:913
+msgid "Column 2"
+msgstr "Spalte 2"
+
+#: inc/Kirki_Option/Component.php:914
+msgid "Column 3"
+msgstr "Spalte 3"
+
+#: inc/Kirki_Option/Component.php:915
+msgid "Column 4"
+msgstr "Spalte 4"
+
+#: inc/Kirki_Option/Component.php:928
+msgid "Sidebar Layout"
+msgstr "Layout der Seitenleiste"
+
+#: inc/Kirki_Option/Component.php:944
+msgid "BuddyPress Sidebar Layout"
+msgstr "BuddyPress Seitenleiste-Layout"
+
+#: inc/Kirki_Option/Component.php:961
+msgid "bbPress Sidebar Layout"
+msgstr "bbPress Seitenleiste Layout"
+
+#: inc/Kirki_Option/Component.php:978
+msgid "WooCommerce Sidebar Layout"
+msgstr "WooCommerce Seitenleiste-Layout"
+
+#: inc/Kirki_Option/Component.php:994
+msgid "Sticky Sidebar ?"
+msgstr "Seitenleiste fixieren?"
+
+#: inc/Kirki_Option/Component.php:1045
+msgid "Title Color"
+msgstr "Titelfarbe"
+
+#: inc/Kirki_Option/Component.php:1060 inc/Kirki_Option/Component.php:1147
+msgid "Content Color"
+msgstr "Inhaltsfarbe"
+
+#: inc/Kirki_Option/Component.php:1108
+msgid "Add Content"
+msgstr "Inhalt hinzufügen"
+
+#: inc/Kirki_Option/Component.php:1117
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: inc/Kirki_Option/Component.php:1132
+msgid "Border Color"
+msgstr "Rahmenfarbe"
+
+#: inc/Kirki_Option/Component.php:1177
+msgid "Link Hover Color"
+msgstr "Linkfarbe (Hover)"
+
+#: inc/Lazyload/Component.php:89
+msgid "Lazy-load on"
+msgstr "Lazy-Load an"
+
+#: inc/Lazyload/Component.php:90
+msgid "Lazy-load off (default)"
+msgstr "Lazy-Load aus (Standard)"
+
+#: inc/Lazyload/Component.php:111
+msgid "Lazy-load images"
+msgstr "Lazy-Load-Bilder"
+
+#: inc/Lazyload/Component.php:114
+msgid ""
+"Lazy-loading images means images are loaded only when they are in view. "
+"Improves performance, but can result in content jumping around on slower "
+"connections."
+msgstr ""
+"Lazy-Loading bedeutet, dass Bilder nur geladen werden, wenn sie in "
+"Sichtweite sind. Das verbessert die Leistung, kann aber dazu führen, dass "
+"der Inhalt auf langsameren Verbindungen herumspringt."
+
+#: inc/Nav_Menus/Component.php:74
+msgid "User Menu"
+msgstr "Benutzermenü"
+
+#: inc/Sidebars/Component.php:93
+msgid "Left Sidebar"
+msgstr "Linke Seitenleiste"
+
+#: inc/Sidebars/Component.php:95 inc/Sidebars/Component.php:107
+#: inc/Sidebars/Component.php:120 inc/Sidebars/Component.php:132
+#: inc/Sidebars/Component.php:146 inc/Sidebars/Component.php:158
+#: inc/Sidebars/Component.php:172 inc/Sidebars/Component.php:184
+#: inc/Sidebars/Component.php:197 inc/Sidebars/Component.php:209
+#: inc/Sidebars/Component.php:221 inc/Sidebars/Component.php:233
+msgid "Add widgets here."
+msgstr "Widgets hier hinzufügen."
+
+#: inc/Sidebars/Component.php:105
+msgid "Right Sidebar"
+msgstr "Rechte Seitenleiste"
+
+#: inc/Sidebars/Component.php:118
+msgid "BuddyPress Left Sidebar"
+msgstr "BuddyPress Linke Seitenleiste"
+
+#: inc/Sidebars/Component.php:130
+msgid "BuddyPress Right Sidebar"
+msgstr "BuddyPress Rechte Seitenleiste"
+
+#: inc/Sidebars/Component.php:144
+msgid "bbPress Left Sidebar"
+msgstr "bbPress Linke Seitenleiste"
+
+#: inc/Sidebars/Component.php:156
+msgid "bbPress Right Sidebar"
+msgstr "bbPress Rechte Seitenleiste"
+
+#: inc/Sidebars/Component.php:170
+msgid "WooCommerce Left Sidebar"
+msgstr "WooCommerce Linke Seitenleiste"
+
+#: inc/Sidebars/Component.php:182
+msgid "WooCommerce Right Sidebar"
+msgstr "WooCommerce rechte Seitenleiste"
+
+#: inc/Sidebars/Component.php:195
+msgid "Footer 1"
+msgstr "Footer 1"
+
+#: inc/Sidebars/Component.php:207
+msgid "Footer 2"
+msgstr "Footer 2"
+
+#: inc/Sidebars/Component.php:219
+msgid "Footer 3"
+msgstr "Footer 3"
+
+#: inc/Sidebars/Component.php:231
+msgid "Footer 4"
+msgstr "Footer 4"
+
+#. translators: %s: stylesheet handle
+#: inc/Styles/Component.php:266
+#, php-format
+msgid "Invalid theme stylesheet handle: %s"
+msgstr "Ungültiges Theme-Stylesheet-Handle: %s"
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Template_Tags.php:54
+#, php-format
+msgid ""
+"The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+"Die Theme-Templating-Komponente %1$s implementiert nicht die Schnittstelle "
+"%2$s."
+
+#. translators: %s: template tag name
+#: inc/Template_Tags.php:81
+#, php-format
+msgid "The template tag %s does not exist."
+msgstr "Das Vorlagentag %s ist nicht vorhanden."
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:110
+#, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s must either "
+"be a callable or an array."
+msgstr ""
+"Die Template-Tag-Methode %1$s, die von der Theme-Komponente %2$s registriert "
+"wird, muss entweder aufrufbar oder ein Array sein."
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:121
+#, php-format
+msgid ""
+"The template tag method %1$s registered by theme component %2$s conflicts "
+"with an already registered template tag of the same name."
+msgstr ""
+"Die Template-Tag-Methode %1$s, die von der Theme-Komponente %2$s registriert "
+"wurde, steht in Konflikt mit einem bereits registrierten Template-Tag "
+"gleichen Namens."
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Theme.php:57
+#, php-format
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr "Die Theme-Komponente %1$s implementiert nicht die Schnittstelle %2$s."
+
+#. translators: %s: slug
+#: inc/Theme.php:120
+#, php-format
+msgid "No theme component with the slug %s exists."
+msgstr "Es gibt keine Theme-Komponente mit dem Slug %s."
+
+#: inc/Welcome/Component.php:44 inc/Welcome/Component.php:45
+msgid "Getting Started"
+msgstr "Erste Schritte"
+
+#: inc/Welcome/Component.php:54
+msgid "Getting started with BuddyX"
+msgstr "Erste Schritte mit BuddyX"
+
+#. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
+#: inc/back-compat.php:25
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s and PHP version %2$s. You "
+"are running versions %3$s and %3$s respectively. Please update and try again."
+msgstr ""
+"BuddyX benötigt mindestens die WordPress Version %1$s und die PHP Version "
+"%2$s. Sie verwenden die Versionen %3$s und %3$s. Bitte aktualisieren Sie sie "
+"und versuchen es erneut."
+
+#. translators: 1: required WP version number, 2: available WP version number
+#: inc/back-compat.php:30
+#, php-format
+msgid ""
+"Buddyx requires at least WordPress version %1$s. You are running version "
+"%2$s. Please update and try again."
+msgstr ""
+"BuddyX benötigt mindestens die WordPress Version %1$s. Sie verwenden die "
+"Version %2$s. Bitte aktualisieren Sie sie und versuchen es erneut."
+
+#. translators: 1: required PHP version number, 2: available PHP version number
+#: inc/back-compat.php:35
+#, php-format
+msgid ""
+"Buddyx requires at least PHP version %1$s. You are running version %2$s. "
+"Please update and try again."
+msgstr ""
+"BuddyX benötigt mindestens die PHP-Version %1$s. Sie verwenden die Version "
+"%2$s. Bitte aktualisieren Sie sie und versuchen es erneut."
+
+#: inc/back-compat.php:39
+msgid ""
+"BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. "
+"Please activate this Template Pack from the BuddyPress Options."
+msgstr ""
+"BuddyX requires the BuddyPress Template Pack „BP Nouveau“ to be active. "
+"Please activate this Template Pack from the BuddyPress Options."
+
+#: inc/extra.php:83
+msgid "View Shopping Cart"
+msgstr "Einkaufswagen ansehen"
+
+#: inc/extra.php:178
+msgid "View your shopping cart"
+msgstr "Ihre Auswahl ansehen"
+
+#: inc/extra.php:259
+msgid "See All"
+msgstr "Alle anzeigen"
+
+#: inc/widgets/bp-profile-completion-widget.php:20
+msgid "Show Logged in user Profile Completion Progress."
+msgstr ""
+"Fortschritt der Fertigstellung des angemeldeten Benutzerprofils anzeigen."
+
+#: inc/widgets/bp-profile-completion-widget.php:26
+msgid "(BuddyPress) Profile Completion"
+msgstr "(BuddyPress) Profil-Vervollständigung"
+
+#: inc/widgets/bp-profile-completion-widget.php:66
+#, php-format
+msgid "%s Complete"
+msgstr "%s abgeschlossen"
+
+#: inc/widgets/bp-profile-completion-widget.php:88
+msgid "Complete"
+msgstr "Abgeschlossen"
+
+#: inc/widgets/bp-profile-completion-widget.php:187
+#: inc/widgets/bp-profile-completion-widget.php:429
+msgid "Profile Photo"
+msgstr "Profilbild"
+
+#: inc/widgets/bp-profile-completion-widget.php:207
+#: inc/widgets/bp-profile-completion-widget.php:432
+msgid "Cover Photo"
+msgstr "Titelbild"
+
+#: inc/widgets/bp-profile-completion-widget.php:289
+msgid "Profile Fields"
+msgstr "Profilfelder"
+
+#: inc/widgets/bp-profile-completion-widget.php:404
+msgid "Complete Your Profile"
+msgstr "Vervollständigen Sie Ihr Profil"
+
+#: inc/widgets/bp-profile-completion-widget.php:438
+msgid "Title:"
+msgstr "Titel:"
+
+#: inc/widgets/bp-profile-completion-widget.php:441
+msgid "Profile field sets:"
+msgstr "Profil-Feldsätze:"
+
+#: inc/widgets/bp-profile-completion-widget.php:466
+msgid "Profile photos:"
+msgstr "Profilbilder:"
+
+#: inc/widgets/bp-profile-completion-widget.php:485
+msgid "Hide widget once progress hits 100%"
+msgstr "Widget ausblenden, sobald der Fortschritt 100% erreicht"
+
+#: inc/widgets/bp-profile-completion-widget.php:491
+msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+"Hinweis: Dieses Widget wird nur angezeigt, wenn ein Mitglied angemeldet ist."
+
+#: searchform.php:2
+msgid "Enter Keyword"
+msgstr "Schlüsselwort eingeben"
+
+#: searchform.php:9
+msgid "Go"
+msgstr "Start"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-bbpress.php:18
+#: template-parts/content-buddypress.php:18
+#: template-parts/content/entry-full-width.php:18
+#: template-parts/content/entry_content.php:19
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content-bbpress.php:31
+#: template-parts/content-buddypress.php:31
+#: template-parts/content/entry-full-width.php:31
+#: template-parts/content/entry_content.php:36
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: template-parts/content/entry-attachment.php:33
+#: template-parts/content/entry.php:32
+msgid "Previous:"
+msgstr "Zurück:"
+
+#: template-parts/content/entry-attachment.php:43
+#: template-parts/content/entry.php:33
+msgid "Next:"
+msgstr "Weiter:"
+
+#: template-parts/content/entry-attachment.php:49
+msgid "Post navigation"
+msgstr "Beitragsnavigation"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:21
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+"Hinterlassen Sie einen Kommentar <span class=\"screen-reader-text\"> zu %s</"
+"span>"
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:40
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Bearbeiten <span class=\"screen-reader-text\">%s</span>"
+
+#: template-parts/content/entry_meta.php:65
+#: template-parts/content/entry_meta.php:68
+#: template-parts/content/entry_meta.php:73
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "von %s"
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:92
+#, php-format
+msgctxt "post parent"
+msgid "In %s"
+msgstr "In %s"
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:95
+#, php-format
+msgctxt "post parent"
+msgid "in %s"
+msgstr "in %s"
+
+#. translators: %s: post date
+#: template-parts/content/entry_meta.php:112
+#, php-format
+msgctxt "post date"
+msgid ": %s"
+msgstr ": %s"
+
+#. translators: separator between taxonomy terms
+#: template-parts/content/entry_taxonomies.php:24
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:31
+#, php-format
+msgid "Posted in %s"
+msgstr "Veröffentlicht in %s"
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:37
+#, php-format
+msgid "Tagged %s"
+msgstr "Getaggt mit %s"
+
+#. translators: %s: taxonomy name
+#: template-parts/content/entry_taxonomies.php:44
+#, php-format
+msgid "%s:"
+msgstr "%s:"
+
+#: template-parts/content/error-404.php:16
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Es sieht so aus, als ob an diesem Ort nichts gefunden wurde. Vielleicht "
+"versuchen Sie einen der untenstehenden Links oder eine Suche?"
+
+#: template-parts/content/error-404.php:27
+msgid "Most Used Categories"
+msgstr "Meistgenutzte Kategorien"
+
+#. translators: %1$s: smiley
+#: template-parts/content/error-404.php:45
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Versuchen Sie es mal im monatlichen Archiv. %1$s"
+
+#: template-parts/content/error-500.php:14
+msgid "Oops! Something went wrong."
+msgstr "Leider ist etwas schief gegangen."
+
+#: template-parts/content/error-offline.php:14
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr "Oops! Es sieht so aus, als ob Sie&#8217;offline sind."
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/error.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Sind Sie bereit Ihren ersten Beitrag zu veröffentlichen? <a href=\"%1$s"
+"\">Starten Sie hier</a>."
+
+#: template-parts/content/error.php:38
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Es tut uns leid, aber es stimmt nichts mit Ihren Suchbegriffen überein. "
+"Bitte versuchen Sie es mit anderen Suchbegriffen erneut."
+
+#: template-parts/content/error.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Es scheint, dass wir das, was Sie suchen, nicht finden können. Vielleicht "
+"kann eine Suche helfen."
+
+#: template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Die Seite wurde nicht gefunden."
+
+#: template-parts/content/page_header.php:22
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+#. translators: %s: search query
+#: template-parts/content/page_header.php:41
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Suchergebnisse für: %s"
+
+#: template-parts/content/pagination.php:13
+msgctxt "previous set of search results"
+msgid "Previous"
+msgstr "Zurück"
+
+#: template-parts/content/pagination.php:14
+msgctxt "next set of search results"
+msgid "Next"
+msgstr "Weiter"
+
+#: template-parts/content/pagination.php:15
+msgid "Page navigation"
+msgstr "Seitennavigation"
+
+#: template-parts/header/buddypress-profile.php:45
+msgid "View all notifications"
+msgstr "Alle Meldungen anzeigen"
+
+#: template-parts/header/buddypress-profile.php:50
+msgid "No new notifications"
+msgstr "Keine neuen Benachrichtigungen"
+
+#: template-parts/header/navigation.php:16
+msgid "Main menu"
+msgstr "Hauptmenü"
+
+#: template-parts/header/navigation.php:39
+msgid "Open menu"
+msgstr "Menü öffnen"
+
+#: updater/theme-updater-admin.php:276 updater/theme-updater-admin.php:330
+#: updater/theme-updater-admin.php:383
+msgid "An error occurred, please try again."
+msgstr "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut."
+
+#: updater/theme-updater-admin.php:296
+#, php-format
+msgid "Your license key expired on %s."
+msgstr "Ihr Lizenzschlüssel ist am %s abgelaufen."
+
+#: updater/theme-updater-admin.php:304
+msgid "Your license key has been disabled."
+msgstr "Ihr Lizenzschlüssel wurde deaktiviert."
+
+#: updater/theme-updater-admin.php:309
+msgid "Invalid license."
+msgstr "Ungültige Lizenz."
+
+#: updater/theme-updater-admin.php:315
+msgid "Your license is not active for this URL."
+msgstr "Ihre Lizenz ist für diese URL nicht aktiv."
+
+#: updater/theme-updater-admin.php:320
+#, php-format
+msgid "This appears to be an invalid license key for %s."
+msgstr "Dies scheint ein ungültiger Lizenzschlüssel für %s zu sein."
+
+#: updater/theme-updater-admin.php:325
+msgid "Your license key has reached its activation limit."
+msgstr "Ihr Lizenzschlüssel hat sein Aktivierungslimit erreicht."
+
+#: updater/theme-updater.php:31
+msgid "BuddyX Theme License"
+msgstr "BuddyX Theme-Lizenz"
+
+#: updater/theme-updater.php:32
+msgid "Enter your theme license key."
+msgstr "Geben Sie Ihren Lizenzschlüssel ein."
+
+#: updater/theme-updater.php:33
+msgid "License Key"
+msgstr "Lizenzschlüssel"
+
+#: updater/theme-updater.php:34
+msgid "License Action"
+msgstr "Lizenz-Aktion"
+
+#: updater/theme-updater.php:35
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: updater/theme-updater.php:36
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: updater/theme-updater.php:37 updater/theme-updater.php:50
+msgid "License status is unknown."
+msgstr "Lizenzstatus ist unbekannt."
+
+#: updater/theme-updater.php:38
+msgid "Renew?"
+msgstr "Erneuern?"
+
+#: updater/theme-updater.php:39
+msgid "unlimited"
+msgstr "unbegrenzt"
+
+#: updater/theme-updater.php:40
+msgid "License key is active."
+msgstr "Lizenzschlüssel ist aktiv."
+
+#: updater/theme-updater.php:41
+#, php-format
+msgid "Expires %s."
+msgstr "Läuft am %s ab."
+
+#: updater/theme-updater.php:42
+msgid "Lifetime License."
+msgstr "Lebenslange Lizenz."
+
+#: updater/theme-updater.php:43
+#, php-format
+msgid "You have %1$s / %2$s sites activated."
+msgstr "Sie haben %1$s von %2$s Webseiten aktiviert."
+
+#: updater/theme-updater.php:44
+#, php-format
+msgid "License key expired %s."
+msgstr "Lizenzschlüssel abgelaufen am %s."
+
+#: updater/theme-updater.php:45
+msgid "License key has expired."
+msgstr "Lizenzschlüssel ist abgelaufen."
+
+#: updater/theme-updater.php:46
+msgid "License keys do not match."
+msgstr "Lizenzschlüssel stimmen nicht überein."
+
+#: updater/theme-updater.php:47
+msgid "License is inactive."
+msgstr "Lizenz ist inaktiv."
+
+#: updater/theme-updater.php:48
+msgid "License key is disabled."
+msgstr "Der Lizenzschlüssel ist deaktiviert."
+
+#: updater/theme-updater.php:49
+msgid "Site is inactive."
+msgstr "Website ist inaktiv."
+
+#: updater/theme-updater.php:51
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+"Durch das Aktualisieren dieses Themes gehen alle von Ihnen vorgenommenen "
+"Anpassungen verloren. 'Abbrechen' zum Stoppen, 'OK' zum Aktualisieren."
+
+#: updater/theme-updater.php:52
+#, php-format
+msgid ""
+"<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" "
+"title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</"
+"a>."
+msgstr ""
+"<strong>%1$s %2$s</strong> steht zur Verfügung. <a href=\"%3$s\" class="
+"\"thickbox\" title=\"% 4s\">Erfahren Sie, was neu ist</a> oder <a href=\"%5$s"
+"\"%6$s>aktualisieren Sie jetzt</a>."
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:79
+msgid "Product"
+msgstr "Produkt"
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:99
+msgid "Price"
+msgstr "Preis"
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:105
+msgid "Quantity"
+msgstr "Menge"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:127
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+#: woocommerce/cart/cart.php:58
+msgid "Remove this item"
+msgstr "Diesen Artikel entfernen"
+
+#: woocommerce/cart/cart.php:94
+msgid "Available on backorder"
+msgstr "Verfügbar bei Nachbestellung"
+
+#: woocommerce/cart/cart.php:145
+msgid "Coupon:"
+msgstr "Gutschein:"
+
+#: woocommerce/cart/cart.php:145
+msgid "Coupon code"
+msgstr "Gutscheincode"
+
+#: woocommerce/cart/cart.php:145
+msgid "Apply coupon"
+msgstr "Gutschein anwenden"
+
+#: woocommerce/cart/cart.php:150
+msgid "Update cart"
+msgstr "Warenkorb aktualisieren"
+
+#. Theme Name of the plugin/theme
+msgid "BuddyX"
+msgstr "BuddyX"
+
+#. Theme URI of the plugin/theme
+msgid "https://wbcomdesigns.com/downloads/buddyx"
+msgstr "https://wbcomdesigns.com/downloads/buddyx"
+
+#. Description of the plugin/theme
+msgid "Free theme for your community with BuddyPress."
+msgstr "Ein kostenloses Theme für Ihre Community mit BuddyPress."
+
+#. Author of the plugin/theme
+msgid "wbcomdesigns,vapvarun"
+msgstr "wbcomdesigns,vapvarun"
+
+#. Author URI of the plugin/theme
+msgid "https://wbcomdesigns.com"
+msgstr "https://wbcomdesigns.com"
+
+#. Template Name of the plugin/theme
+msgid "Page-Without-Sidebar"
+msgstr "Seite - ohne Seitenleiste"
+
+#. Template Name of the plugin/theme
+msgid "Full-Width-No-Title"
+msgstr "Volle Breite (kein Titel)"
+
+#~ msgid "BuddyPress"
+#~ msgstr "BuddyPress"
+
+#, php-format
+#~ msgctxt "post author"
+#~ msgid "By %s"
+#~ msgstr "Von %s"
+
+#~ msgid "Kirki Toolkit"
+#~ msgstr "Kirki Toolkit"
