@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T04:49:53+00:00\n"
+"POT-Creation-Date: 2026-02-11T09:50:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: buddyx\n"
@@ -696,7 +696,7 @@ msgid "Activate Now"
 msgstr ""
 
 #: footer.php:34
-#: inc/Kirki_Option/Component.php:1595
+#: inc/Kirki_Option/Fields/Skin_Fields.php:650
 msgid "Footer"
 msgstr ""
 
@@ -981,21 +981,21 @@ msgstr ""
 
 #: inc/compatibility/fluentcart/fluentcart-functions.php:240
 #: inc/compatibility/surecart/surecart-functions.php:303
-#: inc/Kirki_Option/Component.php:802
-#: inc/Kirki_Option/Component.php:966
-#: inc/Kirki_Option/Component.php:2153
-#: inc/Kirki_Option/Component.php:2166
-#: inc/Kirki_Option/Component.php:2349
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:22
+#: inc/Kirki_Option/Fields/Header_Fields.php:21
+#: inc/Kirki_Option/Fields/Skin_Fields.php:21
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:21
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:34
 msgid "Yes"
 msgstr ""
 
 #: inc/compatibility/fluentcart/fluentcart-functions.php:241
 #: inc/compatibility/surecart/surecart-functions.php:304
-#: inc/Kirki_Option/Component.php:803
-#: inc/Kirki_Option/Component.php:967
-#: inc/Kirki_Option/Component.php:2154
-#: inc/Kirki_Option/Component.php:2167
-#: inc/Kirki_Option/Component.php:2350
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:23
+#: inc/Kirki_Option/Fields/Header_Fields.php:22
+#: inc/Kirki_Option/Fields/Skin_Fields.php:22
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:22
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:35
 msgid "No"
 msgstr ""
 
@@ -1294,7 +1294,7 @@ msgid "General"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:145
-#: inc/Kirki_Option/Component.php:370
+#: inc/Kirki_Option/Fields/General_Fields.php:17
 #: inc/Welcome/Component.php:143
 #: inc/Welcome/Component.php:331
 msgid "Site Layout"
@@ -1320,7 +1320,7 @@ msgid "Site Title"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:197
-#: inc/Kirki_Option/Component.php:1344
+#: inc/Kirki_Option/Fields/Skin_Fields.php:399
 #: inc/Welcome/Component.php:396
 msgid "Headings"
 msgstr ""
@@ -1332,7 +1332,7 @@ msgid "Menu"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:217
-#: inc/Kirki_Option/Component.php:1161
+#: inc/Kirki_Option/Fields/Skin_Fields.php:216
 #: inc/Welcome/Component.php:406
 msgid "Body"
 msgstr ""
@@ -1396,596 +1396,596 @@ msgstr ""
 msgid "Site Performance"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:374
-msgid "You can select wide or box layout based on your preference."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:388
-msgid "Max Content Layout Width"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:389
-msgid "Select the maximum content width for your website (px)"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:407
-#: inc/Welcome/Component.php:346
-msgid "Global Border Radius"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:408
-msgid "Set the content, various elements border radius for your website (px)"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:419
-#: inc/Welcome/Component.php:351
-msgid "Buttons Border Radius"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:420
-msgid "Set the buttons border radius for your website (px)"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:431
-#: inc/Welcome/Component.php:356
-msgid "Form Border Radius"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:432
-msgid "Set the form elements (except textarea) border radius for your website (px)"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:446
-msgid "Site Loader ?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:450
-#: inc/Kirki_Option/Component.php:818
-#: inc/Kirki_Option/Component.php:835
-#: inc/Kirki_Option/Component.php:852
-#: inc/Kirki_Option/Component.php:868
-#: inc/Kirki_Option/Component.php:884
-#: inc/Kirki_Option/Component.php:950
-#: inc/Kirki_Option/Component.php:1900
-#: inc/Kirki_Option/Component.php:1936
-#: inc/Kirki_Option/Component.php:2137
-#: inc/Kirki_Option/Component.php:2366
-#: inc/Kirki_Option/Component.php:2424
-#: inc/Kirki_Option/Component.php:2437
-msgid "Enable"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:451
-#: inc/Kirki_Option/Component.php:819
-#: inc/Kirki_Option/Component.php:836
-#: inc/Kirki_Option/Component.php:853
-#: inc/Kirki_Option/Component.php:869
-#: inc/Kirki_Option/Component.php:885
-#: inc/Kirki_Option/Component.php:951
-#: inc/Kirki_Option/Component.php:1901
-#: inc/Kirki_Option/Component.php:1937
-#: inc/Kirki_Option/Component.php:2138
-#: inc/Kirki_Option/Component.php:2367
-#: inc/Kirki_Option/Component.php:2425
-#: inc/Kirki_Option/Component.php:2438
-msgid "Disable"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:462
-msgid "Login Page"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:463
-msgid "You can redirect user to custom login page."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:474
-msgid "Registration Page"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:475
-msgid "You can redirect user to custom registration page."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:486
-msgid "404"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:487
-msgid "You can redirect user to custom 404 page."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:501
-#: inc/Welcome/Component.php:391
-msgid "Site Title Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:515
-#: inc/Kirki_Option/Component.php:541
-#: inc/Kirki_Option/Component.php:570
-#: inc/Kirki_Option/Component.php:596
-#: inc/Kirki_Option/Component.php:622
-#: inc/Kirki_Option/Component.php:648
-#: inc/Kirki_Option/Component.php:674
-#: inc/Kirki_Option/Component.php:700
-#: inc/Kirki_Option/Component.php:729
-#: inc/Kirki_Option/Component.php:754
-#: inc/Kirki_Option/Component.php:783
-msgid "We recommend using font size in pixels (px)"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:527
-msgid "Site Tagline Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:556
-msgid "H1 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:582
-msgid "H2 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:608
-msgid "H3 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:634
-msgid "H4 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:660
-msgid "H5 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:686
-msgid "H6 Tag Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:715
-msgid "Menu Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:741
-msgid "Sub Menu Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:769
-msgid "Settings"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:798
-msgid "Enable Sticky Header ?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:814
-msgid "Enable Search Icon"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:831
-msgid "Enable Cart Icon"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:848
-msgid "Enable Login Link"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:864
-msgid "Enable Register Link"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:880
-#: inc/Kirki_Option/Component.php:2362
-msgid "Customize Background ?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:893
-#: inc/Kirki_Option/Component.php:2375
-msgid "Background Control"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:922
-#: inc/Welcome/Component.php:521
-msgid "Content Typography"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:946
-msgid "Site Breadcrumbs?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:962
-msgid "Set Custom Colors?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:975
-msgid "Loader"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:996
-msgid "Site Loader Background"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1019
-#: inc/Welcome/Component.php:436
-msgid "Header"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1035
-msgid "Site Title Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1053
-msgid "Site Title Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1071
-msgid "Site Tagline Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1089
-msgid "Header Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1107
-msgid "Menu Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1125
-msgid "Menu Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1143
-msgid "Menu Active Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1177
-#: inc/Welcome/Component.php:546
-msgid "Body Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1195
-msgid "Body Text Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1213
-msgid "Content Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1214
-msgid "Note: This setting will only be used if the box layout is selected."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1236
-msgid "Box Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1254
-msgid "Secondary Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1272
-msgid "Subheader Title Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1290
-#: inc/Welcome/Component.php:551
-msgid "Theme Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1308
-#: inc/Welcome/Component.php:556
-msgid "Link Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1326
-msgid "Link Hover"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1360
-msgid "H1 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1378
-msgid "H2 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1396
-msgid "H3 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1414
-msgid "H4 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1432
-msgid "H5 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1450
-msgid "H6 Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1468
-msgid "Buttons"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1485
-msgid "Button Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1504
-msgid "Button Background Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1523
-msgid "Button Text Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1541
-msgid "Button Text Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1559
-msgid "Button Border Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1577
-msgid "Button Border Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1611
-msgid "Footer Title Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1629
-msgid "Footer Content Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1647
-msgid "Footer Link Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1665
-msgid "Footer Link Hover"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1683
-msgid "Copyright"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1704
-msgid "Copyright Background Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1722
-msgid "Copyright Border Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1739
-msgid "Copyright Content Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1757
-msgid "Copyright Link Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1775
-msgid "Copyright Link Hover Color"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:1796
+#: inc/Kirki_Option/Fields/Blog_Fields.php:17
 msgid "Blog Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1812
+#: inc/Kirki_Option/Fields/Blog_Fields.php:33
 msgid "Image position"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1817
+#: inc/Kirki_Option/Fields/Blog_Fields.php:38
 msgid "Left"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1818
+#: inc/Kirki_Option/Fields/Blog_Fields.php:39
 msgid "Right"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1833
+#: inc/Kirki_Option/Fields/Blog_Fields.php:54
 msgid "Grid Columns"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1838
+#: inc/Kirki_Option/Fields/Blog_Fields.php:59
 msgid "One"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1839
-#: inc/Kirki_Option/Component.php:1880
+#: inc/Kirki_Option/Fields/Blog_Fields.php:60
+#: inc/Kirki_Option/Fields/Blog_Fields.php:101
 msgid "Two"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1854
+#: inc/Kirki_Option/Fields/Blog_Fields.php:75
 msgid "View"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1859
+#: inc/Kirki_Option/Fields/Blog_Fields.php:80
 msgid "Without Masonry"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1860
+#: inc/Kirki_Option/Fields/Blog_Fields.php:81
 msgid "With Masonry"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1875
+#: inc/Kirki_Option/Fields/Blog_Fields.php:96
 #: inc/Welcome/Component.php:611
 msgid "Post Per Row"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1881
+#: inc/Kirki_Option/Fields/Blog_Fields.php:102
 msgid "Three"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1896
+#: inc/Kirki_Option/Fields/Blog_Fields.php:117
 msgid "Show Tags"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1903
+#: inc/Kirki_Option/Fields/Blog_Fields.php:122
+#: inc/Kirki_Option/Fields/Blog_Fields.php:159
+#: inc/Kirki_Option/Fields/Footer_Fields.php:21
+#: inc/Kirki_Option/Fields/General_Fields.php:97
+#: inc/Kirki_Option/Fields/Header_Fields.php:37
+#: inc/Kirki_Option/Fields/Header_Fields.php:54
+#: inc/Kirki_Option/Fields/Header_Fields.php:71
+#: inc/Kirki_Option/Fields/Header_Fields.php:87
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:141
+#: inc/Kirki_Option/Fields/Site_Performance.php:21
+#: inc/Kirki_Option/Fields/Site_Performance.php:34
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:21
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:87
+msgid "Enable"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:123
+#: inc/Kirki_Option/Fields/Blog_Fields.php:160
+#: inc/Kirki_Option/Fields/Footer_Fields.php:22
+#: inc/Kirki_Option/Fields/General_Fields.php:98
+#: inc/Kirki_Option/Fields/Header_Fields.php:38
+#: inc/Kirki_Option/Fields/Header_Fields.php:55
+#: inc/Kirki_Option/Fields/Header_Fields.php:72
+#: inc/Kirki_Option/Fields/Header_Fields.php:88
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:142
+#: inc/Kirki_Option/Fields/Site_Performance.php:22
+#: inc/Kirki_Option/Fields/Site_Performance.php:35
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:22
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:88
+msgid "Disable"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:125
 msgid "Display tags on blog layouts."
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1910
+#: inc/Kirki_Option/Fields/Blog_Fields.php:132
 msgid "Tags Style"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1915
+#: inc/Kirki_Option/Fields/Blog_Fields.php:137
 msgid "Default"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1916
+#: inc/Kirki_Option/Fields/Blog_Fields.php:138
 msgid "Badge"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1917
+#: inc/Kirki_Option/Fields/Blog_Fields.php:139
 msgid "Underline"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1932
+#: inc/Kirki_Option/Fields/Blog_Fields.php:154
 msgid "Show Edit Link"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1939
+#: inc/Kirki_Option/Fields/Blog_Fields.php:162
 msgid "Please remember that the results will be shown in the frontend."
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1954
+#: inc/Kirki_Option/Fields/Blog_Fields.php:177
 msgid "Single Post Content Width"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1968
+#: inc/Kirki_Option/Fields/Blog_Fields.php:191
 msgid "Single Post Title Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1984
+#: inc/Kirki_Option/Fields/Blog_Fields.php:207
 msgid "Image Overlay Color"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:1985
+#: inc/Kirki_Option/Fields/Blog_Fields.php:208
 msgid "Allow to add image overlay color on single post title layout one."
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2013
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:17
+msgid "Avatar Style"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:18
+msgid "Set the round style for member and group avatars."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:17
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:17
+msgid "Customize Background ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:30
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:30
+msgid "Background Control"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:62
+msgid "Add Content"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:64
+msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:21
+msgid "You can select wide or box layout based on your preference."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:35
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:36
+msgid "Select the maximum content width for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:54
+#: inc/Welcome/Component.php:346
+msgid "Global Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:55
+msgid "Set the content, various elements border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:66
+#: inc/Welcome/Component.php:351
+msgid "Buttons Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:67
+msgid "Set the buttons border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:78
+#: inc/Welcome/Component.php:356
+msgid "Form Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:79
+msgid "Set the form elements (except textarea) border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:93
+msgid "Site Loader ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:109
+msgid "Login Page"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:110
+msgid "You can redirect user to custom login page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:121
+msgid "Registration Page"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:122
+msgid "You can redirect user to custom registration page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:133
+msgid "404"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:134
+msgid "You can redirect user to custom 404 page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:17
+msgid "Enable Sticky Header ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:33
+msgid "Enable Search Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:50
+msgid "Enable Cart Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:67
+msgid "Enable Login Link"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:83
+msgid "Enable Register Link"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:17
 msgid "Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2029
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:33
 msgid "Single Post Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2047
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:51
 msgid "Activity Directory Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2063
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:67
 msgid "Members Directory Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2079
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:83
 msgid "Groups Directory Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2098
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:102
 msgid "bbPress Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2116
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:120
 msgid "WooCommerce Sidebar Layout"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2133
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:137
 msgid "Sticky Sidebar ?"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2149
+#: inc/Kirki_Option/Fields/Site_Performance.php:17
+msgid "Load Google Fonts Locally ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:30
+msgid "Preload Local Fonts ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:50
+msgid "Flush Local Fonts Cache"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:51
+msgid "Click the button to reset the local fonts cache."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:17
+msgid "Set Custom Colors?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:30
+msgid "Loader"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:51
+msgid "Site Loader Background"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:74
+#: inc/Welcome/Component.php:436
+msgid "Header"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:90
+msgid "Site Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:108
+msgid "Site Title Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:126
+msgid "Site Tagline Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:144
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:162
+msgid "Menu Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:180
+msgid "Menu Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:198
+msgid "Menu Active Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:232
+#: inc/Welcome/Component.php:546
+msgid "Body Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:250
+msgid "Body Text Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:268
+msgid "Content Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:269
+msgid "Note: This setting will only be used if the box layout is selected."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:291
+msgid "Box Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:309
+msgid "Secondary Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:327
+msgid "Subheader Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:345
+#: inc/Welcome/Component.php:551
+msgid "Theme Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:363
+#: inc/Welcome/Component.php:556
+msgid "Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:381
+msgid "Link Hover"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:415
+msgid "H1 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:433
+msgid "H2 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:451
+msgid "H3 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:469
+msgid "H4 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:487
+msgid "H5 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:505
+msgid "H6 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:523
+msgid "Buttons"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:540
+msgid "Button Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:559
+msgid "Button Background Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:578
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:596
+msgid "Button Text Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:614
+msgid "Button Border Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:632
+msgid "Button Border Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:666
+msgid "Footer Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:684
+msgid "Footer Content Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:702
+msgid "Footer Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:720
+msgid "Footer Link Hover"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:738
+msgid "Copyright"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:759
+msgid "Copyright Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:777
+msgid "Copyright Border Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:794
+msgid "Copyright Content Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:812
+msgid "Copyright Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:830
+msgid "Copyright Link Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:59
+#: inc/Welcome/Component.php:521
+msgid "Content Typography"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:83
+msgid "Site Breadcrumbs?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:17
+#: inc/Welcome/Component.php:391
+msgid "Site Title Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:31
+#: inc/Kirki_Option/Fields/Typography_Fields.php:57
+#: inc/Kirki_Option/Fields/Typography_Fields.php:86
+#: inc/Kirki_Option/Fields/Typography_Fields.php:112
+#: inc/Kirki_Option/Fields/Typography_Fields.php:138
+#: inc/Kirki_Option/Fields/Typography_Fields.php:164
+#: inc/Kirki_Option/Fields/Typography_Fields.php:190
+#: inc/Kirki_Option/Fields/Typography_Fields.php:216
+#: inc/Kirki_Option/Fields/Typography_Fields.php:245
+#: inc/Kirki_Option/Fields/Typography_Fields.php:270
+#: inc/Kirki_Option/Fields/Typography_Fields.php:299
+msgid "We recommend using font size in pixels (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:43
+msgid "Site Tagline Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:72
+msgid "H1 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:98
+msgid "H2 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:124
+msgid "H3 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:150
+msgid "H4 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:176
+msgid "H5 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:202
+msgid "H6 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:231
+msgid "Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:257
+msgid "Sub Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:285
+msgid "Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:17
 #: inc/Welcome/Component.php:671
 msgid "Customize Your Logo Section"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2162
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:30
 msgid "Disable Logo?"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2182
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:50
 msgid "Custom Logo"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2205
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:73
 msgid "Logo Width"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2206
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:74
 msgid "Select the logo width (px)"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2229
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:97
 msgid "Logo Height"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2230
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:98
 msgid "Select the logo height (px)"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2253
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:121
 msgid "Logo Space Bottom"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2254
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:122
 msgid "Select the logo bottom spacing (px)"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2277
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:145
 msgid "Logo URL"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2300
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:168
 msgid "Logo Title"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2323
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:191
 msgid "Login Page Title"
 msgstr ""
 
-#: inc/Kirki_Option/Component.php:2324
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:192
 msgid "Login page title that is shown on WordPress login page."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2344
-msgid "Avatar Style"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2345
-msgid "Set the round style for member and group avatars."
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2407
-msgid "Add Content"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2409
-msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2420
-msgid "Load Google Fonts Locally ?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2433
-msgid "Preload Local Fonts ?"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2453
-msgid "Flush Local Fonts Cache"
-msgstr ""
-
-#: inc/Kirki_Option/Component.php:2454
-msgid "Click the button to reset the local fonts cache."
 msgstr ""
 
 #: inc/login.php:89
