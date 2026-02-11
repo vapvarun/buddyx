@@ -500,7 +500,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     clear: both;
     display: flex;
     max-width: var(--content-width);
-    font-family: var(--highlight-font-family);
 }
 
 .main-navigation a {
