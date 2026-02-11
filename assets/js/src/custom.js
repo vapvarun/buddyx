@@ -13,6 +13,52 @@
 
     var BUDDYX = window.BUDDYX || {};
 
+    /**
+     * Utility: Create a focus trap within a container.
+     * Keeps keyboard focus within the container when TAB is pressed.
+     *
+     * @param {jQuery} $container - The container element to trap focus within.
+     * @param {Event} e - The keydown event.
+     * @return {boolean} Whether focus was trapped.
+     */
+    BUDDYX.trapFocus = function($container, e) {
+        if (e.key !== 'Tab') {
+            return false;
+        }
+
+        var $focusable = $container.find('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])').filter(':visible');
+        if (!$focusable.length) {
+            return false;
+        }
+
+        var $first = $focusable.first();
+        var $last = $focusable.last();
+
+        if (e.shiftKey) {
+            if (document.activeElement === $first[0]) {
+                e.preventDefault();
+                $last.focus();
+                return true;
+            }
+        } else {
+            if (document.activeElement === $last[0]) {
+                e.preventDefault();
+                $first.focus();
+                return true;
+            }
+        }
+        return false;
+    };
+
+    /**
+     * Key code constants for keyboard navigation.
+     * Using key names instead of deprecated keyCode.
+     */
+    BUDDYX.keys = {
+        ESCAPE: 'Escape',
+        TAB: 'Tab',
+        ENTER: 'Enter'
+    };
 
     // Site Loader
     BUDDYX.siteLoader = function() {
@@ -119,25 +165,15 @@
     // Mobile Menu Toggle
     BUDDYX.mobileNav = function() {
         var widget = $('.menu-toggle'),
-
-            body = $('body');
-        widget.on('click', function(e) {
-            e.preventDefault();
-            if (isOpened()) {
-                closeWidget();
-            } else {
-                setTimeout(function() {
-                    openWidget();
-                }, 10);
-            }
-        });
+            body = $('body'),
+            menuTriggerElement = null;
 
         widget.on('click', function(e) {
             e.preventDefault();
             if (isOpened()) {
                 closeWidget();
-
             } else {
+                menuTriggerElement = this;
                 setTimeout(function() {
                     openWidget();
                 }, 10);
@@ -158,24 +194,43 @@
         });
 
         $(document).on('keyup', function(e) {
-            if (e.keyCode === 27 && isOpened())
+            if (e.key === BUDDYX.keys.ESCAPE && isOpened()) {
                 closeWidget();
+            }
+        });
+
+        // Focus trap for mobile menu - uses shared utility
+        $(document).on('keydown', function(e) {
+            if (!isOpened()) {
+                return;
+            }
+            BUDDYX.trapFocus($('.buddyx-mobile-menu'), e);
         });
 
         var closeWidget = function() {
             $('body').removeClass('mobile-menu-opened');
-            $(widget).removeClass('menu-toggle-open');
+            // Return focus to trigger element
+            if (menuTriggerElement) {
+                $(menuTriggerElement).focus();
+                menuTriggerElement = null;
+            }
         };
 
         var openWidget = function() {
             $('body').addClass('mobile-menu-opened');
-            $(widget).addClass('menu-toggle-open');
+            // Focus first focusable element in mobile menu
+            setTimeout(function() {
+                var $mobileMenu = $('.buddyx-mobile-menu');
+                var $focusable = $mobileMenu.find('a, button, input, [tabindex]:not([tabindex="-1"])').filter(':visible');
+                if ($focusable.length) {
+                    $focusable.first().focus();
+                }
+            }, 100);
         };
 
         var isOpened = function() {
             return $('body').hasClass('mobile-menu-opened');
         };
-
     };
 
     // Blog Layout
@@ -205,9 +260,9 @@
             $( '.tutor-video-player iframe' ).addClass( 'fitvidsignore' );
         }
 
-        var doFitVids = function () {
+        var doFitVids = function() {
             setTimeout(
-                function () {
+                function() {
                     var youtubeSelector = 'iframe[src*="youtube"]';
                     var vimeoSelector = '';
                     if (
@@ -223,14 +278,15 @@
             );
         };
         doFitVids();
-        $( document ).ajaxComplete( function () {
+        // Unbind previous before binding new to prevent duplicate handlers
+        $( document ).off('ajaxComplete.buddyxFitVids').on('ajaxComplete.buddyxFitVids', function() {
             if ( !$( '.elementor-popup-modal .elementor-widget-video' ).length ) {
                 doFitVids();
             }
             $( '.elementor-video-container' ).addClass( 'fitvidsignore' );
         } );
 
-        var doFitVidsOnLazyLoad = function ( event, data ) {
+        var doFitVidsOnLazyLoad = function( event, data ) {
             if ( typeof data !== 'undefined' && typeof data.element !== 'undefined' ) {
                 // load iframe in correct dimension
                 if ( data.element.getAttribute( 'data-lazy-type' ) == 'iframe' ) {
