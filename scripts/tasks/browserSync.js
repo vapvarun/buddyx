@@ -26,7 +26,7 @@ import { getThemeConfig } from '../lib/utils.js';
  */
 function getProxyUrl( configuredUrl ) {
 	// If a specific URL is configured (not the default), use it
-	if ( configuredUrl && configuredUrl !== 'buddyxpro.local/' ) {
+	if ( configuredUrl && configuredUrl !== 'buddyx.local/' ) {
 		return configuredUrl;
 	}
 

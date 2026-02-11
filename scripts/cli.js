@@ -264,7 +264,7 @@ async function runBundle( { phpcs = false, lint = false } = {} ) {
 
 	// Generate .pot file from production directory (before compression)
 	const potConfig = getThemeConfig();
-	const potDomain = potConfig.theme.slug || 'buddyxpro';
+	const potDomain = potConfig.theme.slug || 'buddyx';
 	const languagesDir = path.join( prodThemePath, 'languages' );
 	const potFile = path.join( languagesDir, `${ potDomain }.pot` );
 
@@ -297,8 +297,8 @@ async function runBundle( { phpcs = false, lint = false } = {} ) {
 }
 
 program
-	.name( 'buddyxpro' )
-	.description( 'BuddyX Pro Node-based build CLI (no gulp)' )
+	.name( 'buddyx' )
+	.description( 'BuddyX Node-based build CLI (no gulp)' )
 	.version( '0.1.0' );
 
 program
@@ -521,7 +521,7 @@ program
 							'Enter your local development domain (without protocol), e.g. mysite.local:10004',
 						default:
 							defaults?.dev?.browserSync?.proxyURL ||
-							'buddyxpro.local',
+							'buddyx.local',
 						validate: ( input ) =>
 							!! String( input ).trim() ||
 							'Please enter a domain (e.g. mysite.local:10004)',
@@ -554,7 +554,7 @@ program
 				answers = {
 					proxyURL:
 						defaults?.dev?.browserSync?.proxyURL ||
-						'buddyxpro.local',
+						'buddyx.local',
 					bypassPort: String(
 						defaults?.dev?.browserSync?.bypassPort || '8181'
 					),
@@ -581,7 +581,7 @@ program
 
 			// Guidance output
 			console.log( '' );
-			console.log( 'BuddyX Pro initialization complete.' );
+			console.log( 'BuddyX initialization complete.' );
 			console.log(
 				`- Wrote ${ configJsonPath } (overrides defaults in ${ defaultConfigPath }).`
 			);

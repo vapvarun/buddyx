@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * BuddyX Pro Distribution Script
+ * BuddyX Distribution Script
  *
  * Creates a distribution-ready zip file with proper version tagging.
  *
@@ -9,7 +9,7 @@
  *   npm run dist -- 1.2.3     # Use specified version
  *   npm run dist -- --current # Use current version from style.css
  *
- * @package buddyxpro
+ * @package buddyx
  */
 
 import { execFile as execFileCb, spawn } from 'node:child_process';
@@ -150,9 +150,9 @@ function getThemeSlug() {
 	const configPath = path.join(rootDir, 'config', 'config.default.json');
 	try {
 		const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-		return config.theme?.slug || 'buddyxpro';
+		return config.theme?.slug || 'buddyx';
 	} catch {
-		return 'buddyxpro';
+		return 'buddyx';
 	}
 }
 
@@ -228,7 +228,7 @@ async function createGitTag(version) {
  */
 async function main() {
 	console.log('='.repeat(50));
-	console.log('BuddyX Pro Distribution Script');
+	console.log('BuddyX Distribution Script');
 	console.log('='.repeat(50));
 
 	// Parse command line arguments

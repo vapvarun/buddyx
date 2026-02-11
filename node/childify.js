@@ -362,8 +362,8 @@ function appendDequeueHelper( parentSlug ) {
 	const snippet = `\n/**\n * CHILDIFY: dequeue parent assets if needed.\n * Adjust handles as necessary for your parent theme.\n */\nadd_action( 'wp_enqueue_scripts', function() {\n\t$handles = array(\n\t\t'parent-style',\n\t\t'${ parentSlug }-style',\n\t\t'${ parentSlug }-global',\n\t\t'${ parentSlug }-scripts',\n\t);\n\tforeach ( $handles as $h ) {\n\t\twp_dequeue_style( $h );\n\t\twp_deregister_style( $h );\n\t\twp_dequeue_script( $h );\n\t\twp_deregister_script( $h );\n\t}\n}, 20 );\n// CHILDIFY: dequeue parent assets end\n`;
 	// Insert before final initialize call to keep file readable
 	php = php.replace(
-		/\n\s*call_user_func\(\s*'BuddyxPro\\\\BuddyxPro\\\\buddyxpro'\s*\);\s*\n?$/,
-		`\n${ snippet }\ncall_user_func( 'BuddyxPro\\BuddyxPro\\buddyxpro' );\n`
+		/\n\s*call_user_func\(\s*'(BuddyX|Buddyx)\\\\(BuddyX|Buddyx)\\\\(buddyx|buddyx)'\s*\);\s*\n?$/,
+		`\n${ snippet }\ncall_user_func( 'BuddyX\\Buddyx\\buddyx' );\n`
 	);
 	fs.writeFileSync( fnPath, php, 'utf8' );
 	addLog( '✅ Appended dequeue helper to functions.php' );

@@ -8,6 +8,6 @@
  */
 export default function removeWpCliBlock( content ) {
 	const wpCliBlockRegex =
-		/\/\/ Add custom WP CLI commands\.\s*if\s*\(\s*defined\s*\(\s*'WP_CLI'\s*\)\s*&&\s*WP_CLI\s*\)\s*{\s*require_once\s*get_template_directory\(\)\s*\.\s*'\/wp-cli\/buddyxpro-commands\.php'\s*;\s*}/gs;
+		/\/\/ Add custom WP CLI commands\.\s*if\s*\(\s*defined\s*\(\s*'WP_CLI'\s*\)\s*&&\s*WP_CLI\s*\)\s*{\s*require_once\s*get_template_directory\(\)\s*\.\s*'\/wp-cli\/buddyx-commands\.php'\s*;\s*}/gs;
 	return content.replace( wpCliBlockRegex, '' );
 }

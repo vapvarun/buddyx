@@ -34,18 +34,18 @@ export const PHPCSOptions = {
 
 // Theme config name fields and their defaults
 export const nameFieldDefaults = {
-	PHPNamespace: 'BuddyxPro\\BuddyxPro',
-	slug: 'buddyxpro',
-	name: 'BuddyX Pro',
-	theme_uri: 'https://wbcomdesigns.com/downloads/buddyx-pro-theme',
+	PHPNamespace: 'BuddyX\\Buddyx',
+	slug: 'buddyx',
+	name: 'BuddyX',
+	theme_uri: 'https://wbcomdesigns.com/downloads/buddyx-theme',
 	author: 'Wbcom Designs',
 	author_uri: 'https://wbcomdesigns.com',
-	description: 'Pro theme for your community with BuddyPress.',
+	description: 'Theme for your community with BuddyPress.',
 	version: '5.0.0',
-	underscoreCase: 'buddyxpro',
-	constant: 'BUDDYXPRO',
-	camelCase: 'Buddyxpro',
-	camelCaseVar: 'buddyxpro',
+	underscoreCase: 'buddyx',
+	constant: 'BUDDYX',
+	camelCase: 'Buddyx',
+	camelCaseVar: 'buddyx',
 };
 
 // Default Theme Paths - use dist/ folder to avoid overwriting source theme
@@ -61,9 +61,9 @@ export const paths = {
 	assetsDir,
 	browserSync: {
 		dir: `${ rootPath }/BrowserSync`,
-		cert: `${ rootPath }/BrowserSync/buddyxpro-browser-sync-cert.crt`,
-		caCert: `${ rootPath }/BrowserSync/buddyxpro-browser-sync-root-cert.crt`,
-		key: `${ rootPath }/BrowserSync/buddyxpro-browser-sync-key.key`,
+		cert: `${ rootPath }/BrowserSync/buddyx-browser-sync-cert.crt`,
+		caCert: `${ rootPath }/BrowserSync/buddyx-browser-sync-root-cert.crt`,
+		key: `${ rootPath }/BrowserSync/buddyx-browser-sync-key.key`,
 	},
 	config: {
 		themeConfig: `${ rootPath }/config/themeConfig.js`,

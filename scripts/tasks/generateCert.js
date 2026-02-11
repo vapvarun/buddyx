@@ -30,7 +30,7 @@ export default function generateCert( done ) {
 		state: 'OR',
 		locality: 'Portland',
 		altNames: [ 'localhost' ],
-		organization: 'BuddyX Pro',
+		organization: 'BuddyX',
 		commonName: 'localhost',
 	};
 

@@ -45,7 +45,7 @@ async function createRigComponent() {
 		console.log( `  Slug: ${ componentInfo.kebabSlug }` );
 		console.log( `  Directory: inc/${ componentInfo.pascalName }/` );
 		console.log(
-			`  Namespace: BuddyxPro\\BuddyxPro\\${ componentInfo.pascalName }`
+			`  Namespace: BuddyX\\Buddyx\\${ componentInfo.pascalName }`
 		);
 
 		// Create directories
@@ -218,11 +218,11 @@ async function createComponentFile( filePath, componentInfo, options ) {
 	}
 
 	// Build the use statements
-	const useStatements = [ `use BuddyxPro\\BuddyxPro\\Component_Interface;` ];
+	const useStatements = [ `use BuddyX\\Buddyx\\Component_Interface;` ];
 
 	if ( templating ) {
 		useStatements.push(
-			`use BuddyxPro\\BuddyxPro\\Templating_Component_Interface;`
+			`use BuddyX\\Buddyx\\Templating_Component_Interface;`
 		);
 	}
 
@@ -244,7 +244,7 @@ async function createComponentFile( filePath, componentInfo, options ) {
 	if ( templating ) {
 		templateTagsMethod = `
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through \`buddyxpro()\`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through \`buddyx()\`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -263,12 +263,12 @@ async function createComponentFile( filePath, componentInfo, options ) {
 	// Combine everything into the full component template
 	const componentTemplate = `<?php
 /**
- * BuddyxPro\\BuddyxPro\\${ pascalName } Component
+ * BuddyX\\Buddyx\\${ pascalName } Component
  *
- * @package buddyxpro
+ * @package buddyx
  */
 
-namespace BuddyxPro\\BuddyxPro\\${ pascalName };
+namespace BuddyX\\Buddyx\\${ pascalName };
 
 ${ useStatements.join( '\n' ) }
 
@@ -313,14 +313,14 @@ async function createTestFile( componentInfo ) {
 
 	const testTemplate = `<?php
 /**
- * BuddyxPro\\BuddyxPro\\Tests\\Unit\\${ pascalName } ComponentTest
+ * BuddyX\\Buddyx\\Tests\\Unit\\${ pascalName } ComponentTest
  *
- * @package buddyxpro
+ * @package buddyx
  */
 
-namespace BuddyxPro\\BuddyxPro\\Tests\\Unit\\${ pascalName };
+namespace BuddyX\\Buddyx\\Tests\\Unit\\${ pascalName };
 
-use BuddyxPro\\BuddyxPro\\${ pascalName }\\Component;
+use BuddyX\\Buddyx\\${ pascalName }\\Component;
 use PHPUnit\\Framework\\TestCase;
 
 /**
@@ -358,10 +358,10 @@ async function createTemplatePartFile( componentInfo ) {
 /**
  * Template part for ${ componentInfo.originalName }
  *
- * @package buddyxpro
+ * @package buddyx
  */
 
-namespace BuddyxPro\\BuddyxPro;
+namespace BuddyX\\Buddyx;
 
 ?>
 <div class="${ kebabSlug }-wrapper">
