@@ -55,6 +55,10 @@
 /*--------------------------------------------------------------
 # Global Buddypress Css
 --------------------------------------------------------------*/
+.buddypress .bp-navs ul {
+    margin: 0;
+}
+
 .avatar {
     aspect-ratio: 1;
     object-fit: cover;

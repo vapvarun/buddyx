@@ -218,9 +218,9 @@ article .entry-header {
 
 @media (--content-query) {
 
-    .page-content>*,
+    /* .page-content>*,
     .entry-content>*,
-    .entry-summary>*,
+    .entry-summary>*, */
     .page-header,
     .entry-header,
     .entry-footer,
