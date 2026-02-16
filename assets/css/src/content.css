@@ -1754,6 +1754,33 @@ body.single-lcn_notes .content-wrapper {
     background-color: var(--color-custom-sun);
 }
 
+.has-base-color,
+.has-base-color a {
+    color: #ffffff;
+}
+
+.has-base-background-color {
+    background-color: #ffffff;
+}
+
+.has-contrast-color,
+.has-contrast-color a {
+    color: #000000;
+}
+
+.has-contrast-background-color {
+    background-color: #000000;
+}
+
+.has-tertiary-color,
+.has-tertiary-color a {
+    color: #f6f6f6;
+}
+
+.has-tertiary-background-color {
+    background-color: #f6f6f6;
+}
+
 /*--------------------------------------------------------------
 ## Custom block font sizes.
 --------------------------------------------------------------*/
@@ -1762,7 +1789,8 @@ body.single-lcn_notes .content-wrapper {
 	font-size: var(--font-size-small);
 }
 
-.has-regular-font-size {
+.has-regular-font-size,
+.has-medium-font-size {
 	font-size: var(--font-size-regular);
 }
 
@@ -1770,7 +1798,8 @@ body.single-lcn_notes .content-wrapper {
 	font-size: var(--font-size-large);
 }
 
-.has-larger-font-size {
+.has-larger-font-size,
+.has-x-large-font-size {
 	font-size: var(--font-size-larger);
 }
 

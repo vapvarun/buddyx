@@ -117,8 +117,12 @@
     --bx-article-grid-title-sm: 1.5rem;
     --bx-article-grid-title-md: 1.75rem;
     --bx-article-grid-title-lg: 2.25rem;
+    /* Block styling */
+    --color-block-bg-subtle: #f8f9fa;
+    --color-code-bg: #1e1e1e;
+    --color-code-text: #f8f8f2;
 
 	@media (prefers-color-scheme: dark) {
-		
+
 	}
 }

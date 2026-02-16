@@ -180,3 +180,38 @@ option {
 .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
     color: currentColor;
 }
+
+/*--------------------------------------------------------------
+# Editor block overrides
+# .entry-content selectors from _blocks.css don't apply in the
+# editor, so we mirror key ones using .editor-styles-wrapper.
+--------------------------------------------------------------*/
+
+.editor-styles-wrapper .wp-block-heading {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+.editor-styles-wrapper .wp-block-code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 1.25em 1.5em;
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    border: none;
+    border-radius: var(--global-border-radius);
+}
+
+.editor-styles-wrapper .wp-block-group.has-background {
+    padding: 1.5em 2em;
+    border-radius: var(--global-border-radius);
+}
+
+.editor-styles-wrapper figcaption {
+    margin-top: 0.5em;
+    font-size: 0.875rem;
+    color: var(--color-theme-grey);
+    text-align: center;
+    font-style: italic;
+}
