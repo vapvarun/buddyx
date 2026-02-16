@@ -1773,3 +1773,17 @@ body.single-lcn_notes .content-wrapper {
 .has-larger-font-size {
 	font-size: var(--font-size-larger);
 }
+
+/*--------------------------------------------------------------
+## Custom block line height with elementor.
+--------------------------------------------------------------*/
+[class*="elementor-page-"] .has-small-font-size,
+[class*="elementor-page-"] .has-regular-font-size,
+[class*="elementor-page-"] .has-large-font-size,
+[class*="elementor-page-"] .has-larger-font-size {
+    line-height: normal;
+}
+
+.elementor hr.wp-block-separator {
+    margin: 1.5em auto;
+}

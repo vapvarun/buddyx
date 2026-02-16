@@ -1416,8 +1416,12 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
     background: transparent;
     margin: 0;
     margin-bottom: 0;
-    padding: 0;
     overflow: visible;
+}
+
+.activity-list .activity-item .activity-content .activity-inner,
+.activity-list .activity-item .activity-content blockquote p {
+    padding: 0;
 }
 
 .buddypress-wrap .activity-inner {

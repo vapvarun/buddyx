@@ -8,7 +8,7 @@
 :root {
     --global-font-color: #505050;
     --global-font-family: "Open Sans", serif;
-    --global-font-size: 14;
+    --global-font-size: 16;
     --global-font-line-height: 1.4;
     --highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
     --content-width: 100%;
@@ -54,8 +54,8 @@
     --button-background-hover-color: #f83939;
     --button-border-color: #ef5455;
     --button-border-hover-color: #f83939;
-    --color-quote-border: #111;
-    --color-quote-citation: #6c7781;
+    --color-quote-border: #2e2c42;
+    --color-quote-citation: #475569;
 
     --color-footer-title: #111111;
     --color-footer-content: #505050;
