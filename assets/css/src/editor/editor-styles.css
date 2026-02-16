@@ -195,12 +195,18 @@ option {
 .editor-styles-wrapper .wp-block-code {
     font-family: "Courier New", Courier, monospace;
     font-size: 0.9rem;
-    line-height: 1.6;
-    padding: 1.25em 1.5em;
-    background-color: #1e1e1e;
-    color: #f8f8f2;
+    line-height: 1.7;
+    padding: 1.5em 2em;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
     border: none;
     border-radius: var(--global-border-radius);
+}
+
+.editor-styles-wrapper .wp-block-code code {
+    font-size: inherit;
+    background: none;
+    padding: 0;
 }
 
 .editor-styles-wrapper .wp-block-group.has-background {

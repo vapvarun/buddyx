@@ -256,7 +256,6 @@
 			},
 			"core/pullquote": {
 				"typography": {
-					"fontSize": "var:preset|font-size|large",
 					"fontWeight": "300",
 					"lineHeight": "1.4"
 				}

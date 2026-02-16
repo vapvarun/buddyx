@@ -231,7 +231,7 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 }
 
 .wp-block-pullquote p {
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	line-height: 1.4;
 }
 
@@ -253,7 +253,7 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 }
 
 .wp-block-pullquote.is-style-solid-color blockquote p {
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
 
 /*--------------------------------------------------------------
@@ -312,39 +312,41 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 # Preformatted Block
 --------------------------------------------------------------*/
 
-.wp-block-preformatted {
+.wp-block-preformatted.wp-block-preformatted {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 0.9rem;
-	line-height: 1.6;
-	padding: 1.25em 1.5em;
+	line-height: 1.7;
+	padding: 1.5em 2em;
 	background-color: var(--color-block-bg-subtle);
 	border: 1px solid var(--global-border-color);
 	border-radius: var(--global-border-radius);
 	overflow-x: auto;
 	white-space: pre-wrap;
 	word-wrap: break-word;
-	margin: 1.5em 0;
+	margin: 2em 0;
 }
 
 /*--------------------------------------------------------------
 # Code Block (extended)
 --------------------------------------------------------------*/
 
-.entry-content .wp-block-code {
-	font-family: "Courier New", Courier, monospace;
+.wp-block-code {
+	font-family: "Courier New", Courier, monospace !important;
 	font-size: 0.9rem;
-	line-height: 1.6;
-	padding: 1.25em 1.5em;
+	line-height: 1.7;
+	padding: 1.5em 2em !important;
 	background-color: var(--color-code-bg);
 	color: var(--color-code-text);
-	border: none;
-	border-radius: var(--global-border-radius);
+	border: none !important;
+	border-radius: var(--global-border-radius) !important;
 	overflow-x: auto;
-	margin: 1.5em 0;
+	margin: 2em 0;
+	tab-size: 4;
 }
 
-.entry-content .wp-block-code code {
+.wp-block-code code {
 	font-family: inherit;
+	font-size: inherit;
 	background: none;
 	padding: 0;
 	color: inherit;
@@ -357,13 +359,13 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 .wp-block-verse {
 	font-family: Georgia, "Times New Roman", serif;
 	font-style: italic;
-	font-size: 1.1em;
+	font-size: 1.05em;
 	line-height: 1.8;
-	padding: 1.25em 1.5em;
+	padding: 1.5em 2em;
 	border-left: 4px solid var(--color-theme-primary);
 	background-color: var(--color-block-bg-subtle);
 	border-radius: 0 var(--global-border-radius) var(--global-border-radius) 0;
-	margin: 1.5em 0;
+	margin: 2em 0;
 	white-space: pre-wrap;
 }
 

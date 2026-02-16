@@ -189,12 +189,12 @@
 
 p {
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
 }
 
 .entry-content ul.wp-block-list li,
 .entry-content ol.wp-block-list li {
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
 }
 
 .entry-content ul.wp-block-post-template {
@@ -231,9 +231,6 @@ article .entry-header {
         padding-right: 0;
     }
 
-    .entry-content>*.wp-block-code {
-        padding: .8em 1em;
-    }
 }
 
 .single-post .entry-content ul:not(.blocks-gallery-grid),

@@ -30,20 +30,22 @@ h5,
 h6 {
     font-family: var(--highlight-font-family);
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75em;
     color: var(--color-link);
-    line-height: 1.4;
-    font-weight: inherit;
+    line-height: 1.3;
+    font-weight: 600;
     clear: both;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 32px;
+    line-height: 1.2;
     color: var(--color-h1);
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 26px;
+    line-height: 1.25;
     color: var(--color-h2);
 }
 
@@ -69,14 +71,14 @@ h6 {
 
 .entry-header h1.entry-title,
 .page-header .page-title {
-    line-height: 1.4;
-    margin-top: 15px;
-    margin-bottom: 1em;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.75em;
 }
 
 .entry-layout .entry-header h1.entry-title,
 .entry-layout .page-header .page-title {
-    line-height: 1.4;
+    line-height: 1.2;
     margin-bottom: 1em;
 }
 
@@ -155,9 +157,9 @@ address {
 
 /* stylelint-disable */
 pre {
-    background: #eee;
-    font-family: "Courier 10 Pitch", Courier, monospace;
-    font-size: 0.9375rem;
+    background: var(--color-block-bg-subtle);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5em;
     max-width: 100%;
@@ -171,8 +173,19 @@ code,
 kbd,
 tt,
 var {
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-    font-size: 0.8rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.875em;
+    background-color: var(--color-block-bg-subtle);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+}
+
+pre code,
+.wp-block-code code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
 }
 
 abbr,
