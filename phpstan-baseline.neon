@@ -1,0 +1,4123 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: archive.php
+
+		-
+			message: '#^Function bb_activity_enabled_notification not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_activity_get_metadata not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_activity_load_progress_bar_state not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_activity_post_title not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_get_activity_comment_threading_depth not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_get_close_activity_comments_notice not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_is_activity_comment_threading_enabled not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_nouveau_activity_entry_bubble_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_action not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_can_comment not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_comments not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_css_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_entry_css_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_get_comment_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_get_permalink not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_core_fetch_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_core_get_iso8601_date not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_core_get_user_displayname not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_core_time_since not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_date_recorded not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_id not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_object_name not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_user_id not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_activity_user_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_group_name not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_loggedin_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_comment_form not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_entry_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_has_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_hook not found\.$#'
+			identifier: function.notFound
+			count: 6
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_state not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_timestamp not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function buddypress not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function groups_get_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
+			message: '#^Function bb_is_send_ajax_request not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_current_action not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_before_single_activity_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_template_notices not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bb_groups_loop_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bb_platform_group_element_enable not found\.$#'
+			identifier: function.notFound
+			count: 11
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bb_platform_group_grid_style not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_current_group_directory_type_message not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_get_current_group_directory_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_description_excerpt not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_after_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_avatar_args not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_before_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_get_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_groups_loop_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_groups_loop_item not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bb_attachment_get_cover_image_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_group_cover_image_height not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_group_cover_image_width not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_platform_group_headers_element_enable not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_attachments_get_attachment not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_attachments_get_group_has_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_group_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_current_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_name not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_parent_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_description not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_description_excerpt not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_list_parents not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_use_cover_image_header not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_item_admin not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta_extra not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 6
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_groups_front_page_description not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function groups_get_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function groups_get_groupmeta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_platform_group_headers_element_enable not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_disable_group_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_name not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_parent_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_description not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_description_excerpt not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_list_parents not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_is_item_admin not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta_extra not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 6
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_groups_front_page_description not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function groups_get_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_is_group_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_is_group_subgroups not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_template_part not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_is_object_nav_in_sidebar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bb_member_directories_get_profile_actions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bb_moderation_is_user_blocked_by not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bb_user_presence_html not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_add_switch_button not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_group_member_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_group_member_joined_since not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_last_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_user_member_type not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_has_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_domain not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_section_title not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_the_member not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_member_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_member_type_display_on_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_moderation_is_user_suspended not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Access to static property \$moderation_type on an unknown class BP_Moderation_Members\.$#'
+			identifier: class.notFound
+			count: 2
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Access to static property \$moderation_type_report on an unknown class BP_Moderation_Members\.$#'
+			identifier: class.notFound
+			count: 2
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bb_get_member_joined_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bb_member_directories_get_profile_actions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bb_user_presence_html not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_current_member_type_message not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_add_switch_button not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_button not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_current_member_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_last_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_member_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_user_member_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_has_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_get_report_link not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_name not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_type_display_on_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_moderation_get_report_type not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_after_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_avatar_args not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_before_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_the_member not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bb_attachment_get_cover_image_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_enabled_profile_header_layout_element not found\.$#'
+			identifier: function.notFound
+			count: 8
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_followers_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_following_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_member_joined_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_profile_cover_image_height not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_profile_cover_image_width not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_get_profile_header_layout_style not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_members_allow_html_tags not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bb_user_presence_html not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_activity_do_mentions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_attachments_get_attachment not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_attachments_get_user_has_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_core_get_user_displayname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_mentionname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_last_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_user_member_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_user_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_user_social_networks_urls not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_my_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_messages not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_notifications not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_profile_edit not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_settings not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_member_type_display_on_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_member_type_enable_disable not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_bubble_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_xprofile_get_hidden_fields_for_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_xprofile_nickname_field_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_core_time_since not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_groups_get_invite_messsage_for_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_groups_get_invited_by not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_groups_invite_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_front not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_messages not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_notifications not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_profile_edit not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_settings not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_is_object_nav_in_sidebar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/home.php
+
+		-
+			message: '#^Function bb_enabled_profile_header_layout_element not found\.$#'
+			identifier: function.notFound
+			count: 8
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_get_followers_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_get_following_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_get_member_joined_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_get_profile_header_layout_style not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_members_allow_html_tags not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bb_user_presence_html not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_activity_do_mentions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_core_get_user_displayname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_disable_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_disable_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_mentionname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_get_last_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_get_user_member_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_get_user_social_networks_urls not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_is_my_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_member_type_display_on_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_member_type_enable_disable not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_bubble_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: bbpress.php
+
+		-
+			message: '#^Function bp_is_group_create not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress.php
+
+		-
+			message: '#^Function bp_is_group_single not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: buddypress.php
+
+		-
+			message: '#^Function bp_activity_action not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_can_comment not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_comments not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_css_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_get_comment_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_type_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_activity_user_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_is_single_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_comment_form not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_data_attribute_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_entry_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_has_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_hook not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_nouveau_activity_timestamp not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/entry.php
+
+		-
+			message: '#^Function bp_current_action not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_template_notices not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/activity/single/home.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_core_get_iso8601_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_current_group_directory_type_message not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_get_current_group_directory_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_group_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_after_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_avatar_args not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_before_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_groups_loop_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_groups_loop_item not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_the_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Function bp_core_get_iso8601_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_name not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_group_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_description not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_group_use_cover_image_header not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_item_admin not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta_extra not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_groups_front_page_description not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_the_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_core_get_iso8601_date not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_last_active not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_name not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_group_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_description not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_group_type_list not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_is_item_admin not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_has_meta_extra not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_groups_front_page_description not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_nouveau_the_group_meta not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_is_group_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_group_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_is_object_nav_in_sidebar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/home.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_get_group_member_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_has_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_domain not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_joined_since not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_member_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_group_the_member not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_member_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_members_loop_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/groups/single/members-loop.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_current_member_type_message not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_current_member_type not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_member_latest_update not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_get_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_has_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_latest_update not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_name not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_permalink not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_after_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_avatar_args not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_before_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_is_grid not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_extra_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_has_extra_content not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_member_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_members_loop_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_the_member not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/members-loop.php
+
+		-
+			message: '#^Function bp_activity_do_mentions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_disable_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_displayed_user_mentionname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_displayed_user_fullname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_get_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_my_profile not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Function bp_ajax_querystring not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_friend_friendship_id not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_get_friendship_requests not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_has_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_member_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_member_class not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_member_last_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_member_link not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_member_name not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_members not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_nouveau_friend_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_nouveau_loop_classes not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_nouveau_members_loop_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_nouveau_pagination not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_the_member not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/friends/requests-loop.php
+
+		-
+			message: '#^Function bp_disable_group_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_get_group_total_members not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_description_excerpt not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_permalink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_group_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_avatar_args not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_groups_invite_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_nouveau_user_feedback not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/groups/invites.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_front not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_messages not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_notifications not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_profile_edit not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_is_user_settings not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_is_object_nav_in_sidebar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_nouveau_member_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/home.php
+
+		-
+			message: '#^Function bp_activity_do_mentions not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_disable_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_displayed_user_mentionname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_get_displayed_user_fullname not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_is_my_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_members_component_link not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_has_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_buttons not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Function bp_nouveau_member_meta not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: buddypress/members/single/member-header.php
+
+		-
+			message: '#^Class WP_Customize_Control referenced with incorrect case\: WP_Customize_control\.$#'
+			identifier: class.nameCase
+			count: 2
+			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: inc/Kirki_Option/Component.php
+
+		-
+			message: '#^Instantiated class Kirki\\Panel not found\.$#'
+			identifier: class.notFound
+			count: 5
+			path: inc/Kirki_Option/Component.php
+
+		-
+			message: '#^Instantiated class Kirki\\Section not found\.$#'
+			identifier: class.notFound
+			count: 17
+			path: inc/Kirki_Option/Component.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Color not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Radio not found\.$#'
+			identifier: class.notFound
+			count: 4
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
+			identifier: class.notFound
+			count: 3
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Select not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Blog_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/BuddyPress_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Background not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Footer_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Footer_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Textarea not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Footer_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/General_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Dimension not found\.$#'
+			identifier: class.notFound
+			count: 4
+			path: inc/Kirki_Option/Fields/General_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Dropdown_Pages not found\.$#'
+			identifier: class.notFound
+			count: 3
+			path: inc/Kirki_Option/Fields/General_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/General_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 5
+			path: inc/Kirki_Option/Fields/Header_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Sidebar_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
+			identifier: class.notFound
+			count: 7
+			path: inc/Kirki_Option/Fields/Sidebar_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/Kirki_Option/Fields/Site_Performance.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Site_Performance.php
+
+		-
+			message: '#^Array has 2 duplicate keys with value ''choices'' \(''choices'', ''choices''\)\.$#'
+			identifier: array.duplicateKey
+			count: 2
+			path: inc/Kirki_Option/Fields/Skin_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Skin_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Color not found\.$#'
+			identifier: class.notFound
+			count: 38
+			path: inc/Kirki_Option/Fields/Skin_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
+			identifier: class.notFound
+			count: 7
+			path: inc/Kirki_Option/Fields/Skin_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Background not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Typography not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Typography not found\.$#'
+			identifier: class.notFound
+			count: 11
+			path: inc/Kirki_Option/Fields/Typography_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Dimension not found\.$#'
+			identifier: class.notFound
+			count: 3
+			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Image not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\Text not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
+
+		-
+			message: '#^Instantiated class Kirki\\Field\\URL not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
+
+		-
+			message: '#^Function bp_current_component not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_current_component not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_group_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 6
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_activity not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_front not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_messages not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_notifications not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_profile_edit not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function bp_is_user_settings not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 7
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Function is_woocommerce not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/Sidebars/Component.php
+
+		-
+			message: '#^Class BuddyX\\Buddyx\\Dropdown_Select\\Component does not have a constructor and must be instantiated without any parameters\.$#'
+			identifier: new.noConstructor
+			count: 1
+			path: inc/Theme.php
+
+		-
+			message: '#^Action callback returns bool but should not return anything\.$#'
+			identifier: return.void
+			count: 1
+			path: inc/Webfont/class-buddyx-webfont-loader.php
+
+		-
+			message: '#^Call to static method error\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/back-compat.php
+
+		-
+			message: '#^Function buddyx_template_pack_check not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/back-compat.php
+
+		-
+			message: '#^Function bp_is_register_page not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Function get_day_link invoked with 1 parameter, 3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Method BuddyX_Breadcrumbs\:\:map_rewrite_tags\(\) should return array but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Method BuddyX_Breadcrumbs\:\:trail\(\) should return string but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Result of method BuddyX_Breadcrumbs\:\:get_post_types_by_slug\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Function badgeos_get_achievement_post_thumbnail not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function badgeos_get_achievement_types_slugs not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function badgeos_get_hidden_achievement_ids not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function badgeos_get_network_site_ids not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function badgeos_get_user_earned_achievement_ids not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_attachments_get_attachment not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_disable_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_disable_group_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_get_group_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Function bp_get_member_user_id not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Action callback returns BuddyX_FluentCart_Support but should not return anything\.$#'
+			identifier: return.void
+			count: 1
+			path: inc/compatibility/fluentcart/fluentcart-functions.php
+
+		-
+			message: '#^Inner named functions are not supported by PHPStan\. Consider refactoring to an anonymous function, class method, or a top\-level\-defined function\. See issue \#165 \(https\://github\.com/phpstan/phpstan/issues/165\) for more details\.$#'
+			identifier: function.inner
+			count: 2
+			path: inc/compatibility/fluentcart/fluentcart-functions.php
+
+		-
+			message: '#^Function bp_is_activity_component not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/rtmedia/rtmedia-functions.php
+
+		-
+			message: '#^Action callback returns BuddyX_SureCart_Support but should not return anything\.$#'
+			identifier: return.void
+			count: 1
+			path: inc/compatibility/surecart/surecart-functions.php
+
+		-
+			message: '#^Inner named functions are not supported by PHPStan\. Consider refactoring to an anonymous function, class method, or a top\-level\-defined function\. See issue \#165 \(https\://github\.com/phpstan/phpstan/issues/165\) for more details\.$#'
+			identifier: function.inner
+			count: 2
+			path: inc/compatibility/surecart/surecart-functions.php
+
+		-
+			message: '#^Function WC not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: inc/compatibility/woocommerce/woocommerce-functions.php
+
+		-
+			message: '#^Function is_product_category not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/woocommerce/woocommerce-functions.php
+
+		-
+			message: '#^Function is_product_tag not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/compatibility/woocommerce/woocommerce-functions.php
+
+		-
+			message: '#^Function wc_get_cart_url not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/compatibility/woocommerce/woocommerce-functions.php
+
+		-
+			message: '#^Function bp_create_excerpt not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/extra.php
+
+		-
+			message: '#^Function bp_strip_script_and_style_tags not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/extra.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: inc/extra.php
+
+		-
+			message: '#^Function bp_attachments_get_user_has_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_disable_avatar_uploads not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_disable_cover_image_uploads not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_get_profile_slug not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_get_user_has_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_is_my_profile not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_loggedin_user_domain not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_xprofile_get_groups not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_xprofile_get_meta not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function bp_xprofile_get_user_profile_progress_data not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: index.php
+
+		-
+			message: '#^Function is_account_page not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: index.php
+
+		-
+			message: '#^Function is_cart not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: index.php
+
+		-
+			message: '#^Function is_checkout not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: index.php
+
+		-
+			message: '#^Function is_woocommerce not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: index.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: page.php
+
+		-
+			message: '#^Function is_account_page not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: page.php
+
+		-
+			message: '#^Function is_cart not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: page.php
+
+		-
+			message: '#^Function is_checkout not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: page.php
+
+		-
+			message: '#^Function is_woocommerce not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: page.php
+
+		-
+			message: '#^Function bp_current_user_can not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_displayed_user_id not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_get_displayed_user_nav not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_get_options_nav not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 8
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_group_id not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_group_status_message not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_groups not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_has_groups not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_blog_page not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_group_home not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_change_avatar not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_change_cover_image not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_front not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_messages not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_notifications not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_profile_edit not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_user_settings not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_group_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_group_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_is_object_nav_in_sidebar not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_member_header_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_member_hook not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_nouveau_single_item_subnav_classes not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_the_group not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function rtm_get_server_var not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function rtmedia_load_template not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function rtmedia_sub_nav not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: rtmedia/main.php
+
+		-
+			message: '#^Function bp_is_current_component not found\.$#'
+			identifier: function.notFound
+			count: 9
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Function bp_is_group not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Function bp_is_group_create not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Function bp_is_user not found\.$#'
+			identifier: function.notFound
+			count: 11
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: single.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/content/entry-header-post.php
+
+		-
+			message: '#^Function bp_core_get_userlink not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/content/entry_meta.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: template-parts/content/entry_thumbnail.php
+
+		-
+			message: '#^Function bp_get_messages_slug not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_get_notifications_slug not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_get_option not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_has_notifications not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_is_active not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_loggedin_user_domain not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_notifications_get_unread_notification_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_the_notification not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_the_notification_description not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_the_notification_time_since not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_the_notifications not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function messages_get_unread_count not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Function bp_get_settings_slug not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/navigation.php
+
+		-
+			message: '#^Function bp_loggedin_user_domain not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/header/navigation.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/layout/entry-default-layout.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/layout/entry-grid-layout.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: template-parts/layout/entry-list-layout.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: template-parts/layout/entry-masonry-layout.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: template-parts/post-format/entry-image.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function is_woocommerce not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function wc_get_loop_prop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function wc_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function woocommerce_page_title not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function woocommerce_product_loop not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function woocommerce_product_loop_end not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function woocommerce_product_loop_start not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Function WC not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function wc_coupons_enabled not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function wc_get_cart_remove_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function wc_get_cart_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function wc_get_formatted_cart_item_data not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function wc_wp_theme_get_element_class_name not found\.$#'
+			identifier: function.notFound
+			count: 4
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function woocommerce_quantity_input not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/single-product.php
+
+		-
+			message: '#^Function is_woocommerce not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: woocommerce/single-product.php
+
+		-
+			message: '#^Function wc_get_template_part not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: woocommerce/single-product.php
