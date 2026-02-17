@@ -904,6 +904,18 @@ article .entry-header {
 ## Gallery
 --------------------------------------------------------------*/
 
+.archive-buddyx-gallery-post .gallery:not(.slick-initialized),
+.buddyx-post-section .buddyx-gallery-block .gallery:not(.slick-initialized) {
+    opacity: 0;
+}
+
+.archive-buddyx-gallery-post .gallery,
+.buddyx-post-section .buddyx-gallery-block .gallery,
+.archive-buddyx-gallery-post .gallery-icon,
+.buddyx-post-section .buddyx-gallery-block .gallery-icon {
+    display: block;
+}
+
 .archive-buddyx-gallery-post figure,
 .buddyx-post-section .buddyx-gallery-block figure {
     margin: 0;
