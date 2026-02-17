@@ -40,7 +40,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'init', array( $this, 'action_title_tag_support' ), -999 );
-		add_action( 'after_setup_theme', array( $this, 'action_essential_theme_support' ), 1 );
+		add_action( 'after_setup_theme', array( $this, 'action_essential_theme_support' ) );
 		add_action( 'wp_head', array( $this, 'action_add_pingback_header' ) );
 		add_filter( 'body_class', array( $this, 'filter_body_classes_add_hfeed' ) );
 		add_filter( 'embed_defaults', array( $this, 'filter_embed_dimensions' ) );
