@@ -1606,47 +1606,14 @@ body.single-lcn_notes .content-wrapper {
 	max-width: 100%;
 }
 
-/* .page-content > .alignleft,
-.entry-content > .alignleft,
-.entry-summary > .alignleft {
-	margin-left: 1.5rem;
+.page-template-full-width-container .entry-content > .alignfull,
+.post-template-post-full-large .entry-content > .alignfull,
+.post-template-post-full-small .entry-content > .alignfull {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: 100vw;
+    width: 100vw;
 }
-
-.page-content > .alignright,
-.entry-content > .alignright,
-.entry-summary > .alignright {
-	margin-right: 1.5rem;
-}
-
-@media (--content-query) {
-
-	.page-content > .alignleft,
-	.entry-content > .alignleft,
-	.entry-summary > .alignleft {
-		margin-left: calc((100vw - var(--content-width)) / 2);
-	}
-
-	.page-content > .alignright,
-	.entry-content > .alignright,
-	.entry-summary > .alignright {
-		margin-right: calc((100vw - var(--content-width)) / 2);
-	}
-}
-
-@media (--sidebar-query) {
-
-	.has-sidebar .page-content > .alignleft,
-	.has-sidebar .entry-content > .alignleft,
-	.has-sidebar .entry-summary > .alignleft {
-		margin-left: calc((75vw - 2rem - var(--content-width)) / 2);
-	}
-
-	.has-sidebar .page-content > .alignright,
-	.has-sidebar .entry-content > .alignright,
-	.has-sidebar .entry-summary > .alignright {
-		margin-right: calc((75vw - 2rem - var(--content-width)) / 2);
-	}
-} */
 
 /*--------------------------------------------------------------
 ## Custom block colors.

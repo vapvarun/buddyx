@@ -124,8 +124,7 @@
 		},
 		"layout": {
 			"contentSize": "840px",
-			"wideSize": "1200px",
-			"fullSize": "100%"
+			"wideSize": "1200px"
 		}
 	},
 	"styles": {
