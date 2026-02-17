@@ -206,7 +206,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 		}
 
 		// Apply filter to allow modifications to the footer text.
-		return apply_filters( 'buddyx_footer_copyright_text', $output );
+		return apply_filters( 'buddyx_footer_copyright_text', wp_kses_post( $output ) );
 	}
 }
 
@@ -468,14 +468,15 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 		$post_image_gallery = get_post_meta( $post_id, '_buddyx_image_gallery', true );
 		?>
 		<div class="buddyx_post_format-settings">
-			<input type="hidden" value="<?php echo $post_format; ?>" id="buddyx_post_format"/>
+			<?php wp_nonce_field( 'buddyx_save_post_meta', 'buddyx_post_meta_nonce' ); ?>
+			<input type="hidden" value="<?php echo esc_attr( $post_format ); ?>" id="buddyx_post_format"/>
 			<div class="buddyx_video_format_setting">
 				<p class="description"><?php esc_html_e( 'Enter Youtube, Vimeo and etc video url.', 'buddyx' ); ?></p>
 				<div class="buddyx_input_section">
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Video URL', 'buddyx' ); ?></label>
 					</div>
-					<input type="text" id="buddyx_post_video" name="buddyx_post_video" value="<?php echo $post_video; ?>" class="buddyx-input-text"/>
+					<input type="text" id="buddyx_post_video" name="buddyx_post_video" value="<?php echo esc_attr( $post_video ); ?>" class="buddyx-input-text"/>
 					<a href="javascript:void(0);" class="buddyx_upload_media option-tree-ui-button button button-primary light" data-id="buddyx_post_video" rel="<?php echo esc_attr( $post_id ); ?>" title="<?php esc_attr_e( 'Add Media', 'buddyx' ); ?>">
 						<span class="dashicons dashicons-insert"></span>
 					</a>
@@ -488,7 +489,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Audio URL', 'buddyx' ); ?></label>
 					</div>
-					<input type="text" id="buddyx_post_audio" name="buddyx_post_audio" value="<?php echo $post_audio; ?>" class="buddyx-input-text"/>
+					<input type="text" id="buddyx_post_audio" name="buddyx_post_audio" value="<?php echo esc_attr( $post_audio ); ?>" class="buddyx-input-text"/>
 					<a href="javascript:void(0);" class="buddyx_upload_media option-tree-ui-button button button-primary light" data-id="buddyx_post_audio" rel="<?php echo esc_attr( $post_id ); ?>" title="<?php esc_attr_e( 'Add Media', 'buddyx' ); ?>">
 						<span class="dashicons dashicons-insert"></span>
 					</a>
@@ -501,13 +502,13 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Quote Text', 'buddyx' ); ?></label>
 					</div>
-					<textarea name="buddyx_post_quote" class="buddyx-input-textare"><?php echo $post_quote; ?></textarea>
+					<textarea name="buddyx_post_quote" class="buddyx-input-textare"><?php echo esc_textarea( $post_quote ); ?></textarea>
 				</div>
 				<div class="buddyx_input_section">
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Quote Author', 'buddyx' ); ?></label>
 					</div>
-					<input type="text" name="buddyx_post_quote_author" value="<?php echo $post_quote_author; ?>" class="buddyx-input-text"/>
+					<input type="text" name="buddyx_post_quote_author" value="<?php echo esc_attr( $post_quote_author ); ?>" class="buddyx-input-text"/>
 				</div>
 			</div>
 
@@ -517,13 +518,13 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Link Title', 'buddyx' ); ?></label>
 					</div>
-					<input type="text" name="buddyx_post_link_title" value="<?php echo $post_link_title; ?>" class="buddyx-input-text"/>
+					<input type="text" name="buddyx_post_link_title" value="<?php echo esc_attr( $post_link_title ); ?>" class="buddyx-input-text"/>
 				</div>
 				<div class="buddyx_input_section">
 					<div class="format-setting-label">
 						<label class="label"><?php esc_html_e( 'Link URL', 'buddyx' ); ?></label>
 					</div>
-					<input type="text" name="buddyx_post_link_url" value="<?php echo $post_link_url; ?>" class="buddyx-input-text"/>
+					<input type="text" name="buddyx_post_link_url" value="<?php echo esc_attr( $post_link_url ); ?>" class="buddyx-input-text"/>
 				</div>
 			</div>
 
@@ -538,6 +539,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 
 						foreach ( $post_image_gallery as $image_id ) {
 							if ( trim( $image_id ) != '' ) {
+								$image_id = absint( $image_id );
 								// $image = wp_get_attachment_image_src($image_id, 'thumbnail');
 
 								echo '<li class="image" data-attachment_id="' . $image_id . '">
@@ -773,14 +775,11 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 			return;
 		}
 
-		// Verify nonce if needed
-		// Uncomment this block to add nonce verification - requires adding nonce field to forms
-		/*
+		// Verify nonce.
 		if ( ! isset( $_POST['buddyx_post_meta_nonce'] ) ||
 			! wp_verify_nonce( $_POST['buddyx_post_meta_nonce'], 'buddyx_save_post_meta' ) ) {
 			return;
 		}
-		*/
 
 		// Array of text fields to update.
 		$text_fields = array(
@@ -803,7 +802,7 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 
 		// Handle checkbox for title overwrite (separate because it needs different handling).
 		if ( isset( $_POST['_post_title_overwrite'] ) ) {
-			update_post_meta( $post_id, '_post_title_overwrite', sanitize_text_field( $_POST['_post_title_overwrite'] ) );
+			update_post_meta( $post_id, '_post_title_overwrite', sanitize_text_field( wp_unslash( $_POST['_post_title_overwrite'] ) ) );
 		} else {
 			// Remove the meta if the checkbox is unchecked.
 			delete_post_meta( $post_id, '_post_title_overwrite' );

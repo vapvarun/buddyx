@@ -59,7 +59,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function theme_options_enqueue_scripts(): void {
 
 		// Add BuddyX welcome page script
-		if ( isset( $_GET['page'] ) && $_GET['page'] == 'buddyx-welcome' ) {
+		if ( isset( $_GET['page'] ) && $_GET['page'] === 'buddyx-welcome' ) {
 			wp_enqueue_script(
 				'buddyx-admin-script',
 				get_template_directory_uri() . '/assets/js/admin/buddyx-admin.min.js',

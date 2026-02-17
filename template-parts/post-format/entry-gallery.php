@@ -12,7 +12,10 @@ if ( $post_gallery != '' ) {
 	$post_gallery_class = ( is_single() ) ? 'single-buddyx-gallery-post' : 'archive-buddyx-gallery-post';
 	?>
 	<div class="buddyx-gallery-block buddyx-post-thumbnail <?php echo esc_attr( $post_gallery_class ); ?>">
-		<?php echo do_shortcode( '[gallery size="medium" ids="' . $post_gallery . '"]' ); // WPCS: XSS ok. ?>
+		<?php
+		$gallery_ids = implode( ',', array_map( 'absint', explode( ',', $post_gallery ) ) );
+		echo do_shortcode( '[gallery size="medium" ids="' . $gallery_ids . '"]' ); // WPCS: XSS ok.
+		?>
 	</div>
 	<?php
 }

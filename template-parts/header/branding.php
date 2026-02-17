@@ -31,7 +31,7 @@ namespace BuddyX\Buddyx;
 			if ( $buddyx_description || is_customize_preview() ) :
 				?>
 				<p class="site-description">
-					<?php echo $buddyx_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo esc_html( $buddyx_description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</p>
 			<?php endif; ?>
 

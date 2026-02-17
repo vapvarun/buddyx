@@ -106,7 +106,7 @@ class Component implements Component_Interface {
 	 * LearnDash dark mode body class.
 	 */
 	public function site_learndash_body_classes( array $classes ): array {
-		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' == $_COOKIE['bxtheme'] && is_user_logged_in() ) {
+		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' === $_COOKIE['bxtheme'] && is_user_logged_in() ) {
 			$classes[] = 'buddyx-dark-theme';
 		}
 
