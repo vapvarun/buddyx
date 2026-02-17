@@ -1,77 +1,77 @@
 {
 	"version": 2,
+	"customTemplates": [
+		{
+			"name": "blank",
+			"postTypes": [
+				"page",
+				"post"
+			],
+			"title": "Blank"
+		},
+		{
+			"name": "blog-alternative",
+			"postTypes": [
+				"page"
+			],
+			"title": "Blog (Alternative)"
+		},
+		{
+			"name": "404",
+			"postTypes": [
+				"page"
+			],
+			"title": "404"
+		}
+	],
 	"settings": {
-		"customTemplates": [
-			{
-				"name": "blank",
-				"postTypes": [
-					"page",
-					"post"
-				],
-				"title": "Blank"
-			},
-			{
-				"name": "blog-alternative",
-				"postTypes": [
-					"page"
-				],
-				"title": "Blog (Alternative)"
-			},
-			{
-				"name": "404",
-				"postTypes": [
-					"page"
-				],
-				"title": "404"
-			}
-		],
 		"appearanceTools": true,
 		"color": {
 			"palette": [
 				{
 					"color": "#ef5455",
 					"name": "Primary",
-					"slug": "theme-primary"
+					"slug": "primary"
 				},
 				{
 					"color": "#41848f",
 					"name": "Secondary",
-					"slug": "theme-secondary"
+					"slug": "secondary"
 				},
 				{
 					"color": "#c0392b",
 					"name": "Red",
-					"slug": "theme-red"
+					"slug": "red"
 				},
 				{
 					"color": "#27ae60",
 					"name": "Green",
-					"slug": "theme-green"
+					"slug": "green"
 				},
 				{
 					"color": "#2980b9",
 					"name": "Blue",
-					"slug": "theme-blue"
+					"slug": "blue"
 				},
 				{
 					"color": "#f1c40f",
 					"name": "Yellow",
-					"slug": "theme-yellow"
+					"slug": "yellow"
 				},
 				{
 					"color": "#1c2833",
 					"name": "Black",
-					"slug": "theme-black"
+					"slug": "black"
 				},
 				{
 					"color": "#95a5a6",
 					"name": "Grey",
-					"slug": "theme-grey"
+					"slug": "grey"
 				},
 				{
 					"color": "#ecf0f1",
 					"name": "White",
-					"slug": "theme-white"
+					"slug": "white"
 				},
 				{
 					"color": "#97c0b7",
@@ -82,21 +82,6 @@
 					"color": "#eee9d1",
 					"name": "Dusty Sun",
 					"slug": "custom-sun"
-				},
-				{
-					"color": "#ffffff",
-					"name": "Base",
-					"slug": "base"
-				},
-				{
-					"color": "#000000",
-					"name": "Contrast",
-					"slug": "contrast"
-				},
-				{
-					"color": "#f6f6f6",
-					"name": "Tertiary",
-					"slug": "tertiary"
 				}
 			]
 		},
@@ -140,7 +125,7 @@
 		"layout": {
 			"contentSize": "840px",
 			"wideSize": "1200px",
-			"fullSize": "none"
+			"fullSize": "100%"
 		}
 	},
 	"styles": {

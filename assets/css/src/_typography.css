@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--highlight-font-family);
+    font-family: inherit;
     margin-top: 0;
     margin-bottom: 0.75em;
     color: var(--color-link);

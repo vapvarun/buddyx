@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Site Title Settings', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '38px',
 					'line-height'     => '1.2',
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Site Tagline Settings', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => 'regular',
 					'font-size'       => '15px',
 					'line-height'     => '1.4',
@@ -72,7 +72,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H1 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '32px',
 					'line-height'     => '1.2',
@@ -98,7 +98,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H2 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '26px',
 					'line-height'     => '1.25',
@@ -124,7 +124,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H3 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '22px',
 					'line-height'     => '1.3',
@@ -150,7 +150,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H4 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '20px',
 					'line-height'     => '1.3',
@@ -176,7 +176,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H5 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '18px',
 					'line-height'     => '1.4',
@@ -202,7 +202,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'H6 Tag Settings', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '600',
 					'font-size'       => '16px',
 					'line-height'     => '1.4',
@@ -231,7 +231,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Menu Settings', 'buddyx' ),
 				'section'  => 'menu_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '500',
 					'font-size'       => '15px',
 					'line-height'     => '1.6',
@@ -257,7 +257,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Sub Menu Settings', 'buddyx' ),
 				'section'  => 'menu_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => '500',
 					'font-size'       => '14px',
 					'line-height'     => '1.6',
@@ -285,7 +285,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Settings', 'buddyx' ),
 				'section'  => 'body_typography_section',
 				'default'  => array(
-					'font-family'     => 'Open Sans',
+					'font-family'     => '',
 					'variant'         => 'regular',
 					'font-size'       => '16px',
 					'line-height'     => '1.6',

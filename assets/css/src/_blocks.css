@@ -772,10 +772,6 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 # Search Block
 --------------------------------------------------------------*/
 
-.wp-block-search {
-	margin: 1.5em 0;
-}
-
 .wp-block-search .wp-block-search__inside-wrapper {
 	display: flex;
 	flex-wrap: nowrap;
