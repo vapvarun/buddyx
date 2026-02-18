@@ -109,6 +109,19 @@ async function buildJS( { dev = false } = {} ) {
 			fs.copyFileSync( srcPath, destPath );
 		}
 		
+		// Copy non-minified source JS files to main js folder
+		const jsSrcDir = path.join( 'assets', 'js', 'src' );
+		if ( fs.existsSync( jsSrcDir ) ) {
+			const jsSrcFiles = fs.readdirSync( jsSrcDir ).filter( file => 
+				file.endsWith( '.js' ) || file.endsWith( '.ts' ) || file.endsWith( '.tsx' ) || file.endsWith( '.cjs' )
+			);
+			for ( const file of jsSrcFiles ) {
+				const srcPath = path.join( jsSrcDir, file );
+				const destPath = path.join( prodJsDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+		}
+		
 		// Copy admin JS files if they exist
 		const adminJsDir = path.join( 'assets', 'js', 'admin' );
 		if ( fs.existsSync( adminJsDir ) ) {
@@ -120,6 +133,22 @@ async function buildJS( { dev = false } = {} ) {
 			const adminJsFiles = fs.readdirSync( adminJsDir ).filter( file => file.endsWith( '.js' ) );
 			for ( const file of adminJsFiles ) {
 				const srcPath = path.join( adminJsDir, file );
+				const destPath = path.join( prodAdminDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+		}
+		
+		// Copy non-minified source admin JS files from src/admin
+		const jsSrcAdminDir = path.join( 'assets', 'js', 'src', 'admin' );
+		if ( fs.existsSync( jsSrcAdminDir ) ) {
+			const prodAdminDir = path.join( prodJsDir, 'admin' );
+			if ( ! fs.existsSync( prodAdminDir ) ) {
+				fs.mkdirSync( prodAdminDir, { recursive: true } );
+			}
+			
+			const srcAdminJsFiles = fs.readdirSync( jsSrcAdminDir ).filter( file => file.endsWith( '.js' ) );
+			for ( const file of srcAdminJsFiles ) {
+				const srcPath = path.join( jsSrcAdminDir, file );
 				const destPath = path.join( prodAdminDir, file );
 				fs.copyFileSync( srcPath, destPath );
 			}
@@ -151,6 +180,25 @@ async function buildCSS( { dev = false } = {} ) {
 			fs.copyFileSync( srcPath, destPath );
 		}
 		
+		// Copy non-minified source CSS files to main css folder (including partials like _accessibility.css)
+		const cssSrcDir = path.join( 'assets', 'css', 'src' );
+		if ( fs.existsSync( cssSrcDir ) ) {
+			const cssSrcFiles = fs.readdirSync( cssSrcDir ).filter( file => file.endsWith( '.css' ) && ! file.startsWith( '_' ) );
+			for ( const file of cssSrcFiles ) {
+				const srcPath = path.join( cssSrcDir, file );
+				const destPath = path.join( prodCssDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+			
+			// Copy partial CSS files (starting with _) to main css folder
+			const partialCssFiles = fs.readdirSync( cssSrcDir ).filter( file => file.endsWith( '.css' ) && file.startsWith( '_' ) );
+			for ( const file of partialCssFiles ) {
+				const srcPath = path.join( cssSrcDir, file );
+				const destPath = path.join( prodCssDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+		}
+		
 		// Copy admin CSS files if they exist
 		const adminCssDir = path.join( 'assets', 'css', 'admin' );
 		if ( fs.existsSync( adminCssDir ) ) {
@@ -167,6 +215,22 @@ async function buildCSS( { dev = false } = {} ) {
 			}
 		}
 		
+		// Copy non-minified source admin CSS files from src/admin
+		const cssSrcAdminDir = path.join( 'assets', 'css', 'src', 'admin' );
+		if ( fs.existsSync( cssSrcAdminDir ) ) {
+			const prodAdminDir = path.join( prodCssDir, 'admin' );
+			if ( ! fs.existsSync( prodAdminDir ) ) {
+				fs.mkdirSync( prodAdminDir, { recursive: true } );
+			}
+			
+			const srcAdminCssFiles = fs.readdirSync( cssSrcAdminDir ).filter( file => file.endsWith( '.css' ) );
+			for ( const file of srcAdminCssFiles ) {
+				const srcPath = path.join( cssSrcAdminDir, file );
+				const destPath = path.join( prodAdminDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+		}
+		
 		// Copy editor CSS files if they exist
 		const editorCssDir = path.join( 'assets', 'css', 'editor' );
 		if ( fs.existsSync( editorCssDir ) ) {
@@ -178,6 +242,22 @@ async function buildCSS( { dev = false } = {} ) {
 			const editorCssFiles = fs.readdirSync( editorCssDir ).filter( file => file.endsWith( '.css' ) );
 			for ( const file of editorCssFiles ) {
 				const srcPath = path.join( editorCssDir, file );
+				const destPath = path.join( prodEditorDir, file );
+				fs.copyFileSync( srcPath, destPath );
+			}
+		}
+		
+		// Copy non-minified source editor CSS files from src/editor
+		const cssSrcEditorDir = path.join( 'assets', 'css', 'src', 'editor' );
+		if ( fs.existsSync( cssSrcEditorDir ) ) {
+			const prodEditorDir = path.join( prodCssDir, 'editor' );
+			if ( ! fs.existsSync( prodEditorDir ) ) {
+				fs.mkdirSync( prodEditorDir, { recursive: true } );
+			}
+			
+			const srcEditorCssFiles = fs.readdirSync( cssSrcEditorDir ).filter( file => file.endsWith( '.css' ) );
+			for ( const file of srcEditorCssFiles ) {
+				const srcPath = path.join( cssSrcEditorDir, file );
 				const destPath = path.join( prodEditorDir, file );
 				fs.copyFileSync( srcPath, destPath );
 			}
