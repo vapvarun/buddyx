@@ -7,7 +7,7 @@
     "author": "wbcomdesigns",
     "author_uri": "https://wbcomdesigns.com",
     "description": "Free theme for your community with BuddyPress.",
-    "version": "4.9.3"
+    "version": "5.0.0"
   },
   "dev": {
     "browserSync": {
