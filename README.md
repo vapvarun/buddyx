@@ -4,9 +4,9 @@ title="BuddyX logo by Wbcom Designs">
 
 # BuddyX: WordPress Community Theme
 
-[![Build Status](https://github.com/wbcomdesigns/buddyx/workflows/CI/badge.svg)](https://github.com/wbcomdesigns/buddyx/actions)
-[![License: GPL](https://img.shields.io/github/license/wbcomdesigns/buddyx)](/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/wbcomdesigns/buddyx?include_prereleases)](https://github.com/wbcomdesigns/buddyx/releases)
+[![Build Status](https://github.com/vapvarun/buddyx/workflows/CI/badge.svg)](https://github.com/vapvarun/buddyx/actions)
+[![License: GPL](https://img.shields.io/github/license/vapvarun/buddyx)](/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/vapvarun/buddyx?include_prereleases)](https://github.com/vapvarun/buddyx/releases)
 
 ## Your Community-Focused WordPress Theme
 
@@ -67,7 +67,7 @@ Creating a theme with BuddyX means adopting modern web development practices and
 
 1. **Download the latest release:**
    ```bash
-   wget https://github.com/wbcomdesigns/buddyx/releases/latest/download/buddyx.zip
+   wget https://github.com/vapvarun/buddyx/releases/latest/download/buddyx.zip
    ```
 
 2. **Install via WordPress admin:**
@@ -86,7 +86,7 @@ Creating a theme with BuddyX means adopting modern web development practices and
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/wbcomdesigns/buddyx.git
+   git clone https://github.com/vapvarun/buddyx.git
    cd buddyx
    ```
 
@@ -198,15 +198,15 @@ We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.
 
 ## Support
 
-- **Documentation**: [BuddyX Documentation](https://github.com/wbcomdesigns/buddyx/wiki)
-- **Issues**: [GitHub Issues](https://github.com/wbcomdesigns/buddyx/issues)
-- **Discussions**: [Community Forum](https://github.com/wbcomdesigns/buddyx/discussions)
-- **Updates**: Follow [@wbcomdesigns](https://github.com/wbcomdesigns)
+- **Documentation**: [BuddyX Documentation](https://github.com/vapvarun/buddyx/wiki)
+- **Issues**: [GitHub Issues](https://github.com/vapvarun/buddyx/issues)
+- **Discussions**: [Community Forum](https://github.com/vapvarun/buddyx/discussions)
+- **Updates**: Follow [@vapvarun](https://github.com/vapvarun)
 
 ## Credits
 
 - **Lead Developers**: [wbcomdesigns](https://github.com/wbcomdesigns), [vapvarun](https://github.com/vapvarun)
-- **Contributors**: [All Contributors](https://github.com/wbcomdesigns/buddyx/graphs/contributors)
+- **Contributors**: [All Contributors](https://github.com/vapvarun/buddyx/graphs/contributors)
 - **Inspiration**: Based on modern WordPress development best practices
 
 ## License
