@@ -1,12 +1,8 @@
-<img align="right" width="90" height="90"
-src="https://avatars.githubusercontent.com/u/38340689"
-title="BuddyX logo by Wbcom Designs">
-
 # BuddyX: WordPress Community Theme
 
-[![Build Status](https://github.com/vapvarun/buddyx/workflows/CI/badge.svg)](https://github.com/vapvarun/buddyx/actions)
 [![License: GPL](https://img.shields.io/github/license/vapvarun/buddyx)](/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/vapvarun/buddyx?include_prereleases)](https://github.com/vapvarun/buddyx/releases)
+[![WordPress](https://img.shields.io/badge/WordPress-6.9-blue)](https://wordpress.org)
 
 ## Your Community-Focused WordPress Theme
 
