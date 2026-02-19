@@ -15,7 +15,7 @@ return array(
 	
 	<!-- wp:group {"style":{"layout":{"selfStretch":"fill","flexSize":null}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 	<div class="wp-block-group"><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-	<p class="has-text-align-center has-small-font-size"> Powered by <a rel="nofollow" href="https://wbcomdesigns.com/downloads/buddyx-theme/">BuddyX WordPress Theme</a> </p>
+	<p class="has-text-align-center has-small-font-size"> Powered by <a rel="nofollow" href="https://wbcomdesigns.com/downloads/buddyx-theme///">BuddyX WordPress Theme</a> </p>
 	<!-- /wp:paragraph --></div>
 	<!-- /wp:group -->
 	

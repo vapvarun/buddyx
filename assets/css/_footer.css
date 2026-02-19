@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.site-footer {
+    margin: 1em 0 0;
+    background: #fff;
+    color: var(--color-footer-content);
+    border-top: 1px solid var(--global-border-color);
+}
+
+.site-footer .widget-title {
+    color: var(--color-footer-title);
+}
+
+.site-footer a {
+    color: var(--color-footer-link);
+}
+
+.site-footer a:hover,
+.site-footer a:active {
+    color: var(--color-footer-link-hover);
+}
+
+.page-template-full-width .site-footer {
+    margin: 0;
+}
+
+.footer-inner {
+    padding: 50px 0;
+    display: flex;
+    grid-gap: 25px;
+}
+
+.footer-widget {
+    width: 100%;
+    margin: 0 15px;
+}
+
+.footer-widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-widget:first-child {
+    margin-left: 0;
+}
+
+.footer-widget:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 991px) {
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+
+    .footer-widget {
+        width: 50%;
+        margin: 0;
+    }
+}
+
+@media (--narrow-menu-query) {
+    .footer-inner {
+        margin: 50px 0;
+        display: block;
+    }
+
+    .footer-widget {
+        width: 100%;
+    }
+}
+
+.site-info {
+    padding: 2em 0;
+    background: var(--color-copyright-bg);
+    color: var(--color-copyright-content);
+    border-top: 1px solid var(--global-border-color);
+    border-bottom: 1px solid var(--global-border-color);
+    text-align: center;
+}
+
+.site-info a {
+    color: var(--color-copyright-link);
+}
+
+.site-info a:hover {
+    color: var(--color-copyright-link-hover);
+}
+
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+
+.infinite-scroll .posts-navigation,
+.infinite-scroll .pagination,
+.infinite-scroll.neverending .site-footer {
+    /* Theme Footer (when set to scrolling) */
+    display: none;
+}
+
+
+/* When Infinite Scroll has reached its end we need to re-display elements that
+were hidden (via .neverending) before. */
+
+.infinity-end.neverending .site-footer {
+    display: block;
+}

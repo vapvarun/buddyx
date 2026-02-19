@@ -22,21 +22,7 @@ define( 'BUDDYX_MINIMUM_WP_VERSION', '5.4' );
 define( 'BUDDYX_MINIMUM_PHP_VERSION', '8.0' );
 
 
-// Add custom WP CLI commands.
-if ( defined( 'WP_CLI' ) && WP_CLI ) {
-	require_once get_template_directory() . '/wp-cli/buddyx-commands.php';
-}
 
-// @dev-only:start
-/**
- * Load development-only helpers (LiveReload for dev proxy).
- * This file resides under optional/ and is not bundled for production.
- */
-$buddyx_dev_helpers = get_template_directory() . '/optional/dev/dev-proxy-livereload.php';
-if ( file_exists( $buddyx_dev_helpers ) ) {
-	require_once $buddyx_dev_helpers;
-}
-// @dev-only:end
 
 /**
  * Load core theme files

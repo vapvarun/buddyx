@@ -1,0 +1,128 @@
+/**
+ * Custom Properties
+ * aka CSS variables.
+ *
+ * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+ **/
+
+:root {
+    --global-font-color: #505050;
+    --global-font-family: "Open Sans", serif;
+    --global-font-size: 16;
+    --global-font-line-height: 1.6;
+    --highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
+    --content-width: 100%;
+    --dropdown-symbol-width: 0.7em;
+    /* Custom editor colors */
+    --color-theme-primary: #ef5455;
+    --color-theme-loader: #ef5455;
+    --color-theme-secondary: #41848f;
+    --color-theme-red: #c0392b;
+    --color-theme-green: #27ae60;
+    --color-theme-blue: #2980b9;
+    --color-theme-yellow: #f1c40f;
+    --color-theme-black: #1c2833;
+    --color-theme-grey: #95a5a6;
+    --color-theme-white: #ecf0f1;
+    --color-custom-daylight: #97c0b7;
+    --color-custom-sun: #eee9d1;
+    --color-site-title: #111111;
+    --color-site-title-hover: #ee4036;
+    --color-site-tagline: #757575;
+    --color-theme-body: #f7f7f9;
+    --color-layout-boxed: #fff;
+    --color-theme-white-box: #fff;
+    --global-body-lightcolor: #fafafa;
+    --color-header-bg: #fff;
+    --color-menu: #111111;
+    --color-menu-hover: #ee4036;
+    --color-menu-active: #ee4036;
+    --color-subheader-title: #111111;
+    --color-link: #111;
+    --color-link-hover: #ef5455;
+    --color-link-active: #ef5455;
+    --color-h1: #111111;
+    --color-h2: #111111;
+    --color-h3: #111111;
+    --color-h4: #111111;
+    --color-h5: #111111;
+    --color-h6: #111111;
+    --global-border-color: #e8e8e8;
+    --button-text-color: #fff;
+    --button-text-hover-color: #fff;
+    --button-background-color: #ef5455;
+    --button-background-hover-color: #f83939;
+    --button-border-color: #ef5455;
+    --button-border-hover-color: #f83939;
+    --color-quote-border: #2e2c42;
+    --color-quote-citation: #475569;
+
+    --color-footer-title: #111111;
+    --color-footer-content: #505050;
+    --color-footer-link: #111111;
+    --color-footer-link-hover: #ef5455;
+    --color-copyright-bg: #ffffff;
+    --color-copyright-content: #505050;
+    --color-copyright-link: #111111;
+    --color-copyright-link-hover: #ef5455;
+    /* Custom editor font sizes */
+    --font-size-small: calc(16 / var(--global-font-size) * 1rem);
+    --font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
+    --font-size-large: calc(36 / var(--global-font-size) * 1rem);
+    --font-size-larger: calc(48 / var(--global-font-size) * 1rem);
+    /* Global container width */
+    --container-width: 1170px;
+    --container-sm: 540px;
+    --container-md: 740px;
+    --container-lg: 960px;
+    --container-xl: 1140px;
+    --container-xxl: 1400px;
+    --grid-gutter-width: 30px;
+    --el-spacing: 2rem;
+    /* Border radius */
+    --global-border-radius: 8px;
+    --button-border-radius: 6px;
+    --form-border-radius: 6px;
+    --textarea-border-radius: 6px;
+    /* Article */
+    --line-clamp-title: 2;
+    --line-clamp-with-media: 2;
+    --line-clamp-no-media: 3;
+    --line-clamp-big-title: 2;
+    --line-clamp-big-text: var(--line-clamp-big-text);
+    --bx-article-big-sm: 1rem;
+    --bx-article-big-md: 1rem;
+    --bx-article-big-lg: 1.25rem;
+    --bx-article-big-title-sm: 1.5rem;
+    --bx-article-big-title-md: 1.75rem;
+    --bx-article-big-title-lg: 2.25rem;
+    --line-clamp-list-title: 2;
+    --line-clamp-list-text: var(--line-clamp-list-text);
+    --bx-article-list-sm: 1rem;
+    --bx-article-list-md: 1rem;
+    --bx-article-list-lg: 1.15rem;
+    --bx-article-list-title-sm: 1.31rem;
+    --bx-article-list-title-md: 1.5rem;
+    --bx-article-list-title-lg: 1.75rem;
+    --line-clamp-card-title: 2;
+    --line-clamp-card-text: var(--line-clamp-card-text);
+    --bx-article-card-title-sm: 1.2rem;
+    --bx-article-card-title-md: 1.5rem;
+    --bx-article-card-title-lg: 1.5rem;
+    --bx-article-list-card-sm: 1rem;
+    --bx-article-list-card-md: 1rem;
+    --bx-article-list-card-lg: 1.15rem;
+    --line-clamp-grid-title: 2;
+    --line-clamp-grid-text: var(--line-clamp-grid-text);
+    --bx-article-grid-title-sm: 1.5rem;
+    --bx-article-grid-title-md: 1.75rem;
+    --bx-article-grid-title-lg: 2.25rem;
+    /* Block styling */
+    --color-block-bg-subtle: #f8f9fa;
+    --color-code-bg: #1e1e1e;
+    --color-code-text: #f8f8f2;
+
+	@media (prefers-color-scheme: dark) {
+
+	}
+}

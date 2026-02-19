@@ -1,0 +1,218 @@
+/*--------------------------------------------------------------
+14.0 - Loader
+--------------------------------------------------------------*/
+
+.site-loader {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999991;
+    background: var(--color-theme-loader);
+}
+
+.loader-inner:before {
+    content: "Loading";
+    display: block;
+    font-size: 10em;
+    text-transform: uppercase;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 10px;
+    opacity: 0.05;
+    text-shadow: 5px 5px 0px #fff;
+}
+
+@media (max-width: 1200px) {
+    .loader-inner:before {
+        font-size: 6em;
+    }
+}
+
+@media(max-width: 991px) {
+    .loader-inner:before {
+        font-size: 5em;
+    }
+}
+
+@media(max-width: 767px) {
+    .loader-inner:before {
+        font-size: 4em;
+    }
+}
+
+@media(max-width: 480px) {
+    .loader-inner:before {
+        font-size: 2em;
+    }
+}
+
+.loader-inner {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    right: 0;
+    margin: 0 auto;
+}
+
+.loader-inner .dot {
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    animation-name: dot_move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+    -moz-animation-name: dot_move;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-delay: 0.2s;
+    -ms-animation-name: dot_move;
+    -ms-animation-duration: 2s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-delay: 0.2s;
+    -webkit-animation-name: dot_move;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: 0.2s;
+}
+
+.loader-inner .dot1 {
+    margin-left: -40px;
+    animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+    -ms-animation-delay: 0.4s;
+}
+
+.loader-inner .dot2 {
+    margin-left: -20px;
+    animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    -webkit-animation-delay: 0.3s;
+    -ms-animation-delay: 0.3s;
+}
+
+.loader-inner .dot3 {
+    margin-left: 20px;
+    animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    -webkit-animation-delay: 0.1s;
+    -ms-animation-delay: 0.1s;
+}
+
+.loader-inner .dot4 {
+    margin-left: 40px;
+    animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+}
+
+@keyframes dot_move {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+    30% {
+        left: 50%;
+        opacity: 1;
+        height: 7px;
+    }
+    40% {
+        height: 35px;
+    }
+    60% {
+        height: 7px;
+    }
+    80% {
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes dot_move {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+    30% {
+        left: 50%;
+        opacity: 1;
+        height: 7px;
+    }
+    40% {
+        height: 35px;
+    }
+    60% {
+        height: 7px;
+    }
+    80% {
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes dot_move {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+    30% {
+        left: 50%;
+        opacity: 1;
+        height: 7px;
+    }
+    40% {
+        height: 35px;
+    }
+    60% {
+        height: 7px;
+    }
+    80% {
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+.site-loader.loaded {
+    display: none;
+}
+
+.elementor-editor-active .site-loader,
+.elementor-editor-preview .site-loader {
+    display: none;
+}

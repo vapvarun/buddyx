@@ -1,0 +1,239 @@
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "_navigation.css";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header-wrapper {
+    position: relative;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 0;
+    background: var(--color-header-bg);
+    min-height: 51px;
+    z-index: 999;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 5px 10px 0 rgba(189, 189, 189, 0.15);
+}
+
+.sticky-header .site-header-wrapper.has-sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+@media (max-width: 767px) {
+    .site-header-wrapper {
+        z-index: 9999;
+    }
+}
+
+.sticky-header .site-header-wrapper.has-sticky-header {
+    box-shadow: 0 1px 0 0 rgba(206, 206, 206, 0.05), 0 5px 10px 0 rgba(132, 132, 132, 0.15);
+}
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-image {
+    margin: 0 auto;
+}
+
+.header-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.custom-logo-link {
+    display: block;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo-wrapper>a {
+    margin-right: 15px;
+}
+
+.site-branding img {
+    width: auto;
+    max-height: 64px;
+    object-fit: contain;
+}
+
+.site-title {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-site-title);
+}
+
+.site-title a {
+    text-decoration: none;
+    color: var(--color-site-title);
+}
+
+.site-title:hover,
+.site-title a:hover {
+    color: var(--color-site-title-hover);
+}
+
+.site-description {
+    margin: -5px 0 0;
+    font-size: 14px;
+    font-weight: inherit;
+    line-height: 1.4;
+    word-wrap: break-word;
+    color: var(--color-site-tagline);
+}
+
+nav div.wp-block-navigation__responsive-dialog {
+
+	@media (--narrow-menu-query) {
+		margin: 1em;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+# Site Sub Header Layout
+--------------------------------------------------------------*/
+
+.bp-user .site-sub-header,
+.single-item.groups .site-sub-header,
+.group-create .site-sub-header {
+    display: none;
+}
+
+.site-sub-header {
+    position: relative;
+    color: var(--color-subheader-title);
+    margin-bottom: 1rem;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    margin-left: -50vw;
+    left: 50%;
+}
+
+.layout-boxed .site-sub-header {
+    width: auto;
+    left: auto;
+    margin: 0 -15px;
+}
+
+.site-sub-header>.container,
+.site-sub-header .woocommerce-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 0 15px;
+}
+
+.site-sub-header .woocommerce-products-header {
+    width: 100%;
+    padding: 0;
+}
+
+.site-sub-header>.container::before {
+    content: none;
+}
+
+@media (max-width: 991px) {
+    .site-sub-header>.container {
+        padding: 0 20px;
+    }
+}
+
+.archive-description p {
+    margin: 0;
+}
+
+.site-sub-header .entry-header .entry-title,
+.site-sub-header .page-header .page-title,
+.site-sub-header .entry-header,
+.site-sub-header .page-header,
+.site-sub-header .entry-title,
+.site-sub-header .page-title {
+    position: relative;
+    margin: 0;
+    z-index: 1;
+}
+
+.site-sub-header .entry-title,
+.site-sub-header .page-title,
+.site-sub-header .page-header,
+.site-sub-header .entry-header-title {
+    color: var(--color-subheader-title);
+    margin-right: auto;
+}
+
+.site-sub-header .entry-title a,
+.site-sub-header .page-title a,
+.site-sub-header .page-header a,
+.site-sub-header .entry-header-title a {
+    color: inherit;
+}
+
+@media (--narrow-menu-query) {
+
+    .site .site-sub-header .entry-title,
+    .site .site-sub-header .page-title {
+        font-size: 24px;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+
+.buddyx-breadcrumbs,
+#breadcrumbs {
+    font-size: 14px;
+    margin: 0;
+}
+
+.buddyx-breadcrumbs a,
+#breadcrumbs a {
+    color: var(--color-theme-primary);
+}
+
+.buddyx-breadcrumbs a:hover,
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.buddyx-trail-items {
+    list-style: none;
+}
+
+.buddyx-trail-items,
+.buddyx-trail-items li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: inherit;
+    text-indent: 0;
+}
+
+.buddyx-trail-items li:not(.trail-end)::after {
+    padding: 0 0.3em;
+    content: "\00bb";
+}
