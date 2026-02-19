@@ -1,0 +1,56 @@
+/**
+ * Custom styles for the front-page.php template.
+ */
+
+@media (--sidebar-query) {
+
+	.site {
+		margin: 0 1em;
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.site-main {
+		margin: 2rem 1rem 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+		grid-auto-flow: dense;
+		grid-gap: 2rem;
+	}
+
+	.post {
+		margin-bottom: 0;
+		padding: 0 2rem;
+		border-radius: 0.5em;
+		box-shadow: 0 2px 8px hsla(0, 0%, 50%, 0.8);
+	}
+
+	.post:first-of-type {
+		grid-column: span 2;
+		margin: 0;
+		padding: 0;
+	}
+
+	.wp-block-image.alignleft,
+	.wp-caption.alignleft {
+		margin-left: 0;
+	}
+
+	.wp-block-image.alignright,
+	.wp-caption.alignright {
+		margin-right: 0;
+	}
+
+	.entry-footer {
+		border-bottom: none;
+	}
+
+	.site-main .posts-navigation {
+		width: 100%;
+		margin-bottom: 0;
+		padding: 2rem 0 0;
+		border-top: 1px solid var(--global-font-color);
+		border-bottom: none;
+	}
+
+}

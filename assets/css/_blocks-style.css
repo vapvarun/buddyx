@@ -1,0 +1,52 @@
+@import "_custom-properties.css";
+
+/*--------------------------------------------------------------
+## Blocks Style
+--------------------------------------------------------------*/
+
+/*
+ * Available block selectors:
+ * .core/image
+ */
+
+/*--------------------------------------------------------------
+# Block Style - core/image
+--------------------------------------------------------------*/
+
+.wp-block-image.is-style-buddyx-border img {
+    border: 2px solid var(--color-theme-primary); /* Adjust the border properties as needed */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+}
+
+/* Buttons */
+.wp-element-button,
+.wp-block-button__link {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    padding: 10px 20px;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.3;
+    border: 1px solid var(--button-border-color);
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all linear .2s;
+    transition: all linear .2s;
+}
+
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+    color: var(--button-text-hover-color);
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+}

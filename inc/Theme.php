@@ -161,7 +161,7 @@ class Theme {
 			new Options\Component(),
 			new Kirki\Component(),
 			new Kirki_Option\Component(),
-			new Blocks\Component(),
+			// new Blocks\Component(), // Disabled: no custom blocks registered yet. Enable when adding blocks to assets/blocks/.
 			new Welcome\Component(),
 		);
 

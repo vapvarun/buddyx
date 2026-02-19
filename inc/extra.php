@@ -189,7 +189,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 				array(
 					date_i18n( 'Y' ), // Current year.
 					esc_html( get_bloginfo( 'name' ) ), // Site title.
-					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
+					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme///' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
 				),
 				$copyright
 			);
@@ -200,7 +200,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 				date_i18n( 'Y' ), // Current year.
 				esc_url( home_url( '/' ) ), // Site URL.
 				esc_html( get_bloginfo( 'name' ) ), // Site title.
-				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ), // Theme URL.
+				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme///' ), // Theme URL.
 				esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) // Translated theme name.
 			);
 		}
