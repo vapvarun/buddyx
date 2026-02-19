@@ -20,7 +20,7 @@ if ( $post_audio != '' && $post_audio_embed != '' ) { ?>
 if ( $post_audio != '' && $post_audio_embed == '' ) {
 	?>
 	<div class="buddyx-audio-block buddyx-post-thumbnail">					
-		<?php echo do_shortcode( '[audio src="' . $post_audio . '"]' ); // WPCS: XSS ok. ?>
+		<?php echo do_shortcode( '[audio src="' . esc_url( $post_audio ) . '"]' ); // WPCS: XSS ok. ?>
 	</div>
 	<?php
 }

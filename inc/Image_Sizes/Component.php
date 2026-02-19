@@ -8,10 +8,10 @@
 namespace BuddyX\Buddyx\Image_Sizes;
 
 use BuddyX\Buddyx\Component_Interface;
-use function BuddyX\Buddyx\buddyx;
 use WP_Post;
+
+use function BuddyX\Buddyx\buddyx;
 use function add_filter;
-use function is_active_sidebar;
 
 /**
  * Class for managing responsive image sizes.
@@ -78,7 +78,7 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes attribute to enhance responsive image functionality for post thumbnails.
 	 *
 	 * @param array        $attr       Attributes for the image markup.
-	 * @param mixed        $attachment Attachment post object or other types.
+	 * @param WP_Post      $attachment Attachment post object.
 	 * @param string|array $size       Registered image size or flat array of height and width dimensions.
 	 * @return array The filtered attributes for the image markup.
 	 */

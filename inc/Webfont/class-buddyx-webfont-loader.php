@@ -754,6 +754,8 @@ function buddyx_regenerate_fonts_folder() {
 		wp_send_json_error( 'invalid_permissions' );
 	}
 
+	check_ajax_referer( 'buddyx_regenerate_fonts', 'nonce' );
+
 	if ( get_option( 'buddyx_font_url' ) ) {
 		$local_font_loader = buddyx_webfont_loader_instance( '' );
 		$flushed           = $local_font_loader->buddyx_delete_fonts_folder();

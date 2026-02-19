@@ -12,7 +12,7 @@ use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;
-// use function esc_html__;
+use function esc_html__;
 use function is_active_sidebar;
 use function dynamic_sidebar;
 
@@ -364,159 +364,82 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function filter_body_classes( array $classes ) : array {
+		// Cache template check once to avoid 30+ repeated global declarations and in_array checks.
+		global $template;
+		$excluded_templates    = array( 'front-page.php', '404.php', '500.php', 'offline.php' );
+		$template_name         = $template ? basename( $template ) : '';
+		$is_excluded_template  = in_array( $template_name, $excluded_templates, true );
+
+		// Early return if on excluded template - no sidebar classes needed.
+		if ( $is_excluded_template ) {
+			return $classes;
+		}
+
 		$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 
 		if ( $this->is_left_sidebar_active() && $default_sidebar == 'left' ) {
-			global $template;
-
-			if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-				$classes[] = 'has-sidebar-left';
-			}
+			$classes[] = 'has-sidebar-left';
 		} elseif ( $this->is_right_sidebar_active() && $default_sidebar == 'right' ) {
-			global $template;
-
-			if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-				$classes[] = 'has-sidebar-right';
-			}
-		} elseif ( $this->is_right_sidebar_active() && $this->is_right_sidebar_active() && $default_sidebar == 'both' ) {
-			global $template;
-
-			if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-				$classes[] = 'has-sidebar-both';
-			}
+			$classes[] = 'has-sidebar-right';
+		} elseif ( $this->is_right_sidebar_active() && $default_sidebar == 'both' ) {
+			$classes[] = 'has-sidebar-both';
 		}
 
-		// Buddypress.
+		// BuddyPress.
 		if ( class_exists( 'BuddyPress' ) ) {
 			if ( bp_current_component() ) {
-				global $bp;
 				$buddypress_sidebar         = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
 				$buddypress_members_sidebar = get_theme_mod( 'buddypress_members_sidebar_option', buddyx_defaults( 'buddypress-members-sidebar-option' ) );
 				$buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option', buddyx_defaults( 'buddypress-groups-sidebar-option' ) );
 
-				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'left' ) {
-					global $template;
+				// Cache sidebar active states to avoid repeated method calls.
+				$bp_left_active           = $this->is_buddypress_left_sidebar_active();
+				$bp_right_active          = $this->is_buddypress_right_sidebar_active();
+				$bp_members_right_active  = $this->is_buddypress_members_right_sidebar_active();
+				$bp_groups_right_active   = $this->is_buddypress_groups_right_sidebar_active();
 
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'right' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'both' && ! $this->is_buddypress_right_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_right_sidebar_active() && $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_sidebar == 'both' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both';
-						}
+				// Activity sidebar classes.
+				if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
+					if ( $bp_left_active && $buddypress_sidebar == 'left' ) {
+						$classes[] = 'has-buddypress-sidebar-left';
+					} elseif ( $bp_right_active && $buddypress_sidebar == 'right' ) {
+						$classes[] = 'has-buddypress-sidebar-right';
+					} elseif ( $bp_right_active && $buddypress_sidebar == 'both' && ! $bp_left_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+					} elseif ( $bp_left_active && $buddypress_sidebar == 'both' && ! $bp_right_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+					} elseif ( ( $bp_right_active || $bp_left_active ) && $buddypress_sidebar == 'both' ) {
+						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
 
-				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'left' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'right' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'both' && ! $this->is_buddypress_members_right_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_members_right_sidebar_active() && $this->is_buddypress_members_right_sidebar_active() && $buddypress_members_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_members_sidebar == 'both' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both';
-						}
+				// Members sidebar classes.
+				if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
+					if ( $bp_left_active && $buddypress_members_sidebar == 'left' ) {
+						$classes[] = 'has-buddypress-sidebar-left';
+					} elseif ( $bp_members_right_active && $buddypress_members_sidebar == 'right' ) {
+						$classes[] = 'has-buddypress-sidebar-right';
+					} elseif ( $bp_members_right_active && $buddypress_members_sidebar == 'both' && ! $bp_left_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+					} elseif ( $bp_left_active && $buddypress_members_sidebar == 'both' && ! $bp_members_right_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+					} elseif ( ( $bp_members_right_active || $bp_left_active ) && $buddypress_members_sidebar == 'both' ) {
+						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
 
-				if ( $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'left' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'right' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'both' && ! $this->is_buddypress_left_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-						}
-					}
-				} elseif ( $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'both' && ! $this->is_buddypress_groups_right_sidebar_active() ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-						}
-					}
-				} elseif ( $this->is_buddypress_groups_right_sidebar_active() && $this->is_buddypress_groups_right_sidebar_active() && $buddypress_groups_sidebar == 'both' || $this->is_buddypress_left_sidebar_active() && $this->is_buddypress_left_sidebar_active() && $buddypress_groups_sidebar == 'both' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-							$classes[] = 'has-buddypress-sidebar-both';
-						}
+				// Groups sidebar classes.
+				if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
+					if ( $bp_left_active && $buddypress_groups_sidebar == 'left' ) {
+						$classes[] = 'has-buddypress-sidebar-left';
+					} elseif ( $bp_groups_right_active && $buddypress_groups_sidebar == 'right' ) {
+						$classes[] = 'has-buddypress-sidebar-right';
+					} elseif ( $bp_groups_right_active && $buddypress_groups_sidebar == 'both' && ! $bp_left_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
+					} elseif ( $bp_left_active && $buddypress_groups_sidebar == 'both' && ! $bp_groups_right_active ) {
+						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
+					} elseif ( ( $bp_groups_right_active || $bp_left_active ) && $buddypress_groups_sidebar == 'both' ) {
+						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
 			}
@@ -524,71 +447,37 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Sidebar classes docs component.
 		if ( class_exists( 'BuddyPress' ) ) {
-			if ( function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() ) {
-				global $bp;
+			if ( function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() && ! bp_is_user() ) {
 				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
-
-				if ( $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'right' || $this->is_buddypress_right_sidebar_active() && $buddypress_sidebar == 'both' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						if ( bp_docs_is_docs_component() && ! bp_is_user() ) {
-							$classes[] = 'has-docs-sidebar-right';
-						}
-					}
+				if ( $this->is_buddypress_right_sidebar_active() && ( $buddypress_sidebar == 'right' || $buddypress_sidebar == 'both' ) ) {
+					$classes[] = 'has-docs-sidebar-right';
 				}
 			}
 		}
 
 		// bbPress.
-		if ( function_exists( 'is_bbpress' ) ) {
+		if ( function_exists( 'is_bbpress' ) && is_bbpress() ) {
 			$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bbpress-sidebar-option' ) );
 
 			if ( $this->is_bbpress_left_sidebar_active() && $bbpress_sidebar == 'left' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-bbpress-sidebar-left';
-				}
+				$classes[] = 'has-bbpress-sidebar-left';
 			} elseif ( $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'right' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-bbpress-sidebar-right';
-				}
-			} elseif ( $this->is_bbpress_right_sidebar_active() && $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'both' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-bbpress-sidebar-both';
-				}
+				$classes[] = 'has-bbpress-sidebar-right';
+			} elseif ( $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'both' ) {
+				$classes[] = 'has-bbpress-sidebar-both';
 			}
 		}
 
 		// WooCommerce.
-		if ( class_exists( 'WooCommerce' ) ) {
-			if ( is_woocommerce() ) {
-				$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
+		if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
+			$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
 
-				if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						$classes[] = 'has-woocommerce-sidebar-left';
-					}
-				} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'right' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						$classes[] = 'has-woocommerce-sidebar-right';
-					}
-				} elseif ( $this->is_woocommerce_right_sidebar_active() && $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'both' ) {
-					global $template;
-
-					if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-						$classes[] = 'has-woocommerce-sidebar-both';
-					}
-				}
+			if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
+				$classes[] = 'has-woocommerce-sidebar-left';
+			} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'right' ) {
+				$classes[] = 'has-woocommerce-sidebar-right';
+			} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'both' ) {
+				$classes[] = 'has-woocommerce-sidebar-both';
 			}
 		}
 
@@ -597,23 +486,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$fluentcart_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
 			if ( $this->is_fluentcart_left_sidebar_active() && $fluentcart_sidebar == 'left' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-fluentcart-sidebar-left';
-				}
+				$classes[] = 'has-fluentcart-sidebar-left';
 			} elseif ( $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'right' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-fluentcart-sidebar-right';
-				}
-			} elseif ( $this->is_fluentcart_right_sidebar_active() && $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'both' ) {
-				global $template;
-
-				if ( ! in_array( $template ? basename( $template ) : '', array( 'front-page.php', '404.php', '500.php', 'offline.php' ) ) ) {
-					$classes[] = 'has-fluentcart-sidebar-both';
-				}
+				$classes[] = 'has-fluentcart-sidebar-right';
+			} elseif ( $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'both' ) {
+				$classes[] = 'has-fluentcart-sidebar-both';
 			}
 		}
 

@@ -56,6 +56,27 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 		?>
 	</div>
 
+	<?php
+	if (
+		function_exists( 'bb_pro_activity_post_feature_image_instance' ) &&
+		bb_pro_activity_post_feature_image_instance() &&
+		method_exists( bb_pro_activity_post_feature_image_instance(), 'bb_get_feature_image_data' )
+	) {
+		?>
+		<div class="activity-feature-image" style="margin: 0;">
+			<?php
+			$feature_image_data = bb_pro_activity_post_feature_image_instance()->bb_get_feature_image_data( $activity_id );
+			if ( ! empty( $feature_image_data ) ) {
+				?>
+				<img class="activity-feature-image-media" src="<?php echo esc_url( $feature_image_data['url'] ); ?>" alt="<?php echo esc_attr( $feature_image_data['title'] ); ?>" />
+				<?php
+			}
+			?>
+		</div>
+		<?php
+	}
+	?>
+
 	<div class="activity-card-head">
 		<h6 class="card-head-content-type">
 			<?php echo buddyx_bp_get_activity_css_first_class(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -63,27 +84,6 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 	</div>
 
 	<div class="activity-item-head">
-
-		<?php
-		if (
-			function_exists( 'bb_pro_activity_post_feature_image_instance' ) &&
-			bb_pro_activity_post_feature_image_instance() &&
-			method_exists( bb_pro_activity_post_feature_image_instance(), 'bb_get_feature_image_data' )
-		) {
-			?>
-			<div class="activity-feature-image">
-				<?php
-				$feature_image_data = bb_pro_activity_post_feature_image_instance()->bb_get_feature_image_data( $activity_id );
-				if ( ! empty( $feature_image_data ) ) {
-					?>
-					<img class="activity-feature-image-media" src="<?php echo esc_url( $feature_image_data['url'] ); ?>" alt="<?php echo esc_attr( $feature_image_data['title'] ); ?>" />
-					<?php
-				}
-				?>
-			</div>
-			<?php
-		}
-		?>
 
 		<?php
 		global $activities_template;
@@ -340,6 +340,10 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 			<?php
 			if ( bp_activity_get_comment_count() ) {
 				bp_activity_comments();
+			} else {
+				// Always output an empty <ul> when there are no comments to ensure proper DOM structure for comment submission
+				$activity_id = bp_get_activity_id();
+				echo '<ul data-activity_id="' . esc_attr( $activity_id ) . '" data-parent_comment_id="' . esc_attr( $activity_id ) . '"></ul>';
 			}
 
 			if ( is_user_logged_in() ) {

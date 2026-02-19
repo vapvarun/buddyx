@@ -8,12 +8,14 @@
 namespace BuddyX\Buddyx\Customizer;
 
 use BuddyX\Buddyx\Component_Interface;
-use function BuddyX\Buddyx\buddyx;
 use WP_Customize_Manager;
+
+use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function bloginfo;
 use function wp_enqueue_script;
 use function get_theme_file_uri;
+use function get_theme_file_path;
 
 /**
  * Class for managing Customizer integration.
@@ -25,7 +27,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'customizer';
 	}
 
@@ -60,7 +62,7 @@ class Component implements Component_Interface {
 				'blogname',
 				array(
 					'selector'        => '.site-title a',
-					'render_callback' => function() {
+					'render_callback' => function () {
 						bloginfo( 'name' );
 					},
 				)
@@ -69,7 +71,7 @@ class Component implements Component_Interface {
 				'blogdescription',
 				array(
 					'selector'        => '.site-description',
-					'render_callback' => function() {
+					'render_callback' => function () {
 						bloginfo( 'description' );
 					},
 				)

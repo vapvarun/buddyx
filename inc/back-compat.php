@@ -22,17 +22,17 @@ function buddyx_get_insufficient_requirements_message() {
 
 	if ( $insufficient_wp && $insufficient_php ) {
 		/* translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number */
-		return sprintf( __( 'Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_WP_VERSION, BUDDYX_MINIMUM_PHP_VERSION, $wp_version, phpversion() );
+		return sprintf( __( 'BuddyX requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_WP_VERSION, BUDDYX_MINIMUM_PHP_VERSION, $wp_version, phpversion() );
 	}
 
 	if ( $insufficient_wp ) {
 		/* translators: 1: required WP version number, 2: available WP version number */
-		return sprintf( __( 'Buddyx requires at least WordPress version %1$s. You are running version %2$s. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_WP_VERSION, $wp_version );
+		return sprintf( __( 'BuddyX requires at least WordPress version %1$s. You are running version %2$s. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_WP_VERSION, $wp_version );
 	}
 
 	if ( $insufficient_php ) {
 		/* translators: 1: required PHP version number, 2: available PHP version number */
-		return sprintf( __( 'Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_PHP_VERSION, phpversion() );
+		return sprintf( __( 'BuddyX requires at least PHP version %1$s. You are running version %2$s. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_PHP_VERSION, phpversion() );
 	}
 
 	if ( buddyx_template_pack_check() ) {
@@ -40,6 +40,15 @@ function buddyx_get_insufficient_requirements_message() {
 	}
 
 	return '';
+}
+
+/**
+ * Displays an error message if WP-CLI is used when requirements are not met.
+ *
+ * Exits script.
+ */
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::error( buddyx_get_insufficient_requirements_message() );
 }
 
 /**
@@ -83,6 +92,7 @@ add_action( 'load-customize.php', 'buddyx_customize' );
  * Prevents the Theme Preview from being loaded when requirements are not met.
  */
 function buddyx_preview() {
+	// @phpcs:ignore
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( esc_html( buddyx_get_insufficient_requirements_message() ) );
 	}

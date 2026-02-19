@@ -1,265 +1,472 @@
-# Copyright (C) 2025 Buddyx
-# This file is distributed under the same license as the Buddyx package.
+# Copyright (C) 2026 wbcomdesigns,vapvarun
+# This file is distributed under the GNU General Public License v3.0 (or later).
 msgid ""
 msgstr ""
-"Project-Id-Version: Buddyx\n"
+"Project-Id-Version: BuddyX 4.9.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/buddyx\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: wbcomdesigns\n"
-"POT-Creation-Date: 2025-10-24 13:27+0000\n"
-"Report-Msgid-Bugs-To: Buddyx\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2026-02-11T09:50:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: buddyx\n"
+
+#. Theme Name of the theme
+#: style.css
+#: inc/Welcome/Component.php:320
+msgid "BuddyX"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://wbcomdesigns.com/downloads/buddyx-theme/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "BuddyX is an ideal theme for community and membership websites. It provides a solution to all kinds of communities. Thanks to its BuddyPress support, your website can now have member profiles, send private messages, create groups, and more. It is a lightweight, fully responsive, SEO-optimised RTL and translation-ready theme. BuddyX supports WooCommerce, WC Vendors, LearnDash, LearnPress, and Gamipress plugins. It is highly customizable and works perfectly with page builders like Elementor and Gutenberg. BuddyX is perfect for creating social learning, marketplace, and blogging websites using BuddyPress integration. BuddyX uses the latest best practices for progressive web content and optimization. It is well-tested with the latest BuddyPress version and popular BuddyPress add-ons. Wbcom Designs is responsible for developing, maintaining, and supporting it."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "wbcomdesigns,vapvarun"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/vapvarun/buddyx"
+msgstr ""
+
+#. translators: %s: User display name.
+#: bb-buddypress/activity/entry.php:35
+#, php-format
+msgid "%s's post"
+msgstr ""
+
+#: bb-buddypress/activity/entry.php:44
+msgid "Pinned Post"
+msgstr ""
+
+#: bb-buddypress/activity/entry.php:51
+msgid "Turned off notifications"
+msgstr ""
+
+#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
+#. translators: %s: last activity timestamp (e.g. "Active 1 hour ago")
+#: bb-buddypress/groups/groups-loop.php:86
+#: bb-buddypress/groups/single/cover-image-header.php:149
+#: bb-buddypress/groups/single/group-header.php:92
+#: buddypress/groups/groups-loop.php:57
+#: buddypress/groups/single/cover-image-header.php:60
+#: buddypress/groups/single/group-header.php:43
+#, php-format
+msgid "Active %s"
+msgstr ""
+
+#: bb-buddypress/groups/groups-loop.php:128
+#: bb-buddypress/groups/single/cover-image-header.php:221
+#: bb-buddypress/groups/single/group-header.php:160
+msgid "Leave Group"
+msgstr ""
+
+#: bb-buddypress/groups/groups-loop.php:134
+#: bb-buddypress/groups/single/cover-image-header.php:227
+#: bb-buddypress/groups/single/group-header.php:166
+msgid "Are you sure you want to leave "
+msgstr ""
+
+#: bb-buddypress/groups/groups-loop.php:137
+#: bb-buddypress/groups/single/cover-image-header.php:63
+#: bb-buddypress/groups/single/cover-image-header.php:230
+#: bb-buddypress/groups/single/group-header.php:169
+#: bb-buddypress/groups/single/members-loop.php:264
+#: bb-buddypress/members/members-loop.php:292
+#: bb-buddypress/members/single/cover-image-header.php:101
+#: bb-buddypress/members/single/cover-image-header.php:289
+#: bb-buddypress/members/single/member-header.php:225
+msgid "Cancel"
+msgstr ""
+
+#: bb-buddypress/groups/groups-loop.php:138
+#: bb-buddypress/groups/single/cover-image-header.php:231
+#: bb-buddypress/groups/single/group-header.php:170
+#: bb-buddypress/groups/single/members-loop.php:265
+#: bb-buddypress/members/members-loop.php:293
+#: bb-buddypress/members/single/cover-image-header.php:290
+#: bb-buddypress/members/single/member-header.php:226
+msgid "Confirm"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:53
+#: bb-buddypress/members/single/cover-image-header.php:90
+#: buddypress/groups/single/cover-image-header.php:25
+#: buddypress/members/single/cover-image-header.php:15
+msgid "Change Cover Photo"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:59
+#: bb-buddypress/members/single/cover-image-header.php:97
+msgid "Reposition Cover Photo"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:64
+#: bb-buddypress/members/single/cover-image-header.php:102
+msgid "Save Changes"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:65
+#: bb-buddypress/members/single/cover-image-header.php:103
+msgid "Drag to move cover photo"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:66
+#: bb-buddypress/members/single/cover-image-header.php:104
+msgid "Cover photo"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:79
+#: bb-buddypress/groups/single/group-header.php:23
+#: buddypress/groups/single/cover-image-header.php:40
+#: buddypress/groups/single/group-header.php:23
+msgid "Change Group Photo"
+msgstr ""
+
+#: bb-buddypress/groups/single/cover-image-header.php:199
+#: bb-buddypress/groups/single/group-header.php:139
+msgid "Group Description"
+msgstr ""
+
+#: bb-buddypress/groups/single/group-header.php:140
+#: template-parts/header/navigation.php:59
+msgid "Close"
+msgstr ""
+
+#: bb-buddypress/groups/single/members-loop.php:202
+#: bb-buddypress/groups/single/members-loop.php:211
+#: bb-buddypress/groups/single/members-loop.php:213
+#: bb-buddypress/members/members-loop.php:225
+#: bb-buddypress/members/members-loop.php:236
+msgid "More options"
+msgstr ""
+
+#: bb-buddypress/groups/single/members-loop.php:247
+#: bb-buddypress/members/members-loop.php:275
+#: bb-buddypress/members/single/cover-image-header.php:272
+#: bb-buddypress/members/single/member-header.php:208
+msgid "Remove Connection"
+msgstr ""
+
+#. translators: %s: The member name with HTML tags
+#. translators: %s: The member name with HTML tags.
+#: bb-buddypress/groups/single/members-loop.php:257
+#: bb-buddypress/members/members-loop.php:285
+#: bb-buddypress/members/single/cover-image-header.php:282
+#: bb-buddypress/members/single/member-header.php:218
+#, php-format
+msgid "Are you sure you want to remove %s from your connections?"
+msgstr ""
+
+#: bb-buddypress/members/members-loop.php:234
+msgid "More Options"
+msgstr ""
+
+#: bb-buddypress/members/single/cover-image-header.php:127
+#: bb-buddypress/members/single/member-header.php:66
+#: buddypress/members/single/cover-image-header.php:26
+#: buddypress/members/single/member-header.php:14
+msgid "Change Profile Photo"
+msgstr ""
+
+#: bb-buddypress/members/single/groups/invites.php:10
+#: buddypress/members/single/groups/invites.php:10
+msgid "Group Invites"
+msgstr ""
+
+#: bb-buddypress/members/single/groups/invites.php:45
+#, php-format
+msgid "Invited by %1$s &middot; %2$s."
+msgstr ""
+
+#: buddypress/groups/single/cover-image-header.php:76
+#: buddypress/groups/single/group-header.php:58
+msgid "Group Types"
+msgstr ""
+
+#: buddypress/groups/single/cover-image-header.php:77
+#: buddypress/groups/single/group-header.php:59
+msgid "Group Type"
+msgstr ""
+
+#: buddypress/members/single/cover-image-header.php:69
+#: buddypress/members/single/member-header.php:52
+msgid "Member Types"
+msgstr ""
+
+#: buddypress/members/single/cover-image-header.php:70
+#: buddypress/members/single/member-header.php:53
+msgid "Member Type"
+msgstr ""
+
+#. translators: %s is the number of Group members
+#: buddypress/members/single/groups/invites.php:45
+#, php-format
+msgid "%s member"
+msgid_plural "%s members"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: title.
+#: comments.php:38
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: ../buddyx/comments.php:44
+#: comments.php:44
+#, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/comments.php:38
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#: comments.php:60
+msgid "Comments are closed."
 msgstr ""
 
-#: ../buddyx/comments.php:60
-msgid "Comments are disabled."
-msgstr ""
-
-#: ../buddyx/footer.php:29, ../buddyx/inc/Kirki_Option/Component.php:1595
-msgid "Footer"
-msgstr ""
-
-#. translators: %1$s: opening link tag, %2$s: closing link tag
-#: ../buddyx/functions.php:381
-msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options%2$s."
-msgstr ""
-
-#: ../buddyx/header.php:35
-msgid "Skip to content"
-msgstr ""
-
-#: ../buddyx/searchform.php:10
-msgid "Search for:"
-msgstr ""
-
-#: ../buddyx/searchform.php:11
-msgid "Enter Keyword"
-msgstr ""
-
-#: ../buddyx/searchform.php:12
-msgid "Go"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:327
+#: external/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:328
+#: external/class-tgm-plugin-activation.php:328
 msgid "Install Plugins"
 msgstr ""
 
 #. translators: %s: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:330
+#: external/class-tgm-plugin-activation.php:330
+#, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
 #. translators: %s: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:332
+#: external/class-tgm-plugin-activation.php:332
+#, php-format
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:333
+#: external/class-tgm-plugin-activation.php:333
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:334
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:334
+#, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:340
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:340
+#, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:346
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:346
+#, php-format
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:352
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:352
+#, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:358
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:358
+#, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:364
+#. translators: 1: plugin name(s).
+#: external/class-tgm-plugin-activation.php:364
+#, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:370
+#: external/class-tgm-plugin-activation.php:370
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:375
+#: external/class-tgm-plugin-activation.php:375
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:380
+#: external/class-tgm-plugin-activation.php:380
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:385
+#: external/class-tgm-plugin-activation.php:385
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:386, ../buddyx/external/class-tgm-plugin-activation.php:827, ../buddyx/external/class-tgm-plugin-activation.php:2533, ../buddyx/external/class-tgm-plugin-activation.php:3580
+#: external/class-tgm-plugin-activation.php:386
+#: external/class-tgm-plugin-activation.php:827
+#: external/class-tgm-plugin-activation.php:2533
+#: external/class-tgm-plugin-activation.php:3580
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:387, ../buddyx/external/class-tgm-plugin-activation.php:3159
+#: external/class-tgm-plugin-activation.php:387
+#: external/class-tgm-plugin-activation.php:3159
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:388, ../buddyx/external/class-tgm-plugin-activation.php:2952
+#: external/class-tgm-plugin-activation.php:388
+#: external/class-tgm-plugin-activation.php:2952
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:390
+#: external/class-tgm-plugin-activation.php:390
+#, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:392
+#: external/class-tgm-plugin-activation.php:392
+#, php-format
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr ""
 
 #. translators: 1: dashboard link.
-#: ../buddyx/external/class-tgm-plugin-activation.php:394
+#: external/class-tgm-plugin-activation.php:394
+#, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:395
+#: external/class-tgm-plugin-activation.php:395
 msgid "Dismiss this notice"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:396
+#: external/class-tgm-plugin-activation.php:396
 msgid "There are one or more required or recommended plugins to install, update or activate."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:397
+#: external/class-tgm-plugin-activation.php:397
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:522
+#: external/class-tgm-plugin-activation.php:522
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:523
+#: external/class-tgm-plugin-activation.php:523
 msgid "Update Required"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:937
-msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:937, ../buddyx/external/class-tgm-plugin-activation.php:934
-msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:934
+#: external/class-tgm-plugin-activation.php:934
 msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:1121, ../buddyx/external/class-tgm-plugin-activation.php:2948
+#: external/class-tgm-plugin-activation.php:934
+#: external/class-tgm-plugin-activation.php:937
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:1121
+#: external/class-tgm-plugin-activation.php:2948
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
 #. translators: %s: version number
-#: ../buddyx/external/class-tgm-plugin-activation.php:1982
+#: external/class-tgm-plugin-activation.php:1982
+#, php-format
 msgid "TGMPA v%s"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2273
+#: external/class-tgm-plugin-activation.php:2273
 msgid "Required"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2276
+#: external/class-tgm-plugin-activation.php:2276
 msgid "Recommended"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2292
+#: external/class-tgm-plugin-activation.php:2292
 msgid "WordPress Repository"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2295
+#: external/class-tgm-plugin-activation.php:2295
 msgid "External Source"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2298
+#: external/class-tgm-plugin-activation.php:2298
 msgid "Pre-Packaged"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2315
+#: external/class-tgm-plugin-activation.php:2315
 msgid "Not Installed"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2321
-msgid "Active"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:2319
+#: external/class-tgm-plugin-activation.php:2319
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2333
-msgid "Update recommended"
+#: external/class-tgm-plugin-activation.php:2321
+msgid "Active"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2330
-msgid "Requires Update"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:2327
+#: external/class-tgm-plugin-activation.php:2327
 msgid "Required Update not Available"
 msgstr ""
 
+#: external/class-tgm-plugin-activation.php:2330
+msgid "Requires Update"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
+msgstr ""
+
 #. translators: 1: install status, 2: update status
-#: ../buddyx/external/class-tgm-plugin-activation.php:2342
+#: external/class-tgm-plugin-activation.php:2342
+#, php-format
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: 1: number of plugins.
-#: ../buddyx/external/class-tgm-plugin-activation.php:2388
+#: external/class-tgm-plugin-activation.php:2388
+#, php-format
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
@@ -267,2594 +474,2887 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: ../buddyx/external/class-tgm-plugin-activation.php:2392
+#: external/class-tgm-plugin-activation.php:2392
+#, php-format
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: ../buddyx/external/class-tgm-plugin-activation.php:2396
+#: external/class-tgm-plugin-activation.php:2396
+#, php-format
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: ../buddyx/external/class-tgm-plugin-activation.php:2400
+#: external/class-tgm-plugin-activation.php:2400
+#, php-format
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2482
+#: external/class-tgm-plugin-activation.php:2482
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2490
+#: external/class-tgm-plugin-activation.php:2490
 msgid "Installed version:"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2498
+#: external/class-tgm-plugin-activation.php:2498
 msgid "Minimum required version:"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2510
+#: external/class-tgm-plugin-activation.php:2510
 msgid "Available version:"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2533
+#: external/class-tgm-plugin-activation.php:2533
 msgid "No plugins to install, update or activate."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2547
+#: external/class-tgm-plugin-activation.php:2547
 msgid "Plugin"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2548
+#: external/class-tgm-plugin-activation.php:2548
 msgid "Source"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2549
+#: external/class-tgm-plugin-activation.php:2549
 msgid "Type"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2553, ../buddyx/inc/Welcome/Component.php:93
+#: external/class-tgm-plugin-activation.php:2553
+#: inc/Welcome/Component.php:93
 msgid "Version"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2554
+#: external/class-tgm-plugin-activation.php:2554
 msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: ../buddyx/external/class-tgm-plugin-activation.php:2608
+#: external/class-tgm-plugin-activation.php:2603
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: external/class-tgm-plugin-activation.php:2608
+#, php-format
 msgid "Update %2$s"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: ../buddyx/external/class-tgm-plugin-activation.php:2614
+#: external/class-tgm-plugin-activation.php:2614
+#, php-format
 msgid "Activate %2$s"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2603
-msgid "Install %2$s"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:2684
+#: external/class-tgm-plugin-activation.php:2684
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2717
+#: external/class-tgm-plugin-activation.php:2717
 msgid "Install"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2723
+#: external/class-tgm-plugin-activation.php:2723
 msgid "Update"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2726
+#: external/class-tgm-plugin-activation.php:2726
 msgid "Activate"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2759
-msgid "No plugins were selected to be updated. No action taken."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:2757
+#: external/class-tgm-plugin-activation.php:2757
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2802
-msgid "No plugins are available to be updated at this time."
+#: external/class-tgm-plugin-activation.php:2759
+msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2800
+#: external/class-tgm-plugin-activation.php:2800
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2908
+#: external/class-tgm-plugin-activation.php:2802
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:2908
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:2934
+#: external/class-tgm-plugin-activation.php:2934
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:3158
+#: external/class-tgm-plugin-activation.php:3158
 msgid "Plugin activation failed."
 msgstr ""
 
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3498
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
 #. translators: 1: plugin name, 2: error message.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3501
+#: external/class-tgm-plugin-activation.php:3501
+#, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3503
+#: external/class-tgm-plugin-activation.php:3503
+#, php-format
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:3515
+#: external/class-tgm-plugin-activation.php:3507
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3509
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3509
+#: external/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr ""
+
+#. translators: 1: plugin name.
+#: external/class-tgm-plugin-activation.php:3509
+#: external/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: external/class-tgm-plugin-activation.php:3512
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: external/class-tgm-plugin-activation.php:3515
 msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3517
+#: external/class-tgm-plugin-activation.php:3517
+#, php-format
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "Show Details"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3517, ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "Hide Details"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3518
+#: external/class-tgm-plugin-activation.php:3518
 msgid "All installations have been completed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: ../buddyx/external/class-tgm-plugin-activation.php:3520
+#: external/class-tgm-plugin-activation.php:3520
+#, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: ../buddyx/external/class-tgm-plugin-activation.php:3507
-msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3509
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3510
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3512
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../buddyx/external/class-tgm-plugin-activation.php:3498
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:59
-msgid "You have installed Kirki. Activate it to take advantage of this theme's features in the customizer."
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:60
-msgid "Activate Kirki Toolkit now"
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:61
-msgid "Activate Now"
-msgstr ""
-
-#: ../buddyx/external/include-kirki.php:54
+#: external/include-kirki.php:54
 msgid "BuddyX requires the Kirki Customizer Framework plugin to enable advanced theme customization features."
 msgstr ""
 
-#: ../buddyx/external/include-kirki.php:55
+#: external/include-kirki.php:55
 msgid "Install Kirki Toolkit now"
 msgstr ""
 
-#: ../buddyx/external/include-kirki.php:56
+#: external/include-kirki.php:56
 msgid "Install Now"
 msgstr ""
 
+#: external/include-kirki.php:59
+msgid "You have installed Kirki. Activate it to take advantage of this theme's features in the customizer."
+msgstr ""
+
+#: external/include-kirki.php:60
+msgid "Activate Kirki Toolkit now"
+msgstr ""
+
+#: external/include-kirki.php:61
+msgid "Activate Now"
+msgstr ""
+
+#: footer.php:34
+#: inc/Kirki_Option/Fields/Skin_Fields.php:650
+msgid "Footer"
+msgstr ""
+
+#. translators: %1$s: opening link tag, %2$s: closing link tag
+#: functions.php:402
+#, php-format
+msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the %1$sBuddyPress Options%2$s."
+msgstr ""
+
+#: header.php:35
+msgid "Skip to content"
+msgstr ""
+
+#: inc/Accessibility/Component.php:73
+msgid "Expand child menu"
+msgstr ""
+
+#: inc/Accessibility/Component.php:74
+msgid "Collapse child menu"
+msgstr ""
+
 #. translators: 1: required WP version number, 2: required PHP version number, 3: available WP version number, 4: available PHP version number
-#: ../buddyx/inc/back-compat.php:25
-msgid "Buddyx requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again."
+#: inc/back-compat.php:25
+#, php-format
+msgid "BuddyX requires at least WordPress version %1$s and PHP version %2$s. You are running versions %3$s and %4$s respectively. Please update and try again."
 msgstr ""
 
 #. translators: 1: required WP version number, 2: available WP version number
-#: ../buddyx/inc/back-compat.php:30
-msgid "Buddyx requires at least WordPress version %1$s. You are running version %2$s. Please update and try again."
+#: inc/back-compat.php:30
+#, php-format
+msgid "BuddyX requires at least WordPress version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
 #. translators: 1: required PHP version number, 2: available PHP version number
-#: ../buddyx/inc/back-compat.php:35
-msgid "Buddyx requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
+#: inc/back-compat.php:35
+#, php-format
+msgid "BuddyX requires at least PHP version %1$s. You are running version %2$s. Please update and try again."
 msgstr ""
 
-#: ../buddyx/inc/back-compat.php:39
+#: inc/back-compat.php:39
 msgid "BuddyX requires the BuddyPress Template Pack \"BP Nouveau\" to be active. Please activate this Template Pack from the BuddyPress Options."
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:352
+#: inc/Base_Support/Component.php:197
+msgid "Borders"
+msgstr ""
+
+#: inc/Base_Support/Component.php:212
+msgid "BuddyX General"
+msgstr ""
+
+#: inc/Base_Support/Component.php:219
+msgid "BuddyX Hero Sections"
+msgstr ""
+
+#: inc/Base_Support/Component.php:226
+msgid "BuddyX Footer"
+msgstr ""
+
+#: inc/Base_Support/Component.php:233
+msgid "BuddyX Query"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-central.php:9
+msgid "Central Footer with banner"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-default-mega.php:9
+msgid "Default Mega Footer"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-default.php:9
+msgid "Default Footer"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-mega.php:9
+msgid "Mega menu in 5 columns"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-simple.php:9
+msgid "Simple footer with social icons"
+msgstr ""
+
+#: inc/Base_Support/patterns/footer-small.php:9
+msgid "Small Footer"
+msgstr ""
+
+#: inc/Base_Support/patterns/general-banner-light.php:9
+msgid "Banner block light"
+msgstr ""
+
+#: inc/Base_Support/patterns/general-banner.php:9
+msgid "Banner block"
+msgstr ""
+
+#: inc/Base_Support/patterns/general-faq.php:9
+msgid "FAQ block"
+msgstr ""
+
+#: inc/Base_Support/patterns/general-features-light.php:9
+msgid "Features block light"
+msgstr ""
+
+#: inc/Base_Support/patterns/general-pricing.php:9
+msgid "Pricing table"
+msgstr ""
+
+#: inc/Base_Support/patterns/hero-count.php:9
+msgid "Hero Counter"
+msgstr ""
+
+#: inc/Base_Support/patterns/hero-main.php:9
+msgid "Hero block for Homepage"
+msgstr ""
+
+#: inc/Base_Support/patterns/hero-two.php:9
+msgid "Hero block with two columns"
+msgstr ""
+
+#: inc/Base_Support/patterns/query-cover-featured.php:9
+msgid "Featured section with cover images"
+msgstr ""
+
+#: inc/Base_Support/patterns/query-cover-grid.php:9
+msgid "Grid with cover images"
+msgstr ""
+
+#: inc/Base_Support/patterns/query-grid-excerpt.php:9
+msgid "Grid of posts with excerpt"
+msgstr ""
+
+#: inc/Base_Support/patterns/query-listbig.php:9
+msgid "List with big images"
+msgstr ""
+
+#: inc/Base_Support/patterns/query-simple-list.php:9
+msgid "Simple item list"
+msgstr ""
+
+#: inc/class-buddyx-breadcrumbs.php:352
 msgid "Browse:"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:353
+#: inc/class-buddyx-breadcrumbs.php:353
 msgctxt "breadcrumbs aria label"
 msgid "Breadcrumbs"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:354
+#: inc/class-buddyx-breadcrumbs.php:354
 msgid "Home"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:355
+#: inc/class-buddyx-breadcrumbs.php:355
 msgid "404 Not Found"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:356
+#: inc/class-buddyx-breadcrumbs.php:356
 msgid "Archives"
 msgstr ""
 
-#. translators: %s is the search query.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:358
+#. Translators: %s is the search query.
+#: inc/class-buddyx-breadcrumbs.php:358
+#, php-format
 msgid "Search results for: %s"
 msgstr ""
 
-#. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:360
+#. Translators: %s is the page number.
+#: inc/class-buddyx-breadcrumbs.php:360
+#, php-format
 msgid "Page %s"
 msgstr ""
 
-#. translators: %s is the page number.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:362
+#. Translators: %s is the page number.
+#: inc/class-buddyx-breadcrumbs.php:362
+#, php-format
 msgid "Comment Page %s"
 msgstr ""
 
-#. translators: Minute archive title. %s is the minute time format.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:364
+#. Translators: Minute archive title. %s is the minute time format.
+#: inc/class-buddyx-breadcrumbs.php:364
+#, php-format
 msgid "Minute %s"
 msgstr ""
 
-#. translators: Weekly archive title. %s is the week date format.
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:366
+#. Translators: Weekly archive title. %s is the week date format.
+#: inc/class-buddyx-breadcrumbs.php:366
+#, php-format
 msgid "Week %s"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:375, ../buddyx/template-parts/header/buddypress-profile.php:170, ../buddyx/template-parts/header/buddypress-profile.php:171
+#: inc/class-buddyx-breadcrumbs.php:375
+#: template-parts/header/buddypress-profile.php:170
+#: template-parts/header/buddypress-profile.php:171
 msgid "Register"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:858
+#: inc/class-buddyx-breadcrumbs.php:858
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:876
+#: inc/class-buddyx-breadcrumbs.php:876
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:894
+#: inc/class-buddyx-breadcrumbs.php:894
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:911, ../buddyx/inc/class-buddyx-breadcrumbs.php:941, ../buddyx/inc/class-buddyx-breadcrumbs.php:981, ../buddyx/inc/class-buddyx-breadcrumbs.php:1009, ../buddyx/inc/class-buddyx-breadcrumbs.php:1375
+#: inc/class-buddyx-breadcrumbs.php:911
+#: inc/class-buddyx-breadcrumbs.php:941
+#: inc/class-buddyx-breadcrumbs.php:981
+#: inc/class-buddyx-breadcrumbs.php:1009
+#: inc/class-buddyx-breadcrumbs.php:1375
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:912, ../buddyx/inc/class-buddyx-breadcrumbs.php:982, ../buddyx/inc/class-buddyx-breadcrumbs.php:1380
+#: inc/class-buddyx-breadcrumbs.php:912
+#: inc/class-buddyx-breadcrumbs.php:982
+#: inc/class-buddyx-breadcrumbs.php:1380
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:913, ../buddyx/inc/class-buddyx-breadcrumbs.php:1385
+#: inc/class-buddyx-breadcrumbs.php:913
+#: inc/class-buddyx-breadcrumbs.php:1385
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: ../buddyx/inc/class-buddyx-breadcrumbs.php:942
+#: inc/class-buddyx-breadcrumbs.php:942
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: ../buddyx/inc/extra.php:46, ../buddyx/inc/extra.php:147
-msgid "Search"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:204, ../buddyx/inc/extra.php:192
-msgid "BuddyX WordPress Theme"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:245
-msgid "Sticky"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:256
-msgid "Leave a comment"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:256
-msgid "1 Comment"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:256
-msgid "% Comments"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:261, ../buddyx/template-parts/content/entry_meta.php:148
-msgid "Edit"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:390
-msgid "Post Settings"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:399
-msgid "Post Format Settings"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:418
-msgid "Overwrite Title Customizer settings"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:423
-msgid "Title Style"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:473
-msgid "Enter Youtube, Vimeo and etc video url."
-msgstr ""
-
-#: ../buddyx/inc/extra.php:476
-msgid "Video URL"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:479, ../buddyx/inc/extra.php:492, ../buddyx/inc/extra.php:721
-msgid "Add Media"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:486
-msgid "Enter audio url."
-msgstr ""
-
-#: ../buddyx/inc/extra.php:489
-msgid "Audio URL"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:499
-msgid "Input your quote."
-msgstr ""
-
-#: ../buddyx/inc/extra.php:502
-msgid "Quote Text"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:508
-msgid "Quote Author"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:515
-msgid "Input your link."
-msgstr ""
-
-#: ../buddyx/inc/extra.php:518
-msgid "Link Title"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:524
-msgid "Link URL"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:531
-msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
-msgstr ""
-
-#: ../buddyx/inc/extra.php:553, ../buddyx/inc/extra.php:660
-msgid "Delete image"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:567, ../buddyx/inc/extra.php:637
-msgid "Add images gallery"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:639
-msgid "Add to gallery"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:723
-msgid "Add to Media"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:959
-msgid " Read more"
-msgstr ""
-
-#: ../buddyx/inc/extra.php:917
-msgid "&hellip;"
-msgstr ""
-
-#: ../buddyx/inc/login.php:89
-msgid "Log In"
-msgstr ""
-
-#. translators: 1: classname/type of the variable, 2: interface name
-#: ../buddyx/inc/Template_Tags.php:54
-msgid "The theme templating component %1$s does not implement the %2$s interface."
-msgstr ""
-
-#. translators: %s: template tag name
-#: ../buddyx/inc/Template_Tags.php:81
-msgid "The template tag %s does not exist."
-msgstr ""
-
-#. translators: 1: template tag method name, 2: component class name
-#: ../buddyx/inc/Template_Tags.php:110
-msgid "The template tag method %1$s registered by theme component %2$s must either be a callable or an array."
-msgstr ""
-
-#. translators: 1: template tag method name, 2: component class name
-#: ../buddyx/inc/Template_Tags.php:121
-msgid "The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name."
-msgstr ""
-
-#. translators: 1: classname/type of the variable, 2: interface name
-#: ../buddyx/inc/Theme.php:57
-msgid "The theme component %1$s does not implement the %2$s interface."
-msgstr ""
-
-#. translators: %s: slug
-#: ../buddyx/inc/Theme.php:120
-msgid "No theme component with the slug %s exists."
-msgstr ""
-
-#: ../buddyx/page-templates/full-width-container.php:3
-msgid "Page No Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/full-width.php:3
-msgid "Page Full Screen"
-msgstr ""
-
-#: ../buddyx/page-templates/page-both-sidebar.php:3
-msgid "Page Both Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/page-left-sidebar.php:3
-msgid "Page Left Sidebar"
-msgstr ""
-
-#: ../buddyx/page-templates/page-right-sidebar.php:3
-msgid "Page Right Sidebar"
-msgstr ""
-
-#: ../buddyx/post-templates/post-both-sidebar.php:3, ../buddyx/inc/Welcome/Component.php:636
-msgid "Both Sidebar"
-msgstr ""
-
-#: ../buddyx/post-templates/post-full-large.php:3
-msgid "Full Width - Large container"
-msgstr ""
-
-#: ../buddyx/post-templates/post-full-small.php:3
-msgid "Full Width - Small container"
-msgstr ""
-
-#: ../buddyx/post-templates/post-left-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:122, ../buddyx/inc/Welcome/Component.php:626
-msgid "Left Sidebar"
-msgstr ""
-
-#: ../buddyx/post-templates/post-right-sidebar.php:3, ../buddyx/inc/Sidebars/Component.php:110, ../buddyx/inc/Welcome/Component.php:631
-msgid "Right Sidebar"
-msgstr ""
-
-#: ../buddyx/rtmedia/main.php:208, ../buddyx/rtmedia/main.php:97
-msgid "rtMedia menu"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: ../buddyx/template-parts/content-bbpress.php:20, ../buddyx/template-parts/content-buddypress.php:20, ../buddyx/template-parts/content/entry-full-width.php:37, ../buddyx/template-parts/content/entry_content.php:21
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: ../buddyx/template-parts/content-bbpress.php:33, ../buddyx/template-parts/content-buddypress.php:33, ../buddyx/template-parts/content/entry-full-width.php:50, ../buddyx/template-parts/content/entry-page.php:38, ../buddyx/template-parts/content/entry_content.php:38
-msgid "Pages:"
-msgstr ""
-
-#. translators: %s: User display name.
-#: ../buddyx/bb-buddypress/activity/entry.php:35
-msgid "%s's post"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/activity/entry.php:44
-msgid "Pinned Post"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/activity/entry.php:51
-msgid "Turned off notifications"
-msgstr ""
-
-#. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
-#. translators: %s: last activity timestamp (e.g. "Active 1 hour ago")
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:86, ../buddyx/buddypress/groups/groups-loop.php:57, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:149, ../buddyx/bb-buddypress/groups/single/group-header.php:92, ../buddyx/buddypress/groups/single/cover-image-header.php:60, ../buddyx/buddypress/groups/single/group-header.php:43
-msgid "Active %s"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:128, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:221, ../buddyx/bb-buddypress/groups/single/group-header.php:160
-msgid "Leave Group"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:134, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:227, ../buddyx/bb-buddypress/groups/single/group-header.php:166
-msgid "Are you sure you want to leave "
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:137, ../buddyx/bb-buddypress/members/members-loop.php:288, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:63, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:230, ../buddyx/bb-buddypress/groups/single/group-header.php:169, ../buddyx/bb-buddypress/groups/single/members-loop.php:262, ../buddyx/bb-buddypress/members/single/cover-image-header.php:101, ../buddyx/bb-buddypress/members/single/cover-image-header.php:289, ../buddyx/bb-buddypress/members/single/member-header.php:223
-msgid "Cancel"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/groups-loop.php:138, ../buddyx/bb-buddypress/members/members-loop.php:289, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:231, ../buddyx/bb-buddypress/groups/single/group-header.php:170, ../buddyx/bb-buddypress/groups/single/members-loop.php:263, ../buddyx/bb-buddypress/members/single/cover-image-header.php:290, ../buddyx/bb-buddypress/members/single/member-header.php:224
-msgid "Confirm"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/members/members-loop.php:221, ../buddyx/bb-buddypress/members/members-loop.php:232, ../buddyx/bb-buddypress/groups/single/members-loop.php:200, ../buddyx/bb-buddypress/groups/single/members-loop.php:209, ../buddyx/bb-buddypress/groups/single/members-loop.php:211
-msgid "More options"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/members/members-loop.php:230, ../buddyx/bb-buddypress/members/members-loop.php:230
-msgid "More Options"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/members/members-loop.php:271, ../buddyx/bb-buddypress/groups/single/members-loop.php:245, ../buddyx/bb-buddypress/members/single/cover-image-header.php:272, ../buddyx/bb-buddypress/members/single/member-header.php:206
-msgid "Remove Connection"
-msgstr ""
-
-#. translators: %s: The member name with HTML tags
-#. translators: %s: The member name with HTML tags.
-#: ../buddyx/bb-buddypress/members/members-loop.php:281, ../buddyx/bb-buddypress/groups/single/members-loop.php:255, ../buddyx/bb-buddypress/members/single/cover-image-header.php:282, ../buddyx/bb-buddypress/members/single/member-header.php:216
-msgid "Are you sure you want to remove %s from your connections?"
-msgstr ""
-
-#: ../buddyx/inc/Accessibility/Component.php:72
-msgid "Expand child menu"
-msgstr ""
-
-#: ../buddyx/inc/Accessibility/Component.php:73
-msgid "Collapse child menu"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/Component.php:243
-msgid "Borders"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/Component.php:258
-msgid "BuddyX General"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/Component.php:265
-msgid "BuddyX Hero Sections"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/Component.php:272
-msgid "BuddyX Footer"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/Component.php:279
-msgid "BuddyX Query"
-msgstr ""
-
-#: ../buddyx/inc/Comments/Component.php:132
-msgid "New comment(s)"
-msgstr ""
-
-#: ../buddyx/inc/Customizer/Component.php:85
-msgid "Theme Options"
-msgstr ""
-
-#: ../buddyx/inc/Dropdown_Select/Component.php:48
-msgid "-- Select a Page --"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:65, ../buddyx/inc/Nav_Menus/Component.php:69
-msgid "Primary"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:70
-msgid "Secondary"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:75
-msgid "Red"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:80
-msgid "Green"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:85
-msgid "Blue"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:90
-msgid "Yellow"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:95
-msgid "Black"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:100
-msgid "Grey"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:105
-msgid "White"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:110
-msgid "Dusty daylight"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:115
-msgid "Dusty sun"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:132
-msgid "Small"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:133
-msgid "S"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:138
-msgid "Medium"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:139
-msgid "M"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:144
-msgid "Large"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:145
-msgid "L"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:150
-msgid "Larger"
-msgstr ""
-
-#: ../buddyx/inc/Editor/Component.php:151
-msgid "XL"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:136
-msgid "General"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:145, ../buddyx/inc/Kirki_Option/Component.php:370, ../buddyx/inc/Welcome/Component.php:143, ../buddyx/inc/Welcome/Component.php:331
-msgid "Site Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:156, ../buddyx/inc/Welcome/Component.php:376
-msgid "Site Loader"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:167, ../buddyx/inc/Welcome/Component.php:361
-msgid "Page Mapping"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:178, ../buddyx/inc/Welcome/Component.php:386
-msgid "Typography"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:187
-msgid "Site Title"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:197, ../buddyx/inc/Kirki_Option/Component.php:1344, ../buddyx/inc/Welcome/Component.php:396
-msgid "Headings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:207, ../buddyx/inc/Welcome/Component.php:401, ../buddyx/template-parts/header/navigation.php:58
-msgid "Menu"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:217, ../buddyx/inc/Kirki_Option/Component.php:1161, ../buddyx/inc/Welcome/Component.php:406
-msgid "Body"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:228
-msgid "Site Header"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:238
-msgid "Site Sub Header"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:248
-msgid "Site Skin"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:258, ../buddyx/inc/Welcome/Component.php:167, ../buddyx/inc/Welcome/Component.php:586
-msgid "Site Blog"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:268, ../buddyx/inc/Welcome/Component.php:616
-msgid "Site Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:278, ../buddyx/inc/Welcome/Component.php:666
-msgid "WP Login"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:287
-msgid "Logo"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:300
-msgid "Community Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:310
-msgid "General Setting"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:322, ../buddyx/inc/Welcome/Component.php:696
-msgid "Site Footer"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:331, ../buddyx/inc/Welcome/Component.php:701
-msgid "Footer Section"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:342, ../buddyx/inc/Welcome/Component.php:706
-msgid "Copyright Section"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:353
-msgid "Site Performance"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:374
-msgid "You can select wide or box layout based on your preference."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:388
-msgid "Max Content Layout Width"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:389
-msgid "Select the maximum content width for your website (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:407, ../buddyx/inc/Welcome/Component.php:346
-msgid "Global Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:408
-msgid "Set the content, various elements border radius for your website (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:419, ../buddyx/inc/Welcome/Component.php:351
-msgid "Buttons Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:420
-msgid "Set the buttons border radius for your website (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:431, ../buddyx/inc/Welcome/Component.php:356
-msgid "Form Border Radius"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:432
-msgid "Set the form elements (except textarea) border radius for your website (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:446
-msgid "Site Loader ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:450, ../buddyx/inc/Kirki_Option/Component.php:818, ../buddyx/inc/Kirki_Option/Component.php:835, ../buddyx/inc/Kirki_Option/Component.php:852, ../buddyx/inc/Kirki_Option/Component.php:868, ../buddyx/inc/Kirki_Option/Component.php:884, ../buddyx/inc/Kirki_Option/Component.php:950, ../buddyx/inc/Kirki_Option/Component.php:1900, ../buddyx/inc/Kirki_Option/Component.php:1936, ../buddyx/inc/Kirki_Option/Component.php:2137, ../buddyx/inc/Kirki_Option/Component.php:2366, ../buddyx/inc/Kirki_Option/Component.php:2424, ../buddyx/inc/Kirki_Option/Component.php:2437
-msgid "Enable"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:451, ../buddyx/inc/Kirki_Option/Component.php:819, ../buddyx/inc/Kirki_Option/Component.php:836, ../buddyx/inc/Kirki_Option/Component.php:853, ../buddyx/inc/Kirki_Option/Component.php:869, ../buddyx/inc/Kirki_Option/Component.php:885, ../buddyx/inc/Kirki_Option/Component.php:951, ../buddyx/inc/Kirki_Option/Component.php:1901, ../buddyx/inc/Kirki_Option/Component.php:1937, ../buddyx/inc/Kirki_Option/Component.php:2138, ../buddyx/inc/Kirki_Option/Component.php:2367, ../buddyx/inc/Kirki_Option/Component.php:2425, ../buddyx/inc/Kirki_Option/Component.php:2438
-msgid "Disable"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:462
-msgid "Login Page"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:463
-msgid "You can redirect user to custom login page."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:474
-msgid "Registration Page"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:475
-msgid "You can redirect user to custom registration page."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:486
-msgid "404"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:487
-msgid "You can redirect user to custom 404 page."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:501, ../buddyx/inc/Welcome/Component.php:391
-msgid "Site Title Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:515, ../buddyx/inc/Kirki_Option/Component.php:541, ../buddyx/inc/Kirki_Option/Component.php:570, ../buddyx/inc/Kirki_Option/Component.php:596, ../buddyx/inc/Kirki_Option/Component.php:622, ../buddyx/inc/Kirki_Option/Component.php:648, ../buddyx/inc/Kirki_Option/Component.php:674, ../buddyx/inc/Kirki_Option/Component.php:700, ../buddyx/inc/Kirki_Option/Component.php:729, ../buddyx/inc/Kirki_Option/Component.php:754, ../buddyx/inc/Kirki_Option/Component.php:783
-msgid "We recommend using font size in pixels (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:527
-msgid "Site Tagline Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:556
-msgid "H1 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:582
-msgid "H2 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:608
-msgid "H3 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:634
-msgid "H4 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:660
-msgid "H5 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:686
-msgid "H6 Tag Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:715
-msgid "Menu Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:741
-msgid "Sub Menu Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:769
-msgid "Settings"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:798
-msgid "Enable Sticky Header ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:802, ../buddyx/inc/Kirki_Option/Component.php:966, ../buddyx/inc/Kirki_Option/Component.php:2153, ../buddyx/inc/Kirki_Option/Component.php:2166, ../buddyx/inc/Kirki_Option/Component.php:2349, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:240, ../buddyx/inc/compatibility/surecart/surecart-functions.php:303
-msgid "Yes"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:803, ../buddyx/inc/Kirki_Option/Component.php:967, ../buddyx/inc/Kirki_Option/Component.php:2154, ../buddyx/inc/Kirki_Option/Component.php:2167, ../buddyx/inc/Kirki_Option/Component.php:2350, ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:241, ../buddyx/inc/compatibility/surecart/surecart-functions.php:304
-msgid "No"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:814
-msgid "Enable Search Icon"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:831
-msgid "Enable Cart Icon"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:848
-msgid "Enable Login Link"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:864
-msgid "Enable Register Link"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:880, ../buddyx/inc/Kirki_Option/Component.php:2362
-msgid "Customize Background ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:893, ../buddyx/inc/Kirki_Option/Component.php:2375
-msgid "Background Control"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:922, ../buddyx/inc/Welcome/Component.php:521
-msgid "Content Typography"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:946
-msgid "Site Breadcrumbs?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:962
-msgid "Set Custom Colors?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:975
-msgid "Loader"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:996
-msgid "Site Loader Background"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1019, ../buddyx/inc/Welcome/Component.php:436
-msgid "Header"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1035
-msgid "Site Title Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1053
-msgid "Site Title Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1071
-msgid "Site Tagline Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1089
-msgid "Header Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1107
-msgid "Menu Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1125
-msgid "Menu Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1143
-msgid "Menu Active Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1177, ../buddyx/inc/Welcome/Component.php:546
-msgid "Body Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1195
-msgid "Body Text Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1213
-msgid "Content Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1214
-msgid "Note: This setting will only be used if the box layout is selected."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1236
-msgid "Box Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1254
-msgid "Secondary Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1272
-msgid "Subheader Title Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1290, ../buddyx/inc/Welcome/Component.php:551
-msgid "Theme Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1308, ../buddyx/inc/Welcome/Component.php:556
-msgid "Link Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1326
-msgid "Link Hover"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1360
-msgid "H1 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1378
-msgid "H2 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1396
-msgid "H3 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1414
-msgid "H4 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1432
-msgid "H5 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1450
-msgid "H6 Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1468
-msgid "Buttons"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1485
-msgid "Button Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1504
-msgid "Button Background Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1523
-msgid "Button Text Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1541
-msgid "Button Text Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1559
-msgid "Button Border Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1577
-msgid "Button Border Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1611
-msgid "Footer Title Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1629
-msgid "Footer Content Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1647
-msgid "Footer Link Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1665
-msgid "Footer Link Hover"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1683
-msgid "Copyright"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1704
-msgid "Copyright Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1722
-msgid "Copyright Border Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1739
-msgid "Copyright Content Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1757
-msgid "Copyright Link Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1775
-msgid "Copyright Link Hover Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1796
-msgid "Blog Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1812
-msgid "Image position"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1817
-msgid "Left"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1818
-msgid "Right"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1833
-msgid "Grid Columns"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1838
-msgid "One"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1839, ../buddyx/inc/Kirki_Option/Component.php:1880
-msgid "Two"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1854
-msgid "View"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1859
-msgid "Without Masonry"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1860
-msgid "With Masonry"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1875, ../buddyx/inc/Welcome/Component.php:611
-msgid "Post Per Row"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1881
-msgid "Three"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1896
-msgid "Show Tags"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1903
-msgid "Display tags on blog layouts."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1910
-msgid "Tags Style"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1915
-msgid "Default"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1916
-msgid "Badge"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1917
-msgid "Underline"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1932
-msgid "Show Edit Link"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1939
-msgid "Please remember that the results will be shown in the frontend."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1954
-msgid "Single Post Content Width"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1968
-msgid "Single Post Title Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1984
-msgid "Image Overlay Color"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:1985
-msgid "Allow to add image overlay color on single post title layout one."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2013
-msgid "Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2029
-msgid "Single Post Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2047
-msgid "Activity Directory Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2063
-msgid "Members Directory Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2079
-msgid "Groups Directory Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2098
-msgid "bbPress Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2116
-msgid "WooCommerce Sidebar Layout"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2133
-msgid "Sticky Sidebar ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2149, ../buddyx/inc/Welcome/Component.php:671
-msgid "Customize Your Logo Section"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2162
-msgid "Disable Logo?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2182
-msgid "Custom Logo"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2205
-msgid "Logo Width"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2206
-msgid "Select the logo width (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2229
-msgid "Logo Height"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2230
-msgid "Select the logo height (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2253
-msgid "Logo Space Bottom"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2254
-msgid "Select the logo bottom spacing (px)"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2277
-msgid "Logo URL"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2300
-msgid "Logo Title"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2323
-msgid "Login Page Title"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2324
-msgid "Login page title that is shown on WordPress login page."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2344
-msgid "Avatar Style"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2345
-msgid "Set the round style for member and group avatars."
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2407
-msgid "Add Content"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2409
-msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2420
-msgid "Load Google Fonts Locally ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2433
-msgid "Preload Local Fonts ?"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2453
-msgid "Flush Local Fonts Cache"
-msgstr ""
-
-#: ../buddyx/inc/Kirki_Option/Component.php:2454
-msgid "Click the button to reset the local fonts cache."
-msgstr ""
-
-#: ../buddyx/inc/Nav_Menus/Component.php:74
-msgid "User Menu"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:112, ../buddyx/inc/Sidebars/Component.php:124, ../buddyx/inc/Sidebars/Component.php:138, ../buddyx/inc/Sidebars/Component.php:150, ../buddyx/inc/Sidebars/Component.php:162, ../buddyx/inc/Sidebars/Component.php:174, ../buddyx/inc/Sidebars/Component.php:186, ../buddyx/inc/Sidebars/Component.php:198, ../buddyx/inc/Sidebars/Component.php:210, ../buddyx/inc/Sidebars/Component.php:222, ../buddyx/inc/Sidebars/Component.php:237, ../buddyx/inc/Sidebars/Component.php:249, ../buddyx/inc/Sidebars/Component.php:263, ../buddyx/inc/Sidebars/Component.php:275, ../buddyx/inc/Sidebars/Component.php:290, ../buddyx/inc/Sidebars/Component.php:302, ../buddyx/inc/Sidebars/Component.php:315, ../buddyx/inc/Sidebars/Component.php:327, ../buddyx/inc/Sidebars/Component.php:339, ../buddyx/inc/Sidebars/Component.php:351
-msgid "Add widgets here."
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:136
-msgid "Community Left Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:148
-msgid "Activity Directory Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:160
-msgid "Members Directory Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:172
-msgid "Groups Directory Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:184
-msgid "Members Single Profile Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:196
-msgid "Members Single User Activity"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:208
-msgid "Groups Single Group Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:220
-msgid "Groups Single Group Activity"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:235
-msgid "bbPress Left Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:247
-msgid "bbPress Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:261
-msgid "WooCommerce Left Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:273
-msgid "WooCommerce Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:288
-msgid "Single Product Left Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:300
-msgid "Single Product Right Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:313
-msgid "Footer 1"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:325
-msgid "Footer 2"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:337
-msgid "Footer 3"
-msgstr ""
-
-#: ../buddyx/inc/Sidebars/Component.php:349
-msgid "Footer 4"
-msgstr ""
-
-#. translators: %s: stylesheet handle
-#: ../buddyx/inc/Styles/Component.php:386
-msgid "Invalid theme stylesheet handle: %s"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:49, ../buddyx/inc/Welcome/Component.php:50
-msgid "Getting Started"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:90
-msgid "Welcome to BuddyX Theme"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:96
-msgid "Thank you for purchasing the BuddyX Theme!"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:97
-msgid "Below, you will find information on setting up the theme to start using it!"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:107
-msgid "Programming Languages"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:108
-msgid "Dashboard"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:109, ../buddyx/inc/Welcome/Component.php:225, ../buddyx/inc/Welcome/Component.php:304
-msgid "Get BuddyX Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:110
-msgid "Community Addons"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:112
-msgid "tab1"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:119
-msgid "Customizer Settings"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:120
-msgid "Go to Customizer"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:127
-msgid "Upload Logo"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:128, ../buddyx/inc/Welcome/Component.php:136, ../buddyx/inc/Welcome/Component.php:144, ../buddyx/inc/Welcome/Component.php:152, ../buddyx/inc/Welcome/Component.php:160, ../buddyx/inc/Welcome/Component.php:168
-msgid "Go to option"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:135
-msgid "Set Colors"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:151
-msgid "Set Typography	"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:159, ../buddyx/inc/Welcome/Component.php:451
-msgid "Header Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:182, ../buddyx/inc/Welcome/Component.php:185
-msgid "Demo Installation"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:184
-msgid "The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:192
-msgid "Install Recommended Plugins"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:194
-msgid "Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:198
-msgid "Installed"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:196
-msgid "Install now"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:209
-msgid "BuddyX Child Theme"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:211
-msgid "A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:212
-msgid "Download Now"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:222, ../buddyx/inc/Welcome/Component.php:301
-msgid "Get BuddyX Pro Theme"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:224
-msgid "#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:235
-msgid "Document"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:239
-msgid "We have created foolproof documentation for you. It will help you to understand how our plugin works."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:241
-msgid "Go to Documentation"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:246
-msgid "Community"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:250
-msgid "Join our community! Share your site, ask a question, and help others."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:252
-msgid "Go to Facebook Group"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:257
-msgid "Videos"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:261
-msgid "Welcome to our WordPress theme video series! Whether you're a newbie or a seasoned website creator, our bite-sized tutorials are packed with tips, tricks, and hacks to supercharge your WordPress journey."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:263
-msgid "Watch Now"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:268
-msgid "Support"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:272
-msgid "Have a question, we are happy to help! Get in touch with our support team."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:274
-msgid "Submit a Ticket"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:279
-msgid "Give us feedback"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:283
-msgid "Remember to pay attention to your rate! Your 5-star review will encourage us so much!"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:285
-msgid "Write a Review "
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:295
-msgid "tab2"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:303
-msgid "#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:309
-msgid "Compare Features Of BuddyX With BuddyX Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:310
-msgid "Take Your Time & Compare Every Feature"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:319
-msgid "Features"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:320
-msgid "BuddyX"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:321
-msgid "BuddyX Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:326
-msgid "Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:336
-msgid "Content Layout Width"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:341
-msgid "Sidebar Width"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:366
-msgid "Sign-in Popup | Register Form Fields"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:371
-msgid "Scroll Top"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:381
-msgid "Loading Text"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:411
-msgid "Google Fonts"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:416
-msgid "Font Size (PX/EM)"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:421
-msgid "Text Transform"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:426
-msgid "Line Height"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:431
-msgid "Letter Spacing"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:441
-msgid "Top Bar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:446
-msgid "Sticky Header"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:456
-msgid "Header Menu Position"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:461
-msgid "Menu Effects"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:466
-msgid "More Menu"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:471
-msgid "Site Search Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:476
-msgid "Login/Register Button Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:481
-msgid "Background Color"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:486
-msgid "Site Search"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:491
-msgid "Site Cart"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:496
-msgid "BuddyPress Components"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:501, ../buddyx/inc/Welcome/Component.php:506, ../buddyx/inc/Welcome/Component.php:566
-msgid "Side Panel"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:511
-msgid "Sub Header"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:516
-msgid "Customize Background"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:526
-msgid "Breadcrumbs"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:531
-msgid "Skin Colors"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:536
-msgid "Dark Mode"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:541
-msgid "Custom Colors"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:561
-msgid "Primary Header"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:571
-msgid "Button Background Color / Hover"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:576
-msgid "Button Text Color / Hover"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:581
-msgid "Button Border Color / Hover"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:591
-msgid "List Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:596
-msgid "Grid Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:601
-msgid "Masonry Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:606
-msgid "Blog Layout Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:621
-msgid "No Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:641
-msgid "BuddyPress Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:646
-msgid "WooCommerce Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:651
-msgid "bbPress Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:656
-msgid "LearnDash Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:661
-msgid "Sticky Sidebar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:676
-msgid "Choose WP Login Theme"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:681
-msgid "Customize Login Form"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:686
-msgid "Customize Forget Form"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:691
-msgid "Customize Button"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:711, ../buddyx/inc/Welcome/Component.php:807
-msgid "BuddyPress"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:716
-msgid "Activity Control"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:717, ../buddyx/inc/Welcome/Component.php:732, ../buddyx/inc/Welcome/Component.php:737, ../buddyx/inc/Welcome/Component.php:742, ../buddyx/inc/Welcome/Component.php:747, ../buddyx/inc/Welcome/Component.php:752, ../buddyx/inc/Welcome/Component.php:757, ../buddyx/inc/Welcome/Component.php:762, ../buddyx/inc/Welcome/Component.php:767, ../buddyx/inc/Welcome/Component.php:772, ../buddyx/inc/Welcome/Component.php:818, ../buddyx/inc/Welcome/Component.php:823, ../buddyx/inc/Welcome/Component.php:828, ../buddyx/inc/Welcome/Component.php:833, ../buddyx/inc/Welcome/Component.php:838, ../buddyx/inc/Welcome/Component.php:843, ../buddyx/inc/Welcome/Component.php:848, ../buddyx/inc/Welcome/Component.php:853
-msgid "Limited"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:721
-msgid "BuddyPress Activity Share"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:726
-msgid "Activity Reaction"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:731
-msgid "Activity Load More"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:736
-msgid "Members Multiple Directory Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:741
-msgid "Members Default Cover Background"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:746
-msgid "Groups Multiple Directory View"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:751
-msgid "Group Default Cover Background"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:756
-msgid "Member Multiple Header Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:761
-msgid "Member Primary Navigation Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:766
-msgid "Group Multiple Header Layout"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:771
-msgid "Group Primary Navigation Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:777, ../buddyx/inc/Welcome/Component.php:817
-msgid "WooCommerce"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:782
-msgid "Product Listing Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:787
-msgid "Shop Products Per Page"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:792
-msgid "Display Filter Button"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:797
-msgid "Sale Badge Style"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:802
-msgid "Integrations"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:812
-msgid "BuddyBoss Platform"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:822
-msgid "LearnDash"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:827
-msgid "LearnPress"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:832
-msgid "LifterLMS"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:837
-msgid "TutorLMS"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:842
-msgid "bbPress"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:847
-msgid "Dokan"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:852
-msgid "WC Vendors"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:857
-msgid "GamiPress"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:862
-msgid "Paid Memberships"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:867
-msgid "The Event Calendar"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:879
-msgid "tab3"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:888
-msgid "BuddyPress Premium add-ons"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:890
-msgid "Extend your social community website with our premium add-ons for BuddyPress."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:891
-msgid "View More Addons"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:899
-msgid "BuddyPress Business Profile"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:900
-msgid "BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:901, ../buddyx/inc/Welcome/Component.php:910, ../buddyx/inc/Welcome/Component.php:919, ../buddyx/inc/Welcome/Component.php:928, ../buddyx/inc/Welcome/Component.php:937, ../buddyx/inc/Welcome/Component.php:946, ../buddyx/inc/Welcome/Component.php:955, ../buddyx/inc/Welcome/Component.php:964, ../buddyx/inc/Welcome/Component.php:973, ../buddyx/inc/Welcome/Component.php:982, ../buddyx/inc/Welcome/Component.php:991, ../buddyx/inc/Welcome/Component.php:1000, ../buddyx/inc/Welcome/Component.php:1009, ../buddyx/inc/Welcome/Component.php:1018, ../buddyx/inc/Welcome/Component.php:1027, ../buddyx/inc/Welcome/Component.php:1036, ../buddyx/inc/Welcome/Component.php:1045, ../buddyx/inc/Welcome/Component.php:1054, ../buddyx/inc/Welcome/Component.php:1063, ../buddyx/inc/Welcome/Component.php:1072, ../buddyx/inc/Welcome/Component.php:1081, ../buddyx/inc/Welcome/Component.php:1090, ../buddyx/inc/Welcome/Component.php:1099, ../buddyx/inc/Welcome/Component.php:1108
-msgid "Get It Now"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:908
-msgid "BuddyPress Ideapush Integration"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:909
-msgid "The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:917
-msgid "BuddyPress Contact Me"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:918
-msgid "BuddyPress Contact Me displays a contact form on a member's profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:926
-msgid "WP Stories"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:927
-msgid "Social Stories offer a more personal way to interact with your audience."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:935
-msgid "Who Viewed My Profile"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:936
-msgid "The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header..."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:944
-msgid "BuddyPress Member Blog Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:945
-msgid "BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:953
-msgid "BuddyVendor"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:954
-msgid "With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:962
-msgid "BuddyPress Statistics"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:963
-msgid "BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site..."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:971
-msgid "BuddyPress Check-Ins Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:972
-msgid "Allow community members and groups to post updates along with selecting their current location."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:980
-msgid "BuddyPress Friend & Follow Suggestion"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:981
-msgid "BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:989
-msgid "BuddyPress Giphy"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:990
-msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:998
-msgid "Shortcodes For BuddyPress Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:999
-msgid "Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1007
-msgid "BuddyPress Sticky Post"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1008
-msgid "Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1016
-msgid "BuddyPress Quotes"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1017
-msgid "Allow BuddyPress users to post content with attractive background colors and beautiful images."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1025
-msgid "BuddyPress Auto Friends"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1026
-msgid "Add selected community members as common friends for all members."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1034
-msgid "BuddyPress Newsfeed"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1035
-msgid "Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1043
-msgid "BuddyPress Status"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1044
-msgid "Allow members to add status on their profile and give their reactions to all the activity updates."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1052
-msgid "BuddyPress Hashtags"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1053
-msgid "Allow users to add multi-language hashtag links on BuddyPress community website."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1061
-msgid "BuddyPress Moderation Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1062
-msgid "Allow members to flag inappropriate content on your BuddyPress community site."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1070
-msgid "BuddyPress Private Community Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1071
-msgid "Lockdown the BuddyPress components to make your member's profile safe."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1079
-msgid "BuddyPress Polls"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1080
-msgid "Allow users to create and respond to polls inside the BuddyPress activity or in groups."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1088
-msgid "BuddyPress Profanity"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1089
-msgid "Specify a list of bad words to control the content in your BuddyPress community."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1097
-msgid "BuddyPress Resume Manager"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1098
-msgid "Allow members to create and display resumes on BuddyPress right from their profile page."
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1106
-msgid "BuddyPress Profile Pro"
-msgstr ""
-
-#: ../buddyx/inc/Welcome/Component.php:1107
-msgid "Add repeater fields or group of fields to the front-end forms on the member's profile."
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:20
-msgid "Show Logged in user Profile Completion Progress."
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:26
-msgid "(BuddyPress) Profile Completion"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:73
-msgid "%s Complete"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:99
-msgid "Complete"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:195, ../buddyx/inc/widgets/bp-profile-completion-widget.php:432
-msgid "Profile Photo"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:215, ../buddyx/inc/widgets/bp-profile-completion-widget.php:435
-msgid "Cover Photo"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:297
-msgid "Profile Fields"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:407
-msgid "Complete Your Profile"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:441
-msgid "Title:"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:445
-msgid "Profile field sets:"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:466
-msgid "Profile photos:"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:483
-msgid "Hide widget once progress hits 100%"
-msgstr ""
-
-#: ../buddyx/inc/widgets/bp-profile-completion-widget.php:488
-msgid "Note: This widget is only displayed if a member is logged in."
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry-attachment.php:35, ../buddyx/template-parts/content/entry-post.php:36, ../buddyx/template-parts/content/entry.php:34
-msgid "Previous:"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry-attachment.php:45, ../buddyx/template-parts/content/entry-post.php:37, ../buddyx/template-parts/content/entry.php:35
-msgid "Next:"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry-attachment.php:51
-msgid "Post navigation"
-msgstr ""
-
-#. translators: %s: post title
-#: ../buddyx/template-parts/content/entry_actions.php:22
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: post title
-#: ../buddyx/template-parts/content/entry_actions.php:42
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
-
-#: ../buddyx/template-parts/content/entry_meta.php:98, ../buddyx/template-parts/content/entry_meta.php:93
-msgctxt "post author"
-msgid "Written by %s"
-msgstr ""
-
-#. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:115
-msgctxt "post parent"
-msgid "In %s"
-msgstr ""
-
-#. translators: %s: post parent title
-#: ../buddyx/template-parts/content/entry_meta.php:118
-msgctxt "post parent"
-msgid "in %s"
-msgstr ""
-
-#. translators: %s: post date
-#: ../buddyx/template-parts/content/entry_meta.php:135
-msgctxt "post date"
-msgid "%s"
-msgstr ""
-
-#. translators: separator between taxonomy terms
-#: ../buddyx/template-parts/content/entry_taxonomies.php:24
-msgctxt "list item separator"
-msgid ", "
-msgstr ""
-
-#. translators: %s: list of taxonomy terms
-#: ../buddyx/template-parts/content/entry_taxonomies.php:31
-msgid "Posted in %s"
-msgstr ""
-
-#. translators: %s: list of taxonomy terms
-#: ../buddyx/template-parts/content/entry_taxonomies.php:37
-msgid "Tagged %s"
-msgstr ""
-
-#. translators: %s: taxonomy name
-#: ../buddyx/template-parts/content/entry_taxonomies.php:44
-msgid "%s:"
-msgstr ""
-
-#: ../buddyx/template-parts/content/error-404.php:16
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
-
-#: ../buddyx/template-parts/content/error-404.php:27
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-#: ../buddyx/template-parts/content/error-404.php:45
-msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#: ../buddyx/template-parts/content/error-500.php:14
-msgid "Oops! Something went wrong."
-msgstr ""
-
-#: ../buddyx/template-parts/content/error-offline.php:14
-msgid "Oops! It looks like you&#8217;re offline."
-msgstr ""
-
-#: ../buddyx/template-parts/content/error.php:44
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#: ../buddyx/template-parts/content/error.php:38
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#: ../buddyx/template-parts/content/error.php:23
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#. translators: %s: search query
-#: ../buddyx/template-parts/content/page_header.php:41
-msgid "Search Results for: %s"
-msgstr ""
-
-#: ../buddyx/template-parts/content/page_header.php:22
-msgid "Nothing Found"
-msgstr ""
-
-#: ../buddyx/template-parts/content/page_header.php:14
-msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: ../buddyx/template-parts/content/pagination.php:13
-msgctxt "previous set of search results"
-msgid "Previous"
-msgstr ""
-
-#: ../buddyx/template-parts/content/pagination.php:14
-msgctxt "next set of search results"
-msgid "Next"
-msgstr ""
-
-#: ../buddyx/template-parts/content/pagination.php:15
-msgid "Page navigation"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:47
-msgid "Messages"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:65
-msgid "Notifications"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:95
-msgid "No notifications found."
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:99
-msgid "All Notifications"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:154
-msgid "Login"
-msgstr ""
-
-#: ../buddyx/template-parts/header/buddypress-profile.php:155
-msgid "Log in"
-msgstr ""
-
-#: ../buddyx/template-parts/header/navigation.php:38
-msgid "Main menu"
-msgstr ""
-
-#: ../buddyx/template-parts/header/navigation.php:50
-msgid "Open menu"
-msgstr ""
-
-#: ../buddyx/template-parts/header/navigation.php:59, ../buddyx/bb-buddypress/groups/single/group-header.php:140
-msgid "Close"
-msgstr ""
-
-#: ../buddyx/template-parts/header/navigation.php:89
-msgid "My Account"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:30
-msgid "Remove item"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:31
-msgid "Thumbnail image"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:32, ../buddyx/woocommerce/cart/cart.php:102
-msgid "Product"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:33, ../buddyx/woocommerce/cart/cart.php:127
-msgid "Price"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:34, ../buddyx/woocommerce/cart/cart.php:133
-msgid "Quantity"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:35, ../buddyx/woocommerce/cart/cart.php:159
-msgid "Subtotal"
-msgstr ""
-
-#. translators: %s is the product name
-#: ../buddyx/woocommerce/cart/cart.php:68
-msgid "Remove %s from cart"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:122
-msgid "Available on backorder"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:177
-msgid "Coupon:"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:177
-msgid "Coupon code"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:177, ../buddyx/woocommerce/cart/cart.php:177
-msgid "Apply coupon"
-msgstr ""
-
-#: ../buddyx/woocommerce/cart/cart.php:182, ../buddyx/woocommerce/cart/cart.php:182
-msgid "Update cart"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:53, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/bb-buddypress/members/single/cover-image-header.php:90, ../buddyx/buddypress/groups/single/cover-image-header.php:25, ../buddyx/buddypress/members/single/cover-image-header.php:15
-msgid "Change Cover Photo"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:59, ../buddyx/bb-buddypress/members/single/cover-image-header.php:97, ../buddyx/bb-buddypress/members/single/cover-image-header.php:97
-msgid "Reposition Cover Photo"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:64, ../buddyx/bb-buddypress/members/single/cover-image-header.php:102
-msgid "Save Changes"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:65, ../buddyx/bb-buddypress/members/single/cover-image-header.php:103
-msgid "Drag to move cover photo"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:66, ../buddyx/bb-buddypress/members/single/cover-image-header.php:104
-msgid "Cover photo"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/cover-image-header.php:79, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/bb-buddypress/groups/single/group-header.php:23, ../buddyx/buddypress/groups/single/cover-image-header.php:40, ../buddyx/buddypress/groups/single/group-header.php:23
-msgid "Change Group Photo"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/groups/single/cover-image-header.php:199, ../buddyx/bb-buddypress/groups/single/group-header.php:139
-msgid "Group Description"
-msgstr ""
-
-#: ../buddyx/bb-buddypress/members/single/cover-image-header.php:127, ../buddyx/bb-buddypress/members/single/cover-image-header.php:127, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/bb-buddypress/members/single/member-header.php:66, ../buddyx/buddypress/members/single/cover-image-header.php:26, ../buddyx/buddypress/members/single/member-header.php:14
-msgid "Change Profile Photo"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:76, ../buddyx/buddypress/groups/single/group-header.php:58
-msgid "Group Types"
-msgstr ""
-
-#: ../buddyx/buddypress/groups/single/cover-image-header.php:77, ../buddyx/buddypress/groups/single/group-header.php:59
-msgid "Group Type"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/cover-image-header.php:69, ../buddyx/buddypress/members/single/member-header.php:52
-msgid "Member Types"
-msgstr ""
-
-#: ../buddyx/buddypress/members/single/cover-image-header.php:70, ../buddyx/buddypress/members/single/member-header.php:53
-msgid "Member Type"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-central.php:9
-msgid "Central Footer with banner"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-default-mega.php:9
-msgid "Default Mega Footer"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-default.php:9
-msgid "Default Footer"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-mega.php:9
-msgid "Mega menu in 5 columns"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-simple.php:9
-msgid "Simple footer with social icons"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/footer-small.php:9
-msgid "Small Footer"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/general-banner-light.php:9
-msgid "Banner block light"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/general-banner.php:9
-msgid "Banner block"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/general-faq.php:9
-msgid "FAQ block"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/general-features-light.php:9
-msgid "Features block light"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/general-pricing.php:9
-msgid "Pricing table"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/hero-count.php:9
-msgid "Hero Counter"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/hero-main.php:9
-msgid "Hero block for Homepage"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/hero-two.php:9
-msgid "Hero block with two columns"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/query-cover-featured.php:9
-msgid "Featured section with cover images"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/query-cover-grid.php:9
-msgid "Grid with cover images"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/query-grid-excerpt.php:9
-msgid "Grid of posts with excerpt"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/query-listbig.php:9
-msgid "List with big images"
-msgstr ""
-
-#: ../buddyx/inc/Base_Support/patterns/query-simple-list.php:9
-msgid "Simple item list"
-msgstr ""
-
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:53
+#: inc/compatibility/buddypress/buddypress-functions.php:53
 msgid "Profile"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:54, ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:67
+#: inc/compatibility/buddypress/buddypress-functions.php:54
+#: inc/compatibility/buddypress/buddypress-functions.php:67
 msgid "Activity"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:55
+#: inc/compatibility/buddypress/buddypress-functions.php:55
 msgid "Groups"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:56
+#: inc/compatibility/buddypress/buddypress-functions.php:56
 msgid "Forums"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:57
+#: inc/compatibility/buddypress/buddypress-functions.php:57
 msgid "Friends"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:58
+#: inc/compatibility/buddypress/buddypress-functions.php:58
 msgid "Members"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:59
+#: inc/compatibility/buddypress/buddypress-functions.php:59
 msgid "Blogs"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:60
+#: inc/compatibility/buddypress/buddypress-functions.php:60
 msgid "Business"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/buddypress/buddypress-functions.php:291
+#: inc/compatibility/buddypress/buddypress-functions.php:291
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:235, ../buddyx/inc/compatibility/surecart/surecart-functions.php:298
+#: inc/compatibility/fluentcart/fluentcart-functions.php:235
+#: inc/compatibility/surecart/surecart-functions.php:298
 msgid "Enable Cart Icon?"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:243
+#: inc/compatibility/fluentcart/fluentcart-functions.php:240
+#: inc/compatibility/surecart/surecart-functions.php:303
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:22
+#: inc/Kirki_Option/Fields/Header_Fields.php:21
+#: inc/Kirki_Option/Fields/Skin_Fields.php:21
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:21
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:34
+msgid "Yes"
+msgstr ""
+
+#: inc/compatibility/fluentcart/fluentcart-functions.php:241
+#: inc/compatibility/surecart/surecart-functions.php:304
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:23
+#: inc/Kirki_Option/Fields/Header_Fields.php:22
+#: inc/Kirki_Option/Fields/Skin_Fields.php:22
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:22
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:35
+msgid "No"
+msgstr ""
+
+#: inc/compatibility/fluentcart/fluentcart-functions.php:243
 msgid "Display FluentCart cart icon in header"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:253
+#: inc/compatibility/fluentcart/fluentcart-functions.php:253
 msgid "Single Product Sidebar"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:263
+#: inc/compatibility/fluentcart/fluentcart-functions.php:263
 msgid "Choose sidebar layout for single product page."
 msgstr ""
 
-#: ../buddyx/inc/compatibility/fluentcart/fluentcart-functions.php:334, ../buddyx/inc/compatibility/surecart/surecart-functions.php:365, ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:28
+#: inc/compatibility/fluentcart/fluentcart-functions.php:334
+#: inc/compatibility/surecart/surecart-functions.php:365
+#: inc/compatibility/woocommerce/woocommerce-functions.php:28
 msgid "View Shopping Cart"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/surecart/surecart-functions.php:306
+#: inc/compatibility/surecart/surecart-functions.php:306
 msgid "Display SureCart cart icon in header"
 msgstr ""
 
-#: ../buddyx/inc/compatibility/woocommerce/woocommerce-functions.php:68
+#: inc/compatibility/woocommerce/woocommerce-functions.php:68
 msgid "View your shopping cart"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/single/groups/invites.php:10, ../buddyx/buddypress/members/single/groups/invites.php:10
-msgid "Group Invites"
+#: inc/Customizer/Component.php:87
+msgid "Theme Options"
 msgstr ""
 
-#: ../buddyx/bb-buddypress/members/single/groups/invites.php:45
-msgid "Invited by %1$s &middot; %2$s."
+#: inc/Dropdown_Select/Component.php:48
+msgid "-- Select a Page --"
 msgstr ""
 
-#. translators: %s is the number of Group members
-#: ../buddyx/buddypress/members/single/groups/invites.php:45
-msgid "%s member"
-msgid_plural "%s members"
-msgstr[0] ""
-msgstr[1] ""
+#: inc/Editor/Component.php:65
+#: inc/Nav_Menus/Component.php:71
+msgid "Primary"
+msgstr ""
+
+#: inc/Editor/Component.php:70
+msgid "Secondary"
+msgstr ""
+
+#: inc/Editor/Component.php:75
+msgid "Red"
+msgstr ""
+
+#: inc/Editor/Component.php:80
+msgid "Green"
+msgstr ""
+
+#: inc/Editor/Component.php:85
+msgid "Blue"
+msgstr ""
+
+#: inc/Editor/Component.php:90
+msgid "Yellow"
+msgstr ""
+
+#: inc/Editor/Component.php:95
+msgid "Black"
+msgstr ""
+
+#: inc/Editor/Component.php:100
+msgid "Grey"
+msgstr ""
+
+#: inc/Editor/Component.php:105
+msgid "White"
+msgstr ""
+
+#: inc/Editor/Component.php:110
+msgid "Dusty daylight"
+msgstr ""
+
+#: inc/Editor/Component.php:115
+msgid "Dusty sun"
+msgstr ""
+
+#: inc/Editor/Component.php:132
+msgid "Small"
+msgstr ""
+
+#: inc/Editor/Component.php:133
+msgid "S"
+msgstr ""
+
+#: inc/Editor/Component.php:138
+msgid "Medium"
+msgstr ""
+
+#: inc/Editor/Component.php:139
+msgid "M"
+msgstr ""
+
+#: inc/Editor/Component.php:144
+msgid "Large"
+msgstr ""
+
+#: inc/Editor/Component.php:145
+msgid "L"
+msgstr ""
+
+#: inc/Editor/Component.php:150
+msgid "Larger"
+msgstr ""
+
+#: inc/Editor/Component.php:151
+msgid "XL"
+msgstr ""
+
+#. translators: %s: Post title.
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/Excerpts/Component.php:44
+#: template-parts/content-bbpress.php:20
+#: template-parts/content-buddypress.php:20
+#: template-parts/content/entry-full-width.php:37
+#: template-parts/content/entry_content.php:21
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/extra.php:46
+#: inc/extra.php:147
+msgid "Search"
+msgstr ""
+
+#: inc/extra.php:192
+#: inc/extra.php:204
+msgid "BuddyX WordPress Theme"
+msgstr ""
+
+#: inc/extra.php:245
+msgid "Sticky"
+msgstr ""
+
+#: inc/extra.php:256
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/extra.php:256
+msgid "1 Comment"
+msgstr ""
+
+#: inc/extra.php:256
+msgid "% Comments"
+msgstr ""
+
+#: inc/extra.php:261
+#: template-parts/content/entry_meta.php:148
+msgid "Edit"
+msgstr ""
+
+#: inc/extra.php:390
+msgid "Post Settings"
+msgstr ""
+
+#: inc/extra.php:399
+msgid "Post Format Settings"
+msgstr ""
+
+#: inc/extra.php:418
+msgid "Overwrite Title Customizer settings"
+msgstr ""
+
+#: inc/extra.php:423
+msgid "Title Style"
+msgstr ""
+
+#: inc/extra.php:473
+msgid "Enter Youtube, Vimeo and etc video url."
+msgstr ""
+
+#: inc/extra.php:476
+msgid "Video URL"
+msgstr ""
+
+#: inc/extra.php:479
+#: inc/extra.php:492
+#: inc/extra.php:721
+msgid "Add Media"
+msgstr ""
+
+#: inc/extra.php:486
+msgid "Enter audio url."
+msgstr ""
+
+#: inc/extra.php:489
+msgid "Audio URL"
+msgstr ""
+
+#: inc/extra.php:499
+msgid "Input your quote."
+msgstr ""
+
+#: inc/extra.php:502
+msgid "Quote Text"
+msgstr ""
+
+#: inc/extra.php:508
+msgid "Quote Author"
+msgstr ""
+
+#: inc/extra.php:515
+msgid "Input your link."
+msgstr ""
+
+#: inc/extra.php:518
+msgid "Link Title"
+msgstr ""
+
+#: inc/extra.php:524
+msgid "Link URL"
+msgstr ""
+
+#: inc/extra.php:531
+msgid "To create a gallery, upload your images and then select \"Uploaded to this post\" from the dropdown (in the media popup) to see images attached to this post. You can drag to re-order or delete them there."
+msgstr ""
+
+#: inc/extra.php:553
+#: inc/extra.php:660
+msgid "Delete image"
+msgstr ""
+
+#: inc/extra.php:567
+#: inc/extra.php:637
+msgid "Add images gallery"
+msgstr ""
+
+#: inc/extra.php:639
+msgid "Add to gallery"
+msgstr ""
+
+#: inc/extra.php:723
+msgid "Add to Media"
+msgstr ""
+
+#: inc/extra.php:917
+#: inc/extra.php:957
+msgid "&hellip;"
+msgstr ""
+
+#: inc/extra.php:959
+msgid " Read more"
+msgstr ""
+
+#: inc/Fonts/Component.php:101
+msgid "Modern Stacks"
+msgstr ""
+
+#: inc/Fonts/Component.php:102
+msgid "A collection of modern system fonts."
+msgstr ""
+
+#: inc/Fonts/Component.php:108
+msgid "System UI"
+msgstr ""
+
+#: inc/Fonts/Component.php:116
+msgid "Transitional"
+msgstr ""
+
+#: inc/Fonts/Component.php:124
+msgid "Monospace Slab Serif"
+msgstr ""
+
+#: inc/Fonts/Component.php:132
+msgid "Handwritten"
+msgstr ""
+
+#: inc/Fonts/Component.php:139
+msgid "Handwriting"
+msgstr ""
+
+#: inc/Fonts/Component.php:143
+msgid "Monospace"
+msgstr ""
+
+#: inc/Fonts/Component.php:147
+msgid "Sans Serif"
+msgstr ""
+
+#: inc/Fonts/Component.php:151
+msgid "Serif"
+msgstr ""
+
+#: inc/Fonts/Component.php:161
+msgid "Local Fonts"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:136
+msgid "General"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:145
+#: inc/Kirki_Option/Fields/General_Fields.php:17
+#: inc/Welcome/Component.php:143
+#: inc/Welcome/Component.php:331
+msgid "Site Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:156
+#: inc/Welcome/Component.php:376
+msgid "Site Loader"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:167
+#: inc/Welcome/Component.php:361
+msgid "Page Mapping"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:178
+#: inc/Welcome/Component.php:386
+msgid "Typography"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:187
+msgid "Site Title"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:197
+#: inc/Kirki_Option/Fields/Skin_Fields.php:399
+#: inc/Welcome/Component.php:396
+msgid "Headings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:207
+#: inc/Welcome/Component.php:401
+#: template-parts/header/navigation.php:58
+msgid "Menu"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:217
+#: inc/Kirki_Option/Fields/Skin_Fields.php:216
+#: inc/Welcome/Component.php:406
+msgid "Body"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:228
+msgid "Site Header"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:238
+msgid "Site Sub Header"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:248
+msgid "Site Skin"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:258
+#: inc/Welcome/Component.php:167
+#: inc/Welcome/Component.php:586
+msgid "Site Blog"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:268
+#: inc/Welcome/Component.php:616
+msgid "Site Sidebar"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:278
+#: inc/Welcome/Component.php:666
+msgid "WP Login"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:287
+msgid "Logo"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:300
+msgid "Community Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:310
+msgid "General Setting"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:322
+#: inc/Welcome/Component.php:696
+msgid "Site Footer"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:331
+#: inc/Welcome/Component.php:701
+msgid "Footer Section"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:342
+#: inc/Welcome/Component.php:706
+msgid "Copyright Section"
+msgstr ""
+
+#: inc/Kirki_Option/Component.php:353
+msgid "Site Performance"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:17
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:33
+msgid "Image position"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:38
+msgid "Left"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:39
+msgid "Right"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:54
+msgid "Grid Columns"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:59
+msgid "One"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:60
+#: inc/Kirki_Option/Fields/Blog_Fields.php:101
+msgid "Two"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:75
+msgid "View"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:80
+msgid "Without Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:81
+msgid "With Masonry"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:96
+#: inc/Welcome/Component.php:611
+msgid "Post Per Row"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:102
+msgid "Three"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:117
+msgid "Show Tags"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:122
+#: inc/Kirki_Option/Fields/Blog_Fields.php:159
+#: inc/Kirki_Option/Fields/Footer_Fields.php:21
+#: inc/Kirki_Option/Fields/General_Fields.php:97
+#: inc/Kirki_Option/Fields/Header_Fields.php:37
+#: inc/Kirki_Option/Fields/Header_Fields.php:54
+#: inc/Kirki_Option/Fields/Header_Fields.php:71
+#: inc/Kirki_Option/Fields/Header_Fields.php:87
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:141
+#: inc/Kirki_Option/Fields/Site_Performance.php:21
+#: inc/Kirki_Option/Fields/Site_Performance.php:34
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:21
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:87
+msgid "Enable"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:123
+#: inc/Kirki_Option/Fields/Blog_Fields.php:160
+#: inc/Kirki_Option/Fields/Footer_Fields.php:22
+#: inc/Kirki_Option/Fields/General_Fields.php:98
+#: inc/Kirki_Option/Fields/Header_Fields.php:38
+#: inc/Kirki_Option/Fields/Header_Fields.php:55
+#: inc/Kirki_Option/Fields/Header_Fields.php:72
+#: inc/Kirki_Option/Fields/Header_Fields.php:88
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:142
+#: inc/Kirki_Option/Fields/Site_Performance.php:22
+#: inc/Kirki_Option/Fields/Site_Performance.php:35
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:22
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:88
+msgid "Disable"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:125
+msgid "Display tags on blog layouts."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:132
+msgid "Tags Style"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:137
+msgid "Default"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:138
+msgid "Badge"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:139
+msgid "Underline"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:154
+msgid "Show Edit Link"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:162
+msgid "Please remember that the results will be shown in the frontend."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:177
+msgid "Single Post Content Width"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:191
+msgid "Single Post Title Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:207
+msgid "Image Overlay Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Blog_Fields.php:208
+msgid "Allow to add image overlay color on single post title layout one."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:17
+msgid "Avatar Style"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/BuddyPress_Fields.php:18
+msgid "Set the round style for member and group avatars."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:17
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:17
+msgid "Customize Background ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:30
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:30
+msgid "Background Control"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:62
+msgid "Add Content"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Footer_Fields.php:64
+msgid "Copyright © [current_year] [site_title] | Powered by [theme_author]"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:21
+msgid "You can select wide or box layout based on your preference."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:35
+msgid "Max Content Layout Width"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:36
+msgid "Select the maximum content width for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:54
+#: inc/Welcome/Component.php:346
+msgid "Global Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:55
+msgid "Set the content, various elements border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:66
+#: inc/Welcome/Component.php:351
+msgid "Buttons Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:67
+msgid "Set the buttons border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:78
+#: inc/Welcome/Component.php:356
+msgid "Form Border Radius"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:79
+msgid "Set the form elements (except textarea) border radius for your website (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:93
+msgid "Site Loader ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:109
+msgid "Login Page"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:110
+msgid "You can redirect user to custom login page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:121
+msgid "Registration Page"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:122
+msgid "You can redirect user to custom registration page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:133
+msgid "404"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/General_Fields.php:134
+msgid "You can redirect user to custom 404 page."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:17
+msgid "Enable Sticky Header ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:33
+msgid "Enable Search Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:50
+msgid "Enable Cart Icon"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:67
+msgid "Enable Login Link"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Header_Fields.php:83
+msgid "Enable Register Link"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:17
+msgid "Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:33
+msgid "Single Post Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:51
+msgid "Activity Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:67
+msgid "Members Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:83
+msgid "Groups Directory Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:102
+msgid "bbPress Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:120
+msgid "WooCommerce Sidebar Layout"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sidebar_Fields.php:137
+msgid "Sticky Sidebar ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:17
+msgid "Load Google Fonts Locally ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:30
+msgid "Preload Local Fonts ?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:50
+msgid "Flush Local Fonts Cache"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Site_Performance.php:51
+msgid "Click the button to reset the local fonts cache."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:17
+msgid "Set Custom Colors?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:30
+msgid "Loader"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:51
+msgid "Site Loader Background"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:74
+#: inc/Welcome/Component.php:436
+msgid "Header"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:90
+msgid "Site Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:108
+msgid "Site Title Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:126
+msgid "Site Tagline Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:144
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:162
+msgid "Menu Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:180
+msgid "Menu Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:198
+msgid "Menu Active Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:232
+#: inc/Welcome/Component.php:546
+msgid "Body Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:250
+msgid "Body Text Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:268
+msgid "Content Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:269
+msgid "Note: This setting will only be used if the box layout is selected."
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:291
+msgid "Box Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:309
+msgid "Secondary Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:327
+msgid "Subheader Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:345
+#: inc/Welcome/Component.php:551
+msgid "Theme Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:363
+#: inc/Welcome/Component.php:556
+msgid "Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:381
+msgid "Link Hover"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:415
+msgid "H1 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:433
+msgid "H2 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:451
+msgid "H3 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:469
+msgid "H4 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:487
+msgid "H5 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:505
+msgid "H6 Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:523
+msgid "Buttons"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:540
+msgid "Button Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:559
+msgid "Button Background Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:578
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:596
+msgid "Button Text Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:614
+msgid "Button Border Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:632
+msgid "Button Border Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:666
+msgid "Footer Title Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:684
+msgid "Footer Content Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:702
+msgid "Footer Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:720
+msgid "Footer Link Hover"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:738
+msgid "Copyright"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:759
+msgid "Copyright Background Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:777
+msgid "Copyright Border Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:794
+msgid "Copyright Content Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:812
+msgid "Copyright Link Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Skin_Fields.php:830
+msgid "Copyright Link Hover Color"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:59
+#: inc/Welcome/Component.php:521
+msgid "Content Typography"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Sub_Header_Fields.php:83
+msgid "Site Breadcrumbs?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:17
+#: inc/Welcome/Component.php:391
+msgid "Site Title Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:31
+#: inc/Kirki_Option/Fields/Typography_Fields.php:57
+#: inc/Kirki_Option/Fields/Typography_Fields.php:86
+#: inc/Kirki_Option/Fields/Typography_Fields.php:112
+#: inc/Kirki_Option/Fields/Typography_Fields.php:138
+#: inc/Kirki_Option/Fields/Typography_Fields.php:164
+#: inc/Kirki_Option/Fields/Typography_Fields.php:190
+#: inc/Kirki_Option/Fields/Typography_Fields.php:216
+#: inc/Kirki_Option/Fields/Typography_Fields.php:245
+#: inc/Kirki_Option/Fields/Typography_Fields.php:270
+#: inc/Kirki_Option/Fields/Typography_Fields.php:299
+msgid "We recommend using font size in pixels (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:43
+msgid "Site Tagline Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:72
+msgid "H1 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:98
+msgid "H2 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:124
+msgid "H3 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:150
+msgid "H4 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:176
+msgid "H5 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:202
+msgid "H6 Tag Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:231
+msgid "Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:257
+msgid "Sub Menu Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/Typography_Fields.php:285
+msgid "Settings"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:17
+#: inc/Welcome/Component.php:671
+msgid "Customize Your Logo Section"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:30
+msgid "Disable Logo?"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:50
+msgid "Custom Logo"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:73
+msgid "Logo Width"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:74
+msgid "Select the logo width (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:97
+msgid "Logo Height"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:98
+msgid "Select the logo height (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:121
+msgid "Logo Space Bottom"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:122
+msgid "Select the logo bottom spacing (px)"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:145
+msgid "Logo URL"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:168
+msgid "Logo Title"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:191
+msgid "Login Page Title"
+msgstr ""
+
+#: inc/Kirki_Option/Fields/WP_Login_Fields.php:192
+msgid "Login page title that is shown on WordPress login page."
+msgstr ""
+
+#: inc/login.php:89
+msgid "Log In"
+msgstr ""
+
+#: inc/Nav_Menus/Component.php:76
+msgid "User Menu"
+msgstr ""
+
+#: inc/Options/Component.php:97
+#: inc/Options/Component.php:98
+msgid "BuddyX Settings"
+msgstr ""
+
+#: inc/Options/settings-page.php:14
+msgid "Theme Settings"
+msgstr ""
+
+#. translators: %s: JS handle
+#: inc/Scripts/Component.php:151
+#, php-format
+msgid "Invalid theme JS handle: %s"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/Sidebars/Component.php:110
+#: inc/Welcome/Component.php:631
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:112
+#: inc/Sidebars/Component.php:124
+#: inc/Sidebars/Component.php:138
+#: inc/Sidebars/Component.php:150
+#: inc/Sidebars/Component.php:162
+#: inc/Sidebars/Component.php:174
+#: inc/Sidebars/Component.php:186
+#: inc/Sidebars/Component.php:198
+#: inc/Sidebars/Component.php:210
+#: inc/Sidebars/Component.php:222
+#: inc/Sidebars/Component.php:237
+#: inc/Sidebars/Component.php:249
+#: inc/Sidebars/Component.php:263
+#: inc/Sidebars/Component.php:275
+#: inc/Sidebars/Component.php:290
+#: inc/Sidebars/Component.php:302
+#: inc/Sidebars/Component.php:315
+#: inc/Sidebars/Component.php:327
+#: inc/Sidebars/Component.php:339
+#: inc/Sidebars/Component.php:351
+msgid "Add widgets here."
+msgstr ""
+
+#. Template Name of the theme
+#: inc/Sidebars/Component.php:122
+#: inc/Welcome/Component.php:626
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:136
+msgid "Community Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:148
+msgid "Activity Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:160
+msgid "Members Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:172
+msgid "Groups Directory Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:184
+msgid "Members Single Profile Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:196
+msgid "Members Single User Activity"
+msgstr ""
+
+#: inc/Sidebars/Component.php:208
+msgid "Groups Single Group Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:220
+msgid "Groups Single Group Activity"
+msgstr ""
+
+#: inc/Sidebars/Component.php:235
+msgid "bbPress Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:247
+msgid "bbPress Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:261
+msgid "WooCommerce Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:273
+msgid "WooCommerce Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:288
+msgid "Single Product Left Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:300
+msgid "Single Product Right Sidebar"
+msgstr ""
+
+#: inc/Sidebars/Component.php:313
+msgid "Footer 1"
+msgstr ""
+
+#: inc/Sidebars/Component.php:325
+msgid "Footer 2"
+msgstr ""
+
+#: inc/Sidebars/Component.php:337
+msgid "Footer 3"
+msgstr ""
+
+#: inc/Sidebars/Component.php:349
+msgid "Footer 4"
+msgstr ""
+
+#. translators: %s: stylesheet handle
+#: inc/Styles/Component.php:319
+#, php-format
+msgid "Invalid theme stylesheet handle: %s"
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Template_Tags.php:54
+#, php-format
+msgid "The theme templating component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: template tag name
+#: inc/Template_Tags.php:81
+#, php-format
+msgid "The template tag %s does not exist."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:110
+#, php-format
+msgid "The template tag method %1$s registered by theme component %2$s must either be a callable or an array."
+msgstr ""
+
+#. translators: 1: template tag method name, 2: component class name
+#: inc/Template_Tags.php:121
+#, php-format
+msgid "The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name."
+msgstr ""
+
+#: inc/Template_Tags.php:192
+msgid "WordPress filesystem is not initialized properly."
+msgstr ""
+
+#. translators: %s: asset file path
+#: inc/Template_Tags.php:201
+#, php-format
+msgid "Error reading asset file: %s"
+msgstr ""
+
+#. translators: %s: error message
+#: inc/Template_Tags.php:211
+#, php-format
+msgid "Failed to get asset contents: %s"
+msgstr ""
+
+#. translators: 1: classname/type of the variable, 2: interface name
+#: inc/Theme.php:57
+#, php-format
+msgid "The theme component %1$s does not implement the %2$s interface."
+msgstr ""
+
+#. translators: %s: slug
+#: inc/Theme.php:120
+#, php-format
+msgid "No theme component with the slug %s exists."
+msgstr ""
+
+#: inc/Welcome/Component.php:49
+#: inc/Welcome/Component.php:50
+msgid "Getting Started"
+msgstr ""
+
+#: inc/Welcome/Component.php:90
+msgid "Welcome to BuddyX Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:96
+msgid "Thank you for purchasing the BuddyX Theme!"
+msgstr ""
+
+#: inc/Welcome/Component.php:97
+msgid "Below, you will find information on setting up the theme to start using it!"
+msgstr ""
+
+#: inc/Welcome/Component.php:107
+msgid "Programming Languages"
+msgstr ""
+
+#: inc/Welcome/Component.php:108
+msgid "Dashboard"
+msgstr ""
+
+#: inc/Welcome/Component.php:109
+#: inc/Welcome/Component.php:225
+#: inc/Welcome/Component.php:304
+msgid "Get BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:110
+msgid "Community Addons"
+msgstr ""
+
+#: inc/Welcome/Component.php:112
+msgid "tab1"
+msgstr ""
+
+#: inc/Welcome/Component.php:119
+msgid "Customizer Settings"
+msgstr ""
+
+#: inc/Welcome/Component.php:120
+msgid "Go to Customizer"
+msgstr ""
+
+#: inc/Welcome/Component.php:127
+msgid "Upload Logo"
+msgstr ""
+
+#: inc/Welcome/Component.php:128
+#: inc/Welcome/Component.php:136
+#: inc/Welcome/Component.php:144
+#: inc/Welcome/Component.php:152
+#: inc/Welcome/Component.php:160
+#: inc/Welcome/Component.php:168
+msgid "Go to option"
+msgstr ""
+
+#: inc/Welcome/Component.php:135
+msgid "Set Colors"
+msgstr ""
+
+#: inc/Welcome/Component.php:151
+msgid "Set Typography\t"
+msgstr ""
+
+#: inc/Welcome/Component.php:159
+#: inc/Welcome/Component.php:451
+msgid "Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:182
+#: inc/Welcome/Component.php:185
+msgid "Demo Installation"
+msgstr ""
+
+#: inc/Welcome/Component.php:184
+msgid "The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site."
+msgstr ""
+
+#: inc/Welcome/Component.php:192
+msgid "Install Recommended Plugins"
+msgstr ""
+
+#: inc/Welcome/Component.php:194
+msgid "Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes."
+msgstr ""
+
+#: inc/Welcome/Component.php:196
+msgid "Install now"
+msgstr ""
+
+#: inc/Welcome/Component.php:198
+msgid "Installed"
+msgstr ""
+
+#: inc/Welcome/Component.php:209
+msgid "BuddyX Child Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:211
+msgid "A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security."
+msgstr ""
+
+#: inc/Welcome/Component.php:212
+msgid "Download Now"
+msgstr ""
+
+#: inc/Welcome/Component.php:222
+#: inc/Welcome/Component.php:301
+msgid "Get BuddyX Pro Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:224
+msgid "#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform."
+msgstr ""
+
+#: inc/Welcome/Component.php:235
+msgid "Document"
+msgstr ""
+
+#: inc/Welcome/Component.php:239
+msgid "We have created foolproof documentation for you. It will help you to understand how our plugin works."
+msgstr ""
+
+#: inc/Welcome/Component.php:241
+msgid "Go to Documentation"
+msgstr ""
+
+#: inc/Welcome/Component.php:246
+msgid "Community"
+msgstr ""
+
+#: inc/Welcome/Component.php:250
+msgid "Join our community! Share your site, ask a question, and help others."
+msgstr ""
+
+#: inc/Welcome/Component.php:252
+msgid "Go to Facebook Group"
+msgstr ""
+
+#: inc/Welcome/Component.php:257
+msgid "Videos"
+msgstr ""
+
+#: inc/Welcome/Component.php:261
+msgid "Welcome to our WordPress theme video series! Whether you're a newbie or a seasoned website creator, our bite-sized tutorials are packed with tips, tricks, and hacks to supercharge your WordPress journey."
+msgstr ""
+
+#: inc/Welcome/Component.php:263
+msgid "Watch Now"
+msgstr ""
+
+#: inc/Welcome/Component.php:268
+msgid "Support"
+msgstr ""
+
+#: inc/Welcome/Component.php:272
+msgid "Have a question, we are happy to help! Get in touch with our support team."
+msgstr ""
+
+#: inc/Welcome/Component.php:274
+msgid "Submit a Ticket"
+msgstr ""
+
+#: inc/Welcome/Component.php:279
+msgid "Give us feedback"
+msgstr ""
+
+#: inc/Welcome/Component.php:283
+msgid "Remember to pay attention to your rate! Your 5-star review will encourage us so much!"
+msgstr ""
+
+#: inc/Welcome/Component.php:285
+msgid "Write a Review "
+msgstr ""
+
+#: inc/Welcome/Component.php:295
+msgid "tab2"
+msgstr ""
+
+#: inc/Welcome/Component.php:303
+msgid "#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform"
+msgstr ""
+
+#: inc/Welcome/Component.php:309
+msgid "Compare Features Of BuddyX With BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:310
+msgid "Take Your Time & Compare Every Feature"
+msgstr ""
+
+#: inc/Welcome/Component.php:319
+msgid "Features"
+msgstr ""
+
+#: inc/Welcome/Component.php:321
+msgid "BuddyX Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:326
+msgid "Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:336
+msgid "Content Layout Width"
+msgstr ""
+
+#: inc/Welcome/Component.php:341
+msgid "Sidebar Width"
+msgstr ""
+
+#: inc/Welcome/Component.php:366
+msgid "Sign-in Popup | Register Form Fields"
+msgstr ""
+
+#: inc/Welcome/Component.php:371
+msgid "Scroll Top"
+msgstr ""
+
+#: inc/Welcome/Component.php:381
+msgid "Loading Text"
+msgstr ""
+
+#: inc/Welcome/Component.php:411
+msgid "Google Fonts"
+msgstr ""
+
+#: inc/Welcome/Component.php:416
+msgid "Font Size (PX/EM)"
+msgstr ""
+
+#: inc/Welcome/Component.php:421
+msgid "Text Transform"
+msgstr ""
+
+#: inc/Welcome/Component.php:426
+msgid "Line Height"
+msgstr ""
+
+#: inc/Welcome/Component.php:431
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/Welcome/Component.php:441
+msgid "Top Bar"
+msgstr ""
+
+#: inc/Welcome/Component.php:446
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/Welcome/Component.php:456
+msgid "Header Menu Position"
+msgstr ""
+
+#: inc/Welcome/Component.php:461
+msgid "Menu Effects"
+msgstr ""
+
+#: inc/Welcome/Component.php:466
+msgid "More Menu"
+msgstr ""
+
+#: inc/Welcome/Component.php:471
+msgid "Site Search Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:476
+msgid "Login/Register Button Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:481
+msgid "Background Color"
+msgstr ""
+
+#: inc/Welcome/Component.php:486
+msgid "Site Search"
+msgstr ""
+
+#: inc/Welcome/Component.php:491
+msgid "Site Cart"
+msgstr ""
+
+#: inc/Welcome/Component.php:496
+msgid "BuddyPress Components"
+msgstr ""
+
+#: inc/Welcome/Component.php:501
+#: inc/Welcome/Component.php:506
+#: inc/Welcome/Component.php:566
+msgid "Side Panel"
+msgstr ""
+
+#: inc/Welcome/Component.php:511
+msgid "Sub Header"
+msgstr ""
+
+#: inc/Welcome/Component.php:516
+msgid "Customize Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:526
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/Welcome/Component.php:531
+msgid "Skin Colors"
+msgstr ""
+
+#: inc/Welcome/Component.php:536
+msgid "Dark Mode"
+msgstr ""
+
+#: inc/Welcome/Component.php:541
+msgid "Custom Colors"
+msgstr ""
+
+#: inc/Welcome/Component.php:561
+msgid "Primary Header"
+msgstr ""
+
+#: inc/Welcome/Component.php:571
+msgid "Button Background Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:576
+msgid "Button Text Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:581
+msgid "Button Border Color / Hover"
+msgstr ""
+
+#: inc/Welcome/Component.php:591
+msgid "List Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:596
+msgid "Grid Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:601
+msgid "Masonry Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:606
+msgid "Blog Layout Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:621
+msgid "No Sidebar"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/Welcome/Component.php:636
+msgid "Both Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:641
+msgid "BuddyPress Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:646
+msgid "WooCommerce Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:651
+msgid "bbPress Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:656
+msgid "LearnDash Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:661
+msgid "Sticky Sidebar"
+msgstr ""
+
+#: inc/Welcome/Component.php:676
+msgid "Choose WP Login Theme"
+msgstr ""
+
+#: inc/Welcome/Component.php:681
+msgid "Customize Login Form"
+msgstr ""
+
+#: inc/Welcome/Component.php:686
+msgid "Customize Forget Form"
+msgstr ""
+
+#: inc/Welcome/Component.php:691
+msgid "Customize Button"
+msgstr ""
+
+#: inc/Welcome/Component.php:711
+#: inc/Welcome/Component.php:807
+msgid "BuddyPress"
+msgstr ""
+
+#: inc/Welcome/Component.php:716
+msgid "Activity Control"
+msgstr ""
+
+#: inc/Welcome/Component.php:717
+#: inc/Welcome/Component.php:732
+#: inc/Welcome/Component.php:737
+#: inc/Welcome/Component.php:742
+#: inc/Welcome/Component.php:747
+#: inc/Welcome/Component.php:752
+#: inc/Welcome/Component.php:757
+#: inc/Welcome/Component.php:762
+#: inc/Welcome/Component.php:767
+#: inc/Welcome/Component.php:772
+#: inc/Welcome/Component.php:818
+#: inc/Welcome/Component.php:823
+#: inc/Welcome/Component.php:828
+#: inc/Welcome/Component.php:833
+#: inc/Welcome/Component.php:838
+#: inc/Welcome/Component.php:843
+#: inc/Welcome/Component.php:848
+#: inc/Welcome/Component.php:853
+msgid "Limited"
+msgstr ""
+
+#: inc/Welcome/Component.php:721
+msgid "BuddyPress Activity Share"
+msgstr ""
+
+#: inc/Welcome/Component.php:726
+msgid "Activity Reaction"
+msgstr ""
+
+#: inc/Welcome/Component.php:731
+msgid "Activity Load More"
+msgstr ""
+
+#: inc/Welcome/Component.php:736
+msgid "Members Multiple Directory Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:741
+msgid "Members Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:746
+msgid "Groups Multiple Directory View"
+msgstr ""
+
+#: inc/Welcome/Component.php:751
+msgid "Group Default Cover Background"
+msgstr ""
+
+#: inc/Welcome/Component.php:756
+msgid "Member Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:761
+msgid "Member Primary Navigation Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:766
+msgid "Group Multiple Header Layout"
+msgstr ""
+
+#: inc/Welcome/Component.php:771
+msgid "Group Primary Navigation Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:777
+#: inc/Welcome/Component.php:817
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/Welcome/Component.php:782
+msgid "Product Listing Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:787
+msgid "Shop Products Per Page"
+msgstr ""
+
+#: inc/Welcome/Component.php:792
+msgid "Display Filter Button"
+msgstr ""
+
+#: inc/Welcome/Component.php:797
+msgid "Sale Badge Style"
+msgstr ""
+
+#: inc/Welcome/Component.php:802
+msgid "Integrations"
+msgstr ""
+
+#: inc/Welcome/Component.php:812
+msgid "BuddyBoss Platform"
+msgstr ""
+
+#: inc/Welcome/Component.php:822
+msgid "LearnDash"
+msgstr ""
+
+#: inc/Welcome/Component.php:827
+msgid "LearnPress"
+msgstr ""
+
+#: inc/Welcome/Component.php:832
+msgid "LifterLMS"
+msgstr ""
+
+#: inc/Welcome/Component.php:837
+msgid "TutorLMS"
+msgstr ""
+
+#: inc/Welcome/Component.php:842
+msgid "bbPress"
+msgstr ""
+
+#: inc/Welcome/Component.php:847
+msgid "Dokan"
+msgstr ""
+
+#: inc/Welcome/Component.php:852
+msgid "WC Vendors"
+msgstr ""
+
+#: inc/Welcome/Component.php:857
+msgid "GamiPress"
+msgstr ""
+
+#: inc/Welcome/Component.php:862
+msgid "Paid Memberships"
+msgstr ""
+
+#: inc/Welcome/Component.php:867
+msgid "The Event Calendar"
+msgstr ""
+
+#: inc/Welcome/Component.php:879
+msgid "tab3"
+msgstr ""
+
+#: inc/Welcome/Component.php:888
+msgid "BuddyPress Premium add-ons"
+msgstr ""
+
+#: inc/Welcome/Component.php:890
+msgid "Extend your social community website with our premium add-ons for BuddyPress."
+msgstr ""
+
+#: inc/Welcome/Component.php:891
+msgid "View More Addons"
+msgstr ""
+
+#: inc/Welcome/Component.php:899
+msgid "BuddyPress Business Profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:900
+msgid "BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community."
+msgstr ""
+
+#: inc/Welcome/Component.php:901
+#: inc/Welcome/Component.php:910
+#: inc/Welcome/Component.php:919
+#: inc/Welcome/Component.php:928
+#: inc/Welcome/Component.php:937
+#: inc/Welcome/Component.php:946
+#: inc/Welcome/Component.php:955
+#: inc/Welcome/Component.php:964
+#: inc/Welcome/Component.php:973
+#: inc/Welcome/Component.php:982
+#: inc/Welcome/Component.php:991
+#: inc/Welcome/Component.php:1000
+#: inc/Welcome/Component.php:1009
+#: inc/Welcome/Component.php:1018
+#: inc/Welcome/Component.php:1027
+#: inc/Welcome/Component.php:1036
+#: inc/Welcome/Component.php:1045
+#: inc/Welcome/Component.php:1054
+#: inc/Welcome/Component.php:1063
+#: inc/Welcome/Component.php:1072
+#: inc/Welcome/Component.php:1081
+#: inc/Welcome/Component.php:1090
+#: inc/Welcome/Component.php:1099
+#: inc/Welcome/Component.php:1108
+msgid "Get It Now"
+msgstr ""
+
+#: inc/Welcome/Component.php:908
+msgid "BuddyPress Ideapush Integration"
+msgstr ""
+
+#: inc/Welcome/Component.php:909
+msgid "The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile."
+msgstr ""
+
+#: inc/Welcome/Component.php:917
+msgid "BuddyPress Contact Me"
+msgstr ""
+
+#: inc/Welcome/Component.php:918
+msgid "BuddyPress Contact Me displays a contact form on a member's profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members."
+msgstr ""
+
+#: inc/Welcome/Component.php:926
+msgid "WP Stories"
+msgstr ""
+
+#: inc/Welcome/Component.php:927
+msgid "Social Stories offer a more personal way to interact with your audience."
+msgstr ""
+
+#: inc/Welcome/Component.php:935
+msgid "Who Viewed My Profile"
+msgstr ""
+
+#: inc/Welcome/Component.php:936
+msgid "The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header..."
+msgstr ""
+
+#: inc/Welcome/Component.php:944
+msgid "BuddyPress Member Blog Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:945
+msgid "BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience."
+msgstr ""
+
+#: inc/Welcome/Component.php:953
+msgid "BuddyVendor"
+msgstr ""
+
+#: inc/Welcome/Component.php:954
+msgid "With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace."
+msgstr ""
+
+#: inc/Welcome/Component.php:962
+msgid "BuddyPress Statistics"
+msgstr ""
+
+#: inc/Welcome/Component.php:963
+msgid "BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site..."
+msgstr ""
+
+#: inc/Welcome/Component.php:971
+msgid "BuddyPress Check-Ins Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:972
+msgid "Allow community members and groups to post updates along with selecting their current location."
+msgstr ""
+
+#: inc/Welcome/Component.php:980
+msgid "BuddyPress Friend & Follow Suggestion"
+msgstr ""
+
+#: inc/Welcome/Component.php:981
+msgid "BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community."
+msgstr ""
+
+#: inc/Welcome/Component.php:989
+msgid "BuddyPress Giphy"
+msgstr ""
+
+#: inc/Welcome/Component.php:990
+msgid "Attach GIF's into your BuddyPress activity, comments, and messages."
+msgstr ""
+
+#: inc/Welcome/Component.php:998
+msgid "Shortcodes For BuddyPress Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:999
+msgid "Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets."
+msgstr ""
+
+#: inc/Welcome/Component.php:1007
+msgid "BuddyPress Sticky Post"
+msgstr ""
+
+#: inc/Welcome/Component.php:1008
+msgid "Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall."
+msgstr ""
+
+#: inc/Welcome/Component.php:1016
+msgid "BuddyPress Quotes"
+msgstr ""
+
+#: inc/Welcome/Component.php:1017
+msgid "Allow BuddyPress users to post content with attractive background colors and beautiful images."
+msgstr ""
+
+#: inc/Welcome/Component.php:1025
+msgid "BuddyPress Auto Friends"
+msgstr ""
+
+#: inc/Welcome/Component.php:1026
+msgid "Add selected community members as common friends for all members."
+msgstr ""
+
+#: inc/Welcome/Component.php:1034
+msgid "BuddyPress Newsfeed"
+msgstr ""
+
+#: inc/Welcome/Component.php:1035
+msgid "Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed."
+msgstr ""
+
+#: inc/Welcome/Component.php:1043
+msgid "BuddyPress Status"
+msgstr ""
+
+#: inc/Welcome/Component.php:1044
+msgid "Allow members to add status on their profile and give their reactions to all the activity updates."
+msgstr ""
+
+#: inc/Welcome/Component.php:1052
+msgid "BuddyPress Hashtags"
+msgstr ""
+
+#: inc/Welcome/Component.php:1053
+msgid "Allow users to add multi-language hashtag links on BuddyPress community website."
+msgstr ""
+
+#: inc/Welcome/Component.php:1061
+msgid "BuddyPress Moderation Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1062
+msgid "Allow members to flag inappropriate content on your BuddyPress community site."
+msgstr ""
+
+#: inc/Welcome/Component.php:1070
+msgid "BuddyPress Private Community Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1071
+msgid "Lockdown the BuddyPress components to make your member's profile safe."
+msgstr ""
+
+#: inc/Welcome/Component.php:1079
+msgid "BuddyPress Polls"
+msgstr ""
+
+#: inc/Welcome/Component.php:1080
+msgid "Allow users to create and respond to polls inside the BuddyPress activity or in groups."
+msgstr ""
+
+#: inc/Welcome/Component.php:1088
+msgid "BuddyPress Profanity"
+msgstr ""
+
+#: inc/Welcome/Component.php:1089
+msgid "Specify a list of bad words to control the content in your BuddyPress community."
+msgstr ""
+
+#: inc/Welcome/Component.php:1097
+msgid "BuddyPress Resume Manager"
+msgstr ""
+
+#: inc/Welcome/Component.php:1098
+msgid "Allow members to create and display resumes on BuddyPress right from their profile page."
+msgstr ""
+
+#: inc/Welcome/Component.php:1106
+msgid "BuddyPress Profile Pro"
+msgstr ""
+
+#: inc/Welcome/Component.php:1107
+msgid "Add repeater fields or group of fields to the front-end forms on the member's profile."
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:20
+msgid "Show Logged in user Profile Completion Progress."
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:26
+msgid "(BuddyPress) Profile Completion"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:73
+#, php-format
+msgid "%s Complete"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:99
+msgid "Complete"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:195
+#: inc/widgets/bp-profile-completion-widget.php:432
+msgid "Profile Photo"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:215
+#: inc/widgets/bp-profile-completion-widget.php:435
+msgid "Cover Photo"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:297
+msgid "Profile Fields"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:407
+msgid "Complete Your Profile"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:441
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:445
+msgid "Profile field sets:"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:466
+msgid "Profile photos:"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:483
+msgid "Hide widget once progress hits 100%"
+msgstr ""
+
+#: inc/widgets/bp-profile-completion-widget.php:488
+msgid "Note: This widget is only displayed if a member is logged in."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Page No Sidebar"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Page Full Screen"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Page Both Sidebar"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Page Left Sidebar"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Page Right Sidebar"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width - Large container"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width - Small container"
+msgstr ""
+
+#: rtmedia/main.php:97
+#: rtmedia/main.php:208
+msgid "rtMedia menu"
+msgstr ""
+
+#: searchform.php:10
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:11
+msgid "Enter Keyword"
+msgstr ""
+
+#: searchform.php:12
+msgid "Go"
+msgstr ""
+
+#: template-parts/content-bbpress.php:33
+#: template-parts/content-buddypress.php:33
+#: template-parts/content/entry-full-width.php:50
+#: template-parts/content/entry-page.php:38
+#: template-parts/content/entry_content.php:38
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content/entry-attachment.php:35
+#: template-parts/content/entry-post.php:36
+#: template-parts/content/entry.php:34
+msgid "Previous:"
+msgstr ""
+
+#: template-parts/content/entry-attachment.php:45
+#: template-parts/content/entry-post.php:37
+#: template-parts/content/entry.php:35
+msgid "Next:"
+msgstr ""
+
+#: template-parts/content/entry-attachment.php:51
+msgid "Post navigation"
+msgstr ""
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:22
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: post title
+#: template-parts/content/entry_actions.php:42
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: template-parts/content/entry_meta.php:93
+#: template-parts/content/entry_meta.php:98
+#, php-format
+msgctxt "post author"
+msgid "Written by %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:115
+#, php-format
+msgctxt "post parent"
+msgid "In %s"
+msgstr ""
+
+#. translators: %s: post parent title
+#: template-parts/content/entry_meta.php:118
+#, php-format
+msgctxt "post parent"
+msgid "in %s"
+msgstr ""
+
+#. translators: %s: post date
+#: template-parts/content/entry_meta.php:135
+#, php-format
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#. translators: separator between taxonomy terms
+#: template-parts/content/entry_taxonomies.php:24
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:31
+#, php-format
+msgid "Posted in %s"
+msgstr ""
+
+#. translators: %s: list of taxonomy terms
+#: template-parts/content/entry_taxonomies.php:37
+#, php-format
+msgid "Tagged %s"
+msgstr ""
+
+#. translators: %s: taxonomy name
+#: template-parts/content/entry_taxonomies.php:44
+#, php-format
+msgid "%s:"
+msgstr ""
+
+#: template-parts/content/error-404.php:16
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: template-parts/content/error-404.php:27
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: template-parts/content/error-404.php:45
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: template-parts/content/error-500.php:14
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: template-parts/content/error-offline.php:14
+msgid "Oops! It looks like you&#8217;re offline."
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/error.php:23
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/error.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content/error.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content/page_header.php:14
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: template-parts/content/page_header.php:22
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: %s: search query
+#: template-parts/content/page_header.php:41
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/content/pagination.php:13
+msgctxt "previous set of search results"
+msgid "Previous"
+msgstr ""
+
+#: template-parts/content/pagination.php:14
+msgctxt "next set of search results"
+msgid "Next"
+msgstr ""
+
+#: template-parts/content/pagination.php:15
+msgid "Page navigation"
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:47
+msgid "Messages"
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:65
+msgid "Notifications"
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:95
+msgid "No notifications found."
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:99
+msgid "All Notifications"
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:154
+msgid "Login"
+msgstr ""
+
+#: template-parts/header/buddypress-profile.php:155
+msgid "Log in"
+msgstr ""
+
+#: template-parts/header/navigation.php:38
+msgid "Main menu"
+msgstr ""
+
+#: template-parts/header/navigation.php:50
+msgid "Open menu"
+msgstr ""
+
+#: template-parts/header/navigation.php:89
+msgid "My Account"
+msgstr ""
+
+#: woocommerce/cart/cart.php:30
+msgid "Remove item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:31
+msgid "Thumbnail image"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32
+#: woocommerce/cart/cart.php:102
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:33
+#: woocommerce/cart/cart.php:127
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:34
+#: woocommerce/cart/cart.php:133
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:35
+#: woocommerce/cart/cart.php:159
+msgid "Subtotal"
+msgstr ""
+
+#. translators: %s is the product name
+#: woocommerce/cart/cart.php:68
+#, php-format
+msgid "Remove %s from cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:122
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:177
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:177
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:177
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:182
+msgid "Update cart"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Comments"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Post Meta"
+msgstr ""

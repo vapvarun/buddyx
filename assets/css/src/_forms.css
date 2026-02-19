@@ -1,0 +1,156 @@
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+/* stylelint-disable */
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+/* stylelint-enable */
+
+/* stylelint-disable */
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button[type=submit],
+a.read-more.button,
+button.button {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    padding: 10px 20px;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.3;
+    border: 1px solid var(--button-border-color);
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all linear .2s;
+    transition: all linear .2s;
+}
+
+.customize-partial-edit-shortcut button,
+.widget .customize-partial-edit-shortcut button {
+    color: #fff !important;
+    font-size: 18px !important;
+    border-radius: 50% !important;
+    border: 2px solid #fff !important;
+    padding: 3px !important;
+}
+/* stylelint-enable */
+
+
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button[type=submit]:hover,
+a.read-more.button:hover,
+button.button:hover {
+    color: var(--button-text-hover-color);
+    background-color: var(--button-background-hover-color);
+    border: 1px solid var(--button-border-hover-color);
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+    border-color: #aaa #bbb #bbb;
+}
+
+button:focus-visible {
+    outline: 2px solid black;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    color: #666;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--form-border-radius);
+    padding: 10px;
+    min-height: 38px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+    color: #111;
+}
+
+a.menu-close:focus-visible {
+    outline: 2px solid #fff;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin: 0 0 1rem;
+    border: 1px solid var(--global-border-color);
+}
+
+table td,
+table th {
+    padding: 1rem;
+    border: 1px solid var(--global-border-color);
+}
+
+.widget_calendar table th {
+    padding: 0.2em;
+}
+
+select {
+    display: inline-block;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 15px;
+    height: 35px;
+    outline: none;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid var(--global-border-color);
+    border-radius: 3px;
+    box-shadow: none;
+    padding: 0 12px;
+    color: inherit;
+}

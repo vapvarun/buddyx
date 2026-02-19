@@ -1,0 +1,61 @@
+{
+  "name": "wbcomdesigns/buddyx",
+  "description": "Free theme for your community with BuddyPress.",
+  "type": "wordpress-theme",
+  "license": "GPL-3.0-or-later",
+  "require-dev": {
+    "php": ">=8.1",
+    "wp-coding-standards/wpcs": "^3.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "squizlabs/php_codesniffer": "3.*",
+    "brain/monkey": "^2",
+    "phpcompatibility/php-compatibility": "^9",
+    "yoast/phpunit-polyfills": "^1.0",
+    "phpunit/phpunit": "^9.5",
+    "rector/rector": "^2.0",
+    "friendsofphp/php-cs-fixer": "^3.67",
+    "phpstan/phpstan": "^2.1",
+    "phpstan/extension-installer": "^1.4",
+    "szepeviktor/phpstan-wordpress": "^2.0"
+  },
+  "config": {
+    "platform": {
+      "php": "8.1"
+    },
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "BuddyX\\Buddyx\\": "inc"
+    }
+  },
+  "scripts": {
+    "setup-wp-tests": "php tests/phpunit/setup-wp-env.php",
+    "test:unit": "\"vendor/bin/phpunit\"",
+    "test:integration": "\"vendor/bin/phpunit\" -c \"phpunit.integration.xml.dist\"",
+    "test:all": [
+      "@test:unit",
+      "@test:integration"
+    ],
+    "install-codestandards": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+    ],
+    "phpcbf-dev": "\"vendor/bin/phpcbf\"",
+    "run-phpcbf": [
+      "@phpcbf-dev"
+    ],
+    "phpcs-dev": "\"vendor/bin/phpcs\" -s --parallel=4 --standard=phpcs.xml.dist",
+    "phpcs-config": "\"vendor/bin/phpcs\" --config-show",
+    "run-phpcs": [
+      "@phpcs-dev"
+    ],
+    "fix": "vendor/bin/rector process && vendor/bin/php-cs-fixer fix && vendor/bin/phpcbf",
+    "phpunit-dev": "@test:unit",
+    "phpunit-integration-dev": "@test:integration",
+    "phpstan": "\"vendor/bin/phpstan\" analyze --memory-limit 2G",
+    "phpstan:baseline": "\"vendor/bin/phpstan\" analyze --generate-baseline --memory-limit 2G"
+  }
+}

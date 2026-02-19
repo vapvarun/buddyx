@@ -14,7 +14,7 @@ namespace BuddyX\Buddyx;
  *
  * @return Template_Tags Template tags instance exposing template tag methods.
  */
-function buddyx() : Template_Tags {
+function buddyx(): Template_Tags {
 	static $theme = null;
 
 	if ( null === $theme ) {

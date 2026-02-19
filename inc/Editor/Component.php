@@ -23,7 +23,7 @@ class Component implements Component_Interface {
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'editor';
 	}
 
@@ -64,7 +64,7 @@ class Component implements Component_Interface {
 				array(
 					'name'  => __( 'Primary', 'buddyx' ),
 					'slug'  => 'theme-primary',
-					'color' => '#e36d60',
+					'color' => '#ef5455',
 				),
 				array(
 					'name'  => __( 'Secondary', 'buddyx' ),

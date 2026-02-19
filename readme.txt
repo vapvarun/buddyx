@@ -98,6 +98,30 @@ Released under the MIT license
 
 == Changelog ==
 
+= 5.0.0 =
+* New: Polished styling for 65+ WordPress core blocks — every block now looks great out of the box.
+* New: Refreshed default typography for a modern, readable look.
+* New: Full compatibility with WordPress 6.5+ Site Editor.
+* Enhancement: Improved gallery post slider design.
+* Enhancement: Better blog post content spacing and readability.
+* Enhancement: Improved WooCommerce product page sidebar layout.
+* Enhancement: Smoother group creation steps interface.
+* Enhancement: Better blockquote styling with Elementor compatibility.
+* Enhancement: Improved BuddyBoss Platform compatibility — activity images, emoji picker, scheduled posts, and templates updated.
+* Fix: Post format option not showing on the Edit Post screen.
+* Fix: Full-width container template alignment issues.
+* Security: Fixed multiple security vulnerabilities including input sanitization and output escaping.
+
+= 4.9.2 =
+* Enhancement: Manage UI with buddyboss sharing
+* Enhancement: Improved user interface compatibility with bbPress forums for better community discussions.
+* Fix: Resolved dark mode display issues in LearnDash focus mode for enhanced visibility and learning experience.
+* Performance: Optimized JavaScript loading - scripts now load only when their required plugins are active, improving page speed.
+* Enhancement: Improved directory page filter interface for better usability and easier member/group browsing.
+* Enhancement: Refined sidebar layout and styling across the theme for consistent visual appearance.
+* Enhancement: Updated footer code structure for improved performance and maintainability.
+* Enhancement: Updated CSS files for better styling consistency throughout the theme.
+
 = 4.9.1 =
 * Improvement: Updated shop price range UI with FluentCart integration.
 * Improvement: Enhanced UI compatibility with FluentCart plugin.
@@ -866,3 +890,4 @@ Released under the MIT license
 
 = 1.0.0 =
 * Initial Release
+

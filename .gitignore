@@ -1,1 +1,42 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Local config
+config/config.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional local files
+.env
+.env.local
+
+# Claude instructions (local only)
 CLAUDE.md
+bundled/
+.phpunit.result.cache
+
+# Map files
+*.map
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+# Lighthouse CI
+.lighthouseci/
+
+# Block build output
+assets/blocks/*/build/

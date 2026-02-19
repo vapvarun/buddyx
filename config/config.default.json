@@ -1,0 +1,73 @@
+{
+  "theme": {
+    "PHPNamespace": "BuddyX\\Buddyx",
+    "slug": "buddyx",
+    "name": "BuddyX",
+    "theme_uri": "https://wbcomdesigns.com/downloads/buddyx-theme/",
+    "author": "wbcomdesigns",
+    "author_uri": "https://wbcomdesigns.com",
+    "description": "Free theme for your community with BuddyPress.",
+    "version": "5.0.0"
+  },
+  "dev": {
+    "browserSync": {
+      "live": true,
+      "proxyURL": "buddyx.local/",
+      "bypassPort": "8181",
+      "https": false,
+      "keyPath": "",
+      "certPath": "",
+      "devPort": 3000
+    },
+    "styles": {
+      "stage": 3,
+      "autoprefixer": {
+        "grid": false
+      },
+      "preload": [
+        "_custom-media.css"
+      ],
+      "features": {
+        "custom-media-queries": true,
+        "custom-properties": true,
+        "nesting-rules": true,
+        "mobile-nav-type": "modern"
+      }
+    },
+    "debug": {
+      "styles": false,
+      "scripts": false,
+      "phpcs": true
+    }
+  },
+  "child": {
+    "enabled": false,
+    "parentSlug": ""
+  },
+  "export": {
+    "compress": true,
+    "generatePotFile": true,
+    "filesToCopy": [
+      "LICENSE",
+      "readme.txt",
+      "screenshot.png",
+      "theme.json",
+      "wpml-config.xml",
+      "styles/*.json",
+      "assets/css/*.css",
+      "assets/css/admin/*.css",
+      "assets/css/editor/*.css",
+      "assets/js/*.js",
+      "assets/js/admin/*.js",
+      "assets/css/vendor/**/*.css",
+      "assets/js/vendor/**/*.js",
+      "assets/svg/*.svg",
+      "inc/EZ_Customizer/themeCustomizeSettings.json",
+      "assets/fonts/*",
+      "inc/Kirki/**/*",
+      "inc/Kirki_Option/**/*",
+      "external/include-kirki.php",
+      "external/kirki-utils.php"
+    ]
+  }
+}

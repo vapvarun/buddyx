@@ -22,35 +22,28 @@ namespace BuddyX\Buddyx;
 	<?php do_action( 'buddyx_footer_before' ); ?>
 
 	<footer id="colophon" class="site-footer">
-		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) { ?>
+		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) : ?>
 			<div class="site-footer-wrapper">
 				<div class="container">
-					<?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) ) : ?>
+					<?php
+					$footer_sidebars = array( 'footer-1', 'footer-2', 'footer-3', 'footer-4' );
+					$active_sidebars = array_filter( $footer_sidebars, 'is_active_sidebar' );
+
+					if ( ! empty( $active_sidebars ) ) :
+						?>
 						<div class="footer-inner" role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'buddyx' ); ?>">
-								<?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
-							<div class="footer-widget">
-									<?php dynamic_sidebar( 'footer-1' ); ?>
-							</div>
-								<?php } if ( is_active_sidebar( 'footer-2' ) ) { ?>
-							<div class="footer-widget">
-									<?php dynamic_sidebar( 'footer-2' ); ?>
-							</div>
-							<?php } ?>
-								<?php if ( is_active_sidebar( 'footer-3' ) ) { ?>
-							<div class="footer-widget">
-									<?php dynamic_sidebar( 'footer-3' ); ?>
-							</div>
-								<?php } if ( is_active_sidebar( 'footer-4' ) ) { ?>
-							<div class="footer-widget">
-									<?php dynamic_sidebar( 'footer-4' ); ?>
-							</div>
-							<?php } ?>
-						</div><!-- .widget-area inner-->
-					<?php endif; ?>	
+							<?php foreach ( $active_sidebars as $sidebar ) : ?>
+								<div class="footer-widget">
+									<?php dynamic_sidebar( $sidebar ); ?>
+								</div>
+							<?php endforeach; ?>
+						</div><!-- .footer-inner -->
+					<?php endif; ?>    
 				</div><!-- .container -->
 			</div><!-- .site-footer-wrapper -->
+
 			<?php get_template_part( 'template-parts/footer/info' ); ?>
-		<?php } ?>
+		<?php endif; ?>
 	</footer><!-- #colophon -->
 
 	<?php do_action( 'buddyx_footer_after' ); ?>

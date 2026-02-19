@@ -1,9 +1,11 @@
 <?php
 /**
- * Shims for recent WordPress functions.
+ * Shims for recent WordPress functions
+ *
+ * @package buddyx
  */
 
-/*
+/**
  * Adds backwards compatibility for buddyx_wp_body_open() introduced with WordPress 5.2
  */
 if ( ! function_exists( 'buddyx_wp_body_open' ) ) {

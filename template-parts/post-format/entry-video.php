@@ -15,7 +15,7 @@ if ( ( $video_url != '' && ! has_post_thumbnail() || is_single() ) ) {  ?>
 		if ( $post_video != '' ) {
 			echo $post_video; // WPCS: XSS ok.
 		} else {
-			echo do_shortcode( '[video  src="' . $video_url . '"]' );
+			echo do_shortcode( '[video  src="' . esc_url( $video_url ) . '"]' );
 		}
 		?>
 	</div>

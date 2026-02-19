@@ -8,7 +8,6 @@
 namespace BuddyX\Buddyx\Base_Support;
 
 use BuddyX\Buddyx\Component_Interface;
-use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function add_theme_support;
@@ -17,8 +16,6 @@ use function pings_open;
 use function esc_url;
 use function get_bloginfo;
 use function wp_scripts;
-use function wp_get_theme;
-use function get_template;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
@@ -27,7 +24,7 @@ use function get_template;
  * * `buddyx()->get_version()`
  * * `buddyx()->get_asset_version( string $filepath )`
  */
-class Component implements Component_Interface, Templating_Component_Interface {
+class Component implements Component_Interface {
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -42,6 +39,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
+		add_action( 'init', array( $this, 'action_title_tag_support' ), -999 );
 		add_action( 'after_setup_theme', array( $this, 'action_essential_theme_support' ) );
 		add_action( 'wp_head', array( $this, 'action_add_pingback_header' ) );
 		add_filter( 'body_class', array( $this, 'filter_body_classes_add_hfeed' ) );
@@ -53,17 +51,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `buddyx()`.
-	 *
-	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
-	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
-	 *               adding support for further arguments in the future.
+	 * Adds title-tag theme support very early.
 	 */
-	public function template_tags(): array {
-		return array(
-			'get_version'       => array( $this, 'get_version' ),
-			'get_asset_version' => array( $this, 'get_asset_version' ),
-		);
+	public function action_title_tag_support() {
+		add_theme_support( 'title-tag' );
 	}
 
 	/**
@@ -72,9 +63,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_essential_theme_support() {
 		// Add default RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
-
-		// Ensure WordPress manages the document title.
-		add_theme_support( 'title-tag' );
 
 		// Ensure WordPress theme features render in HTML5 markup.
 		add_theme_support(
@@ -113,9 +101,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Add support custom-header, custom-background.
 		add_theme_support( 'custom-header' );
 		add_theme_support( 'custom-background' );
-
-		// Add support for block styles.
-		add_theme_support( 'wp-block-styles' );
 
 		// Add support for block patterns.
 		add_theme_support( 'editor-patterns' );
@@ -198,37 +183,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		return $tag;
-	}
-
-	/**
-	 * Gets the theme version.
-	 *
-	 * @return string Theme version number.
-	 */
-	public function get_version(): string {
-		static $theme_version = null;
-
-		if ( null === $theme_version ) {
-			$theme_version = wp_get_theme( get_template() )->get( 'Version' );
-		}
-
-		return $theme_version;
-	}
-
-	/**
-	 * Gets the version for a given asset.
-	 *
-	 * Returns filemtime when WP_DEBUG is true, otherwise the theme version.
-	 *
-	 * @param string $filepath Asset file path.
-	 * @return string Asset version number.
-	 */
-	public function get_asset_version( string $filepath ): string {
-		if ( WP_DEBUG ) {
-			return (string) filemtime( $filepath );
-		}
-
-		return $this->get_version();
 	}
 
 	/**
