@@ -84,12 +84,12 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 	 * @return void
 	 */
 	function buddyx_the_breadcrumb() {
-		// Generate a unique cache key based on the post ID or page ID.
-		$post_id   = get_the_ID();
-		$cache_key = 'buddyx_breadcrumb_' . $post_id;
+		// Generate a unique transient key based on the post ID or page ID.
+		$post_id       = get_the_ID();
+		$transient_key = 'buddyx_breadcrumb_' . $post_id;
 
 		// Try to get the cached breadcrumb.
-		$breadcrumb = wp_cache_get( $cache_key, 'buddyx_breadcrumb' );
+		$breadcrumb = get_transient( $transient_key );
 
 		if ( false === $breadcrumb ) {
 			// No cached breadcrumb, generate it.
@@ -106,7 +106,7 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 			// Store the generated breadcrumb.
 			$breadcrumb = ob_get_clean();
-			wp_cache_set( $cache_key, $breadcrumb, 'buddyx_breadcrumb', 12 * HOUR_IN_SECONDS ); // Cache for 12 hours.
+			set_transient( $transient_key, $breadcrumb, 12 * HOUR_IN_SECONDS ); // Cache for 12 hours.
 		}
 
 		// Output the breadcrumb.
@@ -220,7 +220,7 @@ if ( ! function_exists( 'buddyx_categorized_blog' ) ) {
 
 			$all_the_cool_cats = get_categories( array( 'hide_empty' => 1 ) );
 			$all_the_cool_cats = count( $all_the_cool_cats );
-			set_transient( 'buddyx_category_count', $all_the_cool_cats );
+			set_transient( 'buddyx_category_count', $all_the_cool_cats, DAY_IN_SECONDS );
 
 		}
 
@@ -834,7 +834,7 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 function buddyx_add_feature_image_blog_post_as_activity_content_callback( $content, $blog_post_id ) {
 	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
 		if ( ! empty( $blog_post_id ) && ! empty( get_post_thumbnail_id( $blog_post_id ) ) ) {
-			$content .= sprintf( ' <a class="buddyx-post-img-link" href="%s"><img src="%s" /></a>', esc_url( get_permalink( $blog_post_id ) ), esc_url( wp_get_attachment_image_url( get_post_thumbnail_id( $blog_post_id ), 'full' ) ) );
+			$content .= sprintf( ' <a class="buddyx-post-img-link" href="%s"><img src="%s" loading="lazy" /></a>', esc_url( get_permalink( $blog_post_id ) ), esc_url( wp_get_attachment_image_url( get_post_thumbnail_id( $blog_post_id ), 'large' ) ) );
 		}
 	}
 

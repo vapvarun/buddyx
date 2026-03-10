@@ -42,7 +42,7 @@ class Component implements Component_Interface {
 			'customize_controls_enqueue_scripts',
 			function () {
 				$css_uri = get_theme_file_uri( '/assets/css/' );
-				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', time() );
+				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', buddyx()->get_asset_version( get_theme_file_path( '/assets/css/buddyx-customizer.min.css' ) ) );
 			}
 		);
 	}

@@ -54,7 +54,7 @@ $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layou
 		<?php
 		if ( have_posts() ) {
 
-			$classes = get_body_class();
+			$classes = isset( $classes ) ? $classes : get_body_class();
 			if ( in_array( 'blog', $classes ) || in_array( 'archive', $classes ) || in_array( 'search', $classes ) ) {
 
 				$args = array(

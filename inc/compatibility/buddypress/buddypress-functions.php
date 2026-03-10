@@ -146,7 +146,7 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
 		);
 		$default_members_cover = '';
 		$cover_img_url         = isset( $cover_img_url ) ? $cover_img_url : $default_members_cover;
-		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" /></div></div>';
+		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" loading="lazy" /></div></div>';
 	}
 
 }
@@ -170,7 +170,7 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
 		);
 		$default_groups_cover = '';
 		$cover_img_url        = isset( $cover_img_url ) ? $cover_img_url : $default_groups_cover;
-		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" /></div></div>';
+		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" loading="lazy" /></div></div>';
 	}
 
 }
@@ -239,13 +239,15 @@ if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
 				$earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $type );
 				// Query Achievements.
 				$args = array(
-					'post_type'      => $type,
-					'orderby'        => $orderby,
-					'order'          => $order,
-					'posts_per_page' => $limit,
-					'offset'         => $offset,
-					'post_status'    => 'publish',
-					'post__not_in'   => array_diff( $hidden, $earned_ids ),
+					'post_type'              => $type,
+					'orderby'                => $orderby,
+					'order'                  => $order,
+					'posts_per_page'         => $limit,
+					'offset'                 => $offset,
+					'post_status'            => 'publish',
+					'post__not_in'           => array_diff( $hidden, $earned_ids ),
+					'no_found_rows'          => true,
+					'update_post_term_cache' => false,
 				);
 				// Filter - query completed or non completed achievements.
 				if ( $filter == 'completed' ) {
@@ -284,7 +286,7 @@ if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
 					$achievements .= '</div>';
 					++$achievement_count;
 				endwhile;
-				wp_reset_query();
+				wp_reset_postdata();
 				$post = $old_post;
 			}
 			echo '<div class="ps-badgeos__list-wrapper">';
