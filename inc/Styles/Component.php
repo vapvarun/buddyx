@@ -260,7 +260,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue EventsCalendar CSS.
 		if ( class_exists( 'Tribe__Events__Main' ) ) {
-			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', '', time() );
+			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', '', buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
 		}
 	}
 
@@ -273,7 +273,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue Dokan CSS.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
-			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', time() );
+			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', buddyx()->get_asset_version( $css_dir . 'dokan.min.css' ) );
 		}
 	}
 

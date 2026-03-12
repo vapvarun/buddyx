@@ -967,7 +967,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         right: 24px;
     }
 
-    .buddyx-mobile-icon .user-notifications>.bp-icon-wrap,
     .buddyx-mobile-icon .user-link-wrap .user-link {
         pointer-events: none;
     }
