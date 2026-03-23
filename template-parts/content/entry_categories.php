@@ -18,7 +18,7 @@ if ( ! empty( $categories ) ) : ?>
 				</a>				
 			</div><!-- .post-meta-category__item -->
 			<?php
-			if ( $key >= 0 ) :
+			if ( ! is_single() && $key >= 0 ) :
 					break;
 				endif;
 			?>
