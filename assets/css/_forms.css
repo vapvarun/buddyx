@@ -144,7 +144,8 @@ select {
     font-family: inherit;
     font-style: inherit;
     font-size: 15px;
-    height: 35px;
+    height: auto;
+    min-height: 35px;
     outline: none;
     vertical-align: middle;
     background-color: #fff;
