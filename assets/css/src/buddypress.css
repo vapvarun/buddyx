@@ -705,6 +705,54 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
     border-width: 1px;
 }
 
+@supports (-webkit-touch-callout: none) {
+    @media (hover: none) and (pointer: coarse) {
+        body .buddypress-wrap .subnav-filters .component-filters select,
+        body .buddypress-wrap .subnav-filters .last select,
+        .buddypress-wrap select,
+        #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
+        .buddypress-wrap .standard-form textarea,
+        .buddypress-wrap .standard-form input[type="text"],
+        .buddypress-wrap .standard-form input[type="color"],
+        .buddypress-wrap .standard-form input[type="date"],
+        .buddypress-wrap .standard-form input[type="datetime"],
+        .buddypress-wrap .standard-form input[type="datetime-local"],
+        .buddypress-wrap .standard-form input[type="email"],
+        .buddypress-wrap .standard-form input[type="month"],
+        .buddypress-wrap .standard-form input[type="number"],
+        .buddypress-wrap .standard-form input[type="search"],
+        .buddypress-wrap .standard-form input[type="tel"],
+        .buddypress-wrap .standard-form input[type="time"],
+        .buddypress-wrap .standard-form input[type="url"],
+        .buddypress-wrap .standard-form input[type="week"],
+        .buddypress-wrap .standard-form select,
+        .buddypress-wrap .standard-form input[type="password"],
+        .buddypress-wrap .standard-form [data-bp-search] input[type="search"],
+        .buddypress-wrap .standard-form [data-bp-search] input[type="text"],
+        .buddypress-wrap .standard-form .groups-members-search input[type="search"],
+        .buddypress-wrap .standard-form .groups-members-search input[type="text"],
+        body.personal.attachments #bp-media-library .media-toolbar-primary .components-select-control__input,
+        #buddypress #group-activity-search,
+        #buddypress #dir-members-search,
+        #buddypress #dir-groups-search,
+        #buddypress #dir-activity-search,
+        body .buddypress-wrap .bp-invites-search-form input[type=search],
+        body .buddypress-wrap form.bp-dir-search-form input[type=search],
+        body .buddypress-wrap form.bp-messages-search-form input[type=search],
+        .buddypress-wrap form#group-members-search input[type=search],
+        .buddypress-wrap form#group-members-search input[type=text],
+        .buddypress-wrap form.bp-dir-search-form input[type=search],
+        .buddypress-wrap form.bp-dir-search-form input[type=text],
+        .buddypress-wrap form.bp-messages-search-form input[type=search],
+        .buddypress-wrap form.bp-messages-search-form input[type=text],
+        .buddypress-wrap form[data-bp-search].bp-invites-search-form input[type=search],
+        .buddypress-wrap form[data-bp-search].bp-invites-search-form input[type=text],
+        .buddypress-wrap .media_search.media_search .media_search_input {
+            font-size: 16px;
+        }
+    }
+}
+
 
 /*--------------------------------------------------------------
 # rtMedia Specific
@@ -2732,7 +2780,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 .buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap select {
     padding: 0 40px 0 12px;
     font-size: inherit;
-    border:1px solid var(--global-border-color);
+    border: 1px solid var(--global-border-color);
     -webkit-appearance: none;
 }
 
@@ -5828,7 +5876,7 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary,
 .components-button.is-secondary,
 .components-button.is-tertiary,
 body.personal.attachments #bp-media-library .split-button .split-button-toggle,
-.activity-update-form #whats-new-buttons > li button {
+.activity-update-form #whats-new-buttons>li button {
     font-family: inherit;
     font-size: initial;
     color: var(--button-text-color) !important;
@@ -5865,7 +5913,7 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary:hover
 .components-button.is-secondary:hover,
 .components-button.is-tertiary:hover,
 body.personal.attachments #bp-media-library .split-button .split-button-toggle:hover,
-.activity-update-form #whats-new-buttons > li button:hover {
+.activity-update-form #whats-new-buttons>li button:hover {
     background-color: var(--button-background-hover-color) !important;
     border: 1px solid var(--button-border-hover-color) !important;
     color: var(--button-text-hover-color) !important;
