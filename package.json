@@ -62,7 +62,7 @@
     "rimraf": "^6.0.1",
     "sharp": "^0.33.5",
     "stylelint": "^16.25.0",
-    "svgo": "^3.3.2",
+    "svgo": "^3.3.3",
     "tiny-lr": "^2.0.0",
     "typescript": "^5.9.3",
     "wp-pot-cli": "^1.5.0"
