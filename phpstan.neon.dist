@@ -2,7 +2,8 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-    level: 0
+    level: 5
+    treatPhpDocTypesAsCertain: false
     paths:
         - .
     excludePaths:

@@ -1,6 +1,36 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: '404.php'
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: '500.php'
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: archive.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: archive.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: archive.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -247,6 +277,12 @@ parameters:
 			path: bb-buddypress/activity/entry.php
 
 		-
+			message: '#^Parameter \#1 \$text of function esc_attr expects string, int\<min, \-1\>\|int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/activity/entry.php
+
+		-
 			message: '#^Function bb_is_send_ajax_request not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -445,6 +481,18 @@ parameters:
 			path: bb-buddypress/groups/groups-loop.php
 
 		-
+			message: '#^Function remove_filter invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_get_group…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/groups/groups-loop.php
+
+		-
 			message: '#^Function bb_attachment_get_cover_image_class not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -613,6 +661,24 @@ parameters:
 			path: bb-buddypress/groups/single/cover-image-header.php
 
 		-
+			message: '#^Function remove_filter invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_get_group…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
+			message: '#^Variable \$group_cover_position might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: bb-buddypress/groups/single/cover-image-header.php
+
+		-
 			message: '#^Function bb_platform_group_headers_element_enable not found\.$#'
 			identifier: function.notFound
 			count: 5
@@ -727,6 +793,18 @@ parameters:
 			path: bb-buddypress/groups/single/group-header.php
 
 		-
+			message: '#^Function remove_filter invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_get_group…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/groups/single/group-header.php
+
+		-
 			message: '#^Function bp_get_option not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -801,6 +879,12 @@ parameters:
 		-
 			message: '#^Function bp_the_group not found\.$#'
 			identifier: function.notFound
+			count: 1
+			path: bb-buddypress/groups/single/home.php
+
+		-
+			message: '#^Variable \$template_content might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
 			path: bb-buddypress/groups/single/home.php
 
@@ -1405,6 +1489,30 @@ parameters:
 			path: bb-buddypress/members/single/cover-image-header.php
 
 		-
+			message: '#^Function remove_filter invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_bp_get_add…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_get_user_social…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
+			message: '#^Variable \$cover_image_position might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: bb-buddypress/members/single/cover-image-header.php
+
+		-
 			message: '#^Function bp_core_time_since not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -1741,10 +1849,52 @@ parameters:
 			path: bb-buddypress/members/single/member-header.php
 
 		-
+			message: '#^Function remove_filter invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_bp_get_add…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function add_filter expects callable\(\)\: mixed, ''bb_get_user_social…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: bb-buddypress/members/single/member-header.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_bbpress_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: bbpress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_bbpress_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: bbpress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: bbpress.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 1
 			path: bbpress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: buddypress.php
 
 		-
 			message: '#^Function bp_is_group_create not found\.$#'
@@ -3031,10 +3181,82 @@ parameters:
 			path: buddypress/members/single/member-header.php
 
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: comments.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:the_comments\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: comments.php
+
+		-
+			message: '#^Function remove_action invoked with 4 parameters, 2\-3 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: functions.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function spl_autoload_register expects \(callable\(string\)\: void\)\|null, ''_buddyx_autoload'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: functions.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: inc/Accessibility/Component.php
+
+		-
+			message: '#^Parameter \#3 \$deps of function wp_enqueue_style expects array\<string\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/Customizer/Component.php
+
+		-
+			message: '#^Property WP_Customize_Manager\:\:\$selective_refresh \(WP_Customize_Selective_Refresh\) in isset\(\) is not nullable\.$#'
+			identifier: isset.property
+			count: 1
+			path: inc/Customizer/Component.php
+
+		-
 			message: '#^Class WP_Customize_Control referenced with incorrect case\: WP_Customize_control\.$#'
 			identifier: class.nameCase
 			count: 2
 			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^PHPDoc tag @var has invalid value \(\$settings_id string\)\: Unexpected token "\$settings_id", expected type at offset 58 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^PHPDoc tag @var has invalid value \(\$theme_settings array\)\: Unexpected token "\$theme_settings", expected type at offset 58 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^PHPDoc tag @var has invalid value \(\$wp_customize object\)\: Unexpected token "\$wp_customize", expected type at offset 54 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^Parameter \#2 \$associative of function json_decode expects bool\|null, int given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/EZ_Customizer/Component.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_right_sidebar_active\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: inc/Image_Sizes/Component.php
 
 		-
 			message: '#^Function buddyx_defaults not found\.$#'
@@ -3247,6 +3469,12 @@ parameters:
 			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
 
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: inc/Scripts/Component.php
+
+		-
 			message: '#^Function bp_current_component not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -3343,6 +3571,24 @@ parameters:
 			path: inc/Sidebars/Component.php
 
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: inc/Styles/Component.php
+
+		-
+			message: '#^Parameter \#2 \$key of function wp_style_add_data expects ''alt''\|''path''\|''rtl''\|''suffix''\|''title'', ''precache'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/Styles/Component.php
+
+		-
+			message: '#^Parameter \#3 \$deps of function wp_enqueue_style expects array\<string\>, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: inc/Styles/Component.php
+
+		-
 			message: '#^Class BuddyX\\Buddyx\\Dropdown_Select\\Component does not have a constructor and must be instantiated without any parameters\.$#'
 			identifier: new.noConstructor
 			count: 1
@@ -3351,6 +3597,18 @@ parameters:
 		-
 			message: '#^Action callback returns bool but should not return anything\.$#'
 			identifier: return.void
+			count: 1
+			path: inc/Webfont/class-buddyx-webfont-loader.php
+
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
+			count: 1
+			path: inc/Webfont/class-buddyx-webfont-loader.php
+
+		-
+			message: '#^Offset 0 on array\{list\<string\>\} in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.offset
 			count: 1
 			path: inc/Webfont/class-buddyx-webfont-loader.php
 
@@ -3367,6 +3625,12 @@ parameters:
 			path: inc/back-compat.php
 
 		-
+			message: '#^Call to function is_array\(\) with list\<string\> will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
 			message: '#^Function bp_is_register_page not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -3379,9 +3643,15 @@ parameters:
 			path: inc/class-buddyx-breadcrumbs.php
 
 		-
+			message: '#^Method BuddyX_Breadcrumbs\:\:get_post_types_by_slug\(\) with return type void returns list\<WP_Post_Type\> but should not return anything\.$#'
+			identifier: return.void
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
 			message: '#^Method BuddyX_Breadcrumbs\:\:map_rewrite_tags\(\) should return array but return statement is missing\.$#'
 			identifier: return.missing
-			count: 1
+			count: 2
 			path: inc/class-buddyx-breadcrumbs.php
 
 		-
@@ -3391,10 +3661,64 @@ parameters:
 			path: inc/class-buddyx-breadcrumbs.php
 
 		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$args$#'
+			identifier: parameter.notFound
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Parameter \#1 \$author_id of function get_author_posts_url expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Parameter \#1 \$slug of method BuddyX_Breadcrumbs\:\:get_post_types_by_slug\(\) expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Parameter \#2 \$protocols of function esc_url expects array\<string\>\|null, int\|string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Parameter \#2 \$user_id of function get_the_author_meta expects int\|false, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Parameter \#3 \$format of function get_archives_link expects string, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
 			message: '#^Result of method BuddyX_Breadcrumbs\:\:get_post_types_by_slug\(\) \(void\) is used\.$#'
 			identifier: method.void
 			count: 1
 			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Variable \$matches in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.variable
+			count: 2
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Variable \$post might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: inc/class-buddyx-breadcrumbs.php
+
+		-
+			message: '#^Call to function is_array\(\) with array\{\} will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: inc/compatibility/buddypress/buddypress-functions.php
 
 		-
 			message: '#^Function badgeos_get_achievement_post_thumbnail not found\.$#'
@@ -3463,6 +3787,54 @@ parameters:
 			path: inc/compatibility/buddypress/buddypress-functions.php
 
 		-
+			message: '#^If condition is always false\.$#'
+			identifier: if.alwaysFalse
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Left side of && is always false\.$#'
+			identifier: booleanAnd.leftAlwaysFalse
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Loose comparison using \=\= between ''all'' and ''all'' will always evaluate to true\.$#'
+			identifier: equal.alwaysTrue
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Loose comparison using \=\= between ''completed'' and ''completed'' will always evaluate to true\.$#'
+			identifier: equal.alwaysTrue
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between '''' and '''' will always evaluate to false\.$#'
+			identifier: notIdentical.alwaysFalse
+			count: 2
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Variable \$achievement might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
+			message: '#^Variable \$theme_package_id might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: inc/compatibility/buddypress/buddypress-functions.php
+
+		-
 			message: '#^Action callback returns BuddyX_FluentCart_Support but should not return anything\.$#'
 			identifier: return.void
 			count: 1
@@ -3472,6 +3844,12 @@ parameters:
 			message: '#^Inner named functions are not supported by PHPStan\. Consider refactoring to an anonymous function, class method, or a top\-level\-defined function\. See issue \#165 \(https\://github\.com/phpstan/phpstan/issues/165\) for more details\.$#'
 			identifier: function.inner
 			count: 2
+			path: inc/compatibility/fluentcart/fluentcart-functions.php
+
+		-
+			message: '#^Parameter \#1 \$text of function esc_html expects string, int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
 			path: inc/compatibility/fluentcart/fluentcart-functions.php
 
 		-
@@ -3517,6 +3895,12 @@ parameters:
 			path: inc/compatibility/woocommerce/woocommerce-functions.php
 
 		-
+			message: '#^Parameter \#2 \$callback of function add_action expects callable\(\)\: mixed, ''woocommerce_cross…'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/compatibility/woocommerce/woocommerce-functions.php
+
+		-
 			message: '#^Function bp_create_excerpt not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -3533,6 +3917,36 @@ parameters:
 			identifier: function.notFound
 			count: 4
 			path: inc/extra.php
+
+		-
+			message: '#^Function is_archive invoked with 1 parameter, 0 required\.$#'
+			identifier: arguments.count
+			count: 3
+			path: inc/extra.php
+
+		-
+			message: '#^Access to offset ''completed_fields'' on an unknown class type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Access to offset ''groups'' on an unknown class type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Access to offset ''photo_type'' on an unknown class type\.$#'
+			identifier: class.notFound
+			count: 6
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Access to offset ''total_fields'' on an unknown class type\.$#'
+			identifier: class.notFound
+			count: 2
+			path: inc/widgets/bp-profile-completion-widget.php
 
 		-
 			message: '#^Function bp_attachments_get_user_has_cover_image not found\.$#'
@@ -3601,6 +4015,90 @@ parameters:
 			path: inc/widgets/bp-profile-completion-widget.php
 
 		-
+			message: '#^Method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_data\(\) has invalid return type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_data\(\) should return type but returns int\.$#'
+			identifier: return.type
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \#1 \$id_base of method WP_Widget\<array\<string, mixed\>\>\:\:__construct\(\) expects string, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \#1 \$user_progress_arr of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_formatted\(\) expects type, int given\.$#'
+			identifier: argument.type
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, type given\.$#'
+			identifier: argument.type
+			count: 3
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \$group_ids of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress\(\) has invalid type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \$photo_types of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress\(\) has invalid type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \$profile_groups of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_data\(\) has invalid type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \$profile_phototype of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_data\(\) has invalid type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Parameter \$user_progress_arr of method BP_Buddyx_Profile_Completion_Widget\:\:get_user_profile_progress_formatted\(\) has invalid type type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Variable \$user_prgress_formatted might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: inc/widgets/bp-profile-completion-widget.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: index.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: index.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: index.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 2
@@ -3631,6 +4129,144 @@ parameters:
 			path: index.php
 
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: offline.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/archive.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/attachment.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/category.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/custom-page-template.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/custom-post-template.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: optional/front-page.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/page.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/search.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/single.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: optional/singular.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page-templates/full-width-container.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page-templates/full-width.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: page-templates/page-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: page-templates/page-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page-templates/page-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: page-templates/page-left-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page-templates/page-left-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: page-templates/page-right-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page-templates/page-right-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: page.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -3659,6 +4295,60 @@ parameters:
 			identifier: function.notFound
 			count: 4
 			path: page.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: post-templates/post-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: post-templates/post-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: post-templates/post-both-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: post-templates/post-full-large.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: post-templates/post-full-small.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: post-templates/post-left-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: post-templates/post-left-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: post-templates/post-right-sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: post-templates/post-right-sidebar.php
 
 		-
 			message: '#^Function bp_current_user_can not found\.$#'
@@ -3847,6 +4537,48 @@ parameters:
 			path: rtmedia/main.php
 
 		-
+			message: '#^Negated boolean expression is always true\.$#'
+			identifier: booleanNot.alwaysTrue
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between ''buddypress'' and '''' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 2
+			path: rtmedia/main.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_buddypress_groups_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_buddypress_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_buddypress_members_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_buddypress_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: sidebar-buddypress.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar-buddypress.php
+
+		-
 			message: '#^Function bp_is_current_component not found\.$#'
 			identifier: function.notFound
 			count: 9
@@ -3877,10 +4609,88 @@ parameters:
 			path: sidebar-buddypress.php
 
 		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_left_sidebar_active\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_right_sidebar_active\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: sidebar.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_fluentcart_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: single-fluent-products.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_fluentcart_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: single-fluent-products.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: single-fluent-products.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: single.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: single.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: single.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 3
 			path: single.php
+
+		-
+			message: '#^Parameter \#1 \$size of function next_image_link expects array\<int\>\|string, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/entry-attachment.php
+
+		-
+			message: '#^Parameter \#1 \$size of function previous_image_link expects array\<int\>\|string, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/entry-attachment.php
 
 		-
 			message: '#^Function buddyx_defaults not found\.$#'
@@ -3895,10 +4705,52 @@ parameters:
 			path: template-parts/content/entry_meta.php
 
 		-
+			message: '#^Parameter \#1 \$author_id of function get_author_posts_url expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/entry_meta.php
+
+		-
+			message: '#^Parameter \#2 \$size of function get_avatar expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/entry_meta.php
+
+		-
+			message: '#^Parameter \#2 \$user_id of function get_the_author_meta expects int\|false, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/entry_meta.php
+
+		-
+			message: '#^Variable \$post might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: template-parts/content/entry_taxonomies.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 3
 			path: template-parts/content/entry_thumbnail.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:print_styles\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: template-parts/content/error-404.php
+
+		-
+			message: '#^Parameter \#2 \$instance of function the_widget expects array, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/error-404.php
+
+		-
+			message: '#^Parameter \#3 \$args of function the_widget expects array\{before_widget\?\: string, after_widget\?\: string, before_title\?\: string, after_title\?\: string\}, non\-falsy\-string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/content/error-404.php
 
 		-
 			message: '#^Function bp_get_messages_slug not found\.$#'
@@ -3973,6 +4825,30 @@ parameters:
 			path: template-parts/header/buddypress-profile.php
 
 		-
+			message: '#^Parameter \#1 \$args of function wp_nav_menu expects array\{menu\?\: int\|string\|WP_Term, menu_class\?\: string, menu_id\?\: string, container\?\: string, container_class\?\: string, container_id\?\: string, container_aria_label\?\: string, fallback_cb\?\: \(callable\(\)\: mixed\)\|false, \.\.\.\}, array\{theme_location\: ''user_menu'', menu_id\: ''user\-profile\-menu'', fallback_cb\: '''', container\: false, menu_class\: ''user\-profile\-menu''\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/header/buddypress-profile.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_primary_nav_menu\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: template-parts/header/navigation.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: template-parts/header/navigation.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_primary_nav_menu_active\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: template-parts/header/navigation.php
+
+		-
 			message: '#^Function bp_get_settings_slug not found\.$#'
 			identifier: function.notFound
 			count: 1
@@ -3985,8 +4861,20 @@ parameters:
 			path: template-parts/header/navigation.php
 
 		-
+			message: '#^Parameter \#1 \$args of function wp_nav_menu expects array\{menu\?\: int\|string\|WP_Term, menu_class\?\: string, menu_id\?\: string, container\?\: string, container_class\?\: string, container_id\?\: string, container_aria_label\?\: string, fallback_cb\?\: \(callable\(\)\: mixed\)\|false, \.\.\.\}, array\{theme_location\: ''user_menu'', menu_id\: ''mobile\-user\-profile…'', fallback_cb\: '''', container\: false, menu_class\: ''mobile\-user\-profile…''\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: template-parts/header/navigation.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
+			count: 1
+			path: template-parts/layout/entry-default-layout.php
+
+		-
+			message: '#^Variable \$args might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
 			path: template-parts/layout/entry-default-layout.php
 
@@ -3997,8 +4885,20 @@ parameters:
 			path: template-parts/layout/entry-grid-layout.php
 
 		-
+			message: '#^Variable \$args might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: template-parts/layout/entry-grid-layout.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
+			count: 1
+			path: template-parts/layout/entry-list-layout.php
+
+		-
+			message: '#^Variable \$args might not be defined\.$#'
+			identifier: variable.undefined
 			count: 1
 			path: template-parts/layout/entry-list-layout.php
 
@@ -4009,10 +4909,28 @@ parameters:
 			path: template-parts/layout/entry-masonry-layout.php
 
 		-
+			message: '#^Variable \$args might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: template-parts/layout/entry-masonry-layout.php
+
+		-
 			message: '#^Function buddyx_defaults not found\.$#'
 			identifier: function.notFound
 			count: 3
 			path: template-parts/post-format/entry-image.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_woocommerce_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: woocommerce/archive-product.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_woocommerce_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: woocommerce/archive-product.php
 
 		-
 			message: '#^Function buddyx_defaults not found\.$#'
@@ -4103,6 +5021,18 @@ parameters:
 			identifier: function.notFound
 			count: 1
 			path: woocommerce/cart/cart.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_woocommerce_left_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: woocommerce/single-product.php
+
+		-
+			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:display_woocommerce_right_sidebar\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: woocommerce/single-product.php
 
 		-
 			message: '#^Function buddyx_defaults not found\.$#'
