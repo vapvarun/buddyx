@@ -144,7 +144,8 @@ select {
     font-family: inherit;
     font-style: inherit;
     font-size: 15px;
-    height: 35px;
+    height: auto;
+    min-height: 35px;
     outline: none;
     vertical-align: middle;
     background-color: #fff;
@@ -153,4 +154,27 @@ select {
     box-shadow: none;
     padding: 0 12px;
     color: inherit;
+}
+
+@supports (-webkit-touch-callout: none) {
+    @media (hover: none) and (pointer: coarse) {
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="password"],
+        input[type="search"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="month"],
+        input[type="week"],
+        input[type="time"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        select,
+        textarea,
+        .menu-icons-wrapper #searchform input[type=search] {
+            font-size: 16px;
+        }
+    }
 }
