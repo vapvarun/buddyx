@@ -7,13 +7,15 @@ parameters:
     paths:
         - .
     excludePaths:
-        - vendor/
-        - node_modules/
-        - tests/
-        - assets/
-        - languages/
-        - scripts/
-        - external/
-        - inc/Kirki/
-        - inc/Dropdown_Select/
-        - wp-cli/
+        analyseAndScan:
+            - vendor/
+            - node_modules (?)
+            - tests (?)
+            - assets/
+            - languages/
+            - scripts/
+            - external (?)
+            - inc/Kirki/
+            - inc/Dropdown_Select/
+            - wp-cli (?)
+            - dist (?)
