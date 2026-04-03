@@ -233,8 +233,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-			'Open Sans' => array( '300', '300i', '400', '400i', '700', '700i', '900&display=swap' ),
-			'Montserrat'       => array( '100', '100i', '300', '500', '500i', '700', '700i' ),
+			'Open Sans'  => array( '400', '400i', '700&display=swap' ),
+			'Montserrat' => array( '500', '700' ),
 		);
 
 		/**

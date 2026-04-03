@@ -95,6 +95,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     position: relative;
     text-transform: uppercase;
     font-weight: 700;

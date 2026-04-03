@@ -4,7 +4,7 @@ Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Co
 Requires at least: 4.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: trunk
+Stable tag: 5.0.2
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -97,6 +97,17 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.0.2 =
+* Fix: Theme disables pinch-to-zoom on mobile.
+* Fix: Select height issue with third-party plugins.
+* Fix: Restore Kirki live preview and active_callback fallback in customizer.
+* Fix: Posts not displaying multiple categories.
+
+= 5.0.1 =
+* Enhancement: Optimized asset loading, caching, and dynamic styles.
+* Fix: Notification icon not clickable on mobile view.
+* Fix: Theme-check issues resolved.
 
 = 5.0.0 =
 * New: Polished styling for 65+ WordPress core blocks — every block now looks great out of the box.

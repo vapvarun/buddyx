@@ -177,7 +177,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'global'  => true,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
-				'loading' => null,
+				'loading' => 'defer',
 			),
 			'buddyx-isotope-pkgd'  => array(
 				'file'    => 'isotope.pkgd.min.js',
@@ -205,7 +205,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'global'  => true,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
-				'loading' => null,
+				'loading' => 'defer',
 			),
 			'buddyx-slick'         => array(
 				'file'    => 'slick.min.js',

@@ -17,14 +17,15 @@ namespace BuddyX\Buddyx;
 <head>
 	<?php do_action( 'buddyx_head_top' ); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 	<?php do_action( 'buddyx_head_bottom' ); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<?php $classes = get_body_class(); ?>
+<body class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 
 <?php do_action( 'buddyx_body_top' ); ?>
 
@@ -53,7 +54,6 @@ namespace BuddyX\Buddyx;
 	<?php do_action( 'buddyx_header_after' ); ?>
 
 <?php
-$classes = get_body_class();
 if ( ! in_array( 'page-template-full-width', $classes ) ) {
 	?>
 	<div class="container">
