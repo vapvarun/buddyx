@@ -24,6 +24,17 @@
     order: 2;
 }
 
+/* Remove focus styles ONLY for mouse clicks */
+.nav--toggle-small .menu-toggle:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Show clear focus for keyboard users */
+.nav--toggle-small .menu-toggle:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 3px;
+}
+
 .nav--toggle-small .menu-toggle .fa {
     font-size: 24px;
 }
@@ -184,6 +195,17 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         cursor: pointer;
         padding-right: 21px;
     }
+
+	/* Remove ugly focus only when it's NOT keyboard-triggered */
+	.mobile-menu-heading .menu-close:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	/* Show clear focus for keyboard users */
+	.mobile-menu-heading .menu-close:focus-visible {
+		outline: 2px solid #fff;
+		outline-offset: 3px;
+	}
 
     .mobile-menu-heading .menu-close:before,
     .mobile-menu-heading .menu-close:after {
@@ -521,14 +543,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .nav--toggle-sub li.menu-item-has-children:hover,
 .nav--toggle-small .menu-toggle:hover {
     color: var(--color-menu-hover);
-}
-
-.nav--toggle-small .menu-toggle {
-    border-color: var(--color-menu);
-}
-
-.nav--toggle-small .menu-toggle:hover {
-    border-color: var(--color-menu-hover);
 }
 
 .main-navigation ul li.current-menu-item>a {
