@@ -9,6 +9,7 @@ namespace BuddyX\Buddyx\Kirki_Option;
 
 use function add_action;
 use function add_filter;
+use function apply_filters;
 use BuddyX\Buddyx\Component_Interface;
 
 /**

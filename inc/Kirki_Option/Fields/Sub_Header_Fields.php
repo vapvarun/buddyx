@@ -38,6 +38,12 @@ defined( 'ABSPATH' ) || exit;
 					'background-attachment' => 'scroll',
 				),
 				'transport'       => 'auto',
+				'sanitize_callback' => function( $value ) {
+					if ( isset( $value['background-color'] ) && is_string( $value['background-color'] ) ) {
+						$value['background-color'] = preg_replace( '/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0\s*\)/', 'rgba($1,$2,$3,0.01)', $value['background-color'] );
+					}
+					return $value;
+				},
 				'output'          => array(
 					array(
 						'element' => '.site-sub-header',
