@@ -29,6 +29,8 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 	global $bp;
 
 	// Create an array to store all user data we'll need.
+	$loggedin_user_domain = trailingslashit( bp_loggedin_user_domain() );
+
 	$user_data = array(
 		'messages_count'      => 0,
 		'notifications_count' => 0,
@@ -39,7 +41,7 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 	// Get messages data if component is active.
 	if ( bp_is_active( 'messages' ) ) {
 		$user_data['messages_count'] = messages_get_unread_count( $current_user_id );
-		$user_data['messages_url']   = bp_loggedin_user_domain() . bp_get_messages_slug();
+		$user_data['messages_url']   = $loggedin_user_domain . bp_get_messages_slug();
 
 		// Output messages icon with counter.
 		?>
@@ -57,7 +59,7 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 	// Get notifications data if component is active.
 	if ( bp_is_active( 'notifications' ) ) {
 		$user_data['notifications_count'] = bp_notifications_get_unread_notification_count( $current_user_id );
-		$user_data['notifications_url']   = bp_loggedin_user_domain() . $bp->notifications->slug;
+		$user_data['notifications_url']   = $loggedin_user_domain . $bp->notifications->slug;
 
 		// Output notifications with dropdown.
 		?>
@@ -96,7 +98,7 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 					</div>
 				<?php endif; ?>
 				<div class="dropdown-footer">
-					<a href="<?php echo esc_url( trailingslashit( bp_loggedin_user_domain() . bp_get_notifications_slug() . '/unread' ) ); ?>" class="button"><?php esc_html_e( 'All Notifications', 'buddyx' ); ?></a>
+						<a href="<?php echo esc_url( trailingslashit( $loggedin_user_domain . bp_get_notifications_slug() . '/unread' ) ); ?>" class="button"><?php esc_html_e( 'All Notifications', 'buddyx' ); ?></a>
 				</div>
 			</div>
 		</div>
