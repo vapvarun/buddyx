@@ -14,6 +14,7 @@ use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function bloginfo;
+use function wp_script_is;
 use function wp_enqueue_script;
 use function get_theme_file_uri;
 use function get_theme_file_path;
@@ -45,10 +46,19 @@ class Component implements Component_Interface {
 				$css_uri = get_theme_file_uri( '/assets/css/' );
 				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', buddyx()->get_asset_version( get_theme_file_path( '/assets/css/buddyx-customizer.min.css' ) ) );
 				if ( class_exists( 'Kirki' ) ) {
+					// Kirki 5.x uses 'kirki-customizer'; older versions used 'kirki_field_dependencies'.
+					// Only add the handle that is actually registered to avoid WP 6.9.1+ notices.
+					$kirki_deps = array( 'customize-controls', 'jquery' );
+					if ( wp_script_is( 'kirki-customizer', 'registered' ) ) {
+						$kirki_deps[] = 'kirki-customizer';
+					} elseif ( wp_script_is( 'kirki_field_dependencies', 'registered' ) ) {
+						$kirki_deps[] = 'kirki_field_dependencies';
+					}
+
 					wp_enqueue_script(
 						'buddyx-customizer-controls',
 						get_theme_file_uri( '/assets/js/customizer-controls.min.js' ),
-						array( 'customize-controls', 'jquery', 'kirki_field_dependencies' ),
+						$kirki_deps,
 						buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer-controls.min.js' ) ),
 						true
 					);
