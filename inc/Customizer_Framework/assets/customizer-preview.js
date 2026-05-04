@@ -82,15 +82,43 @@
 		return decls ? element + '{' + decls + '}' : '';
 	}
 
+	/**
+	 * Build CSS for a Background object value (matches PHP Output_Builder).
+	 */
+	function backgroundCss(element, val) {
+		const keys = [
+			'background-color',
+			'background-image',
+			'background-repeat',
+			'background-position',
+			'background-size',
+			'background-attachment',
+		];
+		let decls = '';
+		keys.forEach((k) => {
+			if (!val[k]) {
+				return;
+			}
+			const v = k === 'background-image' ? "url('" + val[k] + "')" : val[k];
+			decls += k + ':' + v + ';';
+		});
+		return decls ? element + '{' + decls + '}' : '';
+	}
+
 	if (window.buddyxCustomizerOutputs) {
-		Object.entries(window.buddyxCustomizerOutputs).forEach(([settingId, rules]) => {
+		Object.entries(window.buddyxCustomizerOutputs).forEach(([settingId, payload]) => {
+			const type = payload && payload._type ? payload._type : '';
+			const rules = (payload && payload.rules) || [];
 			wp.customize(settingId, (value) => {
 				value.bind((newVal) => {
 					let css = '';
 					rules.forEach((r) => {
 						if (newVal && typeof newVal === 'object' && !Array.isArray(newVal)) {
-							// Typography (or any structured value) — emit multi-property block
-							css += typographyCss(r.element, newVal);
+							if (type === 'background') {
+								css += backgroundCss(r.element, newVal);
+							} else {
+								css += typographyCss(r.element, newVal);
+							}
 						} else if (newVal !== '' && newVal !== null && typeof newVal !== 'undefined') {
 							const property = r.property || 'color';
 							const units = r.units || '';

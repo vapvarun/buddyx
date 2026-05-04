@@ -10,6 +10,27 @@
 	gap: 8px;
 	margin-top: 8px;
 }
+
+/* Background composite control */
+.buddyx-background-controls {
+	display: grid;
+	gap: 8px;
+	margin-top: 8px;
+}
+.buddyx-bg-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 12px;
+}
+.buddyx-bg-row select,
+.buddyx-bg-row input {
+	padding: 4px 6px;
+}
+.buddyx-bg-row .buddyx-bg-image-pick {
+	align-self: flex-start;
+	margin-top: 4px;
+}
 .buddyx-typo-row {
 	display: flex;
 	flex-direction: column;

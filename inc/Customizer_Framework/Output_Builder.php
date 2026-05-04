@@ -64,6 +64,12 @@ class Output_Builder {
 			return $decls ? sprintf( '%s{%s}', $element, $decls ) : '';
 		}
 
+		// Background: expand the 6-key array into a multi-declaration block.
+		if ( 'background' === $type && is_array( $value ) ) {
+			$decls = self::background_declarations( $value );
+			return $decls ? sprintf( '%s{%s}', $element, $decls ) : '';
+		}
+
 		$property = $rule['property'] ?? self::default_property( $type );
 		if ( '' === $property ) {
 			return '';
@@ -118,6 +124,33 @@ class Output_Builder {
 			if ( ! empty( $value[ $k ] ) ) {
 				$decls .= sprintf( '%s:%s;', $css_prop, $value[ $k ] );
 			}
+		}
+		return $decls;
+	}
+
+	/**
+	 * Build background CSS declarations from a structured value array.
+	 * background-image is wrapped in url(...); other keys passed through.
+	 */
+	protected static function background_declarations( array $value ): string {
+		$decls = '';
+		$keys  = array(
+			'background-color',
+			'background-image',
+			'background-repeat',
+			'background-position',
+			'background-size',
+			'background-attachment',
+		);
+		foreach ( $keys as $k ) {
+			if ( empty( $value[ $k ] ) ) {
+				continue;
+			}
+			$v = (string) $value[ $k ];
+			if ( 'background-image' === $k ) {
+				$v = sprintf( "url('%s')", esc_url( $v ) );
+			}
+			$decls .= sprintf( '%s:%s;', $k, $v );
 		}
 		return $decls;
 	}

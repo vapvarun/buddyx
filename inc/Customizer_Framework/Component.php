@@ -186,15 +186,19 @@ class Component {
 			if ( empty( $f['output'] ) || empty( $f['settings'] ) ) {
 				continue;
 			}
-			$payload[ $f['settings'] ] = array_map(
-				static function ( $r ) {
-					return array(
-						'element'  => $r['element']  ?? '',
-						'property' => $r['property'] ?? '',
-						'units'    => $r['units']    ?? '',
-					);
-				},
-				(array) $f['output']
+			$type                      = $f['_type'] ?? '';
+			$payload[ $f['settings'] ] = array(
+				'_type' => $type,
+				'rules' => array_map(
+					static function ( $r ) {
+						return array(
+							'element'  => $r['element']  ?? '',
+							'property' => $r['property'] ?? '',
+							'units'    => $r['units']    ?? '',
+						);
+					},
+					(array) $f['output']
+				),
 			);
 		}
 		wp_add_inline_script(

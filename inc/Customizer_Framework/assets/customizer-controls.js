@@ -80,6 +80,80 @@
 	});
 
 	/**
+	 * Background composite control — 6 sub-inputs, structured-array value.
+	 */
+	wp.customize.controlConstructor['buddyx-background'] = wp.customize.Control.extend({
+		ready: function () {
+			const ctl = this;
+			const root = ctl.container[0].querySelector('.buddyx-background-controls');
+			const hidden = ctl.container[0].querySelector('.buddyx-bg-value');
+			if (!root || !hidden) {
+				return;
+			}
+			const colorEl = root.querySelector('.buddyx-bg-color');
+			const imageEl = root.querySelector('.buddyx-bg-image');
+			const pickBtn = root.querySelector('.buddyx-bg-image-pick');
+			const repeatEl = root.querySelector('.buddyx-bg-repeat');
+			const positionEl = root.querySelector('.buddyx-bg-position');
+			const sizeEl = root.querySelector('.buddyx-bg-size');
+			const attachmentEl = root.querySelector('.buddyx-bg-attachment');
+
+			let initial = {};
+			try {
+				initial = JSON.parse(hidden.value || '{}') || {};
+			} catch (e) {
+				initial = {};
+			}
+			if (typeof initial !== 'object' || Array.isArray(initial)) {
+				initial = {};
+			}
+			colorEl.value = initial['background-color'] || '';
+			imageEl.value = initial['background-image'] || '';
+			repeatEl.value = initial['background-repeat'] || 'repeat';
+			positionEl.value = initial['background-position'] || 'center center';
+			sizeEl.value = initial['background-size'] || 'auto';
+			attachmentEl.value = initial['background-attachment'] || 'scroll';
+
+			const sync = () => {
+				const v = {
+					'background-color': colorEl.value,
+					'background-image': imageEl.value,
+					'background-repeat': repeatEl.value,
+					'background-position': positionEl.value,
+					'background-size': sizeEl.value,
+					'background-attachment': attachmentEl.value,
+				};
+				hidden.value = JSON.stringify(v);
+				ctl.setting.set(v);
+			};
+			[colorEl, imageEl, repeatEl, positionEl, sizeEl, attachmentEl].forEach((el) =>
+				el.addEventListener('change', sync)
+			);
+
+			// Wire the WP media frame to the image URL input.
+			if (pickBtn && wp.media) {
+				let frame = null;
+				pickBtn.addEventListener('click', (e) => {
+					e.preventDefault();
+					if (!frame) {
+						frame = wp.media({
+							title: 'Select Background Image',
+							library: { type: 'image' },
+							multiple: false,
+						});
+						frame.on('select', () => {
+							const att = frame.state().get('selection').first().toJSON();
+							imageEl.value = att.url || '';
+							sync();
+						});
+					}
+					frame.open();
+				});
+			}
+		},
+	});
+
+	/**
 	 * Switch / Toggle control
 	 */
 	wp.customize.controlConstructor['buddyx-switch'] = wp.customize.Control.extend({

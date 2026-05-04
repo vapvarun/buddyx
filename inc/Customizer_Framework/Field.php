@@ -48,15 +48,20 @@ class Field {
 		'repeater'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Repeater',        true ),
 		'upload'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload',          true ),
 		'sortable'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Sortable',        true ),
-		// 8 core dispatched types
+		// 6 core types dispatched via add_control( id, args ) shortcut form.
 		'text'            => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
 		'textarea'        => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
 		'url'             => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
 		'select'          => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
 		'radio'           => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
 		'dropdown-pages'  => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
-		'image'           => array( '\\WP_Customize_Setting', '\\WP_Customize_Image_Control',            false ),
-		'background'      => array( '\\WP_Customize_Setting', '\\WP_Customize_Background_Image_Control', false ),
+		// Image: instantiate WP core's image control directly (the add_control
+		// shortcut form does not support 'image' as a type string — it would
+		// render as a plain text input).
+		'image'           => array( '\\WP_Customize_Setting', '\\WP_Customize_Image_Control',            true ),
+		// Background is a Kirki-shape composite (color/image/repeat/position/
+		// size/attachment) — six sub-inputs, structured-array value.
+		'background'      => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Background', true ),
 	);
 
 	/**
@@ -151,9 +156,10 @@ class Field {
 			case 'radio_buttonset':
 				return 'sanitize_key';
 			case 'image':
-			case 'background':
 			case 'upload':
 				return 'esc_url_raw';
+			case 'background':
+				return array( __CLASS__, 'sanitize_background' );
 			case 'repeater':
 			case 'sortable':
 				return array( __CLASS__, 'sanitize_json_array' );
@@ -210,6 +216,34 @@ class Field {
 			if ( isset( $value[ $k ] ) ) {
 				$out[ $k ] = sanitize_text_field( (string) $value[ $k ] );
 			}
+		}
+		return $out;
+	}
+
+	/**
+	 * Sanitize a Background composite value — array with the 6 background-* keys.
+	 * Whitelists keys; passes string values through sanitize_text_field; URL key
+	 * goes through esc_url_raw.
+	 */
+	public static function sanitize_background( $value ): array {
+		if ( ! is_array( $value ) ) {
+			return array();
+		}
+		$out  = array();
+		$keys = array(
+			'background-color',
+			'background-image',
+			'background-repeat',
+			'background-position',
+			'background-size',
+			'background-attachment',
+		);
+		foreach ( $keys as $k ) {
+			if ( ! isset( $value[ $k ] ) ) {
+				continue;
+			}
+			$v = (string) $value[ $k ];
+			$out[ $k ] = ( 'background-image' === $k ) ? esc_url_raw( $v ) : sanitize_text_field( $v );
 		}
 		return $out;
 	}
@@ -272,10 +306,14 @@ class Field {
 	}
 
 	/**
-	 * require_once the file housing a custom control class.
-	 * Class file follows PSR-4: short class name + .php (e.g. Color.php).
+	 * require_once the file housing a custom control class. Core WP control
+	 * classes are already autoloaded; this only loads framework controls in
+	 * Controls/ that follow PSR-4 (short class name + .php).
 	 */
 	protected static function require_control( string $class ): void {
+		if ( class_exists( $class, false ) ) {
+			return;
+		}
 		$short = substr( $class, strrpos( $class, '\\' ) + 1 );
 		$file  = __DIR__ . '/Controls/' . $short . '.php';
 		if ( file_exists( $file ) ) {
