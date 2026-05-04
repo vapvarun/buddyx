@@ -231,21 +231,22 @@ class Field {
 
 	/**
 	 * Build the args array passed to add_control() / control constructor.
-	 * Strips Kirki-specific args we don't pass through; compiles array-form
-	 * active_callback to a closure.
+	 *
+	 * Strips framework-internal/setting keys; everything else passes through so
+	 * Kirki-shape args (fields, row_label, multiple, mode, etc.) reach control
+	 * classes whose public properties match. Compiles array-form active_callback
+	 * to a closure.
 	 */
 	protected static function build_control_args( string $type, array $args ): array {
-		$out = array(
-			'label'       => $args['label']       ?? '',
-			'description' => $args['description'] ?? '',
-			'section'     => $args['section'],
-			'priority'    => $args['priority']    ?? 10,
-		);
-		foreach ( array( 'choices', 'tooltip', 'output', 'active_callback', 'input_attrs' ) as $k ) {
-			if ( array_key_exists( $k, $args ) ) {
-				$out[ $k ] = $args[ $k ];
-			}
-		}
+		// Strip keys consumed by Field::register_with_manager / add_setting.
+		$internal = array( '_type', 'settings', 'default', 'transport', 'sanitize_callback', 'capability' );
+		$out      = array_diff_key( $args, array_flip( $internal ) );
+
+		$out['label']       = $args['label']       ?? '';
+		$out['description'] = $args['description'] ?? '';
+		$out['section']     = $args['section'];
+		$out['priority']    = $args['priority']    ?? 10;
+
 		// Compile array-form active_callback (Kirki shape) to a closure.
 		if ( isset( $out['active_callback'] ) && is_array( $out['active_callback'] ) ) {
 			require_once __DIR__ . '/Active_Callback.php';

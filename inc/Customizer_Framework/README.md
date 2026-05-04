@@ -149,3 +149,14 @@ Two read-time normalizations let theme_mods saved by Kirki carry over without mi
 
 1. **Typography `variant` → `font-weight`**: legacy `variant: 'regular'` / `'700'` / `'700italic'` translates to `font-weight` (+ `font-style: italic` when present). Implemented in both `Output_Builder::typography_declarations()` (PHP) and `customizer-preview.js::typographyCss()` (JS) so live-preview matches refresh output.
 2. **Switch boolean → int**: Kirki `switch` saved values may be `true`/`false`/`'on'`/`'off'`/`1`/`0`. Sanitized to `0`/`1` via `Field::sanitize_bool_int()`.
+
+## Repeater / Sortable read-time decode
+
+`repeater` and `sortable` field values are stored as JSON-encoded strings (sanitized via `Field::sanitize_json_array`). Consumers reading these settings in templates need to decode:
+
+```php
+$rows = json_decode( get_theme_mod( 'my_repeater', '[]' ), true );
+$rows = is_array( $rows ) ? $rows : array();
+```
+
+Kirki's `Kirki::get_option()` did this decode automatically; `get_theme_mod()` does not. This is a deliberate trade-off: we use core's getter and keep the framework dependency-free.

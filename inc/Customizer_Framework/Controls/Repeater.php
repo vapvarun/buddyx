@@ -31,9 +31,17 @@ class Repeater extends \WP_Customize_Control {
 	public $type = 'buddyx-repeater';
 
 	/**
+	 * Row schema. Either passed at top level (Kirki shape) or as
+	 * choices['fields']. Map of field-key => { type, label, default? }.
+	 *
+	 * @var array
+	 */
+	public $fields = array();
+
+	/**
 	 * Label shown on each row's "remove" button (and accessible name for the row).
 	 *
-	 * @var string
+	 * @var string|array
 	 */
 	public $row_label = 'Item';
 
@@ -42,7 +50,9 @@ class Repeater extends \WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['fields']    = $this->choices['fields'] ?? array();
+		$this->json['fields']    = ! empty( $this->fields )
+			? $this->fields
+			: ( $this->choices['fields'] ?? array() );
 		$this->json['row_label'] = $this->row_label;
 	}
 
