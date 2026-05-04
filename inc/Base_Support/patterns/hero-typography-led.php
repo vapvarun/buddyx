@@ -35,7 +35,7 @@ return array(
   <!-- /wp:buttons -->
 
   <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"0"}}},"textColor":"contrast-3"} -->
-  <p class="has-text-align-center has-contrast-3-color has-text-color" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:0;font-size:var(--wp--preset--font-size--small)">★★★★★ &nbsp;&nbsp; 4.9 / 5 from 2,847 reviews on wordpress.org</p>
+  <p class="has-text-align-center has-contrast-3-color has-text-color" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:0;font-size:var(--wp--preset--font-size--small)">★★★★★ &nbsp;Rated 5/5 on wordpress.org</p>
   <!-- /wp:paragraph -->
 
 </div>

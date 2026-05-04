@@ -17,10 +17,10 @@ return array(
     <!-- wp:column -->
     <div class="wp-block-column">
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(3rem, 5vw + 1rem, 5rem)","fontWeight":"500","lineHeight":"1","fontFamily":"var:preset|font-family|newsreader","letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">12,400</p>
+      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">27</p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-3"} -->
-      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Sites shipped</p>
+      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Block patterns</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
@@ -28,10 +28,10 @@ return array(
     <!-- wp:column -->
     <div class="wp-block-column">
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(3rem, 5vw + 1rem, 5rem)","fontWeight":"500","lineHeight":"1","fontFamily":"var:preset|font-family|newsreader","letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">4.9★</p>
+      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">5★</p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-3"} -->
-      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">2,847 reviews</p>
+      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">wp.org rating</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
@@ -39,10 +39,10 @@ return array(
     <!-- wp:column -->
     <div class="wp-block-column">
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(3rem, 5vw + 1rem, 5rem)","fontWeight":"500","lineHeight":"1","fontFamily":"var:preset|font-family|newsreader","letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">64</p>
+      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">12</p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-3"} -->
-      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Countries</p>
+      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Color tokens</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
@@ -50,10 +50,10 @@ return array(
     <!-- wp:column -->
     <div class="wp-block-column">
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(3rem, 5vw + 1rem, 5rem)","fontWeight":"500","lineHeight":"1","fontFamily":"var:preset|font-family|newsreader","letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">1.7s</p>
+      <p style="margin-bottom:var(--wp--preset--spacing--20);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(3rem, 5vw + 1rem, 5rem);font-weight:500;line-height:1;letter-spacing:-0.02em">8</p>
       <!-- /wp:paragraph -->
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-3"} -->
-      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Avg LCP</p>
+      <p class="has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Type sizes</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
