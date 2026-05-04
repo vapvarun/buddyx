@@ -1,0 +1,4 @@
+Inter typeface
+Copyright (c) Rasmus Andersson — https://rsms.me/inter/
+Licensed under the SIL Open Font License, Version 1.1
+https://scripts.sil.org/OFL

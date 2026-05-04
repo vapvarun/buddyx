@@ -1,0 +1,4 @@
+Newsreader typeface
+Copyright (c) Production Type — https://github.com/productiontype/Newsreader
+Licensed under the SIL Open Font License, Version 1.1
+https://scripts.sil.org/OFL
