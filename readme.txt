@@ -47,7 +47,7 @@ WooCommerce, BuddyPress, BuddyBoss Platform, LearnDash, LearnPress, LifterLMS, T
 
 * [Documentation](https://docs.wbcomdesigns.com/doc_category/buddyx/) - step-by-step guides
 * [Community support forum](https://wordpress.org/support/theme/buddyx/) - free help from the community and our team
-* [GitHub](https://github.com/wbcomdesigns/buddyx) - report issues or contribute
+* [GitHub](https://github.com/vapvarun/buddyx) - report issues or contribute
 
 == BuddyX Child Theme ==
 
