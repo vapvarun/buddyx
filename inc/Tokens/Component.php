@@ -122,6 +122,28 @@ class Component implements Component_Interface {
 	);
 
 	/**
+	 * Framework-supplied derived tokens (no customizer field backing them).
+	 * Phase 4 introduces these to support stylesheet cleanup — they cover
+	 * neutral roles (mid-tone text, generic borders, dividers, shadows)
+	 * that didn't have a dedicated customizer color in 5.0.x but show up
+	 * dozens of times across the Tier A foundation stylesheets.
+	 *
+	 * Always emitted, regardless of the `site_custom_colors` master toggle,
+	 * so consumers (theme CSS + plugin compat CSS) can rely on them being
+	 * present. Dark-mode overrides live in $dark_defaults below.
+	 *
+	 * Future 5.2.x: expose to customizer if customers want override control.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $framework_tokens = array(
+		'--bx-color-fg-muted' => '#757575',                  // Mid-tone text (was #757575/#666/#aaa)
+		'--bx-color-border'   => '#e8e8e8',                  // Generic border (was #e8e8e8/#eaeaea)
+		'--bx-color-divider'  => '#f0f0f0',                  // Subtle divider (was #f0f0f0/#f6f6f6)
+		'--bx-color-shadow'   => 'rgba(0, 0, 0, 0.08)',      // Card / popover shadow base
+	);
+
+	/**
 	 * Dark-mode token overrides. Applied via [data-bx-mode="dark"] :root { ... }
 	 * and via @media (prefers-color-scheme: dark) for users in 'auto' mode.
 	 *
@@ -190,6 +212,12 @@ class Component implements Component_Interface {
 		'--bx-color-copyright-link'       => '#e5e5e5',
 		'--bx-color-copyright-link-hover' => '#ff6b6b',
 
+		// Framework-supplied derived tokens (Phase 4 cleanup).
+		'--bx-color-fg-muted' => '#a0a0a0',
+		'--bx-color-border'   => '#2a2a2a',
+		'--bx-color-divider'  => '#1a1a1a',
+		'--bx-color-shadow'   => 'rgba(0, 0, 0, 0.4)',
+
 		// theme.json palette overrides — block patterns reference these via
 		// .has-{slug}-background-color / .has-{slug}-color helpers, so we have
 		// to invert the base/contrast scales for dark mode to take effect on
@@ -236,15 +264,24 @@ class Component implements Component_Interface {
 	 * @return string CSS text (already includes the :root selector).
 	 */
 	public function build_token_css(): string {
-		// Site Custom Colors master toggle gates token emission for parity
-		// with 5.0.3 behavior.
 		$enabled = \get_theme_mod( 'site_custom_colors', true );
-		if ( ! $enabled ) {
-			return '';
+		$mods    = \get_theme_mods();
+		$decls   = '';
+
+		// Framework-derived tokens always emit — they back generic neutrals
+		// (borders, mid-tone text, shadows) that consumer CSS depends on
+		// regardless of whether the customer enabled custom colors.
+		foreach ( self::$framework_tokens as $token => $value ) {
+			$decls .= $token . ':' . $value . ';';
 		}
 
-		$mods = \get_theme_mods();
-		$decls = '';
+		// Site Custom Colors master toggle gates the customizer-derived tokens
+		// for parity with 5.0.3 behavior. Framework tokens above still emit.
+		if ( ! $enabled ) {
+			$light_block = ':root{' . $decls . '}';
+			$dark_block  = $this->build_dark_block();
+			return $light_block . $dark_block;
+		}
 
 		// Simple hex color tokens.
 		foreach ( self::$simple_color_tokens as $mod_key => $cfg ) {
@@ -297,40 +334,42 @@ class Component implements Component_Interface {
 			}
 		}
 
-		if ( '' === $decls ) {
-			$light_block = '';
-		} else {
-			$light_block = ':root{' . $decls . '}';
-		}
+		$light_block = ':root{' . $decls . '}';
+		$dark_block  = $this->build_dark_block();
 
-		// Build dark-mode override block. Two selectors share the same body:
-		//   :root[data-bx-mode="dark"]                 — explicit user choice
-		//   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
-		// Each dark-default token also overrides its legacy aliases so any
-		// third-party CSS hooked to `--color-theme-primary` etc. still picks
-		// up the dark value (otherwise legacy CSS would render light-mode
-		// colors on dark surfaces — a contrast failure).
-		$dark_decls       = '';
-		$alias_lookup     = array(); // token => array of aliases.
+		return $light_block . $dark_block;
+	}
+
+	/**
+	 * Build the dark-mode override block. Two selectors share the same body:
+	 *   :root[data-bx-mode="dark"]                 — explicit user choice
+	 *   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
+	 *
+	 * Each dark-default token also overrides its legacy aliases so any third-
+	 * party CSS hooked to `--color-theme-primary` etc. picks up the dark
+	 * value (otherwise legacy CSS would render light-mode colors on dark
+	 * surfaces — a contrast failure).
+	 */
+	protected function build_dark_block(): string {
+		$alias_lookup = array(); // token => array of aliases.
 		foreach ( self::$simple_color_tokens as $cfg ) {
 			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
 		}
 		foreach ( self::$typography_color_tokens as $cfg ) {
 			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
 		}
+		$dark_decls = '';
 		foreach ( self::$dark_defaults as $token => $value ) {
 			$dark_decls .= $token . ':' . $value . ';';
 			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
 				$dark_decls .= $alias . ':' . $value . ';';
 			}
 		}
-		$dark_block = '';
-		if ( '' !== $dark_decls ) {
-			$dark_block  = ':root[data-bx-mode="dark"]{' . $dark_decls . '}';
-			$dark_block .= '@media (prefers-color-scheme:dark){:root[data-bx-mode="auto"]{' . $dark_decls . '}}';
+		if ( '' === $dark_decls ) {
+			return '';
 		}
-
-		return $light_block . $dark_block;
+		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}'
+			. '@media (prefers-color-scheme:dark){:root[data-bx-mode="auto"]{' . $dark_decls . '}}';
 	}
 
 	/**

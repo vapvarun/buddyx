@@ -161,9 +161,31 @@ to the customizer if customers want override control.
 
 Phase 4 is broken into 4 sub-phases that can ship independently:
 
-### Phase 4a — Foundation tier (Tier A files, ~150 hardcoded values)
+### Phase 4a — Foundation tier (Tier A files, ~150 hardcoded values) ✅ Shipped 2026-05-04
 Touches the always-loaded theme CSS. Highest impact for dark mode.
-**Effort:** ~3-4 hours.
+**Actual effort:** ~2 hours (102 hex values found vs 150 estimated).
+**Approach:** Per-file audit identified ~40 tokenizable values and ~62 intentional hex (overlay text on dark backdrops, brand-state colors, focus indicators, immediately-overridden borders). Replaced tokenizable values with `var(--bx-color-X, #fallback)` form so light-mode rendering stays byte-identical via the fallback when no token is set. Dark-mode now correctly inherits override values.
+
+Files tokenized:
+- _navigation.css: 8 replacements (menu toggle, search input, dropdown bg, mobile user)
+- content.css: 18 replacements (search button, slick gallery controls, idea-list items, theme.json palette helpers)
+- global.css: 3 (post-navigation card, pagination)
+- _elements.css: 1 (hr)
+- _typography.css: 1 (abbr)
+- _footer.css: 1 (.site-footer bg)
+- _forms.css: 3 (input, focus, select)
+- comments.css: 3 (avatar ring, reply link)
+- widgets.css: 2 (rss cite, calendar pad)
+
+**New tokens added** to `inc/Tokens/Component.php`:
+| Token | Light | Dark |
+|---|---|---|
+| --bx-color-fg-muted | #757575 | #a0a0a0 |
+| --bx-color-border   | #e8e8e8 | #2a2a2a |
+| --bx-color-divider  | #f0f0f0 | #1a1a1a |
+| --bx-color-shadow   | rgba(0,0,0,0.08) | rgba(0,0,0,0.4) |
+
+These framework tokens always emit (regardless of `site_custom_colors` master toggle) since consumer CSS depends on them being present.
 
 ### Phase 4b — Heavy plugin compat (BuddyPress + Platform)
 buddypress.css (110) + platform.css (55) — community-site backbone.

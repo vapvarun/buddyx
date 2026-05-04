@@ -190,7 +190,7 @@ pre code,
 
 abbr,
 acronym {
-    border-bottom: 1px dotted #666;
+    border-bottom: 1px dotted var(--bx-color-fg-muted, #666);
     cursor: help;
 }
 

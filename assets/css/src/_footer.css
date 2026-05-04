@@ -4,7 +4,7 @@
 
 .site-footer {
     margin: 1em 0 0;
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     color: var(--color-footer-content);
     border-top: 1px solid var(--global-border-color);
 }

@@ -187,7 +187,7 @@ ol.wp-block-latest-comments {
 
 .rss-date,
 .widget_rss cite {
-    color: #333;
+    color: var(--bx-color-fg-muted, #333);
     font-size: 0.8em;
 }
 
@@ -281,7 +281,7 @@ ol.wp-block-latest-comments {
 }
 
 .widget_calendar .pad {
-    background: #eaeaea;
+    background: var(--bx-color-divider, #eaeaea);
 }
 
 /* ld courses widget */

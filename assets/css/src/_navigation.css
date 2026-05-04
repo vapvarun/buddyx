@@ -14,7 +14,7 @@
     font-family: var(--highlight-font-family);
     font-size: 80%;
     line-height: 0 !important;
-    color: #111;
+    color: var(--bx-color-menu-fg, #111);
     text-transform: uppercase;
     border: 0;
     border-radius: 0;
@@ -31,7 +31,7 @@
 
 /* Show clear focus for keyboard users */
 .nav--toggle-small .menu-toggle:focus-visible {
-    outline: 2px solid #111;
+    outline: 2px solid var(--bx-color-menu-fg, #111);
     outline-offset: 3px;
 }
 
@@ -312,7 +312,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     .buddyx-mobile-user .my-account-link a {
         font-size: 13px;
-        color: #939597;
+        color: var(--bx-color-fg-muted, #939597);
         line-height: 1;
     }
 }
@@ -671,7 +671,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper #searchform {
     max-width: 340px;
     position: relative;
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     margin: 0px;
     padding: 5px 15px;
     padding-right: 45px;
@@ -693,7 +693,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper #searchform input[type="search"],
 .cart-info:before,
 .cart-total:before {
-    color: #aaaaaa;
+    color: var(--bx-color-fg-muted, #aaaaaa);
 }
 
 #searchform .search-icon {
@@ -716,7 +716,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .menu-icons-wrapper #searchform input[type=submit]:focus {
-    border: 1px dotted #aaa;
+    border: 1px dotted var(--bx-color-fg-muted, #aaa);
 }
 
 .menu-icons-wrapper #searchform:before {
@@ -733,7 +733,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .menu-icons-wrapper #searchform:before {
-    color: #c2c2c2;
+    color: var(--bx-color-fg-muted, #c2c2c2);
 }
 
 .menu-icons-wrapper .cart sup,
@@ -851,7 +851,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
 .buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item .mute {
     font-size: 80%;
-    color: #757575;
+    color: var(--bx-color-fg-muted, #757575);
 }
 
 .buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item p {
