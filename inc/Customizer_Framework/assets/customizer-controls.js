@@ -47,31 +47,41 @@
 			});
 			(ctl.params.weights || ['400']).forEach((w) => weightEl.add(new Option(w, w)));
 
-			// Read current value from the hidden field. Tolerant of Kirki legacy
-			// 'variant' key (Output_Builder normalizes it on the server side too).
-			let initial = {};
-			try {
-				initial = JSON.parse(hidden.value || '{}') || {};
-			} catch (e) {
-				initial = {};
-			}
+			// Read current value from wp.customize state (WP doesn't auto-serialize
+			// structured/object values to hidden inputs, so hidden.value is unreliable).
+			// Merge over the field's PHP-declared default so partial saves (e.g.
+			// only the [color] sub-key was set in another section) don't blank out
+			// typography keys. Tolerant of Kirki legacy 'variant' key.
+			const settingVal = ctl.setting.get();
+			const defaultVal = ctl.params.default || {};
+			const merged = Object.assign({}, defaultVal,
+				(settingVal && typeof settingVal === 'object' && !Array.isArray(settingVal)) ? settingVal : {}
+			);
+			const initial = merged;
 			const initialWeight = initial['font-weight'] || initial.variant || '400';
 			familyEl.value = initial['font-family'] || familyEl.options[0]?.value || '';
 			weightEl.value = String(initialWeight) === 'regular' ? '400' : String(initialWeight) === 'bold' ? '700' : String(initialWeight);
-			sizeEl.value = parseFloat(initial['font-size'] || '16') || 16;
-			lhEl.value = parseFloat(initial['line-height'] || '1.5') || 1.5;
-			lsEl.value = parseFloat(initial['letter-spacing'] || '0') || 0;
+			sizeEl.value = parseFloat(initial['font-size']) || 16;
+			lhEl.value = parseFloat(initial['line-height']) || 1.5;
+			lsEl.value = parseFloat(initial['letter-spacing']) || 0;
 			ttEl.value = initial['text-transform'] || 'none';
+			// Push the hydrated value back into the setting so saving without
+			// changes still emits a coherent shape (Kirki preserved this).
+			hidden.value = JSON.stringify(initial);
 
 			const sync = () => {
-				const v = {
+				// Merge over the current setting so foreign sub-keys (e.g. [color],
+				// text-align, text-decoration that other sections may own) survive.
+				const current = ctl.setting.get();
+				const base = (current && typeof current === 'object' && !Array.isArray(current)) ? current : {};
+				const v = Object.assign({}, base, {
 					'font-family': familyEl.value,
 					'font-weight': weightEl.value,
 					'font-size': sizeEl.value + 'px',
 					'line-height': String(lhEl.value),
 					'letter-spacing': lsEl.value + 'em',
 					'text-transform': ttEl.value,
-				};
+				});
 				hidden.value = JSON.stringify(v);
 				ctl.setting.set(v);
 			};
@@ -98,37 +108,49 @@
 			const sizeEl = root.querySelector('.buddyx-bg-size');
 			const attachmentEl = root.querySelector('.buddyx-bg-attachment');
 
-			let initial = {};
-			try {
-				initial = JSON.parse(hidden.value || '{}') || {};
-			} catch (e) {
-				initial = {};
-			}
-			if (typeof initial !== 'object' || Array.isArray(initial)) {
-				initial = {};
-			}
+			// Same as Typography: read from wp.customize state and merge over defaults
+			// so partial saves don't blank out other sub-keys.
+			const bgSettingVal = ctl.setting.get();
+			const bgDefault = ctl.params.default || {};
+			const initial = Object.assign({}, bgDefault,
+				(bgSettingVal && typeof bgSettingVal === 'object' && !Array.isArray(bgSettingVal)) ? bgSettingVal : {}
+			);
 			colorEl.value = initial['background-color'] || '';
 			imageEl.value = initial['background-image'] || '';
 			repeatEl.value = initial['background-repeat'] || 'repeat';
 			positionEl.value = initial['background-position'] || 'center center';
 			sizeEl.value = initial['background-size'] || 'auto';
 			attachmentEl.value = initial['background-attachment'] || 'scroll';
+			hidden.value = JSON.stringify(initial);
 
 			const sync = () => {
-				const v = {
+				const current = ctl.setting.get();
+				const base = (current && typeof current === 'object' && !Array.isArray(current)) ? current : {};
+				const v = Object.assign({}, base, {
 					'background-color': colorEl.value,
 					'background-image': imageEl.value,
 					'background-repeat': repeatEl.value,
 					'background-position': positionEl.value,
 					'background-size': sizeEl.value,
 					'background-attachment': attachmentEl.value,
-				};
+				});
 				hidden.value = JSON.stringify(v);
 				ctl.setting.set(v);
 			};
-			[colorEl, imageEl, repeatEl, positionEl, sizeEl, attachmentEl].forEach((el) =>
+			[imageEl, repeatEl, positionEl, sizeEl, attachmentEl].forEach((el) =>
 				el.addEventListener('change', sync)
 			);
+
+			// Premium UX: wire wp-color-picker (iris) onto the color sub-input
+			// so it renders a swatch + popover picker, not a plain text input.
+			if (jQuery.fn && jQuery.fn.wpColorPicker) {
+				jQuery(colorEl).wpColorPicker({
+					change: () => sync(),
+					clear: () => sync(),
+				});
+			} else {
+				colorEl.addEventListener('change', sync);
+			}
 
 			// Wire the WP media frame to the image URL input.
 			if (pickBtn && wp.media) {
@@ -243,14 +265,16 @@
 				return;
 			}
 			const fields = ctl.params.fields || {};
-			let rows = [];
-			try {
-				rows = JSON.parse(hidden.value || '[]');
-				if (!Array.isArray(rows)) {
-					rows = [];
-				}
-			} catch (e) {
-				rows = [];
+			// Read array value from wp.customize state. Setting may hold either
+			// an array (live) or a JSON-encoded string (post-save round-trip via
+			// sanitize_json_array).
+			let rows = ctl.setting.get();
+			if (typeof rows === 'string') {
+				try { rows = JSON.parse(rows); } catch (e) { rows = []; }
+			}
+			if (!Array.isArray(rows)) {
+				rows = ctl.params.default || [];
+				if (!Array.isArray(rows)) rows = [];
 			}
 
 			function renderRow(rowData) {
@@ -329,14 +353,14 @@
 				return;
 			}
 			const choices = ctl.params.choices || {};
-			let value = [];
-			try {
-				value = JSON.parse(hidden.value || '[]');
-				if (!Array.isArray(value)) {
-					value = [];
-				}
-			} catch (e) {
-				value = [];
+			// Read array from wp.customize state, not hidden input.
+			let value = ctl.setting.get();
+			if (typeof value === 'string') {
+				try { value = JSON.parse(value); } catch (e) { value = []; }
+			}
+			if (!Array.isArray(value)) {
+				value = ctl.params.default || [];
+				if (!Array.isArray(value)) value = [];
 			}
 			// First-time render: synthesize from choices in declared order, all enabled.
 			if (!value.length) {

@@ -15,46 +15,27 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Color
  *
+ * Extends WP core's WP_Customize_Color_Control which already wires the iris
+ * picker via wp-color-picker. We inherit the parent's render_content() so the
+ * picker UI renders correctly. Type stays 'color' (parent's value) so WP's
+ * built-in JS controlConstructor binds; we expose palette + alpha to it.
+ *
  * Choices:
  *   - palette  array  Curated swatches passed through to wp-color-picker.
- *   - alpha    bool   Enable alpha channel slider.
+ *   - alpha    bool   Enable alpha channel slider (handled by Color JS handler).
  */
 class Color extends \WP_Customize_Color_Control {
-
-	/**
-	 * @var string
-	 */
-	public $type = 'buddyx-color';
 
 	/**
 	 * Expose palette + alpha to the JS template.
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['palette'] = $this->choices['palette'] ?? array();
-		$this->json['alpha']   = ! empty( $this->choices['alpha'] );
-	}
-
-	/**
-	 * Render the control content.
-	 */
-	public function render_content() {
-		?>
-		<label>
-			<?php if ( ! empty( $this->label ) ) : ?>
-				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-			<?php endif; ?>
-			<?php if ( ! empty( $this->description ) ) : ?>
-				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
-			<?php endif; ?>
-			<input
-				class="color-picker-hex"
-				type="text"
-				maxlength="7"
-				placeholder="<?php esc_attr_e( 'Hex Value', 'buddyx' ); ?>"
-				<?php $this->link(); ?>
-			/>
-		</label>
-		<?php
+		if ( ! empty( $this->choices['palette'] ) && is_array( $this->choices['palette'] ) ) {
+			$this->json['palette'] = $this->choices['palette'];
+		}
+		if ( ! empty( $this->choices['alpha'] ) ) {
+			$this->json['alpha'] = true;
+		}
 	}
 }
