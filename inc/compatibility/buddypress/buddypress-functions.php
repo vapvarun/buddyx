@@ -146,7 +146,7 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
 		);
 		$default_members_cover = '';
 		$cover_img_url         = isset( $cover_img_url ) ? $cover_img_url : $default_members_cover;
-		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" loading="lazy" /></div></div>';
+		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" /></div></div>';
 	}
 
 }
@@ -170,7 +170,7 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
 		);
 		$default_groups_cover = '';
 		$cover_img_url        = isset( $cover_img_url ) ? $cover_img_url : $default_groups_cover;
-		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" loading="lazy" /></div></div>';
+		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" /></div></div>';
 	}
 
 }

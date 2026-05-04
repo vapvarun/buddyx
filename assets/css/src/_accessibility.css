@@ -34,3 +34,17 @@
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
 }
+
+/**
+ * Universal keyboard focus indicator.
+ *
+ * Why: WCAG 2.1 SC 2.4.7 — focus must be visible for keyboard users. We use
+ * :focus-visible so mouse clicks don't show the ring (preserving the original
+ * design intent), while Tab/arrow-key focus always shows a brand-blue ring.
+ * !important is required to win over higher-specificity default-state rules
+ * such as `body.buddypress button { outline: 0 }` that suppress focus rings.
+ */
+:focus-visible {
+	outline: 2px solid #2271b1 !important;
+	outline-offset: 2px !important;
+}

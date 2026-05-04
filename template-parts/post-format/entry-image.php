@@ -45,7 +45,7 @@ if ( post_password_required() || ! post_type_supports( $support_slug, 'thumbnail
 }
 ?>
 <div class="buddyx-post-thumbnail entry-post-thumbnail">
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 		<?php
 		global $wp_query;
 		if ( 0 === $wp_query->current_post ) {

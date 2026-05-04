@@ -53,7 +53,7 @@
     font-family: inherit;
 }
 
-.tribe-common button:focus {
+.tribe-common button:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -356,10 +356,10 @@ ul.tribe-events-sub-nav {
     color: var(--global-title-color);
 }
 
-.tribe-filter-bar .tribe-filter-bar-c-filter--accordion .tribe-filter-bar-c-filter__toggle:focus,
-.tribe-filter-bar .tribe-filter-bar-c-filter--accordion button.tribe-filter-bar-c-filter__toggle:focus,
-.tribe-filter-bar .tribe-filter-bar-c-filter__toggle:focus,
-.tribe-filter-bar button.tribe-filter-bar-c-filter__toggle:focus {
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion .tribe-filter-bar-c-filter__toggle:focus:not(:focus-visible),
+.tribe-filter-bar .tribe-filter-bar-c-filter--accordion button.tribe-filter-bar-c-filter__toggle:focus:not(:focus-visible),
+.tribe-filter-bar .tribe-filter-bar-c-filter__toggle:focus:not(:focus-visible),
+.tribe-filter-bar button.tribe-filter-bar-c-filter__toggle:focus:not(:focus-visible) {
     outline: none;
 }
 

@@ -426,25 +426,25 @@ if ( ! function_exists( 'render_buddyx_add_post_settings_meta_box' ) ) {
 					<li class="buddyx_radio_list_item">
 						<label>
 							<input class="buddyx_radio_input" type="radio" name="_post_title_position" value="title-over" <?php checked( $title_position, 'title-over' ); ?>/>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-1.png' ); ?>" class="post-title-image"/>
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-1.png' ); ?>" class="post-title-image" alt="<?php esc_attr_e( 'Title over featured image', 'buddyx' ); ?>"/>
 						</label>
 					</li>
 					<li class="buddyx_radio_list_item">
 						<label>
 							<input class="buddyx_radio_input" type="radio" name="_post_title_position" value="half" <?php checked( $title_position, 'half' ); ?>/>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-2.png' ); ?>" class="post-title-image"/>
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-2.png' ); ?>" class="post-title-image" alt="<?php esc_attr_e( 'Title overlapping featured image', 'buddyx' ); ?>"/>
 						</label>
 					</li>
 					<li class="buddyx_radio_list_item">
 						<label>
 							<input class="buddyx_radio_input" type="radio" name="_post_title_position" value="title-above" <?php checked( $title_position, 'title-above' ); ?>/>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-3.png' ); ?>" class="post-title-image"/>
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-3.png' ); ?>" class="post-title-image" alt="<?php esc_attr_e( 'Title above featured image', 'buddyx' ); ?>"/>
 						</label>
 					</li>
 					<li class="buddyx_radio_list_item">
 						<label>
 							<input class="buddyx_radio_input" type="radio" name="_post_title_position" value="title-below" <?php checked( $title_position, 'title-below' ); ?>/>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-4.png' ); ?>" class="post-title-image"/>
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/single-blog-layout-4.png' ); ?>" class="post-title-image" alt="<?php esc_attr_e( 'Title below featured image', 'buddyx' ); ?>"/>
 						</label>
 					</li>
 				</ul>
@@ -654,7 +654,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 											<div class="attachment-preview type-image">\
 												<div class="thumbnail">\
 													<div class="centered">\
-														<img src="' + attachment.url + '" />\
+														<img src="' + attachment.url + '" alt="' + (attachment.alt || "") + '" />\
 													</div>\
 												</div>\
 											</div>\
@@ -834,7 +834,7 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 function buddyx_add_feature_image_blog_post_as_activity_content_callback( $content, $blog_post_id ) {
 	if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
 		if ( ! empty( $blog_post_id ) && ! empty( get_post_thumbnail_id( $blog_post_id ) ) ) {
-			$content .= sprintf( ' <a class="buddyx-post-img-link" href="%s"><img src="%s" loading="lazy" /></a>', esc_url( get_permalink( $blog_post_id ) ), esc_url( wp_get_attachment_image_url( get_post_thumbnail_id( $blog_post_id ), 'large' ) ) );
+			$content .= sprintf( ' <a class="buddyx-post-img-link" href="%s"><img src="%s" alt="%s" loading="lazy" /></a>', esc_url( get_permalink( $blog_post_id ) ), esc_url( wp_get_attachment_image_url( get_post_thumbnail_id( $blog_post_id ), 'large' ) ), esc_attr( get_the_title( $blog_post_id ) ) );
 		}
 	}
 

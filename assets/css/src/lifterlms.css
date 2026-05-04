@@ -233,7 +233,7 @@ a.llms-button-secondary:focus,
     align-items: center;
 }
 
-.llms-loop-item-content .llms-loop-link:focus {
+.llms-loop-item-content .llms-loop-link:focus:not(:focus-visible) {
     outline: none;
 }
 

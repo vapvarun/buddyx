@@ -2444,10 +2444,12 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 */
 		public function column_cb( $item ) {
 			return sprintf(
-				'<input type="checkbox" name="%1$s[]" value="%2$s" id="%3$s" />',
+				'<label for="%3$s" class="screen-reader-text">%4$s</label><input type="checkbox" name="%1$s[]" value="%2$s" id="%3$s" />',
 				esc_attr( $this->_args['singular'] ),
 				esc_attr( $item['slug'] ),
-				esc_attr( $item['sanitized_plugin'] )
+				esc_attr( $item['sanitized_plugin'] ),
+				/* translators: %s: plugin name */
+				esc_html( sprintf( __( 'Select %s', 'buddyx' ), $item['plugin'] ) )
 			);
 		}
 
@@ -2543,7 +2545,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 */
 		public function get_columns() {
 			$columns = array(
-				'cb'     => '<input type="checkbox" />',
+				'cb'     => '<input type="checkbox" aria-label="' . esc_attr__( 'Select all plugins', 'buddyx' ) . '" />',
 				'plugin' => __( 'Plugin', 'buddyx' ),
 				'source' => __( 'Source', 'buddyx' ),
 				'type'   => __( 'Type', 'buddyx' ),

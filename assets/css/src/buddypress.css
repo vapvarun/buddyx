@@ -3580,6 +3580,10 @@ button#bp-delete-avatar {
 #bp-login-widget-form input[type=password]:focus,
 #bp-login-widget-form input[type=text]:focus {
     color: var(--global-font-color);
+}
+
+#bp-login-widget-form input[type=password]:focus:not(:focus-visible),
+#bp-login-widget-form input[type=text]:focus:not(:focus-visible) {
     outline: none;
 }
 

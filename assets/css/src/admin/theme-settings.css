@@ -133,7 +133,7 @@
     border-color: #0957d0;
 }
 
-.buddyx-dashboard-tabs button:focus {
+.buddyx-dashboard-tabs button:focus:not(:focus-visible) {
     outline: 0;
 }
 

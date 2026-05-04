@@ -23,7 +23,7 @@
     padding: 0;
 }
 
-.slick-list:focus {
+.slick-list:focus:not(:focus-visible) {
     outline: none;
 }
 
