@@ -45,6 +45,33 @@
 
 ---
 
+## Data flow audit — what could actually break for existing customers
+
+We grep-audited BuddyX's 3000+ active sites' typical Kirki usage to find ACTUAL breaking risks (vs. theoretical ones):
+
+| Risk | Audit result | Severity |
+|---|---|---|
+| 111 unique setting IDs preserved | Task 22 sweep keeps `'settings'` arg verbatim — verified by snapshot diff | LOW |
+| Switch bool vs int strict-type checks | **None found** — all reads use `if ( $value )` truthy checks | NONE |
+| Direct typography array-key reads in PHP (`$mod['font-family']`) | **None found** — BuddyX uses Kirki's `output` array, not direct access | NONE |
+| `output` `function` beyond `'css'` | Only `'css'` used — supported | NONE |
+| `active_callback` operators beyond `==` | Only `==` used — supported | NONE |
+| Kirki sanitize callbacks (`'kirki_sanitize_*'`) | **None used** | NONE |
+| Kirki helper functions in templates (`Kirki::get_option()`) | **None used** | NONE |
+| Image fields stored as array (Kirki) vs URL string (core) | All consumers expect string — Kirki and core both store string | NONE |
+
+**The data flow is `user saves → theme_mod stored → Output_Builder reads → inline CSS → browser`.** As long as `Output_Builder` emits byte-identical CSS to Kirki's generator, nothing user-visible changes.
+
+This shifts the verification protocol from "run a smoke test" to "byte-comparison the actual output":
+
+1. **Setting ID snapshot diff** before/after the sweep — must be empty.
+2. **Inline CSS byte-diff** on every page type — must be empty.
+3. **Active_callback chain exercise** — for each of 54 callbacks, toggle parent setting, verify children show/hide identically.
+
+Detailed in Task 25.
+
+---
+
 ## No migration step required
 
 Kirki uses standard `WP_Customize_Setting` — values are stored directly in `wp_options.theme_mods_buddyx` keyed by setting ID. The new framework registers the same setting IDs with the same defaults, so `get_theme_mod()` returns the same values. Zero DB writes, zero upgrade routine, zero data loss.
@@ -119,17 +146,44 @@ inc/Customizer_Framework/
 ### Existing files modified
 
 ```
-functions.php                                     Task 5   require + boot framework, drop Kirki check
+functions.php                                     Task 5   require + boot framework, drop Kirki check + update file-include list
 inc/Kirki_Option/                                 Task 21  rename to inc/Customizer_Settings/
 inc/Customizer_Settings/Component.php             Task 21  drop Kirki guard, register via framework
 inc/Customizer_Settings/Fields/*                  Task 22  atomic Kirki→framework sweep (all 12 files)
-inc/Customizer/Component.php                      Task 23  remove all Kirki references
+inc/Customizer/Component.php                      Task 23  remove all Kirki references (wp_script_is checks for kirki-customizer / kirki_field_dependencies)
 inc/Dropdown_Select/Component.php                 Task 23  replace Kirki selectWoo with vanilla select
 inc/compatibility/surecart/surecart-functions.php Task 22
 inc/compatibility/fluentcart/fluentcart-functions.php Task 22
-external/class-tgm-plugin-activation.php callers  Task 24  drop Kirki recommendation
+external/class-tgm-plugin-activation.php caller   Task 24  drop Kirki recommendation entry from $plugins array
 style.css                                         Task 27  Version: 5.1.0
 readme.txt                                        Task 27  changelog entry
+```
+
+### Files to DELETE
+
+```
+inc/Kirki/Component.php           Task 21b   53 lines    Kirki integration component — only adds kirki/config filter, no purpose without Kirki
+external/include-kirki.php        Task 21b   105 lines   Kirki plugin bootstrap — loads only if class_exists('Kirki')
+```
+**Total deletion: ~158 lines.**
+
+### Files to RENAME
+
+```
+inc/Kirki_Option/                 →  inc/Customizer_Settings/      Task 21    Drop the leaky "Kirki" name; align with new framework
+external/kirki-utils.php          →  external/buddyx-defaults.php  Task 21b   MISNAMED today — file actually holds buddyx_defaults() (the central defaults registry called from 70+ template get_theme_mod() sites). Has nothing to do with Kirki despite the filename. Renamed to reflect what it really does.
+```
+
+### File-operation tally
+
+```
+DELETE:   2 files       ~158 lines
+RENAME:   1 directory   inc/Kirki_Option/ → inc/Customizer_Settings/
+RENAME:   1 file        external/kirki-utils.php → external/buddyx-defaults.php
+MODIFY:   ~17 files     framework wiring + atomic sweep + cleanup
+CREATE:   ~17 files     inc/Customizer_Framework/* (framework + 12 controls + 3 assets + README)
+TGM-PA:   1 entry drop  Kirki entry removed from caller's $plugins array
+TEMPLATES: 0 changes    template-parts/, page.php, single.php, archive.php — all unchanged (verified via audit)
 ```
 
 ---
@@ -582,6 +636,89 @@ git mv inc/Kirki_Option inc/Customizer_Settings
 In each moved file: change `namespace BuddyX\Buddyx\Kirki_Option` → `namespace BuddyX\Buddyx\Customizer_Settings`. Update `inc/Customizer_Settings/Component.php` slug from `'kirki_option'` → `'customizer_settings'`. Drop the `class_exists( 'Kirki' )` guard — Kirki is gone.
 
 Update `functions.php` autoload list. Lint + commit.
+
+---
+
+## Task 21b: Delete deprecated Kirki support files + rename misnamed defaults file
+
+**Files:**
+- Delete: `inc/Kirki/Component.php` (53 lines)
+- Delete: `external/include-kirki.php` (105 lines)
+- Rename: `external/kirki-utils.php` → `external/buddyx-defaults.php`
+- Modify: `functions.php` — update file-include list
+
+These files are pure Kirki support and have no role in a Kirki-free theme. The misnamed `kirki-utils.php` actually contains `buddyx_defaults()` (the defaults registry consumed by 70+ template `get_theme_mod( 'foo', buddyx_defaults('foo-bar') )` calls), so it stays — just renamed for clarity.
+
+- [ ] **Step 1: Delete the two deprecated files**
+
+```bash
+cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
+git rm inc/Kirki/Component.php
+git rm external/include-kirki.php
+```
+
+- [ ] **Step 2: Rename the defaults file**
+
+```bash
+git mv external/kirki-utils.php external/buddyx-defaults.php
+```
+
+The file's internal contents stay identical — only the filename changes. The `buddyx_defaults()` function inside is unchanged, so all 70+ caller sites in templates and `inc/` continue to work without modification.
+
+- [ ] **Step 3: Update `functions.php` file-include list**
+
+Find the array of required external files (currently includes `'/external/include-kirki.php'` and `'/external/kirki-utils.php'`):
+
+```diff
+- '/external/include-kirki.php',
+- '/external/kirki-utils.php',
++ '/external/buddyx-defaults.php',
+```
+
+Also drop `inc/Kirki/Component.php` from the components autoload list (whichever Theme_Components or similar file declares the components list). Search:
+
+```bash
+grep -rE "Kirki\\\\Component|inc/Kirki/" --include="*.php" inc/ functions.php
+```
+
+Remove every matching entry.
+
+- [ ] **Step 4: Verify nothing else loads the deleted files**
+
+```bash
+grep -rE "include-kirki|kirki-utils|inc/Kirki/" --include="*.php" inc/ functions.php external/
+```
+Expected: zero matches.
+
+- [ ] **Step 5: Verify `buddyx_defaults()` callers still work**
+
+```bash
+grep -rE "buddyx_defaults\(" --include="*.php" inc/ template-parts/ functions.php | wc -l
+# Expected: ~70 matches (unchanged from before the rename)
+php -l external/buddyx-defaults.php
+# Expected: No syntax errors detected
+```
+
+Smoke-test in browser: load `http://buddyx.local/` — confirm no PHP fatals, theme renders normally (the rename should be transparent to consumers).
+
+- [ ] **Step 6: Commit**
+
+```bash
+git commit -m "chore(kirki): delete deprecated Kirki support files; rename misnamed defaults
+
+Delete:
+- inc/Kirki/Component.php (53 lines)        — Kirki integration component, no purpose without Kirki
+- external/include-kirki.php (105 lines)    — Kirki plugin bootstrap
+
+Rename:
+- external/kirki-utils.php -> external/buddyx-defaults.php
+  (file actually holds buddyx_defaults() — central defaults registry
+  called from 70+ template get_theme_mod() sites; never had anything
+  to do with Kirki despite the historical filename)
+
+Update functions.php file-include list. Net -158 lines, zero
+template/inc consumer changes."
+```
 
 ---
 
