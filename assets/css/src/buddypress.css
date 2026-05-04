@@ -88,7 +88,7 @@ body.bp-nouveau .entry-content {
 
 .buddypress-wrap .select-wrap {
     display: inline-block;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
 }
@@ -128,7 +128,7 @@ body .buddypress-wrap .subnav-filters .last select {
     min-height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
@@ -159,7 +159,7 @@ body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
 }
 
 .buddypress-wrap .standard-form.profile-edit input:focus {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     background-color: rgb(255, 255, 255);
 }
 
@@ -295,12 +295,12 @@ button.gamipress-achievement-unlock-with-points-button:hover,
 body.buddypress #buddypress.buddypress-wrap .wp-editor-tabs button,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container button,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type=button] {
-    background: #fff;
-    border-color: #ccc;
+    background: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border, #ccc);
     border-style: solid;
     border-width: 1px;
     border-radius: 0 !important;
-    color: #555;
+    color: var(--bx-color-fg-muted, #555);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
@@ -316,15 +316,15 @@ body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container 
 body.buddypress #buddypress.buddypress-wrap .wp-editor-tabs button:hover,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container button:hover,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type=button]:hover {
-    background: #ededed;
-    border-color: #999;
-    color: #333;
+    background: var(--bx-color-divider, #ededed);
+    border-color: var(--bx-color-fg-muted, #999);
+    color: var(--bx-color-fg-muted, #333);
     outline: 0;
     text-decoration: none;
 }
 
 body.buddypress #buddypress.buddypress-wrap .tmce-active button.switch-tmce {
-    background: #f5f5f5;
+    background: var(--bx-color-bg-muted, #f5f5f5);
     border-radius: 0 !important;
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
@@ -336,7 +336,7 @@ body.buddypress #buddypress.buddypress-wrap .tmce-active button.switch-tmce {
 }
 
 body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
-    background: #f5f5f5;
+    background: var(--bx-color-bg-muted, #f5f5f5);
     border-radius: 0 !important;
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
@@ -408,7 +408,7 @@ body:not(.round-avatars) .grid .member-status {
 
 @media screen and (max-width: 46.8em) {
     .buddypress-wrap:not(.bp-single-vert-nav) .bp-navs:not(.bp-subnavs) li {
-        background: #f5f5f5;
+        background: var(--bx-color-bg-muted, #f5f5f5);
     }
 
     .buddypress-wrap .subnav-filters div#activity-filter-select,
@@ -470,7 +470,7 @@ ul.component-navigation.activity-nav li a {
 
 .buddypress-wrap ul.subnav {
     width: 100%;
-    background: #fafafa;
+    background: var(--bx-color-bg-muted, #fafafa);
     margin: 15px 0;
     padding: 0 8px;
     border: 1px solid var(--global-border-color);
@@ -530,7 +530,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 
 .bp-pagination-links a.prev,
 .bp-pagination-links a.next {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     font-size: 0;
 }
@@ -603,7 +603,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 .buddypress-wrap form.bp-invites-search-form,
 .buddypress-wrap form.bp-messages-search-form,
 .buddypress-wrap .media_search.media_search {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     margin: 0;
@@ -958,7 +958,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 }
 
 .buddypress-wrap .rtm-bp-navs ul li a>span {
-    background: #c8cbcf;
+    background: var(--bx-color-divider, #c8cbcf);
     box-shadow: none;
     border-radius: 100px;
     font-size: 11px;
@@ -1050,7 +1050,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 }
 
 .media .rtmedia-list.rtmedia-list-media>li.rtmedia-list-item .rtmedia-item-thumbnail {
-    background: #e8e8e8;
+    background: var(--bx-color-border, #e8e8e8);
 }
 
 .media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail,
@@ -1327,7 +1327,7 @@ select#whats-new-post-in {
 
 #buddypress #whats-new-options {
     background: rgba(0, 0, 0, .02);
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--bx-color-border, #ddd);
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -1378,13 +1378,13 @@ button#rtmedia-add-media-button-post-update,
 .rtm-upload-button-wrapper button.rtmedia-comment-media-upload,
 button.rtmedia-comment-media-upload {
     padding: .3em .5em !important;
-    background: #fff !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
     color: rgba(0, 0, 0, .6) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
     text-shadow: none !important;
-    box-shadow: inset 0 0 0 1px #e8e8e8;
+    box-shadow: inset 0 0 0 1px var(--bx-color-border, #e8e8e8);
 }
 
 .activity-list.bp-list {
@@ -1519,7 +1519,7 @@ div#buddypress .activity-read-more a {
     margin-top: 15px;
     padding: 12px 25px;
     text-align: center;
-    background-color: #eee;
+    background-color: var(--bx-color-divider, #eee);
     border-radius: var(--global-border-radius);
 }
 
@@ -1619,7 +1619,7 @@ form.ac-form .ac-reply-content .ac-textarea textarea {
     padding: 6px 12px !important;
     background: 0 0;
     color: inherit;
-    background: #fff !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
     color: rgba(0, 0, 0, .6) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
@@ -1760,7 +1760,7 @@ body #buddypress .bp-list .activity-comments .action {
 body #buddypress .bp-list .activity-comments .action .generic-button a {
     background: 0 0;
     padding: 0;
-    color: #939597;
+    color: var(--bx-color-fg-muted, #939597);
     border: 0;
     font-size: 12px;
     line-height: 1;
@@ -2173,7 +2173,7 @@ li.load-more a.loading::after {
     max-width: 126px;
     width: 100%;
     border: 5px solid #fff;
-    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px #E7E9EC;
+    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
 }
 
 .grid.members-list .list-wrap .item-block,
@@ -2432,7 +2432,7 @@ li.load-more a.loading::after {
     padding-left: .5em;
     padding-right: .5em;
     width: 49.5%;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     margin: 0 0 -1px;
     display: flex;
@@ -2636,7 +2636,7 @@ body.buddypress.group-create #page #primary .entry-header {
 }
 
 #buddypress #item-header-cover-image #item-header-avatar img.avatar {
-    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px #E7E9EC;
+    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
     border: 5px solid #fff;
     max-width: 150px;
 }
@@ -2652,7 +2652,7 @@ body.buddypress.group-create #page #primary .entry-header {
 body.bp-nouveau.media #buddypress #item-header-cover-image .user-nicename,
 #buddypress div#item-header-cover-image h2 a,
 #buddypress div#item-header-cover-image h2 {
-    color: #111;
+    color: var(--bx-color-fg, #111);
     text-rendering: inherit;
     text-shadow: none;
     margin: 0 0 15px;
@@ -2976,7 +2976,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         margin: 0;
         min-height: 50vh;
         padding: 0;
-        background: #fdfdfd;
+        background: var(--bx-color-bg-elevated, #fdfdfd);
         border-radius: var(--global-border-radius) 0 0 var(--global-border-radius);
         border: 0;
         border-right: 1px solid var(--global-border-color);
@@ -3252,7 +3252,7 @@ body.single-item.groups #buddypress div#item-header #item-header-cover-image #it
 }
 
 #item-body #group-invites-container .bp-invites-content .item-list>li {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-bottom: 0;
     margin: 0;
@@ -3569,7 +3569,7 @@ button#bp-delete-avatar {
 
 #bp-login-widget-form input[type=password],
 #bp-login-widget-form input[type=text] {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     color: var(--global-font-color);
     border: 1px solid var(--global-border-color);
     border-radius: var(--form-border-radius);
@@ -3709,13 +3709,13 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap span.wb-bp-completion {
-    color: #121212;
+    color: var(--bx-color-fg, #121212);
     font-size: 32px;
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-wrap .wb-bp-progress-container {
     height: 6px;
-    background-color: #eef0f3;
+    background-color: var(--bx-color-divider, #eef0f3);
     border-radius: 12px !important;
 }
 
@@ -4106,7 +4106,7 @@ body #buddypress #item-header-cover-image span.activity {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: calc(33.333333% - 10px);
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 4px;
     padding-bottom: 20px;
@@ -4180,7 +4180,7 @@ body #buddypress #item-header-cover-image span.activity {
 
 table#gamipress-earnings-table thead,
 table#gamipress-earnings-table tbody {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table#gamipress-earnings-table thead tr th,
@@ -4307,7 +4307,7 @@ input#gamipress-achievements-search-input {
     box-shadow: 0 1px 2px rgb(18 43 70 / 12%);
     font-size: 13px;
     color: inherit;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     line-height: 1.5;
     border-radius: 6px !important;
     transition: all ease .3s;
@@ -4386,7 +4386,7 @@ input#gamipress-achievements-search-input {
 .single .single-achievement,
 .single-rank {
     padding: 20px !important;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     font-size: 14px;
     line-height: 24px;
@@ -4418,12 +4418,12 @@ input#gamipress-achievements-search-input {
 
 button.gamipress-achievement-unlock-with-points-confirm-button,
 button.gamipress-achievement-unlock-with-points-cancel-button {
-    background: #fff;
-    border-color: #ccc;
+    background: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border, #ccc);
     border-style: solid;
     border-width: 1px;
     border-radius: 0;
-    color: #555;
+    color: var(--bx-color-fg-muted, #555);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
@@ -4439,9 +4439,9 @@ button.gamipress-achievement-unlock-with-points-cancel-button {
 
 button.gamipress-achievement-unlock-with-points-confirm-button:hover,
 button.gamipress-achievement-unlock-with-points-cancel-button:hover {
-    background: #ededed;
-    border-color: #999999;
-    color: #333;
+    background: var(--bx-color-divider, #ededed);
+    border-color: var(--bx-color-fg-muted, #999999);
+    color: var(--bx-color-fg-muted, #333);
     outline: none;
     text-decoration: none;
 }
@@ -4531,7 +4531,7 @@ body.hide-overflow .site-footer {
 
 .buddypress.widget .GamiPress-data-popup.is_active .gamipress-buddypress-user-details-listing {
     display: block !important;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     padding: 20px 20px 10px 20px;
     border: 1px solid var(--global-border-color);
     box-shadow: 0 6px 24px 0 rgba(18, 43, 70, 0.1);
@@ -4568,7 +4568,7 @@ body.hide-overflow .site-footer {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -4624,7 +4624,7 @@ body.hide-overflow .site-footer {
 table.mycred-table thead,
 table.mycred-table tbody,
 table.mycred-table tfoot {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table.mycred-table thead tr th,
@@ -4699,13 +4699,13 @@ h2.badgeos-item-title,
 #badgeos-earned-achievements-container .selected,
 #badgeos-achievements-container .selected,
 #badgeos-earned-ranks-container .selected {
-    background-color: #111 !important;
+    background-color: var(--bx-color-fg, #111) !important;
 }
 
 table.badgeos-rank-table thead,
 table.badgeos-rank-table tbody,
 table.badgeos-rank-table tfoot {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table.badgeos-rank-table thead tr th,
@@ -5337,7 +5337,7 @@ div.mpp-bulk-edit-media-action-row select {
     margin: 0 5px 5px 0;
     padding: 0.5em 1em;
     background: transparent !important;
-    color: #565a62 !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
     display: inline-block;
     font-size: 1em;
     float: none;
@@ -5347,13 +5347,13 @@ div.mpp-bulk-edit-media-action-row select {
 }
 
 .mpp-paginator ul .page-numbers:hover {
-    background: #e6e6e6 !important;
-    color: #565a62 !important;
+    background: var(--bx-color-divider, #e6e6e6) !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
 }
 
 .mpp-paginator ul .page-numbers.current {
-    background: #e6e6e6 !important;
-    color: #565a62 !important;
+    background: var(--bx-color-divider, #e6e6e6) !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
 }
 
 
@@ -5955,7 +5955,7 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
     height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;

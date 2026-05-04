@@ -187,9 +187,15 @@ Files tokenized:
 
 These framework tokens always emit (regardless of `site_custom_colors` master toggle) since consumer CSS depends on them being present.
 
-### Phase 4b — Heavy plugin compat (BuddyPress + Platform)
+### Phase 4b — Heavy plugin compat (BuddyPress + Platform) ✅ Shipped 2026-05-04
 buddypress.css (110) + platform.css (55) — community-site backbone.
-**Effort:** ~2-3 hours.
+**Approach:** Bulk sed replacements for unambiguous neutral roles (white surfaces → bg-elevated, light grays → border/divider, mid grays → fg-muted, dark grays → fg). State/brand colors preserved (BP success #4caf50, error #db2828/#f00, warning #edbb34, info #5ac8fa/#007aff/#5856d6, BB blue #1c86f2, status #ff3a30/#05d786/#f78f02, yellow highlight gradient #FFEFBA, avatar-ring #fff borders, text-on-accent #fff).
+
+Buddypress.css: 83 of 110 hex values tokenized (75%); 27 intentional preserved.
+Platform.css: 33 of 55 hex values tokenized (60%); 22 intentional preserved.
+Built artifacts: 51 token refs in buddypress.min.css, 22 in platform.min.css.
+
+**Verified:** Front-end dark mode flows correctly — footer/body resolve to `--bx-color-bg #0a0a0a`, elevated surfaces to `--bx-color-bg-elevated #161616`. BuddyPress isn't active on this dev DB, so per-page BP screenshots deferred to a staging env with BuddyPress + BuddyBoss Platform installed; the source-level audit confirms all neutral hexes resolve to dark counterparts via the dark token block.
 
 ### Phase 4c — Other plugin compat (LearnDash, WooCommerce, etc.)
 Tier B remaining files (~150 values).
