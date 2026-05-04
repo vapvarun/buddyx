@@ -1,130 +1,145 @@
 <?php
 /**
- * Pricing table
+ * Pattern: Pricing — 3-tier with elevated middle column.
  *
  * @package buddyx
  */
-
 return array(
-	'title'      => __( 'Pricing table', 'buddyx' ),
-	'categories' => array( 'buddyx-general' ),
-	'content'    => '<!-- wp:columns {"metadata":{"categories":["buddyx-general"],"patternName":"buddyx/general-pricing","name":"Pricing table"},"align":"wide"} -->
-    <div class="wp-block-columns alignwide"><!-- wp:column {"style":{"elements":{"link":{"color":{"text":"#000000"}}},"spacing":{"padding":{"top":"2em","right":"2em","bottom":"2em","left":"2em"}},"color":{"background":"#a7f2e1e0"}}} -->
-    <div class="wp-block-column has-background has-link-color" style="background-color:#a7f2e1e0;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em"><!-- wp:heading {"style":{"typography":{"fontSize":"40px"}}} -->
-    <h2 class="wp-block-heading" id="freemium" style="font-size:40px"><strong>Freemium</strong></h2>
-    <!-- /wp:heading -->
+	'title'      => __( 'Pricing — 3-tier Editorial', 'buddyx' ),
+	'categories' => array( 'buddyx-pricing-faq', 'featured' ),
+	'content'    => '
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
 
-    <!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.5"}},"fontSize":"normal"} -->
-    <p class="has-normal-font-size" style="line-height:1.5"><strong>Join the movement and explore more.</strong></p>
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
+  <div class="wp-block-group">
+    <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"contrast-3"} -->
+    <p class="has-text-align-center has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Pricing</p>
     <!-- /wp:paragraph -->
+    <!-- wp:heading {"textAlign":"center","level":2,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.02em"},"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|60"}}}} -->
+    <h2 class="wp-block-heading has-text-align-center has-newsreader-accent" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:var(--wp--preset--spacing--60);font-size:var(--wp--preset--font-size--x-large);font-weight:700;line-height:1.1;letter-spacing:-0.02em">Three plans. <em>One</em> bill a year.</h2>
+    <!-- /wp:heading -->
+  </div>
+  <!-- /wp:group -->
 
-    <!-- wp:separator {"opacity":"css","className":"is-style-wide","backgroundColor":"black"} -->
-    <hr class="wp-block-separator has-text-color has-black-color has-css-opacity has-black-background-color has-background is-style-wide"/>
-    <!-- /wp:separator -->
+  <!-- wp:columns {"align":"wide","verticalAlignment":"center","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
+  <div class="wp-block-columns alignwide are-vertically-aligned-center">
 
-    <!-- wp:list {"style":{"spacing":{"padding":{"left":"15px"},"margin":{"right":"0px","left":"0px"}}},"fontSize":"normal"} -->
-    <ul style="margin-right:0px;margin-left:0px;padding-left:15px" class="wp-block-list has-normal-font-size"><!-- wp:list-item {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}} -->
-    <li style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0">General admission and member discounts for one adult</li>
-    <!-- /wp:list-item -->
+    <!-- wp:column {"verticalAlignment":"center"} -->
+    <div class="wp-block-column is-vertically-aligned-center">
+      <!-- wp:group {"className":"is-style-bordered","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"24px"}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
+      <div class="wp-block-group is-style-bordered has-base-background-color has-background" style="border-radius:24px;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)">
 
-    <!-- wp:list-item {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}} -->
-    <li style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0">One free ticket per special exhibition</li>
-    <!-- /wp:list-item -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"contrast-3"} -->
+        <p class="has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Starter</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$0</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"textColor":"contrast-3"} -->
+        <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">Free, forever, on wp.org</p>
+        <!-- /wp:paragraph -->
 
-    <!-- wp:list-item {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}} -->
-    <li style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0">Two single-use guest passes per year</li>
-    <!-- /wp:list-item -->
+        <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.8"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+        <ul class="wp-block-list" style="margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--medium);line-height:1.8">
+          <!-- wp:list-item --><li>27 premium patterns</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Inter + Newsreader self-hosted</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Light + Editorial style variations</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Community support</li><!-- /wp:list-item -->
+        </ul>
+        <!-- /wp:list -->
 
-    <!-- wp:list-item {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}} -->
-    <li style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0;padding-bottom:0">Monthly newsletter with updates and offers</li>
-    <!-- /wp:list-item --></ul>
-    <!-- /wp:list -->
+        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"stretch"}} -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"className":"is-style-outline-accent","width":100} -->
+          <div class="wp-block-button is-style-outline-accent has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button">Download free</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
 
-    <!-- wp:buttons {"align":"full","layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
-    <div class="wp-block-buttons alignfull"><!-- wp:button {"backgroundColor":"black","textColor":"white","width":100,"className":"is-style-cubebtndark","style":{"spacing":{"padding":{"top":"15px","right":"15px","bottom":"15px","left":"15px"}}},"borderColor":"contrast"} -->
-    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-cubebtndark"><a class="wp-block-button__link has-white-color has-black-background-color has-text-color has-background has-border-color has-contrast-border-color wp-element-button" style="padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px">$0 / year</a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons --></div>
+      </div>
+      <!-- /wp:group -->
+    </div>
     <!-- /wp:column -->
 
-    <!-- wp:column {"className":"gs-scaleup-small","style":{"color":{"text":"#000000","background":"#f7d0d8b5"},"elements":{"link":{"color":{"text":"#000000"}}},"spacing":{"padding":{"top":"2em","right":"2em","bottom":"2em","left":"2em"}}}} -->
-    <div class="wp-block-column gs-scaleup-small has-text-color has-background has-link-color" style="color:#000000;background-color:#f7d0d8b5;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em"><!-- wp:heading {"style":{"typography":{"fontSize":"40px"}}} -->
-    <h2 class="wp-block-heading" id="premium" style="font-size:40px"><strong>Premium</strong></h2>
-    <!-- /wp:heading -->
+    <!-- wp:column {"verticalAlignment":"center"} -->
+    <div class="wp-block-column is-vertically-aligned-center">
+      <!-- wp:group {"backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"24px"}},"layout":{"type":"constrained"}} -->
+      <div class="wp-block-group has-base-color has-contrast-background-color has-text-color has-background" style="border-radius:24px;padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
 
-    <!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.5"}},"fontSize":"normal"} -->
-    <p class="has-normal-font-size" style="line-height:1.5"><strong>Unlock more exclusive benefits.</strong></p>
-    <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent-3"} -->
+        <p class="has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Studio · Most popular</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$49<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}}} -->
+        <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">For freelancers and small teams</p>
+        <!-- /wp:paragraph -->
 
-    <!-- wp:separator {"opacity":"css","className":"is-style-wide"} -->
-    <hr class="wp-block-separator has-css-opacity is-style-wide"/>
-    <!-- /wp:separator -->
+        <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.8"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+        <ul class="wp-block-list" style="margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--medium);line-height:1.8">
+          <!-- wp:list-item --><li>Everything in Starter</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>3 starter sites (Agency, Magazine, Studio)</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Premium support, 48h response</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Unlimited installs on your sites</li><!-- /wp:list-item -->
+        </ul>
+        <!-- /wp:list -->
 
-    <!-- wp:list {"className":"is-style-default","style":{"spacing":{"padding":{"left":"15px"},"margin":{"right":"0px","left":"0px"}}},"fontSize":"normal"} -->
-    <ul style="margin-right:0px;margin-left:0px;padding-left:15px" class="wp-block-list is-style-default has-normal-font-size"><!-- wp:list-item -->
-    <li>General admission and member discounts for one adult</li>
-    <!-- /wp:list-item -->
+        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"stretch"}} -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"backgroundColor":"base","textColor":"contrast","style":{"border":{"radius":"999px"}},"width":100} -->
+          <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-contrast-color has-base-background-color has-text-color has-background wp-element-button" style="border-radius:999px">Choose Studio</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
 
-    <!-- wp:list-item -->
-    <li>Four free tickets per special exhibition</li>
-    <!-- /wp:list-item -->
-
-    <!-- wp:list-item -->
-    <li>Six single-use guest passes per year</li>
-    <!-- /wp:list-item -->
-
-    <!-- wp:list-item -->
-    <li>Priority access to events and exhibits</li>
-    <!-- /wp:list-item --></ul>
-    <!-- /wp:list -->
-
-    <!-- wp:buttons {"align":"full","layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
-    <div class="wp-block-buttons alignfull"><!-- wp:button {"backgroundColor":"primary","textColor":"textonprimary","width":100,"className":"is-style-cubebtndark","style":{"spacing":{"padding":{"top":"15px","right":"15px","bottom":"15px","left":"15px"}}},"fontSize":"medium"} -->
-    <div class="wp-block-button has-custom-width wp-block-button__width-100 has-custom-font-size is-style-cubebtndark has-medium-font-size"><a class="wp-block-button__link has-textonprimary-color has-primary-background-color has-text-color has-background wp-element-button" style="padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px"><strong>$110 / year</strong></a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons --></div>
+      </div>
+      <!-- /wp:group -->
+    </div>
     <!-- /wp:column -->
 
-    <!-- wp:column {"style":{"elements":{"link":{"color":{"text":"#000000"}}},"spacing":{"padding":{"top":"2em","right":"2em","bottom":"2em","left":"2em"}},"color":{"background":"#f8ffb9"}}} -->
-    <div class="wp-block-column has-background has-link-color" style="background-color:#f8ffb9;padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em"><!-- wp:heading {"style":{"typography":{"fontSize":"40px"}}} -->
-    <h2 class="wp-block-heading" id="business" style="font-size:40px"><strong>Business</strong></h2>
-    <!-- /wp:heading -->
+    <!-- wp:column {"verticalAlignment":"center"} -->
+    <div class="wp-block-column is-vertically-aligned-center">
+      <!-- wp:group {"className":"is-style-bordered","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"24px"}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
+      <div class="wp-block-group is-style-bordered has-base-background-color has-background" style="border-radius:24px;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)">
 
-    <!-- wp:paragraph {"fontSize":"normal"} -->
-    <p class="has-normal-font-size"><strong>Support culture with your business.</strong></p>
-    <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"contrast-3"} -->
+        <p class="has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Agency</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$129<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"textColor":"contrast-3"} -->
+        <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">For studios shipping multiple client sites</p>
+        <!-- /wp:paragraph -->
 
-    <!-- wp:separator {"opacity":"css","className":"is-style-wide","backgroundColor":"black"} -->
-    <hr class="wp-block-separator has-text-color has-black-color has-css-opacity has-black-background-color has-background is-style-wide"/>
-    <!-- /wp:separator -->
+        <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.8"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+        <ul class="wp-block-list" style="margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--medium);line-height:1.8">
+          <!-- wp:list-item --><li>Everything in Studio</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>10 starter sites</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Priority support, 24h response</li><!-- /wp:list-item -->
+          <!-- wp:list-item --><li>Brandable client handoff docs</li><!-- /wp:list-item -->
+        </ul>
+        <!-- /wp:list -->
 
-    <!-- wp:list {"style":{"spacing":{"padding":{"left":"15px"},"margin":{"right":"0px","left":"0px"}}},"fontSize":"normal"} -->
-    <ul style="margin-right:0px;margin-left:0px;padding-left:15px" class="wp-block-list has-normal-font-size"><!-- wp:list-item -->
-    <li>General admission and member discounts for up to five adults</li>
-    <!-- /wp:list-item -->
+        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"stretch"}} -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"className":"is-style-outline-accent","width":100} -->
+          <div class="wp-block-button is-style-outline-accent has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button">Choose Agency</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
 
-    <!-- wp:list-item -->
-    <li>Ten free tickets per special exhibition</li>
-    <!-- /wp:list-item -->
+      </div>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:column -->
 
-    <!-- wp:list-item -->
-    <li>Unlimited guest passes per year</li>
-    <!-- /wp:list-item -->
+  </div>
+  <!-- /wp:columns -->
 
-    <!-- wp:list-item -->
-    <li>Private event access</li>
-    <!-- /wp:list-item --></ul>
-    <!-- /wp:list -->
-
-    <!-- wp:buttons {"align":"full","layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
-    <div class="wp-block-buttons alignfull"><!-- wp:button {"backgroundColor":"black","textColor":"white","width":100,"className":"is-style-cubebtndark","style":{"spacing":{"padding":{"top":"15px","right":"15px","bottom":"15px","left":"15px"}}},"borderColor":"contrast"} -->
-    <div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-cubebtndark"><a class="wp-block-button__link has-white-color has-black-background-color has-text-color has-background has-border-color has-contrast-border-color wp-element-button" style="padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px">$350 / year</a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons --></div>
-    <!-- /wp:column --></div>
-    <!-- /wp:columns -->
-
-    <!-- wp:paragraph -->
-    <p></p>
-    <!-- /wp:paragraph -->',
+</div>
+<!-- /wp:group -->
+',
 );
