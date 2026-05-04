@@ -317,24 +317,59 @@ re-verified on a SureCart-or-FluentCart staging env.
 - [x] site_title_typography_section (2 typography: site_title shows 38/600/1.2; site_tagline shows 15/400/1.4 — defaults render correctly post Bug #8)
 - [x] site_wp_login_logo (9 mixed: 2 switches, 1 image w/ media picker, 3 dimensions, 1 url, 2 text — already verified earlier)
 
-### Pass 3 — value preservation regression test
+### Pass 3 — value preservation regression test — 🟡 PARTIAL on dev env
 
-The most important check for 3,000+ active sites. Run on a database snapshot
-restored from a real customer-style site (or any site with the customizer
-already configured under Kirki):
+Method: simulated a realistic Kirki-shape customer snapshot in
+`theme_mods_buddyx` on the dev DB (29 customer settings covering every
+type — typography arrays with the legacy `variant` key, background
+composite arrays, hex colors, switch strings `'1'`/`'on'`, dimensions
+`'1280px'`, dropdown-pages, etc.). Then verified the framework's full
+read → render → save → re-read cycle.
 
-- [ ] Snapshot `theme_mods_buddyx` BEFORE upgrade.
-- [ ] Upgrade theme to 5.1.0 (no DB migration is supposed to run).
-- [ ] Snapshot `theme_mods_buddyx` AFTER. Must be identical (every key, every
-      value, every shape).
-- [ ] Render the front-end with both versions. The `<style id="kirki-…">`
-      block from 5.0.3 and the `<style id="buddyx_customizer-css">` block
-      from 5.1.0 should produce equivalent CSS output (different selectors
-      may be reordered; values must match).
-- [ ] Save **one** of every type via the customizer in 5.1.0; reload; the
-      saved value's shape (string vs array, JSON vs not) must match what
-      Kirki would have saved for the same UI interaction. This is what
-      catches double-encoding regressions.
+**Pass 3 sub-check 1 — byte-identical no-change save (DEV-LEVEL):** ✅ PASS
+Forced every WP customizer setting to `set(get())` then saved via
+`wp.customize.previewer.save()`. All 29 customer settings preserved
+byte-identical post-save (including Kirki legacy `variant` key,
+mixed string/int boolean shapes, multi-key typography arrays).
+Confirmation that no sanitize_callback in the framework drifts the
+shape on round-trip.
+
+**Pass 3 sub-check 2 — front-end CSS emit (DEV-LEVEL):** ✅ PASS
+Logged-out front-end produces:
+  - `<style id="buddyx_customizer-css">` 2,021 chars from Output_Builder:
+    `.site-title a {font-family:newsreader; font-size:44px; line-height:1.15; ...}`
+    `.site-footer-wrapper {background-color:rgba(247,247,249,1);
+      background-image:url('...'); ...}`
+    `.container {max-width:1280px;}`
+    Menu typography emits with `text-transform:uppercase`.
+  - `<style id='buddyx-global-inline-css'>` 605 chars from Dynamic_Style:
+    `body { --color-theme-primary: #0066cc !important;
+      --color-theme-loader: #0066cc !important; ... }`
+
+**Pass 3 sub-check 3 — customizer hydration with Kirki-shape data:** ✅ PASS
+Every typography control reads the saved Kirki-shape array and shows the
+correct sub-input values:
+  - `variant: '700'` → weight selector shows `700`
+  - `variant: 'regular'` → weight selector shows `400` (legacy normalization)
+  - `letter-spacing: '-0.01em'` → number input shows `-0.01`
+  - Foreign sub-keys like `color` survive untouched in setting state
+Background composite shows all 6 sub-inputs hydrated from saved array.
+Color iris pickers show saved hex on the swatch button.
+
+**Pass 3 sub-check 4 — live preview iframe:** ✅ PASS
+Customizer iframe renders Newsreader/700/44px hero typography and
+uppercase Inter menu in real time without a full refresh.
+
+### Remaining for full Pass 3 (requires staging env, not dev):
+
+- [ ] Real Kirki 5.0.3 → 5.1.0 upgrade test on a customer-style DB.
+      The dev test simulates Kirki-shape data but doesn't replicate the
+      actual upgrade path. Must restore a 5.0.3 customer DB snapshot,
+      upgrade theme files only (no DB migration), confirm theme_mods
+      byte-identical, render front-end with both versions, diff CSS.
+- [ ] Plugin-gated sections (`site_buddypress_general_section`,
+      `site_header_primary_section` for SureCart/FluentCart) require
+      their plugin active on a staging env to verify rendering.
 
 ---
 
@@ -467,8 +502,11 @@ if __name__ == '__main__':
 - [x] Pass 2 (section sweep) — 16 of 18 sections green on dev env;
       2 plugin-gated sections (BuddyPress, SureCart/FluentCart) need
       verification on staging envs that have those plugins active
-- [ ] Pass 3 (value preservation) — round-trip on all 14 types green;
-      snapshot diff before/after upgrade is byte-identical
+- [x] Pass 3 sub-checks 1-4 (byte-identical save round-trip on simulated
+      Kirki-shape data; front-end CSS emit; customizer hydration; live
+      preview) — all green on dev env
+- [ ] Pass 3 final: real Kirki 5.0.3 → 5.1.0 upgrade test on a customer-
+      style DB on staging
 - [x] Bug #6 (duplicate cart switch) — fixed
 - [x] Bugs #7 through #13 (color iris missing, typography defaults blank,
       background defaults blank, repeater/sortable read bugs, foreign-
