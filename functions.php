@@ -452,8 +452,7 @@ function buddyx_load_external_dependencies() {
 
 	$external_files = array(
 		'/external/require_plugins.php',
-		'/external/include-kirki.php',
-		'/external/kirki-utils.php',
+		'/external/buddyx-defaults.php',
 	);
 
 	foreach ( $external_files as $file ) {
