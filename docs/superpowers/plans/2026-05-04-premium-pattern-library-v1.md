@@ -154,8 +154,8 @@ Edit `theme.json`. The full new palette block:
     { "slug": "contrast",    "color": "#1A1A1A", "name": "Contrast" },
     { "slug": "contrast-2",  "color": "#3D3D3D", "name": "Contrast 2" },
     { "slug": "contrast-3",  "color": "#6E6E6E", "name": "Contrast 3" },
-    { "slug": "accent",      "color": "#EF5455", "name": "Accent" },
-    { "slug": "accent-2",    "color": "#41848F", "name": "Accent 2" },
+    { "slug": "accent",      "color": "#D83734", "name": "Accent" },
+    { "slug": "accent-2",    "color": "#3A7882", "name": "Accent 2" },
     { "slug": "accent-3",    "color": "#F4D35E", "name": "Accent 3" },
     { "slug": "surface-1",   "color": "#FFF8F2", "name": "Surface Warm" },
     { "slug": "surface-2",   "color": "#F2F7F8", "name": "Surface Cool" },
@@ -176,12 +176,12 @@ Edit `theme.json`. The full new palette block:
     { "slug": "subtle-base",   "name": "Subtle Base",   "gradient": "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)" },
     { "slug": "warm-glow",     "name": "Warm Glow",     "gradient": "linear-gradient(135deg, #FFF8F2 0%, #F4D35E 100%)" },
     { "slug": "cool-mist",     "name": "Cool Mist",     "gradient": "linear-gradient(135deg, #F2F7F8 0%, #97C0B7 100%)" },
-    { "slug": "accent-bold",   "name": "Accent Bold",   "gradient": "linear-gradient(135deg, #EF5455 0%, #41848F 100%)" },
+    { "slug": "accent-bold",   "name": "Accent Bold",   "gradient": "linear-gradient(135deg, #D83734 0%, #3A7882 100%)" },
     { "slug": "dark-velvet",   "name": "Dark Velvet",   "gradient": "linear-gradient(135deg, #1F2937 0%, #1A1A1A 100%)" }
   ],
   "duotone": [
     { "slug": "base-contrast", "name": "Base / Contrast", "colors": ["#FFFFFF","#1A1A1A"] },
-    { "slug": "warm",          "name": "Warm",            "colors": ["#FFF8F2","#EF5455"] }
+    { "slug": "warm",          "name": "Warm",            "colors": ["#FFF8F2","#D83734"] }
   ]
 }
 ```
@@ -792,6 +792,26 @@ slots are taken by new premium patterns in subsequent tasks."
 ```
 
 ---
+
+## Color token usage rules (binding for all pattern authoring)
+
+Foundation contrast was validated in Task 1 against base white (`#FFFFFF`) and contrast black (`#1A1A1A`). Pattern authors must respect these:
+
+| Token | Hex | AA on `base`/light | AA on `contrast`/dark | Use for |
+|---|---|---|---|---|
+| `accent` | `#D83734` | 4.65:1 ✓ | 3.74:1 ✗ | CTA fills, accent borders, link text — light backgrounds only |
+| `accent-2` | `#3A7882` | 5.01:1 ✓ | 3.48:1 ✗ | Secondary CTAs, alt accents — light backgrounds only |
+| `accent-3` | `#F4D35E` | 1.47:1 ✗ | 11.85:1 ✓ | Highlight/eyebrow on dark surfaces only — never on white |
+| `contrast` | `#1A1A1A` | 17.4:1 ✓ | n/a (same color) | Body text on light bg |
+| `contrast-2` | `#3D3D3D` | 10.5:1 ✓ | 1.65:1 ✗ | Secondary body text on light |
+| `contrast-3` | `#6E6E6E` | 5.10:1 ✓ | 3.42:1 ✗ | Eyebrow / muted captions on light |
+
+**Pairing matrix:**
+- Light pattern (background = `base`/`base-2`/`base-3`/`surface-1`/`surface-2`): use `contrast` for body, `accent` or `accent-2` for one CTA, `accent-3` is forbidden as text color.
+- Dark pattern (background = `contrast` or `surface-3`): use `base` for body, `accent-3` for accents/highlights, `accent` and `accent-2` are forbidden as text color.
+- Cover blocks with the `accent-bold` gradient: use white text (`base`) only — gradient endpoints are dark enough to clear AA.
+
+If a pattern author needs an accent text on a dark surface, the rule is: switch to `accent-3` or use the `is-style-card` group on a light surface inside the dark section.
 
 ## Pattern composition rules (apply to every pattern in Tasks 7–24)
 
