@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Replace the Kirki Customizer Framework dependency with an in-house, portable `Customizer_Framework` framework that lives inside the theme — reusable later in BuddyX Pro and other Wbcom themes — and migrate all 111 existing Kirki field definitions across 19 sections to the new framework with zero user-visible regression.
+**Goal:** Replace the Kirki Customizer Framework dependency with an in-house `Customizer_Framework` that lives inside the theme — covers **all 20 Kirki field types** BuddyX free or BuddyX Pro might use, so existing user theme mods carry over with zero visible change today and the framework is ready for Pro to adopt later without any adapter work — and migrate all 111 existing Kirki field definitions in BuddyX free across 19 sections, with zero user-visible regression. (Pro's own Kirki fields are NOT migrated in `5.1.0` — the buddyx-pro repo is reference-only here.)
 
 **Architecture:** Three-layer replacement. (1) **Foundation library** — a self-contained framework at `inc/Customizer_Framework/` that wraps WP core's `WP_Customize_Manager` with an array-based field/section/panel API (drop-in replacement for Kirki's API surface that BuddyX uses). (2) **Custom controls** — five PHP+JS controls for the field types core Customizer doesn't ship: Color (with palette), Typography, Radio_Image, Switch (toggle), Dimension (number+unit). (3) **Migration shim** — a one-time `kirki_to_wbcom` adapter that translates the existing 12 `Fields/*.php` files' Kirki API calls to the new framework's API, then those files are rewritten and the shim is removed. Output (auto-CSS) and active_callback features are reimplemented.
 
@@ -1502,37 +1502,351 @@ Tag, push to wbcomdesigns, create release on vapvarun (per repo split rule).
 4. *BuddyX Pro keeps using Kirki for now.* Mitigation: explicitly out of scope per user direction; the Pro migration will be a separate plan that copies `inc/Customizer_Framework/` and runs the same `new \Kirki\Field\X` → `\BuddyX\Buddyx\Customizer_Framework\Field::add('x', ...)` rewrite on Pro's field files.
 5. *Performance regression instead of improvement.* Mitigation: Customizer JS bundle is one file (Task 12); compared to Kirki's many separate scripts, should be net win. Measured in QA.
 
-**Estimated effort:** 7–10 working days end-to-end. Foundation (Tasks 1–5): 1.5 days. Custom controls (Tasks 6–11): 2 days. JS/CSS bundles + preview (Tasks 12–15): 1.5 days. Rename + consumer migration (Tasks 16–21): 2.5 days. Cleanup + docs + QA (Tasks 22–26): 1.5 days.
+**Estimated effort:** 11–14 working days end-to-end. Foundation (Tasks 1–5): 1.5 days. Custom controls — 12 of them, BuddyX needs 6 + Pro reference 6 (Tasks 6–11h): 4 days (Repeater alone is ~1 day). JS/CSS bundles + preview (Tasks 12–15): 2 days (more controls = more JS). Rename + consumer migration (Tasks 16–21): 2.5 days. Cleanup + docs + QA (Tasks 22–26): 1 day.
 
 ---
 
-## Astra-derived control catalog (gap analysis)
+## Field type catalog — full Kirki coverage (BuddyX free + Pro reference)
 
-We pulled Astra's source and inventoried its 70 control type strings. Most are specialized to Astra's own builder UX (`ast-builder-header-control`, `ast-pro-available`, `ast-upgrade`). Distilling to a **portable superset** Wbcom themes are likely to need, here's the full catalog with build status for `5.1.0`:
+We audited two codebases to lock the framework's control catalog:
 
-| Control type | BuddyX 5.1.0 | Pro / future | Notes |
-|---|:---:|:---:|---|
-| `color` | ✅ Task 6 | | 39 instances today |
-| `typography` | ✅ Task 7 | | 12 instances today |
-| `radio_image` | ✅ Task 8 | | 11 instances today |
-| `switch` | ✅ Task 9 | | 18 instances today |
-| `dimension` | ✅ Task 10 | | 7 instances today |
-| `custom` (raw HTML) | ✅ Task 11 | | 9 instances today |
-| Core types (text, textarea, url, select, radio, image, background, dropdown-pages) | ✅ Task 3 | | dispatched to WP core controls |
-| `color-group` | | future | Multi-color picker (e.g. 3 colors as one setting). Not needed for BuddyX's 39 single-color fields. |
-| `color-palette` | | future | Curated palette button strip. Could replace some color fields if we want a constrained palette UX in 5.2.0. |
-| `slider` | | future | Numeric range slider with unit. Better UX than `dimension` for some inputs (e.g. opacity, scale). |
-| `spacing` (top/right/bottom/left) | | future | Margin/padding shorthand. Worth adding when first BuddyX or Pro field needs it; current 7 dimension fields are single-axis. |
-| `border` (width + style + color) | | future | Common but not yet needed in BuddyX. |
-| `heading` | | future | UI-only helper (label-as-divider in customizer). Cosmetic — `custom` covers it for now. |
-| `description` | | future | UI-only help-text helper. Same — `custom` covers it. |
-| `divider` | | future | Visual separator. Same — covered by `custom` for now. |
-| `hidden` | | future | Programmatic-only setting (no UI). Just registers the setting; rarely needed. |
-| `responsive_*` | | Pro-likely | Per-breakpoint variants of color/spacing/slider. Astra's killer feature. Worth scoping for BuddyX Pro rather than free, since responsive controls explode the option count and complicate live preview. |
-| `sortable` | | future | Drag-to-reorder list. Useful for builder UX (e.g. footer column order). |
-| `customizer_link` | | future | "Jump to section X" button inside another section. UX helper. |
+- **BuddyX free** (this codebase): 14 field types, 111 instances
+- **BuddyX Pro** (`wbcomdesigns/buddyx-pro`, ref-only — no code touched there): 20 field types, ~340 instances
 
-**Decision for `5.1.0`:** Build the 6 custom controls in the table's first six rows. All other field types in BuddyX today dispatch to core WP controls in Task 3 — no new code needed. Total custom controls written in this release: **6**. Exactly the Kirki coverage we need for parity, nothing more.
+Pro adds 6 field types beyond what free uses (Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable). To eliminate the Kirki dependency cleanly **and** ensure Pro can adopt this framework later with zero adapter work, all 20 types ship in `5.1.0` — no "future" deferrals.
+
+| # | Field type | BuddyX free | Pro | Total | Build task |
+|---|---|:---:|:---:|:---:|:---|
+| 1 | `color` | 39 | 110 | 149 | Task 6 |
+| 2 | `switch` (Checkbox_Switch) | 18 | 50 | 68 | Task 9 |
+| 3 | `typography` | 12 | 12 | 24 | Task 7 |
+| 4 | `radio_image` | 11 | 19 | 30 | Task 8 |
+| 5 | `custom` (raw HTML) | 9 | 22 | 31 | Task 11 |
+| 6 | `dimension` | 7 | 27 | 34 | Task 10 |
+| 7 | `radio` | 4 | 12 | 16 | Task 3 (core dispatch) |
+| 8 | `dropdown-pages` | 3 | 3 | 6 | Task 3 (core dispatch) |
+| 9 | `text` | 2 | 8 | 10 | Task 3 (core dispatch) |
+| 10 | `background` | 2 | 2 | 4 | Task 3 (core dispatch) |
+| 11 | `url` | 1 | 3 | 4 | Task 3 (core dispatch) |
+| 12 | `textarea` | 1 | 7 | 8 | Task 3 (core dispatch) |
+| 13 | `select` | 1 | 18 | 19 | Task 3 (core dispatch) |
+| 14 | `image` | 1 | 9 | 10 | Task 3 (core dispatch) |
+| 15 | **`checkbox`** (Pro only) | — | 27 | 27 | **Task 11a (new)** |
+| 16 | **`slider`** (Pro only) | — | 7 | 7 | **Task 11b (new)** |
+| 17 | **`radio_buttonset`** (Pro only) | — | 4 | 4 | **Task 11c (new)** |
+| 18 | **`repeater`** (Pro only) | — | 2 | 2 | **Task 11d (new)** |
+| 19 | **`upload`** (Pro only) | — | 1 | 1 | **Task 11e (new)** |
+| 20 | **`sortable`** (Pro only) | — | 1 | 1 | **Task 11f (new)** |
+
+**Total custom controls written in `5.1.0`: 12** (6 BuddyX-needed + 6 Pro-reference). Plus 8 core-dispatched types. All 20 Kirki field types BuddyX or Pro might use are covered. Pro is **NOT** migrated in `5.1.0` — its files stay on Kirki — but when Pro does migrate, every existing Kirki field has a 1:1 replacement available.
+
+The 6 new tasks slot in between existing Tasks 11 and 12. Detailed below.
+
+---
+
+### Task 11a: `Checkbox` control (basic checkbox)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Checkbox.php`
+
+Different from `Switch` — renders a standard `<input type="checkbox">` (Pro uses both: `Switch` for visual toggles, `Checkbox` for traditional checkboxes in dense option lists).
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Checkbox extends \WP_Customize_Control {
+	public $type = 'wbcom-checkbox';
+
+	public function render_content() {
+		?>
+		<label>
+			<input type="checkbox" value="1" <?php $this->link(); ?> <?php checked( (bool) $this->value() ); ?> />
+			<?php if ( ! empty( $this->label ) ) : ?>
+				<span class="customize-control-title-inline"><?php echo esc_html( $this->label ); ?></span>
+			<?php endif; ?>
+			<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+			<?php endif; ?>
+		</label>
+		<?php
+	}
+}
+```
+
+Lint + commit.
+
+---
+
+### Task 11b: `Slider` control (range slider with unit)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Slider.php`
+
+Numeric range slider. `choices.min`, `choices.max`, `choices.step`, `choices.unit` (default `'px'`). Stores as a string like `'120px'`. JS in customizer-controls.js handles range/number sync.
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Slider extends \WP_Customize_Control {
+	public $type = 'wbcom-slider';
+
+	public function render_content() {
+		$min  = $this->choices['min']  ?? 0;
+		$max  = $this->choices['max']  ?? 100;
+		$step = $this->choices['step'] ?? 1;
+		$unit = $this->choices['unit'] ?? 'px';
+		?>
+		<label class="wbcom-slider">
+			<?php if ( ! empty( $this->label ) ) : ?>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<?php endif; ?>
+			<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+			<?php endif; ?>
+			<span class="wbcom-slider-controls" data-unit="<?php echo esc_attr( $unit ); ?>">
+				<input type="range" class="wbcom-slider-range" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" step="<?php echo esc_attr( $step ); ?>" />
+				<input type="number" class="wbcom-slider-number" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" step="<?php echo esc_attr( $step ); ?>" />
+				<span class="wbcom-slider-unit"><?php echo esc_html( $unit ); ?></span>
+			</span>
+			<input type="hidden" class="wbcom-slider-value" <?php $this->link(); ?> />
+		</label>
+		<?php
+	}
+}
+```
+
+Add JS in `customizer-controls.js` (Task 12 expanded): sync range ↔ number, write `'value+unit'` to hidden input on change.
+
+Lint + commit.
+
+---
+
+### Task 11c: `Radio_Buttonset` control (radio rendered as button group)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Radio_Buttonset.php`
+
+Same data model as `Radio` but rendered as a horizontal button-group instead of vanilla radio inputs. `choices` is `array( value => label )`.
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Radio_Buttonset extends \WP_Customize_Control {
+	public $type = 'wbcom-radio-buttonset';
+
+	public function render_content() {
+		if ( empty( $this->choices ) ) {
+			return;
+		}
+		?>
+		<fieldset>
+			<?php if ( ! empty( $this->label ) ) : ?>
+				<legend class="customize-control-title"><?php echo esc_html( $this->label ); ?></legend>
+			<?php endif; ?>
+			<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+			<?php endif; ?>
+			<div class="wbcom-buttonset" role="radiogroup">
+				<?php foreach ( $this->choices as $value => $label ) : ?>
+					<label class="wbcom-buttonset-option">
+						<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( '_customize-radio-' . $this->id ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
+						<span class="wbcom-buttonset-label"><?php echo esc_html( $label ); ?></span>
+					</label>
+				<?php endforeach; ?>
+			</div>
+		</fieldset>
+		<?php
+	}
+}
+```
+
+CSS for `.wbcom-buttonset` added to `customizer-controls.css` in Task 13.
+
+Lint + commit.
+
+---
+
+### Task 11d: `Repeater` control (array of repeating sub-fields)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Repeater.php`
+
+Most complex of the new controls. Stores a JSON-encoded array of objects, each with sub-fields defined by `fields` arg (e.g. `[ 'icon' => ['type'=>'text'], 'label' => ['type'=>'text'], 'url' => ['type'=>'url'] ]`). UI: list of rows with add/remove/reorder; each row is a collapsible group of inputs.
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Repeater extends \WP_Customize_Control {
+	public $type = 'wbcom-repeater';
+	public $row_label = 'Item';
+
+	public function to_json() {
+		parent::to_json();
+		$this->json['fields']    = $this->choices['fields'] ?? array();
+		$this->json['row_label'] = $this->row_label;
+	}
+
+	public function render_content() {
+		?>
+		<fieldset class="wbcom-repeater" data-setting="<?php echo esc_attr( $this->setting->id ); ?>">
+			<?php if ( ! empty( $this->label ) ) : ?>
+				<legend class="customize-control-title"><?php echo esc_html( $this->label ); ?></legend>
+			<?php endif; ?>
+			<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+			<?php endif; ?>
+			<div class="wbcom-repeater-rows" role="list"></div>
+			<button type="button" class="button wbcom-repeater-add"><?php esc_html_e( 'Add row', 'buddyx' ); ?></button>
+			<input type="hidden" class="wbcom-repeater-value" <?php $this->link(); ?> />
+		</fieldset>
+		<?php
+	}
+}
+```
+
+Add JS handler in `customizer-controls.js` (Task 12 expanded): on `ready`, read hidden value (JSON-decode), render rows from template; clicking "Add row" appends a new row; per-row drag-handle reorders; per-row trash button removes; on any input change, re-serialize the array to the hidden input. Use the field definitions from `params.fields` to render row inputs (same dispatch as parent Field but inline-rendered).
+
+CSS for `.wbcom-repeater-rows` and `.wbcom-repeater-row` added to Task 13. Sanitize callback in `Field::sanitize_repeater()` validates each row against the field schema.
+
+Lint + commit.
+
+---
+
+### Task 11e: `Upload` control (generic file upload, not just images)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Upload.php`
+
+WP core ships `WP_Customize_Upload_Control`. We extend it just to harmonize the type string and pass through Kirki-style args.
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Upload extends \WP_Customize_Upload_Control {
+	public $type = 'wbcom-upload';
+
+	public function __construct( $manager, $id, $args = array() ) {
+		// Normalize Kirki args.
+		if ( isset( $args['choices']['mime_types'] ) ) {
+			$args['mime_type'] = $args['choices']['mime_types'];
+		}
+		parent::__construct( $manager, $id, $args );
+	}
+}
+```
+
+Update Field dispatcher's `$type_map` to include `'upload' => array( null, '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload', true )`.
+
+Lint + commit.
+
+---
+
+### Task 11f: `Sortable` control (drag-to-reorder list)
+
+**Files:** Create `inc/Customizer_Framework/Controls/Sortable.php`
+
+Like Radio_Buttonset but each option can be reordered AND toggled on/off. Stores as JSON-encoded array of `{ slug, enabled }` objects. Used in Pro for things like header element order.
+
+```php
+<?php
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
+
+defined( 'ABSPATH' ) || exit;
+
+class Sortable extends \WP_Customize_Control {
+	public $type = 'wbcom-sortable';
+
+	public function to_json() {
+		parent::to_json();
+		$this->json['choices'] = $this->choices ?? array();
+	}
+
+	public function render_content() {
+		?>
+		<fieldset class="wbcom-sortable" data-setting="<?php echo esc_attr( $this->setting->id ); ?>">
+			<?php if ( ! empty( $this->label ) ) : ?>
+				<legend class="customize-control-title"><?php echo esc_html( $this->label ); ?></legend>
+			<?php endif; ?>
+			<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+			<?php endif; ?>
+			<ul class="wbcom-sortable-list" role="list"></ul>
+			<input type="hidden" class="wbcom-sortable-value" <?php $this->link(); ?> />
+		</fieldset>
+		<?php
+	}
+}
+```
+
+JS handler (Task 12 expanded): native HTML5 drag-and-drop — `dragstart`/`dragover`/`drop` events on `<li role="listitem">` rows. Each row has a drag-handle, a checkbox, and a label. Reorder updates the hidden input's JSON-encoded array.
+
+Lint + commit.
+
+---
+
+### Task 11g: Update Field dispatcher `$type_map` and Task 12/13 to wire all new controls
+
+**Files:** Modify `inc/Customizer_Framework/Field.php`, `inc/Customizer_Framework/assets/customizer-controls.js`, `inc/Customizer_Framework/assets/customizer-controls.css`
+
+Add to `$type_map`:
+
+```php
+'checkbox'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Checkbox',         true ),
+'slider'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Slider',           true ),
+'radio_buttonset' => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Radio_Buttonset',  true ),
+'repeater'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Repeater',         true ),
+'upload'          => array( null,                     '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload',           true ),
+'sortable'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Sortable',         true ),
+```
+
+Add JS handlers in `customizer-controls.js` for `wbcom-slider`, `wbcom-repeater`, `wbcom-sortable` (Checkbox, Radio_Buttonset, Upload need no JS — pure HTML form controls).
+
+Add CSS in `customizer-controls.css` for `.wbcom-buttonset`, `.wbcom-slider`, `.wbcom-repeater-rows`, `.wbcom-repeater-row`, `.wbcom-sortable-list`, `.wbcom-sortable-list li`.
+
+Add sanitize callbacks in `Field` for `repeater`, `sortable`, `checkbox` (already had `switch`).
+
+Lint + commit.
+
+---
+
+### Task 11h: Per-control validation against Pro's actual field args
+
+**Files:** none modified — validation only
+
+For each Pro field that uses one of the new control types (Checkbox × 27, Slider × 7, Radio_Buttonset × 4, Repeater × 2, Upload × 1, Sortable × 1), copy the field args from Pro's source and run them through our framework on a test page in BuddyX:
+
+```bash
+# Example: extract a Pro Slider field args, paste into a one-off test
+cd /tmp/buddyx-pro
+grep -A 15 "new \\\\Kirki\\\\Field\\\\Slider" inc/customizer/...
+```
+
+Confirm:
+- The control renders without PHP error
+- The default value loads
+- Changing the value updates the setting (visible in `wp option get theme_mods_buddyx`)
+
+Per type:
+- **Checkbox**: simple — round-trip a `0/1` value
+- **Slider**: round-trip a `'120px'` string with unit
+- **Radio_Buttonset**: round-trip a slug value
+- **Repeater**: round-trip a JSON array of 3+ rows
+- **Upload**: upload a sample file, confirm URL stored
+- **Sortable**: reorder rows, confirm new order persists
+
+Documented in Task 26 regression QA.
+
+---
 
 **Decision for the framework's extensibility:** The Field dispatcher (Task 3 `Field::register_with_manager`) is structured so adding a new control type later is a 2-step change: (a) add the entry to `$type_map`, (b) drop the new control class file in `inc/Customizer_Framework/Controls/`. No core-framework rewrite needed.
 
@@ -1545,16 +1859,7 @@ public static function register_with_manager( \WP_Customize_Manager $wp_customiz
 }
 ```
 
-So BuddyX Pro (or a 5.2.0 update) can register `Slider`, `Spacing`, `Border`, `Responsive_Color`, etc. via:
-
-```php
-add_filter( 'buddyx_customizer_field_type_map', function ( $map ) {
-	$map['slider'] = array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Slider', true );
-	return $map;
-} );
-```
-
-A single one-line filter addition to Task 3 future-proofs the framework cheaply. Pro themes plug in their own controls without modifying free-theme files.
+So BuddyX Pro can register additional controls (or override existing ones) via a one-line filter call without touching free-theme files.
 
 ---
 
