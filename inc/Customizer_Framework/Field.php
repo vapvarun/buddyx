@@ -29,11 +29,10 @@ class Field {
 	/**
 	 * type => [ setting class, control class, is_custom_control ]
 	 *
-	 * - setting class null = control supplies its own setting (e.g. Upload).
 	 * - is_custom_control true means we instantiate the class directly;
 	 *   false means we pass args to add_control() and let core build it.
 	 *
-	 * @var array<string, array{0:?string,1:string,2:bool}>
+	 * @var array<string, array{0:string,1:string,2:bool}>
 	 */
 	protected static $type_map = array(
 		// 12 custom controls
@@ -47,7 +46,7 @@ class Field {
 		'slider'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Slider',          true ),
 		'radio_buttonset' => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Radio_Buttonset', true ),
 		'repeater'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Repeater',        true ),
-		'upload'          => array( null,                     '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload',          true ),
+		'upload'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload',          true ),
 		'sortable'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Sortable',        true ),
 		// 8 core dispatched types
 		'text'            => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
@@ -99,15 +98,12 @@ class Field {
 		$default     = $args['default'] ?? '';
 		$sanitize_cb = self::resolve_sanitize_callback( $type, $args );
 
-		// Some controls (e.g. Upload) ship their own setting class — skip add_setting.
-		if ( null !== $setting_class ) {
-			$wp_customize->add_setting( $setting_id, array(
-				'default'           => $default,
-				'transport'         => $transport,
-				'sanitize_callback' => $sanitize_cb,
-				'capability'        => $args['capability'] ?? 'edit_theme_options',
-			) );
-		}
+		$wp_customize->add_setting( $setting_id, array(
+			'default'           => $default,
+			'transport'         => $transport,
+			'sanitize_callback' => $sanitize_cb,
+			'capability'        => $args['capability'] ?? 'edit_theme_options',
+		) );
 
 		$control_args = self::build_control_args( $type, $args );
 
