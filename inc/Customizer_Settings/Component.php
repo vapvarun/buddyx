@@ -1,11 +1,14 @@
 <?php
 /**
- * BuddyX\Buddyx\Typography_Options\Component class
+ * BuddyX\Buddyx\Customizer_Settings\Component class
+ *
+ * Registers Customizer panels, sections, and fields via the in-house
+ * Customizer_Framework (replaces Kirki dependency in 5.1.0).
  *
  * @package buddyx
  */
 
-namespace BuddyX\Buddyx\Kirki_Option;
+namespace BuddyX\Buddyx\Customizer_Settings;
 
 use function add_action;
 use function add_filter;
@@ -13,7 +16,7 @@ use function apply_filters;
 use BuddyX\Buddyx\Component_Interface;
 
 /**
- * Class for adding custom background support.
+ * Class for registering Customizer settings.
  */
 class Component implements Component_Interface {
 
@@ -23,17 +26,16 @@ class Component implements Component_Interface {
 	 * @return string Component slug.
 	 */
 	public function get_slug(): string {
-		return 'kirki_option';
+		return 'customizer_settings';
 	}
 
 	/**
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		if ( class_exists( 'Kirki' ) ) {
-			add_action( 'init', array( $this, 'add_panels_and_sections' ) );
-			add_filter( 'init', array( $this, 'add_fields' ) );
-		}
+		// Customizer_Framework runs unconditionally (replaces Kirki).
+		add_action( 'init', array( $this, 'add_panels_and_sections' ) );
+		add_filter( 'init', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_header_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
