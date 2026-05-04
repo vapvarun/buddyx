@@ -2,19 +2,19 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Replace the Kirki Customizer Framework dependency with an in-house, portable `Wbcom_Customizer` framework that lives inside the theme — reusable later in BuddyX Pro and other Wbcom themes — and migrate all 111 existing Kirki field definitions across 19 sections to the new framework with zero user-visible regression.
+**Goal:** Replace the Kirki Customizer Framework dependency with an in-house, portable `Customizer_Framework` framework that lives inside the theme — reusable later in BuddyX Pro and other Wbcom themes — and migrate all 111 existing Kirki field definitions across 19 sections to the new framework with zero user-visible regression.
 
-**Architecture:** Three-layer replacement. (1) **Foundation library** — a self-contained framework at `inc/Wbcom_Customizer/` that wraps WP core's `WP_Customize_Manager` with an array-based field/section/panel API (drop-in replacement for Kirki's API surface that BuddyX uses). (2) **Custom controls** — five PHP+JS controls for the field types core Customizer doesn't ship: Color (with palette), Typography, Radio_Image, Switch (toggle), Dimension (number+unit). (3) **Migration shim** — a one-time `kirki_to_wbcom` adapter that translates the existing 12 `Fields/*.php` files' Kirki API calls to the new framework's API, then those files are rewritten and the shim is removed. Output (auto-CSS) and active_callback features are reimplemented.
+**Architecture:** Three-layer replacement. (1) **Foundation library** — a self-contained framework at `inc/Customizer_Framework/` that wraps WP core's `WP_Customize_Manager` with an array-based field/section/panel API (drop-in replacement for Kirki's API surface that BuddyX uses). (2) **Custom controls** — five PHP+JS controls for the field types core Customizer doesn't ship: Color (with palette), Typography, Radio_Image, Switch (toggle), Dimension (number+unit). (3) **Migration shim** — a one-time `kirki_to_wbcom` adapter that translates the existing 12 `Fields/*.php` files' Kirki API calls to the new framework's API, then those files are rewritten and the shim is removed. Output (auto-CSS) and active_callback features are reimplemented.
 
 **Tech Stack:** PHP 7.4+ with `WP_Customize_Manager`, `WP_Customize_Control`, `WP_Customize_Setting`. Vanilla JS (no jQuery dependency in new code) for postMessage live preview. Lightning CSS build pipeline (already in repo) for control assets. No new composer/npm dependencies.
 
 **Branch:** `5.1.0` (already cut from master post-5.0.3). All work lands here. wbcomdesigns/buddyx is the dev remote; vapvarun/buddyx is release-only and not touched until 5.1.0 ships.
 
-**Pro reusability discipline:** The framework files at `inc/Wbcom_Customizer/` must be portable as a unit — copy that directory verbatim into BuddyX Pro and it works. To enforce this:
-- Zero theme-slug coupling. The class namespace is `Wbcom\Customizer\*`, not `BuddyX\*`. No `buddyx_` prefixes in class names, hooks, or text-domain inside the framework files.
-- Text domain inside the framework is `wbcom-customizer` (loaded from a small POT file shipped with it). The host theme's text domain (`buddyx`) is used in the Field-definition files that consume the framework, not inside the framework itself.
+**Pro reusability discipline:** The framework files at `inc/Customizer_Framework/` must be portable as a unit — copy that directory verbatim into BuddyX Pro and it works. To enforce this:
+- Zero theme-slug coupling. The class namespace is `BuddyX\Buddyx\Customizer_Framework\*`, not `BuddyX\*`. No `buddyx_` prefixes in class names, hooks, or text-domain inside the framework files.
+- Text domain throughout is `buddyx` (host theme's domain). When the framework is copied to BuddyX Pro, the same search-replace that updates the namespace also updates the text domain.
 - Configuration via constructor / static method calls only — no `get_template_directory_uri()` baked into framework files.
-- Public API documented in `inc/Wbcom_Customizer/README.md` so the BuddyX Pro engineer can drop the directory in and migrate Pro's Kirki calls with confidence.
+- Public API documented in `inc/Customizer_Framework/README.md` so the BuddyX Pro engineer can drop the directory in and migrate Pro's Kirki calls with confidence.
 
 **Prior art — what we're modeling.** Every successful free wp.org theme that needed Kirki-level Customizer features eventually built its own in-house framework rather than carry the plugin dependency:
 - **Astra** — `inc/customizer/` with `Astra_Customizer` core class and per-field control classes (`Astra_Control_Color`, `Astra_Control_Typography`, `Astra_Control_Radio_Image`, `Astra_Control_Slider`, `Astra_Control_Toggle`, etc.). Loaded directly by the theme; no plugin dependency.
@@ -22,7 +22,7 @@
 - **Kadence** — `inc/customizer/controls/` with `Kadence_Customize_*_Control` classes.
 - **OceanWP** — `inc/customizer/controls/` with `OceanWP_Customize_*` controls.
 
-These four themes account for ~7M active installs combined and validate the architecture: a small `inc/customizer/` (or equivalent) directory holding (a) a central registration class, (b) custom controls extending `WP_Customize_Control`, (c) one bundled JS file for live preview and dynamic UI, (d) one CSS file for control styling. **This plan follows the same skeleton.** The naming convention modernizes to PSR-4 namespaces (`Wbcom\Customizer\Controls\Control_Color` instead of `Astra_Control_Color`), but the file structure, separation of concerns, and registration flow are intentionally familiar to anyone who has read those themes' source. An engineer who has worked on Astra or GeneratePress should be able to land in this codebase and feel at home in 30 minutes.
+These four themes account for ~7M active installs combined and validate the architecture: a small `inc/customizer/` (or equivalent) directory holding (a) a central registration class, (b) custom controls extending `WP_Customize_Control`, (c) one bundled JS file for live preview and dynamic UI, (d) one CSS file for control styling. **This plan follows the same skeleton.** The naming convention modernizes to PSR-4 namespaces (`BuddyX\Buddyx\Customizer_Framework\Controls\Control_Color` instead of `Astra_Control_Color`), but the file structure, separation of concerns, and registration flow are intentionally familiar to anyone who has read those themes' source. An engineer who has worked on Astra or GeneratePress should be able to land in this codebase and feel at home in 30 minutes.
 
 **Quality bar:**
 - After migration, every existing Customizer setting renders identical to today (same defaults, same live-preview behavior, same generated CSS).
@@ -89,14 +89,14 @@ The framework needs to support: 14 field types, output (auto-CSS injection), tra
 ### New (framework, ~1,800 lines total — designed for portability)
 
 ```
-inc/Wbcom_Customizer/
+inc/Customizer_Framework/
 ├── README.md                                   (Task 25 — public API + migration guide)
-├── class-customizer.php                        (Task 1 — bootstrap, registration loop)
-├── class-panel.php                             (Task 2 — Panel wrapper)
-├── class-section.php                           (Task 2 — Section wrapper)
-├── class-field.php                             (Task 3 — base Field class)
-├── class-output-builder.php                    (Task 4 — auto-CSS generator)
-├── class-active-callback.php                   (Task 4 — array→closure adapter)
+├── Component.php                        (Task 1 — bootstrap, registration loop)
+├── Panel.php                             (Task 2 — Panel wrapper)
+├── Section.php                           (Task 2 — Section wrapper)
+├── Field.php                             (Task 3 — base Field class)
+├── Output_Builder.php                    (Task 4 — auto-CSS generator)
+├── Active_Callback.php                   (Task 4 — array→closure adapter)
 ├── controls/
 │   ├── class-control-color.php                 (Task 6)
 │   ├── class-control-typography.php            (Task 7 — biggest custom control)
@@ -153,15 +153,15 @@ The "Kirki_Option" name leaks the dependency. Renaming is purely cosmetic but si
 
 ---
 
-## Public API of `Wbcom_Customizer` (locked at Task 1)
+## Public API of `Customizer_Framework` (locked at Task 1)
 
 This is the API both BuddyX free and (later) BuddyX Pro will call. Designed to be a minimal superset of the Kirki array shape used in the existing `Fields/*.php` files so the migration is a slug rename, not a rewrite.
 
 ```php
-use Wbcom\Customizer\Customizer;
-use Wbcom\Customizer\Panel;
-use Wbcom\Customizer\Section;
-use Wbcom\Customizer\Field;
+use BuddyX\Buddyx\Customizer_Framework\Component as Customizer;
+use BuddyX\Buddyx\Customizer_Framework\Panel;
+use BuddyX\Buddyx\Customizer_Framework\Section;
+use BuddyX\Buddyx\Customizer_Framework\Field;
 
 // Boot once per theme
 Customizer::boot( array(
@@ -219,13 +219,13 @@ The `Field::add( $type, $args )` first-arg is a string field type (`'color'`, `'
 ## Task 1: Foundation — `Customizer::boot()` and registration loop
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/class-customizer.php`
+- Create: `inc/Customizer_Framework/Component.php`
 
 **Why:** A single static class is the entry point. It accumulates panels/sections/fields registered via the static `add()` methods, then on `customize_register` hook iterates them and registers with `WP_Customize_Manager`. This decouples user-facing API from WP's hook timing.
 
 - [ ] **Step 1: Create the class skeleton**
 
-Write `inc/Wbcom_Customizer/class-customizer.php`:
+Write `inc/Customizer_Framework/Component.php`:
 
 ```php
 <?php
@@ -235,9 +235,9 @@ Write `inc/Wbcom_Customizer/class-customizer.php`:
  * Self-contained Customizer wrapper, portable across Wbcom themes.
  * Do NOT add theme-specific (e.g. buddyx_) prefixes inside this file.
  *
- * @package Wbcom\Customizer
+ * @package buddyx
  */
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -289,7 +289,7 @@ class Customizer {
 		foreach ( self::$sections as $id => $args ) {
 			$wp_customize->add_section( $id, $args );
 		}
-		require_once __DIR__ . '/class-field.php';
+		require_once __DIR__ . '/Field.php';
 		foreach ( self::$fields as $field_args ) {
 			Field::register_with_manager( $wp_customize, $field_args );
 		}
@@ -303,14 +303,14 @@ class Customizer {
 		$base = trailingslashit( self::get_config( 'assets_url' ) );
 		wp_enqueue_script(
 			self::get_config( 'config_id' ) . '-controls',
-			$base . 'inc/Wbcom_Customizer/assets/customizer-controls.js',
+			$base . 'inc/Customizer_Framework/assets/customizer-controls.js',
 			array( 'customize-controls', 'wp-color-picker' ),
 			'5.1.0',
 			true
 		);
 		wp_enqueue_style(
 			self::get_config( 'config_id' ) . '-controls',
-			$base . 'inc/Wbcom_Customizer/assets/customizer-controls.css',
+			$base . 'inc/Customizer_Framework/assets/customizer-controls.css',
 			array( 'wp-color-picker' ),
 			'5.1.0'
 		);
@@ -320,7 +320,7 @@ class Customizer {
 		$base = trailingslashit( self::get_config( 'assets_url' ) );
 		wp_enqueue_script(
 			self::get_config( 'config_id' ) . '-preview',
-			$base . 'inc/Wbcom_Customizer/assets/customizer-preview.js',
+			$base . 'inc/Customizer_Framework/assets/customizer-preview.js',
 			array( 'customize-preview', 'jquery' ),
 			'5.1.0',
 			true
@@ -328,7 +328,7 @@ class Customizer {
 	}
 
 	public static function output_inline_css(): void {
-		require_once __DIR__ . '/class-output-builder.php';
+		require_once __DIR__ . '/Output_Builder.php';
 		$css = Output_Builder::collect( self::$fields );
 		if ( '' !== $css ) {
 			echo "<style id=\"" . esc_attr( self::get_config( 'config_id' ) ) . "-css\">{$css}</style>\n"; // phpcs:ignore WordPress.Security.EscapeOutput
@@ -341,15 +341,15 @@ class Customizer {
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
-php -l inc/Wbcom_Customizer/class-customizer.php
+php -l inc/Customizer_Framework/Component.php
 ```
 Expected: `No syntax errors detected`.
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add inc/Wbcom_Customizer/class-customizer.php
-git commit -m "feat(customizer): scaffold Wbcom_Customizer foundation
+git add inc/Customizer_Framework/Component.php
+git commit -m "feat(customizer): scaffold Customizer_Framework foundation
 
 Static-class API: boot() / register_panel() / register_section() /
 register_field(). Hooks into customize_register at priority 99.
@@ -362,16 +362,16 @@ coupling, namespaced under Wbcom\\Customizer."
 ## Task 2: Panel + Section thin wrappers
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/class-panel.php`
-- Create: `inc/Wbcom_Customizer/class-section.php`
+- Create: `inc/Customizer_Framework/Panel.php`
+- Create: `inc/Customizer_Framework/Section.php`
 
 These are 5-line wrappers so authoring code reads `Panel::add()` / `Section::add()` instead of `Customizer::register_panel()`. Pure ergonomics.
 
-- [ ] **Step 1: Write `class-panel.php`**
+- [ ] **Step 1: Write `Panel.php`**
 
 ```php
 <?php
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -382,11 +382,11 @@ class Panel {
 }
 ```
 
-- [ ] **Step 2: Write `class-section.php`**
+- [ ] **Step 2: Write `Section.php`**
 
 ```php
 <?php
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -400,8 +400,8 @@ class Section {
 - [ ] **Step 3: Lint and commit**
 
 ```bash
-php -l inc/Wbcom_Customizer/class-panel.php inc/Wbcom_Customizer/class-section.php
-git add inc/Wbcom_Customizer/class-panel.php inc/Wbcom_Customizer/class-section.php
+php -l inc/Customizer_Framework/Panel.php inc/Customizer_Framework/Section.php
+git add inc/Customizer_Framework/Panel.php inc/Customizer_Framework/Section.php
 git commit -m "feat(customizer): Panel and Section thin wrappers"
 ```
 
@@ -410,7 +410,7 @@ git commit -m "feat(customizer): Panel and Section thin wrappers"
 ## Task 3: Base Field class with registration logic
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/class-field.php`
+- Create: `inc/Customizer_Framework/Field.php`
 
 **Why:** This is the dispatcher that knows for each field type which `WP_Customize_Setting` to create and which `WP_Customize_Control` (core or our custom) to attach. Centralizing it here keeps each control class focused on rendering.
 
@@ -418,7 +418,7 @@ git commit -m "feat(customizer): Panel and Section thin wrappers"
 
 ```php
 <?php
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -521,7 +521,7 @@ class Field {
 		}
 		// active_callback: array form -> closure
 		if ( isset( $out['active_callback'] ) && is_array( $out['active_callback'] ) ) {
-			require_once __DIR__ . '/class-active-callback.php';
+			require_once __DIR__ . '/Active_Callback.php';
 			$out['active_callback'] = Active_Callback::compile( $out['active_callback'] );
 		}
 		return $out;
@@ -540,9 +540,8 @@ class Field {
 	}
 
 	protected static function class_to_filename( string $class ): string {
-		$short = substr( $class, strrpos( $class, '\\' ) + 1 );          // Control_Color
-		$file  = 'class-' . str_replace( '_', '-', strtolower( $short ) ); // class-control-color
-		return $file . '.php';
+		$short = substr( $class, strrpos( $class, '\\' ) + 1 ); // e.g. "Control_Color"
+		return $short . '.php';                                  // PSR-4: "Control_Color.php"
 	}
 }
 ```
@@ -550,8 +549,8 @@ class Field {
 - [ ] **Step 2: Lint and commit**
 
 ```bash
-php -l inc/Wbcom_Customizer/class-field.php
-git add inc/Wbcom_Customizer/class-field.php
+php -l inc/Customizer_Framework/Field.php
+git add inc/Customizer_Framework/Field.php
 git commit -m "feat(customizer): Field dispatcher with type→control mapping
 
 Maps 14 field types to either a built-in WP control or one of our
@@ -565,16 +564,16 @@ arrays to closures via Active_Callback adapter (Task 4)."
 ## Task 4: `Output_Builder` (auto-CSS) and `Active_Callback` (array→closure)
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/class-output-builder.php`
-- Create: `inc/Wbcom_Customizer/class-active-callback.php`
+- Create: `inc/Customizer_Framework/Output_Builder.php`
+- Create: `inc/Customizer_Framework/Active_Callback.php`
 
 **Why:** Two of Kirki's most-used "magic" features: declarative `output` arrays that emit CSS, and declarative `active_callback` arrays that conditionally show fields. Reimplementing them keeps the Field array shape unchanged and means consumer files don't have to rewrite logic.
 
-- [ ] **Step 1: Write `class-output-builder.php`**
+- [ ] **Step 1: Write `Output_Builder.php`**
 
 ```php
 <?php
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -637,11 +636,11 @@ class Output_Builder {
 }
 ```
 
-- [ ] **Step 2: Write `class-active-callback.php`**
+- [ ] **Step 2: Write `Active_Callback.php`**
 
 ```php
 <?php
-namespace Wbcom\Customizer;
+namespace BuddyX\Buddyx\Customizer_Framework;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -694,8 +693,8 @@ class Active_Callback {
 - [ ] **Step 3: Lint and commit**
 
 ```bash
-php -l inc/Wbcom_Customizer/class-output-builder.php inc/Wbcom_Customizer/class-active-callback.php
-git add inc/Wbcom_Customizer/class-output-builder.php inc/Wbcom_Customizer/class-active-callback.php
+php -l inc/Customizer_Framework/Output_Builder.php inc/Customizer_Framework/Active_Callback.php
+git add inc/Customizer_Framework/Output_Builder.php inc/Customizer_Framework/Active_Callback.php
 git commit -m "feat(customizer): Output_Builder (auto-CSS) and Active_Callback (cond. visibility)
 
 Output_Builder iterates registered fields with non-empty 'output'
@@ -720,12 +719,12 @@ After the existing `require_once` blocks in `functions.php`, before `buddyx_load
 
 ```php
 // Wbcom Customizer Framework — replaces Kirki in 5.1.0.
-require_once __DIR__ . '/inc/Wbcom_Customizer/class-customizer.php';
-require_once __DIR__ . '/inc/Wbcom_Customizer/class-panel.php';
-require_once __DIR__ . '/inc/Wbcom_Customizer/class-section.php';
-require_once __DIR__ . '/inc/Wbcom_Customizer/class-field.php';
+require_once __DIR__ . '/inc/Customizer_Framework/Component.php';
+require_once __DIR__ . '/inc/Customizer_Framework/Panel.php';
+require_once __DIR__ . '/inc/Customizer_Framework/Section.php';
+require_once __DIR__ . '/inc/Customizer_Framework/Field.php';
 
-\Wbcom\Customizer\Customizer::boot( array(
+\BuddyX\Buddyx\Customizer_Framework\Component::boot( array(
 	'text_domain' => 'buddyx',
 	'config_id'   => 'buddyx_customizer',
 	'assets_url'  => get_template_directory_uri(),
@@ -747,7 +746,7 @@ Then load the Customizer via Playwright (`http://buddyx.local/wp-admin/customize
 
 ```bash
 git add functions.php
-git commit -m "feat(customizer): wire Wbcom_Customizer framework — autoload + boot
+git commit -m "feat(customizer): wire Customizer_Framework — autoload + boot
 
 Framework runs in parallel with Kirki for the duration of the
 migration. Each Field/*.php file will switch over in Tasks 17-22.
@@ -764,7 +763,7 @@ Each control follows the same shape: a PHP class extending `WP_Customize_Control
 ### Task 6: `Control_Color`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-color.php`
+- Create: `inc/Customizer_Framework/Controls/Color.php`
 
 **Why:** 39 of 111 fields are colors. Core's `WP_Customize_Color_Control` works but doesn't support a curated palette out of the box and doesn't honor Kirki's `palette` choice arg. We extend it.
 
@@ -772,7 +771,7 @@ Each control follows the same shape: a PHP class extending `WP_Customize_Control
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -814,20 +813,20 @@ class Control_Color extends \WP_Customize_Color_Control {
 - [ ] **Step 2: Lint**
 
 ```bash
-php -l inc/Wbcom_Customizer/controls/class-control-color.php
+php -l inc/Customizer_Framework/Controls/Color.php
 ```
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add inc/Wbcom_Customizer/controls/class-control-color.php
+git add inc/Customizer_Framework/Controls/Color.php
 git commit -m "feat(customizer): Control_Color extends core color picker w/ palette + alpha"
 ```
 
 ### Task 7: `Control_Typography`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-typography.php`
+- Create: `inc/Customizer_Framework/Controls/Typography.php`
 
 **Why:** Largest custom control. Stores a structured value (object with font-family/weight/size/line-height/letter-spacing/text-transform). Renders 6 sub-controls. Talks to the Task 12 JS bundle for live preview. 12 fields use this.
 
@@ -835,7 +834,7 @@ The class skeleton extends `WP_Customize_Control`. `to_json()` exposes available
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -922,13 +921,13 @@ Lint + commit. (Pattern same as Task 6.)
 ### Task 8: `Control_Radio_Image`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-radio-image.php`
+- Create: `inc/Customizer_Framework/Controls/Radio_Image.php`
 
 11 fields. Renders a fieldset of `<label>`s containing `<input type="radio">` and `<img>`. `choices` arg is `array( slug => image_url )`.
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -966,13 +965,13 @@ Lint + commit.
 ### Task 9: `Control_Switch`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-switch.php`
+- Create: `inc/Customizer_Framework/Controls/Switch.php`
 
 18 fields. Visual toggle that stores `0` or `1`.
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -1003,13 +1002,13 @@ Lint + commit.
 ### Task 10: `Control_Dimension`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-dimension.php`
+- Create: `inc/Customizer_Framework/Controls/Dimension.php`
 
 7 fields. Number input + unit dropdown (px, em, rem, %, vh, vw). Stores e.g. `'1170px'`.
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -1046,13 +1045,13 @@ Lint + commit.
 ### Task 11: `Control_Custom_HTML`
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/controls/class-control-custom-html.php`
+- Create: `inc/Customizer_Framework/Controls/Custom_HTML.php`
 
 9 fields. No setting value — just renders raw HTML the consumer passes via the `default` arg (Kirki's `Custom` field convention).
 
 ```php
 <?php
-namespace Wbcom\Customizer\Controls;
+namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -1087,7 +1086,7 @@ Lint + commit.
 ## Task 12: Bundled controls JS
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/assets/customizer-controls.js`
+- Create: `inc/Customizer_Framework/assets/customizer-controls.js`
 
 **Why:** Single file that wires up the dynamic behavior of Typography (read/write JSON value), Radio_Image (no JS needed but kept here for consistency), Switch (sync checkbox -> `'1'/'0'` string the setting expects), Dimension (split number+unit, recombine on change).
 
@@ -1192,7 +1191,7 @@ Lint + commit.
 ## Task 13: Controls CSS
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/assets/customizer-controls.css`
+- Create: `inc/Customizer_Framework/assets/customizer-controls.css`
 
 ```css
 /* Typography control */
@@ -1242,7 +1241,7 @@ Lint + commit.
 ## Task 14: Live preview JS
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/assets/customizer-preview.js`
+- Create: `inc/Customizer_Framework/assets/customizer-preview.js`
 
 **Why:** When a setting has `transport: postMessage`, WP doesn't refresh — it sends the new value to the preview iframe. Our JS listens for relevant settings and updates inline CSS so users see changes instantly.
 
@@ -1298,7 +1297,7 @@ Lint + commit.
 ## Task 15: Pass output data to preview JS
 
 **Files:**
-- Modify: `inc/Wbcom_Customizer/class-customizer.php` — extend `enqueue_preview()` to inject `window.wbcomCustomizerOutputs`
+- Modify: `inc/Customizer_Framework/Component.php` — extend `enqueue_preview()` to inject `window.wbcomCustomizerOutputs`
 
 Edit `enqueue_preview()`:
 
@@ -1307,7 +1306,7 @@ public static function enqueue_preview(): void {
 	$base = trailingslashit( self::get_config( 'assets_url' ) );
 	wp_enqueue_script(
 		self::get_config( 'config_id' ) . '-preview',
-		$base . 'inc/Wbcom_Customizer/assets/customizer-preview.js',
+		$base . 'inc/Customizer_Framework/assets/customizer-preview.js',
 		array( 'customize-preview', 'jquery' ),
 		'5.1.0',
 		true
@@ -1357,17 +1356,17 @@ Update Component.php internal references (namespace change `BuddyX\Buddyx\Kirki_
 
 ## Tasks 17-21: Migrate consumer files (one batch per task, ~60 lines diff each)
 
-Each consumer file's body is mechanical: `new \Kirki\Field\X( $args )` → `\Wbcom\Customizer\Field::add( 'x', $args )`. Same `$args` shape for the supported fields. The diff is small per file.
+Each consumer file's body is mechanical: `new \Kirki\Field\X( $args )` → `\BuddyX\Buddyx\Customizer_Framework\Field::add( 'x', $args )`. Same `$args` shape for the supported fields. The diff is small per file.
 
 ### Task 17: Migrate General + Header + Sub_Header + Footer fields
 
 **Files modified:** `inc/Customizer_Settings/Fields/{General,Header,Sub_Header,Footer}_Fields.php`
 
-For each `new \Kirki\Field\Color( array(...) )` → `\Wbcom\Customizer\Field::add( 'color', array(...) )`. Same for `Radio_Image` → `'radio_image'`, `Dimension` → `'dimension'`, etc.
+For each `new \Kirki\Field\Color( array(...) )` → `\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color', array(...) )`. Same for `Radio_Image` → `'radio_image'`, `Dimension` → `'dimension'`, etc.
 
 After each file: run `php -l <file>` and load `customize.php` to confirm the section's controls still appear with the same defaults.
 
-Commit per file: `refactor(customizer): migrate <slug>_fields from Kirki to Wbcom_Customizer`.
+Commit per file: `refactor(customizer): migrate <slug>_fields from Kirki to Customizer_Framework`.
 
 ### Task 18: Migrate Sidebar + Blog fields
 
@@ -1420,12 +1419,12 @@ Commit.
 ## Task 24: Framework strings → POT
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/languages/wbcom-customizer.pot`
+- Create: `(no separate POT — strings use the buddyx text domain and are picked up by the theme's normal i18n flow)`
 
 Run `wp i18n make-pot` scoped to the framework directory:
 
 ```bash
-wp i18n make-pot inc/Wbcom_Customizer inc/Wbcom_Customizer/languages/wbcom-customizer.pot --domain=wbcom-customizer
+# (no separate POT — framework strings use the buddyx text domain and are picked up by the theme's normal i18n flow)
 ```
 
 The framework strings (`'Hex Value'`, `'Family'`, `'Weight'`, etc.) get extracted. Host themes can override by re-translating `wbcom-customizer` text domain.
@@ -1437,7 +1436,7 @@ Commit.
 ## Task 25: Framework `README.md` (public API + reuse guide)
 
 **Files:**
-- Create: `inc/Wbcom_Customizer/README.md`
+- Create: `inc/Customizer_Framework/README.md`
 
 A 200-line doc covering: install (copy directory), boot, register panels/sections/fields, supported field types, output rules, active_callback shape, and "how to reuse in BuddyX Pro" steps. This is what makes the framework genuinely portable.
 
@@ -1456,7 +1455,7 @@ Changelog leads with:
 ```
 = 5.1.0 =
 * Removed: Kirki Customizer Framework dependency. BuddyX now ships its own in-house Customizer framework — same options, same defaults, same generated CSS, but no plugin required.
-* Added: Wbcom_Customizer framework at inc/Wbcom_Customizer/. Portable across Wbcom themes (BuddyX Pro will use the same module in a future release).
+* Added: Customizer_Framework at inc/Customizer_Framework/. Portable across Wbcom themes (BuddyX Pro will use the same module in a future release).
 * Improved: Customizer load time (~250ms faster on a fresh page since Kirki's heavier dependency tree is gone).
 * Note: Existing user theme mods are preserved exactly — no data migration required. The Kirki plugin can be deactivated and uninstalled after upgrading.
 ```
@@ -1478,19 +1477,19 @@ Tag, push to wbcomdesigns, create release on vapvarun (per repo split rule).
 
 **Spec coverage:**
 - "Replace Kirki with own Customizer framework" — covered, Tasks 1–22 ✓
-- "Reusable in BuddyX Pro" — Tasks 1–4 + 25 (no theme-slug coupling, README.md, namespace `Wbcom\Customizer`) ✓
+- "Reusable in BuddyX Pro" — Tasks 1–4 + 25 (PSR-4 layout, README.md, single search-replace for namespace) ✓
 - "Same module can be used in pro" — explicitly enforced at the framework boundary ✓
 - 14 field types — covered (Tasks 6–11 for custom controls, core controls are pass-through in Task 3 dispatcher) ✓
 - output (auto-CSS) — Task 4 ✓
 - active_callback — Task 4 ✓
 - transport (refresh / postMessage / auto) — Task 3 ✓
 - 19 sections / 2 panels — migrated en bloc in Tasks 17–21 ✓
-- Pro is "in picture, not for now" — confirmed: this plan ships nothing in `buddyx-pro`, but the framework is designed so a future Pro PR is `cp -r inc/Wbcom_Customizer/ ../buddyx-pro/inc/` plus its own `Field::add()` calls. ✓
+- Pro is "in picture, not for now" — confirmed: this plan ships nothing in `buddyx-pro`, but the framework is designed so a future Pro PR is `cp -r inc/Customizer_Framework/ ../buddyx-pro/inc/` plus its own `Field::add()` calls. ✓
 
 **Placeholder scan:** no TBD / TODO / "implement later". Tasks 17–21 reference each consumer file's existing structure (which the implementer can read in-tree); per-field migration is mechanical so individual transformations are not pre-listed (and would balloon the plan to ~3500 lines).
 
 **Type/identifier consistency:**
-- `\Wbcom\Customizer\Customizer`, `\Wbcom\Customizer\Panel`, `\Wbcom\Customizer\Section`, `\Wbcom\Customizer\Field` — used consistently across Tasks 1–5.
+- `\BuddyX\Buddyx\Customizer_Framework\Component`, `\BuddyX\Buddyx\Customizer_Framework\Panel`, `\BuddyX\Buddyx\Customizer_Framework\Section`, `\BuddyX\Buddyx\Customizer_Framework\Field` — used consistently across Tasks 1–5.
 - Custom control class names: `Control_Color`, `Control_Typography`, `Control_Radio_Image`, `Control_Switch`, `Control_Dimension`, `Control_Custom_HTML` — defined in Task 3 dispatcher, implemented in Tasks 6–11 with matching names.
 - Public field-type strings: `'color'`, `'typography'`, `'radio_image'`, `'switch'`, `'dimension'`, `'custom'`, `'text'`, `'textarea'`, `'url'`, `'select'`, `'radio'`, `'dropdown-pages'`, `'image'`, `'background'` — consistent in Field type_map.
 - Setting IDs (`site_layout`, `site_primary_color`, etc.) — left unchanged across migration, guaranteeing no user data loss.
@@ -1500,10 +1499,62 @@ Tag, push to wbcomdesigns, create release on vapvarun (per repo split rule).
 1. *Migration-time regressions on active_callback chains in Skin (46 fields).* Mitigation: Task 20 split into 5 sub-commits, regression QA item #5 explicitly verifies.
 2. *Inline CSS minor whitespace differences cause cache-busting on user sites.* Mitigation: Output_Builder produces identical-by-byte output; verified in QA item #2.
 3. *Kirki plugin still present on user site after upgrade — deactivation needed.* Mitigation: readme.txt 5.1.0 entry instructs users to deactivate; consider an admin notice (see optional Task 27).
-4. *BuddyX Pro keeps using Kirki for now.* Mitigation: explicitly out of scope per user direction; the Pro migration will be a separate plan that copies `inc/Wbcom_Customizer/` and runs the same `new \Kirki\Field\X` → `\Wbcom\Customizer\Field::add('x', ...)` rewrite on Pro's field files.
+4. *BuddyX Pro keeps using Kirki for now.* Mitigation: explicitly out of scope per user direction; the Pro migration will be a separate plan that copies `inc/Customizer_Framework/` and runs the same `new \Kirki\Field\X` → `\BuddyX\Buddyx\Customizer_Framework\Field::add('x', ...)` rewrite on Pro's field files.
 5. *Performance regression instead of improvement.* Mitigation: Customizer JS bundle is one file (Task 12); compared to Kirki's many separate scripts, should be net win. Measured in QA.
 
 **Estimated effort:** 7–10 working days end-to-end. Foundation (Tasks 1–5): 1.5 days. Custom controls (Tasks 6–11): 2 days. JS/CSS bundles + preview (Tasks 12–15): 1.5 days. Rename + consumer migration (Tasks 16–21): 2.5 days. Cleanup + docs + QA (Tasks 22–26): 1.5 days.
+
+---
+
+## Astra-derived control catalog (gap analysis)
+
+We pulled Astra's source and inventoried its 70 control type strings. Most are specialized to Astra's own builder UX (`ast-builder-header-control`, `ast-pro-available`, `ast-upgrade`). Distilling to a **portable superset** Wbcom themes are likely to need, here's the full catalog with build status for `5.1.0`:
+
+| Control type | BuddyX 5.1.0 | Pro / future | Notes |
+|---|:---:|:---:|---|
+| `color` | ✅ Task 6 | | 39 instances today |
+| `typography` | ✅ Task 7 | | 12 instances today |
+| `radio_image` | ✅ Task 8 | | 11 instances today |
+| `switch` | ✅ Task 9 | | 18 instances today |
+| `dimension` | ✅ Task 10 | | 7 instances today |
+| `custom` (raw HTML) | ✅ Task 11 | | 9 instances today |
+| Core types (text, textarea, url, select, radio, image, background, dropdown-pages) | ✅ Task 3 | | dispatched to WP core controls |
+| `color-group` | | future | Multi-color picker (e.g. 3 colors as one setting). Not needed for BuddyX's 39 single-color fields. |
+| `color-palette` | | future | Curated palette button strip. Could replace some color fields if we want a constrained palette UX in 5.2.0. |
+| `slider` | | future | Numeric range slider with unit. Better UX than `dimension` for some inputs (e.g. opacity, scale). |
+| `spacing` (top/right/bottom/left) | | future | Margin/padding shorthand. Worth adding when first BuddyX or Pro field needs it; current 7 dimension fields are single-axis. |
+| `border` (width + style + color) | | future | Common but not yet needed in BuddyX. |
+| `heading` | | future | UI-only helper (label-as-divider in customizer). Cosmetic — `custom` covers it for now. |
+| `description` | | future | UI-only help-text helper. Same — `custom` covers it. |
+| `divider` | | future | Visual separator. Same — covered by `custom` for now. |
+| `hidden` | | future | Programmatic-only setting (no UI). Just registers the setting; rarely needed. |
+| `responsive_*` | | Pro-likely | Per-breakpoint variants of color/spacing/slider. Astra's killer feature. Worth scoping for BuddyX Pro rather than free, since responsive controls explode the option count and complicate live preview. |
+| `sortable` | | future | Drag-to-reorder list. Useful for builder UX (e.g. footer column order). |
+| `customizer_link` | | future | "Jump to section X" button inside another section. UX helper. |
+
+**Decision for `5.1.0`:** Build the 6 custom controls in the table's first six rows. All other field types in BuddyX today dispatch to core WP controls in Task 3 — no new code needed. Total custom controls written in this release: **6**. Exactly the Kirki coverage we need for parity, nothing more.
+
+**Decision for the framework's extensibility:** The Field dispatcher (Task 3 `Field::register_with_manager`) is structured so adding a new control type later is a 2-step change: (a) add the entry to `$type_map`, (b) drop the new control class file in `inc/Customizer_Framework/Controls/`. No core-framework rewrite needed.
+
+**Required addition to Task 3 — extensibility hook:**
+
+```php
+public static function register_with_manager( \WP_Customize_Manager $wp_customize, array $args ): void {
+	$type_map = apply_filters( 'buddyx_customizer_field_type_map', self::$type_map );
+	// ... rest unchanged
+}
+```
+
+So BuddyX Pro (or a 5.2.0 update) can register `Slider`, `Spacing`, `Border`, `Responsive_Color`, etc. via:
+
+```php
+add_filter( 'buddyx_customizer_field_type_map', function ( $map ) {
+	$map['slider'] = array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Slider', true );
+	return $map;
+} );
+```
+
+A single one-line filter addition to Task 3 future-proofs the framework cheaply. Pro themes plug in their own controls without modifying free-theme files.
 
 ---
 
