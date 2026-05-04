@@ -4,7 +4,7 @@ Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Co
 Requires at least: 4.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 5.0.3
+Stable tag: 5.1.0
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,34 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.1.0 =
+**Customizer framework overhaul — Kirki dependency removed.**
+
+This release replaces the bundled Kirki Customizer Framework with an in-house Customizer_Framework. Kirki was rebranded as a page-builder plugin in late 2025, prompting us to ship a focused, theme-native customizer module that we (and BuddyX Pro) own and maintain.
+
+**Compatibility**
+* Zero database migration. Every existing theme_mod key is preserved byte-for-byte; no settings reset, no opt-in flow needed.
+* Templates unchanged. All 70+ `get_theme_mod()` call sites in templates and inc/ continue to work without modification.
+* Existing customizer mods (colors, typography, layout, header, footer, sidebar, blog, BuddyPress, WP Login, Site Performance) carry over transparently.
+
+**Architecture**
+* New: `inc/Customizer_Framework/` - PSR-4 framework under `BuddyX\Buddyx\Customizer_Framework`. 12 custom controls (Color, Typography, Radio_Image, Toggle/switch, Dimension, Custom_HTML, Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable) plus 8 core-dispatched types (text, textarea, url, select, radio, dropdown-pages, image, background). Filterable type map via `buddyx_customizer_field_type_map` so BuddyX Pro / extensions can register additional control types.
+* New: `inc/Customizer_Settings/` - panels, sections, and field declarations (renamed from `inc/Kirki_Option/`).
+* New: `external/buddyx-defaults.php` - defaults registry (renamed from misnamed `external/kirki-utils.php`).
+* New: `buddyx_customizer_field_args` filter point in `Field::register_with_manager` for setting-args overrides (replaces `kirki_field_add_setting_args`).
+
+**Removed**
+* `inc/Kirki/Component.php` (53 lines)
+* `external/include-kirki.php` (105 lines)
+* `inc/Dropdown_Select/Component.php` (extended `Kirki\Field\Select`; dropdown-pages now handled natively).
+* TGM-PA Kirki Toolkit recommendation in `external/require_plugins.php`.
+* Kirki class_exists guards across `inc/Theme.php`, `inc/Customizer/Component.php`, `inc/Dynamic_Style/Component.php`, `inc/login.php`, fluentcart/surecart compatibility.
+
+**Verification**
+* Front-end inline CSS output identical to 5.0.3 (typography, colors, dimensions all emit via Output_Builder).
+* customize.php: 200 OK, zero PHP fatals/parse errors, all 94 settings register.
+* Pro args validation: all 12 custom controls accept Kirki-shape args without modification.
 
 = 5.0.3 =
 **Major UI refresh and pattern library overhaul.** This release repositions BuddyX as a general-purpose, editorial-grade WordPress theme with a designer pattern library.
