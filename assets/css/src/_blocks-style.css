@@ -50,3 +50,62 @@
     background-color: var(--button-background-hover-color);
     border: 1px solid var(--button-border-hover-color);
 }
+/* Block style variations — premium pattern library (Task 5) */
+.wp-block-button.is-style-outline-accent .wp-block-button__link {
+	background: transparent;
+	color: var(--wp--preset--color--accent);
+	border: 1px solid var(--wp--preset--color--accent);
+}
+.wp-block-button.is-style-outline-accent .wp-block-button__link:hover {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--base);
+}
+.wp-block-button.is-style-link-arrow .wp-block-button__link {
+	background: transparent;
+	color: var(--wp--preset--color--contrast);
+	padding: 0;
+	font-weight: 600;
+}
+.wp-block-button.is-style-link-arrow .wp-block-button__link::after {
+	content: " →";
+	transition: transform 0.2s ease;
+	display: inline-block;
+}
+.wp-block-button.is-style-link-arrow .wp-block-button__link:hover::after {
+	transform: translateX(4px);
+}
+.wp-block-separator.is-style-gradient {
+	height: 1px;
+	border: 0;
+	background: linear-gradient(90deg, transparent, var(--wp--preset--color--contrast-3), transparent);
+}
+.wp-block-separator.is-style-dotted {
+	border: 0;
+	border-top: 2px dotted var(--wp--preset--color--contrast-3);
+	background: transparent;
+	height: 0;
+}
+.wp-block-group.is-style-card {
+	background: var(--wp--preset--color--base-2);
+	border-radius: 16px;
+	padding: var(--wp--preset--spacing--40);
+}
+.wp-block-group.is-style-bordered {
+	border: 1px solid var(--wp--preset--color--base-3);
+	border-radius: 16px;
+	padding: var(--wp--preset--spacing--40);
+}
+.wp-block-quote.is-style-editorial {
+	font-family: var(--wp--preset--font-family--newsreader);
+	font-style: italic;
+	font-size: var(--wp--preset--font-size--large);
+	border: 0;
+	padding-left: var(--wp--preset--spacing--40);
+	border-left: 3px solid var(--wp--preset--color--accent);
+}
+
+/* Mobile baseline — patterns must look great at 390px */
+@media (max-width: 640px) {
+	.wp-block-group.is-style-card,
+	.wp-block-group.is-style-bordered { padding: var(--wp--preset--spacing--30); }
+}

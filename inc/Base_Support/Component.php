@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Base_Support;
 
+require_once __DIR__ . '/block-styles.php';
+
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_filter;
