@@ -130,32 +130,71 @@ Released under the MIT license
 == Changelog ==
 
 = 5.1.0 =
-**Customizer framework overhaul — Kirki dependency removed.**
+**Customizer framework overhaul + Site Skin design tokens + dark mode.**
 
-This release replaces the bundled Kirki Customizer Framework with an in-house Customizer_Framework. Kirki was rebranded as a page-builder plugin in late 2025, prompting us to ship a focused, theme-native customizer module that we (and BuddyX Pro) own and maintain.
+The headline change is a self-contained Customizer Framework that replaces the bundled Kirki dependency (Kirki was rebranded as a page-builder plugin in late 2025). On top of that, 5.1.0 ships a full Site Skin design-token system with native light / dark / auto color modes, a typography-control upgrade, a premium Site Loader, and a stylesheet cleanup pass that makes dark mode coherent across foundation, BuddyPress, WooCommerce, LearnDash, and other plugin-compat surfaces.
 
-**Compatibility**
-* Zero database migration. Every existing theme_mod key is preserved byte-for-byte; no settings reset, no opt-in flow needed.
-* Templates unchanged. All 70+ `get_theme_mod()` call sites in templates and inc/ continue to work without modification.
-* Existing customizer mods (colors, typography, layout, header, footer, sidebar, blog, BuddyPress, WP Login, Site Performance) carry over transparently.
+**Compatibility (zero database migration)**
+* Every existing `theme_mod` key is preserved byte-for-byte; no settings reset, no opt-in flow.
+* Templates unchanged — all 70+ `get_theme_mod()` call sites continue to work.
+* Existing customizer mods (colors, typography, layout, header, footer, sidebar, blog, BuddyPress, WP Login, Site Performance) carry over transparently. Customer-saved values always take precedence over modernized defaults.
 
-**Architecture**
-* New: `inc/Customizer_Framework/` - PSR-4 framework under `BuddyX\Buddyx\Customizer_Framework`. 12 custom controls (Color, Typography, Radio_Image, Toggle/switch, Dimension, Custom_HTML, Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable) plus 8 core-dispatched types (text, textarea, url, select, radio, dropdown-pages, image, background). Filterable type map via `buddyx_customizer_field_type_map` so BuddyX Pro / extensions can register additional control types.
-* New: `inc/Customizer_Settings/` - panels, sections, and field declarations (renamed from `inc/Kirki_Option/`).
-* New: `external/buddyx-defaults.php` - defaults registry (renamed from misnamed `external/kirki-utils.php`).
-* New: `buddyx_customizer_field_args` filter point in `Field::register_with_manager` for setting-args overrides (replaces `kirki_field_add_setting_args`).
+**Customizer Framework — Kirki replacement**
+* New `inc/Customizer_Framework/` — PSR-4 module under `BuddyX\Buddyx\Customizer_Framework`. 12 custom controls (Color, Typography, Radio_Image, Toggle/switch, Dimension, Custom_HTML, Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable) plus 8 core-dispatched types. Filterable via `buddyx_customizer_field_type_map`.
+* New `inc/Customizer_Settings/` — panels, sections, fields (renamed from `inc/Kirki_Option/`).
+* New `buddyx_customizer_field_args` filter point in `Field::register_with_manager` (replaces `kirki_field_add_setting_args`).
+* Removed `inc/Kirki/Component.php`, `external/include-kirki.php`, `inc/Dropdown_Select/Component.php`, the TGM-PA Kirki Toolkit recommendation, and all Kirki `class_exists` guards across `inc/Theme.php`, `inc/Customizer/Component.php`, `inc/Dynamic_Style/Component.php`, `inc/login.php`, fluentcart / surecart compat.
+* Per-field audit (114 customizer fields) ran against Kirki-shape data with simulated 5.0.3 customer DB; round-trip preserved on every type. Inventory snapshot committed at `docs/customizer-inventory-snapshot.txt`.
 
-**Removed**
-* `inc/Kirki/Component.php` (53 lines)
-* `external/include-kirki.php` (105 lines)
-* `inc/Dropdown_Select/Component.php` (extended `Kirki\Field\Select`; dropdown-pages now handled natively).
-* TGM-PA Kirki Toolkit recommendation in `external/require_plugins.php`.
-* Kirki class_exists guards across `inc/Theme.php`, `inc/Customizer/Component.php`, `inc/Dynamic_Style/Component.php`, `inc/login.php`, fluentcart/surecart compatibility.
+**Customizer audit fixes (5.1.0)**
+* #6 Removed duplicate cart switch in BuddyPress section.
+* #7 Color iris regression — reinstated WP color picker on customize.php.
+* #8 Typography defaults blank — fixed merge-over-defaults path so saved values render in controls instead of empty inputs.
+* #9 Background defaults blank — same fix for background-composite control.
+* #10 Repeater / sortable read bug — JSON-array round-trip restored.
+* #11 Foreign-sub-key data-loss on save — `sanitize_typography` now whitelists the 11 keys explicitly, dropping unrecognized keys without losing valid sub-values.
+* #12 BG color iris regression on Background control.
+* #13 Custom HTML wp_kses too strict (`<hr>` was being stripped) — whitelist now covers the patterns used by section dividers.
+* `sanitize_bool_int` accepts `'on' / 'yes' / 'true' / 'enable'` (closes data-loss path on `site_custom_colors`, `site_breadcrumbs`, `buddypress_avatar_style`).
+
+**Premium Typography control**
+* 5-row paired layout, 9 inputs per field. Three previously-hidden CSS properties exposed: `font-style`, `text-align`, `text-decoration`.
+* Modernized defaults (new installs only — existing customers see no change):
+  - h1 / h2 / h3 / h4 / h5 / h6 → Newsreader 700-600 / 40-15 px / 1.1-1.5 lh
+  - menu → Inter 500 / 14px / 1.5 / 0.01em
+  - sub-menu → Inter 400 / 13px / 1.5
+  - body (`typography_option`) → Inter 400 / 17px / 1.65 (modern editorial baseline)
+  - site_title → Newsreader 700 / 40px / 1.1 / -0.01em
+  - site_tagline → Inter 400 / 14px / 1.5 / 0.01em
+
+**Site Loader — premium expansion**
+* 5 animation styles (Pulse / Wave / Bounce / Spinner / Dots) selectable per site.
+* Accessibility: `role="status"`, `aria-live="polite"`, full `prefers-reduced-motion` support.
+* 7 fields total in the new Site Loader section in General settings.
+
+**Site Skin design-token system + native dark mode**
+* New token taxonomy `--bx-color-*` covering surfaces, brand, links, headings, header, menu, buttons, footer, copyright. Customer-saved theme_mod values flow into tokens via `inc/Tokens/Component.php`.
+* Legacy aliases preserved (`--color-*`, `--global-*`, `--button-*`) for theme.json + 3rd-party CSS that hooked into 5.0.3 variable names. Aliases scheduled for removal in 5.3.0.
+* New "Color mode" customizer field (light / dark / auto). Auto follows OS preference; explicit light/dark force one mode for everyone. FOUC-prevention `<head>` script applies the visitor's saved choice via `localStorage` before any CSS loads.
+* Dark token set: framework-supplied premium defaults that pass WCAG AA contrast against dark surfaces. Per-color customizer override deferred to 5.2.1+.
+* 4 derived tokens always emitted regardless of master toggle: `--bx-color-fg-muted`, `--bx-color-border`, `--bx-color-divider`, `--bx-color-shadow`.
+* `--global-border-color` (218 legacy refs in plugin compat) now forwards to `var(--bx-color-border)` — dark mode auto-inherits without per-rule changes.
+* Stylesheet cleanup pass: 180 `var(--bx-color-*)` references across 27 built min.css files (foundation + BuddyPress + Platform + LearnDash + LearnPress + LifterLMS + WooCommerce + WC-Vendor + Dokan + MultiVendorX + FluentCart + EventsCalendar + WPJobManager + Youzify + AMP + bbPress). State / brand colors preserved (BP greens / blues / reds, LMS progress orange, vendor pastel chips, presence rainbow gradient, focus indicators, accent-bg badges).
+
+**Site Skin section UX overhaul**
+* 45 color fields organized into 9 navigable visual clusters (Mode & Master / Brand / Header / Surfaces / Text & Links / Headings / Buttons / Footer / Copyright) with Lucide-style inline SVG icon heads + 3 Header sub-cluster heads (Header surface / Site title / Menu).
+* `site_primary_color` promoted to its own "Brand" cluster.
+* `site_sub_header_typography[color]` relocated from old Body lump into Header (where it belongs).
+* All setting IDs unchanged — pure UX upgrade.
+
+**Theme.json palette helpers (block patterns)**
+* `.has-base-color` / `.has-contrast-color` / `.has-tertiary-color` now reference `var(--wp--preset--color--*)` so dark-mode palette overrides take effect on rendered blocks.
 
 **Verification**
-* Front-end inline CSS output identical to 5.0.3 (typography, colors, dimensions all emit via Output_Builder).
-* customize.php: 200 OK, zero PHP fatals/parse errors, all 94 settings register.
-* Pro args validation: all 12 custom controls accept Kirki-shape args without modification.
+* Front-end inline CSS output identical to 5.0.3 (typography, colors, dimensions emit via Output_Builder).
+* customize.php: 200 OK, zero PHP fatals / parse errors. 125 settings register (was 119; +6 are pure UI dividers added by Site Skin Phase 3).
+* All 12 custom controls accept Kirki-shape args without modification.
+* Light + dark mode chain verified on dev front-end (token resolution, framework + alias propagation, no console errors).
 
 = 5.0.3 =
 **Major UI refresh and pattern library overhaul.** This release repositions BuddyX as a general-purpose, editorial-grade WordPress theme with a designer pattern library.
