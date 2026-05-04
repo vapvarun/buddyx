@@ -36,10 +36,13 @@
 			}
 			const familyEl = root.querySelector('.buddyx-typo-family');
 			const weightEl = root.querySelector('.buddyx-typo-weight');
+			const styleEl = root.querySelector('.buddyx-typo-style');
 			const sizeEl = root.querySelector('.buddyx-typo-size');
 			const lhEl = root.querySelector('.buddyx-typo-line-height');
 			const lsEl = root.querySelector('.buddyx-typo-letter-spacing');
 			const ttEl = root.querySelector('.buddyx-typo-transform');
+			const alignEl = root.querySelector('.buddyx-typo-align');
+			const decorEl = root.querySelector('.buddyx-typo-decoration');
 
 			// Populate family + weight selects from params.
 			Object.entries(ctl.params.fontFamilies || {}).forEach(([slug, label]) => {
@@ -58,34 +61,51 @@
 				(settingVal && typeof settingVal === 'object' && !Array.isArray(settingVal)) ? settingVal : {}
 			);
 			const initial = merged;
-			const initialWeight = initial['font-weight'] || initial.variant || '400';
+			// Kirki legacy 'variant' may bake italic into the value (e.g. '700italic')
+			let rawVariant = String(initial['font-weight'] || initial.variant || '400').toLowerCase();
+			let initialStyle = initial['font-style'] || 'normal';
+			if (rawVariant.indexOf('italic') !== -1) {
+				initialStyle = 'italic';
+				rawVariant = rawVariant.replace('italic', '').trim() || '400';
+			}
+			const weightMap = { regular: '400', bold: '700', '': '400' };
+			const initialWeight = weightMap[rawVariant] || rawVariant;
+
 			familyEl.value = initial['font-family'] || familyEl.options[0]?.value || '';
-			weightEl.value = String(initialWeight) === 'regular' ? '400' : String(initialWeight) === 'bold' ? '700' : String(initialWeight);
+			weightEl.value = initialWeight;
+			if (styleEl) styleEl.value = initialStyle;
 			sizeEl.value = parseFloat(initial['font-size']) || 16;
 			lhEl.value = parseFloat(initial['line-height']) || 1.5;
 			lsEl.value = parseFloat(initial['letter-spacing']) || 0;
 			ttEl.value = initial['text-transform'] || 'none';
+			if (alignEl) alignEl.value = initial['text-align'] || '';
+			if (decorEl) decorEl.value = initial['text-decoration'] || '';
 			// Push the hydrated value back into the setting so saving without
 			// changes still emits a coherent shape (Kirki preserved this).
 			hidden.value = JSON.stringify(initial);
 
 			const sync = () => {
-				// Merge over the current setting so foreign sub-keys (e.g. [color],
-				// text-align, text-decoration that other sections may own) survive.
+				// Merge over the current setting so foreign sub-keys (e.g. [color])
+				// that other sections may own — survive untouched.
 				const current = ctl.setting.get();
 				const base = (current && typeof current === 'object' && !Array.isArray(current)) ? current : {};
 				const v = Object.assign({}, base, {
-					'font-family': familyEl.value,
-					'font-weight': weightEl.value,
-					'font-size': sizeEl.value + 'px',
-					'line-height': String(lhEl.value),
-					'letter-spacing': lsEl.value + 'em',
-					'text-transform': ttEl.value,
+					'font-family':     familyEl.value,
+					'font-weight':     weightEl.value,
+					'font-style':      styleEl ? styleEl.value : (base['font-style'] || 'normal'),
+					'font-size':       sizeEl.value + 'px',
+					'line-height':     String(lhEl.value),
+					'letter-spacing':  lsEl.value + 'em',
+					'text-transform':  ttEl.value,
+					'text-align':      alignEl ? alignEl.value : (base['text-align'] || ''),
+					'text-decoration': decorEl ? decorEl.value : (base['text-decoration'] || ''),
 				});
 				hidden.value = JSON.stringify(v);
 				ctl.setting.set(v);
 			};
-			[familyEl, weightEl, sizeEl, lhEl, lsEl, ttEl].forEach((el) => el.addEventListener('change', sync));
+			[familyEl, weightEl, styleEl, sizeEl, lhEl, lsEl, ttEl, alignEl, decorEl]
+				.filter(Boolean)
+				.forEach((el) => el.addEventListener('change', sync));
 		},
 	});
 

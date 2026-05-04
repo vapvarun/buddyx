@@ -72,6 +72,8 @@
 			'letter-spacing': 'letter-spacing',
 			'text-transform': 'text-transform',
 			'font-style': 'font-style',
+			'text-align': 'text-align',
+			'text-decoration': 'text-decoration',
 		};
 		let decls = '';
 		Object.entries(map).forEach(([k, p]) => {

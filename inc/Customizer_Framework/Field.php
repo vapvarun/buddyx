@@ -174,10 +174,26 @@ class Field {
 
 	/**
 	 * Coerce truthy values to 1, falsy to 0. Used for switch + checkbox.
-	 * Handles Kirki legacy values where bools were stored instead of ints.
+	 *
+	 * Accepts every shape Kirki produced + theme defaults:
+	 *   - '1', 1, true  → 1
+	 *   - 'on', 'yes', 'true', 'enable' → 1 (Kirki choices key, default values)
+	 *   - '0', 0, false, '', null, 'off', 'no', 'disable' → 0
+	 *
+	 * This catches a customer-data-loss bug where switches with default 'on'
+	 * (e.g. site_custom_colors, site_breadcrumbs, buddypress_avatar_style)
+	 * would silently flip OFF on save because the strict comparison missed
+	 * the 'on' string.
 	 */
 	public static function sanitize_bool_int( $value ): int {
-		return ( '1' === (string) $value || 1 === (int) $value || true === $value ) ? 1 : 0;
+		if ( is_bool( $value ) ) {
+			return $value ? 1 : 0;
+		}
+		if ( is_int( $value ) ) {
+			return $value ? 1 : 0;
+		}
+		$truthy = array( '1', 'on', 'yes', 'true', 'enable' );
+		return in_array( strtolower( (string) $value ), $truthy, true ) ? 1 : 0;
 	}
 
 	/**
@@ -211,6 +227,9 @@ class Field {
 			'letter-spacing',
 			'text-transform',
 			'font-style',
+			'text-align',
+			'text-decoration',
+			'color',
 		);
 		foreach ( $keys as $k ) {
 			if ( isset( $value[ $k ] ) ) {

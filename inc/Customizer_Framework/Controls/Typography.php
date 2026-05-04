@@ -64,6 +64,17 @@ class Typography extends \WP_Customize_Control {
 
 	/**
 	 * Render the control content.
+	 *
+	 * Layout: 5 logical rows, 9 inputs total. All paired-rows are 50/50 grid
+	 * so column inputs align perfectly. Labels are kept to one word/line to
+	 * prevent vertical drift between paired columns. Unit hints (px, em) live
+	 * on the input itself via inline `unit` decoration and step attribute.
+	 *
+	 *   1. Font family            (full)
+	 *   2. Weight | Style         (paired — italic/normal added)
+	 *   3. Size   | Line height   (paired)
+	 *   4. Letter | Transform     (paired)
+	 *   5. Align  | Decoration    (paired — both newly exposed)
 	 */
 	public function render_content() {
 		?>
@@ -75,35 +86,74 @@ class Typography extends \WP_Customize_Control {
 				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
 			<?php endif; ?>
 			<div class="buddyx-typography-controls" data-setting="<?php echo esc_attr( $this->setting ? $this->setting->id : '' ); ?>">
-				<label class="buddyx-typo-row">
+
+				<label class="buddyx-typo-row buddyx-typo-row--full">
 					<span><?php esc_html_e( 'Family', 'buddyx' ); ?></span>
 					<select class="buddyx-typo-family"></select>
 				</label>
-				<label class="buddyx-typo-row">
-					<span><?php esc_html_e( 'Weight', 'buddyx' ); ?></span>
-					<select class="buddyx-typo-weight"></select>
-				</label>
-				<label class="buddyx-typo-row">
-					<span><?php esc_html_e( 'Size (px)', 'buddyx' ); ?></span>
-					<input class="buddyx-typo-size" type="number" min="8" max="200" />
-				</label>
-				<label class="buddyx-typo-row">
-					<span><?php esc_html_e( 'Line height', 'buddyx' ); ?></span>
-					<input class="buddyx-typo-line-height" type="number" min="0.8" max="3" step="0.05" />
-				</label>
-				<label class="buddyx-typo-row">
-					<span><?php esc_html_e( 'Letter spacing (em)', 'buddyx' ); ?></span>
-					<input class="buddyx-typo-letter-spacing" type="number" min="-0.1" max="0.5" step="0.005" />
-				</label>
-				<label class="buddyx-typo-row">
-					<span><?php esc_html_e( 'Transform', 'buddyx' ); ?></span>
-					<select class="buddyx-typo-transform">
-						<option value="none">none</option>
-						<option value="uppercase">uppercase</option>
-						<option value="lowercase">lowercase</option>
-						<option value="capitalize">capitalize</option>
-					</select>
-				</label>
+
+				<div class="buddyx-typo-row-pair">
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Weight', 'buddyx' ); ?></span>
+						<select class="buddyx-typo-weight"></select>
+					</label>
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Style', 'buddyx' ); ?></span>
+						<select class="buddyx-typo-style">
+							<option value="normal"><?php esc_html_e( 'Normal', 'buddyx' ); ?></option>
+							<option value="italic"><?php esc_html_e( 'Italic', 'buddyx' ); ?></option>
+						</select>
+					</label>
+				</div>
+
+				<div class="buddyx-typo-row-pair">
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Size', 'buddyx' ); ?> <em class="buddyx-typo-unit">px</em></span>
+						<input class="buddyx-typo-size" type="number" min="8" max="200" step="1" />
+					</label>
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Line height', 'buddyx' ); ?></span>
+						<input class="buddyx-typo-line-height" type="number" min="0.8" max="3" step="0.05" />
+					</label>
+				</div>
+
+				<div class="buddyx-typo-row-pair">
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Letter', 'buddyx' ); ?> <em class="buddyx-typo-unit">em</em></span>
+						<input class="buddyx-typo-letter-spacing" type="number" min="-0.1" max="0.5" step="0.005" />
+					</label>
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Transform', 'buddyx' ); ?></span>
+						<select class="buddyx-typo-transform">
+							<option value="none"><?php esc_html_e( 'None', 'buddyx' ); ?></option>
+							<option value="uppercase"><?php esc_html_e( 'UPPER', 'buddyx' ); ?></option>
+							<option value="lowercase"><?php esc_html_e( 'lower', 'buddyx' ); ?></option>
+							<option value="capitalize"><?php esc_html_e( 'Capitalize', 'buddyx' ); ?></option>
+						</select>
+					</label>
+				</div>
+
+				<div class="buddyx-typo-row-pair">
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Align', 'buddyx' ); ?></span>
+						<select class="buddyx-typo-align">
+							<option value=""><?php esc_html_e( 'Inherit', 'buddyx' ); ?></option>
+							<option value="left"><?php esc_html_e( 'Left', 'buddyx' ); ?></option>
+							<option value="center"><?php esc_html_e( 'Center', 'buddyx' ); ?></option>
+							<option value="right"><?php esc_html_e( 'Right', 'buddyx' ); ?></option>
+							<option value="justify"><?php esc_html_e( 'Justify', 'buddyx' ); ?></option>
+						</select>
+					</label>
+					<label class="buddyx-typo-row">
+						<span><?php esc_html_e( 'Decoration', 'buddyx' ); ?></span>
+						<select class="buddyx-typo-decoration">
+							<option value=""><?php esc_html_e( 'None', 'buddyx' ); ?></option>
+							<option value="underline"><?php esc_html_e( 'Underline', 'buddyx' ); ?></option>
+							<option value="line-through"><?php esc_html_e( 'Strikethrough', 'buddyx' ); ?></option>
+							<option value="overline"><?php esc_html_e( 'Overline', 'buddyx' ); ?></option>
+						</select>
+					</label>
+				</div>
 			</div>
 			<input type="hidden" class="buddyx-typo-value" <?php $this->link(); ?> />
 		</fieldset>

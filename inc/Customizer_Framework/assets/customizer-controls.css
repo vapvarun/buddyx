@@ -4,11 +4,65 @@
  * Loaded on customize.php only via Component::enqueue_controls().
  */
 
-/* Typography control */
+/* Typography control — grouped layout (4 logical rows: family / weight+size / lh+ls / transform) */
 .buddyx-typography-controls {
 	display: grid;
-	gap: 8px;
-	margin-top: 8px;
+	gap: 12px;
+	margin-top: 10px;
+	padding: 12px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}
+.buddyx-typo-row-pair {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+.buddyx-typo-row--full {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.buddyx-typo-row > span {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	min-height: 16px;
+	font-size: 11px;
+	font-weight: 500;
+	color: #50575e;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+.buddyx-typo-row .buddyx-typo-unit {
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal;
+	color: #8c8f94;
+	text-transform: lowercase;
+	letter-spacing: 0;
+}
+.buddyx-typo-row select,
+.buddyx-typo-row input {
+	width: 100%;
+	height: 32px;
+	min-height: 32px;
+	box-sizing: border-box;
+	padding: 4px 8px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #ffffff;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+.buddyx-typo-row select:focus,
+.buddyx-typo-row input:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
 }
 
 /* Background composite control */
@@ -31,15 +85,11 @@
 	align-self: flex-start;
 	margin-top: 4px;
 }
+/* Default .buddyx-typo-row (when not paired) gets the same shape as --full */
 .buddyx-typo-row {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
-	font-size: 12px;
-}
-.buddyx-typo-row select,
-.buddyx-typo-row input {
-	padding: 4px 6px;
 }
 
 /* Radio_Image control */

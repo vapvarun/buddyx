@@ -112,13 +112,15 @@ class Output_Builder {
 		}
 
 		$key_map = array(
-			'font-family'    => 'font-family',
-			'font-size'      => 'font-size',
-			'line-height'    => 'line-height',
-			'letter-spacing' => 'letter-spacing',
-			'font-weight'    => 'font-weight',
-			'text-transform' => 'text-transform',
-			'font-style'     => 'font-style',
+			'font-family'     => 'font-family',
+			'font-size'       => 'font-size',
+			'line-height'     => 'line-height',
+			'letter-spacing'  => 'letter-spacing',
+			'font-weight'     => 'font-weight',
+			'text-transform'  => 'text-transform',
+			'font-style'      => 'font-style',
+			'text-align'      => 'text-align',
+			'text-decoration' => 'text-decoration',
 		);
 		foreach ( $key_map as $k => $css_prop ) {
 			if ( ! empty( $value[ $k ] ) ) {
