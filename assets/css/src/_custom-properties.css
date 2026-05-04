@@ -47,7 +47,10 @@
     --color-h4: #111111;
     --color-h5: #111111;
     --color-h6: #111111;
-    --global-border-color: #e8e8e8;
+    /* Legacy alias used by 218+ rules in plugin-compat stylesheets.
+       Phase 4d: forwards to --bx-color-border so legacy refs inherit
+       the dark-mode value automatically (no per-rule changes needed). */
+    --global-border-color: var(--bx-color-border, #e8e8e8);
     --button-text-color: #fff;
     --button-text-hover-color: #fff;
     --button-background-color: #ef5455;
