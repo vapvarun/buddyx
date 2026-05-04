@@ -61,12 +61,12 @@
 				},
 				{
 					"slug": "accent",
-					"color": "#EF5455",
+					"color": "#D83734",
 					"name": "Accent"
 				},
 				{
 					"slug": "accent-2",
-					"color": "#41848F",
+					"color": "#3A7882",
 					"name": "Accent 2"
 				},
 				{
@@ -164,7 +164,7 @@
 				{
 					"slug": "accent-bold",
 					"name": "Accent Bold",
-					"gradient": "linear-gradient(135deg, #EF5455 0%, #41848F 100%)"
+					"gradient": "linear-gradient(135deg, #D83734 0%, #3A7882 100%)"
 				},
 				{
 					"slug": "dark-velvet",
@@ -181,7 +181,7 @@
 				{
 					"slug": "warm",
 					"name": "Warm",
-					"colors": ["#FFF8F2", "#EF5455"]
+					"colors": ["#FFF8F2", "#D83734"]
 				}
 			]
 		},
