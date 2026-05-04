@@ -4,7 +4,7 @@ Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Co
 Requires at least: 4.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 5.0.2
+Stable tag: 5.0.3
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -97,6 +97,49 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.0.3 =
+**Major UI refresh and pattern library overhaul.** This release repositions BuddyX as a general-purpose, editorial-grade WordPress theme with a designer pattern library.
+
+**Breaking changes**
+* Removed pattern: `buddyx/hero-main` — pages using this pattern will lose the section. Replace with `buddyx/hero-typography-led`, `hero-split-screen`, or `hero-image-led`.
+* Removed pattern: `buddyx/hero-two` — replace with `hero-split-screen`.
+* Removed pattern: `buddyx/hero-count` — replace with `social-proof-stats`.
+* Removed pattern: `buddyx/general-banner` — replace with `cta-fullbleed` or restyled `general-banner-light`.
+* Removed pattern: `buddyx/general-features-light` — replaced by `features-alternating`.
+* Removed pattern: `buddyx/footer-default` — replaced by restyled `footer-default-mega`.
+* Pattern category taxonomy renamed: `buddyx-general` removed; new categories `buddyx-hero`, `buddyx-about`, `buddyx-features`, `buddyx-social-proof`, `buddyx-pricing-faq`, `buddyx-cta`, `buddyx-footer`, `buddyx-query`.
+
+**New — Pattern library (27 plug-and-play patterns, all WCAG AA verified)**
+* Hero: `hero-typography-led`, `hero-split-screen`, `hero-image-led`.
+* About: `about-story`, `about-founder`, `team-grid`.
+* Features: `features-alternating`, `services-grid`, `steps`, `cta-fullbleed`.
+* Social proof: `social-proof-stats`, `social-proof-testimonials`, `social-proof-logos`.
+* Pricing & FAQ: `general-pricing` (3-tier), `general-faq` (editorial accordion).
+* CTA: `general-banner-light` (asymmetric), `cta-newsletter`.
+* Footer: `footer-default-mega`, `footer-mega`, `footer-central`, `footer-simple`, `footer-small`.
+* Query (posts): `query-cover-featured`, `query-cover-grid`, `query-grid-excerpt`, `query-listbig`, `query-simple-list`.
+
+**New — Design system foundation**
+* Self-hosted **Inter** (4 weights) and **Newsreader** (3 weights) via theme.json `fontFamilies`. ~140 KB total, latin subset, woff2-only. No external font API calls.
+* Fluid 8-step type scale using `clamp()` (x-small → mega).
+* 10-step named spacing scale (`10`–`100`, ~8 px–160 px).
+* Semantic color tokens: `base`/`base-2`/`base-3`, `contrast`/`contrast-2`/`contrast-3`, `accent`/`accent-2`/`accent-3`, `surface-1`/`surface-2`/`surface-3`. WCAG AA verified `accent` (#D83734) and `accent-2` (#3A7882) on `base`.
+* 5 curated gradients (`subtle-base`, `warm-glow`, `cool-mist`, `accent-bold`, `dark-velvet`) and 2 duotones.
+* 7 block style variations: button (`outline-accent`, `link-arrow`), separator (`gradient`, `dotted`), group (`card`, `bordered`), quote (`editorial`).
+* Style variations: **Dark** (full palette flip) and **Editorial** (Newsreader-led typography).
+
+**New — Accessibility (P0)**
+* Visible keyboard focus rings via universal `:focus-visible` (2 px brand outline, offset 2 px) — WCAG 2.4.7 compliant. Mouse clicks remain ringless.
+* Converted 6 `:focus { outline: none }` rules to `:focus:not(:focus-visible)` so keyboard users always see focus.
+* Added missing `alt` attributes on 7 images (post-title-position previews, BuddyPress cover images, blog activity thumbnails).
+* Added `<label class="screen-reader-text">` and `aria-label` for TGM-PA bulk-select checkboxes.
+* Added `tabindex="-1"` alongside `aria-hidden="true"` on `.post-thumbnail` links so SR-hidden duplicates aren't keyboard-reachable.
+
+**Compatibility**
+* All 9 legacy color slugs (`primary`, `secondary`, `red`, `green`, `blue`, `yellow`, `black`, `grey`, `white`) remain registered for back-compat with existing user content.
+* Existing `larger` font-size slug (39 px) preserved; new fluid sizes are additive.
+* Theme.json schema bumped to v3.
 
 = 5.0.2 =
 * Fix: Theme disables pinch-to-zoom on mobile.
