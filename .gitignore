@@ -40,3 +40,14 @@ blob-report/
 
 # Block build output
 assets/blocks/*/build/
+
+# QA / dev artifacts (not for release)
+.qa-screenshots/
+.playwright-mcp/
+/model-home*.png
+/stats-after-fix.png
+/pricing-after-fix.png
+/footer-*.png
+/task*-*.png
+/a11y-focus-*.png
+/buddyx-release/
