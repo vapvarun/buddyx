@@ -16,7 +16,7 @@ return array(
   <!-- /wp:paragraph -->
 
   <!-- wp:heading {"textAlign":"center","level":1,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|mega","fontWeight":"700","lineHeight":"1.0","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}},"textColor":"base"} -->
-  <h1 class="wp-block-heading has-text-align-center has-newsreader-accent has-base-color has-text-color" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--mega);font-weight:700;line-height:1;letter-spacing:-0.03em">An <em>editorial</em> theme for serious work.</h1>
+  <h1 class="wp-block-heading has-text-align-center has-newsreader-accent has-base-color has-text-color" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--mega);font-weight:700;letter-spacing:-0.03em;line-height:1.0">An <em>editorial</em> theme for serious work.</h1>
   <!-- /wp:heading -->
 
   <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"contrast-2"} -->
