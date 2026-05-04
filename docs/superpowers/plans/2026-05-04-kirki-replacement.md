@@ -35,6 +35,15 @@ These four themes account for ~7M active installs combined and validate the arch
 - All assets self-contained in the theme.
 - Existing user theme mods (`get_theme_mod('site_layout')` etc.) keep returning the same values after the upgrade — same setting IDs.
 
+**No migration step required.** Kirki uses standard `WP_Customize_Setting` under the hood — values are stored directly in `wp_options.theme_mods_buddyx` keyed by setting ID. The new framework registers the same setting IDs with the same defaults, so `get_theme_mod()` continues returning the same values. Zero database writes, zero upgrade routine, zero data loss.
+
+Two minor read-time normalizations cover Kirki's quirks (no DB transform — handled in PHP on first read):
+
+1. **Typography `variant` → `font-weight`.** Older Kirki versions stored `variant` as the weight key. `Control_Typography::value_or_default()` normalizes on read so existing user values render correctly without rewrite. New saves use `font-weight` directly. Handled at Task 7.
+2. **Switch / Checkbox bool→int coercion.** Kirki occasionally stored `true`/`false` instead of `1`/`0`. The Switch/Checkbox sanitizer (Task 3 `sanitize_switch`, Task 11a sanitize_checkbox) coerces to int on first save; the JS handler treats both as truthy on read. No user-visible difference.
+
+Other field types (Color hex, Radio_Image slug, Dimension `'120px'` string, Slider `'120px'` string, Background object, Repeater JSON array, Sortable JSON array, Upload URL/ID) match Kirki's value format byte-for-byte. **No transform needed.**
+
 ---
 
 ## Current Kirki footprint (recon, ground truth)
