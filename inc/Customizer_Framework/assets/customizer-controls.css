@@ -1,0 +1,236 @@
+/**
+ * BuddyX Customizer Framework — control styles.
+ *
+ * Loaded on customize.php only via Component::enqueue_controls().
+ */
+
+/* Typography control */
+.buddyx-typography-controls {
+	display: grid;
+	gap: 8px;
+	margin-top: 8px;
+}
+.buddyx-typo-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 12px;
+}
+.buddyx-typo-row select,
+.buddyx-typo-row input {
+	padding: 4px 6px;
+}
+
+/* Radio_Image control */
+.buddyx-radio-image-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+	gap: 6px;
+	margin-top: 8px;
+}
+.buddyx-radio-image-option {
+	position: relative;
+	display: block;
+}
+.buddyx-radio-image-option input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.buddyx-radio-image-option img {
+	width: 100%;
+	height: auto;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: border-color 0.15s ease;
+}
+.buddyx-radio-image-option input:checked + img {
+	border-color: #2271b1;
+}
+.buddyx-radio-image-option input:focus-visible + img {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* Toggle / switch control */
+.buddyx-switch-label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+.buddyx-switch {
+	position: relative;
+	display: inline-block;
+	width: 36px;
+	height: 20px;
+	flex-shrink: 0;
+}
+.buddyx-switch-input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+.buddyx-switch-slider {
+	position: absolute;
+	inset: 0;
+	background: #ccc;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.buddyx-switch-slider::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+}
+.buddyx-switch-input:checked + .buddyx-switch-slider {
+	background: #2271b1;
+}
+.buddyx-switch-input:checked + .buddyx-switch-slider::before {
+	transform: translateX(16px);
+}
+.buddyx-switch-input:focus-visible + .buddyx-switch-slider {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* Dimension control */
+.buddyx-dimension-controls {
+	display: flex;
+	gap: 4px;
+	margin-top: 4px;
+}
+.buddyx-dimension-number {
+	width: 80px;
+}
+.buddyx-dimension-unit {
+	width: 70px;
+}
+
+/* Slider control */
+.buddyx-slider-controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 4px;
+}
+.buddyx-slider-range {
+	flex: 1;
+}
+.buddyx-slider-number {
+	width: 70px;
+}
+.buddyx-slider-unit {
+	color: #666;
+	font-size: 12px;
+}
+
+/* Radio_Buttonset control */
+.buddyx-buttonset {
+	display: flex;
+	gap: 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-top: 4px;
+}
+.buddyx-buttonset-option {
+	flex: 1;
+	position: relative;
+}
+.buddyx-buttonset-option input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.buddyx-buttonset-label {
+	display: block;
+	padding: 6px 10px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 12px;
+}
+.buddyx-buttonset-option input:checked + .buddyx-buttonset-label {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* Repeater control */
+.buddyx-repeater-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 8px 0;
+}
+.buddyx-repeater-row {
+	display: grid;
+	gap: 6px;
+	padding: 8px 32px 8px 8px;
+	background: #f6f6f6;
+	border-radius: 4px;
+	position: relative;
+}
+.buddyx-repeater-row label {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-size: 12px;
+}
+.buddyx-repeater-handle {
+	cursor: grab;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	user-select: none;
+}
+.buddyx-repeater-trash {
+	background: #fff;
+	border: 1px solid #d63638;
+	color: #d63638;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 11px;
+	cursor: pointer;
+	justify-self: end;
+}
+
+/* Sortable control */
+.buddyx-sortable-list {
+	list-style: none;
+	padding: 0;
+	margin: 8px 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.buddyx-sortable-list li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 8px;
+	background: #f6f6f6;
+	border-radius: 4px;
+}
+.buddyx-sortable-handle {
+	cursor: grab;
+	user-select: none;
+}
+
+/* Checkbox control — inline title alongside checkbox */
+.customize-control-title-inline {
+	display: inline-block;
+	margin-left: 6px;
+	vertical-align: middle;
+}
