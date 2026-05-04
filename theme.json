@@ -176,12 +176,18 @@
 				{
 					"slug": "base-contrast",
 					"name": "Base / Contrast",
-					"colors": ["#FFFFFF", "#1A1A1A"]
+					"colors": [
+						"#FFFFFF",
+						"#1A1A1A"
+					]
 				},
 				{
 					"slug": "warm",
 					"name": "Warm",
-					"colors": ["#FFF8F2", "#D83734"]
+					"colors": [
+						"#FFF8F2",
+						"#D83734"
+					]
 				}
 			]
 		},
@@ -199,26 +205,126 @@
 			]
 		},
 		"typography": {
+			"dropCap": false,
+			"fluid": true,
+			"defaultFontSizes": false,
 			"fontSizes": [
 				{
-					"size": "16px",
-					"name": "Small",
-					"slug": "small"
+					"slug": "x-small",
+					"size": "0.75rem",
+					"name": "Extra Small"
 				},
 				{
-					"size": "25px",
-					"name": "Medium",
-					"slug": "medium"
+					"slug": "small",
+					"size": "clamp(0.875rem, 0.75vw + 0.7rem, 1rem)",
+					"name": "Small"
 				},
 				{
-					"size": "31px",
-					"name": "Large",
-					"slug": "large"
+					"slug": "medium",
+					"size": "clamp(1rem, 0.4vw + 0.95rem, 1.125rem)",
+					"name": "Medium"
 				},
 				{
+					"slug": "large",
+					"size": "clamp(1.25rem, 1vw + 1.05rem, 1.5rem)",
+					"name": "Large"
+				},
+				{
+					"slug": "x-large",
+					"size": "clamp(1.875rem, 2vw + 1.5rem, 2.5rem)",
+					"name": "Extra Large"
+				},
+				{
+					"slug": "xx-large",
+					"size": "clamp(2.5rem, 3vw + 1.8rem, 3.75rem)",
+					"name": "Display"
+				},
+				{
+					"slug": "mega",
+					"size": "clamp(3.75rem, 6vw + 2rem, 6rem)",
+					"name": "Mega"
+				},
+				{
+					"slug": "larger",
 					"size": "39px",
-					"name": "Extra Large",
-					"slug": "larger"
+					"name": "Legacy Larger"
+				}
+			],
+			"fontFamilies": [
+				{
+					"slug": "inter",
+					"name": "Inter",
+					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/Inter-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/Inter-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/Inter-SemiBold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/Inter-Bold.woff2"
+							]
+						}
+					]
+				},
+				{
+					"slug": "newsreader",
+					"name": "Newsreader",
+					"fontFamily": "'Newsreader', Georgia, serif",
+					"fontFace": [
+						{
+							"fontFamily": "Newsreader",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/newsreader/Newsreader-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Newsreader",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"src": [
+								"file:./assets/fonts/newsreader/Newsreader-Italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Newsreader",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/newsreader/Newsreader-Medium.woff2"
+							]
+						}
+					]
+				},
+				{
+					"slug": "system",
+					"name": "System UI",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
 				}
 			]
 		},
@@ -228,6 +334,12 @@
 		}
 	},
 	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"fontWeight": "400",
+			"lineHeight": "1.6",
+			"fontSize": "var(--wp--preset--font-size--medium)"
+		},
 		"elements": {
 			"link": {
 				"typography": {
@@ -238,6 +350,32 @@
 				"typography": {
 					"fontSize": "var:preset|font-size|small",
 					"fontStyle": "italic"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontWeight": "700",
+					"lineHeight": "1.1",
+					"letterSpacing": "-0.02em",
+					"fontSize": "var(--wp--preset--font-size--xx-large)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontWeight": "700",
+					"lineHeight": "1.15",
+					"letterSpacing": "-0.015em",
+					"fontSize": "var(--wp--preset--font-size--x-large)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontWeight": "600",
+					"lineHeight": "1.2",
+					"fontSize": "var(--wp--preset--font-size--large)"
 				}
 			}
 		},
