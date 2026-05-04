@@ -10,13 +10,29 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-If you're looking for a theme for your community or membership website, BuddyX is the ideal choice. It offers a comprehensive solution for all types of communities. With BuddyPress & BuddyBoss Platform support, your website can feature member profiles, private messaging, group creation, and many other features.
+BuddyX is an editorial-grade WordPress theme with a designer-quality pattern library. Drop in any of 27 plug-and-play block patterns - hero sections, about, services, testimonials, pricing, FAQ, CTA banners, footers, post grids - and ship a polished site in an afternoon. Every pattern composes from core WordPress blocks only. No page builder, no plugin lock-in.
 
-BuddyX is an excellent choice for various website creation needs, including business, community, and blog sites. Its impressive lightweight and scalability features make the process effortless. This free theme is fully compatible with WooCommerce, enabling you to create a visually appealing and professional digital storefront. Additionally, it supports popular LMS plugins, such as LearnDash and TutorLMS, making it the ideal solution for all your website requirements.
+= A real design system, not a checklist =
 
-Our theme offers a wide range of premium plugins and is consistently updated and maintained by Wbcom Designs. Additionally, we provide dedicated support to all of our customers.
+* **Self-hosted typography.** Inter for body, Newsreader for editorial accents. Two weights of each, ~140 KB total, woff2 latin subset. No external font API, no GDPR concerns.
+* **Fluid type scale.** Eight named sizes (x-small → mega) using CSS clamp() so headings rebalance automatically from desktop down to 390px mobile.
+* **Semantic color tokens.** Twelve curated tokens - base, contrast, accent, surface - instead of a "pick from 24 swatches" picker. WCAG 2.1 AA verified for accent text on background.
+* **Ten-step spacing scale.** Named spacing presets (8px through 160px) so vertical rhythm stays coherent across patterns and pages.
+* **Two style variations.** Switch the entire site to a dark palette or a Newsreader-led editorial typography variant from the Site Editor with one click.
+* **Eight block style variations.** Outline-accent and link-arrow buttons, gradient and dotted separators, card and bordered groups, editorial blockquote, stacked-link list - design primitives the patterns reuse.
 
-Our platform boasts numerous impressive features, including WooCommerce compatibility, responsive design, RTL and translation support, expandability with premium add-ons, and regular updates. Our team is wholly committed to the continuous development and maintenance of the platform to guarantee its reliability and optimal functionality.
+= Hybrid FSE =
+
+Classic templates plus full theme.json design-token editing in Site Editor's Global Styles. Use the patterns inside post content today, edit theme tokens visually without touching code, and migrate to full block templates on your own schedule.
+
+= Built for serious work =
+
+* **Accessibility-audited.** WCAG 2.1 AA. Visible :focus-visible focus rings on every interactive element. Real label associations. No aria-hidden on focusable links. Keyboard parity verified at desktop and 390px mobile.
+* **BuddyPress, WooCommerce, LearnDash compatibility.** Use BuddyX as a community theme, an e-commerce theme, or an LMS theme - the patterns and tokens work across all three.
+* **Lightweight and responsive.** RTL- and translation-ready out of the box.
+* **Maintained.** Continuously developed, updated, and supported by Wbcom Designs.
+
+Looking for premium starter sites, a header/footer builder, and a 150+ option Customizer? See [BuddyX Pro](https://wbcomdesigns.com/downloads/buddyx-pro/).
 
 == BuddyX Child Theme ==
 
@@ -61,7 +77,7 @@ Source: https://fontawesome.com/
 
 scrollup v2.4.1
 Url: http://markgoodyear.com/labs/scrollup/
-Copyright (c) Mark Goodyear — @markgdyr — http://markgoodyear.com
+Copyright (c) Mark Goodyear - @markgdyr - http://markgoodyear.com
 License: MIT
 
 jQuery Superfish Menu Plugin - v1.7.10
@@ -102,15 +118,15 @@ Released under the MIT license
 **Major UI refresh and pattern library overhaul.** This release repositions BuddyX as a general-purpose, editorial-grade WordPress theme with a designer pattern library.
 
 **Breaking changes**
-* Removed pattern: `buddyx/hero-main` — pages using this pattern will lose the section. Replace with `buddyx/hero-typography-led`, `hero-split-screen`, or `hero-image-led`.
-* Removed pattern: `buddyx/hero-two` — replace with `hero-split-screen`.
-* Removed pattern: `buddyx/hero-count` — replace with `social-proof-stats`.
-* Removed pattern: `buddyx/general-banner` — replace with `cta-fullbleed` or restyled `general-banner-light`.
-* Removed pattern: `buddyx/general-features-light` — replaced by `features-alternating`.
-* Removed pattern: `buddyx/footer-default` — replaced by restyled `footer-default-mega`.
+* Removed pattern: `buddyx/hero-main` - pages using this pattern will lose the section. Replace with `buddyx/hero-typography-led`, `hero-split-screen`, or `hero-image-led`.
+* Removed pattern: `buddyx/hero-two` - replace with `hero-split-screen`.
+* Removed pattern: `buddyx/hero-count` - replace with `social-proof-stats`.
+* Removed pattern: `buddyx/general-banner` - replace with `cta-fullbleed` or restyled `general-banner-light`.
+* Removed pattern: `buddyx/general-features-light` - replaced by `features-alternating`.
+* Removed pattern: `buddyx/footer-default` - replaced by restyled `footer-default-mega`.
 * Pattern category taxonomy renamed: `buddyx-general` removed; new categories `buddyx-hero`, `buddyx-about`, `buddyx-features`, `buddyx-social-proof`, `buddyx-pricing-faq`, `buddyx-cta`, `buddyx-footer`, `buddyx-query`.
 
-**New — Pattern library (27 plug-and-play patterns, all WCAG AA verified)**
+**New - Pattern library (27 plug-and-play patterns, all WCAG AA verified)**
 * Hero: `hero-typography-led`, `hero-split-screen`, `hero-image-led`.
 * About: `about-story`, `about-founder`, `team-grid`.
 * Features: `features-alternating`, `services-grid`, `steps`, `cta-fullbleed`.
@@ -120,7 +136,7 @@ Released under the MIT license
 * Footer: `footer-default-mega`, `footer-mega`, `footer-central`, `footer-simple`, `footer-small`.
 * Query (posts): `query-cover-featured`, `query-cover-grid`, `query-grid-excerpt`, `query-listbig`, `query-simple-list`.
 
-**New — Design system foundation**
+**New - Design system foundation**
 * Self-hosted **Inter** (4 weights) and **Newsreader** (3 weights) via theme.json `fontFamilies`. ~140 KB total, latin subset, woff2-only. No external font API calls.
 * Fluid 8-step type scale using `clamp()` (x-small → mega).
 * 10-step named spacing scale (`10`–`100`, ~8 px–160 px).
@@ -129,8 +145,8 @@ Released under the MIT license
 * 7 block style variations: button (`outline-accent`, `link-arrow`), separator (`gradient`, `dotted`), group (`card`, `bordered`), quote (`editorial`).
 * Style variations: **Dark** (full palette flip) and **Editorial** (Newsreader-led typography).
 
-**New — Accessibility (P0)**
-* Visible keyboard focus rings via universal `:focus-visible` (2 px brand outline, offset 2 px) — WCAG 2.4.7 compliant. Mouse clicks remain ringless.
+**New - Accessibility (P0)**
+* Visible keyboard focus rings via universal `:focus-visible` (2 px brand outline, offset 2 px) - WCAG 2.4.7 compliant. Mouse clicks remain ringless.
 * Converted 6 `:focus { outline: none }` rules to `:focus:not(:focus-visible)` so keyboard users always see focus.
 * Added missing `alt` attributes on 7 images (post-title-position previews, BuddyPress cover images, blog activity thumbnails).
 * Added `<label class="screen-reader-text">` and `aria-label` for TGM-PA bulk-select checkboxes.
@@ -153,7 +169,7 @@ Released under the MIT license
 * Fix: Theme-check issues resolved.
 
 = 5.0.0 =
-* New: Polished styling for 65+ WordPress core blocks — every block now looks great out of the box.
+* New: Polished styling for 65+ WordPress core blocks - every block now looks great out of the box.
 * New: Refreshed default typography for a modern, readable look.
 * New: Full compatibility with WordPress 6.5+ Site Editor.
 * Enhancement: Improved gallery post slider design.
@@ -161,7 +177,7 @@ Released under the MIT license
 * Enhancement: Improved WooCommerce product page sidebar layout.
 * Enhancement: Smoother group creation steps interface.
 * Enhancement: Better blockquote styling with Elementor compatibility.
-* Enhancement: Improved BuddyBoss Platform compatibility — activity images, emoji picker, scheduled posts, and templates updated.
+* Enhancement: Improved BuddyBoss Platform compatibility - activity images, emoji picker, scheduled posts, and templates updated.
 * Fix: Post format option not showing on the Edit Post screen.
 * Fix: Full-width container template alignment issues.
 * Security: Fixed multiple security vulnerabilities including input sanitization and output escaping.

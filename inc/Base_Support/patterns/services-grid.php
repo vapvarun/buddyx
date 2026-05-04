@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Services — 3-up grid with editorial typography.
+ * Pattern: Services - 3-up grid with editorial typography.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Services — 3-up Grid', 'buddyx' ),
+	'title'      => __( 'Services - 3-up Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-features', 'services' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -25,7 +25,7 @@ return array(
       <!-- /wp:heading -->
 
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.6"}},"textColor":"contrast-2"} -->
-      <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.6">From the first sketch to the last shipped pixel — every project gets the same care.</p>
+      <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.6">From the first sketch to the last shipped pixel - every project gets the same care.</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
@@ -42,7 +42,7 @@ return array(
           <h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--20);font-size:var(--wp--preset--font-size--large);font-weight:600;line-height:1.3;letter-spacing:-0.01em">Brand identity</h3>
           <!-- /wp:heading -->
           <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.55"}},"textColor":"contrast-2"} -->
-          <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.55">Logo, type, color and voice — the system you build everything else on.</p>
+          <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.55">Logo, type, color and voice - the system you build everything else on.</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->

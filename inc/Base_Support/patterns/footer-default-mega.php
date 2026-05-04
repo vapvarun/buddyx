@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Footer — default mega 4-column with newsletter strip.
+ * Pattern: Footer - default mega 4-column with newsletter strip.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Footer — Default Mega', 'buddyx' ),
+	'title'      => __( 'Footer - Default Mega', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),
 	'content'    => '
 <!-- wp:group {"align":"full","backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->

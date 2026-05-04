@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Team — 4-up grid.
+ * Pattern: Team - 4-up grid.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Team — 4-up Grid', 'buddyx' ),
+	'title'      => __( 'Team - 4-up Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-about', 'team' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

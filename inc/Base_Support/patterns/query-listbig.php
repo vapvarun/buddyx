@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Query — horizontal list with split image+text.
+ * Pattern: Query - horizontal list with split image+text.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Posts — Horizontal List Split', 'buddyx' ),
+	'title'      => __( 'Posts - Horizontal List Split', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1100px"}} -->

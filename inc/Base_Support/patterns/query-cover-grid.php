@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Query — 3-column editorial grid with category labels.
+ * Pattern: Query - 3-column editorial grid with category labels.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Posts — 3-up Editorial Grid', 'buddyx' ),
+	'title'      => __( 'Posts - 3-up Editorial Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"1200px"}} -->

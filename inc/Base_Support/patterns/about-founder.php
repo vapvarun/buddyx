@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: About — founder spotlight with editorial pull-quote.
+ * Pattern: About - founder spotlight with editorial pull-quote.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'About — Founder Spotlight', 'buddyx' ),
+	'title'      => __( 'About - Founder Spotlight', 'buddyx' ),
 	'categories' => array( 'buddyx-about', 'about' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface-1","layout":{"type":"constrained","contentSize":"1100px"}} -->
@@ -30,7 +30,7 @@ return array(
       <!-- /wp:paragraph -->
 
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1.3","fontStyle":"italic","fontWeight":"500","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
-      <p style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--x-large);font-style:italic;font-weight:500;line-height:1.3">"I wanted a theme that respected typography the way magazines do — and accessibility the way the web should. Three years later, here we are."</p>
+      <p style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--x-large);font-style:italic;font-weight:500;line-height:1.3">"I wanted a theme that respected typography the way magazines do - and accessibility the way the web should. Three years later, here we are."</p>
       <!-- /wp:paragraph -->
 
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600","lineHeight":"1.3"},"spacing":{"margin":{"bottom":"0"}}}} -->

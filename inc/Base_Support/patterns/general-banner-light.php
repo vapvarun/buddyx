@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Banner light — asymmetric CTA strip on warm surface.
+ * Pattern: Banner light - asymmetric CTA strip on warm surface.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Banner — Light Asymmetric', 'buddyx' ),
+	'title'      => __( 'Banner - Light Asymmetric', 'buddyx' ),
 	'categories' => array( 'buddyx-cta', 'banner' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface-1","layout":{"type":"constrained","contentSize":"1100px"}} -->

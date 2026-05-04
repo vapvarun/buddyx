@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Query — recent posts grid (4 cards with featured image).
+ * Pattern: Query - recent posts grid (4 cards with featured image).
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Posts — 4-up Featured Cards', 'buddyx' ),
+	'title'      => __( 'Posts - 4-up Featured Cards', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

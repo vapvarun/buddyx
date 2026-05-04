@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Pricing — 3-tier with elevated middle column.
+ * Pattern: Pricing - 3-tier with elevated middle column.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Pricing — 3-tier Editorial', 'buddyx' ),
+	'title'      => __( 'Pricing - 3-tier Editorial', 'buddyx' ),
 	'categories' => array( 'buddyx-pricing-faq', 'featured' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

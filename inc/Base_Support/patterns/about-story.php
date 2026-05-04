@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: About — story / mission.
+ * Pattern: About - story / mission.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'About — Story', 'buddyx' ),
+	'title'      => __( 'About - Story', 'buddyx' ),
 	'categories' => array( 'buddyx-about', 'about' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1100px"}} -->
@@ -28,11 +28,11 @@ return array(
     <!-- wp:column {"verticalAlignment":"top","width":"62%"} -->
     <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:62%">
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.55"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}}} -->
-      <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:var(--wp--preset--font-size--large);line-height:1.55">We build WordPress themes for people who care about the words they put on the page. That sounds like a small thing until you compare a sentence set in Newsreader at 1.55 line-height to the same sentence set in Times at 1.2 — at which point it becomes the only thing.</p>
+      <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:var(--wp--preset--font-size--large);line-height:1.55">We build WordPress themes for people who care about the words they put on the page. That sounds like a small thing until you compare a sentence set in Newsreader at 1.55 line-height to the same sentence set in Times at 1.2 - at which point it becomes the only thing.</p>
       <!-- /wp:paragraph -->
 
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.65"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"textColor":"contrast-2"} -->
-      <p class="has-contrast-2-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--medium);line-height:1.65">We started in 2017 because every wp.org theme we tried was either a kitchen-sink page builder or a one-page checkbox. We wanted the third thing — a coherent system, with restraint.</p>
+      <p class="has-contrast-2-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--medium);line-height:1.65">We started in 2017 because every wp.org theme we tried was either a kitchen-sink page builder or a one-page checkbox. We wanted the third thing - a coherent system, with restraint.</p>
       <!-- /wp:paragraph -->
 
       <!-- wp:buttons -->

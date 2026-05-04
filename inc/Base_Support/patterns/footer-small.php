@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Footer — small / minimal copyright bar.
+ * Pattern: Footer - small / minimal copyright bar.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Footer — Minimal Bar', 'buddyx' ),
+	'title'      => __( 'Footer - Minimal Bar', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|base-3","width":"1px"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

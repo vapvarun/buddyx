@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Social proof — logo cloud (typographic placeholders).
+ * Pattern: Social proof - logo cloud (typographic placeholders).
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Logo Cloud — Trusted by', 'buddyx' ),
+	'title'      => __( 'Logo Cloud - Trusted by', 'buddyx' ),
 	'categories' => array( 'buddyx-social-proof', 'featured' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

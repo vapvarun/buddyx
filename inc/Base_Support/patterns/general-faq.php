@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: FAQ — editorial two-column with mixed-typography headline.
+ * Pattern: FAQ - editorial two-column with mixed-typography headline.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'FAQ — Editorial', 'buddyx' ),
+	'title'      => __( 'FAQ - Editorial', 'buddyx' ),
 	'categories' => array( 'buddyx-pricing-faq', 'text' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -46,21 +46,21 @@ return array(
       <!-- wp:details -->
       <details class="wp-block-details"><summary>What ships in the box?</summary>
       <!-- wp:paragraph -->
-      <p>Twenty-seven editorial-grade block patterns across hero, about, services, social proof, pricing, FAQ, CTA, footer and query — plus full Site Editor support, Inter and Newsreader self-hosted, light and dark style variations, and a ten-step spacing system.</p>
+      <p>Twenty-seven editorial-grade block patterns across hero, about, services, social proof, pricing, FAQ, CTA, footer and query - plus full Site Editor support, Inter and Newsreader self-hosted, light and dark style variations, and a ten-step spacing system.</p>
       <!-- /wp:paragraph --></details>
       <!-- /wp:details -->
 
       <!-- wp:details -->
       <details class="wp-block-details"><summary>Do I need a page builder?</summary>
       <!-- wp:paragraph -->
-      <p>No. Every pattern composes from core WordPress blocks — group, columns, cover, heading, paragraph, image, gallery, buttons, list. Drop a pattern in, edit the copy, ship.</p>
+      <p>No. Every pattern composes from core WordPress blocks - group, columns, cover, heading, paragraph, image, gallery, buttons, list. Drop a pattern in, edit the copy, ship.</p>
       <!-- /wp:paragraph --></details>
       <!-- /wp:details -->
 
       <!-- wp:details -->
       <details class="wp-block-details"><summary>Can I switch the typography?</summary>
       <!-- wp:paragraph -->
-      <p>Pick the Editorial style variation in Site Editor and the entire site flips to Newsreader serif headings. Or set any registered family in Global Styles. Inter and Newsreader are bundled — no Google Fonts API call.</p>
+      <p>Pick the Editorial style variation in Site Editor and the entire site flips to Newsreader serif headings. Or set any registered family in Global Styles. Inter and Newsreader are bundled - no Google Fonts API call.</p>
       <!-- /wp:paragraph --></details>
       <!-- /wp:details -->
 

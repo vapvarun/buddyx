@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Social proof — 3-up testimonials with Newsreader pull-quotes.
+ * Pattern: Social proof - 3-up testimonials with Newsreader pull-quotes.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Testimonials — Editorial 3-up', 'buddyx' ),
+	'title'      => __( 'Testimonials - Editorial 3-up', 'buddyx' ),
 	'categories' => array( 'buddyx-social-proof', 'testimonials' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -36,7 +36,7 @@ return array(
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.4","fontStyle":"normal","fontWeight":"500","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|40"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Replaced our $200/mo page builder. The patterns alone justified the switch — agency clients ask which Webflow site they\'re looking at."</p>
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Replaced our $200/mo page builder. The patterns alone justified the switch - agency clients ask which Webflow site they\'re looking at."</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600","lineHeight":"1.3"},"spacing":{"margin":{"bottom":"0"}}}} -->

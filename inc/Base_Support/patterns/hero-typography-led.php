@@ -1,18 +1,18 @@
 <?php
 /**
- * Pattern: Hero — typography-led, single-column.
+ * Pattern: Hero - typography-led, single-column.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Hero — Typography-led', 'buddyx' ),
+	'title'      => __( 'Hero - Typography-led', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"background":{"backgroundImage":{"url":""},"backgroundSize":"cover"}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"880px"}} -->
 <div class="wp-block-group alignfull has-base-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--90);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--90);padding-left:var(--wp--preset--spacing--40)">
 
   <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.18em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent"} -->
-  <p class="has-text-align-center has-accent-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">— Theme of the year, by you</p>
+  <p class="has-text-align-center has-accent-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">- Theme of the year, by you</p>
   <!-- /wp:paragraph -->
 
   <!-- wp:heading {"textAlign":"center","level":1,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|mega","fontWeight":"700","lineHeight":"1.0","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->

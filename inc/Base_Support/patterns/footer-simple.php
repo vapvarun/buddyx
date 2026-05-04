@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Footer — simple centered logo + nav + social row.
+ * Pattern: Footer - simple centered logo + nav + social row.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Footer — Simple Centered', 'buddyx' ),
+	'title'      => __( 'Footer - Simple Centered', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"880px"}} -->

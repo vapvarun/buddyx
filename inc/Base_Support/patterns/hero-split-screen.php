@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Hero — split-screen 5/7 (text left, image cover right).
+ * Pattern: Hero - split-screen 5/7 (text left, image cover right).
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Hero — Split Screen', 'buddyx' ),
+	'title'      => __( 'Hero - Split Screen', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

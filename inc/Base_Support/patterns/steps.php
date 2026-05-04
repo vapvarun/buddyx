@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Steps — numbered process row.
+ * Pattern: Steps - numbered process row.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Steps — Numbered Process', 'buddyx' ),
+	'title'      => __( 'Steps - Numbered Process', 'buddyx' ),
 	'categories' => array( 'buddyx-features', 'featured' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -54,7 +54,7 @@ return array(
       <h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--20);font-size:var(--wp--preset--font-size--large);font-weight:600;line-height:1.3;letter-spacing:-0.01em">Compose the system</h3>
       <!-- /wp:heading -->
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.55"}},"textColor":"contrast-2"} -->
-      <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.55">Type, color and pattern stack tuned in Site Editor — visible at every step.</p>
+      <p class="has-contrast-2-color has-text-color" style="font-size:var(--wp--preset--font-size--medium);line-height:1.55">Type, color and pattern stack tuned in Site Editor - visible at every step.</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->

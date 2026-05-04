@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Footer — central CTA + nav.
+ * Pattern: Footer - central CTA + nav.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Footer — Central CTA', 'buddyx' ),
+	'title'      => __( 'Footer - Central CTA', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),
 	'content'    => '
 <!-- wp:group {"align":"full","gradient":"warm-glow","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"880px"}} -->

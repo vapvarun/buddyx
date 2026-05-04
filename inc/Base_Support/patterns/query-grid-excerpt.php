@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Query — asymmetric 2-up (large hero + 4-stack).
+ * Pattern: Query - asymmetric 2-up (large hero + 4-stack).
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Posts — Asymmetric Hero + Stack', 'buddyx' ),
+	'title'      => __( 'Posts - Asymmetric Hero + Stack', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->

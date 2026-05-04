@@ -1,18 +1,18 @@
 <?php
 /**
- * Pattern: Hero — image-led full-bleed cover.
+ * Pattern: Hero - image-led full-bleed cover.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Hero — Image-led', 'buddyx' ),
+	'title'      => __( 'Hero - Image-led', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),
 	'content'    => '
 <!-- wp:group {"align":"full","gradient":"dark-velvet","style":{"spacing":{"padding":{"top":"var:preset|spacing|100","bottom":"var:preset|spacing|100","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"880px"}} -->
 <div class="wp-block-group alignfull has-dark-velvet-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--100);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--100);padding-left:var(--wp--preset--spacing--40)">
 
   <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.18em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent-3"} -->
-  <p class="has-text-align-center has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">— New in 5.0.3</p>
+  <p class="has-text-align-center has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">- New in 5.0.3</p>
   <!-- /wp:paragraph -->
 
   <!-- wp:heading {"textAlign":"center","level":1,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|mega","fontWeight":"700","lineHeight":"1.0","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}},"textColor":"base"} -->

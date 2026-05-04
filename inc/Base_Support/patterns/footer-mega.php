@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Footer — 5-column mega with newsletter pull.
+ * Pattern: Footer - 5-column mega with newsletter pull.
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Footer — Mega 5-column', 'buddyx' ),
+	'title'      => __( 'Footer - Mega 5-column', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),
 	'content'    => '
 <!-- wp:group {"align":"full","backgroundColor":"surface-3","textColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->

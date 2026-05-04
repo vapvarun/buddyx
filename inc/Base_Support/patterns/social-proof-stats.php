@@ -1,6 +1,6 @@
 <?php
 /**
- * Pattern: Social proof — stats row.
+ * Pattern: Social proof - stats row.
  *
  * @package buddyx
  */

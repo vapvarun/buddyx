@@ -1,11 +1,11 @@
 <?php
 /**
- * Pattern: Query — minimal date + title list (table-of-contents style).
+ * Pattern: Query - minimal date + title list (table-of-contents style).
  *
  * @package buddyx
  */
 return array(
-	'title'      => __( 'Posts — Minimal Date + Title List', 'buddyx' ),
+	'title'      => __( 'Posts - Minimal Date + Title List', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),
 	'content'    => '
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"720px"}} -->
