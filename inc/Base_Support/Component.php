@@ -208,62 +208,68 @@ class Component implements Component_Interface {
 	 */
 	public function buddyx_register_block_pattern_categories() {
 
-		register_block_pattern_category(
-			'buddyx-general',
-			array(
-				'label' => __( 'BuddyX General', 'buddyx' ),
-			)
+		$categories = array(
+			'buddyx-hero'         => __( 'BuddyX Hero', 'buddyx' ),
+			'buddyx-about'        => __( 'BuddyX About', 'buddyx' ),
+			'buddyx-features'     => __( 'BuddyX Features', 'buddyx' ),
+			'buddyx-social-proof' => __( 'BuddyX Social Proof', 'buddyx' ),
+			'buddyx-pricing-faq'  => __( 'BuddyX Pricing & FAQ', 'buddyx' ),
+			'buddyx-cta'          => __( 'BuddyX CTA', 'buddyx' ),
+			'buddyx-footer'       => __( 'BuddyX Footer', 'buddyx' ),
+			'buddyx-query'        => __( 'BuddyX Query', 'buddyx' ),
 		);
-
-		register_block_pattern_category(
-			'buddyx-hero',
-			array(
-				'label' => __( 'BuddyX Hero Sections', 'buddyx' ),
-			)
-		);
-
-		register_block_pattern_category(
-			'buddyx-footer',
-			array(
-				'label' => __( 'BuddyX Footer', 'buddyx' ),
-			)
-		);
-
-		register_block_pattern_category(
-			'buddyx-query',
-			array(
-				'label' => __( 'BuddyX Query', 'buddyx' ),
-			)
-		);
+		foreach ( $categories as $slug => $label ) {
+			register_block_pattern_category( $slug, array( 'label' => $label ) );
+		}
 
 		if ( function_exists( 'register_block_pattern' ) ) {
 			$block_patterns = array(
-				'footer-default',
+				// Hero.
+				'hero-typography-led',
+				'hero-split-screen',
+				'hero-image-led',
+				// About.
+				'about-story',
+				'about-founder',
+				// Features.
+				'features-alternating',
+				'services-grid',
+				'steps',
+				'cta-fullbleed',
+				// Social proof.
+				'social-proof-stats',
+				'social-proof-testimonials',
+				'social-proof-logos',
+				// Pricing & FAQ.
+				'general-pricing',
+				'general-faq',
+				// CTA.
+				'general-banner-light',
+				'cta-newsletter',
+				// Footer.
 				'footer-central',
 				'footer-default-mega',
 				'footer-mega',
 				'footer-simple',
 				'footer-small',
-				'general-banner',
-				'general-banner-light',
-				'general-faq',
-				'general-features-light',
-				'general-pricing',
-				'hero-main',
-				'hero-two',
-				'hero-count',
+				// Query.
 				'query-cover-featured',
 				'query-cover-grid',
 				'query-grid-excerpt',
 				'query-listbig',
 				'query-simple-list',
+				// Team (groups with about).
+				'team-grid',
 			);
 
 			foreach ( $block_patterns as $block_pattern ) {
-				register_block_pattern(
-					'buddyx/' . $block_pattern,
-					require __DIR__ . '/patterns/' . $block_pattern . '.php'
-				);
+				$pattern_file = __DIR__ . '/patterns/' . $block_pattern . '.php';
+				if ( file_exists( $pattern_file ) ) {
+					register_block_pattern(
+						'buddyx/' . $block_pattern,
+						require $pattern_file
+					);
+				}
 			}
 		}
 	}
