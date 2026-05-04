@@ -516,6 +516,16 @@ if __name__ == '__main__':
       at `tools/dump-customizer-inventory.py`) so future drift is visible
       in git diffs
 
+### Phase 3 (Site Skin UX overhaul) — no audit impact
+
+Phase 3 (`plans/2026-05-04-site-skin-phase-3-section-ux.md`) added 6 new
+`custom`-type Custom_HTML controls and reordered priorities inside
+`site_skin_section`. No existing audited field's setting ID, default,
+sanitize_callback, value shape, or section assignment changed — Pass 1
+through Pass 3 sub-checks 1-4 stay green. Inventory snapshot regenerated
+post-Phase-3 (45 → 51 fields in site_skin_section, total 119 → 125; the
++6 are pure UI dividers with no DB writes).
+
 5.1.0 cannot ship until every checkbox above is ticked. Anything
 inconclusive blocks release.
 

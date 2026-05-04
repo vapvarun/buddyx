@@ -1,6 +1,6 @@
 # Site Skin — Phase 3: Section UX Overhaul
 
-**Status:** Active in 5.1.0 (per stakeholder direction "nothing is deferred").
+**Status:** ✅ Shipped in 5.1.0 (2026-05-04).
 **Prerequisite:** Phase 1 (token system) ✅ + Phase 2 (color modes) ✅ already shipped.
 **Successor:** Phase 4 (stylesheet cleanup audit).
 
@@ -200,14 +200,35 @@ GPL-compatible per Lucide's license).
 
 ### D. Acceptance criteria
 
-- [ ] All 45 existing fields still register (no regression in `wp.customize.control()` count)
-- [ ] All 8 clusters render with the new header markup
-- [ ] Existing customer saved values display correctly (UI shows their
-      values, not new defaults)
-- [ ] Cluster headers are visually distinct from regular field rows
-- [ ] Sub-cluster dividers (inside Header) are visually subordinate
-- [ ] Live preview unaffected (no setting IDs changed)
-- [ ] Pass 1/2/3 from `plans/2026-05-04-customizer-options-audit.md` re-runs green
+- [x] All 45 existing fields still register (no regression in `wp.customize.control()` count) — verified via `dump-customizer-inventory.py` diff: site_skin_section grew 45 → 51 (the +6 are the new dividers; all 45 underlying value fields and IDs preserved)
+- [x] All 9 clusters render with the new header markup (Mode & Master / Brand / Header / Surfaces / Text & Links / Headings / Buttons / Footer / Copyright) — confirmed via `document.querySelectorAll('.bx-cluster-head')` returning 9 in correct DOM order, plus accessibility-tree snapshot showing all titles + captions + icons
+- [x] Existing customer saved values display correctly (no field IDs changed; sanitize_callbacks unchanged)
+- [x] Cluster headers are visually distinct from regular field rows (gradient bg, blue-tinted icon chip, 13px semibold title + 11px muted caption)
+- [x] Sub-cluster dividers (inside Header) are visually subordinate (11px uppercase tracked, dashed bottom border, no icon chip)
+- [x] Live preview unaffected (no setting IDs or value shapes changed)
+- [x] Pass 1/2/3 from `plans/2026-05-04-customizer-options-audit.md` re-runs green — Phase 3 changes only ADD `custom`-type Custom_HTML controls (no value semantics) and reorder priorities; no existing audited field changed type, default, sanitize_callback, or shape
+
+### Notes from execution
+
+- 6 existing `custom-*-divider` fields were repurposed (default markup
+  swapped from `<hr>` to the structured cluster-head div) rather than
+  renamed. Setting IDs preserved for backward-compat with any third-party
+  CSS that targeted `[data-customize-setting-link="custom-header-divider"]`.
+- 3 NEW cluster heads: `custom-mode-divider`, `custom-brand-divider`,
+  `custom-textlinks-divider`. 3 NEW Header sub-cluster heads:
+  `custom-header-surface-divider`, `custom-header-title-divider`,
+  `custom-header-menu-divider`. Total fields in `site_skin_section`:
+  45 → 51.
+- `Custom_HTML.php` wp_kses whitelist extended for inline SVG: `svg` +
+  `path` / `circle` / `line` / `polyline` / `polygon` / `rect` / `g`
+  with explicit attribute lists. SVG markup is restricted to the small
+  set of tags Lucide icons use; no script/onload/href injection vector.
+- `customizer-controls.css` got a `.bx-cluster-head` and `.bx-subcluster-head`
+  block plus a 640px breakpoint that hides the caption on narrow panels.
+- Mode & Master cluster head has NO `active_callback` — it's the parent
+  of the master toggle, so it must always render. Brand / Header /
+  Surfaces / Text & Links / Headings / Buttons / Footer / Copyright all
+  gate on `site_custom_colors == 1` (matching the fields they introduce).
 
 ### Out of scope for Phase 3
 
