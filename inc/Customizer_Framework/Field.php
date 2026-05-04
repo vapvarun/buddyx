@@ -1,0 +1,284 @@
+<?php
+/**
+ * BuddyX\Buddyx\Customizer_Framework\Field — type→control dispatcher.
+ *
+ * @package buddyx
+ */
+
+namespace BuddyX\Buddyx\Customizer_Framework;
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Field
+ *
+ * Maps each of 20 field type strings to a (setting class, control class,
+ * is_custom_control) triple. On register, instantiates the appropriate
+ * setting and control with normalized args.
+ *
+ * Public API:
+ *   Field::add( $type, $args ) — register a field for later instantiation
+ *
+ * Extensibility:
+ *   apply_filters( 'buddyx_customizer_field_type_map', $type_map )
+ *     lets BuddyX Pro / extensions register additional control types
+ *     or override existing ones via a single add_filter() call.
+ */
+class Field {
+
+	/**
+	 * type => [ setting class, control class, is_custom_control ]
+	 *
+	 * - setting class null = control supplies its own setting (e.g. Upload).
+	 * - is_custom_control true means we instantiate the class directly;
+	 *   false means we pass args to add_control() and let core build it.
+	 *
+	 * @var array<string, array{0:?string,1:string,2:bool}>
+	 */
+	protected static $type_map = array(
+		// 12 custom controls
+		'color'           => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Color',           true ),
+		'typography'      => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Typography',      true ),
+		'radio_image'     => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Radio_Image',     true ),
+		'switch'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Toggle',         true ),
+		'dimension'       => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Dimension',       true ),
+		'custom'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Custom_HTML',     true ),
+		'checkbox'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Checkbox',        true ),
+		'slider'          => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Slider',          true ),
+		'radio_buttonset' => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Radio_Buttonset', true ),
+		'repeater'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Repeater',        true ),
+		'upload'          => array( null,                     '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Upload',          true ),
+		'sortable'        => array( '\\WP_Customize_Setting', '\\BuddyX\\Buddyx\\Customizer_Framework\\Controls\\Sortable',        true ),
+		// 8 core dispatched types
+		'text'            => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'textarea'        => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'url'             => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'select'          => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'radio'           => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'dropdown-pages'  => array( '\\WP_Customize_Setting', '\\WP_Customize_Control',                  false ),
+		'image'           => array( '\\WP_Customize_Setting', '\\WP_Customize_Image_Control',            false ),
+		'background'      => array( '\\WP_Customize_Setting', '\\WP_Customize_Background_Image_Control', false ),
+	);
+
+	/**
+	 * Register a field for later instantiation on customize_register.
+	 *
+	 * @param string $type Field type string (one of the 20 supported keys).
+	 * @param array  $args Field args; must include 'settings' and 'section'.
+	 */
+	public static function add( string $type, array $args ): void {
+		Component::register_field( $type, $args );
+	}
+
+	/**
+	 * Add the underlying setting + control to the customizer manager.
+	 * Called from Component::register() during customize_register.
+	 *
+	 * @param \WP_Customize_Manager $wp_customize
+	 * @param array                 $args Field args (must include '_type').
+	 */
+	public static function register_with_manager( \WP_Customize_Manager $wp_customize, array $args ): void {
+		// Allow Pro / extensions to add or override control types.
+		$type_map = apply_filters( 'buddyx_customizer_field_type_map', self::$type_map );
+
+		$type = $args['_type'] ?? '';
+		if ( ! isset( $type_map[ $type ] ) ) {
+			return;
+		}
+		list( $setting_class, $control_class, $is_custom ) = $type_map[ $type ];
+
+		if ( empty( $args['settings'] ) ) {
+			return;
+		}
+		$setting_id  = $args['settings'];
+		$transport   = self::resolve_transport( $args );
+		$default     = $args['default'] ?? '';
+		$sanitize_cb = self::resolve_sanitize_callback( $type, $args );
+
+		// Some controls (e.g. Upload) ship their own setting class — skip add_setting.
+		if ( null !== $setting_class ) {
+			$wp_customize->add_setting( $setting_id, array(
+				'default'           => $default,
+				'transport'         => $transport,
+				'sanitize_callback' => $sanitize_cb,
+				'capability'        => $args['capability'] ?? 'edit_theme_options',
+			) );
+		}
+
+		$control_args = self::build_control_args( $type, $args );
+
+		if ( $is_custom ) {
+			self::require_control( $control_class );
+			$wp_customize->add_control( new $control_class( $wp_customize, $setting_id, $control_args ) );
+		} else {
+			$control_args['type'] = self::map_core_type( $type );
+			$wp_customize->add_control( $setting_id, $control_args );
+		}
+	}
+
+	/**
+	 * Resolve Kirki-style 'auto' transport to postMessage if output is provided,
+	 * else refresh. Pass-through for refresh/postMessage.
+	 */
+	protected static function resolve_transport( array $args ): string {
+		$t = $args['transport'] ?? 'refresh';
+		if ( 'auto' === $t ) {
+			return ! empty( $args['output'] ) ? 'postMessage' : 'refresh';
+		}
+		return in_array( $t, array( 'refresh', 'postMessage' ), true ) ? $t : 'refresh';
+	}
+
+	/**
+	 * Pick a sane sanitize callback by type, unless the consumer overrode it.
+	 */
+	protected static function resolve_sanitize_callback( string $type, array $args ): callable {
+		if ( isset( $args['sanitize_callback'] ) && is_callable( $args['sanitize_callback'] ) ) {
+			return $args['sanitize_callback'];
+		}
+		switch ( $type ) {
+			case 'color':
+				return 'sanitize_hex_color';
+			case 'url':
+				return 'esc_url_raw';
+			case 'textarea':
+				return 'sanitize_textarea_field';
+			case 'switch':
+			case 'checkbox':
+				return array( __CLASS__, 'sanitize_bool_int' );
+			case 'select':
+			case 'radio':
+			case 'radio_image':
+			case 'radio_buttonset':
+				return 'sanitize_key';
+			case 'image':
+			case 'background':
+			case 'upload':
+				return 'esc_url_raw';
+			case 'repeater':
+			case 'sortable':
+				return array( __CLASS__, 'sanitize_json_array' );
+			case 'typography':
+				return array( __CLASS__, 'sanitize_typography' );
+			case 'dimension':
+				return array( __CLASS__, 'sanitize_dimension' );
+			default:
+				return 'sanitize_text_field';
+		}
+	}
+
+	/**
+	 * Coerce truthy values to 1, falsy to 0. Used for switch + checkbox.
+	 * Handles Kirki legacy values where bools were stored instead of ints.
+	 */
+	public static function sanitize_bool_int( $value ): int {
+		return ( '1' === (string) $value || 1 === (int) $value || true === $value ) ? 1 : 0;
+	}
+
+	/**
+	 * Sanitize repeater/sortable JSON-or-array values to a JSON string.
+	 * Always emits a valid JSON array string.
+	 */
+	public static function sanitize_json_array( $value ): string {
+		if ( is_array( $value ) ) {
+			return wp_json_encode( $value );
+		}
+		$decoded = json_decode( (string) $value, true );
+		return is_array( $decoded ) ? wp_json_encode( $decoded ) : '[]';
+	}
+
+	/**
+	 * Sanitize a typography array. Whitelisted keys, plain text values.
+	 * Tolerant of Kirki legacy 'variant' key which is normalized at read time
+	 * by Output_Builder, not here.
+	 */
+	public static function sanitize_typography( $value ): array {
+		if ( ! is_array( $value ) ) {
+			return array();
+		}
+		$out  = array();
+		$keys = array(
+			'font-family',
+			'font-weight',
+			'variant',
+			'font-size',
+			'line-height',
+			'letter-spacing',
+			'text-transform',
+			'font-style',
+		);
+		foreach ( $keys as $k ) {
+			if ( isset( $value[ $k ] ) ) {
+				$out[ $k ] = sanitize_text_field( (string) $value[ $k ] );
+			}
+		}
+		return $out;
+	}
+
+	/**
+	 * Sanitize a dimension string like '120px' / '1.5rem'.
+	 * Allows numeric + (px|em|rem|%|vh|vw); falls back to '' on invalid.
+	 */
+	public static function sanitize_dimension( $value ): string {
+		$v = trim( (string) $value );
+		if ( '' === $v ) {
+			return '';
+		}
+		if ( preg_match( '/^-?\d+(\.\d+)?(px|em|rem|%|vh|vw)?$/i', $v ) ) {
+			return $v;
+		}
+		return '';
+	}
+
+	/**
+	 * Build the args array passed to add_control() / control constructor.
+	 * Strips Kirki-specific args we don't pass through; compiles array-form
+	 * active_callback to a closure.
+	 */
+	protected static function build_control_args( string $type, array $args ): array {
+		$out = array(
+			'label'       => $args['label']       ?? '',
+			'description' => $args['description'] ?? '',
+			'section'     => $args['section'],
+			'priority'    => $args['priority']    ?? 10,
+		);
+		foreach ( array( 'choices', 'tooltip', 'output', 'active_callback', 'input_attrs' ) as $k ) {
+			if ( array_key_exists( $k, $args ) ) {
+				$out[ $k ] = $args[ $k ];
+			}
+		}
+		// Compile array-form active_callback (Kirki shape) to a closure.
+		if ( isset( $out['active_callback'] ) && is_array( $out['active_callback'] ) ) {
+			require_once __DIR__ . '/Active_Callback.php';
+			$out['active_callback'] = Active_Callback::compile( $out['active_callback'] );
+		}
+		return $out;
+	}
+
+	/**
+	 * Map our string field type to a core WP_Customize_Control 'type' attr
+	 * for the core-dispatched types.
+	 */
+	protected static function map_core_type( string $type ): string {
+		$map = array(
+			'text'           => 'text',
+			'textarea'       => 'textarea',
+			'url'            => 'url',
+			'select'         => 'select',
+			'radio'          => 'radio',
+			'dropdown-pages' => 'dropdown-pages',
+		);
+		return $map[ $type ] ?? 'text';
+	}
+
+	/**
+	 * require_once the file housing a custom control class.
+	 * Class file follows PSR-4: short class name + .php (e.g. Color.php).
+	 */
+	protected static function require_control( string $class ): void {
+		$short = substr( $class, strrpos( $class, '\\' ) + 1 );
+		$file  = __DIR__ . '/Controls/' . $short . '.php';
+		if ( file_exists( $file ) ) {
+			require_once $file;
+		}
+	}
+}
