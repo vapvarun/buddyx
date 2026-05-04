@@ -1,0 +1,190 @@
+/*
+ * BuddyX token application layer
+ *
+ * Applies the --bx-color-* tokens (defined by inc/Tokens/Component.php) to
+ * the standard theme selectors. Loaded after global.css so it overrides
+ * any hardcoded values that pre-date the token system.
+ *
+ * This file should ONLY contain `var(--bx-color-X)` references. Hardcoded
+ * hex values are forbidden here. When you want to change a color globally,
+ * update the token in inc/Tokens/Component.php — never edit this file.
+ *
+ * The tokens swap to dark values when [data-bx-mode="dark"] is set on
+ * <html>, so this same file drives both light and dark modes.
+ */
+
+/* ----- Page surfaces ----- */
+html,
+body {
+	background-color: var(--bx-color-bg, #ffffff);
+	color: var(--bx-color-fg, #505050);
+}
+
+.site,
+.site-content,
+.site-main,
+main.site-main {
+	background-color: var(--bx-color-bg-page, var(--bx-color-bg, #ffffff));
+}
+
+/* Boxed-layout content frame */
+body.layout-boxed .site,
+body.layout-boxed-default .site {
+	background-color: var(--bx-color-bg-elevated, var(--bx-color-bg, #ffffff));
+}
+
+/* Article / card surfaces */
+.entry-content,
+.hentry,
+.post,
+.page,
+.comment-respond,
+.comments-area,
+.widget,
+.bp-feedback,
+.bp-list-feedback {
+	background-color: var(--bx-color-bg-elevated, transparent);
+	color: var(--bx-color-fg, inherit);
+}
+
+/* Sidebar surfaces */
+#secondary,
+.widget-area {
+	background-color: var(--bx-color-bg-muted, transparent);
+}
+
+/* ----- Header ----- */
+.site-header,
+.site-header-section {
+	background-color: var(--bx-color-header-bg, #ffffff);
+}
+
+.site-title,
+.site-title a,
+.site-title a:visited {
+	color: var(--bx-color-site-title, var(--bx-color-fg, #111111));
+}
+.site-title a:hover,
+.site-title a:focus {
+	color: var(--bx-color-site-title-hover, var(--bx-color-accent, #ef5455));
+}
+.site-description {
+	color: var(--bx-color-site-tagline, var(--bx-color-fg, #757575));
+}
+
+/* Primary nav */
+.main-navigation a,
+.main-navigation ul li a {
+	color: var(--bx-color-menu-fg, var(--bx-color-fg, #111111));
+}
+.main-navigation a:hover,
+.main-navigation li.current-menu-item > a,
+.main-navigation li.current_page_item > a {
+	color: var(--bx-color-menu-hover, var(--bx-color-accent, #ef5455));
+}
+
+/* ----- Sub-header ----- */
+.site-sub-header,
+.page-header {
+	color: var(--bx-color-subheader-fg, var(--bx-color-fg, inherit));
+}
+
+/* ----- Headings ----- */
+h1, .h1 { color: var(--bx-color-h1, var(--bx-color-fg, #111111)); }
+h2, .h2 { color: var(--bx-color-h2, var(--bx-color-fg, #111111)); }
+h3, .h3 { color: var(--bx-color-h3, var(--bx-color-fg, #111111)); }
+h4, .h4 { color: var(--bx-color-h4, var(--bx-color-fg, #111111)); }
+h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
+h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
+
+/* ----- Body links ----- */
+.entry-content a,
+.comment-content a,
+p a {
+	color: var(--bx-color-link, var(--bx-color-accent, #111111));
+}
+.entry-content a:hover,
+.entry-content a:focus,
+.comment-content a:hover,
+p a:hover {
+	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
+}
+
+/* ----- Buttons ----- */
+.button,
+button:not([class*="wp-"]):not([class*="customize-"]),
+input[type="button"],
+input[type="submit"],
+.wp-block-button__link {
+	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #ef5455));
+	color: var(--bx-color-button-fg, #ffffff);
+	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
+}
+.button:hover,
+button:not([class*="wp-"]):not([class*="customize-"]):hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.wp-block-button__link:hover {
+	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #ef5455));
+	color: var(--bx-color-button-fg-hover, #ffffff);
+	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #ef5455));
+}
+
+/* ----- Footer ----- */
+.site-footer,
+.site-footer-wrapper,
+.footer-widgets {
+	background-color: var(--bx-color-footer-bg, var(--bx-color-bg, #ffffff));
+	color: var(--bx-color-footer-fg, var(--bx-color-fg, #505050));
+}
+.site-footer .widget-title,
+.footer-widgets .widget-title {
+	color: var(--bx-color-footer-title, var(--bx-color-h2, #111111));
+}
+.site-footer a,
+.footer-widgets a {
+	color: var(--bx-color-footer-link, var(--bx-color-link, #111111));
+}
+.site-footer a:hover,
+.footer-widgets a:hover {
+	color: var(--bx-color-footer-link-hover, var(--bx-color-link-hover, #ef5455));
+}
+
+/* ----- Copyright ----- */
+.site-copyright,
+.copyright-section {
+	background-color: var(--bx-color-copyright-bg, var(--bx-color-footer-bg, #ffffff));
+	color: var(--bx-color-copyright-fg, var(--bx-color-footer-fg, #505050));
+	border-color: var(--bx-color-copyright-border, transparent);
+}
+.site-copyright a,
+.copyright-section a {
+	color: var(--bx-color-copyright-link, var(--bx-color-link, #111111));
+}
+.site-copyright a:hover,
+.copyright-section a:hover {
+	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #ef5455));
+}
+
+/* ----- Inputs / forms ----- */
+input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select {
+	background-color: var(--bx-color-bg-elevated, #ffffff);
+	color: var(--bx-color-fg, #111111);
+	border-color: var(--bx-color-copyright-border, #c3c4c7);
+	border-radius: var(--bx-radius-form, 4px);
+}
+
+/* ----- Borders / dividers ----- */
+hr {
+	border-color: var(--bx-color-copyright-border, #e8e8e8);
+}
+
+/* ----- Smoothing transition between modes ----- */
+html {
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+body, .site, .site-header, .site-footer {
+	transition: background-color 0.2s ease, color 0.2s ease;
+}

@@ -11,12 +11,35 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 * Site Skin
 		 */
+
+		// Color mode (light / dark / auto). New in 5.1.0. The dark token set
+		// is supplied by inc/Tokens/Component.php with WCAG AA defaults; an
+		// inline <head> bootstrap script applies the visitor's choice to
+		// <html data-bx-mode="..."> before render to prevent FOUC.
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_buttonset',
+			array(
+				'settings'    => 'site_color_mode',
+				'label'       => esc_html__( 'Color mode', 'buddyx' ),
+				'description' => esc_html__( 'Auto follows the visitor\'s OS preference. Light or Dark force one mode for everyone. Visitors can override via the front-end toggle if you add one.', 'buddyx' ),
+				'section'     => 'site_skin_section',
+				'default'     => 'light',
+				'priority'    => 5,
+				'choices'     => array(
+					'light' => esc_html__( 'Light', 'buddyx' ),
+					'dark'  => esc_html__( 'Dark', 'buddyx' ),
+					'auto'  => esc_html__( 'Auto', 'buddyx' ),
+				),
+				'transport'   => 'refresh',
+			)
+		);
+
 		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_custom_colors',
 				'label'    => esc_html__( 'Set Custom Colors?', 'buddyx' ),
 				'section'  => 'site_skin_section',
 				'default'  => 'on',
+				'priority' => 10,
 				'choices'  => array(
 					'on'  => esc_html__( 'Yes', 'buddyx' ),
 					'off' => esc_html__( 'No', 'buddyx' ),

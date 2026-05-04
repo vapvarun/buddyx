@@ -121,12 +121,101 @@ class Component implements Component_Interface {
 		'site_form_border_radius'   => array( 'token' => '--bx-radius-form',   'aliases' => array( '--form-border-radius' ) ),
 	);
 
+	/**
+	 * Dark-mode token overrides. Applied via [data-bx-mode="dark"] :root { ... }
+	 * and via @media (prefers-color-scheme: dark) for users in 'auto' mode.
+	 *
+	 * Values are framework-supplied premium defaults that pass WCAG AA contrast
+	 * against `--bx-color-bg` (#0a0a0a). Customer customizer-saved values are
+	 * LIGHT-mode values; dark mode uses these defaults. Per-color dark
+	 * overrides are deferred to 5.2.1+ when the customizer adds a dark
+	 * companion field per role.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $dark_defaults = array(
+		// Brand / accent — slightly brighter red for dark-bg contrast
+		'--bx-color-accent'           => '#ff6b6b',
+		'--bx-color-button-bg'        => '#ff6b6b',
+		'--bx-color-button-bg-hover'  => '#ff8989',
+		'--bx-color-button-fg'        => '#0a0a0a',
+		'--bx-color-button-fg-hover'  => '#0a0a0a',
+		'--bx-color-button-border'    => '#ff6b6b',
+		'--bx-color-button-border-hover' => '#ff8989',
+
+		// Surfaces — near-black with gentle elevation
+		'--bx-color-bg'          => '#0a0a0a',
+		'--bx-color-bg-page'     => '#0a0a0a',
+		'--bx-color-bg-elevated' => '#161616',
+		'--bx-color-bg-muted'    => '#101010',
+
+		// Text + links
+		'--bx-color-fg'         => '#f5f5f5',
+		'--bx-color-link'       => '#f5f5f5',
+		'--bx-color-link-hover' => '#ff6b6b',
+
+		// Header
+		'--bx-color-header-bg'        => '#0a0a0a',
+		'--bx-color-site-title'       => '#f5f5f5',
+		'--bx-color-site-title-hover' => '#ff6b6b',
+		'--bx-color-site-tagline'     => '#a0a0a0',
+
+		// Menu
+		'--bx-color-menu-fg'     => '#e5e5e5',
+		'--bx-color-menu-hover'  => '#ff6b6b',
+		'--bx-color-menu-active' => '#ff6b6b',
+		'--bx-color-subheader-fg' => '#f5f5f5',
+
+		// Loader
+		'--bx-color-loader-bg' => '#161616',
+
+		// Headings
+		'--bx-color-h1' => '#f5f5f5',
+		'--bx-color-h2' => '#f5f5f5',
+		'--bx-color-h3' => '#f5f5f5',
+		'--bx-color-h4' => '#f5f5f5',
+		'--bx-color-h5' => '#e5e5e5',
+		'--bx-color-h6' => '#e5e5e5',
+
+		// Footer
+		'--bx-color-footer-title'      => '#f5f5f5',
+		'--bx-color-footer-fg'         => '#a0a0a0',
+		'--bx-color-footer-link'       => '#e5e5e5',
+		'--bx-color-footer-link-hover' => '#ff6b6b',
+
+		// Copyright
+		'--bx-color-copyright-bg'         => '#0a0a0a',
+		'--bx-color-copyright-border'     => '#2a2a2a',
+		'--bx-color-copyright-fg'         => '#a0a0a0',
+		'--bx-color-copyright-link'       => '#e5e5e5',
+		'--bx-color-copyright-link-hover' => '#ff6b6b',
+
+		// theme.json palette overrides — block patterns reference these via
+		// .has-{slug}-background-color / .has-{slug}-color helpers, so we have
+		// to invert the base/contrast scales for dark mode to take effect on
+		// rendered blocks. Accent colors stay similar (slightly brighter for
+		// dark contrast).
+		'--wp--preset--color--base'      => '#0a0a0a',
+		'--wp--preset--color--base-2'    => '#161616',
+		'--wp--preset--color--base-3'    => '#1f1f1f',
+		'--wp--preset--color--contrast'  => '#f5f5f5',
+		'--wp--preset--color--contrast-2'=> '#d0d0d0',
+		'--wp--preset--color--contrast-3'=> '#a0a0a0',
+		'--wp--preset--color--surface-1' => '#1a1310',
+		'--wp--preset--color--surface-2' => '#101a1c',
+		'--wp--preset--color--surface-3' => '#0f1419',
+		'--wp--preset--color--primary'   => '#ff6b6b',
+	);
+
 	public function get_slug(): string {
 		return 'tokens';
 	}
 
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'emit_tokens' ), 20 );
+		// FOUC-prevention head script: sets <html data-bx-mode> before any
+		// CSS loads, so dark-mode users never see a light-mode flash.
+		add_action( 'wp_head', array( $this, 'emit_mode_script' ), 1 );
 	}
 
 	/**
@@ -209,12 +298,67 @@ class Component implements Component_Interface {
 		}
 
 		if ( '' === $decls ) {
-			return '';
+			$light_block = '';
+		} else {
+			$light_block = ':root{' . $decls . '}';
 		}
 
-		// Wrap in :root for the new tokens; legacy stylesheets that targeted
-		// `body` for the same vars still resolve because :root cascades down.
-		return ':root{' . $decls . '}';
+		// Build dark-mode override block. Two selectors share the same body:
+		//   :root[data-bx-mode="dark"]                 — explicit user choice
+		//   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
+		// Each dark-default token also overrides its legacy aliases so any
+		// third-party CSS hooked to `--color-theme-primary` etc. still picks
+		// up the dark value (otherwise legacy CSS would render light-mode
+		// colors on dark surfaces — a contrast failure).
+		$dark_decls       = '';
+		$alias_lookup     = array(); // token => array of aliases.
+		foreach ( self::$simple_color_tokens as $cfg ) {
+			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
+		}
+		foreach ( self::$typography_color_tokens as $cfg ) {
+			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
+		}
+		foreach ( self::$dark_defaults as $token => $value ) {
+			$dark_decls .= $token . ':' . $value . ';';
+			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
+				$dark_decls .= $alias . ':' . $value . ';';
+			}
+		}
+		$dark_block = '';
+		if ( '' !== $dark_decls ) {
+			$dark_block  = ':root[data-bx-mode="dark"]{' . $dark_decls . '}';
+			$dark_block .= '@media (prefers-color-scheme:dark){:root[data-bx-mode="auto"]{' . $dark_decls . '}}';
+		}
+
+		return $light_block . $dark_block;
+	}
+
+	/**
+	 * Emit a tiny inline script that sets <html data-bx-mode="..."> before any
+	 * CSS or paint happens — prevents a flash-of-light-mode on dark-mode pages.
+	 *
+	 * Reads from localStorage so the visitor's choice persists across pages,
+	 * falling back to the customizer-configured default (auto/light/dark).
+	 */
+	public function emit_mode_script() {
+		$default = (string) \get_theme_mod( 'site_color_mode', 'light' );
+		if ( ! in_array( $default, array( 'auto', 'light', 'dark' ), true ) ) {
+			$default = 'light';
+		}
+		?>
+		<script id="buddyx-color-mode-bootstrap">
+		(function(){
+			try {
+				var saved = localStorage.getItem('bx-color-mode');
+				var mode = saved || <?php echo \wp_json_encode( $default ); ?>;
+				if (mode !== 'auto' && mode !== 'light' && mode !== 'dark') mode = 'light';
+				document.documentElement.setAttribute('data-bx-mode', mode);
+			} catch (e) {
+				document.documentElement.setAttribute('data-bx-mode', <?php echo \wp_json_encode( $default ); ?>);
+			}
+		})();
+		</script>
+		<?php
 	}
 
 	/**
