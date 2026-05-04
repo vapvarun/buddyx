@@ -1,29 +1,39 @@
 <?php
 /**
- * Footer Small
+ * Pattern: Footer — small / minimal copyright bar.
  *
  * @package buddyx
  */
-
 return array(
-	'title'      => __( 'Small Footer', 'buddyx' ),
-	'categories' => array( 'buddyx-footer' ),
-	'blockTypes' => array( 'core/template-part/footer' ),
-	'content'    => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"20px","right":"0","bottom":"20px","left":"0"},"margin":{"top":"0","bottom":"0"}}},"className":"has-background-color","layout":{"type":"default"}} -->
-	<div class="wp-block-group has-background-color" style="margin-top:0;margin-bottom:0;padding-top:20px;padding-right:0;padding-bottom:20px;padding-left:0"><!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"},"fontSize":"small"} -->
-	<div class="wp-block-group alignfull has-small-font-size"><!-- wp:site-title {"style":{"layout":{"selfStretch":"fixed","flexSize":"25%"}},"fontSize":"small"} /-->
-	
-	<!-- wp:group {"style":{"layout":{"selfStretch":"fill","flexSize":null}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-	<div class="wp-block-group"><!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-	<p class="has-text-align-center has-small-font-size"> Powered by <a rel="nofollow" href="https://wbcomdesigns.com/downloads/buddyx-theme///">BuddyX WordPress Theme</a> </p>
-	<!-- /wp:paragraph --></div>
-	<!-- /wp:group -->
-	
-	<!-- wp:social-links {"size":"has-small-icon-size","style":{"spacing":{"blockGap":{"top":"0","left":"12px"}},"layout":{"selfStretch":"fixed","flexSize":"25%"}},"className":"is-style-logos-only","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
-	<ul class="wp-block-social-links has-small-icon-size is-style-logos-only"><!-- wp:social-link {"url":"#","service":"twitter"} /-->
-	
-	<!-- wp:social-link {"url":"#","service":"instagram"} /--></ul>
-	<!-- /wp:social-links --></div>
-	<!-- /wp:group --></div>
-	<!-- /wp:group -->',
+	'title'      => __( 'Footer — Minimal Bar', 'buddyx' ),
+	'categories' => array( 'buddyx-footer', 'footer' ),
+	'content'    => '
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|base-3","width":"1px"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group alignfull has-base-background-color has-background" style="border-top-color:var(--wp--preset--color--base-3);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
+
+  <!-- wp:columns {"align":"wide","verticalAlignment":"center","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|20","left":"var:preset|spacing|30"}}}} -->
+  <div class="wp-block-columns alignwide are-vertically-aligned-center">
+
+    <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+    <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-2"} -->
+      <p class="has-contrast-2-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small)"><strong>BuddyX</strong> · © 2026 · v5.0.3</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+    <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+      <!-- wp:paragraph {"align":"right","style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-3"} -->
+      <p class="has-text-align-right has-contrast-3-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small)"><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a> · <a href="#rss">RSS</a></p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+  </div>
+  <!-- /wp:columns -->
+
+</div>
+<!-- /wp:group -->
+',
 );

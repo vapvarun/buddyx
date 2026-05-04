@@ -1,43 +1,41 @@
 <?php
 /**
- * Footer Central
+ * Pattern: Footer — central CTA + nav.
  *
  * @package buddyx
  */
-
 return array(
-	'title'      => __( 'Central Footer with banner', 'buddyx' ),
-	'categories' => array( 'buddyx-footer' ),
-	'blockTypes' => array( 'core/template-part/footer' ),
-	'content'    => '<!-- wp:group {"metadata":{"categories":["buddyx-footer"],"patternName":"buddyx/footer-central","name":"Central Footer with banner"},"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}},"spacing":{"padding":{"top":"100px","bottom":"40px","left":"15px","right":"15px"},"margin":{"top":"0","bottom":"0"}},"border":{"top":{"color":"#cfcfcf45","width":"1px"}},"color":{"text":"#f0f0f0"}},"backgroundColor":"black","layout":{"inherit":true,"type":"constrained"}} -->
-    <div class="wp-block-group alignfull has-black-background-color has-text-color has-background has-link-color" style="border-top-color:#cfcfcf45;border-top-width:1px;color:#f0f0f0;margin-top:0;margin-bottom:0;padding-top:100px;padding-right:15px;padding-bottom:40px;padding-left:15px"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"margin":{"bottom":"20px"}},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"x-large"} -->
-    <h2 class="wp-block-heading has-text-align-center has-base-color has-text-color has-link-color has-x-large-font-size" id="let-s-do-this" style="margin-bottom:20px;font-style:normal;font-weight:600">Let\'s Do This</h2>
-    <!-- /wp:heading -->
+	'title'      => __( 'Footer — Central CTA', 'buddyx' ),
+	'categories' => array( 'buddyx-footer', 'footer' ),
+	'content'    => '
+<!-- wp:group {"align":"full","gradient":"warm-glow","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"880px"}} -->
+<div class="wp-block-group alignfull has-warm-glow-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
 
-    <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"18px"}}} -->
-    <p class="has-text-align-center" style="font-size:18px">Quisque aliquam nisl quis metus taylor feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing vestibulum vitae gravida non diam accumsan.</p>
-    <!-- /wp:paragraph -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.18em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent"} -->
+  <p class="has-text-align-center has-accent-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">Let\'s build something</p>
+  <!-- /wp:paragraph -->
 
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
-    <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-secondary-button"} -->
-    <div class="wp-block-button is-style-secondary-button"><a class="wp-block-button__link wp-element-button" href="#">Subscribe</a></div>
-    <!-- /wp:button --></div>
-    <!-- /wp:buttons -->
+  <!-- wp:heading {"textAlign":"center","level":2,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.02em"},"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|40"}}}} -->
+  <h2 class="wp-block-heading has-text-align-center has-newsreader-accent" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--x-large);font-weight:700;letter-spacing:-0.02em;line-height:1.1">A site you\'re <em>actually</em> proud of.</h2>
+  <!-- /wp:heading -->
 
-    <!-- wp:spacer {"height":"20px"} -->
-    <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-    <!-- /wp:spacer -->
+  <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+  <div class="wp-block-buttons">
+    <!-- wp:button {"backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"left":"var:preset|spacing|40","right":"var:preset|spacing|40","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}},"border":{"radius":"999px"}}} -->
+    <div class="wp-block-button"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="#start" style="border-radius:999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">Start your project</a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
 
-    <!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-    <p class="has-text-align-center has-small-font-size">© Your Company LLC · <a href="#">Contact Us</a></p>
-    <!-- /wp:paragraph --></div>
-    <!-- /wp:group -->
+  <!-- wp:separator {"className":"is-style-dotted","style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|30"}}}} -->
+  <hr class="wp-block-separator has-alpha-channel-opacity is-style-dotted" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--30)"/>
+  <!-- /wp:separator -->
 
-    <!-- wp:paragraph -->
-    <p></p>
-    <!-- /wp:paragraph -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-2"} -->
+  <p class="has-text-align-center has-contrast-2-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small)"><a href="#about">About</a> · <a href="#patterns">Patterns</a> · <a href="#docs">Docs</a> · <a href="#contact">Contact</a> · © 2026</p>
+  <!-- /wp:paragraph -->
 
-    <!-- wp:paragraph -->
-    <p></p>
-    <!-- /wp:paragraph -->',
+</div>
+<!-- /wp:group -->
+',
 );
