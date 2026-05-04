@@ -202,6 +202,25 @@
 				"rem",
 				"vh",
 				"vw"
+			],
+			"spacingScale": {
+				"operator": "*",
+				"increment": 1.5,
+				"steps": 0,
+				"mediumStep": 1.5,
+				"unit": "rem"
+			},
+			"spacingSizes": [
+				{ "slug": "10",  "size": "0.5rem",  "name": "1 (8px)" },
+				{ "slug": "20",  "size": "1rem",    "name": "2 (16px)" },
+				{ "slug": "30",  "size": "1.5rem",  "name": "3 (24px)" },
+				{ "slug": "40",  "size": "2rem",    "name": "4 (32px)" },
+				{ "slug": "50",  "size": "3rem",    "name": "5 (48px)" },
+				{ "slug": "60",  "size": "4rem",    "name": "6 (64px)" },
+				{ "slug": "70",  "size": "5rem",    "name": "7 (80px)" },
+				{ "slug": "80",  "size": "6rem",    "name": "8 (96px)" },
+				{ "slug": "90",  "size": "8rem",    "name": "9 (128px)" },
+				{ "slug": "100", "size": "10rem",   "name": "10 (160px)" }
 			]
 		},
 		"typography": {
@@ -329,7 +348,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "840px",
+			"contentSize": "720px",
 			"wideSize": "1200px"
 		}
 	},

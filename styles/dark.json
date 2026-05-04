@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Dark",
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "base",       "color": "#0F0F0F", "name": "Base" },
+        { "slug": "base-2",     "color": "#1A1A1A", "name": "Base 2" },
+        { "slug": "base-3",     "color": "#262626", "name": "Base 3" },
+        { "slug": "contrast",   "color": "#FAFAFA", "name": "Contrast" },
+        { "slug": "contrast-2", "color": "#D4D4D4", "name": "Contrast 2" },
+        { "slug": "contrast-3", "color": "#A3A3A3", "name": "Contrast 3" },
+        { "slug": "accent",     "color": "#F87171", "name": "Accent" },
+        { "slug": "accent-2",   "color": "#5EAEB8", "name": "Accent 2" },
+        { "slug": "accent-3",   "color": "#FACC15", "name": "Accent 3" },
+        { "slug": "surface-1",  "color": "#1F1A14", "name": "Surface Warm" },
+        { "slug": "surface-2",  "color": "#14191F", "name": "Surface Cool" },
+        { "slug": "surface-3",  "color": "#FFFFFF", "name": "Surface Dark" }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--base)",
+      "text": "var(--wp--preset--color--contrast)"
+    }
+  }
+}

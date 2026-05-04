@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Editorial",
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--newsreader)"
+    },
+    "elements": {
+      "h1": { "typography": { "fontFamily": "var(--wp--preset--font-family--newsreader)", "fontStyle": "normal", "fontWeight": "500" } },
+      "h2": { "typography": { "fontFamily": "var(--wp--preset--font-family--newsreader)", "fontWeight": "500" } }
+    }
+  }
+}
