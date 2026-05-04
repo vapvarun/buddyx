@@ -30,59 +30,158 @@
 		"color": {
 			"palette": [
 				{
+					"slug": "base",
+					"color": "#FFFFFF",
+					"name": "Base"
+				},
+				{
+					"slug": "base-2",
+					"color": "#FAFAFA",
+					"name": "Base 2"
+				},
+				{
+					"slug": "base-3",
+					"color": "#F4F4F4",
+					"name": "Base 3"
+				},
+				{
+					"slug": "contrast",
+					"color": "#1A1A1A",
+					"name": "Contrast"
+				},
+				{
+					"slug": "contrast-2",
+					"color": "#3D3D3D",
+					"name": "Contrast 2"
+				},
+				{
+					"slug": "contrast-3",
+					"color": "#6E6E6E",
+					"name": "Contrast 3"
+				},
+				{
+					"slug": "accent",
+					"color": "#EF5455",
+					"name": "Accent"
+				},
+				{
+					"slug": "accent-2",
+					"color": "#41848F",
+					"name": "Accent 2"
+				},
+				{
+					"slug": "accent-3",
+					"color": "#F4D35E",
+					"name": "Accent 3"
+				},
+				{
+					"slug": "surface-1",
+					"color": "#FFF8F2",
+					"name": "Surface Warm"
+				},
+				{
+					"slug": "surface-2",
+					"color": "#F2F7F8",
+					"name": "Surface Cool"
+				},
+				{
+					"slug": "surface-3",
+					"color": "#1F2937",
+					"name": "Surface Dark"
+				},
+				{
+					"slug": "primary",
 					"color": "#ef5455",
-					"name": "Primary",
-					"slug": "primary"
+					"name": "Primary"
 				},
 				{
+					"slug": "secondary",
 					"color": "#41848f",
-					"name": "Secondary",
-					"slug": "secondary"
+					"name": "Secondary"
 				},
 				{
+					"slug": "red",
 					"color": "#c0392b",
-					"name": "Red",
-					"slug": "red"
+					"name": "Red"
 				},
 				{
+					"slug": "green",
 					"color": "#27ae60",
-					"name": "Green",
-					"slug": "green"
+					"name": "Green"
 				},
 				{
+					"slug": "blue",
 					"color": "#2980b9",
-					"name": "Blue",
-					"slug": "blue"
+					"name": "Blue"
 				},
 				{
+					"slug": "yellow",
 					"color": "#f1c40f",
-					"name": "Yellow",
-					"slug": "yellow"
+					"name": "Yellow"
 				},
 				{
+					"slug": "black",
 					"color": "#1c2833",
-					"name": "Black",
-					"slug": "black"
+					"name": "Black"
 				},
 				{
+					"slug": "grey",
 					"color": "#95a5a6",
-					"name": "Grey",
-					"slug": "grey"
+					"name": "Grey"
 				},
 				{
+					"slug": "white",
 					"color": "#ecf0f1",
-					"name": "White",
-					"slug": "white"
+					"name": "White"
 				},
 				{
+					"slug": "custom-daylight",
 					"color": "#97c0b7",
-					"name": "Dusty Daylight",
-					"slug": "custom-daylight"
+					"name": "Dusty Daylight"
 				},
 				{
+					"slug": "custom-sun",
 					"color": "#eee9d1",
-					"name": "Dusty Sun",
-					"slug": "custom-sun"
+					"name": "Dusty Sun"
+				}
+			],
+			"gradients": [
+				{
+					"slug": "subtle-base",
+					"name": "Subtle Base",
+					"gradient": "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)"
+				},
+				{
+					"slug": "warm-glow",
+					"name": "Warm Glow",
+					"gradient": "linear-gradient(135deg, #FFF8F2 0%, #F4D35E 100%)"
+				},
+				{
+					"slug": "cool-mist",
+					"name": "Cool Mist",
+					"gradient": "linear-gradient(135deg, #F2F7F8 0%, #97C0B7 100%)"
+				},
+				{
+					"slug": "accent-bold",
+					"name": "Accent Bold",
+					"gradient": "linear-gradient(135deg, #EF5455 0%, #41848F 100%)"
+				},
+				{
+					"slug": "dark-velvet",
+					"name": "Dark Velvet",
+					"gradient": "linear-gradient(135deg, #1F2937 0%, #1A1A1A 100%)"
+				}
+			],
+			"duotone": [
+				{
+					"slug": "base-contrast",
+					"name": "Base / Contrast",
+					"colors": ["#FFFFFF", "#1A1A1A"]
+				},
+				{
+					"slug": "warm",
+					"name": "Warm",
+					"colors": ["#FFF8F2", "#EF5455"]
 				}
 			]
 		},
