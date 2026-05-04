@@ -110,6 +110,14 @@
 	.wp-block-group.is-style-bordered { padding: var(--wp--preset--spacing--30); }
 }
 
+/* Pattern utility: Newsreader italic accent inside Inter headings */
+.has-newsreader-accent em,
+.has-newsreader-accent i {
+	font-family: var(--wp--preset--font-family--newsreader);
+	font-weight: 400;
+	font-style: italic;
+}
+
 /* Pattern utility: editorial FAQ stack — top-rule + breathing room between details */
 .buddyx-faq-stack .wp-block-details {
 	border-top: 1px solid var(--wp--preset--color--base-3);
