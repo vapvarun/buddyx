@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'About - Story', 'buddyx' ),
 	'categories' => array( 'buddyx-about', 'about' ),

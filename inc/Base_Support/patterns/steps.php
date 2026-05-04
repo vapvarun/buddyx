@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Steps - Numbered Process', 'buddyx' ),
 	'categories' => array( 'buddyx-features', 'featured' ),

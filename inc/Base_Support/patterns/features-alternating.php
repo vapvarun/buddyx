@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Features - Alternating Rows', 'buddyx' ),
 	'categories' => array( 'buddyx-features', 'featured' ),

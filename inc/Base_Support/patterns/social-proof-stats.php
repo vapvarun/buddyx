@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Stats Row', 'buddyx' ),
 	'categories' => array( 'buddyx-social-proof', 'featured' ),

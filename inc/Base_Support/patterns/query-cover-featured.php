@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Posts - 4-up Featured Cards', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),

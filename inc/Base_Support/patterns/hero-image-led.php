@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Hero - Image-led', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),

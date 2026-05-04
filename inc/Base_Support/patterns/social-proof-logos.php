@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Logo Cloud - Trusted by', 'buddyx' ),
 	'categories' => array( 'buddyx-social-proof', 'featured' ),

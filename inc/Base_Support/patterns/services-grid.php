@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Services - 3-up Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-features', 'services' ),

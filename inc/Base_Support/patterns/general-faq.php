@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'FAQ - Editorial', 'buddyx' ),
 	'categories' => array( 'buddyx-pricing-faq', 'text' ),

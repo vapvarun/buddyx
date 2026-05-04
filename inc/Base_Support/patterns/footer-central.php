@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Footer - Central CTA', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),

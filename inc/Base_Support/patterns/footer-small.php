@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Footer - Minimal Bar', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),

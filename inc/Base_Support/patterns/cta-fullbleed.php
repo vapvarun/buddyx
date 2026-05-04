@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'CTA - Full-bleed Gradient', 'buddyx' ),
 	'categories' => array( 'buddyx-cta', 'call-to-action' ),

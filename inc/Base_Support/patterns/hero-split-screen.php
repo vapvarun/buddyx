@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Hero - Split Screen', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),

@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Posts - Minimal Date + Title List', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),

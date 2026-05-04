@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Team - 4-up Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-about', 'team' ),

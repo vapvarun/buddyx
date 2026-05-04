@@ -1,7 +1,6 @@
 # Site Skin — Design Tokens + Color Modes
 
-**Status:** Strategic 5.2.0 initiative. 5.1.0 ships with the existing
-`Dynamic_Style` CSS-variable mapping intact (parity-only Kirki replacement).
+**Status:** ✅ Phases 1-4 shipped in 5.1.0 (commits `de462cc` Phase 1 / `7b80948` Phase 2 / `43f9a00` Phase 3 / `9ead513` 4a + `d226855` 4b + `a2eb088` 4c + `8640fa2` 4d, all 2026-05-04). Stakeholder direction "nothing is deferred" pulled the entire initiative from 5.2.0 into 5.1.0. Phase 5 (BuddyX Pro audit + alignment) remains in the 5.2.x backlog.
 **Stakeholder ask:** "Site Skin — we have to improve it, and we have to 100%
 token ready so we can add color mode support" — user, 2026-05-04.
 
@@ -314,32 +313,32 @@ Total: ~2 weeks of focused work.
 
 ---
 
-## Tracking checklist (to be ticked as 5.2.0 work begins)
+## Tracking checklist (5.1.0 — phases 1-4 ✅ shipped)
 
-### Phase 1 — Tokens
-- [ ] `inc/Tokens/Component.php` defines 16-role taxonomy + light defaults
-- [ ] Update `Dynamic_Style/Component.php` to emit `--bx-color-*` plus aliases
-- [ ] `docs/buddyx-design-tokens.md` written
-- [ ] `theme.json` `styles.color` block uses var() exclusively
+### Phase 1 — Tokens ✅
+- [x] `inc/Tokens/Component.php` defines token taxonomy + light defaults (4 framework + 8 simple-color groups + 11 typography color sub-keys + 3 dimension)
+- [x] `Tokens::emit_tokens()` emits `--bx-color-*` plus aliases (replaces 5.0.3 Dynamic_Style emission)
+- [x] `docs/buddyx-design-tokens.md` written
+- [x] `theme.json` `styles.color` block uses var() / preset color references
 
-### Phase 2 — Modes
-- [ ] `site_color_mode` field with auto/light/dark choices
-- [ ] Inline FOUC script in `<head>`
-- [ ] Dark token set in `inc/Tokens/Component.php`
-- [ ] `assets/css/dark-mode.css` refactored to token overrides
-- [ ] Optional: front-end toggle component
+### Phase 2 — Modes ✅
+- [x] `site_color_mode` field with auto/light/dark choices in Site Skin section
+- [x] Inline FOUC `<head>` script reads localStorage + customizer default
+- [x] Dark token set in `inc/Tokens/Component.php` `$dark_defaults`
+- [x] `bx-tokens-applied.css` maps tokens to standard theme selectors
+- [ ] Optional front-end toggle component — deferred to 5.2.x (theme uses bootstrap script + JS API only; no built-in UI toggle yet)
 
-### Phase 3 — Site Skin UX
-- [ ] Field reorder under cluster headers
-- [ ] New cluster header markup via Custom_HTML
-- [ ] Inventory snapshot regenerated post-changes
+### Phase 3 — Site Skin UX ✅
+- [x] Field reorder under 9 cluster heads (commit `43f9a00`)
+- [x] New cluster header markup via Custom_HTML with Lucide-style SVG icons
+- [x] Inventory snapshot regenerated (45 → 51 fields in site_skin_section)
 
-### Phase 4 — Stylesheet cleanup
-- [ ] All .css files audited for hardcoded hex
-- [ ] Contrast check at AA in both modes
-- [ ] Cross-browser verification (Safari/Chrome/Firefox)
+### Phase 4 — Stylesheet cleanup ✅
+- [x] All .css files audited for hardcoded hex; 180 token refs across 27 stylesheets (commits `9ead513` / `d226855` / `a2eb088` / `8640fa2`)
+- [ ] Contrast AA check in both modes — verified on home page; full audit deferred to staging with the plugin matrix
+- [ ] Cross-browser verification (Safari/Chrome/Firefox) — deferred to staging
 
-### Phase 5 — Pro
+### Phase 5 — Pro (5.2.x backlog)
 - [ ] Pro customizer additions audited
 - [ ] Pro stylesheets aligned
 - [ ] Pro docs updated

@@ -1,6 +1,6 @@
 # Site Skin — Phase 4: Stylesheet Cleanup Audit
 
-**Status:** Active in 5.1.0 (per stakeholder direction "nothing is deferred").
+**Status:** ✅ Shipped in 5.1.0 (commits `9ead513` 4a / `d226855` 4b / `a2eb088` 4c / `8640fa2` 4d, all 2026-05-04).
 **Prerequisites:** Phases 1-3 of Site Skin tokens initiative shipped.
 **Goal:** Replace hardcoded hex / rgba color values across the theme's
 stylesheets with `var(--bx-color-*)` references, so dark mode (and any

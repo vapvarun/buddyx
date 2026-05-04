@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Posts - Asymmetric Hero + Stack', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),

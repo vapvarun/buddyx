@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Testimonials - Editorial 3-up', 'buddyx' ),
 	'categories' => array( 'buddyx-social-proof', 'testimonials' ),

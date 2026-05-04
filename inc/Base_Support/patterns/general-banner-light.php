@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Banner - Light Asymmetric', 'buddyx' ),
 	'categories' => array( 'buddyx-cta', 'banner' ),

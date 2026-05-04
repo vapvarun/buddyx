@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Posts - Horizontal List Split', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),

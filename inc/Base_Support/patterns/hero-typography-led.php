@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Hero - Typography-led', 'buddyx' ),
 	'categories' => array( 'buddyx-hero', 'header' ),

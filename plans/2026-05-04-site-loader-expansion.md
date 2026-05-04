@@ -1,6 +1,6 @@
 # Site Loader — Premium UX Expansion
 
-**Status:** Deferred to 5.2.0 (5.1.0 ships parity-only, no UX changes).
+**Status:** ✅ Shipped in 5.1.0 (commit `5ccedf1`, 2026-05-04). Stakeholder direction "nothing is deferred" pulled this from 5.2.0 into 5.1.0.
 **Stakeholder note:** "Site Loader ? does not have any options we must need
 something for them what icon what color what error think like a perfect
 solution and log that value for future ref" — user, 2026-05-04.
@@ -202,17 +202,17 @@ properly without conflating it with the Kirki removal.
 When 5.2.0 work begins, this plan is the spec. Update sub-checks below
 as fields land:
 
-- [ ] New section header `site_loader_section` with description text
-- [ ] `site_loader_type` radio_image with 5 SVG previews
-- [ ] Move `site_loader_bg` from Skin_Fields.php to Loader_Fields.php
-- [ ] `site_loader_color` color field
-- [ ] `site_loader_text` text field
-- [ ] `site_loader_logo` image field gated by type=custom
-- [ ] `site_loader_speed` slider field
-- [ ] Refactor `buddyx_site_loader()` in inc/extra.php
-- [ ] Add per-type CSS in loaders.css
-- [ ] Live-preview JS handler
-- [ ] One-time upgrade migration entry
-- [ ] Accessibility: role/aria-live/screen-reader-text + reduced-motion
-- [ ] Update `plans/2026-05-04-customizer-options-audit.md` inventory
-- [ ] Update `docs/customizer-inventory-snapshot.txt` via the dump script
+- [x] New section header `site_loader_section` with description text
+- [x] `site_loader_type` radio_image with 5 SVG previews
+- [x] Move `site_loader_bg` from Skin_Fields.php to Loader_Fields.php
+- [x] `site_loader_color` color field
+- [x] `site_loader_text` text field
+- [x] `site_loader_logo` image field gated by type=custom
+- [x] `site_loader_speed` slider field
+- [x] Refactor `buddyx_site_loader()` in inc/extra.php
+- [x] Add per-type CSS in loaders.css
+- [x] Live-preview JS handler
+- [x] One-time upgrade migration entry
+- [x] Accessibility: role/aria-live/screen-reader-text + reduced-motion
+- [x] Update `plans/2026-05-04-customizer-options-audit.md` inventory
+- [x] Update `docs/customizer-inventory-snapshot.txt` via the dump script

@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Posts - 3-up Editorial Grid', 'buddyx' ),
 	'categories' => array( 'buddyx-query', 'posts' ),

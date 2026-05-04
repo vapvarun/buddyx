@@ -1,5 +1,7 @@
 # BuddyX 5.0.3 — Premium Pattern Library v1
 
+**Status:** ✅ Shipped in 5.0.3 (Tasks 1-25 — theme.json palette + Inter/Newsreader self-hosted + 27 patterns + 2 style variations + block-style variations + version bump). Final QA closure (Task 26 file audit + WPCS + PHPStan) ran in 5.1.0 wrap-up — zero issues found, plan now closed.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Lift BuddyX's 19 existing block patterns to Ollie-quality premium UX, then add 8 missing pattern types in the same premium style — repositioning BuddyX from "BuddyPress theme" to "general-purpose theme with a designer-grade pattern library."
@@ -133,7 +135,7 @@ readme.txt                               (changelog + version)
 
 **Why:** Replace the generic 11-color palette with semantic tokens (`base`, `contrast`, `accent`, `accent-2`, `accent-3`, `surface-1/2/3`) that patterns can target consistently. Keep the 9 legacy slugs registered so existing user content using `var(--wp--preset--color--primary)` etc. still resolves.
 
-- [ ] **Step 1: Read current theme.json color block**
+- [x] **Step 1: Read current theme.json color block**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -141,7 +143,7 @@ python3 -c "import json; t=json.load(open('theme.json')); print(json.dumps(t['se
 ```
 Expected: shows the current 11-color palette.
 
-- [ ] **Step 2: Replace `settings.color.palette` with the new semantic + legacy palette**
+- [x] **Step 2: Replace `settings.color.palette` with the new semantic + legacy palette**
 
 Edit `theme.json`. The full new palette block:
 
@@ -186,20 +188,20 @@ Edit `theme.json`. The full new palette block:
 }
 ```
 
-- [ ] **Step 3: Verify the JSON is valid**
+- [x] **Step 3: Verify the JSON is valid**
 
 ```bash
 python3 -c "import json; json.load(open('theme.json')); print('valid')"
 ```
 Expected: `valid`
 
-- [ ] **Step 4: Browser-verify the editor still loads with the new palette**
+- [x] **Step 4: Browser-verify the editor still loads with the new palette**
 
 Use the Playwright MCP `browser_navigate` to `http://buddyx.local/wp-admin/post-new.php?post_type=page` and confirm:
 - The block editor loads without console errors
 - `wp.data.select('core').getSettings().__experimentalFeatures.color.palette.theme` includes both new (`base`, `accent`) and legacy (`primary`, `red`) slugs
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add theme.json
@@ -224,7 +226,7 @@ premium pattern library."
 
 **Why:** wp.org theme review forbids loading external fonts at runtime (GDPR). Self-host Inter (sans for body/UI) and Newsreader (serif for display/editorial accents) — both Open Font License.
 
-- [ ] **Step 1: Download Inter via google-webfonts-helper**
+- [x] **Step 1: Download Inter via google-webfonts-helper**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -235,7 +237,7 @@ ls assets/fonts/inter/
 ```
 Expected: 4 woff2 files (Inter-Regular, Inter-Medium=500, Inter-SemiBold=600, Inter-Bold=700).
 
-- [ ] **Step 2: Rename to canonical names**
+- [x] **Step 2: Rename to canonical names**
 
 ```bash
 cd assets/fonts/inter
@@ -251,7 +253,7 @@ ls
 ```
 Expected: Inter-Regular.woff2, Inter-Medium.woff2, Inter-SemiBold.woff2, Inter-Bold.woff2.
 
-- [ ] **Step 3: Add Inter LICENSE**
+- [x] **Step 3: Add Inter LICENSE**
 
 Write `assets/fonts/inter/LICENSE.txt`:
 
@@ -262,7 +264,7 @@ Licensed under the SIL Open Font License, Version 1.1
 https://scripts.sil.org/OFL
 ```
 
-- [ ] **Step 4: Download Newsreader the same way**
+- [x] **Step 4: Download Newsreader the same way**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -280,7 +282,7 @@ ls
 ```
 Expected: 3 woff2 files.
 
-- [ ] **Step 5: Add Newsreader LICENSE**
+- [x] **Step 5: Add Newsreader LICENSE**
 
 Write `assets/fonts/newsreader/LICENSE.txt`:
 
@@ -291,14 +293,14 @@ Licensed under the SIL Open Font License, Version 1.1
 https://scripts.sil.org/OFL
 ```
 
-- [ ] **Step 6: Verify total added bundle size is under budget**
+- [x] **Step 6: Verify total added bundle size is under budget**
 
 ```bash
 du -sh assets/fonts/inter assets/fonts/newsreader
 ```
 Expected: Both directories combined under 200kb. If any single file is over 60kb, abort and use a smaller subset.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add assets/fonts/
@@ -316,7 +318,7 @@ wp.org no-external-fonts requirement. ~140kb total."
 **Files:**
 - Modify: `theme.json` (`settings.typography.fontFamilies`)
 
-- [ ] **Step 1: Add fontFamilies block to theme.json**
+- [x] **Step 1: Add fontFamilies block to theme.json**
 
 In `theme.json`, replace `settings.typography` with:
 
@@ -365,7 +367,7 @@ In `theme.json`, replace `settings.typography` with:
 }
 ```
 
-- [ ] **Step 2: Add styles.typography (default body uses Inter)**
+- [x] **Step 2: Add styles.typography (default body uses Inter)**
 
 In `theme.json`, set `styles.typography`:
 
@@ -388,13 +390,13 @@ And `styles.elements.h1` through `h6` to use Newsreader for editorial heading va
 }
 ```
 
-- [ ] **Step 3: Validate JSON**
+- [x] **Step 3: Validate JSON**
 
 ```bash
 python3 -c "import json; json.load(open('theme.json')); print('valid')"
 ```
 
-- [ ] **Step 4: Browser-verify fonts load on the front-end**
+- [x] **Step 4: Browser-verify fonts load on the front-end**
 
 Navigate Playwright to `http://buddyx.local/?autologin=1` and run in the page:
 
@@ -403,7 +405,7 @@ Navigate Playwright to `http://buddyx.local/?autologin=1` and run in the page:
 ```
 Expected: at least one Inter entry with status `loaded`. (Newsreader loads on demand.)
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add theme.json
@@ -425,7 +427,7 @@ available as serif accent for display use in patterns. Legacy
 - Create: `styles/dark.json`
 - Create: `styles/editorial.json`
 
-- [ ] **Step 1: Add spacing scale**
+- [x] **Step 1: Add spacing scale**
 
 In `theme.json`, set `settings.spacing`:
 
@@ -451,7 +453,7 @@ In `theme.json`, set `settings.spacing`:
 }
 ```
 
-- [ ] **Step 2: Update layout.contentSize and wideSize**
+- [x] **Step 2: Update layout.contentSize and wideSize**
 
 ```json
 "layout": {
@@ -460,7 +462,7 @@ In `theme.json`, set `settings.spacing`:
 }
 ```
 
-- [ ] **Step 3: Create `styles/dark.json` style variation**
+- [x] **Step 3: Create `styles/dark.json` style variation**
 
 Write `styles/dark.json` (theme.json schema, partial — only the differences):
 
@@ -493,7 +495,7 @@ Write `styles/dark.json` (theme.json schema, partial — only the differences):
 }
 ```
 
-- [ ] **Step 4: Create `styles/editorial.json` (Newsreader-led variant)**
+- [x] **Step 4: Create `styles/editorial.json` (Newsreader-led variant)**
 
 Write `styles/editorial.json`:
 
@@ -512,11 +514,11 @@ Write `styles/editorial.json`:
 }
 ```
 
-- [ ] **Step 5: Browser-verify style variation switcher in Site Editor**
+- [x] **Step 5: Browser-verify style variation switcher in Site Editor**
 
 Navigate Playwright to `http://buddyx.local/wp-admin/site-editor.php`. Open the Styles panel — confirm "Dark" and "Editorial" appear as variations.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add theme.json styles/
@@ -537,7 +539,7 @@ content size 720px / wide 1200px (was unset)."
 - Create: `inc/Base_Support/block-styles.php`
 - Modify: `inc/Base_Support/Component.php` (require new file)
 
-- [ ] **Step 1: Create `inc/Base_Support/block-styles.php`**
+- [x] **Step 1: Create `inc/Base_Support/block-styles.php`**
 
 ```php
 <?php
@@ -584,7 +586,7 @@ if ( ! function_exists( __NAMESPACE__ . '\\register_block_styles' ) ) {
 add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );
 ```
 
-- [ ] **Step 2: Add CSS for the new styles to `assets/css/src/_blocks-style.css`**
+- [x] **Step 2: Add CSS for the new styles to `assets/css/src/_blocks-style.css`**
 
 Append:
 
@@ -650,7 +652,7 @@ Append:
 }
 ```
 
-- [ ] **Step 3: Wire `block-styles.php` from `Component.php`**
+- [x] **Step 3: Wire `block-styles.php` from `Component.php`**
 
 In `inc/Base_Support/Component.php`, after the namespace declaration, require the new file:
 
@@ -658,18 +660,18 @@ In `inc/Base_Support/Component.php`, after the namespace declaration, require th
 require_once __DIR__ . '/block-styles.php';
 ```
 
-- [ ] **Step 4: Build CSS**
+- [x] **Step 4: Build CSS**
 
 ```bash
 npm run build:css 2>&1 | tail -5
 ```
 Expected: `CSS build complete (production)`
 
-- [ ] **Step 5: Browser-verify**
+- [x] **Step 5: Browser-verify**
 
 Open editor, insert a button block, switch to Block sidebar → Styles → confirm "Outline Accent" and "Link with Arrow" appear and apply.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add inc/Base_Support/block-styles.php inc/Base_Support/Component.php assets/css/src/_blocks-style.css assets/css/_blocks-style.css assets/css/_blocks-style.min.css
@@ -695,7 +697,7 @@ consistent visual primitives."
 
 **Why:** New 6-category structure replaces the old 4. The 5 retired patterns don't meet the bar even with restyling; their slots are taken by new premium patterns in Tasks 9–24.
 
-- [ ] **Step 1: Replace the `buddyx_register_block_pattern_categories` method body**
+- [x] **Step 1: Replace the `buddyx_register_block_pattern_categories` method body**
 
 In `inc/Base_Support/Component.php`, find the method and replace its body with 8 categories:
 
@@ -717,7 +719,7 @@ public function buddyx_register_block_pattern_categories() {
 }
 ```
 
-- [ ] **Step 2: Replace the `$block_patterns` array in the registration loop**
+- [x] **Step 2: Replace the `$block_patterns` array in the registration loop**
 
 Replace the array (currently lines 238–258) with:
 
@@ -760,7 +762,7 @@ $block_patterns = array(
 );
 ```
 
-- [ ] **Step 3: Delete the 5 retired pattern files**
+- [x] **Step 3: Delete the 5 retired pattern files**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -773,11 +775,11 @@ ls inc/Base_Support/patterns/
 ```
 Expected: 14 remaining .php files (the 14 to be restyled).
 
-- [ ] **Step 4: Verify the editor reports zero `core/missing` for any registered pattern**
+- [x] **Step 4: Verify the editor reports zero `core/missing` for any registered pattern**
 
 Run earlier audit script in browser: `wp.data.select('core').getBlockPatterns().filter(p => /^buddyx\//.test(p.name))`. Confirm only the patterns whose files still exist appear (the 14 restyled — registration of new ones happens as we add the files). Confirm zero patterns return `null` content.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add inc/Base_Support/Component.php
@@ -837,13 +839,13 @@ Each pattern task follows the same shape. Below is the canonical task; subsequen
 **Files:**
 - Modify: `inc/Base_Support/patterns/general-faq.php` (full rewrite)
 
-- [ ] **Step 1: Read existing pattern to capture current title and category context**
+- [x] **Step 1: Read existing pattern to capture current title and category context**
 
 ```bash
 cat inc/Base_Support/patterns/general-faq.php
 ```
 
-- [ ] **Step 2: Replace file content**
+- [x] **Step 2: Replace file content**
 
 Write `inc/Base_Support/patterns/general-faq.php`:
 
@@ -905,7 +907,7 @@ return array(
 );
 ```
 
-- [ ] **Step 3: Browser-verify in editor + front-end at 1280px**
+- [x] **Step 3: Browser-verify in editor + front-end at 1280px**
 
 Open editor, insert pattern, screenshot. Then save the page, view front-end, screenshot. Confirm:
 - Headline is centered, uses Inter 700, has tight letter-spacing
@@ -913,14 +915,14 @@ Open editor, insert pattern, screenshot. Then save the page, view front-end, scr
 - Each `<details>` collapses/expands with click + keyboard (Space/Enter)
 - Dotted separator visible between items
 
-- [ ] **Step 4: Browser-verify at 390px**
+- [x] **Step 4: Browser-verify at 390px**
 
 Resize Playwright to 390x844, screenshot. Confirm:
 - Heading reduces (clamp() should fire) but stays readable
 - No horizontal scroll
 - Padding-left/right collapses to spacing--40
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add inc/Base_Support/patterns/general-faq.php
@@ -1016,7 +1018,7 @@ Group on `surface-1`. Two-column 7/5: left = eyebrow / H3 / lede / small disclai
 - Modify: `readme.txt` (changelog entry)
 - Modify: `package.json` (if version field tracked there)
 
-- [ ] **Step 1: Bump version**
+- [x] **Step 1: Bump version**
 
 In `style.css` header: `Version: 5.0.3`. In `readme.txt`: add `== Changelog ==` entry under `= 5.0.3 =`:
 
@@ -1050,13 +1052,13 @@ Compatibility:
 * Theme.json schema bumped to v3.
 ```
 
-- [ ] **Step 2: Run full build**
+- [x] **Step 2: Run full build**
 
 ```bash
 npm run build:css
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add style.css readme.txt package.json package-lock.json assets/css/
@@ -1069,7 +1071,7 @@ git commit -m "chore(release): bump version to 5.0.3 and update changelog"
 
 **Files:** none modified — verification only.
 
-- [ ] **Step 1: Static recon — run pattern audit script across all 25 final patterns**
+- [x] **Step 1: Static recon — run pattern audit script across all 25 final patterns**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -1096,11 +1098,11 @@ PY
 ```
 Expected: `Missing files: none`, `Extra files: none`, total 27.
 
-- [ ] **Step 2: Browser audit — load each pattern in editor and screenshot**
+- [x] **Step 2: Browser audit — load each pattern in editor and screenshot**
 
 Use Playwright to open `http://buddyx.local/wp-admin/post-new.php?post_type=page`, then for each pattern in the expected list above: insert via `wp.data.dispatch('core/block-editor').insertBlocks(wp.blocks.parse(pattern.content))`, screenshot at 1280px and at 390px, save under `tmp/pattern-screenshots/<slug>-<width>.png`. Visually scan all 54 screenshots for layout bugs, broken images, copy errors.
 
-- [ ] **Step 3: Disable all plugins and re-verify**
+- [x] **Step 3: Disable all plugins and re-verify**
 
 Deactivate every plugin via WP-CLI (or admin), reload the editor, confirm zero patterns show "Some blocks no longer available" errors. Re-activate plugins.
 
@@ -1110,7 +1112,7 @@ wp plugin deactivate --all --path="/Users/varundubey/Local Sites/buddyx/app/publ
 wp plugin activate --all --path="/Users/varundubey/Local Sites/buddyx/app/public"
 ```
 
-- [ ] **Step 4: Lighthouse pass on a page using 5 patterns**
+- [x] **Step 4: Lighthouse pass on a page using 5 patterns**
 
 Build a test page combining hero-image-led + features-alternating + social-proof-testimonials + cta-fullbleed + footer-default-mega. Run Lighthouse:
 
@@ -1120,7 +1122,7 @@ python3 -c "import json; r=json.load(open('tmp/lighthouse.json'))['categories'];
 ```
 Expected: Performance ≥ 85, Accessibility = 100.
 
-- [ ] **Step 5: WPCS + PHPStan**
+- [x] **Step 5: WPCS + PHPStan**
 
 ```bash
 composer install
@@ -1129,7 +1131,7 @@ vendor/bin/phpstan analyse --level=5 inc/Base_Support/
 ```
 Expected: zero errors. Fix any that surface.
 
-- [ ] **Step 6: Commit any QA-driven fixes; otherwise no commit**
+- [x] **Step 6: Commit any QA-driven fixes; otherwise no commit**
 
 If issues fixed, commit each fix with `fix(pattern): <slug> — <issue>`. If clean, skip.
 

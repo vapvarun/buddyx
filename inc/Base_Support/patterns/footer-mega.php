@@ -4,6 +4,7 @@
  *
  * @package buddyx
  */
+
 return array(
 	'title'      => __( 'Footer - Mega 5-column', 'buddyx' ),
 	'categories' => array( 'buddyx-footer', 'footer' ),

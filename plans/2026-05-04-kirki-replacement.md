@@ -649,7 +649,7 @@ Update `functions.php` autoload list. Lint + commit.
 
 These files are pure Kirki support and have no role in a Kirki-free theme. The misnamed `kirki-utils.php` actually contains `buddyx_defaults()` (the defaults registry consumed by 70+ template `get_theme_mod( 'foo', buddyx_defaults('foo-bar') )` calls), so it stays — just renamed for clarity.
 
-- [ ] **Step 1: Delete the two deprecated files**
+- [x] **Step 1: Delete the two deprecated files**
 
 ```bash
 cd "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx"
@@ -657,7 +657,7 @@ git rm inc/Kirki/Component.php
 git rm external/include-kirki.php
 ```
 
-- [ ] **Step 2: Rename the defaults file**
+- [x] **Step 2: Rename the defaults file**
 
 ```bash
 git mv external/kirki-utils.php external/buddyx-defaults.php
@@ -665,7 +665,7 @@ git mv external/kirki-utils.php external/buddyx-defaults.php
 
 The file's internal contents stay identical — only the filename changes. The `buddyx_defaults()` function inside is unchanged, so all 70+ caller sites in templates and `inc/` continue to work without modification.
 
-- [ ] **Step 3: Update `functions.php` file-include list**
+- [x] **Step 3: Update `functions.php` file-include list**
 
 Find the array of required external files (currently includes `'/external/include-kirki.php'` and `'/external/kirki-utils.php'`):
 
@@ -683,14 +683,14 @@ grep -rE "Kirki\\\\Component|inc/Kirki/" --include="*.php" inc/ functions.php
 
 Remove every matching entry.
 
-- [ ] **Step 4: Verify nothing else loads the deleted files**
+- [x] **Step 4: Verify nothing else loads the deleted files**
 
 ```bash
 grep -rE "include-kirki|kirki-utils|inc/Kirki/" --include="*.php" inc/ functions.php external/
 ```
 Expected: zero matches.
 
-- [ ] **Step 5: Verify `buddyx_defaults()` callers still work**
+- [x] **Step 5: Verify `buddyx_defaults()` callers still work**
 
 ```bash
 grep -rE "buddyx_defaults\(" --include="*.php" inc/ template-parts/ functions.php | wc -l
@@ -701,7 +701,7 @@ php -l external/buddyx-defaults.php
 
 Smoke-test in browser: load `http://buddyx.local/` — confirm no PHP fatals, theme renders normally (the rename should be transparent to consumers).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git commit -m "chore(kirki): delete deprecated Kirki support files; rename misnamed defaults
