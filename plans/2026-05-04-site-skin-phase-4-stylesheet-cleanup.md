@@ -197,9 +197,25 @@ Built artifacts: 51 token refs in buddypress.min.css, 22 in platform.min.css.
 
 **Verified:** Front-end dark mode flows correctly — footer/body resolve to `--bx-color-bg #0a0a0a`, elevated surfaces to `--bx-color-bg-elevated #161616`. BuddyPress isn't active on this dev DB, so per-page BP screenshots deferred to a staging env with BuddyPress + BuddyBoss Platform installed; the source-level audit confirms all neutral hexes resolve to dark counterparts via the dark token block.
 
-### Phase 4c — Other plugin compat (LearnDash, WooCommerce, etc.)
-Tier B remaining files (~150 values).
-**Effort:** ~3-4 hours.
+### Phase 4c — Other plugin compat (LearnDash, WooCommerce, etc.) ✅ Shipped 2026-05-04
+Tier B remaining files (138 values across 14 files).
+**Approach:** Same bulk-sed strategy as 4b, applied uniformly across all plugin compat sources. Built min.css files now reference 67 tokens collectively. State/brand colors preserved (LMS progress orange #ffb300, vendor pastel chips, AMP arrow shape, fluentcart already-token-aware vars).
+
+Per-file results (token refs in built min.css):
+- woocommerce.min.css: 11 (white surfaces, mid-grays, borders, dark text)
+- learnpress.min.css: 14 (course bg, content cards, progress meta)
+- buddyx-amp.min.css: 12 (AMP-mode-specific surfaces + grays)
+- wc-vendor.min.css: 8 (vendor card surfaces + borders)
+- buddyx-wpjobmanager.min.css: 6 (job listings — many pastel tag chips kept intentional)
+- lifterlms.min.css: 5 (course detail surfaces)
+- buddyx-youzify.min.css: 4 (community widgets — rainbow gradient + greens kept)
+- bbpress.min.css: 3 (forum surfaces)
+- dokan.min.css: 2 (vendor dashboard mid-grays)
+- learndash.min.css: 1 (single text-on-accent kept)
+- multivendorx.min.css: 1 (single bg)
+- fluentcart.min.css: 0 (already token-aware via --button-* aliases)
+- eventscalendar.min.css: 0 (single intentional white text)
+- surecart.min.css: 0 (no hex in source — already clean)
 
 ### Phase 4d — Cleanup + new-token introduction
 - Add `--bx-color-fg-muted` etc. to `Tokens::Component`

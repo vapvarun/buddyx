@@ -74,7 +74,7 @@
 button.mfp-close,
 button.mfp-arrow {
     background: transparent !important;
-    color: #333 !important;
+    color: var(--bx-color-fg-muted, #333) !important;
     border: 0 !important;
 }
 
@@ -442,7 +442,7 @@ body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-lin
     margin-bottom: 1rem;
     padding: 1rem;
     padding-bottom: .5em;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid var(--bx-color-border, #e8e8e8);
 }
 
 .store-cat-stack-dokan>ul>li {

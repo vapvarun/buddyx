@@ -299,7 +299,7 @@ body.youzify-active .widget_meta li,
 body.youzify-active .widget_nav_menu li a,
 body.youzify-active .widget_pages li a {
     margin-bottom: 0;
-    color: #8a8a8a;
+    color: var(--bx-color-fg-muted, #8a8a8a);
     font-size: 13px;
     line-height: 24px;
     padding: 15px 25px;
@@ -367,7 +367,7 @@ body.youzify-active .wb-bp-profile-completion-wrap {
 }
 
 .wb-bp-profile-completion-wrap span.wb-bp-completion {
-    color: #121212;
+    color: var(--bx-color-fg, #121212);
     font-size: 32px;
 }
 
@@ -502,7 +502,7 @@ body.youzify-active #youzify .widget_bp_core_login_widget .bp-login-widget-user-
 
 body.youzify-active #youzify .widget_recent_entries li a {
     margin-bottom: 0;
-    color: #8a8a8a;
+    color: var(--bx-color-fg-muted, #8a8a8a);
     font-size: 13px;
     line-height: 24px;
     padding: 5px 25px;
@@ -518,7 +518,7 @@ body.youzify-active #youzify .widget_calendar .calendar_wrap {
 }
 
 body.youzify-active #youzify .widget_calendar .pad {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
 }
 
 body.youzify-active .youzify-reset-options,
@@ -630,7 +630,7 @@ body.youzify-active .widget_meta li,
 body.youzify-active .widget_nav_menu li a,
 body.youzify-active .widget_pages li a {
     margin-bottom: 0;
-    color: #8a8a8a;
+    color: var(--bx-color-fg-muted, #8a8a8a);
     font-size: 13px;
     line-height: 24px;
     padding: 15px 25px;

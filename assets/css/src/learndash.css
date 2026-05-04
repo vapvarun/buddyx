@@ -359,7 +359,7 @@ p:empty {
 #ld_course_list .ld-course-list-items .ld_course_grid,
 #et-boc .ld-course-list-items .ld_course_grid {
     box-sizing: border-box;
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, .1);
     box-shadow: none;

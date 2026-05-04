@@ -176,7 +176,7 @@
 }
 
 .table-condensed {
-    background: #ffffff;
+    background: var(--bx-color-bg-elevated, #ffffff);
     border: 0px solid var(--global-border-color);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
@@ -193,13 +193,13 @@
 }
 
 .table-condensed th {
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid var(--bx-color-border, #dddddd);
+    border-top: 1px solid var(--bx-color-border, #dddddd);
 }
 
 .site-wrapper form input[type=date] {
     height: 46px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid var(--bx-color-border, #e1e1e1);
     padding: 10px 0px 10px 16px;
     font-size: 14px;
     margin-left: 13px;
@@ -235,11 +235,11 @@ table td {
 }
 
 table.table-condensed tr:nth-child(odd) td {
-    background: #ffffff;
+    background: var(--bx-color-bg-elevated, #ffffff);
 }
 
 table.table-condensed tr:nth-child(even) td {
-    background: #f7f7f9;
+    background: var(--bx-color-bg-muted, #f7f7f9);
 }
 
 .table-striped ul {
@@ -269,7 +269,7 @@ table.table-condensed tr:nth-child(even) td {
     .table tr {
         display: block;
         padding-bottom: 10px;
-        border-bottom: 1px #eaeaea solid;
+        border-bottom: 1px var(--bx-color-divider, #eaeaea) solid;
     }
 
     .table-condensed td,
@@ -277,7 +277,7 @@ table.table-condensed tr:nth-child(even) td {
         display: block;
         position: relative;
         padding-left: 50%;
-        border-bottom: 1px #e7e7f5 solid;
+        border-bottom: 1px var(--bx-color-divider, #e7e7f5) solid;
     }
 
     .table-condensed td:before,

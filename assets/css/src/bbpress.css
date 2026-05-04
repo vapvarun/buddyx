@@ -79,7 +79,7 @@
 
 #bbpress-forums li.bbp-header,
 #bbpress-forums fieldset.bbp-form {
-    background-color: #f9fbff;
+    background-color: var(--bx-color-bg-muted, #f9fbff);
 }
 
 #bbpress-forums div.odd,
@@ -91,7 +91,7 @@
 .widgetable .bbp-logged-in,
 #bbpress-forums li.bbp-header,
 #bbpress-forums fieldset.bbp-form {
-    background-color: #f9fbff;
+    background-color: var(--bx-color-bg-muted, #f9fbff);
 }
 
 #bbpress-forums li.bbp-header,
@@ -118,7 +118,7 @@ a#bbp-cancel-reply-to-link {
 
 #bbpress-forums div.odd,
 #bbpress-forums ul.odd {
-    background: #fff !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
 }
 
 .mc4wp-form input,
@@ -271,7 +271,7 @@ body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropd
 .widget.widget_display_views li+li,
 .widget.widget_display_forums li+li,
 .widget.widget_display_topics li+li {
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid var(--bx-color-border, #e3e3e3);
 }
 
 .widget.widget_display_replies li,
