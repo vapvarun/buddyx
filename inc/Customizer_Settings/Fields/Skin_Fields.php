@@ -24,49 +24,10 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
-			array(
-				'settings'        => 'custom-loader-divider',
-				'label'           => esc_html__( 'Loader', 'buddyx' ),
-				'section'         => 'site_skin_section',
-				'default'         => '<hr style="border-color: #c6c6c6">',
-				'active_callback' => array(
-					array(
-						'setting'  => 'site_custom_colors',
-						'operator' => '==',
-						'value'    => true,
-					),
-					array(
-						'setting'  => 'site_loader',
-						'operator' => '==',
-						'value'    => true,
-					),
-				),
-			)
-		);
-
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
-			array(
-				'settings'        => 'site_loader_bg',
-				'label'           => esc_html__( 'Site Loader Background', 'buddyx' ),
-				'section'         => 'site_skin_section',
-				'default'         => '#ef5455',
-				'choices'         => array( 'alpha' => true ),
-				'priority'        => 10,
-				'active_callback' => array(
-					array(
-						'setting'  => 'site_custom_colors',
-						'operator' => '==',
-						'value'    => true,
-					),
-					array(
-						'setting'  => 'site_loader',
-						'operator' => '==',
-						'value'    => '1',
-					),
-				),
-			)
-		);
+		// NOTE: 'custom-loader-divider' + 'site_loader_bg' moved to the
+		// dedicated Site Loader section in General_Fields.php (5.1.0).
+		// Setting ID `site_loader_bg` preserved — customers see their saved
+		// value carry over to the new location with no manual action.
 
 		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(

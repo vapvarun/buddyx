@@ -116,11 +116,61 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 // Site Loader
 if ( ! function_exists( 'buddyx_site_loader' ) ) {
+	/**
+	 * Renders the site loader overlay shown while the page is initializing.
+	 *
+	 * Supports 5 animation types (dots / spinner / pulse / bars / logo) selected
+	 * via the customizer. Adds role=status + aria-live for screen readers, and
+	 * respects prefers-reduced-motion via CSS in assets/css/loaders.css.
+	 */
 	function buddyx_site_loader() {
-		$loader = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-		if ( $loader == '1' ) {
-			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+		$enabled = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
+		// sanitize_bool_int now treats '1', 1, true, 'on', 'yes' all as truthy.
+		if ( ! $enabled || '0' === (string) $enabled || 'off' === $enabled ) {
+			return;
 		}
+
+		$type  = (string) get_theme_mod( 'site_loader_type', 'dots' );
+		$text  = (string) get_theme_mod( 'site_loader_text', __( 'Loading', 'buddyx' ) );
+		$logo  = (string) get_theme_mod( 'site_loader_logo', '' );
+		$speed = (float) get_theme_mod( 'site_loader_speed', 1.5 );
+		// Clamp to safe range.
+		$speed = max( 0.3, min( 5.0, $speed ) );
+
+		$valid_types = array( 'dots', 'spinner', 'pulse', 'bars', 'logo' );
+		if ( ! in_array( $type, $valid_types, true ) ) {
+			$type = 'dots';
+		}
+
+		$style_attr = sprintf( '--bx-loader-speed:%ss;', $speed );
+		?>
+		<div class="site-loader site-loader--<?php echo esc_attr( $type ); ?>"
+		     role="status"
+		     aria-live="polite"
+		     aria-label="<?php echo esc_attr( $text ); ?>"
+		     style="<?php echo esc_attr( $style_attr ); ?>">
+			<div class="loader-inner">
+				<?php if ( 'logo' === $type ) : ?>
+					<?php if ( $logo ) : ?>
+						<img class="site-loader__logo" src="<?php echo esc_url( $logo ); ?>" alt="<?php echo esc_attr( $text ); ?>" />
+					<?php elseif ( has_custom_logo() ) : ?>
+						<?php the_custom_logo(); ?>
+					<?php else : ?>
+						<span class="site-loader__text"><?php echo esc_html( $text ); ?></span>
+					<?php endif; ?>
+				<?php elseif ( 'bars' === $type ) : ?>
+					<span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+				<?php elseif ( 'spinner' === $type ) : ?>
+					<span class="spinner"></span>
+				<?php elseif ( 'pulse' === $type ) : ?>
+					<span class="pulse"></span>
+				<?php else : ?>
+					<span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span>
+				<?php endif; ?>
+			</div>
+			<span class="screen-reader-text"><?php echo esc_html( $text ); ?></span>
+		</div>
+		<?php
 	}
 }
 

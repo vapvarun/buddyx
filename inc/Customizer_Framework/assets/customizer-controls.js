@@ -253,11 +253,22 @@
 				return;
 			}
 			const unit = wrap.dataset.unit || 'px';
-			const initial = String(hidden.value || '0' + unit);
-			const m = initial.match(/^(-?[\d.]+)/);
-			const initialNum = m ? m[1] : '0';
+			const settingVal = String(ctl.setting.get() || '');
+			const m = settingVal.match(/^(-?[\d.]+)/);
+			const initialNum = m ? m[1] : (rangeEl.min || '0');
 			rangeEl.value = initialNum;
 			numberEl.value = initialNum;
+			hidden.value = initialNum + unit;
+
+			// Premium UX: paint the gradient track to visually reflect the range value.
+			const updateFill = () => {
+				const min = parseFloat(rangeEl.min) || 0;
+				const max = parseFloat(rangeEl.max) || 100;
+				const val = parseFloat(rangeEl.value) || min;
+				const pct = ((val - min) / (max - min)) * 100;
+				rangeEl.style.setProperty('--bx-fill', pct + '%');
+			};
+			updateFill();
 
 			const sync = (src) => {
 				const n = src.value;
@@ -266,6 +277,7 @@
 				const v = n + unit;
 				hidden.value = v;
 				ctl.setting.set(v);
+				updateFill();
 			};
 			rangeEl.addEventListener('input', () => sync(rangeEl));
 			numberEl.addEventListener('change', () => sync(numberEl));
