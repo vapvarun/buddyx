@@ -90,6 +90,10 @@ class Field {
 		if ( empty( $args['settings'] ) ) {
 			return;
 		}
+
+		// Allow callers to mutate args (e.g. force postMessage on settings rendered via dynamic CSS).
+		$args = apply_filters( 'buddyx_customizer_field_args', $args, $wp_customize );
+
 		$setting_id  = $args['settings'];
 		$transport   = self::resolve_transport( $args );
 		$default     = $args['default'] ?? '';

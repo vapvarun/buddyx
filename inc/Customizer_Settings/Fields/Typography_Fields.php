@@ -1,6 +1,6 @@
 <?php
 /**
- * Typography Kirki Fields
+ * Typography Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Title Typography
 		 */
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'site_title_typography_option',
 				'label'    => esc_html__( 'Site Title Settings', 'buddyx' ),
@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'site_tagline_typography_option',
 				'label'    => esc_html__( 'Site Tagline Settings', 'buddyx' ),
@@ -66,7 +66,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Headings Typography
 		 */
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h1_typography_option',
 				'label'    => esc_html__( 'H1 Tag Settings', 'buddyx' ),
@@ -92,7 +92,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h2_typography_option',
 				'label'    => esc_html__( 'H2 Tag Settings', 'buddyx' ),
@@ -118,7 +118,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h3_typography_option',
 				'label'    => esc_html__( 'H3 Tag Settings', 'buddyx' ),
@@ -144,7 +144,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h4_typography_option',
 				'label'    => esc_html__( 'H4 Tag Settings', 'buddyx' ),
@@ -170,7 +170,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h5_typography_option',
 				'label'    => esc_html__( 'H5 Tag Settings', 'buddyx' ),
@@ -196,7 +196,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'h6_typography_option',
 				'label'    => esc_html__( 'H6 Tag Settings', 'buddyx' ),
@@ -225,7 +225,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Menu Typography
 		 */
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'menu_typography_option',
 				'label'    => esc_html__( 'Menu Settings', 'buddyx' ),
@@ -251,7 +251,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'sub_menu_typography_option',
 				'label'    => esc_html__( 'Sub Menu Settings', 'buddyx' ),
@@ -279,7 +279,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 * Body Typography
 		 */
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'typography_option',
 				'label'    => esc_html__( 'Settings', 'buddyx' ),

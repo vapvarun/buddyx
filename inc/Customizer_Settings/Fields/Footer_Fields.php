@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer Kirki Fields
+ * Footer Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Footer Section
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_footer_bg',
 				'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Background(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'background',
 			array(
 				'settings'        => 'background_setting',
 				'label'           => esc_html__( 'Background Control', 'buddyx' ),
@@ -62,7 +62,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Copyright
 		 */
-		new \Kirki\Field\Textarea(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'textarea',
 			array(
 				'settings' => 'site_copyright_text',
 				'label'    => esc_html__( 'Add Content', 'buddyx' ),

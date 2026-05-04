@@ -1,6 +1,6 @@
 <?php
 /**
- * Sub Header Kirki Fields
+ * Sub Header Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Sub Header
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_sub_header_bg',
 				'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Background(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'background',
 			array(
 				'settings'        => 'sub_header_background_setting',
 				'label'           => esc_html__( 'Background Control', 'buddyx' ),
@@ -59,7 +59,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Typography(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
 			array(
 				'settings' => 'site_sub_header_typography',
 				'label'    => esc_html__( 'Content Typography', 'buddyx' ),
@@ -83,7 +83,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_breadcrumbs',
 				'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),

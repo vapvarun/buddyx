@@ -224,12 +224,7 @@ class BuddyX_FluentCart_Support {
 	 * @return void
 	 */
 	public function buddyx_fluentcart_add_customizer_option() {
-		// Only add if Kirki is available.
-		if ( ! class_exists( '\\Kirki\\Field\\Checkbox_Switch' ) ) {
-			return;
-		}
-
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings'    => 'site_header_enable_cart',
 				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
@@ -246,25 +241,23 @@ class BuddyX_FluentCart_Support {
 		);
 
 		// Add product sidebar option.
-		if ( class_exists( '\\Kirki\\Field\\Radio_Image' ) ) {
-			new \Kirki\Field\Radio_Image(
-				array(
-					'settings'    => 'fluentcart_product_sidebar',
-					'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
-					'section'     => 'site_sidebar_layout',
-					'default'     => 'none',
-					'priority'    => 10,
-					'choices'     => array(
-						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-						'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
-					),
-					'tooltip'     => esc_html__( 'Choose sidebar layout for single product page.', 'buddyx' ),
-					'transport'   => 'refresh',
-				)
-			);
-		}
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+			array(
+				'settings'    => 'fluentcart_product_sidebar',
+				'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
+				'section'     => 'site_sidebar_layout',
+				'default'     => 'none',
+				'priority'    => 10,
+				'choices'     => array(
+					'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+					'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+					'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+				),
+				'tooltip'     => esc_html__( 'Choose sidebar layout for single product page.', 'buddyx' ),
+				'transport'   => 'refresh',
+			)
+		);
 	}
 
 	/**

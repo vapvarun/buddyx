@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Kirki Fields
+ * Header Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 * Site Header
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_sticky_header',
 				'label'    => esc_html__( 'Enable Sticky Header ?', 'buddyx' ),
@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Search
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_search',
 				'label'    => esc_html__( 'Enable Search Icon', 'buddyx' ),
@@ -44,7 +44,7 @@ defined( 'ABSPATH' ) || exit;
 		 *  Site Cart
 		 */
 		if ( function_exists( 'is_woocommerce' ) ) :
-			new \Kirki\Field\Checkbox_Switch(
+			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 				array(
 					'settings' => 'site_cart',
 					'label'    => esc_html__( 'Enable Cart Icon', 'buddyx' ),
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Login
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_login_link',
 				'label'    => esc_html__( 'Enable Login Link', 'buddyx' ),
@@ -77,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Register
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_register_link',
 				'label'    => esc_html__( 'Enable Register Link', 'buddyx' ),

@@ -287,12 +287,7 @@ class BuddyX_SureCart_Support {
 	 * @return void
 	 */
 	public function buddyx_surecart_add_customizer_option() {
-		// Only add if Kirki is available.
-		if ( ! class_exists( '\\Kirki\\Field\\Checkbox_Switch' ) ) {
-			return;
-		}
-
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings'    => 'site_header_enable_cart',
 				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),

@@ -1,6 +1,6 @@
 <?php
 /**
- * General/Layout Kirki Fields
+ * General/Layout Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Layout
 		 */
-		new \Kirki\Field\Radio_Image(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 			array(
 				'settings' => 'site_layout',
 				'label'    => esc_html__( 'Site Layout', 'buddyx' ),
@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Container Width
 		 */
-		new \Kirki\Field\Dimension(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
 			array(
 				'settings'    => 'site_container_width',
 				'label'       => esc_html__( 'Max Content Layout Width', 'buddyx' ),
@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Dimension(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
 			array(
 				'settings'    => 'site_global_border_radius',
 				'label'       => esc_html__( 'Global Border Radius', 'buddyx' ),
@@ -60,7 +60,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Dimension(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
 			array(
 				'settings'    => 'site_button_border_radius',
 				'label'       => esc_html__( 'Buttons Border Radius', 'buddyx' ),
@@ -72,7 +72,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Dimension(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
 			array(
 				'settings'    => 'site_form_border_radius',
 				'label'       => esc_html__( 'Form Border Radius', 'buddyx' ),
@@ -87,7 +87,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Loader
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_loader',
 				'label'    => esc_html__( 'Site Loader ?', 'buddyx' ),
@@ -103,7 +103,7 @@ defined( 'ABSPATH' ) || exit;
 		/*
 		 *  Page Mapping
 		 */
-		new \Kirki\Field\Dropdown_Pages(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_login_page',
 				'label'       => esc_attr__( 'Login Page', 'buddyx' ),
@@ -115,7 +115,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Dropdown_Pages(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_registration_page',
 				'label'       => esc_attr__( 'Registration Page', 'buddyx' ),
@@ -127,7 +127,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Dropdown_Pages(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_404_page',
 				'label'       => esc_attr__( '404', 'buddyx' ),

@@ -60,13 +60,6 @@ function buddyx_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// Kirki Toolkit
-		array(
-			'name'     => 'Kirki Toolkit',
-			'slug'     => 'kirki',
-			'required' => false,
-		),
-
 		// Elementor Page Builder
 		array(
 			'name'     => 'Elementor Page Builder',

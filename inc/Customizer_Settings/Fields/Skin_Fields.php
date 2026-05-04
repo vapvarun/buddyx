@@ -1,6 +1,6 @@
 <?php
 /**
- * Skin/Color Kirki Fields
+ * Skin/Color Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 * Site Skin
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_custom_colors',
 				'label'    => esc_html__( 'Set Custom Colors?', 'buddyx' ),
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-loader-divider',
 				'label'           => esc_html__( 'Loader', 'buddyx' ),
@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_loader_bg',
 				'label'           => esc_html__( 'Site Loader Background', 'buddyx' ),
@@ -68,7 +68,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-header-divider',
 				'label'           => esc_html__( 'Header', 'buddyx' ),
@@ -84,7 +84,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_title_typography_option[color]',
 				'label'           => esc_html__( 'Site Title Color', 'buddyx' ),
@@ -102,7 +102,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_title_hover_color',
 				'label'           => esc_html__( 'Site Title Hover Color', 'buddyx' ),
@@ -120,7 +120,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_tagline_typography_option[color]',
 				'label'           => esc_html__( 'Site Tagline Color', 'buddyx' ),
@@ -138,7 +138,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_header_bg_color',
 				'label'           => esc_html__( 'Header Background Color', 'buddyx' ),
@@ -156,7 +156,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'menu_typography_option[color]',
 				'label'           => esc_html__( 'Menu Color', 'buddyx' ),
@@ -174,7 +174,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'menu_hover_color',
 				'label'           => esc_html__( 'Menu Hover Color', 'buddyx' ),
@@ -192,7 +192,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'menu_active_color',
 				'label'           => esc_html__( 'Menu Active Color', 'buddyx' ),
@@ -210,7 +210,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-body-divider',
 				'label'           => esc_html__( 'Body', 'buddyx' ),
@@ -226,7 +226,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'body_background_color',
 				'label'           => esc_html__( 'Body Background Color', 'buddyx' ),
@@ -244,7 +244,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'typography_option[color]',
 				'label'           => esc_html__( 'Body Text Color', 'buddyx' ),
@@ -262,7 +262,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'content_background_color',
 				'label'           => esc_html__( 'Content Background Color', 'buddyx' ),
@@ -285,7 +285,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'box_background_color',
 				'label'           => esc_html__( 'Box Background Color', 'buddyx' ),
@@ -303,7 +303,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'secondary_background_color',
 				'label'           => esc_html__( 'Secondary Background Color', 'buddyx' ),
@@ -321,7 +321,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_sub_header_typography[color]',
 				'label'           => esc_html__( 'Subheader Title Color', 'buddyx' ),
@@ -339,7 +339,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_primary_color',
 				'label'           => esc_html__( 'Theme Color', 'buddyx' ),
@@ -357,7 +357,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_links_color',
 				'label'           => esc_html__( 'Link Color', 'buddyx' ),
@@ -375,7 +375,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_links_focus_hover_color',
 				'label'           => esc_html__( 'Link Hover', 'buddyx' ),
@@ -393,7 +393,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-headings-divider',
 				'label'           => esc_html__( 'Headings', 'buddyx' ),
@@ -409,7 +409,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h1_typography_option[color]',
 				'label'           => esc_html__( 'H1 Color', 'buddyx' ),
@@ -427,7 +427,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h2_typography_option[color]',
 				'label'           => esc_html__( 'H2 Color', 'buddyx' ),
@@ -445,7 +445,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h3_typography_option[color]',
 				'label'           => esc_html__( 'H3 Color', 'buddyx' ),
@@ -463,7 +463,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h4_typography_option[color]',
 				'label'           => esc_html__( 'H4 Color', 'buddyx' ),
@@ -481,7 +481,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h5_typography_option[color]',
 				'label'           => esc_html__( 'H5 Color', 'buddyx' ),
@@ -499,7 +499,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'h6_typography_option[color]',
 				'label'           => esc_html__( 'H6 Color', 'buddyx' ),
@@ -517,7 +517,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-button-divider',
 				'label'           => esc_html__( 'Buttons', 'buddyx' ),
@@ -534,7 +534,7 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Site Buttons.
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_background_color',
 				'label'           => esc_html__( 'Button Background Color', 'buddyx' ),
@@ -553,7 +553,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_background_hover_color',
 				'label'           => esc_html__( 'Button Background Hover Color', 'buddyx' ),
@@ -572,7 +572,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_text_color',
 				'label'           => esc_html__( 'Button Text Color', 'buddyx' ),
@@ -590,7 +590,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_text_hover_color',
 				'label'           => esc_html__( 'Button Text Hover Color', 'buddyx' ),
@@ -608,7 +608,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_border_color',
 				'label'           => esc_html__( 'Button Border Color', 'buddyx' ),
@@ -626,7 +626,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_buttons_border_hover_color',
 				'label'           => esc_html__( 'Button Border Hover Color', 'buddyx' ),
@@ -644,7 +644,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-footer-divider',
 				'label'           => esc_html__( 'Footer', 'buddyx' ),
@@ -660,7 +660,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_footer_title_color',
 				'label'           => esc_html__( 'Footer Title Color', 'buddyx' ),
@@ -678,7 +678,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_footer_content_color',
 				'label'           => esc_html__( 'Footer Content Color', 'buddyx' ),
@@ -696,7 +696,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_footer_links_color',
 				'label'           => esc_html__( 'Footer Link Color', 'buddyx' ),
@@ -714,7 +714,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_footer_links_hover_color',
 				'label'           => esc_html__( 'Footer Link Hover', 'buddyx' ),
@@ -732,7 +732,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'custom-coyright-divider',
 				'label'           => esc_html__( 'Copyright', 'buddyx' ),
@@ -753,7 +753,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_copyright_background_color',
 				'label'           => esc_html__( 'Copyright Background Color', 'buddyx' ),
@@ -771,7 +771,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings' => 'site_copyright_border_color',
 				'label'    => esc_html__( 'Copyright Border Color', 'buddyx' ),
@@ -788,7 +788,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_copyright_content_color',
 				'label'           => esc_html__( 'Copyright Content Color', 'buddyx' ),
@@ -806,7 +806,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_copyright_links_color',
 				'label'           => esc_html__( 'Copyright Link Color', 'buddyx' ),
@@ -824,7 +824,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Color(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 			array(
 				'settings'        => 'site_copyright_links_hover_color',
 				'label'           => esc_html__( 'Copyright Link Hover Color', 'buddyx' ),

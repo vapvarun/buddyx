@@ -14,7 +14,6 @@ use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function bloginfo;
-use function wp_script_is;
 use function wp_enqueue_script;
 use function get_theme_file_uri;
 use function get_theme_file_path;
@@ -45,42 +44,22 @@ class Component implements Component_Interface {
 			function () {
 				$css_uri = get_theme_file_uri( '/assets/css/' );
 				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', buddyx()->get_asset_version( get_theme_file_path( '/assets/css/buddyx-customizer.min.css' ) ) );
-				if ( class_exists( 'Kirki' ) ) {
-					// Kirki 5.x uses 'kirki-customizer'; older versions used 'kirki_field_dependencies'.
-					// Only add the handle that is actually registered to avoid WP 6.9.1+ notices.
-					$kirki_deps = array( 'customize-controls', 'jquery' );
-					if ( wp_script_is( 'kirki-customizer', 'registered' ) ) {
-						$kirki_deps[] = 'kirki-customizer';
-					} elseif ( wp_script_is( 'kirki_field_dependencies', 'registered' ) ) {
-						$kirki_deps[] = 'kirki_field_dependencies';
-					}
-
-					wp_enqueue_script(
-						'buddyx-customizer-controls',
-						get_theme_file_uri( '/assets/js/customizer-controls.min.js' ),
-						$kirki_deps,
-						buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer-controls.min.js' ) ),
-						true
-					);
-
-					wp_add_inline_style(
-						'buddyx-customizer',
-						'.customize-control.buddyx-force-hidden-by-mode{display:none !important;}'
-					);
-				}
+				wp_add_inline_style(
+					'buddyx-customizer',
+					'.customize-control.buddyx-force-hidden-by-mode{display:none !important;}'
+				);
 			}
 		);
 
-		if ( class_exists( 'Kirki' ) ) {
-			add_filter( 'kirki_field_add_setting_args', array( $this, 'filter_dynamic_preview_setting_args' ), 20, 2 );
-		}
+		add_filter( 'buddyx_customizer_field_args', array( $this, 'filter_dynamic_preview_setting_args' ), 20, 2 );
 	}
 
 	/**
 	 * Force postMessage transport for BuddyX settings rendered by theme dynamic CSS.
 	 *
-	 * Kirki 5.2.2 no longer live-previews these reliably because BuddyX renders
-	 * many colors/radii from theme-generated CSS variables instead of Kirki output.
+	 * Many colors/radii are rendered from theme-generated CSS variables rather than
+	 * each setting's own output map, so they need postMessage transport explicitly
+	 * for live-preview to update them.
 	 *
 	 * @param array                $args Setting args.
 	 * @param WP_Customize_Manager $wp_customize Customizer manager.

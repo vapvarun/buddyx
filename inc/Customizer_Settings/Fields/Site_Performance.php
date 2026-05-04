@@ -1,6 +1,6 @@
 <?php
 /**
- * Site Performance Kirki Fields
+ * Site Performance Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Performance
 		 */
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'site_load_google_font_locally',
 				'label'    => esc_html__( 'Load Google Fonts Locally ?', 'buddyx' ),
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings'        => 'site_preload_local_font',
 				'label'           => esc_html__( 'Preload Local Fonts ?', 'buddyx' ),
@@ -44,7 +44,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Custom(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
 			array(
 				'settings'        => 'site_flush_local_font',
 				'label'           => esc_html__( 'Flush Local Fonts Cache', 'buddyx' ),

@@ -133,7 +133,7 @@ class Component implements Component_Interface {
 	 */
 	public function add_panels_and_sections() {
 		// Site Layout.
-		new \Kirki\Panel(
+		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'site_layout_panel',
 			array(
 				'title'       => esc_html__( 'General', 'buddyx' ),
@@ -142,7 +142,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_layout',
 			array(
 				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
@@ -153,7 +153,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Loader.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_loader',
 			array(
 				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
@@ -164,7 +164,7 @@ class Component implements Component_Interface {
 		);
 
 		// Page Mapping.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'page_mapping',
 			array(
 				'title'       => esc_html__( 'Page Mapping', 'buddyx' ),
@@ -175,7 +175,7 @@ class Component implements Component_Interface {
 		);
 
 		// Typography.
-		new \Kirki\Panel(
+		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'typography_panel',
 			array(
 				'title'       => esc_html__( 'Typography', 'buddyx' ),
@@ -184,7 +184,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_title_typography_section',
 			array(
 				'title'       => esc_html__( 'Site Title', 'buddyx' ),
@@ -194,7 +194,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'headings_typography_section',
 			array(
 				'title'       => esc_html__( 'Headings', 'buddyx' ),
@@ -204,7 +204,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'menu_typography_section',
 			array(
 				'title'       => esc_html__( 'Menu', 'buddyx' ),
@@ -214,7 +214,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'body_typography_section',
 			array(
 				'title'       => esc_html__( 'Body', 'buddyx' ),
@@ -225,7 +225,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Header.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_header_section',
 			array(
 				'title'       => esc_html__( 'Site Header', 'buddyx' ),
@@ -235,7 +235,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Sub Header.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_sub_header_section',
 			array(
 				'title'       => esc_html__( 'Site Sub Header', 'buddyx' ),
@@ -245,7 +245,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Skin.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_skin_section',
 			array(
 				'title'       => esc_html__( 'Site Skin', 'buddyx' ),
@@ -255,7 +255,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Blog Layout.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_blog_section',
 			array(
 				'title'       => esc_html__( 'Site Blog', 'buddyx' ),
@@ -265,7 +265,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Sidebar Layout.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_sidebar_layout',
 			array(
 				'title'       => esc_html__( 'Site Sidebar', 'buddyx' ),
@@ -275,7 +275,7 @@ class Component implements Component_Interface {
 		);
 
 		// WP Login.
-		new \Kirki\Panel(
+		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'site_wp_login',
 			array(
 				'title'       => esc_html__( 'WP Login', 'buddyx' ),
@@ -284,7 +284,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_wp_login_logo',
 			array(
 				'title'       => esc_html__( 'Logo', 'buddyx' ),
@@ -297,7 +297,7 @@ class Component implements Component_Interface {
 		// BuddyPress Option.
 		if ( class_exists( 'BuddyPress' ) ) {
 			if ( ! class_exists( 'Youzify' ) ) {
-				new \Kirki\Panel(
+				\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 					'site_buddypress_panel',
 					array(
 						'title'       => esc_html__( 'Community Settings', 'buddyx' ),
@@ -307,7 +307,7 @@ class Component implements Component_Interface {
 				);
 			}
 
-			new \Kirki\Section(
+			\BuddyX\Buddyx\Customizer_Framework\Section::add(
 				'site_buddypress_general_section',
 				array(
 					'title'       => esc_html__( 'General Setting', 'buddyx' ),
@@ -319,7 +319,7 @@ class Component implements Component_Interface {
 		}
 
 		// Site Footer.
-		new \Kirki\Panel(
+		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'site_footer_panel',
 			array(
 				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
@@ -328,7 +328,7 @@ class Component implements Component_Interface {
 			)
 		);
 
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_footer_section',
 			array(
 				'title'       => esc_html__( 'Footer Section', 'buddyx' ),
@@ -339,7 +339,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Copyright.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_copyright_section',
 			array(
 				'title'       => esc_html__( 'Copyright Section', 'buddyx' ),
@@ -350,7 +350,7 @@ class Component implements Component_Interface {
 		);
 
 		// Site Performance.
-		new \Kirki\Section(
+		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_performance_section',
 			array(
 				'title'       => esc_html__( 'Site Performance', 'buddyx' ),

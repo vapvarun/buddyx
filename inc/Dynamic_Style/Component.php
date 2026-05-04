@@ -52,10 +52,6 @@ class Component implements Component_Interface {
 	 * @return string
 	 */
 	protected function buddyx_color_options(): string {
-		if ( ! class_exists( 'Kirki' ) ) {
-			return '';
-		}
-
 		$site_custom_colors = get_theme_mod( 'site_custom_colors', true );
 		if ( ! $site_custom_colors ) {
 			return '';
@@ -143,10 +139,6 @@ class Component implements Component_Interface {
 	 * @return string
 	 */
 	protected function buddyx_global_radius_options(): string {
-		if ( ! class_exists( 'Kirki' ) ) {
-			return '';
-		}
-
 		$site_global_border_radius = get_theme_mod( 'site_global_border_radius' );
 		if ( empty( $site_global_border_radius ) ) {
 			return '';
@@ -166,10 +158,6 @@ class Component implements Component_Interface {
 	 * @return string
 	 */
 	protected function buddyx_bottom_options(): string {
-		if ( ! class_exists( 'Kirki' ) ) {
-			return '';
-		}
-
 		$site_button_border_radius = get_theme_mod( 'site_button_border_radius' );
 		if ( empty( $site_button_border_radius ) ) {
 			return '';
@@ -189,10 +177,6 @@ class Component implements Component_Interface {
 	 * @return string
 	 */
 	protected function buddyx_form_radius_options(): string {
-		if ( ! class_exists( 'Kirki' ) ) {
-			return '';
-		}
-
 		$site_form_border_radius = get_theme_mod( 'site_form_border_radius' );
 		if ( empty( $site_form_border_radius ) ) {
 			return '';

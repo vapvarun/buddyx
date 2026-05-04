@@ -1,6 +1,6 @@
 <?php
 /**
- * Sidebar Kirki Fields
+ * Sidebar Customizer Fields
  *
  * @package buddyx
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Sidebar Layout
 		 */
-		new \Kirki\Field\Radio_Image(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 			array(
 				'settings' => 'sidebar_option',
 				'label'    => esc_html__( 'Sidebar Layout', 'buddyx' ),
@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		new \Kirki\Field\Radio_Image(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 			array(
 				'settings' => 'single_post_sidebar_option',
 				'label'    => esc_html__( 'Single Post Sidebar Layout', 'buddyx' ),
@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 
 		if ( function_exists( 'bp_is_active' ) ) {
 			if ( ! class_exists( 'Youzify' ) ) {
-				new \Kirki\Field\Radio_Image(
+				\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 					array(
 						'settings' => 'buddypress_sidebar_option',
 						'label'    => esc_html__( 'Activity Directory Sidebar Layout', 'buddyx' ),
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				);
 
-				new \Kirki\Field\Radio_Image(
+				\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 					array(
 						'settings' => 'buddypress_members_sidebar_option',
 						'label'    => esc_html__( 'Members Directory Sidebar Layout', 'buddyx' ),
@@ -77,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				);
 
-				new \Kirki\Field\Radio_Image(
+				\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 					array(
 						'settings' => 'buddypress_groups_sidebar_option',
 						'label'    => esc_html__( 'Groups Directory Sidebar Layout', 'buddyx' ),
@@ -96,7 +96,7 @@ defined( 'ABSPATH' ) || exit;
 		}
 
 		if ( function_exists( 'is_bbpress' ) ) {
-			new \Kirki\Field\Radio_Image(
+			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 				array(
 					'settings' => 'bbpress_sidebar_option',
 					'label'    => esc_html__( 'bbPress Sidebar Layout', 'buddyx' ),
@@ -114,7 +114,7 @@ defined( 'ABSPATH' ) || exit;
 		}
 
 		if ( class_exists( 'WooCommerce' ) ) {
-			new \Kirki\Field\Radio_Image(
+			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 				array(
 					'settings' => 'woocommerce_sidebar_option',
 					'label'    => esc_html__( 'WooCommerce Sidebar Layout', 'buddyx' ),
@@ -131,7 +131,7 @@ defined( 'ABSPATH' ) || exit;
 			);
 		}
 
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings' => 'sticky_sidebar_option',
 				'label'    => esc_html__( 'Sticky Sidebar ?', 'buddyx' ),

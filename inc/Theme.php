@@ -168,14 +168,7 @@ class Theme {
 			$components[] = new Jetpack\Component();
 		}
 
-		if ( defined( 'KIRKI_VERSION' ) && version_compare( KIRKI_VERSION, '4.0', '>=' ) ) {
-			$args         = array();
-			$components[] = new Dropdown_Select\Component( $args );
-		}
-
-		if ( class_exists( 'Kirki' ) ) {
-			$components[] = new Dynamic_Style\Component();
-		}
+		$components[] = new Dynamic_Style\Component();
 
 		return $components;
 	}
