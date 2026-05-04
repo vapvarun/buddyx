@@ -110,6 +110,54 @@
 	.wp-block-group.is-style-bordered { padding: var(--wp--preset--spacing--30); }
 }
 
+/* Block style variation: stacked links (used for footer nav lists) */
+.wp-block-list.is-style-stacked-links {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+.wp-block-list.is-style-stacked-links li {
+	padding-left: 0;
+	margin-left: 0;
+}
+.wp-block-list.is-style-stacked-links a {
+	text-decoration: none;
+	opacity: 0.85;
+}
+.wp-block-list.is-style-stacked-links a:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+
+/* Pattern utility: dark-footer link lists — strip default bullets, lift link contrast */
+.has-contrast-background-color .wp-block-list,
+.has-surface-3-background-color .wp-block-list {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+.has-contrast-background-color .wp-block-list li,
+.has-surface-3-background-color .wp-block-list li {
+	padding-left: 0;
+	margin-left: 0;
+}
+.has-contrast-background-color .wp-block-list a,
+.has-surface-3-background-color .wp-block-list a {
+	color: var(--wp--preset--color--base);
+	opacity: 0.85;
+	text-decoration: none;
+}
+.has-contrast-background-color .wp-block-list a:hover,
+.has-surface-3-background-color .wp-block-list a:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+/* Lift dim contrast-3 text on dark surfaces — was sub-AA */
+.has-contrast-background-color .has-contrast-3-color,
+.has-surface-3-background-color .has-contrast-3-color {
+	color: rgba(255, 255, 255, 0.72);
+}
+
 /* Pattern utility: Newsreader italic accent inside Inter headings */
 .has-newsreader-accent em,
 .has-newsreader-accent i {

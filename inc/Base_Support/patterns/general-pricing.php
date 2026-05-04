@@ -33,8 +33,8 @@ return array(
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"contrast-3"} -->
         <p class="has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Starter</p>
         <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$0</p>
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(2.5rem, 4vw + 1rem, 4rem)","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em">$0</p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"textColor":"contrast-3"} -->
         <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">Free, forever, on wp.org</p>
@@ -70,8 +70,8 @@ return array(
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent-3"} -->
         <p class="has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Studio · Most popular</p>
         <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$49<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(2.5rem, 4vw + 1rem, 4rem)","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em">$49<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}}} -->
         <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">For freelancers and small teams</p>
@@ -107,8 +107,8 @@ return array(
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"contrast-3"} -->
         <p class="has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Agency</p>
         <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--xx-large);font-weight:700;line-height:1;letter-spacing:-0.02em">$129<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(2.5rem, 4vw + 1rem, 4rem)","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em">$129<span style="font-size:var(--wp--preset--font-size--medium);font-weight:400;font-family:var(--wp--preset--font-family--inter)">/yr</span></p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"textColor":"contrast-3"} -->
         <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">For studios shipping multiple client sites</p>

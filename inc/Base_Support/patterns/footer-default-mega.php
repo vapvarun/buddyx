@@ -38,8 +38,8 @@ return array(
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"contrast-3"} -->
       <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Theme</p>
       <!-- /wp:paragraph -->
-      <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
-      <ul class="wp-block-list" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
+      <!-- wp:list {"className":"is-style-stacked-links","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
+      <ul class="wp-block-list is-style-stacked-links" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
         <!-- wp:list-item --><li><a href="#patterns">Patterns</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#styles">Style variations</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#fonts">Typography</a></li><!-- /wp:list-item -->
@@ -54,8 +54,8 @@ return array(
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"contrast-3"} -->
       <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Studio</p>
       <!-- /wp:paragraph -->
-      <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
-      <ul class="wp-block-list" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
+      <!-- wp:list {"className":"is-style-stacked-links","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
+      <ul class="wp-block-list is-style-stacked-links" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
         <!-- wp:list-item --><li><a href="#about">About us</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#manifesto">Manifesto</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#blog">Journal</a></li><!-- /wp:list-item -->
@@ -70,8 +70,8 @@ return array(
       <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"contrast-3"} -->
       <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Legal</p>
       <!-- /wp:paragraph -->
-      <!-- wp:list {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
-      <ul class="wp-block-list" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
+      <!-- wp:list {"className":"is-style-stacked-links","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"2"}}} -->
+      <ul class="wp-block-list is-style-stacked-links" style="font-size:var(--wp--preset--font-size--medium);line-height:2">
         <!-- wp:list-item --><li><a href="#license">License</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#privacy">Privacy</a></li><!-- /wp:list-item -->
         <!-- wp:list-item --><li><a href="#terms">Terms</a></li><!-- /wp:list-item -->

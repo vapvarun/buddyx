@@ -37,6 +37,11 @@ if ( ! function_exists( __NAMESPACE__ . '\\register_block_styles' ) ) {
 			'name'  => 'editorial',
 			'label' => __( 'Editorial', 'buddyx' ),
 		) );
+		register_block_style( 'core/list', array(
+			'name'         => 'stacked-links',
+			'label'        => __( 'Stacked Links (no bullets)', 'buddyx' ),
+			'inline_style' => '.wp-block-list.is-style-stacked-links{list-style:none;padding-left:0;margin-left:0}.wp-block-list.is-style-stacked-links li{padding-left:0;margin-left:0}.wp-block-list.is-style-stacked-links a{text-decoration:none;opacity:0.85}.wp-block-list.is-style-stacked-links a:hover{opacity:1;text-decoration:underline}',
+		) );
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );
