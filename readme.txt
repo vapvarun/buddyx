@@ -10,29 +10,44 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
-BuddyX is an editorial-grade WordPress theme with a designer-quality pattern library. Drop in any of 27 plug-and-play block patterns - hero sections, about, services, testimonials, pricing, FAQ, CTA banners, footers, post grids - and ship a polished site in an afternoon. Every pattern composes from core WordPress blocks only. No page builder, no plugin lock-in.
+BuddyX is a free WordPress theme that helps you build beautiful, professional websites without writing code or buying a page builder.
 
-= A real design system, not a checklist =
+Drop in ready-made layouts for your home page, about page, services, pricing, testimonials, FAQs and more - 27 designer-made sections you can mix and match. Edit the words and images in the regular WordPress editor. That's it. No Elementor licence, no Divi subscription, nothing extra to buy.
 
-* **Self-hosted typography.** Inter for body, Newsreader for editorial accents. Two weights of each, ~140 KB total, woff2 latin subset. No external font API, no GDPR concerns.
-* **Fluid type scale.** Eight named sizes (x-small → mega) using CSS clamp() so headings rebalance automatically from desktop down to 390px mobile.
-* **Semantic color tokens.** Twelve curated tokens - base, contrast, accent, surface - instead of a "pick from 24 swatches" picker. WCAG 2.1 AA verified for accent text on background.
-* **Ten-step spacing scale.** Named spacing presets (8px through 160px) so vertical rhythm stays coherent across patterns and pages.
-* **Two style variations.** Switch the entire site to a dark palette or a Newsreader-led editorial typography variant from the Site Editor with one click.
-* **Eight block style variations.** Outline-accent and link-arrow buttons, gradient and dotted separators, card and bordered groups, editorial blockquote, stacked-link list - design primitives the patterns reuse.
+= What you can build =
 
-= Hybrid FSE =
+* **Business and agency websites** - hero sections, services pages, pricing tables, contact pages, team grids
+* **Online communities** - works seamlessly with BuddyPress and BuddyBoss for member profiles, groups, messaging and forums
+* **Online stores** - works with WooCommerce out of the box for products, cart, checkout and account pages
+* **Online courses** - works with LearnDash, LearnPress, LifterLMS and TutorLMS for course catalogues and lesson pages
+* **Blogs and magazines** - five different post layouts for editorial sites
+* **Portfolios and one-page sites** - clean typography that puts your work first
 
-Classic templates plus full theme.json design-token editing in Site Editor's Global Styles. Use the patterns inside post content today, edit theme tokens visually without touching code, and migrate to full block templates on your own schedule.
+= What's included =
 
-= Built for serious work =
+* **27 ready-to-use page sections** covering hero, about, services, pricing, testimonials, FAQ, calls-to-action, footers and blog post grids
+* **Two beautiful fonts** included with the theme so your site loads fast and stays GDPR-friendly (no Google Fonts cookies)
+* **Light and dark colour schemes** - one click to switch the whole site
+* **Fully responsive** - looks great on desktop, tablet and mobile
+* **Translation-ready** - use it in any language
+* **Right-to-left support** - works for Arabic, Hebrew, Persian, Urdu and other RTL languages
+* **Accessibility-tested** to WCAG 2.1 AA - keyboard friendly, screen-reader friendly, visible focus styles
+* **Lightweight** - no bloat, no jQuery dependencies in core, fast page loads
+* **Compatible with the WordPress Site Editor** - edit colours, fonts and spacing visually
 
-* **Accessibility-audited.** WCAG 2.1 AA. Visible :focus-visible focus rings on every interactive element. Real label associations. No aria-hidden on focusable links. Keyboard parity verified at desktop and 390px mobile.
-* **BuddyPress, WooCommerce, LearnDash compatibility.** Use BuddyX as a community theme, an e-commerce theme, or an LMS theme - the patterns and tokens work across all three.
-* **Lightweight and responsive.** RTL- and translation-ready out of the box.
-* **Maintained.** Continuously developed, updated, and supported by Wbcom Designs.
+= Plays nicely with =
 
-Looking for premium starter sites, a header/footer builder, and a 150+ option Customizer? See [BuddyX Pro](https://wbcomdesigns.com/downloads/buddyx-pro/).
+WooCommerce, BuddyPress, BuddyBoss Platform, LearnDash, LearnPress, LifterLMS, TutorLMS, bbPress, The Events Calendar, Easy Digital Downloads, SureCart, FluentCart, Dokan, WC Vendors, Yoast SEO, Rank Math, Elementor, Gutenberg, and most other popular WordPress plugins.
+
+= Want even more? =
+
+[BuddyX Pro](https://wbcomdesigns.com/downloads/buddyx-pro/) adds premium starter websites you can import in one click, a drag-and-drop header and footer builder, hundreds of additional customizer options, and dedicated email support.
+
+= Need help? =
+
+* [Documentation](https://docs.wbcomdesigns.com/doc_category/buddyx/) - step-by-step guides
+* [Community support forum](https://wordpress.org/support/theme/buddyx/) - free help from the community and our team
+* [GitHub](https://github.com/wbcomdesigns/buddyx) - report issues or contribute
 
 == BuddyX Child Theme ==
 
