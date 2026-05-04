@@ -224,21 +224,28 @@ class BuddyX_FluentCart_Support {
 	 * @return void
 	 */
 	public function buddyx_fluentcart_add_customizer_option() {
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
-			array(
-				'settings'    => 'site_header_enable_cart',
-				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
-				'section'     => 'site_header_primary_section',
-				'default'     => '1',
-				'priority'    => 10,
-				'choices'     => array(
-					'on'  => esc_html__( 'Yes', 'buddyx' ),
-					'off' => esc_html__( 'No', 'buddyx' ),
-				),
-				'tooltip'     => esc_html__( 'Display FluentCart cart icon in header', 'buddyx' ),
-				'transport'   => 'refresh',
-			)
-		);
+		// SureCart's compat file owns the `site_header_enable_cart` setting
+		// declaration. If both plugins are active, only one copy must register
+		// (whichever runs second would otherwise overwrite the first's args).
+		// We yield to SureCart to preserve historical customer data — Kirki
+		// versions of the theme had SureCart's declaration win the race.
+		if ( ! defined( 'SURECART_PLUGIN_FILE' ) ) {
+			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+				array(
+					'settings'    => 'site_header_enable_cart',
+					'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
+					'section'     => 'site_header_primary_section',
+					'default'     => '1',
+					'priority'    => 10,
+					'choices'     => array(
+						'on'  => esc_html__( 'Yes', 'buddyx' ),
+						'off' => esc_html__( 'No', 'buddyx' ),
+					),
+					'tooltip'     => esc_html__( 'Display FluentCart cart icon in header', 'buddyx' ),
+					'transport'   => 'refresh',
+				)
+			);
+		}
 
 		// Add product sidebar option.
 		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
