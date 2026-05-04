@@ -168,7 +168,7 @@ class Theme {
 			$components[] = new Jetpack\Component();
 		}
 
-		$components[] = new Dynamic_Style\Component();
+		$components[] = new Tokens\Component();
 
 		return $components;
 	}
