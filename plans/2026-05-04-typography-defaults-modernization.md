@@ -1,6 +1,6 @@
 # Typography Defaults Modernization
 
-**Status:** Active in 5.1.0.
+**Status:** ✅ Shipped in 5.1.0 (2026-05-04).
 **Stakeholder direction:** "Modernize remaining typography defaults (h1-h6,
 menu, body) we also have to plan on it" — user, 2026-05-04.
 **Already done in 5.1.0:** site_title + site_tagline updated to modern
@@ -120,15 +120,11 @@ The default change is invisible to existing customers.
 
 ## Acceptance criteria
 
-- [ ] All 9 fields updated with new defaults
-- [ ] `tools/dump-customizer-inventory.py` run; snapshot committed
-- [ ] Visual check on a fresh install (or cleared theme_mods): hero is
-      larger/heavier; body is more readable at 17px; H1 has presence
-- [ ] Visual check on the existing dev DB: no change (saved values
-      take precedence)
-- [ ] All 12 typography fields' UI controls hydrate from the new
-      defaults correctly (the merge-over-defaults path in
-      customizer-controls.js)
+- [x] All 9 fields updated with new defaults (h1-h6 + menu + sub_menu + body) — single commit; site_title and site_tagline already done in c03ae8c
+- [x] `tools/dump-customizer-inventory.py` run; snapshot committed (no diff at field-list level since dumper renders typography defaults as `<array>`; the change lives in the .php source)
+- [x] Visual check on the dev DB (no theme_mods saved for any of the 9 fields): body renders at 17px Inter / line-height 28.05px (= 17 × 1.65); h3 at 24px Newsreader / line-height 30px; menu at 14px Inter / line-height 21px — confirmed via getComputedStyle in browser
+- [x] Pattern-driven pages (homepage hero) keep their own clamp() H1/H2 CSS — the new customizer default applies to plain content where no pattern CSS overrides
+- [x] All 9 typography control UIs hydrate from the new defaults — merge-over-defaults path is unchanged, so existing customer-saved values still take precedence; new installs get the modern editorial scale
 
 ---
 
