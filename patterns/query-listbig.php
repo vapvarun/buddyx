@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Query - horizontal list with split image+text.
- *
- * @package buddyx
+ * Title: Posts - Horizontal List Split
+ * Slug: buddyx/query-listbig
+ * Categories: buddyx-query, posts
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Posts - Horizontal List Split', 'buddyx' ),
-	'categories' => array( 'buddyx-query', 'posts' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1100px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
 
@@ -49,5 +46,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

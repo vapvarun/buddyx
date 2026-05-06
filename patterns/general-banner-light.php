@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Banner light - asymmetric CTA strip on warm surface.
- *
- * @package buddyx
+ * Title: Banner - Light Asymmetric
+ * Slug: buddyx/general-banner-light
+ * Categories: buddyx-cta, banner
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Banner - Light Asymmetric', 'buddyx' ),
-	'categories' => array( 'buddyx-cta', 'banner' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface-1","layout":{"type":"constrained","contentSize":"1100px"}} -->
 <div class="wp-block-group alignfull has-surface-1-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
 
@@ -49,5 +46,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

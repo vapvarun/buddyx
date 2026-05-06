@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Footer - simple centered logo + nav + social row.
- *
- * @package buddyx
+ * Title: Footer - Simple Centered
+ * Slug: buddyx/footer-simple
+ * Categories: buddyx-footer, footer
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Footer - Simple Centered', 'buddyx' ),
-	'categories' => array( 'buddyx-footer', 'footer' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"880px"}} -->
 <div class="wp-block-group alignfull has-base-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
 
@@ -39,5 +36,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

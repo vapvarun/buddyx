@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Footer - small / minimal copyright bar.
- *
- * @package buddyx
+ * Title: Footer - Minimal Bar
+ * Slug: buddyx/footer-small
+ * Categories: buddyx-footer, footer
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Footer - Minimal Bar', 'buddyx' ),
-	'categories' => array( 'buddyx-footer', 'footer' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|base-3","width":"1px"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="border-top-color:var(--wp--preset--color--base-3);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
 
@@ -36,5 +33,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

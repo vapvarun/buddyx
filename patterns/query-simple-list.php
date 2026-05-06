@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Query - minimal date + title list (table-of-contents style).
- *
- * @package buddyx
+ * Title: Posts - Minimal Date + Title List
+ * Slug: buddyx/query-simple-list
+ * Categories: buddyx-query, posts
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Posts - Minimal Date + Title List', 'buddyx' ),
-	'categories' => array( 'buddyx-query', 'posts' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"720px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
 
@@ -46,5 +43,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

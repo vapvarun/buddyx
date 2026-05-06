@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Social proof - stats row.
- *
- * @package buddyx
+ * Title: Stats Row
+ * Slug: buddyx/social-proof-stats
+ * Categories: buddyx-social-proof, featured
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Stats Row', 'buddyx' ),
-	'categories' => array( 'buddyx-social-proof', 'featured' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface-2","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-surface-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
 
@@ -64,5 +61,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

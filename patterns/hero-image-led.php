@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Hero - image-led full-bleed cover.
- *
- * @package buddyx
+ * Title: Hero - Image-led
+ * Slug: buddyx/hero-image-led
+ * Categories: buddyx-hero, header
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Hero - Image-led', 'buddyx' ),
-	'categories' => array( 'buddyx-hero', 'header' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","gradient":"dark-velvet","style":{"spacing":{"padding":{"top":"var:preset|spacing|100","bottom":"var:preset|spacing|100","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"880px"}} -->
 <div class="wp-block-group alignfull has-dark-velvet-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--100);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--100);padding-left:var(--wp--preset--spacing--40)">
 
@@ -34,5 +31,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

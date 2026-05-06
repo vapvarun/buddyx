@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Social proof - logo cloud (typographic placeholders).
- *
- * @package buddyx
+ * Title: Logo Cloud - Trusted by
+ * Slug: buddyx/social-proof-logos
+ * Categories: buddyx-social-proof, featured
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Logo Cloud - Trusted by', 'buddyx' ),
-	'categories' => array( 'buddyx-social-proof', 'featured' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
 
@@ -72,5 +69,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

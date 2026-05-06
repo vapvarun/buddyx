@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Footer - 5-column mega with newsletter pull.
- *
- * @package buddyx
+ * Title: Footer - Mega 5-column
+ * Slug: buddyx/footer-mega
+ * Categories: buddyx-footer, footer
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Footer - Mega 5-column', 'buddyx' ),
-	'categories' => array( 'buddyx-footer', 'footer' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","backgroundColor":"surface-3","textColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-color has-surface-3-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
 
@@ -99,5 +96,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

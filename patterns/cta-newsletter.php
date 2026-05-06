@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: CTA - newsletter signup strip.
- *
- * @package buddyx
+ * Title: CTA - Newsletter Signup
+ * Slug: buddyx/cta-newsletter
+ * Categories: buddyx-cta, call-to-action
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'CTA - Newsletter Signup', 'buddyx' ),
-	'categories' => array( 'buddyx-cta', 'call-to-action' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface-1","layout":{"type":"constrained","contentSize":"1100px"}} -->
 <div class="wp-block-group alignfull has-surface-1-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
 
@@ -35,7 +32,7 @@ return array(
       <!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
       <div class="wp-block-buttons">
         <!-- wp:button {"backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"left":"var:preset|spacing|40","right":"var:preset|spacing|40","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}},"border":{"radius":"999px"}},"width":100} -->
-        <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="#subscribe" style="border-radius:999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">Subscribe - it\'s free</a></div>
+        <div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link has-base-color has-contrast-background-color has-text-color has-background wp-element-button" href="#subscribe" style="border-radius:999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">Subscribe - it's free</a></div>
         <!-- /wp:button -->
       </div>
       <!-- /wp:buttons -->
@@ -52,5 +49,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

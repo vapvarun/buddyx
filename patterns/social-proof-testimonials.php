@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Social proof - 3-up testimonials with Newsreader pull-quotes.
- *
- * @package buddyx
+ * Title: Testimonials - Editorial 3-up
+ * Slug: buddyx/social-proof-testimonials
+ * Categories: buddyx-social-proof, testimonials
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Testimonials - Editorial 3-up', 'buddyx' ),
-	'categories' => array( 'buddyx-social-proof', 'testimonials' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base-2","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-2-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
 
@@ -37,7 +34,7 @@ return array(
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.4","fontStyle":"normal","fontWeight":"500","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|40"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Replaced our $200/mo page builder. The patterns alone justified the switch - agency clients ask which Webflow site they\'re looking at."</p>
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Replaced our $200/mo page builder. The patterns alone justified the switch - agency clients ask which Webflow site they're looking at."</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600","lineHeight":"1.3"},"spacing":{"margin":{"bottom":"0"}}}} -->
@@ -85,7 +82,7 @@ return array(
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.4","fontStyle":"normal","fontWeight":"500","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|40"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Finally, a wp.org theme that doesn\'t look like a wp.org theme. Editorial typography, real spacing rhythm, accessibility actually built in."</p>
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--40);font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:normal;font-weight:500;line-height:1.4">"Finally, a wp.org theme that doesn't look like a wp.org theme. Editorial typography, real spacing rhythm, accessibility actually built in."</p>
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600","lineHeight":"1.3"},"spacing":{"margin":{"bottom":"0"}}}} -->
@@ -104,5 +101,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

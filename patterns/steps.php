@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Steps - numbered process row.
- *
- * @package buddyx
+ * Title: Steps - Numbered Process
+ * Slug: buddyx/steps
+ * Categories: buddyx-features, featured
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Steps - Numbered Process', 'buddyx' ),
-	'categories' => array( 'buddyx-features', 'featured' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
 
@@ -99,5 +96,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

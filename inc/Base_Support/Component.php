@@ -222,55 +222,11 @@ class Component implements Component_Interface {
 			register_block_pattern_category( $slug, array( 'label' => $label ) );
 		}
 
-		if ( function_exists( 'register_block_pattern' ) ) {
-			$block_patterns = array(
-				// Hero.
-				'hero-typography-led',
-				'hero-split-screen',
-				'hero-image-led',
-				// About.
-				'about-story',
-				'about-founder',
-				// Features.
-				'features-alternating',
-				'services-grid',
-				'steps',
-				'cta-fullbleed',
-				// Social proof.
-				'social-proof-stats',
-				'social-proof-testimonials',
-				'social-proof-logos',
-				// Pricing & FAQ.
-				'general-pricing',
-				'general-faq',
-				// CTA.
-				'general-banner-light',
-				'cta-newsletter',
-				// Footer.
-				'footer-central',
-				'footer-default-mega',
-				'footer-mega',
-				'footer-simple',
-				'footer-small',
-				// Query.
-				'query-cover-featured',
-				'query-cover-grid',
-				'query-grid-excerpt',
-				'query-listbig',
-				'query-simple-list',
-				// Team (groups with about).
-				'team-grid',
-			);
-
-			foreach ( $block_patterns as $block_pattern ) {
-				$pattern_file = __DIR__ . '/patterns/' . $block_pattern . '.php';
-				if ( file_exists( $pattern_file ) ) {
-					register_block_pattern(
-						'buddyx/' . $block_pattern,
-						require $pattern_file
-					);
-				}
-			}
-		}
+		// Patterns themselves are auto-discovered by WP core from the theme's
+		// /patterns/ directory (WP 6.0+). Each file there carries Block Pattern
+		// header comments (Title / Slug / Categories) and is registered as
+		// `buddyx/<slug>` automatically — no PHP loop needed here. We only
+		// register the *categories* above because auto-discovery doesn't
+		// create custom categories on its own.
 	}
 }

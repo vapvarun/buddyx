@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: Team - 4-up grid.
- *
- * @package buddyx
+ * Title: Team - 4-up Grid
+ * Slug: buddyx/team-grid
+ * Categories: buddyx-about, team
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'Team - 4-up Grid', 'buddyx' ),
-	'categories' => array( 'buddyx-about', 'team' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
 
@@ -87,5 +84,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);

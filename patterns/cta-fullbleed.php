@@ -1,14 +1,11 @@
 <?php
 /**
- * Pattern: CTA - full-bleed gradient with centered headline.
- *
- * @package buddyx
+ * Title: CTA - Full-bleed Gradient
+ * Slug: buddyx/cta-fullbleed
+ * Categories: buddyx-cta, call-to-action
+ * Viewport Width: 1440
  */
-
-return array(
-	'title'      => __( 'CTA - Full-bleed Gradient', 'buddyx' ),
-	'categories' => array( 'buddyx-cta', 'call-to-action' ),
-	'content'    => '
+?>
 <!-- wp:group {"align":"full","gradient":"accent-bold","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"760px"}} -->
 <div class="wp-block-group alignfull has-accent-bold-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--90);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--90);padding-left:var(--wp--preset--spacing--40)">
 
@@ -37,5 +34,3 @@ return array(
 
 </div>
 <!-- /wp:group -->
-',
-);
