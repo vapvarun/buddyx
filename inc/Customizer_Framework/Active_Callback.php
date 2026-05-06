@@ -50,14 +50,21 @@ class Active_Callback {
 				switch ( $operator ) {
 					case '==':
 					case '===':
-						// Loose equality so '1' == 1 matches Kirki's behavior.
-						if ( $actual != $expected ) { // phpcs:ignore Universal.Operators.StrictComparisons
+						// Boolean-equivalent comparison so 'on'/'1'/1/true all match
+						// when expected is true/'1'/1, and 'off'/''/0/false match
+						// when expected is false/'0'/0/''. Pre-fix sites upgrading
+						// from 5.0.x carry legacy 'on'/'off' theme_mods that PHP's
+						// loose comparison treats as != '1' / != '0', causing
+						// dependent controls (Site Footer / Sub Header background
+						// fields, etc.) to be hidden on first customizer load even
+						// when their parent toggle is ON.
+						if ( ! self::values_equal( $actual, $expected ) ) {
 							return false;
 						}
 						break;
 					case '!=':
 					case '!==':
-						if ( $actual == $expected ) { // phpcs:ignore Universal.Operators.StrictComparisons
+						if ( self::values_equal( $actual, $expected ) ) {
 							return false;
 						}
 						break;
@@ -95,5 +102,37 @@ class Active_Callback {
 			}
 			return true;
 		};
+	}
+
+	/**
+	 * Compare two values with boolean-equivalence semantics.
+	 *
+	 * - If BOTH sides look boolean (any of true/1/'1'/'on'/'yes'/'true'/'enable'
+	 *   for truthy, false/0/'0'/''/'off'/'no'/'false'/'disable'/null for falsy),
+	 *   compare them by their boolean class.
+	 * - Otherwise fall back to PHP loose equality (Kirki's original behavior).
+	 *
+	 * Why this matters: Field::sanitize_bool_int normalizes new switch saves to
+	 * 0/1, but customers upgrading from 5.0.x carry literal 'on'/'off' theme_mod
+	 * values that pre-date the sanitizer. Active_Callback conditions were
+	 * authored against the sanitized 0/1 form and broke for those upgraders.
+	 *
+	 * @param mixed $a First value (typically the saved theme_mod).
+	 * @param mixed $b Second value (typically the condition's expected value).
+	 * @return bool True if the two values are equal under boolean-equivalence rules.
+	 */
+	protected static function values_equal( $a, $b ): bool {
+		$truthy = array( true, 1, '1', 'on', 'yes', 'true', 'enable' );
+		$falsy  = array( false, 0, '0', '', 'off', 'no', 'false', 'disable', null );
+
+		$a_truthy = in_array( $a, $truthy, true );
+		$a_falsy  = in_array( $a, $falsy, true );
+		$b_truthy = in_array( $b, $truthy, true );
+		$b_falsy  = in_array( $b, $falsy, true );
+
+		if ( ( $a_truthy || $a_falsy ) && ( $b_truthy || $b_falsy ) ) {
+			return $a_truthy === $b_truthy;
+		}
+		return $a == $b; // phpcs:ignore Universal.Operators.StrictComparisons
 	}
 }
