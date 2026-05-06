@@ -142,6 +142,14 @@ class Field {
 		}
 		switch ( $type ) {
 			case 'color':
+				// Alpha-aware fields ('choices' => array('alpha' => true)) accept
+				// rgba / rgb / hex / hsla — matching master Kirki's color-alpha
+				// sanitizer. WordPress core's sanitize_hex_color rejects rgba and
+				// returns NULL, which would silently null out customer-saved
+				// translucent colors on every customizer save (data loss).
+				if ( ! empty( $args['choices']['alpha'] ) ) {
+					return array( __CLASS__, 'sanitize_color_alpha' );
+				}
 				return 'sanitize_hex_color';
 			case 'url':
 				return 'esc_url_raw';
@@ -173,6 +181,42 @@ class Field {
 	}
 
 	/**
+	 * Sanitize a color value that may include alpha. Used by all 'color' fields
+	 * registered with 'choices' => array('alpha' => true).
+	 *
+	 * Accepts:
+	 *   - Hex: #RGB / #RGBA / #RRGGBB / #RRGGBBAA (3, 4, 6, or 8 chars after #)
+	 *   - Functional: rgb(R,G,B) / rgba(R,G,B,A) / hsl(H,S%,L%) / hsla(H,S%,L%,A)
+	 *
+	 * Returns the trimmed input on match, or '' on invalid/empty input. Matches
+	 * the master Kirki ColorAlpha sanitizer's tolerance so customer-saved rgba
+	 * values from 5.0.x survive 5.1.0 customizer saves intact (no data loss).
+	 *
+	 * @param mixed $value Customer-submitted color value.
+	 * @return string Validated color string, or '' if input doesn't match a
+	 *                supported color format.
+	 */
+	public static function sanitize_color_alpha( $value ): string {
+		$value = trim( (string) $value );
+		if ( '' === $value ) {
+			return '';
+		}
+		// Hex with optional alpha (3, 4, 6, or 8 chars after #).
+		if ( preg_match( '/^#(?:[A-Fa-f0-9]{3}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/', $value ) ) {
+			return $value;
+		}
+		// rgb(...) / rgba(...) — tolerate spaces, decimal alpha (0, 1, 0.x).
+		if ( preg_match( '/^rgba?\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*(?:,\s*(?:0|1|0?\.\d+)\s*)?\)$/', $value ) ) {
+			return $value;
+		}
+		// hsl(...) / hsla(...) with percentage S and L.
+		if ( preg_match( '/^hsla?\(\s*\d{1,3}\s*,\s*\d{1,3}\s*%\s*,\s*\d{1,3}\s*%\s*(?:,\s*(?:0|1|0?\.\d+)\s*)?\)$/', $value ) ) {
+			return $value;
+		}
+		return '';
+	}
+
+	/**
 	 * Coerce truthy values to 1, falsy to 0. Used for switch + checkbox.
 	 *
 	 * Accepts every shape Kirki produced + theme defaults:
@@ -184,6 +228,9 @@ class Field {
 	 * (e.g. site_custom_colors, site_breadcrumbs, buddypress_avatar_style)
 	 * would silently flip OFF on save because the strict comparison missed
 	 * the 'on' string.
+	 *
+	 * @param mixed $value Customer-submitted value.
+	 * @return int 1 for truthy, 0 for falsy.
 	 */
 	public static function sanitize_bool_int( $value ): int {
 		if ( is_bool( $value ) ) {
