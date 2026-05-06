@@ -284,6 +284,11 @@ class Component implements Component_Interface {
 		}
 
 		// Simple hex color tokens.
+		// Legacy aliases use !important so they win over the duplicate :root
+		// blocks in content.min.css/woocommerce.min.css/learnpress.min.css/
+		// rtl.min.css that re-declare --color-theme-primary etc. with theme
+		// defaults. Without !important, customer-saved values are silently
+		// overridden by the later-loading stylesheet's :root block.
 		foreach ( self::$simple_color_tokens as $mod_key => $cfg ) {
 			$value = $mods[ $mod_key ] ?? '';
 			if ( '' === $value ) {
@@ -297,7 +302,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $color . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $color . ';';
+				$decls .= $alias . ':' . $color . ' !important;';
 			}
 		}
 
@@ -314,7 +319,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $color . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $color . ';';
+				$decls .= $alias . ':' . $color . ' !important;';
 			}
 		}
 
@@ -330,7 +335,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $value . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $value . ';';
+				$decls .= $alias . ':' . $value . ' !important;';
 			}
 		}
 
@@ -362,7 +367,7 @@ class Component implements Component_Interface {
 		foreach ( self::$dark_defaults as $token => $value ) {
 			$dark_decls .= $token . ':' . $value . ';';
 			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
-				$dark_decls .= $alias . ':' . $value . ';';
+				$dark_decls .= $alias . ':' . $value . ' !important;';
 			}
 		}
 		if ( '' === $dark_decls ) {
