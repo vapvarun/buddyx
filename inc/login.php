@@ -123,8 +123,11 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 
 		echo '<style>';
 
-		// Logo.
-		if ( ! empty( $enable_custom_login_logo ) && true === $enable_custom_login_logo ) {
+		// Logo. The Switch control saves 'on' / '' (string), not boolean true,
+		// so the previous strict === true check was dead code and the
+		// "Disable Logo? = Yes" toggle never actually hid the h1. Use a loose
+		// truthy check that accepts 'on', 1, '1', and the legacy boolean true.
+		if ( ! empty( $enable_custom_login_logo ) && 'off' !== $enable_custom_login_logo ) {
 			?>
 			.login h1 {
 				display: none !important;
