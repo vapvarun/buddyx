@@ -1,6 +1,6 @@
 === BuddyX ===
 Contributors: wbcomdesigns
-Tags: translation-ready, Block Editor Styles, Blog, Custom Background, Custom Colors, Custom Logo, Custom Menu, Editor Style, Featured Images, Footer Widgets, Full Width Template, One Column, RTL Language Support, Sticky Post, Theme Options, Threaded Comments, Wide Blocks, BuddyPress, Post Formats, Education, E-Commerce, News
+Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variations, editor-style, custom-colors, custom-logo, featured-images, footer-widgets, theme-options
 Requires at least: 4.8
 Tested up to: 6.9
 Requires PHP: 7.4

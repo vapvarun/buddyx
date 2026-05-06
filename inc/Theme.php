@@ -169,6 +169,7 @@ class Theme {
 		}
 
 		$components[] = new Tokens\Component();
+		$components[] = new Speculation_Rules\Component();
 
 		return $components;
 	}
