@@ -42,6 +42,11 @@ class Typography extends \WP_Customize_Control {
 	/**
 	 * Read theme.json fontFamilies into a slug => label map.
 	 *
+	 * Prepends a "Default (theme)" entry mapped to '' so customers can
+	 * explicitly opt out of any font-family override and fall through to
+	 * the global stylesheet's font stack. Output_Builder skips emitting
+	 * font-family when the saved value is '', preserving theme defaults.
+	 *
 	 * @return array<string, string>
 	 */
 	protected static function available_font_families(): array {
@@ -59,7 +64,10 @@ class Typography extends \WP_Customize_Control {
 				'inter'  => 'Inter',
 			);
 		}
-		return $out;
+		// Prepend the "Default (theme)" option so it sits at the top of
+		// the dropdown and is the natural fallback for customers who
+		// haven't explicitly chosen a family.
+		return array( '' => esc_html__( 'Default (theme)', 'buddyx' ) ) + $out;
 	}
 
 	/**
