@@ -451,7 +451,6 @@ function buddyx_load_external_dependencies() {
 	$base_path = get_template_directory();
 
 	$external_files = array(
-		'/external/require_plugins.php',
 		'/external/buddyx-defaults.php',
 	);
 
