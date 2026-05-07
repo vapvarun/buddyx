@@ -89,12 +89,12 @@ defined( 'ABSPATH' ) || exit;
 		 */
 		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
-				'settings' => 'site_loader',
-				'label'    => esc_html__( 'Show site loader?', 'buddyx' ),
-				'description' => esc_html__( 'Display a loading animation while the page is loading.', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => 1,
-				'choices'  => array(
+				'settings'    => 'site_loader',
+				'label'       => esc_html__( 'Show site loader?', 'buddyx' ),
+				'description' => esc_html__( 'Display a loading animation while the page is loading. Off by default — modern pages load fast enough that an extra animation usually adds perceived delay rather than helping.', 'buddyx' ),
+				'section'     => 'site_loader',
+				'default'     => 0,
+				'choices'     => array(
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),

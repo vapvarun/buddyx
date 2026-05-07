@@ -6,8 +6,11 @@ function buddyx_defaults( $key = '' ) {
 	// site layout
 	$defaults['site-layout'] = 'wide';
 
-	// site loader - disabled by default for better performance
-	$defaults['site-loader'] = '2';
+	// site loader — disabled by default for better perceived performance.
+	// Modern pages load fast enough that an extra animation tends to add
+	// perceived delay rather than helping. Customers opt in via
+	// Customizer → General → Site Loader.
+	$defaults['site-loader'] = '0';
 
 	// site search
 	$defaults['site-search'] = '1';
