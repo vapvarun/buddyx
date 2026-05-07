@@ -13,46 +13,19 @@
  * <html>, so this same file drives both light and dark modes.
  */
 
-/* ----- Page surfaces ----- */
+/* ----- Page surfaces -----
+ * Master 5.0.x left .site, .site-main, .entry-content, .hentry, #secondary
+ * etc. transparent — body BG showed through. Phase 4 originally added
+ * card-style BGs to those surfaces, but on directory pages with sidebars
+ * the layered cards exposed empty colored regions when content didn't fill
+ * a column (white patch under the member loop, gray patch under sparse
+ * sidebars, double-border on nested comment cards). Reverted to master
+ * behavior: only html/body get a token-driven BG; everything else inherits.
+ */
 html,
 body {
 	background-color: var(--bx-color-bg, #ffffff);
 	color: var(--bx-color-fg, #505050);
-}
-
-.site,
-.site-content,
-.site-main,
-main.site-main {
-	background-color: var(--bx-color-bg-page, var(--bx-color-bg, #ffffff));
-}
-
-/* Boxed-layout content frame */
-body.layout-boxed .site,
-body.layout-boxed-default .site {
-	background-color: var(--bx-color-bg-elevated, var(--bx-color-bg, #ffffff));
-}
-
-/* Article / card surfaces.
- * Note: .post and .page are intentionally NOT used here — those classes are
- * also added to <body> by WordPress on single-post / page templates, which
- * would hijack the customer's body_background_color via cascade. .hentry
- * is universal on articles (every post type) and does not appear on body. */
-.entry-content,
-.hentry,
-.comment-respond,
-.comments-area,
-.widget,
-.bp-feedback,
-.bp-list-feedback {
-	background-color: var(--bx-color-bg-elevated, transparent);
-	color: var(--bx-color-fg, inherit);
-}
-
-/* Sidebar surfaces */
-#secondary,
-.widget-area {
-	background-color: var(--bx-color-bg-muted, transparent);
 }
 
 /* ----- Header ----- */
