@@ -40,6 +40,101 @@
     color: var(--bx-color-link-hover, var(--color-link-hover));
 }
 
+/*--------------------------------------------------------------
+# Comment polish (pure CSS — targets WP-output classes only)
+--------------------------------------------------------------*/
+
+/* Threaded reply connector — vertical line + indent so depth is
+ * scannable without extra markup. Targets the WP-output .children.
+ * Uses --bx-color-border-strong (#d4d4d4 light / #3a3a3a dark) so
+ * the line is actually visible against the body BG. */
+.comment-list .children {
+    position: relative;
+    border-left: 2px solid var(--bx-color-border-strong, var(--bx-color-border, #d4d4d4));
+    padding-left: 1.25rem;
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .comment-list .children {
+        padding-left: 0.75rem;
+    }
+}
+
+/* Nested-comment avatar slightly smaller than top-level for
+ * visual hierarchy. WP doesn't differentiate by default. */
+.comment .comment .avatar {
+    width: 40px;
+    height: 40px;
+}
+
+/* Post-author badge — WP outputs .bypostauthor on comments by the
+ * post's author. Adds a subtle accent border to make it scannable. */
+.comment.bypostauthor > .comment-body,
+.comment-list li.bypostauthor {
+    border-left: 3px solid var(--bx-color-accent, #ef5455);
+}
+
+.comment.bypostauthor .comment-author .fn::after {
+    content: " · " attr(data-author-label);
+}
+
+/* Style the moderation-pending row that WP outputs as
+ * <em class="comment-awaiting-moderation"> — promote to a
+ * proper amber pill. No markup change needed; WP already gives
+ * us this class. */
+.comment-awaiting-moderation {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--bx-color-warning, #92400e);
+    background-color: var(--bx-color-warning-bg, #fef3c7);
+    border-radius: 999px;
+}
+
+/* Form: focus ring matching the brand */
+.comment-form input[type="text"]:focus,
+.comment-form input[type="email"]:focus,
+.comment-form input[type="url"]:focus,
+.comment-form textarea:focus {
+    outline: 0;
+    border-color: var(--bx-color-input-focus-border, var(--bx-color-accent, #ef5455));
+    box-shadow: 0 0 0 3px var(--bx-color-shadow, rgba(239, 84, 85, 0.18));
+}
+
+/* Required-field asterisk uses the accent token instead of default red */
+.comment-form .required {
+    color: var(--bx-color-accent, var(--bx-color-error, #dc2626));
+    margin-left: 2px;
+}
+
+/* Form labels — consistent weight + spacing */
+.comment-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Empty-state polish — "Comments are closed" / "No comments yet" */
+.no-comments {
+    color: var(--bx-color-fg-muted, #6b7280);
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Reply form spacing — divider above the reply form when there are
+ * existing comments above it. */
+.comment-list ~ #respond {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bx-color-border, var(--global-border-color));
+}
+
 .comment-list {
     padding: 0;
     margin: 0;

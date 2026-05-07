@@ -93,11 +93,18 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function the_comments( array $args = array() ) {
 		$args = array_merge(
-			$args,
 			array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			)
+				'style'       => 'ol',
+				'short_ping'  => true,
+				// Larger top-level avatars; CSS scales nested avatars
+				// down via `.comment .comment .avatar` for visual depth
+				// hierarchy. Pure presentation choice.
+				'avatar_size' => 56,
+				// Honor the customer's Discussion settings. WP defaults
+				// to 5 levels deep, customizable in Settings → Discussion.
+				'max_depth'   => (int) get_option( 'thread_comments_depth', 5 ),
+			),
+			$args
 		);
 
 		?>
