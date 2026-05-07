@@ -13,59 +13,35 @@
   <p class="has-text-align-center has-contrast-3-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--50);font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Trusted by teams at</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:columns {"align":"wide","verticalAlignment":"center","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|50"}}}} -->
-  <div class="wp-block-columns alignwide are-vertically-aligned-center">
+  <!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|60"}}}} -->
+  <div class="wp-block-group alignwide">
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","letterSpacing":"-0.04em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--x-large);font-weight:700;letter-spacing:-0.04em">Acme</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"700","letterSpacing":"-0.04em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-weight:700;letter-spacing:-0.04em">Acme</p>
+    <!-- /wp:paragraph -->
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"800","letterSpacing":"0.05em","textTransform":"uppercase"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-size:var(--wp--preset--font-size--x-large);font-weight:800;letter-spacing:0.05em;text-transform:uppercase">Globex</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"800","letterSpacing":"0.05em","textTransform":"uppercase"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-size:var(--wp--preset--font-size--large);font-weight:800;letter-spacing:0.05em;text-transform:uppercase">Globex</p>
+    <!-- /wp:paragraph -->
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"300","letterSpacing":"0.02em"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-size:var(--wp--preset--font-size--x-large);font-weight:300;letter-spacing:0.02em">northwind</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"300","letterSpacing":"0.02em"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-size:var(--wp--preset--font-size--large);font-weight:300;letter-spacing:0.02em">northwind</p>
+    <!-- /wp:paragraph -->
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","letterSpacing":"-0.02em","fontStyle":"italic","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--x-large);font-style:italic;font-weight:700;letter-spacing:-0.02em">Mosaic</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"700","letterSpacing":"-0.02em","fontStyle":"italic","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-family:var(--wp--preset--font-family--newsreader);font-size:var(--wp--preset--font-size--large);font-style:italic;font-weight:700;letter-spacing:-0.02em">Mosaic</p>
+    <!-- /wp:paragraph -->
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"500","letterSpacing":"0.06em"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-size:var(--wp--preset--font-size--x-large);font-weight:500;letter-spacing:0.06em">Mercato°</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"500","letterSpacing":"0.06em"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-size:var(--wp--preset--font-size--large);font-weight:500;letter-spacing:0.06em">Mercato°</p>
+    <!-- /wp:paragraph -->
 
-    <!-- wp:column {"verticalAlignment":"center"} -->
-    <div class="wp-block-column is-vertically-aligned-center">
-      <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"0"}}}} -->
-      <p class="has-text-align-center" style="margin-bottom:0;font-size:var(--wp--preset--font-size--x-large);font-weight:700;letter-spacing:-0.03em">Lumen→</p>
-      <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:column -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"700","letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"0"}}}, "className":"buddyx-logo"} -->
+    <p class="buddyx-logo" style="margin-bottom:0;white-space:nowrap;font-size:var(--wp--preset--font-size--large);font-weight:700;letter-spacing:-0.03em">Lumen→</p>
+    <!-- /wp:paragraph -->
 
   </div>
-  <!-- /wp:columns -->
+  <!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->

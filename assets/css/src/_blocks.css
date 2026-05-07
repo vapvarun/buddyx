@@ -74,18 +74,31 @@
 	margin-top: 0;
 }
 
-/* Full-bleed blocks (alignfull) butt up against each other and the
- * site footer with no body-BG gap. Default 24px block bottom margin
- * (from .entry-content .wp-block-group rule in content.css) creates
- * a visible white/dark strip between consecutive full-bleed sections
- * (e.g. CTA gradient + footer-style pattern) and between the last
- * alignfull block and the site footer. Use a Spacer block for
- * intentional spacing between sections.
+/* Pages that lead with a full-bleed block (hero, CTA, image cover)
+ * should butt the block directly against the site header — not leave
+ * a body-BG strip. WP / BuddyPress give .entry-content a default
+ * margin-top:1em that exposes that strip; remove it on
+ * page/full-width templates that immediately render an alignfull. */
+.page-template-full-width .entry-content,
+.home .entry-content,
+body:not(.single):not(.archive) .entry-content {
+	margin-top: 0;
+}
+
+/* Full-bleed blocks (alignfull) butt up against the header, footer,
+ * and each other with no body-BG gap. Default 1.5em block top/bottom
+ * margin (from .entry-content .wp-block-group rule in content.css)
+ * creates a visible white/dark strip between:
+ *   - site header and the first alignfull section (top gap)
+ *   - consecutive full-bleed sections (CTA + footer-style pattern)
+ *   - the last alignfull block and the site footer (bottom gap)
+ * Use a Spacer block for intentional spacing between sections.
  * Specificity 0,3,0 to beat content.css's 0,2,0 .entry-content
  * .wp-block-group rule. */
 .entry-content > .wp-block-group.alignfull,
 .entry-content > .wp-block-cover.alignfull,
 .entry-content > .wp-block-image.alignfull {
+	margin-top: 0;
 	margin-bottom: 0;
 }
 
