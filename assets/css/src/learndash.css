@@ -40,7 +40,7 @@ p:empty {
 .learndash-wrapper .ld-content-actions .ld-button,
 .learndash-wrapper .ld-expand-button,
 .learndash-wrapper .ld-alert .ld-button,
-.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active:after,
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active::after,
 .learndash-wrapper .btn-join,
 .learndash-wrapper #btn-join,
 .learndash-wrapper .learndash_mark_complete_button,
@@ -50,9 +50,9 @@ p:empty {
 .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button,
 .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
 .ldx-plugin .uo-toolkit-grid__course-action input,
-.learndash-resume-button input[type=submit],
-.learndash-reset-form .learndash-reset-button[type=submit],
-.learndash-wrapper .ld-login-modal input[type=submit],
+.learndash-resume-button input[type="submit"],
+.learndash-reset-form .learndash-reset-button[type="submit"],
+.learndash-wrapper .ld-login-modal input[type="submit"],
 .learndash-wrapper .ld-login-button,
 .learndash-course-widget-wrap .ld-course-status-action a {
     background-color: var(--button-background-color);
@@ -101,15 +101,15 @@ p:empty {
 .ldx-plugin .uo-toolkit-grid__course-action input:hover,
 .ldx-plugin .uo-toolkit-grid__course-action input:active,
 .ldx-plugin .uo-toolkit-grid__course-action input:focus,
-.learndash-resume-button input[type=submit]:hover,
-.learndash-resume-button input[type=submit]:active,
-.learndash-resume-button input[type=submit]:focus,
-.learndash-reset-form .learndash-reset-button[type=submit]:hover,
-.learndash-reset-form .learndash-reset-button[type=submit]:active,
-.learndash-reset-form .learndash-reset-button[type=submit]:focus,
-.learndash-wrapper .ld-login-modal input[type=submit]:hover,
-.learndash-wrapper .ld-login-modal input[type=submit]:active,
-.learndash-wrapper .ld-login-modal input[type=submit]:focus,
+.learndash-resume-button input[type="submit"]:hover,
+.learndash-resume-button input[type="submit"]:active,
+.learndash-resume-button input[type="submit"]:focus,
+.learndash-reset-form .learndash-reset-button[type="submit"]:hover,
+.learndash-reset-form .learndash-reset-button[type="submit"]:active,
+.learndash-reset-form .learndash-reset-button[type="submit"]:focus,
+.learndash-wrapper .ld-login-modal input[type="submit"]:hover,
+.learndash-wrapper .ld-login-modal input[type="submit"]:active,
+.learndash-wrapper .ld-login-modal input[type="submit"]:focus,
 .learndash-wrapper .ld-login-button:hover,
 .learndash-wrapper .ld-login-button:active,
 .learndash-wrapper .ld-login-button:focus,
@@ -217,7 +217,7 @@ p:empty {
     text-decoration: none;
     font-family: inherit;
     font-size: 1em;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: capitalize;
     line-height: 1.3;
     letter-spacing: normal;
@@ -436,7 +436,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     margin-bottom: 15px !important;
 }
 
-.ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price:before {
+.ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price::before {
     content: none;
 }
 
@@ -451,20 +451,19 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 .learndash-wrapper:not(.learndash-wrapper--modern) .learndash_mark_complete_button,
 .learndash-wrapper:not(.learndash-wrapper--modern) #learndash_mark_complete_button,
 .learndash-wrapper:not(.learndash-wrapper--modern) .ld-login-modal .ld-button,
-.learndash-wrapper:not(.learndash-wrapper--modern) .ld-login-modal input[type=submit],
+.learndash-wrapper:not(.learndash-wrapper--modern) .ld-login-modal input[type="submit"],
 .learndash-wrapper:not(.learndash-wrapper--modern) .ld-login-modal .ld-login-modal-register #wp-submit,
 .learndash-wrapper:not(.learndash-wrapper--modern) .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
 .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
 .ldx-plugin .uo-toolkit-grid__course-action input,
-.learndash-resume-button input[type=submit],
+.learndash-resume-button input[type="submit"],
 .learndash-wrapper:not(.learndash-wrapper--modern) .ld-login-button,
-.learndash-reset-form .learndash-reset-button[type=submit] {
+.learndash-reset-form .learndash-reset-button[type="submit"] {
     padding: .625em 1.5em;
     font-size: 95%;
     font-weight: 700;
     line-height: inherit;
     letter-spacing: inherit;
-    border-radius: 24px;
     border-radius: 100px;
     transition: all .15s ease;
 }
@@ -525,8 +524,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     font-family: "Font Awesome 6 Free";
 }
 
-.learndash-wrapper .ld-tabs .ld-tabs-navigation:after,
-.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab:after {
+.learndash-wrapper .ld-tabs .ld-tabs-navigation::after,
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab::after {
     height: 1px;
 }
 
@@ -545,8 +544,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     font-size: .7em;
 }
 
-.learndash-wrapper .ld-login-modal input[type=text],
-.learndash-wrapper .ld-login-modal input[type=password],
+.learndash-wrapper .ld-login-modal input[type="text"],
+.learndash-wrapper .ld-login-modal input[type="password"],
 .learndash-wrapper .ld-login-modal .ld-login-field,
 .learndash-wrapper .ld-login-modal .ld-password-field {
     border-radius: 6px;
@@ -564,8 +563,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     text-align: right;
 }
 
-.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-username:before,
-.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-password:before {
+.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-username::before,
+.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-password::before {
     top: auto;
     bottom: 1.7em;
 }
@@ -655,7 +654,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     background: transparent !important;
 }
 
-.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items:before {
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items::before {
     border-bottom: 5px solid var(--color-theme-primary);
 }
 

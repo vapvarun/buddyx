@@ -402,11 +402,10 @@ class Component implements Component_Interface {
 		}
 
 		// Simple hex color tokens.
-		// Legacy aliases use !important so they win over the duplicate :root
-		// blocks in content.min.css/woocommerce.min.css/learnpress.min.css/
-		// rtl.min.css that re-declare --color-theme-primary etc. with theme
-		// defaults. Without !important, customer-saved values are silently
-		// overridden by the later-loading stylesheet's :root block.
+		// With the architectural cleanup (5.1.0 source @import dedup), the
+		// inline tokens emit is the LAST :root rule in the cascade for every
+		// page render — global.min.css declares defaults, then this inline
+		// block overrides for customer-saved values. No !important needed.
 		foreach ( self::$simple_color_tokens as $mod_key => $cfg ) {
 			$value = $mods[ $mod_key ] ?? '';
 			if ( '' === $value ) {
@@ -420,7 +419,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $color . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $color . ' !important;';
+				$decls .= $alias . ':' . $color . ';';
 			}
 		}
 
@@ -437,7 +436,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $color . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $color . ' !important;';
+				$decls .= $alias . ':' . $color . ';';
 			}
 		}
 
@@ -453,7 +452,7 @@ class Component implements Component_Interface {
 			}
 			$decls .= $cfg['token'] . ':' . $value . ';';
 			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $value . ' !important;';
+				$decls .= $alias . ':' . $value . ';';
 			}
 		}
 
@@ -485,7 +484,7 @@ class Component implements Component_Interface {
 		foreach ( self::$dark_defaults as $token => $value ) {
 			$dark_decls .= $token . ':' . $value . ';';
 			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
-				$dark_decls .= $alias . ':' . $value . ' !important;';
+				$dark_decls .= $alias . ':' . $value . ';';
 			}
 		}
 		if ( '' === $dark_decls ) {

@@ -9,8 +9,8 @@
 :root {
     --fct-card-btn-bg-color: var(--button-background-color, #253241) !important;
     --fct-direct-btn-bg-color: var(--button-background-color, #253241) !important;
-    --fct-card-btn-text-color: var(--button-text-color, #ffffff) !important;
-    --fct-direct-btn-text-color: var(--button-text-color, #ffffff) !important;
+    --fct-card-btn-text-color: var(--button-text-color, #fff) !important;
+    --fct-direct-btn-text-color: var(--button-text-color, #fff) !important;
 }
 
 a.checkout-button {

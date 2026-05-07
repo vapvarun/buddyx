@@ -311,7 +311,7 @@ button.mfp-arrow {
     margin: 0;
 }
 
-.dokan-single-store .dokan-store-tabs ul:after {
+.dokan-single-store .dokan-store-tabs ul::after {
     content: "";
     display: table;
     clear: both;
@@ -407,7 +407,7 @@ button.mfp-arrow {
 # My Account
 --------------------------------------------------------------*/
 
-body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-link--rma-requests a:before {
+body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-link--rma-requests a::before {
     content: none;
 }
 
@@ -454,7 +454,7 @@ body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-lin
     margin-top: 5px;
 }
 
-#dokan-form-contact-seller:after {
+#dokan-form-contact-seller::after {
     content: "";
     display: table;
     clear: both;
@@ -538,7 +538,7 @@ input[type="submit"].dokan-btn-theme.active,
 a.dokan-btn-theme.active,
 .dokan-dashboard-wrap .dokan-modal-content .modal-footer .inner button,
 .dashboard-content-area .woocommerce-importer .wc-actions button.button-next,
-.wc-setup .wc-setup-content .checkbox input[type=checkbox]:checked+label::before,
+.wc-setup .wc-setup-content .checkbox input[type="checkbox"]:checked+label::before,
 .dokan-dashboard-wrap .dokan-dashboard-content .my_account_quotes td:last-child a:hover,
 .dokan-dashboard-wrap .dokan-dashboard-content .dokan-btn:not(.disconnect, .wc-pao-remove-option, .dokan-btn-success):hover,
 .dokan-dashboard-wrap .dokan-dashboard-content .dokan-btn:not(.disconnect, .wc-pao-remove-option, .dokan-btn-success):focus,
@@ -576,8 +576,8 @@ a.dokan-btn-theme.active,
     border-bottom-color: var(--color-theme-primary);
 }
 
-.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover:before,
-.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current:before {
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover::before,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current::before {
     border-color: var(--color-theme-primary);
 }
 

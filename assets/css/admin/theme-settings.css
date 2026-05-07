@@ -67,6 +67,7 @@
     max-width: 650px;
     margin: auto;
 }
+
 .buddyx-banner-description p {
     font-size: 16px;
     line-height: 20px;
@@ -97,7 +98,7 @@
     display: flex;
     flex-flow: wrap;
     background: #fff;
-    margin: 0px -30px;
+    margin: 0 -30px;
     padding: 0;
     border-bottom: 1px solid #e6e4e4;
     border-top: 1px solid #e6e4e4;
@@ -128,7 +129,7 @@
 }
 
 .buddyx-dashboard-tabs button:hover,
-.buddyx-dashboard-tabs button[aria-selected=true] {
+.buddyx-dashboard-tabs button[aria-selected="true"] {
     color: #0957d0;
     border-color: #0957d0;
 }
@@ -156,7 +157,6 @@
     width: 100%;
     background: #fff;
     margin-bottom: 10px;
-    border-radius: 4px;
     overflow: hidden;
     padding: 2em;
     box-sizing: border-box;
@@ -190,7 +190,6 @@
 }
 
 .buddyx-box-item {
-    display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column nowrap;
     flex-flow: column nowrap;
@@ -262,7 +261,7 @@ a.buddyx-box-item-link {
 
 .buddyx-importer-wrapper a.buddyx-box-item-link.all-plugin-installed::after {
     content: "\f12a";
-    font-family: 'dashicons';
+    font-family: dashicons;
     font-size: 16px;
     margin-left: 5px;
 }
@@ -289,7 +288,7 @@ a.buddyx-box-item-link {
 }
 
 .buddyx-welcome-column.buddyx-pro-section span.buddyx-box-item-icon img {
-    margin: 15px 0px;
+    margin: 15px 0;
 }
 
 .buddyx-pro-theme-info a.buddyx-box-item-link,
@@ -336,7 +335,6 @@ form.migrate-buddyx-form label {
 
 .buddyx-theme-sidebar{
     width: 100%;
-    position: sticky;
     position: -webkit-sticky;
     top: 0;
     max-width: 320px;
@@ -498,7 +496,7 @@ form.migrate-buddyx-form label {
 .buddyx-faq-title {
     margin: 0 0 10px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
     line-height: 23px;
     color: #2A32EF;
@@ -556,7 +554,7 @@ form.migrate-buddyx-form label {
 }
 
 @media screen and (max-width: 767px) {
-    .buddyx-dashboard-tabs [role=tablist] {
+    .buddyx-dashboard-tabs [role="tablist"] {
         justify-content: center;
     }
 
@@ -631,7 +629,7 @@ form.migrate-buddyx-form label {
 .buddyx-feature-title {
     margin: 0 0 10px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 25px;
     line-height: 33px;
 }
@@ -719,8 +717,8 @@ form.migrate-buddyx-form label {
 }
 
 .addon-content h3 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-size: 20px;
     line-height: 1.3;
 }
@@ -732,7 +730,7 @@ form.migrate-buddyx-form label {
 }
 
 @media (max-width: 768px) {
-    .buddyx-dashboard-tabs [role=tabpanel] {
+    .buddyx-dashboard-tabs [role="tabpanel"] {
         padding: 25px;
     }
 
@@ -780,7 +778,7 @@ form.migrate-buddyx-form label {
         max-width: 100%;
     }
 
-    .buddyx-dashboard-tabs [role=tabpanel] {
+    .buddyx-dashboard-tabs [role="tabpanel"] {
         margin: 2em auto;
     }
 }
@@ -1036,7 +1034,7 @@ table.buddyx-features-table {
 .format-setting-label {
     border-bottom: 1px dashed #ccc;
     margin: 0 0 20px 0;
-    padding: 5px 0px 1px 0px;
+    padding: 5px 0 1px 0;
     width: 100%;
 }
 
@@ -1083,7 +1081,7 @@ input#buddyx_post_video {
     margin: 0 !important;
 }
 
-.buddyx_images_gallery:after {
+.buddyx_images_gallery::after {
     content: '';
     display: table;
     clear: both;
@@ -1135,7 +1133,7 @@ input#buddyx_post_video {
     transition: opacity .1s;
 }
 
-.buddyx_images_gallery .thumbnail:after {
+.buddyx_images_gallery .thumbnail::after {
     content: "";
     display: block;
     position: absolute;
@@ -1191,7 +1189,7 @@ input#buddyx_post_video {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0px;
+    padding: 0;
     vertical-align: middle;
     display: flex;
     align-items: center;

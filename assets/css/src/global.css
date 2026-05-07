@@ -18,6 +18,7 @@
 # Imports
 --------------------------------------------------------------*/
 @import "_custom-properties.css";
+@import "_bx-tokens.css";
 @import "_blocks-style.css";
 @import "_reset.css";
 @import "_grid.css";
@@ -116,8 +117,6 @@ body.elementor-editor-active .site-wrapper {
 
     .site-main .comment-navigation,
     .site-main .pagination {
-        padding-left: 0;
-        padding-right: 0;
         position: relative;
         margin: 1rem 0;
         padding: 1em;
