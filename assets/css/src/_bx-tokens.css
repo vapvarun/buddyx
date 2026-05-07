@@ -1,0 +1,157 @@
+/**
+ * BuddyX design token taxonomy (--bx-* namespace).
+ *
+ * SCOPE: imported ONLY by src/global.css (frontend canonical) and
+ * editor/editor-styles.css (block-editor iframe canonical). Compat
+ * stylesheets (woocommerce, learndash, etc.) MUST NOT import this —
+ * doing so would emit duplicate :root blocks across multiple compiled
+ * stylesheets and break the customer-value cascade.
+ *
+ * Customer-saved values are emitted at runtime by inc/Tokens/Component.php
+ * as a separate :root inline-style. That inline emit loads AFTER
+ * global.min.css and naturally wins the cascade for customer-set tokens.
+ *
+ * The defaults below are also kept in sync with $framework_tokens in
+ * inc/Tokens/Component.php. Any change here MUST be mirrored there.
+ *
+ * See plans/2026-05-07-token-taxonomy.md for the full taxonomy.
+ */
+
+:root {
+    /* Color — Foreground (text) */
+    --bx-color-fg: #1a1a1a;
+    --bx-color-fg-muted: #757575;
+    --bx-color-fg-subtle: #9ca3af;
+    --bx-color-fg-inverse: #fff;
+
+    /* Color — Surfaces */
+    --bx-color-bg: #fff;
+    --bx-color-bg-page: #fff;
+    --bx-color-bg-elevated: #fff;
+    --bx-color-bg-muted: #fafafa;
+    --bx-color-bg-subtle: #f7f7f9;
+    --bx-color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+    /* Color — Brand / accent */
+    --bx-color-accent: #ef5455;
+    --bx-color-accent-secondary: #3a7882;
+    --bx-color-accent-tertiary: #f4d35e;
+
+    /* Color — Links */
+    --bx-color-link: #111;
+    --bx-color-link-hover: #ef5455;
+
+    /* Color — Buttons */
+    --bx-color-button-bg: #ef5455;
+    --bx-color-button-bg-hover: #f83939;
+    --bx-color-button-fg: #fff;
+    --bx-color-button-fg-hover: #fff;
+    --bx-color-button-border: #ef5455;
+    --bx-color-button-border-hover: #f83939;
+
+    /* Color — Header / branding */
+    --bx-color-header-bg: #fff;
+    --bx-color-site-title: #111;
+    --bx-color-site-title-hover: #ee4036;
+    --bx-color-site-tagline: #757575;
+
+    /* Color — Navigation */
+    --bx-color-menu-bg: transparent;
+    --bx-color-menu-fg: #111;
+    --bx-color-menu-hover: #ee4036;
+    --bx-color-menu-active: #ee4036;
+    --bx-color-subheader-bg: #fafafa;
+    --bx-color-subheader-fg: #111;
+
+    /* Color — Headings */
+    --bx-color-h1: #111;
+    --bx-color-h2: #111;
+    --bx-color-h3: #111;
+    --bx-color-h4: #111;
+    --bx-color-h5: #111;
+    --bx-color-h6: #111;
+
+    /* Color — Footer */
+    --bx-color-footer-bg: #fafafa;
+    --bx-color-footer-title: #111;
+    --bx-color-footer-fg: #505050;
+    --bx-color-footer-link: #111;
+    --bx-color-footer-link-hover: #ef5455;
+
+    /* Color — Copyright */
+    --bx-color-copyright-bg: #fff;
+    --bx-color-copyright-border: #e8e8e8;
+    --bx-color-copyright-fg: #505050;
+    --bx-color-copyright-link: #111;
+    --bx-color-copyright-link-hover: #ef5455;
+
+    /* Color — Loader */
+    --bx-color-loader-bg: #ef5455;
+    --bx-loader-color: #fff;
+    --bx-loader-speed: 1.5s;
+
+    /* Color — Structural */
+    --bx-color-border: #e8e8e8;
+    --bx-color-border-strong: #d4d4d4;
+    --bx-color-divider: #f0f0f0;
+    --bx-color-shadow: rgba(0, 0, 0, 0.08);
+    --bx-color-shadow-strong: rgba(0, 0, 0, 0.16);
+
+    /* Color — State (semantic) */
+    --bx-color-success: #16a34a;
+    --bx-color-success-bg: #dcfce7;
+    --bx-color-warning: #eab308;
+    --bx-color-warning-bg: #fef9c3;
+    --bx-color-error: #dc2626;
+    --bx-color-error-bg: #fee2e2;
+    --bx-color-info: #0284c7;
+    --bx-color-info-bg: #dbeafe;
+
+    /* Color — Community / presence (BP / Youzify) */
+    --bx-color-presence-online: #16a34a;
+    --bx-color-presence-away: #eab308;
+    --bx-color-presence-busy: #dc2626;
+    --bx-color-presence-offline: #9ca3af;
+    --bx-color-bp-friend: #0284c7;
+    --bx-color-bp-favorite: #dc2626;
+
+    /* Color — Forms */
+    --bx-color-input-bg: #fff;
+    --bx-color-input-border: #d4d4d4;
+    --bx-color-input-focus-border: #ef5455;
+    --bx-color-input-fg: #1a1a1a;
+    --bx-color-input-placeholder: #9ca3af;
+
+    /* Dimension — Radius */
+    --bx-radius-global: 8px;
+    --bx-radius-button: 6px;
+    --bx-radius-form: 6px;
+    --bx-radius-card: 12px;
+    --bx-radius-pill: 999px;
+
+    /* Dimension — Spacing */
+    --bx-space-section: clamp(40px, 8vw, 80px);
+    --bx-space-card: 24px;
+    --bx-space-inline: 8px;
+    --bx-space-stack: 12px;
+
+    /* Effect — Shadow ladder */
+    --bx-shadow-card-sm: 0 1px 2px 0 var(--bx-color-shadow);
+    --bx-shadow-card-md: 0 4px 12px -2px var(--bx-color-shadow);
+    --bx-shadow-card-lg: 0 12px 32px -4px var(--bx-color-shadow-strong);
+
+    /* Effect — Motion */
+    --bx-duration-fast: 120ms;
+    --bx-duration-base: 200ms;
+    --bx-duration-slow: 400ms;
+    --bx-easing-base: cubic-bezier(0.4, 0, 0.2, 1);
+    --bx-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Z-index ladder */
+    --bx-z-base: 1;
+    --bx-z-dropdown: 100;
+    --bx-z-sticky-header: 999;
+    --bx-z-overlay: 9999;
+    --bx-z-loader: 999991;
+    --bx-z-toast: 999999;
+}
