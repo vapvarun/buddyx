@@ -169,6 +169,11 @@ input[type="submit"]:hover,
 }
 
 /* ----- Inputs / forms ----- */
+/* Note: tokens chosen to match 5.0.x master cascade — input BG follows
+ * box_background_color (via bg-elevated) and input border follows
+ * site_copyright_border_color (via copyright-border). Semantic decoupling
+ * (separate input-bg / input-border tokens) moved to 5.2.x backlog so
+ * existing customer color customizations stay visually unchanged. */
 input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
 textarea,
 select {
