@@ -17,6 +17,29 @@
     font-weight: 900;
 }
 
+/* The "Cancel reply" link sits inside <small> next to the
+ * "Reply to ..." h3 title. Without explicit styling it inherits
+ * the h3 font-size + weight, smashing into the title text. */
+.comment-reply-title small {
+    display: inline-block;
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.comment-reply-title small a {
+    color: var(--bx-color-link, var(--color-link));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.comment-reply-title small a:hover,
+.comment-reply-title small a:focus {
+    color: var(--bx-color-link-hover, var(--color-link-hover));
+}
+
 .comment-list {
     padding: 0;
     margin: 0;
