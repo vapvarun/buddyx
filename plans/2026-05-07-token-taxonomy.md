@@ -246,7 +246,144 @@ Status legend:
 
 ---
 
-## Counts
+---
+
+## Auto-derived variants per customer-driven color
+
+Each customer-customizable BASE color spawns derived variants that
+consumer CSS needs across the interaction surface (hover / active /
+focus / disabled / background-tint / border-tint / inverse text). The
+customer sets ONE value; the Tokens system computes the rest server-side
+and emits ALL of them at `:root`.
+
+Without this, every interaction state currently hardcodes a hex value
+that ignores customer brand choice.
+
+### Derivation algorithm (PHP-side, in Tokens/Component.php)
+
+For each base color `$base = '#abc123'` (or rgba):
+
+```
+--bx-color-X-rgb        171, 193, 35           # extracted RGB channels
+--bx-color-X            #abc123                # base, customer-set
+--bx-color-X-hover      lighten/darken 10%     # context-dependent (see below)
+--bx-color-X-active     lighten/darken 20%     # depressed state
+--bx-color-X-focus      base + 4px outer ring  # via outline rgba
+--bx-color-X-bg         rgba(R, G, B, 0.08)    # 8% tint for soft BG
+--bx-color-X-bg-strong  rgba(R, G, B, 0.16)    # 16% tint for callouts
+--bx-color-X-border     rgba(R, G, B, 0.24)    # subtle border
+--bx-color-X-disabled   mix with surface 50%   # grayed out
+--bx-color-X-inverse    contrast pick #fff/#000 # text-on-color
+```
+
+**Direction** of hover/active shift:
+- If base luminance > 50% (light color): DARKEN by 10%/20%
+- If base luminance ≤ 50% (dark color): LIGHTEN by 10%/20%
+
+This way `#ffd700` (light gold) → darker-gold hover; `#1a1a1a` (near
+black) → lighter-grey hover. Both feel "more pressed."
+
+`--bx-color-X-inverse` picks `#ffffff` or `#0a0a0a` based on luminance,
+ensuring 4.5:1 contrast for text-on-color labels.
+
+### Bases that get the full derived set
+
+These are the customer-driven brand colors. Each gets all 9 variants
+above (rgb, base, hover, active, focus, bg, bg-strong, border, disabled,
+inverse = 10 total per base):
+
+| Base | Customer field | Variants needed? |
+|---|---|---|
+| `--bx-color-accent` | `site_primary_color` | full set |
+| `--bx-color-button-bg` | `site_buttons_background_color` | rgb, hover (already customizable), active, focus, disabled, inverse |
+| `--bx-color-link` | `site_links_color` | rgb, hover (already customizable), active, focus, visited |
+| `--bx-color-header-bg` | `site_header_bg_color` | rgb only (BG, no hover state) |
+| `--bx-color-bg` | `body_background_color` | rgb only |
+| `--bx-color-bg-elevated` | `box_background_color` | rgb, border-derived |
+| `--bx-color-fg` | `typography_option[color]` | rgb, muted-derived (50% mix with bg), strong (= base) |
+
+**Net additional tokens from auto-derivation:** ~40-50.
+
+### Bases where customer manually overrides specific variants
+
+For some elements, BuddyX already exposes per-state customizer fields.
+These BYPASS auto-derivation if customer-saved; otherwise auto-derive:
+
+| Element | Base | Hover | Active | Customer hover? |
+|---|---|---|---|---|
+| Buttons | `site_buttons_background_color` | `site_buttons_background_hover_color` | `site_buttons_active_*` (NEW) | ✅ existing field |
+| Links | `site_links_color` | `site_links_focus_hover_color` | (no field) | ✅ existing |
+| Menu items | `menu_typography_option[color]` | `menu_hover_color` | `menu_active_color` | ✅ existing |
+| Site title | `site_title_typography_option[color]` | `site_title_hover_color` | (none) | ✅ existing |
+
+**Logic:** Tokens emit reads `site_buttons_background_hover_color`. If
+set, emits `--bx-color-button-bg-hover` to that value. If unset, derives
+from `site_buttons_background_color` via lighten/darken algorithm.
+
+This way the customer who has carefully tuned hover colors keeps them;
+the customer who just set the base gets sensible auto-derived hovers.
+
+---
+
+## Style Variations reconciliation (the second half of the question)
+
+A Style Variation (Dark / Vibrant / Pastel / etc.) declares a palette
+in `theme.json` that overrides `--wp--preset--color--*` slugs. Today,
+Tokens emit reads ONLY from `theme_mods` (customizer) and ignores the
+active variation. Result: applying "Vibrant" doesn't change the BuddyX
+token set; only block-pattern colors that reference theme.json slugs flip.
+
+### Target behavior
+
+```
+                   ┌─ Customer customizer save ──┐
+                   │   theme_mods                │ ← highest priority
+                   └──────────┬──────────────────┘
+                              │ if unset, fall to:
+                              ▼
+                   ┌─ Active style variation ────┐
+                   │   theme.json palette        │
+                   └──────────┬──────────────────┘
+                              │ if unset, fall to:
+                              ▼
+                   ┌─ _custom-properties default ┐
+                   │   light/dark base values    │
+                   └─────────────────────────────┘
+```
+
+Tokens/Component reads in this priority, RESOLVES to a single value,
+emits at `:root` with full derived-variant set per base color.
+
+### Variation palette → token mapping
+
+Style Variations declare colors via theme.json slugs (`accent`, `base`,
+`base-2`, `contrast`, etc.). Map them to `--bx-color-*`:
+
+| theme.json slug | Tokens system base | Auto-derives variants? |
+|---|---|---|
+| `accent` | `--bx-color-accent` | yes (full set) |
+| `accent-2` | `--bx-color-accent-secondary` (NEW) | yes (full set) |
+| `accent-3` | `--bx-color-accent-tertiary` (NEW) | yes (full set) |
+| `base` | `--bx-color-bg` | yes (rgb only) |
+| `base-2` | `--bx-color-bg-elevated` | yes (rgb, border) |
+| `base-3` | `--bx-color-bg-muted` | yes (rgb) |
+| `contrast` | `--bx-color-fg` | yes (rgb, muted-derived) |
+| `contrast-2` | `--bx-color-fg-muted` | — |
+| `contrast-3` | `--bx-color-fg-subtle` | — |
+
+Variations like `dark.json` already declare these slugs. With this
+mapping, applying a variation flows ALL the way through to BP / Woo /
+LD compat (which read `var(--bx-color-*)`).
+
+### Net additional tokens from variation reconciliation
+
+`--bx-color-accent-secondary` and `--bx-color-accent-tertiary` (each
+with full derived set: 10 variants × 2 = 20 tokens). Plus the precedence
+logic in PHP.
+
+---
+
+## Counts (revised)
 
 | Category | Tokens defined today (5.1.0) | Tokens to add now | Total target |
 |---|---:|---:|---:|
@@ -270,7 +407,10 @@ Status legend:
 | Effect — Shadow | 0 | 3 | 3 |
 | Effect — Motion | 0 | 5 | 5 |
 | Z-index | 0 | 6 | 6 |
-| **TOTAL** | **46** | **50** | **96** |
+| **TOTAL (base set)** | **46** | **50** | **96** |
+| Auto-derived variants (rgb / hover / active / bg-tint / border-tint / inverse / disabled) for 7 base colors | 0 | ~50 | ~50 |
+| Variation-only tokens (accent-secondary, accent-tertiary + their derived variants) | 0 | ~20 | ~20 |
+| **TOTAL (with derived + variation)** | **46** | **~120** | **~166** |
 
 ---
 
