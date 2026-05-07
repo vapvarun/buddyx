@@ -85,8 +85,13 @@ p a:hover {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
-/* ----- Buttons ----- */
-.button,
+/* ----- Buttons -----
+ * Note: `.button` is intentionally NOT in this selector list. WP and
+ * BuddyPress use `.button` for many low-emphasis links (notification
+ * dropdown footer, BP friend buttons, etc.) that should NOT inherit the
+ * customer's brand button color. Per-context stylesheets already scope
+ * `.button` correctly (woocommerce.css, platform.css, _comments.css).
+ * This rule covers only canonical button elements + WP block buttons. */
 button:not([class*="wp-"]):not([class*="customize-"]),
 input[type="button"],
 input[type="submit"],
@@ -95,7 +100,6 @@ input[type="submit"],
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-.button:hover,
 button:not([class*="wp-"]):not([class*="customize-"]):hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
