@@ -182,11 +182,12 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 	 */
 	function buddyx_site_menu_icon() {
 		// Get the settings for search and cart icons from the theme customizer.
-		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
-		$carticon   = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+		$searchicon         = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
+		$carticon           = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+		$color_toggle_show  = 'on' === get_theme_mod( 'site_color_mode_toggle_show', 'on' );
 
-		// Check if either search or cart icon is enabled.
-		if ( ! empty( $searchicon ) || ! empty( $carticon ) ) :
+		// Wrapper renders if any of these icons (search, cart, color-mode toggle) are enabled.
+		if ( ! empty( $searchicon ) || ! empty( $carticon ) || $color_toggle_show ) :
 			?>
 			<div class="menu-icons-wrapper">
 				<?php
@@ -208,6 +209,10 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 				if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
 					buddyx_render_cart_icon();
 				endif;
+
+				// Color-mode toggle (Light / Dark / Auto). Component decides
+				// whether to render based on customizer settings.
+				do_action( 'buddyx_header_actions' );
 				?>
 			</div>
 			<?php

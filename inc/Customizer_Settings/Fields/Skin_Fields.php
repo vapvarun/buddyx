@@ -127,7 +127,7 @@ $buddyx_skin_master_gate = array(
 	array(
 		'settings'    => 'site_color_mode',
 		'label'       => esc_html__( 'Color mode', 'buddyx' ),
-		'description' => esc_html__( 'Auto follows the visitor\'s OS preference. Light or Dark force one mode for everyone. Visitors can override via the front-end toggle if you add one.', 'buddyx' ),
+		'description' => esc_html__( 'Auto follows the visitor\'s OS preference. Light or Dark force one mode for everyone. Visitors can override via the front-end toggle if you enable it below.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'light',
 		'priority'    => 6,
@@ -137,6 +137,51 @@ $buddyx_skin_master_gate = array(
 			'auto'  => esc_html__( 'Auto', 'buddyx' ),
 		),
 		'transport'   => 'refresh',
+	)
+);
+
+// Visitor-facing color-mode toggle. When enabled, a button renders in
+// the header (and optionally mobile menu) that lets visitors cycle
+// light → dark → auto. Choice persists via localStorage so it survives
+// page navigations and tab reloads. Works for guests AND logged-in
+// members — no auth dependency.
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+	array(
+		'settings'    => 'site_color_mode_toggle_show',
+		'label'       => esc_html__( 'Show color-mode toggle', 'buddyx' ),
+		'description' => esc_html__( 'Adds a sun/moon button to the header so visitors can switch the site between Light, Dark, and System modes. Hide if you want to lock the site to the mode chosen above.', 'buddyx' ),
+		'section'     => 'site_skin_section',
+		'default'     => 'on',
+		'priority'    => 6,
+		'choices'     => array(
+			'on'  => esc_html__( 'Show', 'buddyx' ),
+			'off' => esc_html__( 'Hide', 'buddyx' ),
+		),
+		'transport'   => 'refresh',
+	)
+);
+
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_buttonset',
+	array(
+		'settings'        => 'site_color_mode_toggle_position',
+		'label'           => esc_html__( 'Toggle position', 'buddyx' ),
+		'description'     => esc_html__( 'Where the visitor color-mode button appears.', 'buddyx' ),
+		'section'         => 'site_skin_section',
+		'default'         => 'both',
+		'priority'        => 6,
+		'choices'         => array(
+			'header'      => esc_html__( 'Header', 'buddyx' ),
+			'mobile_only' => esc_html__( 'Mobile menu', 'buddyx' ),
+			'both'        => esc_html__( 'Both', 'buddyx' ),
+		),
+		'transport'       => 'refresh',
+		'active_callback' => array(
+			array(
+				'setting'  => 'site_color_mode_toggle_show',
+				'operator' => '==',
+				'value'    => 'on',
+			),
+		),
 	)
 );
 

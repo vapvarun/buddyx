@@ -113,6 +113,10 @@ $nav_class = 'main-navigation nav--toggle-sub nav--toggle-small';
 				)
 			);
 		}
+
+		// Visitor color-mode toggle (Light / Dark / Auto) inside the mobile menu.
+		// Component decides whether to render based on customizer settings.
+		do_action( 'buddyx_mobile_menu_actions' );
 		?>
 	</div>
 

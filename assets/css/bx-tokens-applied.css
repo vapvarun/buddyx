@@ -91,8 +91,11 @@ p a:hover {
  * dropdown footer, BP friend buttons, etc.) that should NOT inherit the
  * customer's brand button color. Per-context stylesheets already scope
  * `.button` correctly (woocommerce.css, platform.css, _comments.css).
- * This rule covers only canonical button elements + WP block buttons. */
-button:not([class*="wp-"]):not([class*="customize-"]),
+ * This rule covers only canonical button elements + WP block buttons.
+ *
+ * Also excluded: header chrome buttons (color-mode toggle, menu-toggle,
+ * search-icon) — they're navigation icons, not primary actions. */
+button:not([class*="wp-"]):not([class*="customize-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close),
 input[type="button"],
 input[type="submit"],
 .wp-block-button__link {
@@ -100,7 +103,7 @@ input[type="submit"],
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):hover,
+button:not([class*="wp-"]):not([class*="customize-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
 .wp-block-button__link:hover {
