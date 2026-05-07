@@ -121,19 +121,16 @@ nav div.wp-block-navigation__responsive-dialog {
 
 .site-sub-header {
     position: relative;
-    color: var(--color-subheader-title);
+    color: var(--bx-color-subheader-fg, var(--color-subheader-title));
     margin-bottom: 1rem;
     padding: 30px 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--bx-color-subheader-bg, #f3f4f6);
+    /* Full-bleed band (matches site header + footer behavior) regardless of
+     * boxed/full-width layout. The 100vw + negative margin trick spans
+     * viewport width even when ancestor is constrained. */
     width: 100vw;
     margin-left: -50vw;
     left: 50%;
-}
-
-.layout-boxed .site-sub-header {
-    width: auto;
-    left: auto;
-    margin: 0 -15px;
 }
 
 .site-sub-header>.container,

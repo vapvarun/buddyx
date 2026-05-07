@@ -143,8 +143,8 @@ class Component implements Component_Interface {
 		'--bx-color-fg-inverse' => '#ffffff',                // Text on color (light mode default)
 
 		// Surface extras
-		'--bx-color-bg-overlay' => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay
-		'--bx-color-bg-subtle'  => '#f7f7f9',                // Very-light surface tint
+		'--bx-color-bg-overlay'   => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay
+		'--bx-color-bg-subtle'    => '#f7f7f9',                // Very-light surface tint
 
 		// Brand / accent extras
 		'--bx-color-accent-secondary' => '#3a7882',           // Variation slot (cool teal)
@@ -184,7 +184,7 @@ class Component implements Component_Interface {
 
 		// Header / Sub-header / Footer extras
 		'--bx-color-menu-bg'        => 'transparent',
-		'--bx-color-subheader-bg'   => '#fafafa',
+		'--bx-color-subheader-bg'   => '#f3f4f6', // Slightly lighter than body for visual band; was rgba(255,255,255,0.5) in 5.0.x — same visual intent.
 		'--bx-color-footer-bg'      => '#fafafa',
 
 		// Dimension — radius extras
@@ -293,8 +293,8 @@ class Component implements Component_Interface {
 		'--bx-color-fg-inverse' => '#0a0a0a',
 
 		// Surface extras (dark)
-		'--bx-color-bg-overlay' => 'rgba(0, 0, 0, 0.7)',
-		'--bx-color-bg-subtle'  => '#0d0d0d',
+		'--bx-color-bg-overlay'   => 'rgba(0, 0, 0, 0.7)',
+		'--bx-color-bg-subtle'    => '#0d0d0d',
 
 		// Brand / accent extras (dark)
 		'--bx-color-accent-secondary' => '#5eaeb8',
@@ -333,7 +333,7 @@ class Component implements Component_Interface {
 		'--bx-color-input-placeholder'  => '#6b7280',
 
 		// Header / Sub-header / Footer extras (dark)
-		'--bx-color-subheader-bg' => '#161616',
+		'--bx-color-subheader-bg' => '#1c1c1c', // Distinct from body (#0a) and elevated cards (#16) for visual band.
 		'--bx-color-footer-bg'    => '#0a0a0a',
 
 		// theme.json palette overrides — block patterns reference these via

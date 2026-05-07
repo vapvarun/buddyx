@@ -29,8 +29,14 @@ defined( 'ABSPATH' ) || exit;
 				'settings'        => 'sub_header_background_setting',
 				'label'           => esc_html__( 'Background Control', 'buddyx' ),
 				'section'         => 'site_sub_header_section',
+				// No default background-color — when the customer hasn't enabled
+				// `site_sub_header_bg`, the sub-header should inherit its color
+				// from the token-driven _header.css rule so it adapts to dark mode.
+				// A hardcoded rgba default would emit as inline CSS and clash on
+				// dark backgrounds (visible flat-gray strip). Customer can still
+				// enable + pick their own background color in the customizer.
 				'default'         => array(
-					'background-color'      => 'rgba(255,255,255,0.5)',
+					'background-color'      => '',
 					'background-image'      => '',
 					'background-repeat'     => 'repeat',
 					'background-position'   => 'center center',
