@@ -74,6 +74,21 @@
 	margin-top: 0;
 }
 
+/* Full-bleed blocks (alignfull) butt up against each other and the
+ * site footer with no body-BG gap. Default 24px block bottom margin
+ * (from .entry-content .wp-block-group rule in content.css) creates
+ * a visible white/dark strip between consecutive full-bleed sections
+ * (e.g. CTA gradient + footer-style pattern) and between the last
+ * alignfull block and the site footer. Use a Spacer block for
+ * intentional spacing between sections.
+ * Specificity 0,3,0 to beat content.css's 0,2,0 .entry-content
+ * .wp-block-group rule. */
+.entry-content > .wp-block-group.alignfull,
+.entry-content > .wp-block-cover.alignfull,
+.entry-content > .wp-block-image.alignfull {
+	margin-bottom: 0;
+}
+
 /*--------------------------------------------------------------
 # Quote Block (existing)
 --------------------------------------------------------------*/

@@ -170,6 +170,7 @@ class Theme {
 
 		$components[] = new Tokens\Component();
 		$components[] = new Color_Mode_Toggle\Component();
+		$components[] = new Starter_Content\Component();
 		$components[] = new Speculation_Rules\Component();
 
 		return $components;

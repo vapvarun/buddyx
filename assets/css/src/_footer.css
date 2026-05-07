@@ -3,7 +3,11 @@
 --------------------------------------------------------------*/
 
 .site-footer {
-    margin: 1em 0 0;
+    /* No margin-top — internal `.footer-inner` padding (50px) provides
+     * breathing room above footer content. A margin-top would expose the
+     * body BG between full-bleed CTA blocks and the footer (visible white
+     * strip in light mode). */
+    margin: 0;
     background: var(--bx-color-bg-elevated, #fff);
     color: var(--color-footer-content);
     border-top: 1px solid var(--global-border-color);
