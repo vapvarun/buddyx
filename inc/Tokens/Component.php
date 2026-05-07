@@ -401,6 +401,23 @@ class Component implements Component_Interface {
 			return $light_block . $dark_block;
 		}
 
+		// Customer-driven base colors that get the full derived-variants set
+		// (-rgb, -hover, -active, -focus, -bg, -bg-strong, -border, -disabled,
+		// -inverse). These are the brand colors most consumer CSS reaches for
+		// on hover/active/focus/disabled states.
+		//
+		// Map: customer_field => array( token, default_color ).
+		// Default colors mirror _bx-tokens.css so derivation always produces
+		// the same variants whether or not customer has saved a value.
+		$derive_for = array(
+			'site_primary_color'             => array( '--bx-color-accent',       '#ef5455' ),
+			'site_buttons_background_color'  => array( '--bx-color-button-bg',    '#ef5455' ),
+			'site_links_color'               => array( '--bx-color-link',         '#111111' ),
+			'body_background_color'          => array( '--bx-color-bg',           '#ffffff' ),
+			'box_background_color'           => array( '--bx-color-bg-elevated',  '#ffffff' ),
+			'site_header_bg_color'           => array( '--bx-color-header-bg',    '#ffffff' ),
+		);
+
 		// Simple hex color tokens.
 		// With the architectural cleanup (5.1.0 source @import dedup), the
 		// inline tokens emit is the LAST :root rule in the cascade for every
@@ -408,18 +425,19 @@ class Component implements Component_Interface {
 		// block overrides for customer-saved values. No !important needed.
 		foreach ( self::$simple_color_tokens as $mod_key => $cfg ) {
 			$value = $mods[ $mod_key ] ?? '';
-			if ( '' === $value ) {
-				continue;
+			$color = '' !== $value ? self::normalize_color( $value ) : '';
+			if ( '' !== $color ) {
+				$decls .= $cfg['token'] . ':' . $color . ';';
+				foreach ( $cfg['aliases'] as $alias ) {
+					$decls .= $alias . ':' . $color . ';';
+				}
 			}
-			// Color customizer values can be hex or rgba; we accept both via a
-			// tolerant matcher that lets common CSS color formats through.
-			$color = self::normalize_color( $value );
-			if ( '' === $color ) {
-				continue;
-			}
-			$decls .= $cfg['token'] . ':' . $color . ';';
-			foreach ( $cfg['aliases'] as $alias ) {
-				$decls .= $alias . ':' . $color . ';';
+			// Derive variants for every base in $derive_for, regardless of
+			// whether customer has saved a value. Falls back to the static
+			// default so consumer CSS always finds -rgb/-hover/etc tokens.
+			if ( isset( $derive_for[ $mod_key ] ) ) {
+				$effective = '' !== $color ? $color : $derive_for[ $mod_key ][1];
+				$decls    .= self::derive_color_variants( $derive_for[ $mod_key ][0], $effective );
 			}
 		}
 
@@ -520,6 +538,159 @@ class Component implements Component_Interface {
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * Parse a hex/rgb/rgba color string into [r, g, b] integer channels (0-255).
+	 *
+	 * Returns null if the input doesn't match a recognized color format.
+	 *
+	 * Supported inputs:
+	 *   - #rgb / #rgba / #rrggbb / #rrggbbaa  (alpha channel ignored for derivation)
+	 *   - rgb(r, g, b) / rgba(r, g, b, a)
+	 *
+	 * @param string $color Customer-saved color string.
+	 * @return array<int,int>|null [R, G, B] each 0-255, or null on parse failure.
+	 */
+	protected static function color_to_rgb( string $color ): ?array {
+		$color = trim( $color );
+		// Hex.
+		if ( preg_match( '/^#([A-Fa-f0-9]{3,8})$/', $color, $m ) ) {
+			$hex = $m[1];
+			$len = strlen( $hex );
+			if ( 3 === $len || 4 === $len ) {
+				$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+			} elseif ( 8 === $len ) {
+				$hex = substr( $hex, 0, 6 );
+			} elseif ( 6 !== $len ) {
+				return null;
+			}
+			return array(
+				hexdec( substr( $hex, 0, 2 ) ),
+				hexdec( substr( $hex, 2, 2 ) ),
+				hexdec( substr( $hex, 4, 2 ) ),
+			);
+		}
+		// rgb() / rgba().
+		if ( preg_match( '/^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/', $color, $m ) ) {
+			return array(
+				min( 255, max( 0, (int) $m[1] ) ),
+				min( 255, max( 0, (int) $m[2] ) ),
+				min( 255, max( 0, (int) $m[3] ) ),
+			);
+		}
+		return null;
+	}
+
+	/**
+	 * WCAG relative-luminance of an [r, g, b] color (0 = black, 1 = white).
+	 *
+	 * @param array<int,int> $rgb [R, G, B] integer channels.
+	 * @return float Luminance value 0.0 - 1.0.
+	 */
+	protected static function rgb_luminance( array $rgb ): float {
+		$linearize = static function ( $c ) {
+			$c = $c / 255;
+			return $c <= 0.03928 ? $c / 12.92 : pow( ( $c + 0.055 ) / 1.055, 2.4 );
+		};
+		return 0.2126 * $linearize( $rgb[0] ) + 0.7152 * $linearize( $rgb[1] ) + 0.0722 * $linearize( $rgb[2] );
+	}
+
+	/**
+	 * Lighten or darken an RGB color by `$amount` (0.0 - 1.0).
+	 *
+	 * If `$luminance_aware` is true (default), the direction is chosen
+	 * automatically: light colors darken, dark colors lighten. This produces
+	 * a "more pressed" hover feel regardless of the base color's hue.
+	 *
+	 * @param array<int,int> $rgb              Base color [R, G, B].
+	 * @param float          $amount           Shift amount, 0.0 - 1.0.
+	 * @param bool           $luminance_aware  Auto direction (default true).
+	 * @return array<int,int> Shifted [R, G, B].
+	 */
+	protected static function rgb_shift( array $rgb, float $amount, bool $luminance_aware = true ): array {
+		if ( $luminance_aware ) {
+			$direction = self::rgb_luminance( $rgb ) > 0.5 ? -1 : 1;
+			$amount    = abs( $amount ) * $direction;
+		}
+		return array_map(
+			static function ( $c ) use ( $amount ) {
+				if ( $amount > 0 ) {
+					return (int) round( $c + ( 255 - $c ) * $amount );
+				}
+				return (int) round( $c * ( 1 + $amount ) );
+			},
+			$rgb
+		);
+	}
+
+	/**
+	 * Format an RGB array as a `#rrggbb` hex string.
+	 *
+	 * @param array<int,int> $rgb [R, G, B] integer channels.
+	 * @return string Lowercase 6-char hex with leading `#`.
+	 */
+	protected static function rgb_to_hex( array $rgb ): string {
+		return sprintf( '#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2] );
+	}
+
+	/**
+	 * Format an RGB array as a comma-separated channel string for use as
+	 * `rgba(var(--token-rgb), 0.X)` in CSS.
+	 *
+	 * @param array<int,int> $rgb [R, G, B] integer channels.
+	 * @return string E.g. "171, 193, 35".
+	 */
+	protected static function rgb_to_csv( array $rgb ): string {
+		return implode( ', ', $rgb );
+	}
+
+	/**
+	 * Pick `#0a0a0a` or `#ffffff` based on which would have ≥4.5:1 contrast
+	 * against the given color. Used for text-on-color labels (`-inverse`).
+	 *
+	 * @param array<int,int> $rgb [R, G, B] integer channels.
+	 * @return string Either `#0a0a0a` or `#ffffff`.
+	 */
+	protected static function contrast_pick( array $rgb ): string {
+		return self::rgb_luminance( $rgb ) > 0.5 ? '#0a0a0a' : '#ffffff';
+	}
+
+	/**
+	 * Build the full set of derived variants for a customer-driven base color.
+	 *
+	 * For a base token like `--bx-color-accent`, emits:
+	 *   --bx-color-accent-rgb        171, 193, 35
+	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
+	 *   --bx-color-accent-active     shifted 20%
+	 *   --bx-color-accent-focus      shifted 5%
+	 *   --bx-color-accent-bg         rgba(171,193,35,0.08)
+	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
+	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
+	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out
+	 *   --bx-color-accent-inverse    contrast-pick #fff or #0a0a0a
+	 *
+	 * @param string $base_token_name e.g. `--bx-color-accent`.
+	 * @param string $color           Resolved color value (hex or rgba string).
+	 * @return string Concatenated CSS declarations (or empty if color unparseable).
+	 */
+	protected static function derive_color_variants( string $base_token_name, string $color ): string {
+		$rgb = self::color_to_rgb( $color );
+		if ( null === $rgb ) {
+			return '';
+		}
+		$csv = self::rgb_to_csv( $rgb );
+		$decls  = '';
+		$decls .= $base_token_name . '-rgb:' . $csv . ';';
+		$decls .= $base_token_name . '-hover:'    . self::rgb_to_hex( self::rgb_shift( $rgb, 0.10 ) ) . ';';
+		$decls .= $base_token_name . '-active:'   . self::rgb_to_hex( self::rgb_shift( $rgb, 0.20 ) ) . ';';
+		$decls .= $base_token_name . '-focus:'    . self::rgb_to_hex( self::rgb_shift( $rgb, 0.05 ) ) . ';';
+		$decls .= $base_token_name . '-bg:rgba('         . $csv . ', 0.08);';
+		$decls .= $base_token_name . '-bg-strong:rgba('  . $csv . ', 0.16);';
+		$decls .= $base_token_name . '-border:rgba('     . $csv . ', 0.24);';
+		$decls .= $base_token_name . '-disabled:'        . self::rgb_to_hex( self::rgb_shift( $rgb, 0.40 ) ) . ';';
+		$decls .= $base_token_name . '-inverse:'         . self::contrast_pick( $rgb ) . ';';
+		return $decls;
 	}
 
 	/**
