@@ -33,11 +33,13 @@ body.layout-boxed-default .site {
 	background-color: var(--bx-color-bg-elevated, var(--bx-color-bg, #ffffff));
 }
 
-/* Article / card surfaces */
+/* Article / card surfaces.
+ * Note: .post and .page are intentionally NOT used here — those classes are
+ * also added to <body> by WordPress on single-post / page templates, which
+ * would hijack the customer's body_background_color via cascade. .hentry
+ * is universal on articles (every post type) and does not appear on body. */
 .entry-content,
 .hentry,
-.post,
-.page,
 .comment-respond,
 .comments-area,
 .widget,
