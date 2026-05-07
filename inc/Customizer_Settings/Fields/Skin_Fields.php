@@ -140,6 +140,35 @@ $buddyx_skin_master_gate = array(
 	)
 );
 
+// Style variation. New in 5.1.0. Each variation is a styles/<slug>.json
+// file shipping a palette + select typography overrides. When customer
+// picks one, Tokens/Component.php reads the variation's palette and
+// resolves --bx-color-* tokens against it. Per-customizer color saves
+// still win over the variation's defaults — variation provides the
+// "starting point" palette, customizer is the "fine tune" layer.
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'select',
+	array(
+		'settings'    => 'site_style_variation',
+		'label'       => esc_html__( 'Style preset', 'buddyx' ),
+		'description' => esc_html__( 'Pick a coordinated palette + typography preset as your starting point. Your customizer color choices below override the preset values where set.', 'buddyx' ),
+		'section'     => 'site_skin_section',
+		'default'     => '',
+		'priority'    => 7,
+		'choices'     => array(
+			''           => esc_html__( 'Default (theme)', 'buddyx' ),
+			'cool'       => esc_html__( 'Cool', 'buddyx' ),
+			'dark'       => esc_html__( 'Dark', 'buddyx' ),
+			'editorial'  => esc_html__( 'Editorial', 'buddyx' ),
+			'minimal'    => esc_html__( 'Minimal', 'buddyx' ),
+			'monochrome' => esc_html__( 'Monochrome', 'buddyx' ),
+			'pastel'     => esc_html__( 'Pastel', 'buddyx' ),
+			'vibrant'    => esc_html__( 'Vibrant', 'buddyx' ),
+			'warm'       => esc_html__( 'Warm', 'buddyx' ),
+		),
+		'transport'   => 'refresh',
+	)
+);
+
 \BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 	array(
 		'settings' => 'site_custom_colors',

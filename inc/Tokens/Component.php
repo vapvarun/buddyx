@@ -393,8 +393,23 @@ class Component implements Component_Interface {
 			$decls .= $token . ':' . $value . ';';
 		}
 
+		// Style variation overlay (Phase 7) — applies BEFORE customizer mods
+		// so customer customizer choices win on top.
+		// $variation_palette maps theme.json palette slugs to their colors;
+		// resolve_style_variation_tokens() converts the slugs to --bx-* tokens
+		// per the documented mapping (accent → --bx-color-accent, base →
+		// --bx-color-bg, contrast → --bx-color-fg, etc.).
+		$variation_slug = (string) ( $mods['site_style_variation'] ?? '' );
+		if ( '' !== $variation_slug ) {
+			$variation_decls = self::resolve_style_variation_tokens( $variation_slug );
+			if ( '' !== $variation_decls ) {
+				$decls .= $variation_decls;
+			}
+		}
+
 		// Site Custom Colors master toggle gates the customizer-derived tokens
-		// for parity with 5.0.3 behavior. Framework tokens above still emit.
+		// for parity with 5.0.3 behavior. Framework tokens + variation overlay
+		// above still emit.
 		if ( ! $enabled ) {
 			$light_block = ':root{' . $decls . '}';
 			$dark_block  = $this->build_dark_block();
@@ -538,6 +553,99 @@ class Component implements Component_Interface {
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * Map theme.json palette slug → BuddyX --bx-* token name. When a customer
+	 * activates a style variation, its palette colors flow through this map
+	 * into the BuddyX token taxonomy. Customer customizer saves still win
+	 * over the variation's defaults via the cascade.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $variation_palette_map = array(
+		'accent'     => '--bx-color-accent',
+		'accent-2'   => '--bx-color-accent-secondary',
+		'accent-3'   => '--bx-color-accent-tertiary',
+		'base'       => '--bx-color-bg',
+		'base-2'     => '--bx-color-bg-elevated',
+		'base-3'     => '--bx-color-bg-muted',
+		'contrast'   => '--bx-color-fg',
+		'contrast-2' => '--bx-color-fg-muted',
+		'contrast-3' => '--bx-color-fg-subtle',
+	);
+
+	/**
+	 * Read styles/<slug>.json and emit --bx-* token declarations from the
+	 * variation's palette. Customer customizer-saved values OVERRIDE these
+	 * downstream because the variation overlay is emitted earlier in the
+	 * inline declarations block — same selector, later declaration wins
+	 * via standard CSS cascade.
+	 *
+	 * @param string $slug Variation slug (e.g. 'dark', 'vibrant', 'pastel').
+	 * @return string CSS declarations (no selector wrapper) or empty if
+	 *                the variation file doesn't exist or has no palette.
+	 */
+	protected static function resolve_style_variation_tokens( string $slug ): string {
+		// Whitelist + safety: slug must be a single hyphen-or-letter token.
+		if ( ! preg_match( '/^[a-z][a-z0-9-]{0,30}$/', $slug ) ) {
+			return '';
+		}
+		$path = \get_template_directory() . '/styles/' . $slug . '.json';
+		if ( ! is_readable( $path ) ) {
+			return '';
+		}
+		$json = file_get_contents( $path );
+		if ( false === $json ) {
+			return '';
+		}
+		$data = json_decode( $json, true );
+		if ( ! is_array( $data ) ) {
+			return '';
+		}
+		$palette = $data['settings']['color']['palette'] ?? array();
+		if ( ! is_array( $palette ) || empty( $palette ) ) {
+			return '';
+		}
+
+		$decls = '';
+		foreach ( $palette as $entry ) {
+			$pal_slug = $entry['slug']  ?? '';
+			$color    = $entry['color'] ?? '';
+			if ( '' === $pal_slug || '' === $color ) {
+				continue;
+			}
+			$bx_token = self::$variation_palette_map[ $pal_slug ] ?? '';
+			if ( '' === $bx_token ) {
+				continue;
+			}
+			$normalized = self::normalize_color( (string) $color );
+			if ( '' === $normalized ) {
+				continue;
+			}
+			$decls .= $bx_token . ':' . $normalized . ';';
+			// Also emit the legacy alias for the corresponding base, if any.
+			foreach ( self::$simple_color_tokens as $cfg ) {
+				if ( $cfg['token'] === $bx_token ) {
+					foreach ( $cfg['aliases'] as $alias ) {
+						$decls .= $alias . ':' . $normalized . ';';
+					}
+					break;
+				}
+			}
+			// Auto-derive variants for the bases that get them.
+			$derive_bases = array(
+				'--bx-color-accent',
+				'--bx-color-bg',
+				'--bx-color-bg-elevated',
+				'--bx-color-fg',
+			);
+			if ( in_array( $bx_token, $derive_bases, true ) ) {
+				$decls .= self::derive_color_variants( $bx_token, $normalized );
+			}
+		}
+
+		return $decls;
 	}
 
 	/**
