@@ -72,16 +72,22 @@ h4, .h4 { color: var(--bx-color-h4, var(--bx-color-fg, #111111)); }
 h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
 h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 
-/* ----- Body links ----- */
-.entry-content a,
-.comment-content a,
-p a {
+/* ----- Body links -----
+ * `:not(.wp-element-button):not(.wp-block-button__link):not(.button)`
+ * keeps button-as-anchor elements (WP block buttons, pattern CTAs, BP
+ * action buttons) from inheriting the body link color. Without this
+ * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
+ * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
+ * with link color on top of the brand BG → unreadable. */
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
+p a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
 }
-.entry-content a:hover,
-.entry-content a:focus,
-.comment-content a:hover,
-p a:hover {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
+p a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
