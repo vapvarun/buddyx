@@ -137,10 +137,85 @@ class Component implements Component_Interface {
 	 * @var array<string, string>
 	 */
 	protected static array $framework_tokens = array(
-		'--bx-color-fg-muted' => '#757575',                  // Mid-tone text (was #757575/#666/#aaa)
-		'--bx-color-border'   => '#e8e8e8',                  // Generic border (was #e8e8e8/#eaeaea)
-		'--bx-color-divider'  => '#f0f0f0',                  // Subtle divider (was #f0f0f0/#f6f6f6)
-		'--bx-color-shadow'   => 'rgba(0, 0, 0, 0.08)',      // Card / popover shadow base
+		// Foreground (text) extras
+		'--bx-color-fg-muted'   => '#757575',                // Mid-tone text
+		'--bx-color-fg-subtle'  => '#9ca3af',                // Subtle / placeholder text
+		'--bx-color-fg-inverse' => '#ffffff',                // Text on color (light mode default)
+
+		// Surface extras
+		'--bx-color-bg-overlay' => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay
+		'--bx-color-bg-subtle'  => '#f7f7f9',                // Very-light surface tint
+
+		// Brand / accent extras
+		'--bx-color-accent-secondary' => '#3a7882',           // Variation slot (cool teal)
+		'--bx-color-accent-tertiary'  => '#f4d35e',           // Variation slot (warm yellow)
+
+		// Structural
+		'--bx-color-border'        => '#e8e8e8',              // Generic border
+		'--bx-color-border-strong' => '#d4d4d4',              // Stronger border / hr
+		'--bx-color-divider'       => '#f0f0f0',              // Subtle divider
+		'--bx-color-shadow'        => 'rgba(0, 0, 0, 0.08)',  // Card / popover shadow base
+		'--bx-color-shadow-strong' => 'rgba(0, 0, 0, 0.16)',  // Modal / floating panel shadow
+
+		// State (semantic — replaces hardcoded #4caf50, #c0392b, #f1c40f, etc.)
+		'--bx-color-success'    => '#16a34a',
+		'--bx-color-success-bg' => '#dcfce7',
+		'--bx-color-warning'    => '#eab308',
+		'--bx-color-warning-bg' => '#fef9c3',
+		'--bx-color-error'      => '#dc2626',
+		'--bx-color-error-bg'   => '#fee2e2',
+		'--bx-color-info'       => '#0284c7',
+		'--bx-color-info-bg'    => '#dbeafe',
+
+		// Community / presence (BP / Youzify) — replaces iOS-style hardcoded palette
+		'--bx-color-presence-online'  => '#16a34a',
+		'--bx-color-presence-away'    => '#eab308',
+		'--bx-color-presence-busy'    => '#dc2626',
+		'--bx-color-presence-offline' => '#9ca3af',
+		'--bx-color-bp-friend'        => '#0284c7',
+		'--bx-color-bp-favorite'      => '#dc2626',
+
+		// Forms
+		'--bx-color-input-bg'           => '#ffffff',
+		'--bx-color-input-border'       => '#d4d4d4',
+		'--bx-color-input-focus-border' => '#ef5455',         // Same as accent default
+		'--bx-color-input-fg'           => '#1a1a1a',
+		'--bx-color-input-placeholder'  => '#9ca3af',
+
+		// Header / Sub-header / Footer extras
+		'--bx-color-menu-bg'        => 'transparent',
+		'--bx-color-subheader-bg'   => '#fafafa',
+		'--bx-color-footer-bg'      => '#fafafa',
+
+		// Dimension — radius extras
+		'--bx-radius-card' => '12px',
+		'--bx-radius-pill' => '999px',
+
+		// Dimension — spacing
+		'--bx-space-section' => 'clamp(40px, 8vw, 80px)',     // Vertical rhythm between sections
+		'--bx-space-card'    => '24px',                       // Card / panel padding
+		'--bx-space-inline'  => '8px',                        // Inline gap (icon + text, etc.)
+		'--bx-space-stack'   => '12px',                       // Vertical gap between siblings
+
+		// Effect — shadow ladder
+		'--bx-shadow-card-sm' => '0 1px 2px 0 var(--bx-color-shadow)',
+		'--bx-shadow-card-md' => '0 4px 12px -2px var(--bx-color-shadow)',
+		'--bx-shadow-card-lg' => '0 12px 32px -4px var(--bx-color-shadow-strong)',
+
+		// Effect — motion
+		'--bx-duration-fast' => '120ms',
+		'--bx-duration-base' => '200ms',
+		'--bx-duration-slow' => '400ms',
+		'--bx-easing-base'   => 'cubic-bezier(0.4, 0, 0.2, 1)',
+		'--bx-easing-bounce' => 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+
+		// Z-index ladder
+		'--bx-z-base'           => '1',
+		'--bx-z-dropdown'       => '100',
+		'--bx-z-sticky-header'  => '999',
+		'--bx-z-overlay'        => '9999',
+		'--bx-z-loader'         => '999991',
+		'--bx-z-toast'          => '999999',
 	);
 
 	/**
@@ -213,10 +288,53 @@ class Component implements Component_Interface {
 		'--bx-color-copyright-link-hover' => '#ff6b6b',
 
 		// Framework-supplied derived tokens (Phase 4 cleanup).
-		'--bx-color-fg-muted' => '#a0a0a0',
-		'--bx-color-border'   => '#2a2a2a',
-		'--bx-color-divider'  => '#1a1a1a',
-		'--bx-color-shadow'   => 'rgba(0, 0, 0, 0.4)',
+		'--bx-color-fg-muted'   => '#a0a0a0',
+		'--bx-color-fg-subtle'  => '#6b7280',
+		'--bx-color-fg-inverse' => '#0a0a0a',
+
+		// Surface extras (dark)
+		'--bx-color-bg-overlay' => 'rgba(0, 0, 0, 0.7)',
+		'--bx-color-bg-subtle'  => '#0d0d0d',
+
+		// Brand / accent extras (dark)
+		'--bx-color-accent-secondary' => '#5eaeb8',
+		'--bx-color-accent-tertiary'  => '#facc15',
+
+		// Structural (dark)
+		'--bx-color-border'        => '#2a2a2a',
+		'--bx-color-border-strong' => '#3a3a3a',
+		'--bx-color-divider'       => '#1a1a1a',
+		'--bx-color-shadow'        => 'rgba(0, 0, 0, 0.4)',
+		'--bx-color-shadow-strong' => 'rgba(0, 0, 0, 0.6)',
+
+		// State (dark) — slightly brighter for contrast on near-black surfaces
+		'--bx-color-success'    => '#22c55e',
+		'--bx-color-success-bg' => '#14532d',
+		'--bx-color-warning'    => '#facc15',
+		'--bx-color-warning-bg' => '#713f12',
+		'--bx-color-error'      => '#ef4444',
+		'--bx-color-error-bg'   => '#7f1d1d',
+		'--bx-color-info'       => '#38bdf8',
+		'--bx-color-info-bg'    => '#1e3a8a',
+
+		// Community / presence (dark)
+		'--bx-color-presence-online'  => '#22c55e',
+		'--bx-color-presence-away'    => '#facc15',
+		'--bx-color-presence-busy'    => '#ef4444',
+		'--bx-color-presence-offline' => '#6b7280',
+		'--bx-color-bp-friend'        => '#38bdf8',
+		'--bx-color-bp-favorite'      => '#ef4444',
+
+		// Forms (dark)
+		'--bx-color-input-bg'           => '#161616',
+		'--bx-color-input-border'       => '#3a3a3a',
+		'--bx-color-input-focus-border' => '#ff6b6b',
+		'--bx-color-input-fg'           => '#f5f5f5',
+		'--bx-color-input-placeholder'  => '#6b7280',
+
+		// Header / Sub-header / Footer extras (dark)
+		'--bx-color-subheader-bg' => '#161616',
+		'--bx-color-footer-bg'    => '#0a0a0a',
 
 		// theme.json palette overrides — block patterns reference these via
 		// .has-{slug}-background-color / .has-{slug}-color helpers, so we have
