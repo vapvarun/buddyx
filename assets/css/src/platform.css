@@ -1692,7 +1692,7 @@ td.notification-actions a {
 }
 
 .activity-list .activity-item .bp-generic-meta.action .unfav::before {
-    color: #db2828;
+    color: var(--bx-color-error, #db2828);
 }
 
 #item-body #group-invites-container {

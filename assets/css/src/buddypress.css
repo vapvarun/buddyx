@@ -1502,7 +1502,7 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
 }
 
 .activity-list .activity-item .activity-meta.action .unfav::before {
-    color: #db2828;
+    color: var(--bx-color-error, #db2828);
 }
 
 div#buddypress .activity-read-more {
@@ -3710,7 +3710,7 @@ button#bp-delete-avatar {
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-container .wb-bp-progress {
     height: 6px;
-    background-color: #4caf50;
+    background-color: var(--bx-color-presence-online, #4caf50);
     border-radius: 12px !important;
     background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
 }
@@ -3745,8 +3745,8 @@ button#bp-delete-avatar {
     text-align: center;
     float: right;
     color: #fff;
-    background: #4caf50;
-    border: 2px solid #4caf50;
+    background: var(--bx-color-presence-online, #4caf50);
+    border: 2px solid var(--bx-color-presence-online, #4caf50);
     border-radius: 30px;
 }
 
@@ -3768,8 +3768,8 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number {
-    background: #4caf50;
-    border-color: #4caf50;
+    background: var(--bx-color-presence-online, #4caf50);
+    border-color: var(--bx-color-presence-online, #4caf50);
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number::before {

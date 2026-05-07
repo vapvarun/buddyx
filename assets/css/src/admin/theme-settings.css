@@ -100,8 +100,8 @@
     background: #fff;
     margin: 0 -30px;
     padding: 0;
-    border-bottom: 1px solid #e6e4e4;
-    border-top: 1px solid #e6e4e4;
+    border-bottom: 1px solid var(--bx-color-border, #e6e4e4);
+    border-top: 1px solid var(--bx-color-border, #e6e4e4);
     justify-content: center;
 }
 
@@ -197,8 +197,8 @@
     text-align: center;
     position: relative;
     padding: 12px 15px 19px;
-    background: #FBFDFF;
-    border: 1px solid #E2E8F0;
+    background: var(--bx-color-bg-subtle, #fbfdff);
+    border: 1px solid var(--bx-color-border, #e2e8f0);
     border-radius: 16px;
 }
 
@@ -246,7 +246,7 @@ a.buddyx-box-item-link {
 .buddyx-importer-wrapper a.buddyx-box-item-link {
     display: inline-block;
     padding: 6px 20px 8px;
-    background: #fbfdff;
+    background: var(--bx-color-bg-subtle, #fbfdff);
     margin-top: 10px;
 }
 
@@ -281,10 +281,10 @@ a.buddyx-box-item-link {
     width: 80px;
     height: 80px;
     border-radius: 15px;
-    background: #fbfdff;
+    background: var(--bx-color-bg-subtle, #fbfdff);
     display: block;
     text-align: center;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--bx-color-border, #e2e8f0);
 }
 
 .buddyx-welcome-column.buddyx-pro-section span.buddyx-box-item-icon img {
@@ -615,7 +615,7 @@ form.migrate-buddyx-form label {
 }
 
 .buddyx-feature-sub-title-a:hover {
-    color: #ef5455;
+    color: var(--bx-color-accent, #ef5455);
 }
 
 .buddyx-col a {
@@ -851,8 +851,8 @@ form.migrate-buddyx-form label {
 
 .get-pro-buddyx-theme .buddyx-welcome-column.buddyx-pro-section {
     margin: 0;
-    background: #fbfdff;
-    border: 1px solid #e2e8f0;
+    background: var(--bx-color-bg-subtle, #fbfdff);
+    border: 1px solid var(--bx-color-border, #e2e8f0);
     text-align: center;
     padding: 3em;
 }

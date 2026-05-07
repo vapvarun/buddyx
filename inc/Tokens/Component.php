@@ -167,8 +167,8 @@ class Component implements Component_Interface {
 		'--bx-color-info'       => '#0284c7',
 		'--bx-color-info-bg'    => '#dbeafe',
 
-		// Community / presence (BP / Youzify) — replaces iOS-style hardcoded palette
-		'--bx-color-presence-online'  => '#16a34a',
+		// Community / presence (BP / Youzify) — keeps legacy Material green for parity with master
+		'--bx-color-presence-online'  => '#4caf50',
 		'--bx-color-presence-away'    => '#eab308',
 		'--bx-color-presence-busy'    => '#dc2626',
 		'--bx-color-presence-offline' => '#9ca3af',
@@ -318,7 +318,7 @@ class Component implements Component_Interface {
 		'--bx-color-info-bg'    => '#1e3a8a',
 
 		// Community / presence (dark)
-		'--bx-color-presence-online'  => '#22c55e',
+		'--bx-color-presence-online'  => '#4ade80',
 		'--bx-color-presence-away'    => '#facc15',
 		'--bx-color-presence-busy'    => '#ef4444',
 		'--bx-color-presence-offline' => '#6b7280',
