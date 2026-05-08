@@ -78,16 +78,25 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * action buttons) from inheriting the body link color. Without this
  * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
  * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
- * with link color on top of the brand BG → unreadable. */
+ * with link color on top of the brand BG → unreadable.
+ *
+ * Selector scope is intentionally limited to `.entry-content` and
+ * `.comment-content`. An earlier unscoped `p a:not(...)` selector was
+ * dropped because BuddyX renders the masthead site title as
+ * `<p class="site-title">` (see template-parts/header/branding.php),
+ * which the unscoped `p a:not(...)` rule (specificity 0,3,2) was
+ * overriding the customer's `site_title_color` (selector
+ * `.site-title a`, specificity 0,1,1). All single/page templates
+ * already wrap post content in `.entry-content`, so the scoped rule
+ * still covers paragraph-nested links inside post bodies. */
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
-p a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
 }
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
 .comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-p a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover {
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
@@ -138,17 +147,28 @@ input[type="submit"]:hover,
 	color: var(--bx-color-footer-link-hover, var(--bx-color-link-hover, #ef5455));
 }
 
-/* ----- Copyright ----- */
+/* ----- Copyright -----
+ * `.site-info` is the canonical wrapper rendered by template-parts/footer/info.php
+ * (.site-copyright / .copyright-section are kept for back-compat with theme
+ * variants that may use them). The `.site-footer` ancestor is added to the
+ * link selectors to bump specificity over the `.site-footer a` rule above
+ * (both are 0,1,1) so `site_copyright_links_color` wins independently from
+ * `site_footer_links_color`. */
+.site-info,
 .site-copyright,
 .copyright-section {
 	background-color: var(--bx-color-copyright-bg, var(--bx-color-footer-bg, #ffffff));
 	color: var(--bx-color-copyright-fg, var(--bx-color-footer-fg, #505050));
 	border-color: var(--bx-color-copyright-border, transparent);
 }
+.site-footer .site-info a,
+.site-info a,
 .site-copyright a,
 .copyright-section a {
 	color: var(--bx-color-copyright-link, var(--bx-color-link, #111111));
 }
+.site-footer .site-info a:hover,
+.site-info a:hover,
 .site-copyright a:hover,
 .copyright-section a:hover {
 	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #ef5455));
