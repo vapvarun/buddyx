@@ -133,9 +133,20 @@ class Field {
 	/**
 	 * Resolve Kirki-style 'auto' transport to postMessage if output is provided,
 	 * else refresh. Pass-through for refresh/postMessage.
+	 *
+	 * Default is 'auto' (was 'refresh' pre-5.1.0): when a field declares
+	 * `'output' => array(...)`, the customizer-preview.js handler can update
+	 * inline CSS without a full preview reload. Defaulting to 'auto' makes
+	 * every output-producing field live-updatable by default — only fields
+	 * that explicitly set `'transport' => 'refresh'` (e.g. settings that
+	 * change rendered MARKUP, not just CSS) trigger a full reload.
+	 *
+	 * Closes the live-preview UX bug found in 100% verification: 25 of 38
+	 * fields with `output` were defaulting to refresh, causing a full
+	 * preview reload on every keystroke during typography / color edits.
 	 */
 	protected static function resolve_transport( array $args ): string {
-		$t = $args['transport'] ?? 'refresh';
+		$t = $args['transport'] ?? 'auto';
 		if ( 'auto' === $t ) {
 			return ! empty( $args['output'] ) ? 'postMessage' : 'refresh';
 		}
