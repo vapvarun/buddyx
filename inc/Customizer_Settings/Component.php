@@ -78,9 +78,8 @@ class Component implements Component_Interface {
 	 * Site sticky sidebar body class.
 	 */
 	public function site_sticky_sidebar_body_classes( array $classes ): array {
-
-		$sticky_sidebar = get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) );
-		if ( $sticky_sidebar ) {
+		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' strings.
+		if ( buddyx_is_truthy( get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) ) ) ) {
 			$classes[] = 'sticky-sidebar-enable';
 		}
 
@@ -122,8 +121,8 @@ class Component implements Component_Interface {
 	 * BuddyPress body class.
 	 */
 	public function site_buddypress_body_classes( array $classes ): array {
-		$buddypress_avatar_style = get_theme_mod( 'buddypress_avatar_style', buddyx_defaults( 'buddypress-avatar-style' ) );
-		if ( $buddypress_avatar_style ) {
+		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' strings.
+		if ( buddyx_is_truthy( get_theme_mod( 'buddypress_avatar_style', buddyx_defaults( 'buddypress-avatar-style' ) ) ) ) {
 			$classes[] = 'round-avatars';
 		}
 
