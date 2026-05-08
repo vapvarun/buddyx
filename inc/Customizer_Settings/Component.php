@@ -64,8 +64,10 @@ class Component implements Component_Interface {
 	 * @return array Filtered body classes.
 	 */
 	public function site_sticky_header_classes( array $classes ): array {
-		$sticky_header = get_theme_mod( 'site_sticky_header', buddyx_defaults( 'site-sticky-header' ) );
-		if ( $sticky_header ) {
+		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' string
+		// values; bare `if ( $sticky_header )` evaluates the literal 'off'
+		// string as truthy and incorrectly applies the body class.
+		if ( buddyx_is_truthy( get_theme_mod( 'site_sticky_header', buddyx_defaults( 'site-sticky-header' ) ) ) ) {
 			$classes[] = 'sticky-header';
 		}
 

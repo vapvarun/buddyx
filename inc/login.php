@@ -98,9 +98,10 @@ add_filter( 'login_title', 'buddyx_login_page_title' );
  * Login load init
  */
 function buddyx_theme_login_load() {
-	$enable_custom_login = get_theme_mod( 'enable_custom_login' );
-
-	if ( $enable_custom_login ) {
+	// `buddyx_is_truthy()` correctly recognizes pre-5.1.0 'on'/'off' string
+	// values; bare `if ( $enable_custom_login )` would treat literal 'off'
+	// as truthy and load the custom login head even when disabled.
+	if ( buddyx_is_truthy( get_theme_mod( 'enable_custom_login' ) ) ) {
 		add_action( 'login_head', 'login_custom_head', 150 );
 	}
 }

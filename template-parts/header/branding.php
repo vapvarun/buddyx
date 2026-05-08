@@ -17,7 +17,10 @@ namespace BuddyX\Buddyx;
 	<div class="site-branding-inner">
 		<?php
 		// Check if the "Display Site Title and Tagline" customizer setting is checked.
-		if ( get_theme_mod( 'display_header_text', true ) ) {
+		// `buddyx_is_truthy()` handles pre-5.1.0 'on'/'off' values consistently
+		// — PHP's `(bool) 'off' === true` would otherwise leak through and show
+		// the title block even when the customer disabled it.
+		if ( buddyx_is_truthy( get_theme_mod( 'display_header_text', true ) ) ) {
 			?>
 
 			<?php if ( is_front_page() && is_home() ) : ?>

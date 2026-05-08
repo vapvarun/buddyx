@@ -350,7 +350,7 @@ class BuddyX_SureCart_Support {
 			 */
 			function buddyx_render_cart_icon() {
 				// Check if cart is enabled.
-				$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+				$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 				if ( ! $cart_enabled ) {
 					return;
 				}
@@ -376,7 +376,7 @@ class BuddyX_SureCart_Support {
 	 */
 	public function buddyx_surecart_add_cart_styles() {
 		// Check if cart is enabled.
-		$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+		$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 		if ( ! $cart_enabled ) {
 			return;
 		}

@@ -5,6 +5,50 @@
  * @package buddyx
  */
 
+if ( ! function_exists( 'buddyx_is_truthy' ) ) {
+	/**
+	 * Boolean-equivalence helper for theme_mod values.
+	 *
+	 * Treats `true / 1 / '1' / 'on' / 'yes' / 'true' / 'enable'` as truthy
+	 * and `false / 0 / '0' / '' / 'off' / 'no' / 'false' / 'disable' / null`
+	 * as falsy. Any other value falls back to PHP loose-truthiness.
+	 *
+	 * Required because pre-5.1.0 customers carry literal 'on'/'off' string
+	 * values for switch theme_mods (Kirki preserved the choice keys
+	 * directly), and PHP gotchas mean `(int) 'on' === 0` and `(bool) 'off'
+	 * === true` — both of which silently invert the customer's intent.
+	 * WordPress's own `wp_validate_boolean()` is unsuitable here because
+	 * it only recognizes 'false'/'0' as falsy (so `wp_validate_boolean('off')
+	 * === true`). This helper mirrors the values_equal() logic added to
+	 * Active_Callback in commit b4cccf6 so render-time and condition-time
+	 * agree on the same truthiness contract.
+	 *
+	 * @param mixed $value Raw theme_mod value (any scalar / null).
+	 * @return bool
+	 */
+	function buddyx_is_truthy( $value ): bool {
+		if ( is_bool( $value ) ) {
+			return $value;
+		}
+		if ( is_int( $value ) ) {
+			return 0 !== $value;
+		}
+		if ( null === $value ) {
+			return false;
+		}
+		if ( is_string( $value ) ) {
+			$normalized = strtolower( trim( $value ) );
+			if ( in_array( $normalized, array( '1', 'on', 'yes', 'true', 'enable' ), true ) ) {
+				return true;
+			}
+			if ( in_array( $normalized, array( '0', '', 'off', 'no', 'false', 'disable' ), true ) ) {
+				return false;
+			}
+		}
+		return (bool) $value;
+	}
+}
+
 // Content wrapper
 if ( ! function_exists( 'buddyx_content_top' ) ) {
 	function buddyx_content_top() {
@@ -182,9 +226,14 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 	 */
 	function buddyx_site_menu_icon() {
 		// Get the settings for search and cart icons from the theme customizer.
-		$searchicon         = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
-		$carticon           = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
-		$color_toggle_show  = 'on' === get_theme_mod( 'site_color_mode_toggle_show', 'on' );
+		// `buddyx_is_truthy()` correctly handles the pre-5.1.0 'on'/'off'
+		// string values (Kirki preserved choice keys directly). PHP would
+		// otherwise silently flip the intent: `(int) 'on' === 0` and
+		// `(bool) 'off' === true`. WP core's `wp_validate_boolean()` is
+		// unsuitable because `wp_validate_boolean('off') === true`.
+		$searchicon         = buddyx_is_truthy( get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) ) );
+		$carticon           = buddyx_is_truthy( get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) ) );
+		$color_toggle_show  = buddyx_is_truthy( get_theme_mod( 'site_color_mode_toggle_show', 'on' ) );
 
 		// Wrapper renders if any of these icons (search, cart, color-mode toggle) are enabled.
 		if ( ! empty( $searchicon ) || ! empty( $carticon ) || $color_toggle_show ) :

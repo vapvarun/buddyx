@@ -144,8 +144,11 @@ if ( is_user_logged_in() ) {
 } else {
 	// Not logged in - show login and register buttons.
 	// Cache theme mod values to prevent multiple DB calls.
-	$login_enabled    = get_theme_mod( 'site_login_link', true );
-	$register_enabled = get_theme_mod( 'site_register_link', true );
+	// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' string
+	// values. Plain `if ($foo)` would treat the 'off' string as truthy
+	// and incorrectly render the link as enabled.
+	$login_enabled    = buddyx_is_truthy( get_theme_mod( 'site_login_link', true ) );
+	$register_enabled = buddyx_is_truthy( get_theme_mod( 'site_register_link', true ) );
 
 	if ( $login_enabled ) {
 		// Login Page URL - get once.
