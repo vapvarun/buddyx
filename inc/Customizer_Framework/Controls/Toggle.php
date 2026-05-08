@@ -41,7 +41,7 @@ class Toggle extends \WP_Customize_Control {
 					class="buddyx-switch-input"
 					value="1"
 					<?php $this->link(); ?>
-					<?php checked( (int) $this->value(), 1 ); ?>
+					<?php checked( buddyx_is_truthy( $this->value() ), true ); ?>
 				/>
 				<span class="buddyx-switch-slider" aria-hidden="true"></span>
 			</span>

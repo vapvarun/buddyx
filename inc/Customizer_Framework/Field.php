@@ -103,6 +103,15 @@ class Field {
 		$default     = $args['default'] ?? '';
 		$sanitize_cb = self::resolve_sanitize_callback( $type, $args );
 
+		// Normalize switch/checkbox defaults to 0/1 so the JS setting value
+		// is a falsy/truthy integer. The WP customizer's checkbox synchronizer
+		// passes the raw value to jQuery's .prop('checked', value) — any
+		// non-empty string (including 'off') is truthy in JS and would render
+		// the toggle as ON even when the PHP default is 'off'.
+		if ( in_array( $type, array( 'switch', 'checkbox' ), true ) ) {
+			$default = self::sanitize_bool_int( $default );
+		}
+
 		$wp_customize->add_setting( $setting_id, array(
 			'default'           => $default,
 			'transport'         => $transport,
