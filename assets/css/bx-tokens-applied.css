@@ -222,6 +222,40 @@ hr {
 	border-color: var(--bx-color-copyright-border, #e8e8e8);
 }
 
+/* ----- Dark-mode overrides for Output_Builder hardcoded defaults -----
+ * The Background Control's `background_setting` field defaults
+ * `background-color` to `rgba(255,255,255,0.8)` (Footer_Fields.php) and
+ * `site_copyright_border_color` defaults to `#e8e8e8`. Output_Builder
+ * emits these literal hex / rgba values into the inline `<style>` block
+ * unconditionally — they don't adapt when [data-bx-mode="dark"] is set
+ * because they're hardcoded values, not token references.
+ *
+ * On a fresh install (no customer color customization yet) toggling the
+ * Site Footer Background switch ON inherits this light default and the
+ * footer area renders with a near-white wrapper + light gray copyright
+ * border-top against an otherwise dark page — broken visual. Add
+ * higher-specificity (0,2,1) overrides scoped to the dark-mode root
+ * attribute that win against the inline customizer rule (0,1,0).
+ *
+ * Specificity (not source order) wins here because the inline customizer
+ * CSS is a class-only selector. When a customer DOES set explicit dark-
+ * adapted values, they remain in effect (this rule provides only the
+ * default). */
+:root[data-bx-mode="dark"] .site-footer-wrapper {
+	background-color: var(--bx-color-bg-page, #0a0a0a);
+}
+:root[data-bx-mode="dark"] .site-info {
+	border-color: var(--bx-color-border, #2a2a2a);
+}
+@media (prefers-color-scheme: dark) {
+	:root[data-bx-mode="auto"] .site-footer-wrapper {
+		background-color: var(--bx-color-bg-page, #0a0a0a);
+	}
+	:root[data-bx-mode="auto"] .site-info {
+		border-color: var(--bx-color-border, #2a2a2a);
+	}
+}
+
 /* ----- Smoothing transition between modes ----- */
 html {
 	transition: background-color 0.2s ease, color 0.2s ease;
