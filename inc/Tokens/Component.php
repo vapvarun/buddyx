@@ -47,48 +47,129 @@ class Component implements Component_Interface {
 	 * @var array<string, array{token:string, aliases:array<int,string>}>
 	 */
 	protected static array $simple_color_tokens = array(
-		// Brand / accent
-		'site_primary_color'                  => array( 'token' => '--bx-color-accent',           'aliases' => array( '--color-theme-primary' ) ),
-		'site_buttons_background_color'       => array( 'token' => '--bx-color-button-bg',        'aliases' => array( '--button-background-color' ) ),
-		'site_buttons_background_hover_color' => array( 'token' => '--bx-color-button-bg-hover',  'aliases' => array( '--button-background-hover-color' ) ),
-		'site_buttons_text_color'             => array( 'token' => '--bx-color-button-fg',        'aliases' => array( '--button-text-color' ) ),
-		'site_buttons_text_hover_color'       => array( 'token' => '--bx-color-button-fg-hover',  'aliases' => array( '--button-text-hover-color' ) ),
-		'site_buttons_border_color'           => array( 'token' => '--bx-color-button-border',    'aliases' => array( '--button-border-color' ) ),
-		'site_buttons_border_hover_color'     => array( 'token' => '--bx-color-button-border-hover', 'aliases' => array( '--button-border-hover-color' ) ),
+		// Brand / accent.
+		'site_primary_color'                  => array(
+			'token'   => '--bx-color-accent',
+			'aliases' => array( '--color-theme-primary' ),
+		),
+		'site_buttons_background_color'       => array(
+			'token'   => '--bx-color-button-bg',
+			'aliases' => array( '--button-background-color' ),
+		),
+		'site_buttons_background_hover_color' => array(
+			'token'   => '--bx-color-button-bg-hover',
+			'aliases' => array( '--button-background-hover-color' ),
+		),
+		'site_buttons_text_color'             => array(
+			'token'   => '--bx-color-button-fg',
+			'aliases' => array( '--button-text-color' ),
+		),
+		'site_buttons_text_hover_color'       => array(
+			'token'   => '--bx-color-button-fg-hover',
+			'aliases' => array( '--button-text-hover-color' ),
+		),
+		'site_buttons_border_color'           => array(
+			'token'   => '--bx-color-button-border',
+			'aliases' => array( '--button-border-color' ),
+		),
+		'site_buttons_border_hover_color'     => array(
+			'token'   => '--bx-color-button-border-hover',
+			'aliases' => array( '--button-border-hover-color' ),
+		),
 
-		// Surfaces (page / containers)
-		'body_background_color'      => array( 'token' => '--bx-color-bg',          'aliases' => array( '--color-theme-body' ) ),
-		'content_background_color'   => array( 'token' => '--bx-color-bg-page',     'aliases' => array( '--color-layout-boxed' ) ),
-		'box_background_color'       => array( 'token' => '--bx-color-bg-elevated', 'aliases' => array( '--color-theme-white-box' ) ),
-		'secondary_background_color' => array( 'token' => '--bx-color-bg-muted',    'aliases' => array( '--global-body-lightcolor' ) ),
+		// Surfaces (page / containers).
+		'body_background_color'               => array(
+			'token'   => '--bx-color-bg',
+			'aliases' => array( '--color-theme-body' ),
+		),
+		'content_background_color'            => array(
+			'token'   => '--bx-color-bg-page',
+			'aliases' => array( '--color-layout-boxed' ),
+		),
+		'box_background_color'                => array(
+			'token'   => '--bx-color-bg-elevated',
+			'aliases' => array( '--color-theme-white-box' ),
+		),
+		'secondary_background_color'          => array(
+			'token'   => '--bx-color-bg-muted',
+			'aliases' => array( '--global-body-lightcolor' ),
+		),
 
-		// Text + links
-		'site_links_color'             => array( 'token' => '--bx-color-link',       'aliases' => array( '--color-link' ) ),
-		'site_links_focus_hover_color' => array( 'token' => '--bx-color-link-hover', 'aliases' => array( '--color-link-hover' ) ),
+		// Text + links.
+		'site_links_color'                    => array(
+			'token'   => '--bx-color-link',
+			'aliases' => array( '--color-link' ),
+		),
+		'site_links_focus_hover_color'        => array(
+			'token'   => '--bx-color-link-hover',
+			'aliases' => array( '--color-link-hover' ),
+		),
 
-		// Header
-		'site_header_bg_color'   => array( 'token' => '--bx-color-header-bg',    'aliases' => array( '--color-header-bg' ) ),
-		'site_title_hover_color' => array( 'token' => '--bx-color-site-title-hover', 'aliases' => array( '--color-site-title-hover' ) ),
+		// Header.
+		'site_header_bg_color'                => array(
+			'token'   => '--bx-color-header-bg',
+			'aliases' => array( '--color-header-bg' ),
+		),
+		'site_title_hover_color'              => array(
+			'token'   => '--bx-color-site-title-hover',
+			'aliases' => array( '--color-site-title-hover' ),
+		),
 
-		// Menu
-		'menu_hover_color'  => array( 'token' => '--bx-color-menu-hover',  'aliases' => array( '--color-menu-hover' ) ),
-		'menu_active_color' => array( 'token' => '--bx-color-menu-active', 'aliases' => array( '--color-menu-active' ) ),
+		// Menu.
+		'menu_hover_color'                    => array(
+			'token'   => '--bx-color-menu-hover',
+			'aliases' => array( '--color-menu-hover' ),
+		),
+		'menu_active_color'                   => array(
+			'token'   => '--bx-color-menu-active',
+			'aliases' => array( '--color-menu-active' ),
+		),
 
-		// Loader
-		'site_loader_bg' => array( 'token' => '--bx-color-loader-bg', 'aliases' => array( '--color-theme-loader' ) ),
+		// Loader.
+		'site_loader_bg'                      => array(
+			'token'   => '--bx-color-loader-bg',
+			'aliases' => array( '--color-theme-loader' ),
+		),
 
-		// Footer
-		'site_footer_title_color'       => array( 'token' => '--bx-color-footer-title',       'aliases' => array( '--color-footer-title' ) ),
-		'site_footer_content_color'     => array( 'token' => '--bx-color-footer-fg',          'aliases' => array( '--color-footer-content' ) ),
-		'site_footer_links_color'       => array( 'token' => '--bx-color-footer-link',        'aliases' => array( '--color-footer-link' ) ),
-		'site_footer_links_hover_color' => array( 'token' => '--bx-color-footer-link-hover',  'aliases' => array( '--color-footer-link-hover' ) ),
+		// Footer.
+		'site_footer_title_color'             => array(
+			'token'   => '--bx-color-footer-title',
+			'aliases' => array( '--color-footer-title' ),
+		),
+		'site_footer_content_color'           => array(
+			'token'   => '--bx-color-footer-fg',
+			'aliases' => array( '--color-footer-content' ),
+		),
+		'site_footer_links_color'             => array(
+			'token'   => '--bx-color-footer-link',
+			'aliases' => array( '--color-footer-link' ),
+		),
+		'site_footer_links_hover_color'       => array(
+			'token'   => '--bx-color-footer-link-hover',
+			'aliases' => array( '--color-footer-link-hover' ),
+		),
 
-		// Copyright
-		'site_copyright_background_color'  => array( 'token' => '--bx-color-copyright-bg',         'aliases' => array( '--color-copyright-bg' ) ),
-		'site_copyright_border_color'      => array( 'token' => '--bx-color-copyright-border',     'aliases' => array() ),
-		'site_copyright_content_color'     => array( 'token' => '--bx-color-copyright-fg',         'aliases' => array( '--color-copyright-content' ) ),
-		'site_copyright_links_color'       => array( 'token' => '--bx-color-copyright-link',       'aliases' => array( '--color-copyright-link' ) ),
-		'site_copyright_links_hover_color' => array( 'token' => '--bx-color-copyright-link-hover', 'aliases' => array( '--color-copyright-link-hover' ) ),
+		// Copyright.
+		'site_copyright_background_color'     => array(
+			'token'   => '--bx-color-copyright-bg',
+			'aliases' => array( '--color-copyright-bg' ),
+		),
+		'site_copyright_border_color'         => array(
+			'token'   => '--bx-color-copyright-border',
+			'aliases' => array(),
+		),
+		'site_copyright_content_color'        => array(
+			'token'   => '--bx-color-copyright-fg',
+			'aliases' => array( '--color-copyright-content' ),
+		),
+		'site_copyright_links_color'          => array(
+			'token'   => '--bx-color-copyright-link',
+			'aliases' => array( '--color-copyright-link' ),
+		),
+		'site_copyright_links_hover_color'    => array(
+			'token'   => '--bx-color-copyright-link-hover',
+			'aliases' => array( '--color-copyright-link-hover' ),
+		),
 	);
 
 	/**
@@ -97,17 +178,50 @@ class Component implements Component_Interface {
 	 * @var array<string, array{token:string, aliases:array<int,string>}>
 	 */
 	protected static array $typography_color_tokens = array(
-		'site_title_typography_option'   => array( 'token' => '--bx-color-site-title',     'aliases' => array( '--color-site-title' ) ),
-		'site_tagline_typography_option' => array( 'token' => '--bx-color-site-tagline',   'aliases' => array( '--color-site-tagline' ) ),
-		'menu_typography_option'         => array( 'token' => '--bx-color-menu-fg',        'aliases' => array( '--color-menu' ) ),
-		'site_sub_header_typography'     => array( 'token' => '--bx-color-subheader-fg',   'aliases' => array( '--color-subheader-title' ) ),
-		'typography_option'              => array( 'token' => '--bx-color-fg',             'aliases' => array( '--global-font-color' ) ),
-		'h1_typography_option'           => array( 'token' => '--bx-color-h1', 'aliases' => array( '--color-h1' ) ),
-		'h2_typography_option'           => array( 'token' => '--bx-color-h2', 'aliases' => array( '--color-h2' ) ),
-		'h3_typography_option'           => array( 'token' => '--bx-color-h3', 'aliases' => array( '--color-h3' ) ),
-		'h4_typography_option'           => array( 'token' => '--bx-color-h4', 'aliases' => array( '--color-h4' ) ),
-		'h5_typography_option'           => array( 'token' => '--bx-color-h5', 'aliases' => array( '--color-h5' ) ),
-		'h6_typography_option'           => array( 'token' => '--bx-color-h6', 'aliases' => array( '--color-h6' ) ),
+		'site_title_typography_option'   => array(
+			'token'   => '--bx-color-site-title',
+			'aliases' => array( '--color-site-title' ),
+		),
+		'site_tagline_typography_option' => array(
+			'token'   => '--bx-color-site-tagline',
+			'aliases' => array( '--color-site-tagline' ),
+		),
+		'menu_typography_option'         => array(
+			'token'   => '--bx-color-menu-fg',
+			'aliases' => array( '--color-menu' ),
+		),
+		'site_sub_header_typography'     => array(
+			'token'   => '--bx-color-subheader-fg',
+			'aliases' => array( '--color-subheader-title' ),
+		),
+		'typography_option'              => array(
+			'token'   => '--bx-color-fg',
+			'aliases' => array( '--global-font-color' ),
+		),
+		'h1_typography_option'           => array(
+			'token'   => '--bx-color-h1',
+			'aliases' => array( '--color-h1' ),
+		),
+		'h2_typography_option'           => array(
+			'token'   => '--bx-color-h2',
+			'aliases' => array( '--color-h2' ),
+		),
+		'h3_typography_option'           => array(
+			'token'   => '--bx-color-h3',
+			'aliases' => array( '--color-h3' ),
+		),
+		'h4_typography_option'           => array(
+			'token'   => '--bx-color-h4',
+			'aliases' => array( '--color-h4' ),
+		),
+		'h5_typography_option'           => array(
+			'token'   => '--bx-color-h5',
+			'aliases' => array( '--color-h5' ),
+		),
+		'h6_typography_option'           => array(
+			'token'   => '--bx-color-h6',
+			'aliases' => array( '--color-h6' ),
+		),
 	);
 
 	/**
@@ -116,9 +230,18 @@ class Component implements Component_Interface {
 	 * @var array<string, array{token:string, aliases:array<int,string>}>
 	 */
 	protected static array $dimension_tokens = array(
-		'site_global_border_radius' => array( 'token' => '--bx-radius-global', 'aliases' => array( '--global-border-radius' ) ),
-		'site_button_border_radius' => array( 'token' => '--bx-radius-button', 'aliases' => array( '--button-border-radius' ) ),
-		'site_form_border_radius'   => array( 'token' => '--bx-radius-form',   'aliases' => array( '--form-border-radius' ) ),
+		'site_global_border_radius' => array(
+			'token'   => '--bx-radius-global',
+			'aliases' => array( '--global-border-radius' ),
+		),
+		'site_button_border_radius' => array(
+			'token'   => '--bx-radius-button',
+			'aliases' => array( '--button-border-radius' ),
+		),
+		'site_form_border_radius'   => array(
+			'token'   => '--bx-radius-form',
+			'aliases' => array( '--form-border-radius' ),
+		),
 	);
 
 	/**
@@ -137,85 +260,85 @@ class Component implements Component_Interface {
 	 * @var array<string, string>
 	 */
 	protected static array $framework_tokens = array(
-		// Foreground (text) extras
-		'--bx-color-fg-muted'   => '#757575',                // Mid-tone text
-		'--bx-color-fg-subtle'  => '#9ca3af',                // Subtle / placeholder text
-		'--bx-color-fg-inverse' => '#ffffff',                // Text on color (light mode default)
+		// Foreground (text) extras.
+		'--bx-color-fg-muted'           => '#757575',                // Mid-tone text.
+		'--bx-color-fg-subtle'          => '#9ca3af',                // Subtle / placeholder text.
+		'--bx-color-fg-inverse'         => '#ffffff',                // Text on color (light mode default).
 
-		// Surface extras
-		'--bx-color-bg-overlay'   => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay
-		'--bx-color-bg-subtle'    => '#f7f7f9',                // Very-light surface tint
+		// Surface extras.
+		'--bx-color-bg-overlay'         => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay.
+		'--bx-color-bg-subtle'          => '#f7f7f9',                // Very-light surface tint.
 
-		// Brand / accent extras
-		'--bx-color-accent-secondary' => '#3a7882',           // Variation slot (cool teal)
-		'--bx-color-accent-tertiary'  => '#f4d35e',           // Variation slot (warm yellow)
+		// Brand / accent extras.
+		'--bx-color-accent-secondary'   => '#3a7882',           // Variation slot (cool teal).
+		'--bx-color-accent-tertiary'    => '#f4d35e',           // Variation slot (warm yellow).
 
-		// Structural
-		'--bx-color-border'        => '#e8e8e8',              // Generic border
-		'--bx-color-border-strong' => '#d4d4d4',              // Stronger border / hr
-		'--bx-color-divider'       => '#f0f0f0',              // Subtle divider
-		'--bx-color-shadow'        => 'rgba(0, 0, 0, 0.08)',  // Card / popover shadow base
-		'--bx-color-shadow-strong' => 'rgba(0, 0, 0, 0.16)',  // Modal / floating panel shadow
+		// Structural.
+		'--bx-color-border'             => '#e8e8e8',              // Generic border.
+		'--bx-color-border-strong'      => '#d4d4d4',              // Stronger border / hr.
+		'--bx-color-divider'            => '#f0f0f0',              // Subtle divider.
+		'--bx-color-shadow'             => 'rgba(0, 0, 0, 0.08)',  // Card / popover shadow base.
+		'--bx-color-shadow-strong'      => 'rgba(0, 0, 0, 0.16)',  // Modal / floating panel shadow.
 
-		// State (semantic — replaces hardcoded #4caf50, #c0392b, #f1c40f, etc.)
-		'--bx-color-success'    => '#16a34a',
-		'--bx-color-success-bg' => '#dcfce7',
-		'--bx-color-warning'    => '#eab308',
-		'--bx-color-warning-bg' => '#fef9c3',
-		'--bx-color-error'      => '#dc2626',
-		'--bx-color-error-bg'   => '#fee2e2',
-		'--bx-color-info'       => '#0284c7',
-		'--bx-color-info-bg'    => '#dbeafe',
+		// State (semantic — replaces hardcoded #4caf50, #c0392b, #f1c40f, etc.).
+		'--bx-color-success'            => '#16a34a',
+		'--bx-color-success-bg'         => '#dcfce7',
+		'--bx-color-warning'            => '#eab308',
+		'--bx-color-warning-bg'         => '#fef9c3',
+		'--bx-color-error'              => '#dc2626',
+		'--bx-color-error-bg'           => '#fee2e2',
+		'--bx-color-info'               => '#0284c7',
+		'--bx-color-info-bg'            => '#dbeafe',
 
-		// Community / presence (BP / Youzify) — keeps legacy Material green for parity with master
-		'--bx-color-presence-online'  => '#4caf50',
-		'--bx-color-presence-away'    => '#eab308',
-		'--bx-color-presence-busy'    => '#dc2626',
-		'--bx-color-presence-offline' => '#9ca3af',
-		'--bx-color-bp-friend'        => '#0284c7',
-		'--bx-color-bp-favorite'      => '#dc2626',
+		// Community / presence (BP / Youzify) — keeps legacy Material green for parity with master.
+		'--bx-color-presence-online'    => '#4caf50',
+		'--bx-color-presence-away'      => '#eab308',
+		'--bx-color-presence-busy'      => '#dc2626',
+		'--bx-color-presence-offline'   => '#9ca3af',
+		'--bx-color-bp-friend'          => '#0284c7',
+		'--bx-color-bp-favorite'        => '#dc2626',
 
-		// Forms
+		// Forms.
 		'--bx-color-input-bg'           => '#ffffff',
 		'--bx-color-input-border'       => '#d4d4d4',
-		'--bx-color-input-focus-border' => '#ef5455',         // Same as accent default
+		'--bx-color-input-focus-border' => '#ef5455',         // Same as accent default.
 		'--bx-color-input-fg'           => '#1a1a1a',
 		'--bx-color-input-placeholder'  => '#9ca3af',
 
-		// Header / Sub-header / Footer extras
-		'--bx-color-menu-bg'        => 'transparent',
-		'--bx-color-subheader-bg'   => '#f3f4f6', // Slightly lighter than body for visual band; was rgba(255,255,255,0.5) in 5.0.x — same visual intent.
-		'--bx-color-footer-bg'      => '#fafafa',
+		// Header / Sub-header / Footer extras.
+		'--bx-color-menu-bg'            => 'transparent',
+		'--bx-color-subheader-bg'       => '#f3f4f6', // Slightly lighter than body for visual band; was rgba(255,255,255,0.5) in 5.0.x — same visual intent.
+		'--bx-color-footer-bg'          => '#fafafa',
 
-		// Dimension — radius extras
-		'--bx-radius-card' => '12px',
-		'--bx-radius-pill' => '999px',
+		// Dimension — radius extras.
+		'--bx-radius-card'              => '12px',
+		'--bx-radius-pill'              => '999px',
 
-		// Dimension — spacing
-		'--bx-space-section' => 'clamp(40px, 8vw, 80px)',     // Vertical rhythm between sections
-		'--bx-space-card'    => '24px',                       // Card / panel padding
-		'--bx-space-inline'  => '8px',                        // Inline gap (icon + text, etc.)
-		'--bx-space-stack'   => '12px',                       // Vertical gap between siblings
+		// Dimension — spacing.
+		'--bx-space-section'            => 'clamp(40px, 8vw, 80px)',     // Vertical rhythm between sections.
+		'--bx-space-card'               => '24px',                       // Card / panel padding.
+		'--bx-space-inline'             => '8px',                        // Inline gap (icon + text, etc.).
+		'--bx-space-stack'              => '12px',                       // Vertical gap between siblings.
 
-		// Effect — shadow ladder
-		'--bx-shadow-card-sm' => '0 1px 2px 0 var(--bx-color-shadow)',
-		'--bx-shadow-card-md' => '0 4px 12px -2px var(--bx-color-shadow)',
-		'--bx-shadow-card-lg' => '0 12px 32px -4px var(--bx-color-shadow-strong)',
+		// Effect — shadow ladder.
+		'--bx-shadow-card-sm'           => '0 1px 2px 0 var(--bx-color-shadow)',
+		'--bx-shadow-card-md'           => '0 4px 12px -2px var(--bx-color-shadow)',
+		'--bx-shadow-card-lg'           => '0 12px 32px -4px var(--bx-color-shadow-strong)',
 
-		// Effect — motion
-		'--bx-duration-fast' => '120ms',
-		'--bx-duration-base' => '200ms',
-		'--bx-duration-slow' => '400ms',
-		'--bx-easing-base'   => 'cubic-bezier(0.4, 0, 0.2, 1)',
-		'--bx-easing-bounce' => 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+		// Effect — motion.
+		'--bx-duration-fast'            => '120ms',
+		'--bx-duration-base'            => '200ms',
+		'--bx-duration-slow'            => '400ms',
+		'--bx-easing-base'              => 'cubic-bezier(0.4, 0, 0.2, 1)',
+		'--bx-easing-bounce'            => 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 
-		// Z-index ladder
-		'--bx-z-base'           => '1',
-		'--bx-z-dropdown'       => '100',
-		'--bx-z-sticky-header'  => '999',
-		'--bx-z-overlay'        => '9999',
-		'--bx-z-loader'         => '999991',
-		'--bx-z-toast'          => '999999',
+		// Z-index ladder.
+		'--bx-z-base'                   => '1',
+		'--bx-z-dropdown'               => '100',
+		'--bx-z-sticky-header'          => '999',
+		'--bx-z-overlay'                => '9999',
+		'--bx-z-loader'                 => '999991',
+		'--bx-z-toast'                  => '999999',
 	);
 
 	/**
@@ -231,56 +354,56 @@ class Component implements Component_Interface {
 	 * @var array<string, string>
 	 */
 	protected static array $dark_defaults = array(
-		// Brand / accent — slightly brighter red for dark-bg contrast
-		'--bx-color-accent'           => '#ff6b6b',
-		'--bx-color-button-bg'        => '#ff6b6b',
-		'--bx-color-button-bg-hover'  => '#ff8989',
-		'--bx-color-button-fg'        => '#0a0a0a',
-		'--bx-color-button-fg-hover'  => '#0a0a0a',
-		'--bx-color-button-border'    => '#ff6b6b',
-		'--bx-color-button-border-hover' => '#ff8989',
+		// Brand / accent — slightly brighter red for dark-bg contrast.
+		'--bx-color-accent'               => '#ff6b6b',
+		'--bx-color-button-bg'            => '#ff6b6b',
+		'--bx-color-button-bg-hover'      => '#ff8989',
+		'--bx-color-button-fg'            => '#0a0a0a',
+		'--bx-color-button-fg-hover'      => '#0a0a0a',
+		'--bx-color-button-border'        => '#ff6b6b',
+		'--bx-color-button-border-hover'  => '#ff8989',
 
-		// Surfaces — near-black with gentle elevation
-		'--bx-color-bg'          => '#0a0a0a',
-		'--bx-color-bg-page'     => '#0a0a0a',
-		'--bx-color-bg-elevated' => '#161616',
-		'--bx-color-bg-muted'    => '#101010',
+		// Surfaces — near-black with gentle elevation.
+		'--bx-color-bg'                   => '#0a0a0a',
+		'--bx-color-bg-page'              => '#0a0a0a',
+		'--bx-color-bg-elevated'          => '#161616',
+		'--bx-color-bg-muted'             => '#101010',
 
-		// Text + links
-		'--bx-color-fg'         => '#f5f5f5',
-		'--bx-color-link'       => '#f5f5f5',
-		'--bx-color-link-hover' => '#ff6b6b',
+		// Text + links.
+		'--bx-color-fg'                   => '#f5f5f5',
+		'--bx-color-link'                 => '#f5f5f5',
+		'--bx-color-link-hover'           => '#ff6b6b',
 
-		// Header
-		'--bx-color-header-bg'        => '#0a0a0a',
-		'--bx-color-site-title'       => '#f5f5f5',
-		'--bx-color-site-title-hover' => '#ff6b6b',
-		'--bx-color-site-tagline'     => '#a0a0a0',
+		// Header.
+		'--bx-color-header-bg'            => '#0a0a0a',
+		'--bx-color-site-title'           => '#f5f5f5',
+		'--bx-color-site-title-hover'     => '#ff6b6b',
+		'--bx-color-site-tagline'         => '#a0a0a0',
 
-		// Menu
-		'--bx-color-menu-fg'     => '#e5e5e5',
-		'--bx-color-menu-hover'  => '#ff6b6b',
-		'--bx-color-menu-active' => '#ff6b6b',
-		'--bx-color-subheader-fg' => '#f5f5f5',
+		// Menu.
+		'--bx-color-menu-fg'              => '#e5e5e5',
+		'--bx-color-menu-hover'           => '#ff6b6b',
+		'--bx-color-menu-active'          => '#ff6b6b',
+		'--bx-color-subheader-fg'         => '#f5f5f5',
 
-		// Loader
-		'--bx-color-loader-bg' => '#161616',
+		// Loader.
+		'--bx-color-loader-bg'            => '#161616',
 
-		// Headings
-		'--bx-color-h1' => '#f5f5f5',
-		'--bx-color-h2' => '#f5f5f5',
-		'--bx-color-h3' => '#f5f5f5',
-		'--bx-color-h4' => '#f5f5f5',
-		'--bx-color-h5' => '#e5e5e5',
-		'--bx-color-h6' => '#e5e5e5',
+		// Headings.
+		'--bx-color-h1'                   => '#f5f5f5',
+		'--bx-color-h2'                   => '#f5f5f5',
+		'--bx-color-h3'                   => '#f5f5f5',
+		'--bx-color-h4'                   => '#f5f5f5',
+		'--bx-color-h5'                   => '#e5e5e5',
+		'--bx-color-h6'                   => '#e5e5e5',
 
-		// Footer
-		'--bx-color-footer-title'      => '#f5f5f5',
-		'--bx-color-footer-fg'         => '#a0a0a0',
-		'--bx-color-footer-link'       => '#e5e5e5',
-		'--bx-color-footer-link-hover' => '#ff6b6b',
+		// Footer.
+		'--bx-color-footer-title'         => '#f5f5f5',
+		'--bx-color-footer-fg'            => '#a0a0a0',
+		'--bx-color-footer-link'          => '#e5e5e5',
+		'--bx-color-footer-link-hover'    => '#ff6b6b',
 
-		// Copyright
+		// Copyright.
 		'--bx-color-copyright-bg'         => '#0a0a0a',
 		'--bx-color-copyright-border'     => '#2a2a2a',
 		'--bx-color-copyright-fg'         => '#a0a0a0',
@@ -288,85 +411,92 @@ class Component implements Component_Interface {
 		'--bx-color-copyright-link-hover' => '#ff6b6b',
 
 		// Framework-supplied derived tokens (Phase 4 cleanup).
-		'--bx-color-fg-muted'   => '#a0a0a0',
-		'--bx-color-fg-subtle'  => '#6b7280',
-		'--bx-color-fg-inverse' => '#0a0a0a',
+		'--bx-color-fg-muted'             => '#a0a0a0',
+		'--bx-color-fg-subtle'            => '#6b7280',
+		'--bx-color-fg-inverse'           => '#0a0a0a',
 
-		// Surface extras (dark)
-		'--bx-color-bg-overlay'   => 'rgba(0, 0, 0, 0.7)',
-		'--bx-color-bg-subtle'    => '#0d0d0d',
+		// Surface extras (dark).
+		'--bx-color-bg-overlay'           => 'rgba(0, 0, 0, 0.7)',
+		'--bx-color-bg-subtle'            => '#0d0d0d',
 
-		// Brand / accent extras (dark)
-		'--bx-color-accent-secondary' => '#5eaeb8',
-		'--bx-color-accent-tertiary'  => '#facc15',
+		// Brand / accent extras (dark).
+		'--bx-color-accent-secondary'     => '#5eaeb8',
+		'--bx-color-accent-tertiary'      => '#facc15',
 
-		// Structural (dark)
-		'--bx-color-border'        => '#2a2a2a',
-		'--bx-color-border-strong' => '#3a3a3a',
-		'--bx-color-divider'       => '#1a1a1a',
-		'--bx-color-shadow'        => 'rgba(0, 0, 0, 0.4)',
-		'--bx-color-shadow-strong' => 'rgba(0, 0, 0, 0.6)',
+		// Structural (dark).
+		'--bx-color-border'               => '#2a2a2a',
+		'--bx-color-border-strong'        => '#3a3a3a',
+		'--bx-color-divider'              => '#1a1a1a',
+		'--bx-color-shadow'               => 'rgba(0, 0, 0, 0.4)',
+		'--bx-color-shadow-strong'        => 'rgba(0, 0, 0, 0.6)',
 
-		// State (dark) — slightly brighter for contrast on near-black surfaces
-		'--bx-color-success'    => '#22c55e',
-		'--bx-color-success-bg' => '#14532d',
-		'--bx-color-warning'    => '#facc15',
-		'--bx-color-warning-bg' => '#713f12',
-		'--bx-color-error'      => '#ef4444',
-		'--bx-color-error-bg'   => '#7f1d1d',
-		'--bx-color-info'       => '#38bdf8',
-		'--bx-color-info-bg'    => '#1e3a8a',
+		// State (dark) — slightly brighter for contrast on near-black surfaces.
+		'--bx-color-success'              => '#22c55e',
+		'--bx-color-success-bg'           => '#14532d',
+		'--bx-color-warning'              => '#facc15',
+		'--bx-color-warning-bg'           => '#713f12',
+		'--bx-color-error'                => '#ef4444',
+		'--bx-color-error-bg'             => '#7f1d1d',
+		'--bx-color-info'                 => '#38bdf8',
+		'--bx-color-info-bg'              => '#1e3a8a',
 
-		// Community / presence (dark)
-		'--bx-color-presence-online'  => '#4ade80',
-		'--bx-color-presence-away'    => '#facc15',
-		'--bx-color-presence-busy'    => '#ef4444',
-		'--bx-color-presence-offline' => '#6b7280',
-		'--bx-color-bp-friend'        => '#38bdf8',
-		'--bx-color-bp-favorite'      => '#ef4444',
+		// Community / presence (dark).
+		'--bx-color-presence-online'      => '#4ade80',
+		'--bx-color-presence-away'        => '#facc15',
+		'--bx-color-presence-busy'        => '#ef4444',
+		'--bx-color-presence-offline'     => '#6b7280',
+		'--bx-color-bp-friend'            => '#38bdf8',
+		'--bx-color-bp-favorite'          => '#ef4444',
 
-		// Forms (dark)
-		'--bx-color-input-bg'           => '#161616',
-		'--bx-color-input-border'       => '#3a3a3a',
-		'--bx-color-input-focus-border' => '#ff6b6b',
-		'--bx-color-input-fg'           => '#f5f5f5',
-		'--bx-color-input-placeholder'  => '#6b7280',
+		// Forms (dark).
+		'--bx-color-input-bg'             => '#161616',
+		'--bx-color-input-border'         => '#3a3a3a',
+		'--bx-color-input-focus-border'   => '#ff6b6b',
+		'--bx-color-input-fg'             => '#f5f5f5',
+		'--bx-color-input-placeholder'    => '#6b7280',
 
-		// Header / Sub-header / Footer extras (dark)
-		'--bx-color-subheader-bg' => '#1c1c1c', // Distinct from body (#0a) and elevated cards (#16) for visual band.
-		'--bx-color-footer-bg'    => '#0a0a0a',
+		// Header / Sub-header / Footer extras (dark).
+		'--bx-color-subheader-bg'         => '#1c1c1c', // Distinct from body (#0a) and elevated cards (#16) for visual band.
+		'--bx-color-footer-bg'            => '#0a0a0a',
 
-		// theme.json palette overrides — block patterns reference these via
+		// theme.json palette overrides — block patterns reference these via.
 		// .has-{slug}-background-color / .has-{slug}-color helpers, so we have
 		// to invert the base/contrast scales for dark mode to take effect on
 		// rendered blocks. Accent colors stay similar (slightly brighter for
 		// dark contrast).
-		'--wp--preset--color--base'      => '#0a0a0a',
-		'--wp--preset--color--base-2'    => '#161616',
-		'--wp--preset--color--base-3'    => '#1f1f1f',
-		'--wp--preset--color--contrast'  => '#f5f5f5',
-		'--wp--preset--color--contrast-2'=> '#d0d0d0',
-		'--wp--preset--color--contrast-3'=> '#a0a0a0',
-		'--wp--preset--color--surface-1' => '#1a1310',
-		'--wp--preset--color--surface-2' => '#101a1c',
-		'--wp--preset--color--surface-3' => '#0f1419',
-		'--wp--preset--color--primary'   => '#ff6b6b',
+		'--wp--preset--color--base'       => '#0a0a0a',
+		'--wp--preset--color--base-2'     => '#161616',
+		'--wp--preset--color--base-3'     => '#1f1f1f',
+		'--wp--preset--color--contrast'   => '#f5f5f5',
+		'--wp--preset--color--contrast-2' => '#d0d0d0',
+		'--wp--preset--color--contrast-3' => '#a0a0a0',
+		'--wp--preset--color--surface-1'  => '#1a1310',
+		'--wp--preset--color--surface-2'  => '#101a1c',
+		'--wp--preset--color--surface-3'  => '#0f1419',
+		'--wp--preset--color--primary'    => '#ff6b6b',
 	);
 
+	/**
+	 * Component slug — used by the theme's Component_Interface registry.
+	 *
+	 * @return string
+	 */
 	public function get_slug(): string {
 		return 'tokens';
 	}
 
+	/**
+	 * Hook the three emission paths that drive design-token output:
+	 * inline :root tokens on buddyx-global, the FOUC-prevention <html
+	 * data-bx-mode> script in <head>, and the variation typography
+	 * filters that inject defaults into typography_option settings.
+	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'emit_tokens' ), 20 );
-		// FOUC-prevention head script: sets <html data-bx-mode> before any
-		// CSS loads, so dark-mode users never see a light-mode flash.
 		add_action( 'wp_head', array( $this, 'emit_mode_script' ), 1 );
-		// Variation typography flows through the customizer framework's own
-		// emission via theme_mod filters — no second emission path. Hooked
-		// after init priority 10 so customizer fields are registered before
-		// we read their defaults. Filter callbacks are no-ops when no
-		// variation is active or the customer has actively saved the field.
+		// Hooked after init priority 10 so customizer fields are registered
+		// before we read their defaults; filter is a no-op when no variation
+		// is active or the customer has actively saved the field.
 		add_action( 'init', array( __CLASS__, 'register_variation_theme_mod_filters' ), 20 );
 	}
 
@@ -392,7 +522,7 @@ class Component implements Component_Interface {
 		$mods    = \get_theme_mods();
 		$decls   = '';
 
-		// Framework-derived tokens always emit — they back generic neutrals
+		// Framework-derived tokens always emit — they back generic neutrals.
 		// (borders, mid-tone text, shadows) that consumer CSS depends on
 		// regardless of whether the customer enabled custom colors.
 		foreach ( self::$framework_tokens as $token => $value ) {
@@ -403,9 +533,9 @@ class Component implements Component_Interface {
 		// so customer customizer choices win on top.
 		// $variation_palette maps theme.json palette slugs to their colors;
 		// resolve_style_variation_tokens() converts the slugs to --bx-* tokens
-		// per the documented mapping (accent → --bx-color-accent, base →
+		// per the documented mapping (accent → --bx-color-accent, base →.
 		// --bx-color-bg, contrast → --bx-color-fg, etc.) AND propagates accent
-		// to button-bg/link, base to header-bg, plus emits
+		// to button-bg/link, base to header-bg, plus emits.
 		// --wp--preset--color--<slug> overrides so blocks/patterns repaint too.
 		// $variation_covered tracks bases the variation already painted so the
 		// downstream derive_for fallback (lines below) doesn't clobber them
@@ -432,8 +562,8 @@ class Component implements Component_Interface {
 			return $light_block . $dark_block;
 		}
 
-		// Customer-driven base colors that get the full derived-variants set
-		// (-rgb, -hover, -active, -focus, -bg, -bg-strong, -border, -disabled,
+		// Customer-driven base colors that get the full derived-variants set.
+		// (-rgb, -hover, -active, -focus, -bg, -bg-strong, -border, -disabled,.
 		// -inverse). These are the brand colors most consumer CSS reaches for
 		// on hover/active/focus/disabled states.
 		//
@@ -441,12 +571,12 @@ class Component implements Component_Interface {
 		// Default colors mirror _bx-tokens.css so derivation always produces
 		// the same variants whether or not customer has saved a value.
 		$derive_for = array(
-			'site_primary_color'             => array( '--bx-color-accent',       '#ef5455' ),
-			'site_buttons_background_color'  => array( '--bx-color-button-bg',    '#ef5455' ),
-			'site_links_color'               => array( '--bx-color-link',         '#111111' ),
-			'body_background_color'          => array( '--bx-color-bg',           '#ffffff' ),
-			'box_background_color'           => array( '--bx-color-bg-elevated',  '#ffffff' ),
-			'site_header_bg_color'           => array( '--bx-color-header-bg',    '#ffffff' ),
+			'site_primary_color'             => array( '--bx-color-accent', '#ef5455' ),
+			'site_buttons_background_color'  => array( '--bx-color-button-bg', '#ef5455' ),
+			'site_links_color'               => array( '--bx-color-link', '#111111' ),
+			'body_background_color'          => array( '--bx-color-bg', '#ffffff' ),
+			'box_background_color'           => array( '--bx-color-bg-elevated', '#ffffff' ),
+			'site_header_bg_color'           => array( '--bx-color-header-bg', '#ffffff' ),
 		);
 
 		// Simple hex color tokens.
@@ -482,7 +612,7 @@ class Component implements Component_Interface {
 
 		// Typography sub-key 'color' tokens.
 		foreach ( self::$typography_color_tokens as $mod_key => $cfg ) {
-			$value = $mods[ $mod_key ] ?? array();
+			$value     = $mods[ $mod_key ] ?? array();
 			$color_val = is_array( $value ) ? ( $value['color'] ?? '' ) : '';
 			if ( '' === $color_val ) {
 				continue;
@@ -522,6 +652,7 @@ class Component implements Component_Interface {
 	/**
 	 * Build the dark-mode override block. Two selectors share the same body:
 	 *   :root[data-bx-mode="dark"]                 — explicit user choice
+	 *
 	 *   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
 	 *
 	 * Each dark-default token also overrides its legacy aliases so any third-
@@ -667,7 +798,7 @@ class Component implements Component_Interface {
 	);
 
 	/**
-	 * theme.json typography sub-key → typography_option array sub-key the
+	 * Theme.json typography sub-key → typography_option array sub-key the
 	 * Customizer Framework's Output_Builder consumes. The framework already
 	 * knows how to render each of these as a CSS declaration.
 	 *
@@ -704,8 +835,9 @@ class Component implements Component_Interface {
 		if ( ! is_readable( $path ) ) {
 			return null;
 		}
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents — local theme file, not remote URL.
-		$json = file_get_contents( $path );
+		// Local theme file, not a remote URL — wp_remote_get() would be wrong.
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$json = file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		if ( false === $json ) {
 			return null;
 		}
@@ -762,13 +894,13 @@ class Component implements Component_Interface {
 				continue;
 			}
 
-			// Always emit the WordPress preset alias so blocks/patterns using
-			// `has-<slug>-background-color` (or any
+			// Always emit the WordPress preset alias so blocks/patterns using.
+			// `has-<slug>-background-color` (or any.
 			// `var(--wp--preset--color--<slug>)` reference) repaint to the
 			// variation's palette instead of theme.json's static value.
 			$decls .= '--wp--preset--color--' . $pal_slug . ':' . $normalized . ';';
 
-			// Paint every --bx-* token registered for this slug (declared in
+			// Paint every --bx-* token registered for this slug (declared in.
 			// $variation_palette_targets). One slug fans out to multiple
 			// tokens — accent → accent + button-bg + link, contrast → fg +
 			// h1..h6 + site-title + menu-fg + tagline + subheader-fg, etc.
@@ -1056,27 +1188,30 @@ class Component implements Component_Interface {
 		if ( null === $rgb ) {
 			return '';
 		}
-		$csv = self::rgb_to_csv( $rgb );
+		$csv    = self::rgb_to_csv( $rgb );
 		$decls  = '';
 		$decls .= $base_token_name . '-rgb:' . $csv . ';';
-		$decls .= $base_token_name . '-hover:'    . self::rgb_to_hex( self::rgb_shift( $rgb, 0.10 ) ) . ';';
-		$decls .= $base_token_name . '-active:'   . self::rgb_to_hex( self::rgb_shift( $rgb, 0.20 ) ) . ';';
-		$decls .= $base_token_name . '-focus:'    . self::rgb_to_hex( self::rgb_shift( $rgb, 0.05 ) ) . ';';
-		$decls .= $base_token_name . '-bg:rgba('         . $csv . ', 0.08);';
-		$decls .= $base_token_name . '-bg-strong:rgba('  . $csv . ', 0.16);';
-		$decls .= $base_token_name . '-border:rgba('     . $csv . ', 0.24);';
-		$decls .= $base_token_name . '-disabled:'        . self::rgb_to_hex( self::rgb_shift( $rgb, 0.40 ) ) . ';';
-		$decls .= $base_token_name . '-inverse:'         . self::contrast_pick( $rgb ) . ';';
+		$decls .= $base_token_name . '-hover:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.10 ) ) . ';';
+		$decls .= $base_token_name . '-active:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.20 ) ) . ';';
+		$decls .= $base_token_name . '-focus:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.05 ) ) . ';';
+		$decls .= $base_token_name . '-bg:rgba(' . $csv . ', 0.08);';
+		$decls .= $base_token_name . '-bg-strong:rgba(' . $csv . ', 0.16);';
+		$decls .= $base_token_name . '-border:rgba(' . $csv . ', 0.24);';
+		$decls .= $base_token_name . '-disabled:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.40 ) ) . ';';
+		$decls .= $base_token_name . '-inverse:' . self::contrast_pick( $rgb ) . ';';
 		return $decls;
 	}
 
 	/**
 	 * Normalize a color value (hex or rgb/rgba string) to a safe CSS string.
 	 * Returns '' if the value is unrecognized.
+	 *
+	 * @param string $value Color string from a theme_mod or variation file.
+	 * @return string Normalized CSS color, or '' on parse failure.
 	 */
 	protected static function normalize_color( string $value ): string {
 		$value = trim( $value );
-		// Hex (3, 4, 6, or 8 chars).
+		// Hex shorthand or full form.
 		if ( preg_match( '/^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i', $value ) ) {
 			return strtolower( $value );
 		}
@@ -1092,14 +1227,29 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Public read-only accessors (for tests and the future docs generator).
+	 * Public accessor for $simple_color_tokens — used by tests and the
+	 * docs-generator to enumerate the customizer color field set.
+	 *
+	 * @return array<string, array{token:string, aliases:array<int,string>}>
 	 */
 	public static function get_simple_color_tokens(): array {
 		return self::$simple_color_tokens;
 	}
+
+	/**
+	 * Public accessor for $typography_color_tokens.
+	 *
+	 * @return array<string, array{token:string, aliases:array<int,string>}>
+	 */
 	public static function get_typography_color_tokens(): array {
 		return self::$typography_color_tokens;
 	}
+
+	/**
+	 * Public accessor for $dimension_tokens.
+	 *
+	 * @return array<string, array{token:string, aliases:array<int,string>}>
+	 */
 	public static function get_dimension_tokens(): array {
 		return self::$dimension_tokens;
 	}
