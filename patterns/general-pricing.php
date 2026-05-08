@@ -106,7 +106,7 @@
         <p class="has-contrast-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Unlimited Sites</p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(2.5rem, 4vw + 1rem, 4rem)","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
-        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em"><s style="opacity:.45;font-weight:400;font-size:.55em;margin-right:.25em">$249</s>$199</p>
+        <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em"><s style="color:#6b7280;font-weight:400;font-size:.55em;margin-right:.25em">$249</s>$199</p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"textColor":"contrast-3"} -->
         <p class="has-contrast-3-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--small)">One Click Demo Installer with outstanding support</p>

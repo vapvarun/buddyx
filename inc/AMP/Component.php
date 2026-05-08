@@ -94,6 +94,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string
 	 */
 	public function add_search_slide_toggle_attrs( $input ) {
+		// AMP-only attributes (`on=tap:AMP.setState(...)`, `[class]=...`,
+		// `[aria-expanded]=...`) are AMP plugin-specific syntax. Emitting
+		// them on non-AMP pages causes axe-core to flag aria-allowed-attr
+		// violations and ships dead JS in markup that the browser ignores.
+		if ( ! $this->is_amp() ) {
+			return $input;
+		}
 		$input .= ' on="tap:AMP.setState( { buddyxAmpSlideSearchMenuExpanded: ! buddyxAmpSlideSearchMenuExpanded } )" ';
 		$input .= ' [class]="( buddyxAmpSlideSearchMenuExpanded ? \'buddyx-search-menu-icon search buddyx-dropdown-active\' : \'buddyx-search-menu-icon search\' )" ';
 		$input .= ' aria-expanded="false" [aria-expanded]="buddyxAmpSlideSearchMenuExpanded ? \'true\' : \'false\'" ';
@@ -109,6 +116,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string
 	 */
 	public function add_search_field_toggle_attrs( $input ) {
+		if ( ! $this->is_amp() ) {
+			return $input;
+		}
 		$input .= ' on="tap:AMP.setState( { buddyxAmpSlideSearchMenuExpanded: buddyxAmpSlideSearchMenuExpanded } )" ';
 
 		return $input;

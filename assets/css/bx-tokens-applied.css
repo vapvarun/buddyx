@@ -120,6 +120,22 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
 .comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
+	/* WCAG 1.4.1 Use of Color: links must be distinguishable from
+	 * surrounding text without relying on color alone. Body-content
+	 * links get an underline; per-context CSS can override (e.g.
+	 * pattern CTAs that already have visual chrome). */
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+/* Post meta category + tag links — underlined to pass link-in-text-block
+ * even when the saved customer color happens to match surrounding text. */
+.post-meta-category__link,
+.post-meta-tag__link,
+.tags-list a,
+.tag-links a {
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
@@ -194,12 +210,34 @@ input[type="submit"]:hover,
 .site-copyright a,
 .copyright-section a {
 	color: var(--bx-color-copyright-link, var(--bx-color-link, #111111));
+	/* Underline to distinguish links from surrounding copyright text
+	 * without relying on color alone (WCAG 1.4.1 — Use of Color). */
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 .site-footer .site-info a:hover,
 .site-info a:hover,
 .site-copyright a:hover,
 .copyright-section a:hover {
 	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #ef5455));
+}
+
+/* ----- Active menu state — accessible distinguisher -----
+ * Per-WCAG 1.4.3 AA, body text needs a 4.5:1 contrast ratio. The default
+ * accent #ef5455 only has 3.87:1 against white — fails. Rather than
+ * darken the brand accent globally (would break customer expectations),
+ * keep the active state TEXT in the standard menu fg (high contrast) and
+ * use the brand accent as a thick UNDERLINE for "you are here" emphasis.
+ * Bold weight adds a third non-color cue (WCAG 1.4.1 — Use of Color). */
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li.current-menu-ancestor > a {
+	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-color: var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
 }
 
 /* ----- Inputs / forms ----- */

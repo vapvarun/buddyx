@@ -102,7 +102,13 @@
 }
 
 .post-meta-category a {
-    color: var(--color-theme-primary);
+    /* Use the body link token which is high-contrast by default
+     * (#111 against white = 21:1) AND respects customer-customized
+     * link color. The brand-accent gradient on category badges in
+     * master 5.0.x had only 3.45:1 contrast (failed WCAG AA). Bold
+     * weight + uppercase + underline still make these "pop" without
+     * relying on color alone (WCAG 1.4.1 — Use of Color). */
+    color: var(--bx-color-link, var(--color-link, #111));
     font-size: 13px;
 }
 
