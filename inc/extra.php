@@ -96,10 +96,11 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 				}
 				
-				// Breadcrumbs for all cases
-				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				// Breadcrumbs for all cases. `buddyx_is_truthy()` handles
+				// pre-5.1.0 'on'/'off' strings; `! empty('off')` would
+				// otherwise treat the disabled toggle as enabled.
 				do_action( 'buddyx_before_breadcrumb' );
-				if ( ! empty( $breadcrumbs ) ) {
+				if ( buddyx_is_truthy( get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) ) ) ) {
 					buddyx_the_breadcrumb();
 				}
 				do_action( 'buddyx_after_breadcrumb' );
