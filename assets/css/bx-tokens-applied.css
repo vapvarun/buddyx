@@ -28,6 +28,34 @@ body {
 	color: var(--bx-color-fg, #505050);
 }
 
+/* ----- Boxed layout (body.layout-boxed) -----
+ * Customizer ▸ Site Layout ▸ "Boxed" wraps the main `.site` container in
+ * a constrained, elevated card with the body BG visible at left/right
+ * margins. This makes `content_background_color` (token --bx-color-bg-page)
+ * a visible setting again — it paints the inner card; `body_background_color`
+ * (token --bx-color-bg) shows in the outer area around the box.
+ *
+ * `max-width` is emitted by the customizer's `site_container_width` output
+ * (see General_Fields.php) so the customer's chosen width drives the box.
+ * Full-bleed elements like the sub-header (which use `width:100vw + negative
+ * margin` per commit eb98d11) intentionally remain viewport-spanning even
+ * inside the box — matches the modern theme convention (Astra/GP/etc.). */
+body.layout-boxed .site {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--bx-color-bg-page, #ffffff);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+	position: relative;
+}
+@media (max-width: 640px) {
+	/* On phones the boxed shadow + margin reads as visual noise; flatten
+	 * to a full-width content area so mobile users get a clean read. */
+	body.layout-boxed .site {
+		max-width: 100%;
+		box-shadow: none;
+	}
+}
+
 /* ----- Header ----- */
 .site-header,
 .site-header-section {

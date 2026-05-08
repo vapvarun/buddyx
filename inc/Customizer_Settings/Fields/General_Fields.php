@@ -44,6 +44,16 @@ defined( 'ABSPATH' ) || exit;
 						'function' => 'css',
 						'property' => 'max-width',
 					),
+					// Boxed-layout outer constraint. The visual rules for
+					// `body.layout-boxed .site` (margin auto, BG, shadow)
+					// live in bx-tokens-applied.css; the customer's
+					// container-width value is the source of truth so we
+					// emit it here rather than hardcoding.
+					array(
+						'element'  => 'body.layout-boxed .site',
+						'function' => 'css',
+						'property' => 'max-width',
+					),
 				),
 			)
 		);
