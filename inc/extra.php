@@ -168,9 +168,10 @@ if ( ! function_exists( 'buddyx_site_loader' ) ) {
 	 * respects prefers-reduced-motion via CSS in assets/css/loaders.css.
 	 */
 	function buddyx_site_loader() {
-		$enabled = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-		// sanitize_bool_int now treats '1', 1, true, 'on', 'yes' all as truthy.
-		if ( ! $enabled || '0' === (string) $enabled || 'off' === $enabled ) {
+		// `buddyx_is_truthy()` provides consistent boolean handling across the
+		// theme; this replaces an earlier defensive multi-check that manually
+		// listed '0' / 'off' string variants.
+		if ( ! buddyx_is_truthy( get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) ) ) ) {
 			return;
 		}
 
