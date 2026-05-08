@@ -362,6 +362,12 @@ class Component implements Component_Interface {
 		// FOUC-prevention head script: sets <html data-bx-mode> before any
 		// CSS loads, so dark-mode users never see a light-mode flash.
 		add_action( 'wp_head', array( $this, 'emit_mode_script' ), 1 );
+		// Variation typography flows through the customizer framework's own
+		// emission via theme_mod filters — no second emission path. Hooked
+		// after init priority 10 so customizer fields are registered before
+		// we read their defaults. Filter callbacks are no-ops when no
+		// variation is active or the customer has actively saved the field.
+		add_action( 'init', array( __CLASS__, 'register_variation_theme_mod_filters' ), 20 );
 	}
 
 	/**
@@ -398,10 +404,20 @@ class Component implements Component_Interface {
 		// $variation_palette maps theme.json palette slugs to their colors;
 		// resolve_style_variation_tokens() converts the slugs to --bx-* tokens
 		// per the documented mapping (accent → --bx-color-accent, base →
-		// --bx-color-bg, contrast → --bx-color-fg, etc.).
-		$variation_slug = (string) ( $mods['site_style_variation'] ?? '' );
+		// --bx-color-bg, contrast → --bx-color-fg, etc.) AND propagates accent
+		// to button-bg/link, base to header-bg, plus emits
+		// --wp--preset--color--<slug> overrides so blocks/patterns repaint too.
+		// $variation_covered tracks bases the variation already painted so the
+		// downstream derive_for fallback (lines below) doesn't clobber them
+		// with default-color variants when the customer hasn't saved a value.
+		// Variation overlay (colors only). Variation typography is injected
+		// into the Customizer Framework's typography_option theme_mod
+		// defaults via register_variation_theme_mod_filters() so the
+		// framework's Output_Builder emits typography from a single source.
+		$variation_covered = array();
+		$variation_slug    = (string) ( $mods['site_style_variation'] ?? '' );
 		if ( '' !== $variation_slug ) {
-			$variation_decls = self::resolve_style_variation_tokens( $variation_slug );
+			$variation_decls = self::resolve_style_variation_tokens( $variation_slug, $variation_covered );
 			if ( '' !== $variation_decls ) {
 				$decls .= $variation_decls;
 			}
@@ -447,12 +463,20 @@ class Component implements Component_Interface {
 					$decls .= $alias . ':' . $color . ';';
 				}
 			}
-			// Derive variants for every base in $derive_for, regardless of
-			// whether customer has saved a value. Falls back to the static
-			// default so consumer CSS always finds -rgb/-hover/etc tokens.
+			// Derive variants for every base in $derive_for. When the customer
+			// has saved a value, that wins. When they haven't, the static
+			// default is the fallback so consumer CSS always finds -rgb/-hover/
+			// etc — UNLESS a variation already painted this base, in which case
+			// the variation's variants survive (otherwise picking "Dark" leaves
+			// every -rgb / -hover / -active / -focus computed from the default
+			// red/white instead of the variation's palette).
 			if ( isset( $derive_for[ $mod_key ] ) ) {
-				$effective = '' !== $color ? $color : $derive_for[ $mod_key ][1];
-				$decls    .= self::derive_color_variants( $derive_for[ $mod_key ][0], $effective );
+				$token = $derive_for[ $mod_key ][0];
+				if ( '' !== $color ) {
+					$decls .= self::derive_color_variants( $token, $color );
+				} elseif ( ! in_array( $token, $variation_covered, true ) ) {
+					$decls .= self::derive_color_variants( $token, $derive_for[ $mod_key ][1] );
+				}
 			}
 		}
 
@@ -556,24 +580,138 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Map theme.json palette slug → BuddyX --bx-* token name. When a customer
-	 * activates a style variation, its palette colors flow through this map
-	 * into the BuddyX token taxonomy. Customer customizer saves still win
-	 * over the variation's defaults via the cascade.
+	 * Single source of truth: theme.json palette slug → list of --bx-* tokens
+	 * the variation should paint. The list combines (a) the direct semantic
+	 * mapping (accent → --bx-color-accent) and (b) sibling tokens that must
+	 * track the same color so the preset visibly applies (accent → button-bg,
+	 * link; contrast → all heading + site-title + menu text colors; base →
+	 * header-bg). Customer customizer saves still win because they emit later
+	 * in the cascade.
+	 *
+	 * Adding a new token to a variation overlay = one line here. No other
+	 * call site needs to change.
+	 *
+	 * @var array<string, array<int, string>>
+	 */
+	protected static array $variation_palette_targets = array(
+		'accent'     => array(
+			'--bx-color-accent',
+			'--bx-color-button-bg',
+			'--bx-color-link',
+		),
+		'accent-2'   => array( '--bx-color-accent-secondary' ),
+		'accent-3'   => array( '--bx-color-accent-tertiary' ),
+		'base'       => array(
+			'--bx-color-bg',
+			'--bx-color-header-bg',
+		),
+		'base-2'     => array( '--bx-color-bg-elevated' ),
+		'base-3'     => array( '--bx-color-bg-muted' ),
+		'contrast'   => array(
+			'--bx-color-fg',
+			'--bx-color-h1',
+			'--bx-color-h2',
+			'--bx-color-h3',
+			'--bx-color-h4',
+			'--bx-color-h5',
+			'--bx-color-h6',
+			'--bx-color-site-title',
+			'--bx-color-site-tagline',
+			'--bx-color-menu-fg',
+			'--bx-color-subheader-fg',
+		),
+		'contrast-2' => array( '--bx-color-fg-muted' ),
+		'contrast-3' => array( '--bx-color-fg-subtle' ),
+	);
+
+	/**
+	 * --bx-* base tokens that get the full derived-variants set (-rgb / -hover
+	 * / -active / -focus / -bg / -bg-strong / -border / -disabled / -inverse)
+	 * whenever a value is emitted for them — variation overlay or customer
+	 * customizer save. Centralised so the variation overlay and the customer
+	 * derive_for path agree on which bases derive variants.
+	 *
+	 * @var array<int, string>
+	 */
+	protected static array $derive_bases = array(
+		'--bx-color-accent',
+		'--bx-color-bg',
+		'--bx-color-bg-elevated',
+		'--bx-color-fg',
+		'--bx-color-button-bg',
+		'--bx-color-link',
+		'--bx-color-header-bg',
+	);
+
+	/**
+	 * Variation typography overlay routes through the Customizer Framework's
+	 * existing typography_option settings. theme.json element key → matching
+	 * BuddyX customizer setting that the framework already turns into CSS.
+	 * The variation injects values via `theme_mod_<setting>` filters when
+	 * the customer hasn't actively saved that setting; the framework then
+	 * emits typography from one place (no parallel rules, no specificity
+	 * tricks, customer customizer saves naturally win).
+	 *
+	 * Adding a new element = add one line here.
 	 *
 	 * @var array<string, string>
 	 */
-	protected static array $variation_palette_map = array(
-		'accent'     => '--bx-color-accent',
-		'accent-2'   => '--bx-color-accent-secondary',
-		'accent-3'   => '--bx-color-accent-tertiary',
-		'base'       => '--bx-color-bg',
-		'base-2'     => '--bx-color-bg-elevated',
-		'base-3'     => '--bx-color-bg-muted',
-		'contrast'   => '--bx-color-fg',
-		'contrast-2' => '--bx-color-fg-muted',
-		'contrast-3' => '--bx-color-fg-subtle',
+	protected static array $variation_typography_settings = array(
+		'@body' => 'typography_option',
+		'h1'    => 'h1_typography_option',
+		'h2'    => 'h2_typography_option',
+		'h3'    => 'h3_typography_option',
+		'h4'    => 'h4_typography_option',
+		'h5'    => 'h5_typography_option',
+		'h6'    => 'h6_typography_option',
 	);
+
+	/**
+	 * theme.json typography sub-key → typography_option array sub-key the
+	 * Customizer Framework's Output_Builder consumes. The framework already
+	 * knows how to render each of these as a CSS declaration.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $variation_typography_props = array(
+		'fontFamily'     => 'font-family',
+		'fontWeight'     => 'font-weight',
+		'fontStyle'      => 'font-style',
+		'fontSize'       => 'font-size',
+		'letterSpacing'  => 'letter-spacing',
+		'lineHeight'     => 'line-height',
+		'textTransform'  => 'text-transform',
+		'textDecoration' => 'text-decoration',
+	);
+
+	/**
+	 * Read + parse a styles/<slug>.json variation file. Single read path
+	 * shared by every consumer (token overlay, typography overlay, future
+	 * settings consumers) so slug validation and file-read error handling
+	 * live in exactly one place.
+	 *
+	 * @param string $slug Variation slug.
+	 * @return array<string, mixed>|null Parsed JSON, or null if the slug is
+	 *                                   invalid / file is missing / JSON is
+	 *                                   malformed.
+	 */
+	protected static function load_variation_data( string $slug ): ?array {
+		// Whitelist + safety: slug must be a single hyphen-or-letter token.
+		if ( ! preg_match( '/^[a-z][a-z0-9-]{0,30}$/', $slug ) ) {
+			return null;
+		}
+		$path = \get_template_directory() . '/styles/' . $slug . '.json';
+		if ( ! is_readable( $path ) ) {
+			return null;
+		}
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents — local theme file, not remote URL.
+		$json = file_get_contents( $path );
+		if ( false === $json ) {
+			return null;
+		}
+		$data = json_decode( $json, true );
+		return is_array( $data ) ? $data : null;
+	}
 
 	/**
 	 * Read styles/<slug>.json and emit --bx-* token declarations from the
@@ -582,25 +720,29 @@ class Component implements Component_Interface {
 	 * inline declarations block — same selector, later declaration wins
 	 * via standard CSS cascade.
 	 *
-	 * @param string $slug Variation slug (e.g. 'dark', 'vibrant', 'pastel').
-	 * @return string CSS declarations (no selector wrapper) or empty if
-	 *                the variation file doesn't exist or has no palette.
+	 * Two layers of output, both driven by data:
+	 *   1. For each palette entry, every --bx-* token registered in
+	 *      $variation_palette_targets[ slug ] gets painted (with legacy
+	 *      aliases and derived variants where applicable). One palette slug
+	 *      can fan out to multiple BuddyX semantic tokens, e.g. accent →
+	 *      accent + button-bg + link, contrast → fg + h1..h6 + site-title +
+	 *      menu-fg + tagline + subheader-fg, base → bg + header-bg.
+	 *   2. Each palette entry also emits --wp--preset--color--<slug> so block
+	 *      patterns using `has-<slug>-background-color` repaint to the
+	 *      variation's palette (otherwise theme.json's static palette wins
+	 *      and patterns visually ignore the preset).
+	 *
+	 * @param string             $slug    Variation slug (e.g. 'dark', 'vibrant').
+	 * @param array<int, string> $covered Out-param: --bx-* base tokens this
+	 *                                    overlay painted (so the downstream
+	 *                                    derive_for fallback skips them).
+	 *                                    Use a throwaway array if not needed.
+	 * @return string CSS declarations (no selector wrapper) or empty if the
+	 *                variation file doesn't exist or has no palette.
 	 */
-	protected static function resolve_style_variation_tokens( string $slug ): string {
-		// Whitelist + safety: slug must be a single hyphen-or-letter token.
-		if ( ! preg_match( '/^[a-z][a-z0-9-]{0,30}$/', $slug ) ) {
-			return '';
-		}
-		$path = \get_template_directory() . '/styles/' . $slug . '.json';
-		if ( ! is_readable( $path ) ) {
-			return '';
-		}
-		$json = file_get_contents( $path );
-		if ( false === $json ) {
-			return '';
-		}
-		$data = json_decode( $json, true );
-		if ( ! is_array( $data ) ) {
+	protected static function resolve_style_variation_tokens( string $slug, array &$covered = array() ): string {
+		$data = self::load_variation_data( $slug );
+		if ( null === $data ) {
 			return '';
 		}
 		$palette = $data['settings']['color']['palette'] ?? array();
@@ -610,42 +752,169 @@ class Component implements Component_Interface {
 
 		$decls = '';
 		foreach ( $palette as $entry ) {
-			$pal_slug = $entry['slug']  ?? '';
+			$pal_slug = $entry['slug'] ?? '';
 			$color    = $entry['color'] ?? '';
 			if ( '' === $pal_slug || '' === $color ) {
-				continue;
-			}
-			$bx_token = self::$variation_palette_map[ $pal_slug ] ?? '';
-			if ( '' === $bx_token ) {
 				continue;
 			}
 			$normalized = self::normalize_color( (string) $color );
 			if ( '' === $normalized ) {
 				continue;
 			}
-			$decls .= $bx_token . ':' . $normalized . ';';
-			// Also emit the legacy alias for the corresponding base, if any.
-			foreach ( self::$simple_color_tokens as $cfg ) {
-				if ( $cfg['token'] === $bx_token ) {
-					foreach ( $cfg['aliases'] as $alias ) {
-						$decls .= $alias . ':' . $normalized . ';';
-					}
-					break;
-				}
-			}
-			// Auto-derive variants for the bases that get them.
-			$derive_bases = array(
-				'--bx-color-accent',
-				'--bx-color-bg',
-				'--bx-color-bg-elevated',
-				'--bx-color-fg',
-			);
-			if ( in_array( $bx_token, $derive_bases, true ) ) {
-				$decls .= self::derive_color_variants( $bx_token, $normalized );
+
+			// Always emit the WordPress preset alias so blocks/patterns using
+			// `has-<slug>-background-color` (or any
+			// `var(--wp--preset--color--<slug>)` reference) repaint to the
+			// variation's palette instead of theme.json's static value.
+			$decls .= '--wp--preset--color--' . $pal_slug . ':' . $normalized . ';';
+
+			// Paint every --bx-* token registered for this slug (declared in
+			// $variation_palette_targets). One slug fans out to multiple
+			// tokens — accent → accent + button-bg + link, contrast → fg +
+			// h1..h6 + site-title + menu-fg + tagline + subheader-fg, etc.
+			foreach ( self::$variation_palette_targets[ $pal_slug ] ?? array() as $bx_token ) {
+				$decls    .= self::emit_variation_token( $bx_token, $normalized );
+				$covered[] = $bx_token;
 			}
 		}
 
 		return $decls;
+	}
+
+	/**
+	 * Emit a base --bx-* token + every legacy alias registered for it +
+	 * (when the base is in $derive_bases) the full derived-variants set.
+	 * Aliases come from both $simple_color_tokens and $typography_color_tokens
+	 * so any legacy --color-* / --global-font-color / etc. hooked into either
+	 * namespace gets the same color.
+	 *
+	 * @param string $token --bx-* base token name.
+	 * @param string $color Normalized CSS color.
+	 * @return string CSS declarations.
+	 */
+	protected static function emit_variation_token( string $token, string $color ): string {
+		$decls = $token . ':' . $color . ';';
+		foreach ( array( self::$simple_color_tokens, self::$typography_color_tokens ) as $map ) {
+			foreach ( $map as $cfg ) {
+				if ( $cfg['token'] === $token ) {
+					foreach ( $cfg['aliases'] as $alias ) {
+						$decls .= $alias . ':' . $color . ';';
+					}
+					break 2;
+				}
+			}
+		}
+		if ( in_array( $token, self::$derive_bases, true ) ) {
+			$decls .= self::derive_color_variants( $token, $color );
+		}
+		return $decls;
+	}
+
+	/**
+	 * Hook `theme_mod_<setting>` filters so the active variation's typography
+	 * appears as the EFFECTIVE default for each typography_option setting.
+	 * Customer customizer saves still win because the filter only fires when
+	 * the customer hasn't actively saved that setting (key absent in raw
+	 * theme_mods option). Result: variation flows through Output_Builder's
+	 * existing typography emission — single source of truth, no specificity
+	 * hacks, no parallel CSS rule output.
+	 */
+	public static function register_variation_theme_mod_filters(): void {
+		$variation_slug = (string) \get_theme_mod( 'site_style_variation', '' );
+		if ( '' === $variation_slug ) {
+			return;
+		}
+
+		$overrides = self::resolve_variation_typography_overrides( $variation_slug );
+		if ( empty( $overrides ) ) {
+			return;
+		}
+
+		$saved_mods = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
+		if ( ! is_array( $saved_mods ) ) {
+			$saved_mods = array();
+		}
+
+		foreach ( $overrides as $setting => $variation_value ) {
+			// Customer has actively saved this setting → respect their save,
+			// do not override. Variation is a "starting point" only.
+			if ( array_key_exists( $setting, $saved_mods ) ) {
+				continue;
+			}
+			\add_filter(
+				"theme_mod_{$setting}",
+				static function ( $current ) use ( $variation_value ) {
+					if ( is_array( $current ) && is_array( $variation_value ) ) {
+						return array_merge( $current, $variation_value );
+					}
+					return $variation_value;
+				},
+				5
+			);
+		}
+	}
+
+	/**
+	 * Read styles/<slug>.json and translate `styles.typography` and
+	 * `styles.elements.<tag>.typography` into typography_option-format
+	 * arrays keyed by the corresponding customizer setting name. The
+	 * framework's Output_Builder consumes these natively — see
+	 * inc/Customizer_Framework/Output_Builder.php :: typography_declarations().
+	 *
+	 * @param string $slug Variation slug.
+	 * @return array<string, array<string, string>> setting => partial value array.
+	 */
+	protected static function resolve_variation_typography_overrides( string $slug ): array {
+		$data = self::load_variation_data( $slug );
+		if ( null === $data ) {
+			return array();
+		}
+
+		$overrides = array();
+		foreach ( self::$variation_typography_settings as $element_key => $setting ) {
+			$typo = '@body' === $element_key
+				? ( $data['styles']['typography'] ?? null )
+				: ( $data['styles']['elements'][ $element_key ]['typography'] ?? null );
+			if ( ! is_array( $typo ) ) {
+				continue;
+			}
+			$converted = self::convert_variation_typography_to_field_format( $typo );
+			if ( ! empty( $converted ) ) {
+				$overrides[ $setting ] = $converted;
+			}
+		}
+
+		return $overrides;
+	}
+
+	/**
+	 * Translate a theme.json typography sub-object (camelCase keys, e.g.
+	 * fontFamily) into the kebab-case keys the Customizer Framework's
+	 * Output_Builder expects (e.g. font-family). Only known keys flow
+	 * through; values pass a strict sanitizer that rejects semicolons /
+	 * braces / backslashes to keep the boundary defensible even though
+	 * variation files ship in the theme.
+	 *
+	 * @param array<string, mixed> $typo theme.json typography sub-object.
+	 * @return array<string, string> Field-format value array.
+	 */
+	protected static function convert_variation_typography_to_field_format( array $typo ): array {
+		$converted = array();
+		foreach ( self::$variation_typography_props as $json_key => $field_key ) {
+			if ( ! isset( $typo[ $json_key ] ) ) {
+				continue;
+			}
+			$raw = $typo[ $json_key ];
+			if ( ! is_string( $raw ) && ! is_int( $raw ) && ! is_float( $raw ) ) {
+				continue;
+			}
+			$value = trim( (string) $raw );
+			if ( '' === $value || preg_match( '/[;{}<>\\\\]/', $value ) ) {
+				continue;
+			}
+			$converted[ $field_key ] = $value;
+		}
+		return $converted;
 	}
 
 	/**
