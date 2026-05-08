@@ -97,10 +97,21 @@ class Component implements Component_Interface {
 	 * @return array<string, array<string, mixed>>
 	 */
 	public function posts(): array {
+		// Pattern-driven demo pages render full-bleed sections (hero, CTA,
+		// pricing tables, etc.) designed for the no-sidebar
+		// `page-templates/full-width.php` template. Without this assignment,
+		// new installs (and Playground previews) inherit the customizer's
+		// default `sidebar_option = 'right'` so the demo pages render with
+		// a sidebar squeezing the patterns — bad first-impression for a
+		// theme that markets itself as a typography + pattern library.
+		// The `blog` (Journal) page intentionally has NO template assignment
+		// because it's used as the posts page (page_for_posts) and the
+		// archive layout there benefits from the sidebar.
 		return array(
 			'home'     => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'Home', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->compose(
 					array(
 						'buddyx/hero-typography-led',
@@ -118,6 +129,7 @@ class Component implements Component_Interface {
 			'about'    => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'About', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->compose(
 					array(
 						'buddyx/hero-split-screen',
@@ -130,6 +142,7 @@ class Component implements Component_Interface {
 			'services' => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'Services', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->compose(
 					array(
 						'buddyx/services-grid',
@@ -141,6 +154,7 @@ class Component implements Component_Interface {
 			'pricing'  => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'Pricing', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->compose(
 					array(
 						'buddyx/general-pricing',
@@ -156,6 +170,7 @@ class Component implements Component_Interface {
 			'faq'      => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'FAQ', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->compose(
 					array(
 						'buddyx/general-faq',
@@ -166,6 +181,7 @@ class Component implements Component_Interface {
 			'contact'  => array(
 				'post_type'    => 'page',
 				'post_title'   => __( 'Contact', 'buddyx' ),
+				'page_template' => 'page-templates/full-width.php',
 				'post_content' => $this->contact_content(),
 			),
 		);
@@ -382,6 +398,11 @@ class Component implements Component_Interface {
 			if ( ! \is_wp_error( $post_id ) && $post_id > 0 ) {
 				$page_ids[ $key ] = $post_id;
 				$created[]        = $key;
+				// Apply the optional page template (full-width.php for
+				// pattern-driven demo pages — see posts() docblock).
+				if ( ! empty( $page['page_template'] ) ) {
+					\update_post_meta( $post_id, '_wp_page_template', $page['page_template'] );
+				}
 			}
 		}
 
