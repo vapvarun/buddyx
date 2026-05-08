@@ -440,4 +440,94 @@
 			}
 		},
 	});
+
+	/**
+	 * Color control — alpha (rgba) extension.
+	 *
+	 * WP's bundled Iris/wp-color-picker does not support an alpha channel. When
+	 * a Customizer Framework Color field is registered with
+	 * `'choices' => array('alpha' => true)`, params.alpha is true and we render
+	 * an extra opacity slider next to the picker. The value emitted to the
+	 * customize setting is `rgba(r, g, b, a)`. Without alpha, the original
+	 * WP_Customize_Color_Control behavior is preserved unchanged.
+	 *
+	 * Pairs with PHP-side Field::sanitize_color_alpha which preserves the
+	 * rgba string on save (commit d77f114).
+	 */
+	(function () {
+		var OriginalColor = wp.customize.controlConstructor.color;
+		if (!OriginalColor) {
+			return;
+		}
+		wp.customize.controlConstructor.color = OriginalColor.extend({
+			ready: function () {
+				var ctl = this;
+				if (!ctl.params || !ctl.params.alpha) {
+					OriginalColor.prototype.ready.apply(ctl, arguments);
+					return;
+				}
+				var $ = window.jQuery;
+				var $input = ctl.container.find('.color-picker-hex');
+				var initial = String(ctl.setting.get() || '');
+				var initialHex = initial;
+				var initialAlpha = 1;
+				var rgba = initial.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
+				if (rgba) {
+					initialHex =
+						'#' +
+						[rgba[1], rgba[2], rgba[3]]
+							.map(function (n) {
+								return ('0' + parseInt(n, 10).toString(16)).slice(-2);
+							})
+							.join('');
+					initialAlpha = rgba[4] !== undefined ? parseFloat(rgba[4]) : 1;
+				}
+				var $wrap = $('<div class="buddyx-color-alpha"></div>');
+				var $label = $('<label class="buddyx-color-alpha-label">Opacity: <span class="buddyx-color-alpha-value"></span></label>');
+				var $slider = $('<input type="range" min="0" max="1" step="0.01" class="buddyx-color-alpha-slider" />').val(initialAlpha);
+				$wrap.append($label).append($slider);
+				$input.closest('.customize-control-content').append($wrap);
+
+				function hexToRgb(hex) {
+					var h = String(hex || '').replace(/^#/, '');
+					if (h.length === 3) {
+						h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+					}
+					if (!/^[0-9a-f]{6}$/i.test(h)) {
+						return null;
+					}
+					return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+				}
+
+				function syncToSetting() {
+					var hexVal = $input.val() || initialHex || '#000000';
+					var rgb = hexToRgb(hexVal);
+					var alphaVal = parseFloat($slider.val());
+					if (isNaN(alphaVal)) {
+						alphaVal = 1;
+					}
+					$wrap.find('.buddyx-color-alpha-value').text(Math.round(alphaVal * 100) + '%');
+					if (!rgb) {
+						return;
+					}
+					var out =
+						alphaVal >= 1
+							? 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ')'
+							: 'rgba(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ', ' + alphaVal + ')';
+					ctl.setting.set(out);
+				}
+
+				$input.val(initialHex).wpColorPicker({
+					change: function () {
+						setTimeout(syncToSetting, 0);
+					},
+					clear: function () {
+						ctl.setting.set('');
+					},
+				});
+				$slider.on('input change', syncToSetting);
+				syncToSetting();
+			},
+		});
+	})();
 })();

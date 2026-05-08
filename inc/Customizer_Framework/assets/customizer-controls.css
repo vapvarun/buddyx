@@ -449,3 +449,28 @@
 		display: none;
 	}
 }
+
+/* Color control — alpha (rgba) opacity slider. Only rendered when the
+ * field is registered with `'choices' => array('alpha' => true)`. */
+.buddyx-color-alpha {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--bx-color-border, #e8e8e8);
+}
+.buddyx-color-alpha-label {
+	font-size: 12px;
+	color: #50575e;
+	white-space: nowrap;
+}
+.buddyx-color-alpha-value {
+	font-weight: 600;
+	color: #1d2327;
+	margin-left: 4px;
+}
+.buddyx-color-alpha-slider {
+	flex: 1 1 auto;
+	min-width: 0;
+}
