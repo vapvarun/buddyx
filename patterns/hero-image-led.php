@@ -13,12 +13,12 @@
   <p class="has-text-align-center has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">- New in 5.0.3</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:heading {"textAlign":"center","level":1,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|mega","fontWeight":"700","lineHeight":"1.0","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}},"textColor":"base"} -->
-  <h1 class="wp-block-heading has-text-align-center has-newsreader-accent has-base-color has-text-color" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--mega);font-weight:700;letter-spacing:-0.03em;line-height:1.0">An <em>editorial</em> theme for serious work.</h1>
+  <!-- wp:heading {"textAlign":"center","level":1,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|mega","fontWeight":"700","lineHeight":"1.0","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}},"textColor":"white"} -->
+  <h1 class="wp-block-heading has-text-align-center has-newsreader-accent has-white-color has-text-color" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--mega);font-weight:700;letter-spacing:-0.03em;line-height:1.0">An <em>editorial</em> theme for serious work.</h1>
   <!-- /wp:heading -->
 
-  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"contrast-2"} -->
-  <p class="has-text-align-center has-contrast-2-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--50);font-size:var(--wp--preset--font-size--large);line-height:1.5">Twenty-seven patterns. Two self-hosted families. One coherent design system. Built for sites that have something to say.</p>
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"white"} -->
+  <p class="has-text-align-center has-white-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--50);font-size:var(--wp--preset--font-size--large);line-height:1.5;opacity:.75">Twenty-seven patterns. Two self-hosted families. One coherent design system. Built for sites that have something to say.</p>
   <!-- /wp:paragraph -->
 
   <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->

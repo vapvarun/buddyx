@@ -65,8 +65,8 @@
       <!-- wp:group {"backgroundColor":"contrast","textColor":"base","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"24px"}},"layout":{"type":"constrained"}} -->
       <div class="wp-block-group has-base-color has-contrast-background-color has-text-color has-background" style="border-radius:24px;padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)">
 
-        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"accent-3"} -->
-        <p class="has-accent-3-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Single Site · Most popular</p>
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","letterSpacing":"0.14em","textTransform":"uppercase","fontWeight":"600"}},"textColor":"base"} -->
+        <p class="has-base-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Single Site · Most popular</p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"clamp(2.5rem, 4vw + 1rem, 4rem)","fontWeight":"700","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|newsreader"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->
         <p style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--10);font-family:var(--wp--preset--font-family--newsreader);font-size:clamp(2.5rem, 4vw + 1rem, 4rem);font-weight:700;line-height:1;letter-spacing:-0.02em"><s style="opacity:.5;font-weight:400;font-size:.55em;margin-right:.25em">$99</s>$79</p>

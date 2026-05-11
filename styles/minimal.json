@@ -10,7 +10,7 @@
 				{ "slug": "base-3",     "color": "#F4F4F4", "name": "Base 3" },
 				{ "slug": "contrast",   "color": "#000000", "name": "Contrast" },
 				{ "slug": "contrast-2", "color": "#525252", "name": "Contrast 2" },
-				{ "slug": "contrast-3", "color": "#A3A3A3", "name": "Contrast 3" },
+				{ "slug": "contrast-3", "color": "#737373", "name": "Contrast 3" },
 				{ "slug": "accent",     "color": "#000000", "name": "Black Accent" },
 				{ "slug": "accent-2",   "color": "#525252", "name": "Mid Grey" },
 				{ "slug": "accent-3",   "color": "#D6D3D1", "name": "Stone" },

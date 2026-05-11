@@ -13,8 +13,8 @@
   <p class="has-text-align-center has-accent-color has-text-color" style="font-size:var(--wp--preset--font-size--small);font-weight:600;letter-spacing:0.18em;text-transform:uppercase">Let's build something</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:heading {"textAlign":"center","level":2,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.02em"},"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|40"}}}} -->
-  <h2 class="wp-block-heading has-text-align-center has-newsreader-accent" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--x-large);font-weight:700;letter-spacing:-0.02em;line-height:1.1">A site you're <em>actually</em> proud of.</h2>
+  <!-- wp:heading {"textAlign":"center","level":2,"className":"has-newsreader-accent","style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.02em"},"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|40"}}},"textColor":"black"} -->
+  <h2 class="wp-block-heading has-text-align-center has-newsreader-accent has-black-color has-text-color" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:var(--wp--preset--spacing--40);font-size:var(--wp--preset--font-size--x-large);font-weight:700;letter-spacing:-0.02em;line-height:1.1">A site you're <em>actually</em> proud of.</h2>
   <!-- /wp:heading -->
 
   <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
@@ -29,8 +29,8 @@
   <hr class="wp-block-separator has-alpha-channel-opacity is-style-dotted" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--30)"/>
   <!-- /wp:separator -->
 
-  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"contrast-2"} -->
-  <p class="has-text-align-center has-contrast-2-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small)"><a href="#about">About</a> · <a href="#patterns">Patterns</a> · <a href="#docs">Docs</a> · <a href="#contact">Contact</a> · © 2026</p>
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"bottom":"0"}}},"textColor":"black"} -->
+  <p class="has-text-align-center has-black-color has-text-color" style="margin-bottom:0;font-size:var(--wp--preset--font-size--small);opacity:.7"><a href="#about">About</a> · <a href="#patterns">Patterns</a> · <a href="#docs">Docs</a> · <a href="#contact">Contact</a> · © 2026</p>
   <!-- /wp:paragraph -->
 
 </div>
