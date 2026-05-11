@@ -498,6 +498,181 @@ class Component implements Component_Interface {
 		// before we read their defaults; filter is a no-op when no variation
 		// is active or the customer has actively saved the field.
 		add_action( 'init', array( __CLASS__, 'register_variation_theme_mod_filters' ), 20 );
+		// 5.1.0 one-time migration: purge color theme_mods that the pre-5.1.0
+		// alpha-color control init bug spuriously persisted as rgb()-format
+		// equivalents of their declared field defaults. Without this purge,
+		// those spurious saves emit AFTER the style-variation overlay in :root
+		// and clobber the variation's colors. Runs once per site.
+		add_action( 'init', array( __CLASS__, 'maybe_purge_alpha_color_pollution' ), 5 );
+	}
+
+	/**
+	 * Snapshot of declared field defaults for every alpha-color customizer
+	 * field as of 5.1.0. Used by the one-time pollution-purge migration to
+	 * detect saved values that match the field's pre-5.1.0 default — those
+	 * are pollution artifacts, not real customer customizations.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $alpha_color_field_defaults_5_1_0 = array(
+		'site_loader_bg'                      => '#ef5455',
+		'site_primary_color'                  => '#ef5455',
+		'site_header_bg_color'                => '#ffffff',
+		'site_title_hover_color'              => '#ef5455',
+		'menu_hover_color'                    => '#ef5455',
+		'menu_active_color'                   => '#ef5455',
+		'body_background_color'               => '#f7f7f9',
+		'content_background_color'            => '#f7f7f9',
+		'box_background_color'                => '#ffffff',
+		'secondary_background_color'          => '#fafafa',
+		'site_links_color'                    => '#111111',
+		'site_links_focus_hover_color'        => '#ef5455',
+		'site_buttons_background_color'       => '#ef5455',
+		'site_buttons_background_hover_color' => '#f83939',
+		'site_buttons_text_color'             => '#ffffff',
+		'site_buttons_text_hover_color'       => '#ffffff',
+		'site_buttons_border_color'           => '#ef5455',
+		'site_buttons_border_hover_color'     => '#f83939',
+		'site_footer_title_color'             => '#111111',
+		'site_footer_content_color'           => '#505050',
+		'site_footer_links_color'             => '#111111',
+		'site_footer_links_hover_color'       => '#ef5455',
+		'site_copyright_background_color'     => '#ffffff',
+		'site_copyright_border_color'         => '#e8e8e8',
+		'site_copyright_content_color'        => '#505050',
+		'site_copyright_links_color'          => '#111111',
+		'site_copyright_links_hover_color'    => '#ef5455',
+	);
+
+	/**
+	 * Same pollution pattern, but for structured-array typography settings
+	 * where the `color` sub-key got polluted. setting => default-hex map.
+	 *
+	 * @var array<string, string>
+	 */
+	protected static array $alpha_color_typography_subkey_defaults_5_1_0 = array(
+		'site_title_typography_option'    => '#111111',
+		'site_tagline_typography_option'  => '#757575',
+		'menu_typography_option'          => '#111111',
+		'site_sub_header_typography'      => '#111111',
+		'typography_option'               => '#505050',
+		'h1_typography_option'            => '#111111',
+		'h2_typography_option'            => '#111111',
+		'h3_typography_option'            => '#111111',
+		'h4_typography_option'            => '#111111',
+		'h5_typography_option'            => '#111111',
+		'h6_typography_option'            => '#111111',
+	);
+
+	/**
+	 * One-time migration — purge alpha-color theme_mods that match their
+	 * declared field default. The pre-5.1.0 alpha-color control fired
+	 * `syncToSetting()` on `ready()`, which reformatted a hex-default into
+	 * `rgb()` and called `setting.set()` on the customizer setting — marking
+	 * it dirty. On the next customizer save, the framework persisted that
+	 * "value" to theme_mods even though the customer never touched the
+	 * field. Result: those saves emit at the end of the :root cascade and
+	 * override the style-variation overlay, breaking presets like Dark.
+	 *
+	 * This migration walks every known alpha-color setting, compares the
+	 * saved value (any format) to the declared default (any format) using a
+	 * canonical RGB-tuple comparison, and removes the theme_mod when they
+	 * match. Customer-set values that genuinely differ from the default are
+	 * preserved. Runs once per site (gated by `_buddyx_alpha_color_purged`).
+	 */
+	public static function maybe_purge_alpha_color_pollution(): void {
+		if ( get_theme_mod( '_buddyx_alpha_color_purged', false ) ) {
+			return;
+		}
+		$purged = 0;
+		foreach ( self::$alpha_color_field_defaults_5_1_0 as $setting => $default ) {
+			$saved = get_theme_mod( $setting, null );
+			if ( null === $saved || ! is_string( $saved ) || '' === $saved ) {
+				continue;
+			}
+			if ( self::colors_canonically_equal( $saved, $default ) ) {
+				remove_theme_mod( $setting );
+				++$purged;
+			}
+		}
+		// Structured-array typography settings — the `color` sub-key was the
+		// only thing the alpha picker controlled, so we purge JUST that sub-key
+		// and keep any other typography keys (font-family / weight / size)
+		// the customer set intentionally.
+		foreach ( self::$alpha_color_typography_subkey_defaults_5_1_0 as $setting => $default ) {
+			$saved = get_theme_mod( $setting, null );
+			if ( ! is_array( $saved ) || empty( $saved['color'] ) || ! is_string( $saved['color'] ) ) {
+				continue;
+			}
+			if ( self::colors_canonically_equal( $saved['color'], $default ) ) {
+				unset( $saved['color'] );
+				if ( empty( $saved ) ) {
+					remove_theme_mod( $setting );
+				} else {
+					set_theme_mod( $setting, $saved );
+				}
+				++$purged;
+			}
+		}
+		set_theme_mod( '_buddyx_alpha_color_purged', 1 );
+		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+			error_log( sprintf( '[BuddyX 5.1.0] alpha-color pollution purge removed %d theme_mods', $purged ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		}
+	}
+
+	/**
+	 * Compare two color strings (hex, rgb(), rgba()) by canonical RGB tuple.
+	 *
+	 * @param string $a Color value (hex, rgb(), rgba()).
+	 * @param string $b Color value (hex, rgb(), rgba()).
+	 * @return bool True when the colors resolve to the same RGB triplet AND
+	 *              alpha within float-equality tolerance.
+	 */
+	protected static function colors_canonically_equal( string $a, string $b ): bool {
+		$rgb_a = self::color_to_rgba_tuple( $a );
+		$rgb_b = self::color_to_rgba_tuple( $b );
+		if ( null === $rgb_a || null === $rgb_b ) {
+			return false;
+		}
+		return $rgb_a[0] === $rgb_b[0]
+			&& $rgb_a[1] === $rgb_b[1]
+			&& $rgb_a[2] === $rgb_b[2]
+			&& abs( $rgb_a[3] - $rgb_b[3] ) < 0.01;
+	}
+
+	/**
+	 * Parse a color string into [R, G, B, A] integers (0-255) + float alpha.
+	 *
+	 * @param string $color Color value.
+	 * @return array{0:int,1:int,2:int,3:float}|null
+	 */
+	protected static function color_to_rgba_tuple( string $color ): ?array {
+		$color = trim( $color );
+		if ( preg_match( '/^#([0-9a-f]{6})$/i', $color, $m ) ) {
+			return array(
+				(int) hexdec( substr( $m[1], 0, 2 ) ),
+				(int) hexdec( substr( $m[1], 2, 2 ) ),
+				(int) hexdec( substr( $m[1], 4, 2 ) ),
+				1.0,
+			);
+		}
+		if ( preg_match( '/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i', $color, $m ) ) {
+			return array(
+				(int) hexdec( $m[1] . $m[1] ),
+				(int) hexdec( $m[2] . $m[2] ),
+				(int) hexdec( $m[3] . $m[3] ),
+				1.0,
+			);
+		}
+		if ( preg_match( '/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/i', $color, $m ) ) {
+			return array(
+				(int) $m[1],
+				(int) $m[2],
+				(int) $m[3],
+				isset( $m[4] ) ? (float) $m[4] : 1.0,
+			);
+		}
+		return null;
 	}
 
 	/**

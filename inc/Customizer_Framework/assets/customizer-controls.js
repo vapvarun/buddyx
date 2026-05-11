@@ -499,7 +499,7 @@
 					return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
 				}
 
-				function syncToSetting() {
+				function computeOutput() {
 					var hexVal = $input.val() || initialHex || '#000000';
 					var rgb = hexToRgb(hexVal);
 					var alphaVal = parseFloat($slider.val());
@@ -508,12 +508,24 @@
 					}
 					$wrap.find('.buddyx-color-alpha-value').text(Math.round(alphaVal * 100) + '%');
 					if (!rgb) {
+						return null;
+					}
+					return alphaVal >= 1
+						? 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ')'
+						: 'rgba(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ', ' + alphaVal + ')';
+				}
+
+				function syncToSetting() {
+					var out = computeOutput();
+					if (out === null) {
 						return;
 					}
-					var out =
-						alphaVal >= 1
-							? 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ')'
-							: 'rgba(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ', ' + alphaVal + ')';
+					// Don't write the same value back — that marks the setting
+					// dirty on init and persists the default to theme_mods on
+					// save, clobbering the style-variation overlay downstream.
+					if (out === String(ctl.setting.get() || '')) {
+						return;
+					}
 					ctl.setting.set(out);
 				}
 
@@ -526,7 +538,10 @@
 					},
 				});
 				$slider.on('input change', syncToSetting);
-				syncToSetting();
+				// Update the alpha-value indicator label only — no setting.set()
+				// on initial render. The picker is a passive observer of the
+				// saved value until the customer actually changes it.
+				computeOutput();
 			},
 		});
 	})();
