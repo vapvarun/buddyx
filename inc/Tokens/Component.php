@@ -734,9 +734,17 @@ class Component implements Component_Interface {
 		'accent-3'   => array( '--bx-color-accent-tertiary' ),
 		'base'       => array(
 			'--bx-color-bg',
+			'--bx-color-bg-page',
 			'--bx-color-header-bg',
+			'--bx-color-footer-bg',
+			'--bx-color-copyright-bg',
 		),
-		'base-2'     => array( '--bx-color-bg-elevated' ),
+		'base-2'     => array(
+			'--bx-color-bg-elevated',
+			'--bx-color-subheader-bg',
+			'--bx-color-loader-bg',
+			'--bx-color-input-bg',
+		),
 		'base-3'     => array( '--bx-color-bg-muted' ),
 		'contrast'   => array(
 			'--bx-color-fg',
@@ -750,8 +758,16 @@ class Component implements Component_Interface {
 			'--bx-color-site-tagline',
 			'--bx-color-menu-fg',
 			'--bx-color-subheader-fg',
+			'--bx-color-footer-title',
+			'--bx-color-footer-link',
+			'--bx-color-copyright-link',
+			'--bx-color-input-fg',
 		),
-		'contrast-2' => array( '--bx-color-fg-muted' ),
+		'contrast-2' => array(
+			'--bx-color-fg-muted',
+			'--bx-color-footer-fg',
+			'--bx-color-copyright-fg',
+		),
 		'contrast-3' => array( '--bx-color-fg-subtle' ),
 	);
 
