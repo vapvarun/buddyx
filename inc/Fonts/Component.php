@@ -11,6 +11,8 @@ use WP_Error;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 
+require_once __DIR__ . '/Google_Fonts_Catalog.php';
+
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
  *
