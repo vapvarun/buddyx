@@ -91,9 +91,11 @@ class Typography extends \WP_Customize_Control {
 		}
 
 		return array(
-			'default'       => '',
-			'default_label' => esc_html__( 'Default (theme)', 'buddyx' ),
-			'groups'        => $groups,
+			'default'            => '',
+			'default_label'      => esc_html__( 'Default (theme)', 'buddyx' ),
+			'saved_label'        => esc_html__( 'Saved', 'buddyx' ),
+			'search_placeholder' => esc_html__( 'Search fonts…', 'buddyx' ),
+			'groups'             => $groups,
 		);
 	}
 

@@ -246,7 +246,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Typography setting IDs whose saved value may carry a font-family.
 		// Hardcoded because Customizer_Framework fields are only registered in
 		// the customizer context, not on front-end requests.
-		// Keep in sync with inc/Customizer_Settings/Fields/Typography_Fields.php.
+		// Keep in sync with the typography fields registered in
+		// inc/Customizer_Settings/Fields/Typography_Fields.php and Sub_Header_Fields.php.
 		$typography_settings = array(
 			'site_title_typography_option',
 			'site_tagline_typography_option',
