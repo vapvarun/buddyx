@@ -50,12 +50,17 @@ class Google_Fonts_Catalog {
 	 * @return array<string, string>
 	 */
 	public static function get_family_choices(): array {
+		static $choices = null;
+		if ( null !== $choices ) {
+			return $choices;
+		}
 		$out = array();
 		foreach ( self::get_catalog() as $family => $info ) {
 			$name         = isset( $info['family'] ) ? (string) $info['family'] : (string) $family;
 			$out[ $name ] = $name;
 		}
-		return $out;
+		$choices = $out;
+		return $choices;
 	}
 
 	/**

@@ -132,9 +132,25 @@
 			const alignEl = root.querySelector('.buddyx-typo-align');
 			const decorEl = root.querySelector('.buddyx-typo-decoration');
 
-			// Populate family + weight selects from params.
-			Object.entries(ctl.params.fontFamilies || {}).forEach(([slug, label]) => {
-				familyEl.add(new Option(label, slug));
+			// Build the family <select>: "Default (theme)" + grouped optgroups.
+			const fontData = ctl.params.fontFamilies || {};
+			while (familyEl.firstChild) {
+				familyEl.removeChild(familyEl.firstChild);
+			}
+			const defOpt = document.createElement('option');
+			defOpt.value = fontData.default || '';
+			defOpt.textContent = fontData.default_label || 'Default (theme)';
+			familyEl.appendChild(defOpt);
+			(fontData.groups || []).forEach(function (group) {
+				const og = document.createElement('optgroup');
+				og.label = group.label;
+				Object.keys(group.fonts || {}).forEach(function (val) {
+					const opt = document.createElement('option');
+					opt.value = val;
+					opt.textContent = group.fonts[val];
+					og.appendChild(opt);
+				});
+				familyEl.appendChild(og);
 			});
 			(ctl.params.weights || ['400']).forEach((w) => weightEl.add(new Option(w, w)));
 
@@ -159,7 +175,8 @@
 			const weightMap = { regular: '400', bold: '700', '': '400' };
 			const initialWeight = weightMap[rawVariant] || rawVariant;
 
-			familyEl.value = initial['font-family'] || familyEl.options[0]?.value || '';
+			// Reflect the saved value.
+			familyEl.value = (initial && initial['font-family']) ? initial['font-family'] : '';
 			weightEl.value = initialWeight;
 			if (styleEl) styleEl.value = initialStyle;
 			sizeEl.value = parseFloat(initial['font-size']) || 16;

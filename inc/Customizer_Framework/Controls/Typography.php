@@ -40,34 +40,61 @@ class Typography extends \WP_Customize_Control {
 	}
 
 	/**
-	 * Read theme.json fontFamilies into a slug => label map.
+	 * Font families for the picker, grouped for <optgroup> rendering.
 	 *
-	 * Prepends a "Default (theme)" entry mapped to '' so customers can
-	 * explicitly opt out of any font-family override and fall through to
-	 * the global stylesheet's font stack. Output_Builder skips emitting
-	 * font-family when the saved value is '', preserving theme defaults.
+	 * Returns:
+	 *   array(
+	 *     'default' => '',                       // value of the "Default (theme)" entry
+	 *     'groups'  => array(
+	 *       array( 'label' => 'Theme fonts',  'fonts' => array( slug => label, ... ) ),
+	 *       array( 'label' => 'Google Fonts', 'fonts' => array( name => name, ... ) ),
+	 *     ),
+	 *   )
 	 *
-	 * @return array<string, string>
+	 * Theme fonts come from theme.json fontFamilies (self-hosted); Google fonts
+	 * come from the bundled catalog. The JS prepends a "Default (theme)" option.
+	 *
+	 * @return array
 	 */
 	protected static function available_font_families(): array {
 		$theme_json = function_exists( 'wp_get_global_settings' ) ? wp_get_global_settings() : array();
 		$families   = $theme_json['typography']['fontFamilies']['theme'] ?? array();
-		$out        = array();
+		$theme      = array();
 		foreach ( $families as $f ) {
 			if ( isset( $f['slug'], $f['name'] ) ) {
-				$out[ $f['slug'] ] = $f['name'];
+				$theme[ $f['slug'] ] = $f['name'];
 			}
 		}
-		if ( empty( $out ) ) {
-			$out = array(
+		if ( empty( $theme ) ) {
+			$theme = array(
 				'system' => 'System UI',
 				'inter'  => 'Inter',
 			);
 		}
-		// Prepend the "Default (theme)" option so it sits at the top of
-		// the dropdown and is the natural fallback for customers who
-		// haven't explicitly chosen a family.
-		return array( '' => esc_html__( 'Default (theme)', 'buddyx' ) ) + $out;
+
+		$google = array();
+		if ( class_exists( '\\BuddyX\\Buddyx\\Fonts\\Google_Fonts_Catalog' ) ) {
+			$google = \BuddyX\Buddyx\Fonts\Google_Fonts_Catalog::get_family_choices();
+		}
+
+		$groups = array(
+			array(
+				'label' => esc_html__( 'Theme fonts', 'buddyx' ),
+				'fonts' => $theme,
+			),
+		);
+		if ( ! empty( $google ) ) {
+			$groups[] = array(
+				'label' => esc_html__( 'Google Fonts', 'buddyx' ),
+				'fonts' => $google,
+			);
+		}
+
+		return array(
+			'default'       => '',
+			'default_label' => esc_html__( 'Default (theme)', 'buddyx' ),
+			'groups'        => $groups,
+		);
 	}
 
 	/**
