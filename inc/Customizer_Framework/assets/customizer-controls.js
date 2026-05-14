@@ -177,6 +177,37 @@
 
 			// Reflect the saved value.
 			familyEl.value = (initial && initial['font-family']) ? initial['font-family'] : '';
+			// If the saved value isn't in the catalog (e.g. an older Kirki
+			// pick), inject it so the control reflects reality.
+			const savedFam = (initial && initial['font-family']) ? initial['font-family'] : '';
+			if (savedFam && !familyEl.querySelector('option[value="' + window.CSS.escape(savedFam) + '"]')) {
+				const customGroup = document.createElement('optgroup');
+				customGroup.label = 'Saved';
+				const savedOpt = document.createElement('option');
+				savedOpt.value = savedFam;
+				savedOpt.textContent = savedFam;
+				customGroup.appendChild(savedOpt);
+				familyEl.insertBefore(customGroup, familyEl.children[1] || null);
+				familyEl.value = savedFam;
+			}
+			// Searchable filter above the family select.
+			const familySearch = document.createElement('input');
+			familySearch.type = 'search';
+			familySearch.className = 'buddyx-typo-family-search';
+			familySearch.placeholder = 'Search fonts…';
+			familyEl.parentNode.insertBefore(familySearch, familyEl);
+			familySearch.addEventListener('input', function () {
+				const q = familySearch.value.toLowerCase();
+				[].forEach.call(familyEl.querySelectorAll('optgroup'), function (og) {
+					let anyVisible = false;
+					[].forEach.call(og.querySelectorAll('option'), function (opt) {
+						const match = opt.textContent.toLowerCase().indexOf(q) !== -1;
+						opt.hidden = !match;
+						if (match) { anyVisible = true; }
+					});
+					og.hidden = !anyVisible;
+				});
+			});
 			weightEl.value = initialWeight;
 			if (styleEl) styleEl.value = initialStyle;
 			sizeEl.value = parseFloat(initial['font-size']) || 16;

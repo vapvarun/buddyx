@@ -64,6 +64,14 @@
 	box-shadow: 0 0 0 1px #2271b1;
 	outline: none;
 }
+.buddyx-typo-family-search {
+	width: 100%;
+	margin: 0 0 4px;
+	padding: 4px 6px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+}
 
 /* Background composite control */
 .buddyx-background-controls {
