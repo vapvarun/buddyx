@@ -55,11 +55,15 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Force postMessage transport for BuddyX settings rendered by theme dynamic CSS.
+	 * Force refresh transport for BuddyX settings rendered by theme dynamic CSS.
 	 *
-	 * Many colors/radii are rendered from theme-generated CSS variables rather than
-	 * each setting's own output map, so they need postMessage transport explicitly
-	 * for live-preview to update them.
+	 * Many colors/radii are rendered from theme-generated CSS variables (the
+	 * Tokens component's :root block) rather than from each setting's own
+	 * `output` map. They were previously forced to `postMessage`, but the
+	 * preview JS (customizer-preview.js) only patches settings that ship an
+	 * `output` payload — so these colors silently did nothing in the live
+	 * preview. `refresh` makes the preview reload, the Tokens component
+	 * regenerates :root, and the change is reflected.
 	 *
 	 * @param array                $args Setting args.
 	 * @param WP_Customize_Manager $wp_customize Customizer manager.
@@ -116,7 +120,7 @@ class Component implements Component_Interface {
 		);
 
 		if ( in_array( $args['settings'], $dynamic_preview_settings, true ) ) {
-			$args['transport'] = 'postMessage';
+			$args['transport'] = 'refresh';
 		}
 
 		return $args;

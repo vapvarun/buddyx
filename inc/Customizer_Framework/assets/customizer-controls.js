@@ -24,6 +24,94 @@
 	}
 
 	/**
+	 * Live active_callback re-evaluation.
+	 *
+	 * The PHP framework compiles array-form active_callback conditions to a
+	 * server-side closure that only runs on initial customizer load. This wires
+	 * the same conditions (exported as window.buddyxCustomizerActiveCallbacks)
+	 * to their dependency settings, so a control's `active` state updates the
+	 * moment a parent toggle changes — e.g. "Set Custom Colors?" now shows/hides
+	 * its dependent colour controls live, with no reload.
+	 */
+	(function () {
+		var map = window.buddyxCustomizerActiveCallbacks;
+		if (!map || typeof map !== 'object') {
+			return;
+		}
+
+		var TRUTHY = [true, 1, '1', 'on', 'yes', 'true', 'enable'];
+		var FALSY = [false, 0, '0', '', 'off', 'no', 'false', 'disable', null];
+
+		function inList(list, v) {
+			for (var i = 0; i < list.length; i++) {
+				if (list[i] === v) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		// Boolean-equivalence compare — mirrors PHP Active_Callback::values_equal.
+		function valuesEqual(a, b) {
+			var aBool = inList(TRUTHY, a) || inList(FALSY, a);
+			var bBool = inList(TRUTHY, b) || inList(FALSY, b);
+			if (aBool && bBool) {
+				return inList(TRUTHY, a) === inList(TRUTHY, b);
+			}
+			return a == b; // eslint-disable-line eqeqeq
+		}
+
+		function condHolds(cond) {
+			var setting = wp.customize(cond.setting);
+			var actual = setting ? setting.get() : undefined;
+			var expected = cond.value;
+			switch (cond.operator || '==') {
+				case '!=':
+				case '!==':
+					return !valuesEqual(actual, expected);
+				case 'in':
+					return Array.isArray(expected) ? expected.indexOf(actual) !== -1 : false;
+				case 'contains':
+					return String(actual).indexOf(String(expected)) !== -1;
+				case '>':
+					return actual > expected;
+				case '<':
+					return actual < expected;
+				case '>=':
+					return actual >= expected;
+				case '<=':
+					return actual <= expected;
+				default:
+					return valuesEqual(actual, expected);
+			}
+		}
+
+		wp.customize.bind('ready', function () {
+			Object.keys(map).forEach(function (controlId) {
+				var conditions = map[controlId];
+				if (!conditions || !conditions.length) {
+					return;
+				}
+
+				function evaluate() {
+					var active = conditions.every(condHolds);
+					wp.customize.control(controlId, function (control) {
+						control.active.set(active);
+					});
+				}
+
+				conditions.forEach(function (cond) {
+					wp.customize(cond.setting, function (setting) {
+						setting.bind(evaluate);
+					});
+				});
+
+				evaluate();
+			});
+		});
+	})();
+
+	/**
 	 * Typography control
 	 */
 	wp.customize.controlConstructor['buddyx-typography'] = wp.customize.Control.extend({

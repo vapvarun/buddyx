@@ -421,6 +421,17 @@ body:not(.round-avatars) .grid .member-status {
     margin-bottom: 0;
 }
 
+/* Vertical nav (Customizer: "Display the member/group navigation vertically"):
+   force each nav item to a block so it stacks cleanly. BuddyPress core's
+   priority-nav.min.css sets these items to `display: inline` with an
+   #buddypress-prefixed selector, and as inline elements the current item
+   picked up extra line-box height (~97px vs ~46px), reading as uneven spacing
+   between tabs. Selector is #buddypress-prefixed to out-specify core. */
+#buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items > li,
+#buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-subnav-nav-items > li {
+    display: block;
+}
+
 .buddypress-wrap .bp-navs li:not(.current) a:focus,
 .buddypress-wrap .bp-navs li:not(.current) a:hover,
 .buddypress-wrap .bp-navs li:not(.selected) a:focus,
@@ -459,6 +470,13 @@ ul.component-navigation.activity-nav li {
     display: inline-block;
 }
 
+/* Column navigation for the Activity directory: when the customizer option
+   "Use column navigation for the Activity directory" is on, BuddyPress adds
+   .bp-dir-vert-nav to the wrapper. Stack the nav items instead of inline tabs. */
+.bp-dir-vert-nav ul.component-navigation.activity-nav li {
+    display: block;
+}
+
 ul.component-navigation.activity-nav li a {
     margin: 0;
 }
@@ -495,6 +513,16 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 
 .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li {
     margin: 0;
+}
+
+/* Group invite sub-nav ("My Friends" / "All Members"): keep the items on one
+   row at all widths. BuddyPress core ships
+   `:not(.vertical) + .item-body #group-invites-container .bp-invites-nav li
+   { display: block }` (specificity 1,3,1), which stacked the items at desktop.
+   #buddypress-prefixed here so it out-specifies that core rule. */
+#buddypress.buddypress-wrap .bp-invites-nav ul.subnav li {
+    display: inline-block;
+    float: none;
 }
 
 .bp-navs::after,

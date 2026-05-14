@@ -687,6 +687,38 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Collect theme_mods for token generation, preview-aware.
+	 *
+	 * `get_theme_mods()` reads the raw `theme_mods_{$stylesheet}` option and is
+	 * NOT filtered by the customizer preview, so previewed-but-unsaved colour
+	 * and radius changes never reached the token CSS — the live preview only
+	 * updated after Publish. `get_theme_mod()` (singular) IS preview-filtered,
+	 * so during a customizer preview we overlay the previewed value for every
+	 * token-feeding setting.
+	 *
+	 * @return array<string, mixed> theme_mod values keyed by setting id.
+	 */
+	protected function collect_mods(): array {
+		$mods = (array) \get_theme_mods();
+
+		if ( ! \is_customize_preview() ) {
+			return $mods;
+		}
+
+		$keys = array_merge(
+			array_keys( self::$simple_color_tokens ),
+			array_keys( self::$typography_color_tokens ),
+			array_keys( self::$dimension_tokens ),
+			array( 'site_custom_colors', 'site_style_variation' )
+		);
+		foreach ( $keys as $key ) {
+			$mods[ $key ] = \get_theme_mod( $key, $mods[ $key ] ?? null );
+		}
+
+		return $mods;
+	}
+
+	/**
 	 * Build the full :root { … } CSS string from theme_mods.
 	 * Public so Dynamic_Style/test code can call it directly.
 	 *
@@ -694,7 +726,7 @@ class Component implements Component_Interface {
 	 */
 	public function build_token_css(): string {
 		$enabled = \get_theme_mod( 'site_custom_colors', true );
-		$mods    = \get_theme_mods();
+		$mods    = $this->collect_mods();
 		$decls   = '';
 
 		// Framework-derived tokens always emit — they back generic neutrals.

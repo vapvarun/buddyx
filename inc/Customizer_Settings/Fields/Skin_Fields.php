@@ -852,13 +852,14 @@ $buddyx_skin_master_gate = array(
 
 \BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
 	array(
-		'settings' => 'site_copyright_border_color',
-		'label'    => esc_html__( 'Copyright Border Color', 'buddyx' ),
-		'section'  => 'site_skin_section',
-		'default'  => '#e8e8e8',
-		'choices'  => array( 'alpha' => true ),
-		'priority' => 82,
-		'output'   => array(
+		'settings'        => 'site_copyright_border_color',
+		'label'           => esc_html__( 'Copyright Border Color', 'buddyx' ),
+		'section'         => 'site_skin_section',
+		'default'         => '#e8e8e8',
+		'choices'         => array( 'alpha' => true ),
+		'priority'        => 82,
+		'active_callback' => $buddyx_skin_master_gate,
+		'output'          => array(
 			array(
 				'element'  => '.site-info',
 				'property' => 'border-color',

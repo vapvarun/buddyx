@@ -153,8 +153,12 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * This rule covers only canonical button elements + WP block buttons.
  *
  * Also excluded: header chrome buttons (color-mode toggle, menu-toggle,
- * search-icon) — they're navigation icons, not primary actions. */
-button:not([class*="wp-"]):not([class*="customize-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close),
+ * search-icon) — they're navigation icons, not primary actions.
+ *
+ * Also excluded: WooCommerce block components ([class*="wc-block-"]) —
+ * Cart/Checkout/Mini-Cart block buttons (quantity stepper, remove-item)
+ * ship their own styling; the brand-button fill broke their layout. */
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close),
 input[type="button"],
 input[type="submit"],
 .wp-block-button__link {
@@ -162,7 +166,7 @@ input[type="submit"],
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):hover,
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
 .wp-block-button__link:hover {

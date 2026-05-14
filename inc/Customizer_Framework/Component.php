@@ -151,19 +151,37 @@ class Component {
 	 * Enqueue customizer-controls.js + .css on the customizer admin page.
 	 */
 	public static function enqueue_controls(): void {
-		$base = trailingslashit( self::get_config( 'assets_url' ) );
+		$base   = trailingslashit( self::get_config( 'assets_url' ) );
+		$handle = self::get_config( 'config_id' ) . '-controls';
 		wp_enqueue_script(
-			self::get_config( 'config_id' ) . '-controls',
+			$handle,
 			$base . 'inc/Customizer_Framework/assets/customizer-controls.js',
 			array( 'customize-controls', 'wp-color-picker', 'jquery-ui-sortable' ),
 			'5.1.0',
 			true
 		);
 		wp_enqueue_style(
-			self::get_config( 'config_id' ) . '-controls',
+			$handle,
 			$base . 'inc/Customizer_Framework/assets/customizer-controls.css',
 			array( 'wp-color-picker' ),
 			'5.1.0'
+		);
+
+		// Export array-form active_callback conditions so customizer-controls.js
+		// can re-evaluate a control's `active` state live when a dependency
+		// setting changes. Without this the PHP active_callback only runs on
+		// initial load, so toggles like "Set Custom Colors?" had no live effect.
+		$active_callbacks = array();
+		foreach ( self::$fields as $f ) {
+			if ( empty( $f['settings'] ) || empty( $f['active_callback'] ) || ! is_array( $f['active_callback'] ) ) {
+				continue;
+			}
+			$active_callbacks[ $f['settings'] ] = array_values( $f['active_callback'] );
+		}
+		wp_add_inline_script(
+			$handle,
+			'window.buddyxCustomizerActiveCallbacks = ' . wp_json_encode( $active_callbacks ) . ';',
+			'before'
 		);
 	}
 

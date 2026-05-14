@@ -115,6 +115,10 @@ p:empty {
 .learndash-wrapper .ld-login-button:focus,
 .learndash-course-widget-wrap .ld-course-status-action a:hover {
     background-color: var(--button-background-hover-color);
+    /* Keep button text readable on hover. These buttons are <a> elements, so
+       without an explicit colour the theme's global link-hover colour bled in
+       and turned the label near-black on the red fill. */
+    color: var(--button-text-hover-color);
     border: 0;
 }
 
