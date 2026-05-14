@@ -23,7 +23,7 @@ require_once __DIR__ . '/Google_Fonts_Catalog.php';
 class Component implements Component_Interface, Templating_Component_Interface {
 
 	/**
-	 * Associative array of Google Fonts to load, as $font_name => $font_variants pairs.
+	 * Associative array of Google Fonts collected from saved typography theme_mods, as $font_name => $font_variants pairs.
 	 *
 	 * Do not access this property directly, instead use the `get_google_fonts()` method.
 	 *
@@ -228,7 +228,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Returns Google Fonts used in theme.
+	 * Returns the Google Fonts in use, collected from saved typography theme_mods.
+	 *
+	 * Value-driven: whatever font-family a site has saved in its typography
+	 * settings is loaded — whether or not it is in the bundled catalog — so
+	 * selections made under the old Kirki picker keep rendering. Self-hosted
+	 * theme fonts (Inter, Newsreader, System UI) and bare CSS generics are
+	 * skipped; they need no Google request.
 	 *
 	 * @return array Associative array of $font_name => $font_variants pairs.
 	 */
@@ -237,19 +243,69 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->google_fonts;
 		}
 
-		// BuddyX 5.1.0 ships Inter + Newsreader self-hosted via theme.json
-		// fontFace declarations, so no Google Fonts request is required. The
-		// former Open Sans / Montserrat entries became unused once the base
-		// font moved to Inter. Kept as a filterable empty array so a site can
-		// opt back into Google Fonts via the `buddyx_google_fonts` filter.
-		$google_fonts = array();
+		// Typography setting IDs whose saved value may carry a font-family.
+		// Hardcoded because Customizer_Framework fields are only registered in
+		// the customizer context, not on front-end requests.
+		// Keep in sync with inc/Customizer_Settings/Fields/Typography_Fields.php.
+		$typography_settings = array(
+			'site_title_typography_option',
+			'site_tagline_typography_option',
+			'site_sub_header_typography',
+			'h1_typography_option',
+			'h2_typography_option',
+			'h3_typography_option',
+			'h4_typography_option',
+			'h5_typography_option',
+			'h6_typography_option',
+			'menu_typography_option',
+			'sub_menu_typography_option',
+			'typography_option',
+		);
+
+		// Self-hosted theme.json families + bare CSS generics — never fetched.
+		$skip = array(
+			'',
+			'inter',
+			'newsreader',
+			'system',
+			'system-ui',
+			'sans-serif',
+			'serif',
+			'monospace',
+			'cursive',
+			'fantasy',
+		);
+
+		$collected = array();
+		foreach ( $typography_settings as $setting_id ) {
+			$value = get_theme_mod( $setting_id );
+			if ( ! is_array( $value ) || empty( $value['font-family'] ) ) {
+				continue;
+			}
+			$family = trim( (string) $value['font-family'] );
+			if ( in_array( strtolower( $family ), $skip, true ) ) {
+				continue;
+			}
+			$variant = '';
+			if ( ! empty( $value['variant'] ) ) {
+				$variant = (string) $value['variant'];
+			} elseif ( ! empty( $value['font-weight'] ) ) {
+				$variant = (string) $value['font-weight'];
+			}
+			if ( ! isset( $collected[ $family ] ) ) {
+				$collected[ $family ] = array();
+			}
+			if ( '' !== $variant && ! in_array( $variant, $collected[ $family ], true ) ) {
+				$collected[ $family ][] = $variant;
+			}
+		}
 
 		/**
-		 * Filters default Google Fonts.
+		 * Filters the Google Fonts BuddyX loads.
 		 *
-		 * @param array $google_fonts Associative array of $font_name => $font_variants pairs.
+		 * @param array $collected Associative array of $font_name => $font_variants pairs.
 		 */
-		$this->google_fonts = (array) apply_filters( 'buddyx_google_fonts', $google_fonts );
+		$this->google_fonts = (array) apply_filters( 'buddyx_google_fonts', $collected );
 
 		return $this->google_fonts;
 	}
