@@ -167,6 +167,11 @@ The headline change is a self-contained Customizer Framework that replaces the b
   - site_title → Newsreader 700 / 40px / 1.1 / -0.01em
   - site_tagline → Inter 400 / 14px / 1.5 / 0.01em
 
+**Google Fonts compatibility + library picker**
+* New - Customizer typography controls now offer the full Google Fonts library again, with a searchable picker.
+* Improve - New installs default to the self-hosted Inter base font; Newsreader stays for editorial accents.
+* Fix - Custom Google Font selections from older versions now load again - the theme reads each saved typography setting and loads the chosen font, self-hosting it when "Load Google Fonts Locally" is enabled.
+
 **Site Loader — premium expansion**
 * 5 animation styles (Pulse / Wave / Bounce / Spinner / Dots) selectable per site.
 * Accessibility: `role="status"`, `aria-live="polite"`, full `prefers-reduced-motion` support.
