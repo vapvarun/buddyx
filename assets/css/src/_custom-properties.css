@@ -7,10 +7,10 @@
 
 :root {
     --global-font-color: #505050;
-    --global-font-family: "Open Sans", serif;
+    --global-font-family: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
     --global-font-size: 16;
     --global-font-line-height: 1.6;
-    --highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
+    --highlight-font-family: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
     --content-width: 100%;
     --dropdown-symbol-width: 0.7em;
     /* Custom editor colors */

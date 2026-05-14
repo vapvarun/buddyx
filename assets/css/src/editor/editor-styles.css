@@ -101,14 +101,14 @@ option {
 .editor-styles-wrapper {
     background-color: #fff;
     color: #505050;
-    font-family: "Open Sans", -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
+    font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
     line-height: 1.8;
     word-wrap: break-word;
 }
 
 .editor-styles-wrapper>* {
     color: #505050;
-    font-family: "Open Sans", -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
+    font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
 }
 
 .editor-styles-wrapper h1,

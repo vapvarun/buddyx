@@ -235,10 +235,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->google_fonts;
 		}
 
-		$google_fonts = array(
-			'Open Sans'  => array( '400', '400i', '700&display=swap' ),
-			'Montserrat' => array( '500', '700' ),
-		);
+		// BuddyX 5.1.0 ships Inter + Newsreader self-hosted via theme.json
+		// fontFace declarations, so no Google Fonts request is required. The
+		// former Open Sans / Montserrat entries became unused once the base
+		// font moved to Inter. Kept as a filterable empty array so a site can
+		// opt back into Google Fonts via the `buddyx_google_fonts` filter.
+		$google_fonts = array();
 
 		/**
 		 * Filters default Google Fonts.
