@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Site Title Settings', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
-					'font-family'     => 'newsreader',
+					'font-family'     => '',
 					'variant'         => '700',
 					'font-style'      => 'normal',
 					'font-size'       => '40px',
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'    => esc_html__( 'Site Tagline Settings', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
-					'font-family'     => 'inter',
+					'font-family'     => '',
 					'variant'         => '400',
 					'font-style'      => 'normal',
 					'font-size'       => '14px',
