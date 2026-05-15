@@ -4,6 +4,23 @@
 **Bar:** Same as BuddyPress audit (`plans/2026-05-15-buddypress-css-ux-audit.md`) — 100% premium UX, inbuilt, uniform desktop+mobile, modern not legacy.
 **Method:** Same as BP audit — `ux-audit` skill (`~/.claude/skills/ux-audit/`) static scan + Playwright per-screen browser measurement of computed tap targets, focus rings, border-radius, shadow, bg, padding, font-size on every interactive element. Both 1280px desktop and 390px mobile per screen.
 
+## Scope constraint — **CSS-only, no template overrides**
+
+The audit + cleanup are **CSS-only**. BuddyX does NOT ship template overrides for WooCommerce going forward.
+
+**Why:**
+
+- WC updates won't break us — no template version drift to track every WC release.
+- Less code to maintain — every override is a long-term liability.
+- New WC features (gallery zoom, block-based cart, new payment-method UIs) auto-inherit our styling without us re-shipping templates.
+- Customer's WC install isn't surprised by a partially-overridden surface where one template is ours and the next is WC's default.
+
+**Implications for the audit:**
+
+- The audit measures WC's **default rendered templates** styled by our CSS. Every premium-feel improvement has to come from CSS targeting WC's own DOM (`.woocommerce`, `.product`, `.cart_item`, `.woocommerce-billing-fields`, `.woocommerce-MyAccount-navigation`, etc.) — NOT from rewriting markup.
+- The 3 currently-overridden WC templates (see inventory below) are **audit candidates for removal** — verify each can be replaced by CSS-only treatment of WC's default template, then drop them.
+- CSS must be comprehensive enough that WC pages look as good as BP pages without any HTML-level theme intervention.
+
 ## Head-start inventory (so the future planner doesn't re-do recon)
 
 ### WooCommerce CSS that BuddyX ships
@@ -19,15 +36,17 @@
 
 **Scope decision** when the audit runs: WC core + WC Vendors. SureCart / FluentCart / Dokan / MultiVendorX are separate plugin ecosystems — list them as **out of scope** in the audit doc, same way Youzify/BuddyBoss were excluded from the BP audit. WC is the primary commerce engine; the others are alternates customers opt into.
 
-### Overridden WC templates in BuddyX
+### Overridden WC templates in BuddyX — candidates for REMOVAL (per CSS-only scope)
 
-Only **3** templates are theme-overridden (vs 13 for BP):
+3 templates are currently theme-overridden:
 
 - `woocommerce/single-product.php`
 - `woocommerce/archive-product.php`
 - `woocommerce/cart/cart.php`
 
-So most WC visible surfaces are rendered by WC's own templates (not BuddyX overrides). The audit should treat both "BuddyX-overridden" and "WC-default-rendered-through-BuddyX-CSS" identically — same lens as the BP audit ("all visible screens we are using" per stakeholder).
+**Audit task:** for each, diff the override against WC core's current default template (same WC version). If the override only adds wrapper divs / changes class names, replicate the styling via CSS targeting WC's default markup and **delete the override**. If the override does something CSS can't (different action hooks, removed sub-templates, custom data attributes), document why and decide: keep the override OR contribute the change upstream to WC.
+
+Either way the 5.2.0 ship state should be: **0 WC template overrides in `woocommerce/` directory.** The CSS in `assets/css/src/woocommerce.css` handles 100% of WC's default templates premium-style.
 
 ### WC-related Customizer toggles BuddyX exposes
 
