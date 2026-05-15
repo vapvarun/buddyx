@@ -51,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -75,7 +75,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '84px',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -99,7 +99,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '84px',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -123,7 +123,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '0px',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -146,7 +146,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -169,7 +169,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',
@@ -193,7 +193,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
-				'transport'       => 'postMessage',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'enable_custom_login',

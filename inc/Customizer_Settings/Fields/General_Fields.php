@@ -126,7 +126,7 @@ defined( 'ABSPATH' ) || exit;
 					'bars'    => get_template_directory_uri() . '/assets/images/loader-bars.svg',
 					'logo'    => get_template_directory_uri() . '/assets/images/loader-logo.svg',
 				),
-				'transport' => 'postMessage',
+				'transport' => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_loader',
