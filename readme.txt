@@ -176,6 +176,7 @@ The headline change is a self-contained Customizer Framework that replaces the b
 * 5 animation styles (Pulse / Wave / Bounce / Spinner / Dots) selectable per site.
 * Accessibility: `role="status"`, `aria-live="polite"`, full `prefers-reduced-motion` support.
 * 7 fields total in the new Site Loader section in General settings.
+* Off by default - modern pages load fast enough that the animation usually adds perceived delay. Installs that relied on the previous on-by-default behaviour can re-enable it via "Show site loader?" in General - Site Loader.
 
 **Site Skin design-token system + native dark mode**
 * New token taxonomy `--bx-color-*` covering surfaces, brand, links, headings, header, menu, buttons, footer, copyright. Customer-saved theme_mod values flow into tokens via `inc/Tokens/Component.php`.
@@ -185,6 +186,7 @@ The headline change is a self-contained Customizer Framework that replaces the b
 * 4 derived tokens always emitted regardless of master toggle: `--bx-color-fg-muted`, `--bx-color-border`, `--bx-color-divider`, `--bx-color-shadow`.
 * `--global-border-color` (218 legacy refs in plugin compat) now forwards to `var(--bx-color-border)` — dark mode auto-inherits without per-rule changes.
 * Stylesheet cleanup pass: 180 `var(--bx-color-*)` references across 27 built min.css files (foundation + BuddyPress + Platform + LearnDash + LearnPress + LifterLMS + WooCommerce + WC-Vendor + Dokan + MultiVendorX + FluentCart + EventsCalendar + WPJobManager + Youzify + AMP + bbPress). State / brand colors preserved (BP greens / blues / reds, LMS progress orange, vendor pastel chips, presence rainbow gradient, focus indicators, accent-bg badges).
+* Sub Header background now ships neutral - the hardcoded translucent-white default was dropped so the sub-header adapts cleanly to both light and dark mode. Sites that want a fixed sub-header background can set one via "Customize Background?" in the Sub Header section.
 
 **Site Skin section UX overhaul**
 * 45 color fields organized into 9 navigable visual clusters (Mode & Master / Brand / Header / Surfaces / Text & Links / Headings / Buttons / Footer / Copyright) with Lucide-style inline SVG icon heads + 3 Header sub-cluster heads (Header surface / Site title / Menu).
