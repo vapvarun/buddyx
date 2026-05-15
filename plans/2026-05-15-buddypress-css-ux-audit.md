@@ -188,9 +188,29 @@ Phase 1 alone moves BuddyPress in BuddyX from "broken keyboard a11y + cramped ta
 - Notification / message threading UX (complex stateful flows beyond CSS).
 - xprofile field rendering — the `.bp-tables-user` legacy table look needs its own plan doc.
 
+## Reproducing this audit (and the Phase-1 cleanup verification)
+
+This first pass ran on a near-empty dev install (1 member, 1 group, ~5 activities) — enough to confirm the structural CSS findings but **not** enough for a meaningful visual/density check. The Phase-1 cleanup PR's verification step + any future re-audit should seed properly first:
+
+```bash
+# Install + activate the seed toolkit
+git clone https://github.com/vapvarun/buddypress-playground-cli.git wp-content/plugins/buddypress-playground-cli
+wp plugin activate buddypress-playground-cli
+
+# Seed: small_community gives 50 users / 10 groups / 200 activities (also seeds bbPress forums/topics/replies if active)
+wp bp playground scenario generate small_community --clean --yes
+
+# Verify
+wp post list --post_type=bp_group --format=count    # >= 10
+wp user list --role=subscriber --format=count       # >= 40
+```
+
+After seeding, re-walk the visible-screens checklist below. Empty-state findings (B9) may shift — that's intended. Standards findings (A1-A8) and most UX-quality findings (B1-B14) are content-independent and will hold.
+
 ## Reference
 
 - Audit method preserved in skill: `~/.claude/skills/ux-audit/SKILL.md` (the static script + 3-mode browser sweep).
+- BP/bbPress seed toolkit: [vapvarun/buddypress-playground-cli](https://github.com/vapvarun/buddypress-playground-cli.git) — used for reproducing this audit + downstream cleanup verification.
 - Companion skill: `wbcom-kirki-to-tokens` (Pillar 2 — Tokens; Pillar 5 — Fonts; Lessons 21-23 — live preview, default-value audit, render-time truthiness).
 - Free-theme gap inventory: `plans/2026-05-15-free-theme-gap-inventory.md` — overlaps on mobile header bar (C4) and off-canvas menu polish.
 - Audit raw output: `plans/audit-snapshots/2026-05-15-ux-audit-raw.md` (gitignored; regenerate with `~/.claude/skills/ux-audit/templates/ux-audit.sh .`).

@@ -24,7 +24,41 @@ A bbPress audit measures rendered screens. Without forum content, the visible-sc
 - One reply should **quote another reply** (to test quoted-reply styling).
 - Seed two different test users so author avatar/name patterns vary across the reply thread.
 
-Source: WP-CLI scaffolds (`wp bbp` commands if available) OR manual create OR bbPress's own demo content (if shipped). Either way, document the seed steps in the audit's commit body so the next person can reproduce.
+### Source — use `buddypress-playground-cli` (canonical, seeds BP + bbPress together)
+
+**Repo:** [vapvarun/buddypress-playground-cli](https://github.com/vapvarun/buddypress-playground-cli.git) — WP-CLI plugin (`wp bp playground ...`) with predefined scenarios. **Detects bbPress automatically and seeds forums/topics/replies as part of the scenario.**
+
+```bash
+# 1. Install + activate (one time; same plugin seeds BP + bbPress)
+git clone https://github.com/vapvarun/buddypress-playground-cli.git wp-content/plugins/buddypress-playground-cli
+wp plugin activate buddypress-playground-cli
+
+# 2. Pre-activate bbPress so the BP scenario picks it up and seeds forums
+wp plugin install bbpress --activate
+
+# 3. Seed: small_community scenario gives 50 users / 10 groups / 200 activities + bbPress forums/topics/replies
+wp bp playground scenario generate small_community --clean --yes
+
+# Verify
+wp post list --post_type=forum --format=count   # should be >= 3
+wp post list --post_type=topic --format=count   # >= 6
+wp post list --post_type=reply --format=count   # >= 18
+```
+
+**For the specific state variants required by the audit (sticky topic, closed topic, long reply, quoted reply):** after the scenario runs, manually toggle states on a handful of topics via WP-CLI or the bbPress admin:
+
+```bash
+# Make one topic sticky
+wp post meta update <topic_id> _bbp_sticky 1 # or super-sticky
+
+# Close one topic
+wp post meta update <topic_id> _bbp_status closed
+
+# Add a >500-word reply to one topic via wp post create --post_type=reply ...
+# Quote-reply: trigger via the bbPress UI (uses [bbp-quote-reply] shortcode)
+```
+
+**Document the exact seed steps + final state-variant assignments in the audit's commit body** so the next person can reproduce.
 
 ## Head-start inventory
 

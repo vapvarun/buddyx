@@ -34,11 +34,36 @@ A LearnDash audit measures rendered screens. LD has the most data-shaped UI of a
 
 - **1 LD Group** with 1 course assigned + 1 student enrolled — so group-leader + group-member screens render.
 
-### Source
+### Source — use the `learndash-testing-toolkit` (canonical)
 
-- LearnDash ships a **demo content import** under LearnDash LMS → Settings → Tools (or similar). Use it for the rich course.
-- For students + enrollment + progress: WP-CLI (`wp user create` + `wp ld user-course-update` if available) OR manual via LD admin.
-- Document seed steps in the audit's commit body.
+**Repo:** [vapvarun/learndash-testing-toolkit](https://github.com/vapvarun/learndash-testing-toolkit.git) — WP-CLI plugin (`wp ldtt ...`) built specifically for this kind of seed work.
+
+```bash
+# 1. Install + activate (one time)
+git clone https://github.com/vapvarun/learndash-testing-toolkit.git wp-content/plugins/learndash-testing-toolkit
+wp plugin activate learndash-testing-toolkit
+
+# 2. Seed the audit fixture (rich course + simple course)
+wp ldtt create-courses --count=2 --access_mode=open          # 2 courses, all open
+wp ldtt create-lessons --count=8 --course_id=<rich-course>   # 8 lessons in the rich course
+wp ldtt create-lessons --count=3 --course_id=<simple-course> # 3 lessons in the simple course
+wp ldtt create-topics  --count=9 --lesson_id=<lesson-id>     # 3 topics × 3 nested lessons (=9) in the rich course
+wp ldtt create_quiz    --title="Module Check" --questions=5  # the 5-question mixed quiz
+
+# 3. Seed students + enrollment
+wp user create student1 student1@test.local --role=subscriber --user_pass=test
+wp user create student2 student2@test.local --role=subscriber --user_pass=test
+# Enroll both into rich course (toolkit supports this; check `wp ldtt --help` for the exact subcommand)
+
+# 4. Mark progress for student1 (mid-progress: 5 of 8 lessons done)
+# Mark complete for student2 across all lessons + quiz attempt for certificate
+
+# 5. (Optional) Create LD Group with rich course + student1 + student2
+```
+
+Verify after seeding: `wp post list --post_type=sfwd-courses --format=count` should return 2; `sfwd-lessons` 11; `sfwd-topic` 9; `sfwd-quiz` 1.
+
+**Document the exact seed steps + final post counts in the audit's commit body** so the next person can reproduce.
 
 ## Head-start inventory
 
