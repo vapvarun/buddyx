@@ -38,3 +38,6 @@ blob-report/
 
 # Block build output
 assets/blocks/*/build/
+
+# transient ux-audit snapshots (canonical findings live in committed plans/ files)
+plans/audit-snapshots/
