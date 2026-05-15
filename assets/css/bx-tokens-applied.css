@@ -157,18 +157,27 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  *
  * Also excluded: WooCommerce block components ([class*="wc-block-"]) —
  * Cart/Checkout/Mini-Cart block buttons (quantity stepper, remove-item)
- * ship their own styling; the brand-button fill broke their layout. */
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close),
-input[type="button"],
-input[type="submit"],
+ * ship their own styling; the brand-button fill broke their layout.
+ *
+ * Also excluded: The Events Calendar ([class*="tribe-"] and any descendant
+ * of one). TEC's own buttons carry `tribe-common-c-btn`, but its date-
+ * picker popup uses bootstrap-datepicker which renders unprefixed
+ * `<button class="day">` / `.datepicker-switch` / `.prev` / `.next` cells
+ * inside a `.tribe-events-c-top-bar__datepicker-container` ancestor. Both
+ * the direct-class match and the descendant exclusion are needed so the
+ * brand-button fill stops repainting the calendar grid + view-switcher
+ * + nav arrows. */
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="tribe-"]):not([class*="tribe-"] *):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close),
+input[type="button"]:not([class*="tribe-"]):not([class*="tribe-"] *),
+input[type="submit"]:not([class*="tribe-"]):not([class*="tribe-"] *),
 .wp-block-button__link {
 	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):hover,
-input[type="button"]:hover,
-input[type="submit"]:hover,
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="tribe-"]):not([class*="tribe-"] *):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):hover,
+input[type="button"]:not([class*="tribe-"]):not([class*="tribe-"] *):hover,
+input[type="submit"]:not([class*="tribe-"]):not([class*="tribe-"] *):hover,
 .wp-block-button__link:hover {
 	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg-hover, #ffffff);

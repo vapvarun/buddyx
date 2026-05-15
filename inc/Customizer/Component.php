@@ -180,5 +180,59 @@ class Component implements Component_Interface {
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
 			true
 		);
+
+		/**
+		 * Field defaults mirror Tokens::$alpha_color_field_defaults_5_1_0 and
+		 * $alpha_color_typography_subkey_defaults_5_1_0. The live-preview JS
+		 * uses this map to suppress inline `!important` writes when the
+		 * effective value still equals the registered default, so the style-
+		 * variation overlay continues to drive colors the customer has not
+		 * personalised.
+		 */
+		$color_defaults = array(
+			'site_loader_bg'                      => '#ef5455',
+			'site_primary_color'                  => '#ef5455',
+			'site_header_bg_color'                => '#ffffff',
+			'site_title_hover_color'              => '#ef5455',
+			'menu_hover_color'                    => '#ef5455',
+			'menu_active_color'                   => '#ef5455',
+			'body_background_color'               => '#f7f7f9',
+			'content_background_color'            => '#f7f7f9',
+			'box_background_color'                => '#ffffff',
+			'secondary_background_color'          => '#fafafa',
+			'site_links_color'                    => '#111111',
+			'site_links_focus_hover_color'        => '#ef5455',
+			'site_buttons_background_color'       => '#ef5455',
+			'site_buttons_background_hover_color' => '#f83939',
+			'site_buttons_text_color'             => '#ffffff',
+			'site_buttons_text_hover_color'       => '#ffffff',
+			'site_buttons_border_color'           => '#ef5455',
+			'site_buttons_border_hover_color'     => '#f83939',
+			'site_footer_title_color'             => '#111111',
+			'site_footer_content_color'           => '#505050',
+			'site_footer_links_color'             => '#111111',
+			'site_footer_links_hover_color'       => '#ef5455',
+			'site_copyright_background_color'     => '#ffffff',
+			'site_copyright_border_color'         => '#e8e8e8',
+			'site_copyright_content_color'        => '#505050',
+			'site_copyright_links_color'          => '#111111',
+			'site_copyright_links_hover_color'    => '#ef5455',
+			'site_title_typography_option[color]'    => '#111111',
+			'site_tagline_typography_option[color]'  => '#757575',
+			'menu_typography_option[color]'          => '#111111',
+			'typography_option[color]'               => '#505050',
+			'h1_typography_option[color]'            => '#111111',
+			'h2_typography_option[color]'            => '#111111',
+			'h3_typography_option[color]'            => '#111111',
+			'h4_typography_option[color]'            => '#111111',
+			'h5_typography_option[color]'            => '#111111',
+			'h6_typography_option[color]'            => '#111111',
+		);
+
+		wp_localize_script(
+			'buddyx-customizer',
+			'buddyxCustomizerDefaults',
+			$color_defaults
+		);
 	}
 }

@@ -23,11 +23,77 @@ interface WPCustomize {
 declare global {
 	interface Window {
 		wp: { customize: WPCustomize };
+		buddyxCustomizerDefaults?: Record<string, string>;
 	}
 }
 
 // This export makes the file a module and allows declare global to work
 export {};
+
+/**
+ * Registered field defaults injected from PHP (Customizer/Component.php).
+ * When a setting's effective value still matches its default, the live-
+ * preview skip writing an inline `!important` declaration on <body> so the
+ * style-variation overlay continues to drive that token.
+ */
+const fieldDefaults: Record<string, string> =
+	window.buddyxCustomizerDefaults || {};
+
+/**
+ * Normalize a CSS color string to a canonical lowercase 6-digit hex (or
+ * "rgba()" for alpha values) so registered defaults declared in `#ef5455`
+ * still compare equal to live-preview values that arrive as `rgb(239, 84,
+ * 85)` or `rgba(239,84,85,1)`.
+ * @param value
+ */
+function canonicalizeColor(value: string): string {
+	const v = value.trim().toLowerCase();
+	if (!v) {
+		return '';
+	}
+	if (v.startsWith('#')) {
+		const hex = v.slice(1);
+		if (hex.length === 3) {
+			return (
+				'#' +
+				hex
+					.split('')
+					.map((c) => c + c)
+					.join('')
+			);
+		}
+		if (hex.length === 6 || hex.length === 8) {
+			return '#' + hex;
+		}
+		return v;
+	}
+	const rgb = v.match(
+		/^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)(?:[\s,/]+([\d.]+))?\s*\)$/
+	);
+	if (rgb) {
+		const r = parseInt(rgb[1], 10);
+		const g = parseInt(rgb[2], 10);
+		const b = parseInt(rgb[3], 10);
+		const a = rgb[4] !== undefined ? parseFloat(rgb[4]) : 1;
+		if (a === 1) {
+			const toHex = (n: number) => n.toString(16).padStart(2, '0');
+			return '#' + toHex(r) + toHex(g) + toHex(b);
+		}
+		return `rgba(${r},${g},${b},${a})`;
+	}
+	return v;
+}
+
+function valueMatchesRegisteredDefault(
+	settingId: string,
+	value: string
+): boolean {
+	const fallback = fieldDefaults[settingId];
+	if (!fallback || !value) {
+		return false;
+	}
+	return canonicalizeColor(value) === canonicalizeColor(fallback);
+}
 
 // Helper functions
 function setTextContent(selector: string, text: string): void {
@@ -178,6 +244,14 @@ function updateDynamicColorVariable(settingId: string, value: string): void {
 	// + legacy aliases for plugin compat). Update all of them on every
 	// change so live preview matches the saved-CSS output exactly.
 	if (!customColorsEnabled) {
+		variableNames.forEach((name) => setBodyCssVariable(name));
+		return;
+	}
+
+	// When the value still equals the registered field default the variation
+	// overlay should remain in control of the token. Removing any prior
+	// inline declaration on <body> lets the :root cascade resolve.
+	if (valueMatchesRegisteredDefault(settingId, value)) {
 		variableNames.forEach((name) => setBodyCssVariable(name));
 		return;
 	}

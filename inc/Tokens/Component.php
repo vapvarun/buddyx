@@ -260,6 +260,49 @@ class Component implements Component_Interface {
 	 * @var array<string, string>
 	 */
 	protected static array $framework_tokens = array(
+		// Customer-facing role defaults. Mirror the registered customizer
+		// field defaults so the no-preset, no-save look matches 5.0.x. The
+		// style-variation overlay (Phase 7) and customer saves both layer on
+		// top of these and remain authoritative.
+		'--bx-color-bg'                 => '#f7f7f9',
+		'--bx-color-bg-page'            => '#f7f7f9',
+		'--bx-color-bg-elevated'        => '#ffffff',
+		'--bx-color-bg-muted'           => '#fafafa',
+		'--bx-color-fg'                 => '#505050',
+		'--bx-color-header-bg'          => '#ffffff',
+		'--bx-color-site-title'         => '#111111',
+		'--bx-color-site-title-hover'   => '#ef5455',
+		'--bx-color-site-tagline'       => '#757575',
+		'--bx-color-menu-fg'            => '#111111',
+		'--bx-color-menu-hover'         => '#ef5455',
+		'--bx-color-menu-active'        => '#ef5455',
+		'--bx-color-subheader-fg'       => '#111111',
+		'--bx-color-h1'                 => '#111111',
+		'--bx-color-h2'                 => '#111111',
+		'--bx-color-h3'                 => '#111111',
+		'--bx-color-h4'                 => '#111111',
+		'--bx-color-h5'                 => '#111111',
+		'--bx-color-h6'                 => '#111111',
+		'--bx-color-accent'             => '#ef5455',
+		'--bx-color-link'               => '#111111',
+		'--bx-color-link-hover'         => '#ef5455',
+		'--bx-color-button-bg'          => '#ef5455',
+		'--bx-color-button-bg-hover'    => '#f83939',
+		'--bx-color-button-fg'          => '#ffffff',
+		'--bx-color-button-fg-hover'    => '#ffffff',
+		'--bx-color-button-border'      => '#ef5455',
+		'--bx-color-button-border-hover' => '#f83939',
+		'--bx-color-loader-bg'          => '#ef5455',
+		'--bx-color-footer-title'       => '#111111',
+		'--bx-color-footer-fg'          => '#505050',
+		'--bx-color-footer-link'        => '#111111',
+		'--bx-color-footer-link-hover'  => '#ef5455',
+		'--bx-color-copyright-bg'       => '#ffffff',
+		'--bx-color-copyright-border'   => '#e8e8e8',
+		'--bx-color-copyright-fg'       => '#505050',
+		'--bx-color-copyright-link'     => '#111111',
+		'--bx-color-copyright-link-hover' => '#ef5455',
+
 		// Foreground (text) extras.
 		'--bx-color-fg-muted'           => '#757575',                // Mid-tone text.
 		'--bx-color-fg-subtle'          => '#9ca3af',                // Subtle / placeholder text.
@@ -786,13 +829,20 @@ class Component implements Component_Interface {
 			'site_header_bg_color'           => array( '--bx-color-header-bg', '#ffffff' ),
 		);
 
-		// Simple hex color tokens.
-		// With the architectural cleanup (5.1.0 source @import dedup), the
-		// inline tokens emit is the LAST :root rule in the cascade for every
-		// page render — global.min.css declares defaults, then this inline
-		// block overrides for customer-saved values. No !important needed.
+		// Simple hex color tokens. The inline tokens emit is the last :root
+		// rule in the cascade for every page render — global.min.css declares
+		// defaults, then this inline block overrides for customer-saved
+		// values. Values that canonically equal the registered field default
+		// are skipped so the style-variation overlay remains the source of
+		// truth for tokens the customer has not personalised.
 		foreach ( self::$simple_color_tokens as $mod_key => $cfg ) {
 			$value = $mods[ $mod_key ] ?? '';
+			if ( '' !== $value && is_string( $value ) ) {
+				$default = self::$alpha_color_field_defaults_5_1_0[ $mod_key ] ?? null;
+				if ( null !== $default && self::colors_canonically_equal( $value, $default ) ) {
+					$value = '';
+				}
+			}
 			$color = '' !== $value ? self::normalize_color( $value ) : '';
 			if ( '' !== $color ) {
 				$decls .= $cfg['token'] . ':' . $color . ';';
@@ -817,11 +867,18 @@ class Component implements Component_Interface {
 			}
 		}
 
-		// Typography sub-key 'color' tokens.
+		// Typography sub-key 'color' tokens. Same default-equals-skip as
+		// simple_color_tokens — structured typography arrays carry a `color`
+		// sub-key whose registered default would otherwise re-override the
+		// variation overlay's site-title / heading values.
 		foreach ( self::$typography_color_tokens as $mod_key => $cfg ) {
 			$value     = $mods[ $mod_key ] ?? array();
 			$color_val = is_array( $value ) ? ( $value['color'] ?? '' ) : '';
 			if ( '' === $color_val ) {
+				continue;
+			}
+			$default = self::$alpha_color_typography_subkey_defaults_5_1_0[ $mod_key ] ?? null;
+			if ( null !== $default && self::colors_canonically_equal( $color_val, $default ) ) {
 				continue;
 			}
 			$color = self::normalize_color( $color_val );
