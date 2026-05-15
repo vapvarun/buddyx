@@ -21,6 +21,38 @@ The audit + cleanup are **CSS-only**. BuddyX does NOT ship template overrides fo
 - The 3 currently-overridden WC templates (see inventory below) are **audit candidates for removal** — verify each can be replaced by CSS-only treatment of WC's default template, then drop them.
 - CSS must be comprehensive enough that WC pages look as good as BP pages without any HTML-level theme intervention.
 
+## Seed content prerequisite — **must populate before audit**
+
+A WC audit measures rendered screens. WC has the most data-shaped commerce UI in the stack (product variations, sale prices, stock states, cart calculations, checkout fields, order receipts). Without seed data the audit cannot run on real surfaces — only empty-state placeholders.
+
+**Reality check at planning time (2026-05-15):** the dev install has **1 product, 1 order, 1 category (Uncategorized only)**. Far from sufficient for a real audit. Seed before auditing:
+
+### Catalog
+
+- **At least 12 products** across **3+ categories** so the shop archive grid renders properly (verify multi-row, real pagination boundary).
+- Mix of product types: **simple, variable (with 2-3 variations), grouped, virtual/downloadable**.
+- At least **2 products on sale** (regular_price + sale_price set) so sale-badge styling renders.
+- At least **1 product out-of-stock** so the out-of-stock badge renders.
+- At least **1 product with multiple gallery images** so the product-image-gallery + thumbnail nav render.
+- At least **2 products with 3+ approved reviews** (different ratings 3/4/5 stars) so the reviews tab + star ratings render.
+- **Featured product** flag set on at least 1 product (so featured-product styling renders).
+
+### Orders
+
+- At least **3 orders** in different states: completed / processing / on-hold (so my-account orders list shows multiple state pills).
+- One order should have **2+ line items** with at least one variation (so the order details template renders variations).
+
+### Customer / account
+
+- A test customer user with a **complete billing address** + **separate shipping address** + **saved payment method** (if a gateway like Stripe-test is wired) — so my-account edit-address + payment-methods + downloads pages aren't empty.
+
+### Source
+
+- WC ships a **sample-products XML** under `wp-content/plugins/woocommerce/sample-data/sample_products.xml`. Import via WP-CLI or Tools → Import.
+- Plus WP-CLI: `wp wc product create ...` (if the WC CLI extension is loaded) for variations + sale prices.
+- Test orders: WC's "Create order" admin page, or `wp wc order create`.
+- Document seed steps in the audit's commit body.
+
 ## Head-start inventory (so the future planner doesn't re-do recon)
 
 ### WooCommerce CSS that BuddyX ships
