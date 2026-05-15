@@ -184,7 +184,7 @@ Phase 1 alone moves BuddyPress in BuddyX from "broken keyboard a11y + cramped ta
 ## Out of scope for this audit (followups)
 
 - Real customer DB on staging — every finding above is on a synthetic test DB with 1 member + 1 group + 5 activity items. Empty-state findings may shift when real data populates.
-- BuddyBoss / Youzify plugin compatibility surfaces — the audit covered `buddypress.css` (theme's BP styling) + the theme's overridden templates; plugin-shipped CSS (e.g. `buddyx-youzify.css`) wasn't deep-probed.
+- BuddyBoss / other community-plugin compat surfaces — the audit covered `buddypress.css` (the theme's BP styling) + the theme's overridden templates only. Third-party community plugins are explicitly out of scope; BuddyPress is BuddyX's primary community engine and the audit's exclusive focus.
 - Notification / message threading UX (complex stateful flows beyond CSS).
 - xprofile field rendering — the `.bp-tables-user` legacy table look needs its own plan doc.
 
