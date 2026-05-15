@@ -22,8 +22,6 @@ npm-debug.log*
 .env
 .env.local
 
-# Claude instructions (local only)
-CLAUDE.md
 bundled/
 .phpunit.result.cache
 
