@@ -194,29 +194,66 @@ $buddyx_skin_master_gate = array(
 // resolves --bx-color-* tokens against it. Per-customizer color saves
 // still win over the variation's defaults — variation provides the
 // "starting point" palette, customizer is the "fine tune" layer.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'select',
+//
+// Rendered as a swatch grid (radio_image with [image, label] choices) so
+// the customer sees each variation's palette before picking, instead of
+// guessing from a slug name.
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
 	array(
 		'settings'    => 'site_style_variation',
 		'label'       => esc_html__( 'Style preset', 'buddyx' ),
-		'description' => esc_html__( 'Starting colors and fonts.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Pick a ready-made look as your starting point. Any colors you change below still take priority.', 'buddyx' ),
+		'description' => esc_html__( 'Pick a ready-made starting look.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Each card previews the preset\'s palette. Any colors you change below still take priority over the preset.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => '',
 		'priority'    => 7,
-		'choices'     => array(
-			''           => esc_html__( 'Default (theme)', 'buddyx' ),
-			'cool'       => esc_html__( 'Cool', 'buddyx' ),
-			'dark'       => esc_html__( 'Dark', 'buddyx' ),
-			'editorial'  => esc_html__( 'Editorial', 'buddyx' ),
-			'minimal'    => esc_html__( 'Minimal', 'buddyx' ),
-			'monochrome' => esc_html__( 'Monochrome', 'buddyx' ),
-			'pastel'     => esc_html__( 'Pastel', 'buddyx' ),
-			'vibrant'    => esc_html__( 'Vibrant', 'buddyx' ),
-			'warm'       => esc_html__( 'Warm', 'buddyx' ),
-		),
+		'choices'     => buddyx_get_style_variation_swatch_choices(),
 		'transport'   => 'refresh',
 	)
 );
+
+/**
+ * Build the radio_image `[ image, label ]` choices map for the Style
+ * preset picker. Each card points at a static SVG file in
+ * `assets/images/presets/<slug>.svg` so esc_url() passes the path through
+ * unchanged and the browser can cache them. Mirrors buddyx-pro's
+ * Color_Presets::get_swatch_choices shape so cross-theme docs cover both.
+ *
+ * Regenerate the SVG files via tools/generate-preset-swatches.php when
+ * a variation's palette changes.
+ *
+ * @return array
+ */
+function buddyx_get_style_variation_swatch_choices() {
+	$base_url = trailingslashit( get_template_directory_uri() ) . 'assets/images/presets/';
+
+	$choices = array(
+		'' => array(
+			'image' => $base_url . 'default.svg',
+			'label' => esc_html__( 'Default', 'buddyx' ),
+		),
+	);
+
+	$labels = array(
+		'cool'       => __( 'Cool', 'buddyx' ),
+		'dark'       => __( 'Dark', 'buddyx' ),
+		'editorial'  => __( 'Editorial', 'buddyx' ),
+		'minimal'    => __( 'Minimal', 'buddyx' ),
+		'monochrome' => __( 'Monochrome', 'buddyx' ),
+		'pastel'     => __( 'Pastel', 'buddyx' ),
+		'vibrant'    => __( 'Vibrant', 'buddyx' ),
+		'warm'       => __( 'Warm', 'buddyx' ),
+	);
+
+	foreach ( $labels as $slug => $label ) {
+		$choices[ $slug ] = array(
+			'image' => $base_url . $slug . '.svg',
+			'label' => $label,
+		);
+	}
+
+	return $choices;
+}
 
 \BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 	array(
