@@ -171,7 +171,7 @@ $buddyx_skin_master_gate = array(
 		'priority'        => 6,
 		'choices'         => array(
 			'header'      => esc_html__( 'Header', 'buddyx' ),
-			'mobile_only' => esc_html__( 'Mobile menu', 'buddyx' ),
+			'mobile_only' => esc_html__( 'Mobile', 'buddyx' ),
 			'both'        => esc_html__( 'Both', 'buddyx' ),
 		),
 		'transport'       => 'refresh',
