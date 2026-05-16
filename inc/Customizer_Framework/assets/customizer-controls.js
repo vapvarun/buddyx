@@ -244,6 +244,73 @@
 			[familyEl, weightEl, styleEl, sizeEl, lhEl, lsEl, ttEl, alignEl, decorEl]
 				.filter(Boolean)
 				.forEach((el) => el.addEventListener('change', sync));
+
+			// Helper: ensure the family <select> has an option for an
+			// externally-supplied value (e.g. a preset's font-family
+			// stack). Reuses a single "Saved" optgroup with a clean
+			// primary-family label so repeat preset picks don't pile up.
+			function ensureFamilyOption(value) {
+				if (!value) {
+					return;
+				}
+				const escaped = window.CSS.escape(value);
+				if (familyEl.querySelector('option[value="' + escaped + '"]')) {
+					return;
+				}
+				const cleanLabel = String(value).split(',')[0].replace(/['"]/g, '').trim() || value;
+				let savedGroup = familyEl.querySelector('optgroup[data-buddyx-saved="1"]');
+				if (savedGroup) {
+					while (savedGroup.firstChild) {
+						savedGroup.removeChild(savedGroup.firstChild);
+					}
+				} else {
+					savedGroup = document.createElement('optgroup');
+					savedGroup.label = fontData.saved_label || 'Saved';
+					savedGroup.setAttribute('data-buddyx-saved', '1');
+					familyEl.insertBefore(savedGroup, familyEl.children[1] || null);
+				}
+				const opt = document.createElement('option');
+				opt.value = value;
+				opt.textContent = cleanLabel;
+				savedGroup.appendChild(opt);
+			}
+
+			// External-setting-change sync: when another script writes
+			// to this typography setting, mirror the new value into the
+			// visible UI inputs so the customer sidebar stays in step
+			// with the preview iframe.
+			let suppressEcho = false;
+			ctl.setting.bind(function (newValue) {
+				if (suppressEcho) {
+					return;
+				}
+				if (!newValue || typeof newValue !== 'object') {
+					return;
+				}
+				suppressEcho = true;
+				try {
+					const newFam = newValue['font-family'] || '';
+					ensureFamilyOption(newFam);
+					familyEl.value = newFam;
+					weightEl.value = newValue['variant'] || newValue['font-weight'] || weightEl.value;
+					if (styleEl) {
+						styleEl.value = newValue['font-style'] || styleEl.value;
+					}
+					sizeEl.value = parseFloat(newValue['font-size']) || sizeEl.value;
+					lhEl.value = parseFloat(newValue['line-height']) || lhEl.value;
+					lsEl.value = parseFloat(newValue['letter-spacing']) || 0;
+					ttEl.value = newValue['text-transform'] || 'none';
+					if (alignEl) {
+						alignEl.value = newValue['text-align'] || '';
+					}
+					if (decorEl) {
+						decorEl.value = newValue['text-decoration'] || '';
+					}
+					hidden.value = JSON.stringify(newValue);
+				} finally {
+					suppressEcho = false;
+				}
+			});
 		},
 	});
 
