@@ -127,7 +127,8 @@ $buddyx_skin_master_gate = array(
 	array(
 		'settings'    => 'site_color_mode',
 		'label'       => esc_html__( 'Color mode', 'buddyx' ),
-		'description' => esc_html__( 'Auto follows the visitor\'s OS preference. Light or Dark force one mode for everyone. Visitors can override via the front-end toggle if you enable it below.', 'buddyx' ),
+		'description' => esc_html__( 'Default look for new visitors.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Auto matches the visitor\'s device theme. Light or Dark keeps the site on one look for everyone.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'light',
 		'priority'    => 6,
@@ -149,7 +150,8 @@ $buddyx_skin_master_gate = array(
 	array(
 		'settings'    => 'site_color_mode_toggle_show',
 		'label'       => esc_html__( 'Show color-mode toggle', 'buddyx' ),
-		'description' => esc_html__( 'Adds a sun/moon button to the header so visitors can switch the site between Light, Dark, and System modes. Hide if you want to lock the site to the mode chosen above.', 'buddyx' ),
+		'description' => esc_html__( 'Let visitors switch the look.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Adds a sun and moon button so visitors can pick Light, Dark, or match their device. Turn off to keep the look you set above.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'on',
 		'priority'    => 6,
@@ -165,7 +167,8 @@ $buddyx_skin_master_gate = array(
 	array(
 		'settings'        => 'site_color_mode_toggle_position',
 		'label'           => esc_html__( 'Toggle position', 'buddyx' ),
-		'description'     => esc_html__( 'Where the visitor color-mode button appears.', 'buddyx' ),
+		'description'     => esc_html__( 'Where the button appears.', 'buddyx' ),
+		'tooltip'         => esc_html__( 'Header places it next to the menu icons. Mobile shows it only in the mobile menu. Both shows it in each.', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => 'both',
 		'priority'        => 6,
@@ -195,7 +198,8 @@ $buddyx_skin_master_gate = array(
 	array(
 		'settings'    => 'site_style_variation',
 		'label'       => esc_html__( 'Style preset', 'buddyx' ),
-		'description' => esc_html__( 'Pick a coordinated palette + typography preset as your starting point. Your customizer color choices below override the preset values where set.', 'buddyx' ),
+		'description' => esc_html__( 'Starting colors and fonts.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Pick a ready-made look as your starting point. Any colors you change below still take priority.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => '',
 		'priority'    => 7,

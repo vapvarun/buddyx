@@ -683,4 +683,83 @@
 			},
 		});
 	})();
+
+	/**
+	 * Tooltip rendering.
+	 *
+	 * Reads window.buddyxCustomizerTooltips (a setting-id -> text map exported
+	 * by Customizer_Framework\Component::enqueue_controls) and injects a small
+	 * info icon after each matching control's label. The icon is a button so
+	 * keyboard users can tab to it; clicking toggles a popover with the text.
+	 * Outside-click and Esc dismiss. Activates the existing `tooltip` field
+	 * argument that field definitions across the codebase already declare.
+	 */
+	(function () {
+		var map = window.buddyxCustomizerTooltips;
+		if (!map || typeof map !== 'object') {
+			return;
+		}
+
+		var openPopover = null;
+
+		function closeOpen() {
+			if (openPopover) {
+				openPopover.trigger.attr('aria-expanded', 'false');
+				openPopover.popover.remove();
+				openPopover = null;
+			}
+		}
+
+		jQuery(document).on('click.buddyxTooltip', function (event) {
+			if (!openPopover) {
+				return;
+			}
+			if (jQuery(event.target).closest('.buddyx-tooltip-trigger, .buddyx-tooltip-popover').length) {
+				return;
+			}
+			closeOpen();
+		});
+
+		jQuery(document).on('keydown.buddyxTooltip', function (event) {
+			if (event.key === 'Escape' && openPopover) {
+				var $t = openPopover.trigger;
+				closeOpen();
+				$t.trigger('focus');
+			}
+		});
+
+		function attach(controlId, text) {
+			var ctl = wp.customize.control(controlId);
+			if (!ctl) {
+				return;
+			}
+			ctl.deferred.embedded.done(function () {
+				var $container = ctl.container;
+				var $title = $container.find('.customize-control-title').first();
+				if (!$title.length || $title.find('.buddyx-tooltip-trigger').length) {
+					return;
+				}
+				var $btn = jQuery('<button type="button" class="buddyx-tooltip-trigger" aria-label="More info" aria-expanded="false"><span aria-hidden="true">i</span></button>');
+				$btn.on('click', function (event) {
+					event.preventDefault();
+					event.stopPropagation();
+					if (openPopover && openPopover.trigger.is($btn)) {
+						closeOpen();
+						return;
+					}
+					closeOpen();
+					var $pop = jQuery('<div class="buddyx-tooltip-popover" role="tooltip"></div>').text(text);
+					$btn.attr('aria-expanded', 'true').after($pop);
+					openPopover = { trigger: $btn, popover: $pop };
+				});
+				$title.append(' ').append($btn);
+			});
+		}
+
+		wp.customize.bind('ready', function () {
+			Object.keys(map).forEach(function (id) {
+				attach(id, map[id]);
+			});
+		});
+	})();
 })();

@@ -183,6 +183,23 @@ class Component {
 			'window.buddyxCustomizerActiveCallbacks = ' . wp_json_encode( $active_callbacks ) . ';',
 			'before'
 		);
+
+		// Export tooltip values so customizer-controls.js can inject an info
+		// icon next to each control's label. Keeps the Customizer sidebar
+		// uncluttered while giving customers a hover/click reveal for any
+		// extra context the short `description` does not cover.
+		$tooltips = array();
+		foreach ( self::$fields as $f ) {
+			if ( empty( $f['settings'] ) || empty( $f['tooltip'] ) ) {
+				continue;
+			}
+			$tooltips[ $f['settings'] ] = (string) $f['tooltip'];
+		}
+		wp_add_inline_script(
+			$handle,
+			'window.buddyxCustomizerTooltips = ' . wp_json_encode( $tooltips ) . ';',
+			'before'
+		);
 	}
 
 	/**
