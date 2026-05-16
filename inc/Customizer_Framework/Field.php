@@ -363,7 +363,12 @@ class Field {
 		$out      = array_diff_key( $args, array_flip( $internal ) );
 
 		$out['label']       = $args['label']       ?? '';
-		$out['description'] = $args['description'] ?? '';
+		// Render `tooltip` as inline description when no description is
+		// set. The standalone popover variant conflicted with adjacent
+		// toggle/switch controls (overlay blocked clicks and obscured
+		// the next setting), so we collapse it to the customizer's
+		// native description slot which doesn't take overlay space.
+		$out['description'] = $args['description'] ?? ( $args['tooltip'] ?? '' );
 		$out['section']     = $args['section'];
 		$out['priority']    = $args['priority']    ?? 10;
 

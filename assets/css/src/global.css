@@ -122,7 +122,7 @@ body.elementor-editor-active .site-wrapper {
         margin: 1rem 0;
         padding: 1em;
         border: 1px solid var(--global-border-color);
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 1px 2px 0 var(--bx-color-shadow);
         border-radius: var(--global-border-radius);
         background: var(--bx-color-bg-elevated, #fff);
     }

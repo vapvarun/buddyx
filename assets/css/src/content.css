@@ -294,7 +294,7 @@ article .entry-header {
 }
 
 .buddyx-article:hover {
-    box-shadow: 0 6px 24px 0 rgba(18, 43, 70, .12);
+    box-shadow: 0 6px 24px 0 var(--bx-color-shadow);
 }
 
 .buddyx-article--default {
@@ -932,7 +932,7 @@ article .entry-header {
     background-color: var(--bx-color-bg-elevated, #fff);
     border: 0;
     border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px var(--bx-color-shadow);
     color: var(--bx-color-fg, #1a1a1a);
     font-size: 21px;
     height: 40px;

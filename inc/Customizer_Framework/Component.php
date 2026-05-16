@@ -184,23 +184,20 @@ class Component {
 			'before'
 		);
 
-		// Export tooltip values so customizer-controls.js can inject an info
-		// icon next to each control's label. Keeps the Customizer sidebar
-		// uncluttered while giving customers a hover/click reveal for any
-		// extra context the short `description` does not cover.
-		$tooltips = array();
-		foreach ( self::$fields as $f ) {
-			if ( empty( $f['settings'] ) || empty( $f['tooltip'] ) ) {
-				continue;
-			}
-			// Decode HTML entities (esc_html__ produces &#039; for ',
-			// &amp; for &, etc.) so jQuery's .text() in the popover
-			// renderer shows clean punctuation instead of raw entities.
-			$tooltips[ $f['settings'] ] = html_entity_decode( (string) $f['tooltip'], ENT_QUOTES, 'UTF-8' );
-		}
+		// Tooltip popover map intentionally emitted empty.
+		//
+		// The `tooltip` arg on each field is now rendered as the control's
+		// inline description (see Field::build_control_args). The standalone
+		// click-to-open popover variant overlaid adjacent toggle/switch
+		// controls and blocked clicks on the next setting in the section -
+		// reported as making the customizer almost unusable on 5.1.0. The
+		// empty map keeps customizer-controls.js's existing
+		// renderTooltipTriggers() loop safe (no entries -> no icons drawn)
+		// without removing the JS routine, which lets us re-enable popovers
+		// later with anchored positioning if we choose.
 		wp_add_inline_script(
 			$handle,
-			'window.buddyxCustomizerTooltips = ' . wp_json_encode( $tooltips ) . ';',
+			'window.buddyxCustomizerTooltips = {};',
 			'before'
 		);
 

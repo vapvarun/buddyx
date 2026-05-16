@@ -385,6 +385,72 @@ class Component implements Component_Interface {
 	);
 
 	/**
+	 * Legacy custom-property aliases for the canonical --bx-color-* /
+	 * --bx-radius-* tokens.
+	 *
+	 * Audit on 5.1.0 surfaced ~830 legacy --color-* / --global-* var
+	 * references in source CSS that the simple_color_tokens /
+	 * typography_color_tokens alias mechanism doesn't cover (those
+	 * only fire for customer-customized tokens; framework_tokens emit
+	 * unconditionally but had no alias plumbing).
+	 *
+	 * Each entry maps a legacy var to a token. build_token_css emits
+	 * each alias as `--legacy: var(--bx-token);` in both :root (light)
+	 * and the dark block so the legacy var flips colour-mode through
+	 * the canonical token. 3rd-party integrations and legacy
+	 * stylesheets keep working without per-file edits.
+	 *
+	 * @var array<string, string> legacy alias => canonical bx token
+	 */
+	protected static array $legacy_aliases = array(
+		// Structural
+		'--global-border-color'       => '--bx-color-border',
+		'--global-border-radius'      => '--bx-radius-global',
+		'--global-border-radius-inner' => '--bx-radius-global',
+		// Type
+		'--global-title-color'        => '--bx-color-h1',
+		'--color-h1'                  => '--bx-color-h1',
+		'--color-h2'                  => '--bx-color-h2',
+		'--color-h3'                  => '--bx-color-h3',
+		'--color-h4'                  => '--bx-color-h4',
+		'--color-h5'                  => '--bx-color-h5',
+		'--color-h6'                  => '--bx-color-h6',
+		// Surface
+		'--color-theme-grey'          => '--bx-color-bg-muted',
+		'--color-block-bg-subtle'     => '--bx-color-bg-muted',
+		'--color-secondary-bg'        => '--bx-color-bg-muted',
+		// Body / meta text
+		'--color-body-text'           => '--bx-color-fg',
+		'--color-meta'                => '--bx-color-fg-muted',
+		'--color-neutral'             => '--bx-color-fg-muted',
+		// HR / divider
+		'--color-hr'                  => '--bx-color-divider',
+		// Quote
+		'--color-quote-border'        => '--bx-color-accent',
+		'--color-quote-citation'      => '--bx-color-fg-muted',
+		// Menu / panel (not already in alias map of simple_color_tokens)
+		'--color-menu'                => '--bx-color-menu-fg',
+		'--color-menu-hover'          => '--bx-color-menu-hover',
+		'--color-menu-active'         => '--bx-color-menu-active',
+		'--color-panel-bg'            => '--bx-color-bg-elevated',
+		'--color-panel-bg-hover'      => '--bx-color-bg-muted',
+		'--color-panel-bg-active'     => '--bx-color-bg-muted',
+		'--color-panel-menu'          => '--bx-color-menu-fg',
+		'--color-panel-menu-hover'    => '--bx-color-menu-hover',
+		'--color-panel-menu-active'   => '--bx-color-menu-active',
+		// Footer / copyright (catches references that bypass simple_color_tokens)
+		'--color-footer-bg'           => '--bx-color-footer-bg',
+		'--color-footer-content'      => '--bx-color-footer-fg',
+		'--color-footer-link'         => '--bx-color-footer-link',
+		'--color-footer-link-hover'   => '--bx-color-footer-link-hover',
+		'--color-footer-title'        => '--bx-color-footer-title',
+		'--color-copyright-bg'        => '--bx-color-copyright-bg',
+		'--color-copyright-content'   => '--bx-color-copyright-fg',
+		'--color-copyright-link'      => '--bx-color-copyright-link',
+		'--color-copyright-link-hover' => '--bx-color-copyright-link-hover',
+	);
+
+	/**
 	 * Dark-mode token overrides. Applied via [data-bx-mode="dark"] :root { ... }
 	 * and via @media (prefers-color-scheme: dark) for users in 'auto' mode.
 	 *
@@ -807,8 +873,9 @@ class Component implements Component_Interface {
 		// for parity with 5.0.3 behavior. Framework tokens + variation overlay
 		// above still emit.
 		if ( ! $enabled ) {
-			$light_block = ':root{' . $decls . '}';
-			$dark_block  = $this->build_dark_block();
+			$decls       .= self::legacy_alias_declarations();
+			$light_block  = ':root{' . $decls . '}';
+			$dark_block   = $this->build_dark_block();
 			return $light_block . $dark_block;
 		}
 
@@ -907,10 +974,33 @@ class Component implements Component_Interface {
 			}
 		}
 
+		// Legacy alias shim - emit `--legacy: var(--bx-token);` so 3rd-
+		// party and pre-token CSS rules referencing legacy var names
+		// flip colour-mode through the canonical token automatically.
+		// See $legacy_aliases doc-block for context.
+		$decls .= self::legacy_alias_declarations();
+
 		$light_block = ':root{' . $decls . '}';
 		$dark_block  = $this->build_dark_block();
 
 		return $light_block . $dark_block;
+	}
+
+	/**
+	 * Build the `--legacy: var(--bx-token);` declaration string from
+	 * the $legacy_aliases map. Aliases re-resolve every paint - the
+	 * alias is mode-agnostic; the referenced --bx-* token does the
+	 * actual light/dark flip. The same string is therefore safe to
+	 * emit in both :root and the dark block (build_dark_block already
+	 * handles its own dark variants via the simple_color_tokens
+	 * alias mechanism).
+	 */
+	protected static function legacy_alias_declarations(): string {
+		$out = '';
+		foreach ( self::$legacy_aliases as $alias => $token ) {
+			$out .= $alias . ':var(' . $token . ');';
+		}
+		return $out;
 	}
 
 	/**
