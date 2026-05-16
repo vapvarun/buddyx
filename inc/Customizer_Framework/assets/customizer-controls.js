@@ -798,6 +798,26 @@
 		 * deliberate per-control colour just because the preset changed.
 		 * Tracked via the previous-preset values in the map.
 		 */
+		// Repaint a single colour control's wpColorPicker UI to match a
+		// new value. wp.customize(id).set() updates the setting state
+		// but the picker widget doesn't re-render its swatch + input
+		// from setting changes, so we have to push the value into the
+		// picker directly via .wpColorPicker('color', newColor). Without
+		// this the underlying setting flips but the visible picker still
+		// shows the old value, which reads as "preset has no effect".
+		function repaintColorPicker( ctl, newColor ) {
+			if ( ! ctl || ! ctl.container || ! jQuery.fn || ! jQuery.fn.wpColorPicker ) {
+				return;
+			}
+			var $picker = ctl.container.find( '.wp-color-picker, input.color-picker-hex, input[type="text"].wp-color-picker' ).first();
+			if ( ! $picker.length ) {
+				$picker = ctl.container.find( 'input[type="text"]' ).first();
+			}
+			if ( $picker.length && $picker.data( 'a8c-iris' ) ) {
+				$picker.wpColorPicker( 'color', newColor );
+			}
+		}
+
 		function applyDefaults( slug, options ) {
 			var defaults = map[ slug ];
 			if ( ! defaults ) {
@@ -813,6 +833,7 @@
 				}
 				if ( alsoSetValue && wp.customize( settingId ) ) {
 					wp.customize( settingId ).set( newColor );
+					repaintColorPicker( ctl, newColor );
 				}
 			} );
 			// Release the suppress flag at the end of the current tick so
@@ -832,6 +853,7 @@
 				}
 				if ( alsoSetValue && wp.customize( settingId ) ) {
 					wp.customize( settingId ).set( origDefault );
+					repaintColorPicker( ctl, origDefault );
 				}
 			} );
 			setTimeout( function () { suppressNextChange = false; }, 0 );
