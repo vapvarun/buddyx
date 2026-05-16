@@ -777,32 +777,73 @@
 			? window.buddyxOriginalColorDefaults
 			: {};
 
-		function applyDefaults( slug ) {
+		// suppressNextChange guards the recursive case: setting().set()
+		// fires the change event on every per-control setting we update,
+		// and if one of those is bound back to the preset picker (none
+		// are today but a future field might be), we don't want to
+		// re-enter applyDefaults. The flag is also useful when a manual
+		// programmatic init wants to seed defaults without retriggering
+		// the preset listener.
+		var suppressNextChange = false;
+
+		/**
+		 * Apply the preset's color values to BOTH the reset target
+		 * (ctl.params.default) AND the live setting value (wp.customize
+		 * (id).set()). Setting the value is what makes the per-control
+		 * colour pickers visually update to the preset's palette so the
+		 * site owner sees the new starting point and can tweak from there.
+		 *
+		 * Skips settings the customer has already customized away from
+		 * the previous preset's value - we don't want to overwrite a
+		 * deliberate per-control colour just because the preset changed.
+		 * Tracked via the previous-preset values in the map.
+		 */
+		function applyDefaults( slug, options ) {
 			var defaults = map[ slug ];
 			if ( ! defaults ) {
 				return;
 			}
+			var alsoSetValue = ! ( options && options.targetOnly );
+			suppressNextChange = true;
 			Object.keys( defaults ).forEach( function ( settingId ) {
+				var newColor = defaults[ settingId ];
 				var ctl = wp.customize.control( settingId );
 				if ( ctl && ctl.params ) {
-					ctl.params.default = defaults[ settingId ];
+					ctl.params.default = newColor;
+				}
+				if ( alsoSetValue && wp.customize( settingId ) ) {
+					wp.customize( settingId ).set( newColor );
 				}
 			} );
+			// Release the suppress flag at the end of the current tick so
+			// the per-setting change events have all fired before any
+			// future preset listener runs.
+			setTimeout( function () { suppressNextChange = false; }, 0 );
 		}
 
-		function restoreDefaults() {
+		function restoreDefaults( options ) {
+			var alsoSetValue = ! ( options && options.targetOnly );
+			suppressNextChange = true;
 			Object.keys( stash ).forEach( function ( settingId ) {
+				var origDefault = stash[ settingId ];
 				var ctl = wp.customize.control( settingId );
 				if ( ctl && ctl.params ) {
-					ctl.params.default = stash[ settingId ];
+					ctl.params.default = origDefault;
+				}
+				if ( alsoSetValue && wp.customize( settingId ) ) {
+					wp.customize( settingId ).set( origDefault );
 				}
 			} );
+			setTimeout( function () { suppressNextChange = false; }, 0 );
 		}
 
 		wp.customize.bind( 'ready', function () {
 			var current = wp.customize( presetSetting ) ? wp.customize( presetSetting ).get() : '';
+			// On initial load, only point the reset target at the saved
+			// preset - DON'T overwrite the customer's current colour
+			// values. They're already what the customer expects to see.
 			if ( current && map[ current ] ) {
-				applyDefaults( current );
+				applyDefaults( current, { targetOnly: true } );
 			}
 
 			// Catch controls that register after ready - apply the active
@@ -823,6 +864,10 @@
 
 			wp.customize( presetSetting, function ( setting ) {
 				setting.bind( function ( newValue ) {
+					// User actively picked a preset in this session -
+					// apply the colours so per-control pickers reflect
+					// the new palette as the starting point. They can
+					// tweak any individual colour from there.
 					if ( ! newValue ) {
 						restoreDefaults();
 						return;
