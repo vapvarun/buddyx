@@ -200,6 +200,145 @@ class Component {
 			'window.buddyxCustomizerTooltips = ' . wp_json_encode( $tooltips ) . ';',
 			'before'
 		);
+
+		// Export style-variation -> per-control colour defaults. When the
+		// customer picks a Style preset, the per-control reset button
+		// reverts to the picked palette's value rather than the theme's
+		// hard-coded default. Map shape: { variation_slug: { setting_id:
+		// hex } }. Built by reading styles/<slug>.json and routing each
+		// palette swatch (accent/base/contrast/...) to the per-control
+		// colour settings the Skin section exposes.
+		$variation_defaults = self::collect_style_variation_defaults();
+		wp_add_inline_script(
+			$handle,
+			'window.buddyxStyleVariationDefaults = ' . wp_json_encode( $variation_defaults ) . ';',
+			'before'
+		);
+
+		// Authoritative "theme baseline" defaults sourced from each
+		// preset-managed field's PHP `default` arg. Used by the JS to
+		// restore the reset target when the customer reverts to the
+		// empty Default preset (avoids racing the customizer's async
+		// control-registration timing to snapshot defaults client-side).
+		$original_defaults = array();
+		foreach ( self::$variation_setting_targets as $palette_slug => $setting_ids ) {
+			foreach ( $setting_ids as $setting_id ) {
+				foreach ( self::$fields as $f ) {
+					if ( ( $f['settings'] ?? '' ) === $setting_id && isset( $f['default'] ) ) {
+						$original_defaults[ $setting_id ] = (string) $f['default'];
+						break;
+					}
+				}
+			}
+		}
+		wp_add_inline_script(
+			$handle,
+			'window.buddyxOriginalColorDefaults = ' . wp_json_encode( $original_defaults ) . ';',
+			'before'
+		);
+	}
+
+	/**
+	 * Map of palette swatch slugs (as they appear in styles/<slug>.json
+	 * `settings.color.palette[*].slug`) to the per-control customizer
+	 * colour setting IDs they should populate when the customer picks a
+	 * variation. Same routing buddyx_get_style_variation_swatch_choices
+	 * implies for the swatch preview.
+	 *
+	 * @var array<string, array<int, string>>
+	 */
+	protected static array $variation_setting_targets = array(
+		'accent'     => array(
+			'site_primary_color',
+			'site_links_color',
+			'site_buttons_background_color',
+			'site_buttons_border_color',
+			'menu_hover_color',
+			'menu_active_color',
+			'site_title_hover_color',
+		),
+		'accent-2'   => array(
+			'site_links_focus_hover_color',
+			'site_buttons_background_hover_color',
+			'site_buttons_border_hover_color',
+			'site_footer_links_hover_color',
+			'site_copyright_links_hover_color',
+		),
+		'base'       => array(
+			'body_background_color',
+			'content_background_color',
+			'site_header_bg_color',
+			'site_footer_background_color',
+			'site_copyright_background_color',
+		),
+		'base-2'     => array(
+			'secondary_background_color',
+			'box_background_color',
+		),
+		'contrast'   => array(
+			'body_text_color',
+			'headings_color',
+			'site_title_color',
+			'menu_color',
+			'subheader_title_color',
+			'site_footer_title_color',
+			'site_footer_links_color',
+			'site_copyright_links_color',
+		),
+		'contrast-2' => array(
+			'site_footer_content_color',
+			'site_copyright_content_color',
+		),
+	);
+
+	/**
+	 * Build the variation -> per-control defaults map from the styles
+	 * directory. Skips silently if the directory is missing or a file is
+	 * unreadable - the customer just sees the theme's hard-coded default
+	 * on the reset button instead of a variation-specific one.
+	 *
+	 * @return array<string, array<string, string>>
+	 */
+	protected static function collect_style_variation_defaults(): array {
+		$style_dir = get_template_directory() . '/styles';
+		if ( ! is_dir( $style_dir ) ) {
+			return array();
+		}
+
+		$out = array();
+		foreach ( glob( $style_dir . '/*.json' ) ?: array() as $file ) {
+			$slug = basename( $file, '.json' );
+			$data = json_decode( (string) @file_get_contents( $file ), true );
+			if ( ! is_array( $data ) ) {
+				continue;
+			}
+			$palette = $data['settings']['color']['palette'] ?? array();
+			$by_slug = array();
+			foreach ( (array) $palette as $entry ) {
+				if ( isset( $entry['slug'], $entry['color'] ) ) {
+					$by_slug[ $entry['slug'] ] = (string) $entry['color'];
+				}
+			}
+			if ( array() === $by_slug ) {
+				continue;
+			}
+
+			$defaults = array();
+			foreach ( self::$variation_setting_targets as $palette_slug => $setting_ids ) {
+				if ( ! isset( $by_slug[ $palette_slug ] ) ) {
+					continue;
+				}
+				$colour = $by_slug[ $palette_slug ];
+				foreach ( $setting_ids as $setting_id ) {
+					$defaults[ $setting_id ] = $colour;
+				}
+			}
+
+			if ( array() !== $defaults ) {
+				$out[ $slug ] = $defaults;
+			}
+		}
+		return $out;
 	}
 
 	/**

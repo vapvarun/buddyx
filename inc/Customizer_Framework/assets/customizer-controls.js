@@ -685,6 +685,88 @@
 	})();
 
 	/**
+	 * Dynamic per-control colour defaults.
+	 *
+	 * When the customer picks a Style preset, rewrite the relevant per-control
+	 * colour fields' `params.default` to track the chosen palette so the
+	 * built-in WP color picker reset button reverts to the palette's value
+	 * rather than the theme's hard-coded default. Restores originals when
+	 * the customer picks the empty "Default" preset.
+	 *
+	 * Reads window.buddyxStyleVariationDefaults exported by
+	 * Customizer_Framework\Component::enqueue_controls. Saved theme_mod
+	 * values are NOT touched — only the reset target moves.
+	 */
+	(function () {
+		var map = window.buddyxStyleVariationDefaults;
+		if ( ! map || typeof map !== 'object' ) {
+			return;
+		}
+
+		var presetSetting = 'site_style_variation';
+		// Authoritative theme-baseline defaults shipped from PHP - avoids
+		// racing the customizer's async control-registration timing.
+		var stash = ( window.buddyxOriginalColorDefaults && typeof window.buddyxOriginalColorDefaults === 'object' )
+			? window.buddyxOriginalColorDefaults
+			: {};
+
+		function applyDefaults( slug ) {
+			var defaults = map[ slug ];
+			if ( ! defaults ) {
+				return;
+			}
+			Object.keys( defaults ).forEach( function ( settingId ) {
+				var ctl = wp.customize.control( settingId );
+				if ( ctl && ctl.params ) {
+					ctl.params.default = defaults[ settingId ];
+				}
+			} );
+		}
+
+		function restoreDefaults() {
+			Object.keys( stash ).forEach( function ( settingId ) {
+				var ctl = wp.customize.control( settingId );
+				if ( ctl && ctl.params ) {
+					ctl.params.default = stash[ settingId ];
+				}
+			} );
+		}
+
+		wp.customize.bind( 'ready', function () {
+			var current = wp.customize( presetSetting ) ? wp.customize( presetSetting ).get() : '';
+			if ( current && map[ current ] ) {
+				applyDefaults( current );
+			}
+
+			// Catch controls that register after ready - apply the active
+			// variation's default to any late arrivals so reset still
+			// targets the picked palette.
+			wp.customize.control.bind( 'add', function ( ctl ) {
+				if ( ! ctl || ! ctl.id || ! ctl.params ) {
+					return;
+				}
+				var preset = wp.customize( presetSetting ) ? wp.customize( presetSetting ).get() : '';
+				if ( ! preset || ! map[ preset ] ) {
+					return;
+				}
+				if ( typeof map[ preset ][ ctl.id ] !== 'undefined' ) {
+					ctl.params.default = map[ preset ][ ctl.id ];
+				}
+			} );
+
+			wp.customize( presetSetting, function ( setting ) {
+				setting.bind( function ( newValue ) {
+					if ( ! newValue ) {
+						restoreDefaults();
+						return;
+					}
+					applyDefaults( newValue );
+				} );
+			} );
+		} );
+	})();
+
+	/**
 	 * Tooltip rendering.
 	 *
 	 * Reads window.buddyxCustomizerTooltips (a setting-id -> text map exported
