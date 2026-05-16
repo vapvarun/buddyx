@@ -72,6 +72,31 @@
     object-fit: contain;
 }
 
+/* Dark-mode logo swap. Both <img> render in the same anchor; CSS shows the
+   right one based on the data-bx-mode attribute the Color_Mode_Toggle
+   component sets on <html>. Default: hide the dark variant. */
+.custom-logo--dark {
+    display: none;
+}
+
+:root[data-bx-mode="dark"] .custom-logo--light {
+    display: none;
+}
+
+:root[data-bx-mode="dark"] .custom-logo--dark {
+    display: inline-block;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root[data-bx-mode="auto"] .custom-logo--light {
+        display: none;
+    }
+
+    :root[data-bx-mode="auto"] .custom-logo--dark {
+        display: inline-block;
+    }
+}
+
 .site-title {
     margin: 0;
     margin-bottom: 6px;
