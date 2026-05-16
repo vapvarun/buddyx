@@ -193,7 +193,10 @@ class Component {
 			if ( empty( $f['settings'] ) || empty( $f['tooltip'] ) ) {
 				continue;
 			}
-			$tooltips[ $f['settings'] ] = (string) $f['tooltip'];
+			// Decode HTML entities (esc_html__ produces &#039; for ',
+			// &amp; for &, etc.) so jQuery's .text() in the popover
+			// renderer shows clean punctuation instead of raw entities.
+			$tooltips[ $f['settings'] ] = html_entity_decode( (string) $f['tooltip'], ENT_QUOTES, 'UTF-8' );
 		}
 		wp_add_inline_script(
 			$handle,
