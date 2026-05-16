@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 				'label'           => esc_html__( 'Background Control', 'buddyx' ),
 				'section'         => 'site_footer_section',
 				'default'         => array(
-					'background-color'      => 'rgba(255,255,255,0.8)',
+					'background-color'      => '',
 					'background-image'      => '',
 					'background-repeat'     => 'repeat',
 					'background-position'   => 'center center',
