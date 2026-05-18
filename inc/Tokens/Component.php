@@ -1048,6 +1048,18 @@ class Component implements Component_Interface {
 		if ( ! in_array( $default, array( 'auto', 'light', 'dark' ), true ) ) {
 			$default = 'light';
 		}
+
+		// When the customer has NOT explicitly set site_color_mode but HAS
+		// picked a dark-scheme style variation, default the bootstrap to
+		// 'dark' so [data-bx-mode="dark"] CSS (dark logo, color-mode-aware
+		// UI) aligns with the visually dark palette. Visitor's localStorage
+		// still wins, and customer's explicit site_color_mode setting still
+		// wins because we only override the implicit-default branch.
+		$saved_mods = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
+		$explicit   = is_array( $saved_mods ) && array_key_exists( 'site_color_mode', $saved_mods );
+		if ( ! $explicit && true === self::active_variation_is_dark_scheme() ) {
+			$default = 'dark';
+		}
 		?>
 		<script id="buddyx-color-mode-bootstrap">
 		(function(){
@@ -1062,6 +1074,79 @@ class Component implements Component_Interface {
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * Whether the active style variation is a dark-scheme palette.
+	 *
+	 * Reads the variation's `base` palette color and tests luminance. The
+	 * variation's own background color is the single source of truth — no
+	 * redundant metadata flag in styles/*.json that could drift from the
+	 * palette. Returns null for typography-only variations (no palette) and
+	 * when no variation is active.
+	 *
+	 * Filterable via `buddyx_variation_is_dark_scheme` so authors of custom
+	 * variations whose base color doesn't reflect their scheme intent (or
+	 * mu-plugin overrides) can force the answer. Filter receives the slug
+	 * as the 2nd argument.
+	 *
+	 * @return bool|null true = dark, false = light, null = unknown / none.
+	 */
+	protected static function active_variation_is_dark_scheme(): ?bool {
+		$variation_slug = (string) \get_theme_mod( 'site_style_variation', '' );
+		if ( '' === $variation_slug ) {
+			return null;
+		}
+		$override = \apply_filters( 'buddyx_variation_is_dark_scheme', null, $variation_slug );
+		if ( null !== $override ) {
+			return (bool) $override;
+		}
+		$data = self::load_variation_data( $variation_slug );
+		if ( null === $data ) {
+			return null;
+		}
+		$palette = $data['settings']['color']['palette'] ?? array();
+		if ( ! is_array( $palette ) || empty( $palette ) ) {
+			return null;
+		}
+		foreach ( $palette as $entry ) {
+			if ( is_array( $entry ) && 'base' === ( $entry['slug'] ?? '' ) ) {
+				$base_hex = (string) ( $entry['color'] ?? '' );
+				return '' === $base_hex ? null : self::hex_is_dark( $base_hex );
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Whether a hex color reads as "dark" to a sighted viewer.
+	 *
+	 * Uses WCAG 2.1 relative luminance against the 0.5 midpoint. Accepts
+	 * 3- or 6-digit hex with or without leading '#'. Returns false on
+	 * malformed input so dark-scheme inference fails safe to "treat as
+	 * light" (preserves pre-5.1.1 bootstrap behavior).
+	 *
+	 * @param string $hex Hex color, e.g. "#0F0F0F", "0f0f0f", "fff".
+	 * @return bool True when relative luminance is below 0.5.
+	 */
+	protected static function hex_is_dark( string $hex ): bool {
+		$hex = ltrim( trim( $hex ), '#' );
+		if ( 3 === strlen( $hex ) ) {
+			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+		}
+		if ( 6 !== strlen( $hex ) || ! ctype_xdigit( $hex ) ) {
+			return false;
+		}
+		$channel = static function ( float $c ): float {
+			return $c <= 0.03928 ? $c / 12.92 : pow( ( $c + 0.055 ) / 1.055, 2.4 );
+		};
+
+		$red   = hexdec( substr( $hex, 0, 2 ) ) / 255;
+		$green = hexdec( substr( $hex, 2, 2 ) ) / 255;
+		$blue  = hexdec( substr( $hex, 4, 2 ) ) / 255;
+		$lum   = 0.2126 * $channel( $red ) + 0.7152 * $channel( $green ) + 0.0722 * $channel( $blue );
+
+		return $lum < 0.5;
 	}
 
 	/**
