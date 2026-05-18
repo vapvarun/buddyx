@@ -18,6 +18,7 @@ namespace BuddyX\Buddyx\Color_Mode_Toggle;
 
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
+use function buddyx_is_truthy;
 use function get_theme_mod;
 use function wp_enqueue_script;
 
@@ -46,9 +47,15 @@ class Component implements Component_Interface {
 
 	/**
 	 * Whether the toggle is enabled site-wide.
+	 *
+	 * Customizer_Framework's `switch` field sanitizes the saved value to
+	 * int 1/0 via sanitize_bool_int(), but legacy 5.0.x DBs (and the
+	 * fresh-install fallback default) carry the literal string 'on'. Route
+	 * through buddyx_is_truthy() so both shapes resolve correctly — matches
+	 * inc/extra.php:238 which gates the same setting for header rendering.
 	 */
 	protected function is_enabled(): bool {
-		return 'on' === get_theme_mod( 'site_color_mode_toggle_show', 'on' );
+		return buddyx_is_truthy( get_theme_mod( 'site_color_mode_toggle_show', 'on' ) );
 	}
 
 	/**
