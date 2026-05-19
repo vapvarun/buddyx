@@ -1184,7 +1184,14 @@ class Component implements Component_Interface {
 			'--bx-color-loader-bg',
 			'--bx-color-input-bg',
 		),
-		'base-3'     => array( '--bx-color-bg-muted' ),
+		'base-3'     => array(
+			'--bx-color-bg-muted',
+			'--bx-color-border',
+			'--bx-color-border-strong',
+			'--bx-color-divider',
+			'--bx-color-copyright-border',
+			'--bx-color-input-border',
+		),
 		'contrast'   => array(
 			'--bx-color-fg',
 			'--bx-color-h1',
