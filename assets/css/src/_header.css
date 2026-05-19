@@ -73,16 +73,19 @@
 }
 
 /* Dark-mode logo swap. Both <img> render in the same anchor; CSS shows the
-   right one based on the data-bx-mode attribute the Color_Mode_Toggle
-   component sets on <html>. Default: hide the dark variant. */
+   right one based on either the runtime color-mode attribute or a body class
+   that marks the active style preset itself as a dark scheme. Default: hide
+   the dark variant. */
 .custom-logo--dark {
     display: none;
 }
 
+:root body.buddyx-dark-style-variation .custom-logo--light,
 :root[data-bx-mode="dark"] .custom-logo--light {
     display: none;
 }
 
+:root body.buddyx-dark-style-variation .custom-logo--dark,
 :root[data-bx-mode="dark"] .custom-logo--dark {
     display: inline-block;
 }
