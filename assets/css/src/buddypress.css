@@ -1340,7 +1340,8 @@ select#whats-new-post-in {
 }
 
 .activity-update-form #whats-new-textarea textarea {
-    color: inherit;
+	background-color: var(--bx-color-bg-elevated, #ffffff);
+    color: var(--bx-color-fg, #111111);
     padding: 10px;
     min-height: 70px;
     border-radius: var(--form-border-radius) !important;
@@ -1645,7 +1646,7 @@ form.ac-form .ac-reply-content .ac-textarea textarea {
 .activity-list .activity-item .activity-meta.action .button {
     padding: 6px 12px !important;
     background: var(--bx-color-bg-elevated, #fff) !important;
-    color: rgba(0, 0, 0, .6) !important;
+	color: var(--bx-color-fg, rgba(0, 0, 0, .6)) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
@@ -1666,8 +1667,9 @@ form.ac-form .ac-reply-content .ac-textarea textarea {
 }
 
 .activity-list .activity-item .activity-content>.activity-meta.action .button:hover {
-    border: 1px solid rgba(0, 0, 0, .8) !important;
-    color: rgba(0, 0, 0, .8) !important;
+	border: 1px solid var(--bx-color-border, rgba(0, 0, 0, .8)) !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
+	color: var(--bx-color-fg, rgba(0, 0, 0, .8)) !important;
 }
 
 .buddypress-wrap .activity-comments {
@@ -2755,6 +2757,19 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     padding: 5px 10px;
 }
 
+.buddypress-wrap .bp-tables-user tbody tr,
+.buddypress-wrap table.wp-profile-fields tbody tr,
+.buddypress-wrap table.forum tbody tr,
+.buddypress-wrap .bp-tables-user tr.alt td,
+.buddypress-wrap table.wp-profile-fields tr.alt td {
+	background: var(--color-theme-white-box);
+}
+
+.buddypress-wrap .bp-tables-user tr td.label,
+.buddypress-wrap table.wp-profile-fields tr td.label,
+.buddypress-wrap table.forum tr td.label {
+	border-color: var(--global-border-color);
+}
 /* change photo */
 
 .buddypress-wrap .drag-drop #drag-drop-area,
