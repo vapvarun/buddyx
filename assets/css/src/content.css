@@ -1119,7 +1119,7 @@ article .entry-header {
 
 .post-meta-tags.badge .post-meta-tag__item>a {
     background-color: var(--color-theme-primary);
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     display: inline-block;
     padding: 4px 8px;
     font-size: 13px;
