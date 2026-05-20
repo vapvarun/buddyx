@@ -66,6 +66,7 @@
       "assets/fonts/*",
       "inc/Customizer_Framework/**/*",
       "inc/Customizer_Settings/**/*",
+      "inc/Fonts/data/*.json",
       "external/buddyx-defaults.php"
     ]
   }
