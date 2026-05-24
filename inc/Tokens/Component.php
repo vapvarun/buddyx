@@ -583,6 +583,20 @@ class Component implements Component_Interface {
 		'--wp--preset--color--surface-2'  => '#101a1c',
 		'--wp--preset--color--surface-3'  => '#0f1419',
 		'--wp--preset--color--primary'    => '#ff6b6b',
+
+		// Brand / accent slugs missing pre-5.1.0. theme.json declares
+		// these (settings.color.palette) and patterns use accent
+		// extensively (8 pattern files reference has-accent-color in
+		// 5.1.0). Without dark counterparts, pattern-driven pages
+		// (home/landing) painted with light brand colors while the
+		// theme chrome flipped dark — visible as red/teal blocks sitting
+		// on a near-black page. Values match the dark palette baseline:
+		// brand-red lifted (#ff5350) for dark-bg contrast, teal lifted
+		// (#5aa3ae / #4a96a3), yellow stays (works on both modes).
+		'--wp--preset--color--accent'     => '#ff5350',
+		'--wp--preset--color--accent-2'   => '#4a96a3',
+		'--wp--preset--color--accent-3'   => '#f4d35e',
+		'--wp--preset--color--secondary'  => '#5aa3ae',
 	);
 
 	/**
