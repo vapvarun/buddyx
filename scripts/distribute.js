@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
+import { runSmokeGate } from './release-smoke-gate.js';
 
 const execFile = promisify(execFileCb);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -252,6 +253,11 @@ async function main() {
 		updateStyleVersion(version);
 		updateConfigVersion(version);
 	}
+
+	// Browser smoke gate — refuses to package unless a fresh green smoke report
+	// exists at docs/qa/.last-smoke-pass.json matching this version. Emergency
+	// bypass: SKIP_BROWSER_SMOKE=1 npm run dist
+	runSmokeGate({ rootDir, version });
 
 	// Run the bundle
 	try {

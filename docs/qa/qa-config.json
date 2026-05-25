@@ -1,0 +1,64 @@
+{
+  "plugin_slug": "buddyx",
+  "plugin_name": "BuddyX",
+  "type": "theme",
+  "main_file": "style.css",
+  "version_source": "style.css:Version",
+  "version_constant": null,
+  "db_version_option": null,
+  "text_domain": "buddyx",
+  "table_prefix": null,
+  "cron_prefix": null,
+  "rest_namespace": null,
+  "test_site_url": "http://buddyx.local",
+  "test_site_path": "/Users/varundubey/Local Sites/buddyx/app/public",
+  "theme_path": "/Users/varundubey/Local Sites/buddyx/app/public/wp-content/themes/buddyx",
+  "personas": {
+    "admin":     "qa_admin",
+    "editor":    null,
+    "moderator": null,
+    "member":    "qa_member"
+  },
+  "integrations": [
+    { "slug": "buddypress",  "class_check": "BuddyPress",       "section": "E.buddypress" },
+    { "slug": "woocommerce", "class_check": "WooCommerce",      "section": "E.woocommerce" },
+    { "slug": "bbpress",     "function_check": "bbp_is_forum",  "section": "E.bbpress" }
+  ],
+  "basecamp": {
+    "project_id":     "37499979",
+    "bugs_column_id": "7430694306"
+  },
+  "pro_slug": "buddyx-pro",
+  "pro_version_constant": null,
+  "fixture_cleanup_sql": [
+    "remove_theme_mod('site_sub_header_typography');",
+    "remove_theme_mod('site_skin_preset');"
+  ],
+  "debug_log_whitelist": [
+    "PHP Deprecated: Function bp_core_get_user_domain is deprecated"
+  ],
+  "cron_whitelist": [
+    "buddyx_delete_fonts_folder"
+  ],
+  "release_pipeline": {
+    "type": "node",
+    "command": "NODE_ENV=production node scripts/cli.js bundle",
+    "output_zip": "dist/buddyx-{version}.zip",
+    "gate_script": "scripts/release-smoke-gate.js"
+  },
+  "smoke_journeys": [
+    "C.owner.first-time-installer",
+    "C.owner.blogger",
+    "C.owner.dark-mode",
+    "C.owner.sub-header-typography",
+    "C.owner.site-skin-presets",
+    "C.member.bp-flows",
+    "B.theme-mod.migration-from-5.0.x"
+  ],
+  "outputs": {
+    "smoke_report":      "docs/qa/.last-smoke-pass.json",
+    "journey_runs_dir":  "docs/qa/journey-runs",
+    "screenshots_dir":   "docs/qa/journey-runs/{run_id}/screenshots",
+    "debug_log_archive": "docs/qa/.debug-log-{version}-{ran_at}.txt"
+  }
+}
