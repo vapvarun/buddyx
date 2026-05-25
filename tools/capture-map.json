@@ -1,0 +1,92 @@
+[
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_skin_section",
+    "prep": "scroll to top of Site Skin section so Style preset picker is fully visible",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-skin-style-presets.webp",
+    "doc_use": "skin-colors/color-scheme.md — Path 1 style presets"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_skin_section",
+    "prep": "scroll to Color Mode subsection (Default color mode + toggle + position)",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-skin-color-mode.webp",
+    "doc_use": "skin-colors/dark-mode.md — toggle settings table"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_skin_section",
+    "prep": "scroll to Brand → Site Primary Color (color picker open)",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-skin-primary-color.webp",
+    "doc_use": "skin-colors/color-scheme.md — Path 2 custom colors; recipes/customize-brand.md Step 2"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=title_tagline",
+    "prep": "show Site Identity panel with Logo + Site Title + Tagline + Site Icon",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-identity.webp",
+    "doc_use": "quick-start.md Step 2; recipes/customize-brand.md Step 1"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=body_typography_section",
+    "prep": "Body Typography section — show Font Family + Font Size + Line Height",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-typography-body.webp",
+    "doc_use": "quick-start.md Step 4; recipes/customize-brand.md Step 5"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_header_section",
+    "prep": "Site Header section — show Sticky / Search icon / Sign-in / Register / Cart switches",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-header.webp",
+    "doc_use": "quick-start.md Step 5b"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_loader",
+    "prep": "Site Loader section — show Show site loader = Off (default)",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-loader.webp",
+    "doc_use": "recipes/match-the-demo.md Step 4"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_performance_section",
+    "prep": "Site Performance section — show Load Google Fonts locally + Preload local fonts + Flush button",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-performance.webp",
+    "doc_use": "recipes/customize-brand.md Step 8; quick-start.md Step 4 tip"
+  },
+  {
+    "surface": "frontend",
+    "target": "/",
+    "prep": "logout first; show front page in light mode with sun/moon toggle visible in header",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "frontend/frontend-home-light-toggle.webp",
+    "doc_use": "skin-colors/dark-mode.md — visitor toggle position; quick-start.md Step 9"
+  },
+  {
+    "surface": "frontend",
+    "target": "/",
+    "prep": "logout first; click toggle to dark mode; show same home page rendered in dark with no flash",
+    "viewport": "1200x900",
+    "dark": true,
+    "path": "frontend/frontend-home-dark.webp",
+    "doc_use": "skin-colors/dark-mode.md — dark palette demonstration"
+  }
+]

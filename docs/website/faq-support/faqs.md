@@ -109,7 +109,7 @@ BuddyX's theme features work with all of these.
 
 ### Does BuddyX work with WooCommerce?
 
-Yes. BuddyX includes full WooCommerce styling out of the box — shop page, single product, cart, checkout, account. Configure shop layout at **Customize → Site Sidebar Layout → WooCommerce Sidebar**.
+Yes. BuddyX includes full WooCommerce styling out of the box — shop page, single product, cart, checkout, account. Configure shop layout at **Customize → Site Sidebar → WooCommerce Sidebar**.
 
 ### Does it support digital downloads / subscriptions?
 

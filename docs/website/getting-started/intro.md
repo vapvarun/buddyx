@@ -71,11 +71,11 @@ See [BuddyX Pro at wbcomdesigns.com](https://wbcomdesigns.com/downloads/buddyx-t
 
 ## What you need
 
-| Requirement | Minimum |
-|---|---|
-| WordPress | 6.0+ |
-| PHP | 7.4+ (8.x recommended) |
-| MySQL | 5.7+ |
+| Requirement | Minimum | Recommended |
+|---|---|---|
+| WordPress | 4.8 *(theme header)* | 6.0+ for full feature support |
+| PHP | 7.4 | 8.1+ |
+| MySQL | 5.7 | 8.0+ |
 
 **Required additional plugins**: none. BuddyX ships its own customizer framework in-theme.
 
@@ -118,13 +118,17 @@ All theme settings live in **Appearance → Customize**:
 
 | Panel | What it controls |
 |---|---|
-| Site Identity | Logo, site title, tagline, favicon |
-| Site Header | Header layout, menu, header icons |
+| Site Identity *(core WP)* | Logo, site title, tagline, favicon |
+| General | Site layout, container width, border radius, page mapping, site loader |
+| Typography | Fonts per heading level, body font, menu font, site-title font |
+| Site Header | Header layout, sub-header, menu, header icons |
 | Site Skin | 8 style presets, 50+ color settings, dark mode + visitor toggle |
-| Typography | Fonts per heading level, body font, menu font |
-| Site Sidebar Layout | Sidebar positions per content type |
-| Site Footer | Footer widgets, copyright |
-| BuddyPress | Community settings (when BuddyPress plugin active) |
+| Site Blog | Blog layout (Default / List / Grid / Masonry), excerpt, post styles |
+| Site Sidebar | Sidebar positions per content type |
+| Site Footer | Footer section + copyright section |
+| Community Settings *(when BuddyPress active)* | BuddyPress avatar style + community settings |
+| Site Performance | Local font hosting, preload, font-cache flush |
+| WP Login | Custom login-page logo + title |
 
 ---
 

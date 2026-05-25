@@ -180,7 +180,7 @@ If a term isn't defined here and isn't obvious from context, email **support@wbc
 
 **Primary Color / Site Primary Color** *(BuddyX Site Skin)* — Your main brand color, used across buttons, links, and accent UI. Set via **Customize → Site Skin → Site Primary Color**. The default is `#ef5455` (BuddyX red). The most influential single color setting in the theme.
 
-**Primary Menu** *(WordPress)* — A "menu location" — a named slot in your header where one of your menus appears. BuddyX has Primary, Top Bar Menu, Mobile Menu, and Footer Menu locations.
+**Primary Menu** *(WordPress)* — A "menu location" — a named slot in your header where one of your menus appears. BuddyX registers two menu locations: **Primary** (the main header menu, also used on mobile) and **User Menu** (only when BuddyPress is active, controls the logged-in user dropdown). Footer content lives in widget areas, not a menu location.
 
 **Privacy Policy** — A page disclosing what data your site collects, how it's used, and how visitors can request deletion. Required by GDPR, CCPA, and similar laws. WordPress ships a template at **Settings → Privacy → Create New Page** — customize the template to match what your specific site actually does.
 
@@ -198,7 +198,7 @@ If a term isn't defined here and isn't obvious from context, email **support@wbc
 
 ## S
 
-**Sidebar** *(WordPress)* — A column beside your main content where widgets appear (recent posts, search box, social links, etc.). BuddyX lets you choose left / right / none / both per content type (blog archive, single post, page, BuddyPress, WooCommerce, bbPress) via **Customize → Site Sidebar Layout**.
+**Sidebar** *(WordPress)* — A column beside your main content where widgets appear (recent posts, search box, social links, etc.). BuddyX lets you choose left / right / none / both per content type (blog archive, single post, page, BuddyPress, WooCommerce, bbPress) via **Customize → Site Sidebar**.
 
 **Site Icon** — See **Favicon**.
 

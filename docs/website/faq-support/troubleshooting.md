@@ -125,7 +125,7 @@ Common issues and how to fix them. If your issue isn't here, see [FAQ](./faqs.md
 **Symptom**: On a phone-sized screen, the menu doesn't appear (or the whole header looks empty).
 
 **Check**:
-1. **Appearance → Menus → Menu Settings → Display location** — make sure your menu is assigned to **Primary Menu** (and optionally **Mobile Menu** if BuddyX shows that location).
+1. **Appearance → Menus → Menu Settings → Display location** — make sure your menu is assigned to **Primary**. (BuddyX registers two menu locations: **Primary** and **User Menu** — the latter only when BuddyPress is active. Mobile uses the Primary menu automatically; footer content uses widgets.)
 2. **Customize → Site Header** — verify your header layout option supports mobile (all BuddyX header layouts do).
 3. Resize your browser window from wide → narrow to see the breakpoint. The mobile menu (hamburger) usually appears around 1024px.
 

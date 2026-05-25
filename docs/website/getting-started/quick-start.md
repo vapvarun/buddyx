@@ -112,7 +112,7 @@ WordPress menus live at **Appearance → Menus** (not Customize). One-time setup
 2. Name it `Primary` (or anything — it's just for your reference)
 3. From the left panel, add pages: Home, About, Blog, Contact (or whatever pages you have)
 4. Drag items to reorder. Indent an item to make it a sub-item (dropdown)
-5. Under **Menu Settings → Display location**, check **Primary Menu** (so BuddyX knows this is the main header menu)
+5. Under **Menu Settings → Display location**, check **Primary** (the location BuddyX uses for the main header menu — mobile inherits this menu automatically)
 6. Click **Save Menu**
 
 > **Don't have these pages yet?** That's fine — see Step 7 below. You can come back and add them to the menu after.

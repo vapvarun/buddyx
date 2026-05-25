@@ -8,12 +8,14 @@ Three install paths — pick whichever fits your setup.
 
 ## What you need
 
-| Requirement | Minimum | Recommended |
+| Requirement | Minimum *(theme header)* | Recommended |
 |---|---|---|
-| WordPress | 6.0 | 6.4+ |
+| WordPress | 4.8 | 6.0+ for full feature support |
 | PHP | 7.4 | 8.1+ |
 | MySQL | 5.7 | 8.0+ |
 | Memory limit | 64 MB | 256 MB |
+
+> **Note**: BuddyX 5.1.0's theme header declares WordPress 4.8+ minimum, but the modern features (block patterns, block editor integration, FSE-style theme.json tokens) work best on WordPress 6.0+. We recommend WordPress 6.0 or newer for new installs.
 
 Check what you have at **Tools → Site Health → Info**.
 

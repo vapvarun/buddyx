@@ -38,7 +38,7 @@ Pick the description that fits best:
 
 2. **Set excerpts vs full posts** — same panel, **Blog Excerpt** setting. Excerpts make the archive feel curated; full posts feel like a stream.
 
-3. **Sidebar layout** — go to **Appearance → Customize → Site Sidebar Layout**. For blogs, **right sidebar** is most common (Western reading order). The sidebar shows recent posts, categories, search.
+3. **Sidebar layout** — go to **Appearance → Customize → Site Sidebar**. For blogs, **right sidebar** is most common (Western reading order). The sidebar shows recent posts, categories, search.
 
 4. **Sidebar widgets** — **Appearance → Widgets → Sidebar**. Add: **Search**, **Recent Posts**, **Categories**, **Tag Cloud**, **Archives**. Or your **Mailchimp signup** widget.
 
@@ -110,7 +110,7 @@ Pick the description that fits best:
 
 4. **About + Contact done in Quick Start** — already covered.
 
-5. **Sidebar usually OFF for landing pages** — business sites look more focused without sidebars. **Appearance → Customize → Site Sidebar Layout → Default Page → No sidebar**.
+5. **Sidebar usually OFF for landing pages** — business sites look more focused without sidebars. **Appearance → Customize → Site Sidebar → Default Page → No sidebar**.
 
 6. **No blog needed?** — that's fine. Just remove "Blog" from your menu (Appearance → Menus). You can still have a few pages without a blog.
 
@@ -154,12 +154,12 @@ This is BuddyX's specialty path. The theme was built community-first.
 
 4. **Add Members + Groups + Activity to your menu** — **Appearance → Menus → Add the BuddyPress pages**. Most community sites put **Activity**, **Members**, **Groups** in the primary menu.
 
-5. **BuddyPress sidebar layout** — **Appearance → Customize → Site Sidebar Layout**:
+5. **BuddyPress sidebar layout** — **Appearance → Customize → Site Sidebar**:
    - Member directory & profile — both sidebars or right sidebar
    - Groups directory & single group — same
    - Activity stream — usually right sidebar with "Who's online" / "Recently active" widgets
 
-6. **Customizer → BuddyPress panel** — controls visible only when BuddyPress is active:
+6. **Customizer → Community Settings panel** — controls visible only when BuddyPress is active:
    - **BuddyPress avatar style** — round vs. square avatars
    - More BuddyPress-specific settings as needed
 
