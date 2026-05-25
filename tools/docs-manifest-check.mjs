@@ -124,8 +124,22 @@ const allowlist_tokens = new Set([
 	'bx_color_primary', 'bx_color_bg', 'bx_color_fg',
 ]);
 
+// Strip fenced code blocks (```...```) before checking — illustrative
+// snippets inside fences may reference placeholder filenames or example
+// tokens that shouldn't trigger drift findings.
+function strip_fenced_blocks(text) {
+	const out = [];
+	let in_fence = false;
+	for (const line of text.split('\n')) {
+		if (/^\s*```/.test(line)) { in_fence = !in_fence; out.push(''); continue; }
+		out.push(in_fence ? '' : line);
+	}
+	return out.join('\n');
+}
+
 for (const doc of docs) {
-	const content = readFileSync(doc, 'utf8');
+	const raw_content = readFileSync(doc, 'utf8');
+	const content = strip_fenced_blocks(raw_content);
 	const lines = content.split('\n');
 
 	for (let i = 0; i < lines.length; i++) {
@@ -163,6 +177,7 @@ for (const doc of docs) {
 	for (const m of image_refs) {
 		const ref = m[1].split('#')[0].trim();
 		if (ref.startsWith('http')) continue;
+		if (/^\.+$/.test(ref) || /^url$/i.test(ref) || /your-screenshot/.test(ref)) continue;
 		// Resolve relative to the doc
 		const abs = join(dirname(doc), ref);
 		if (!existsSync(abs)) {
