@@ -62,6 +62,7 @@
       "assets/css/vendor/**/*.css",
       "assets/js/vendor/**/*.js",
       "assets/svg/*.svg",
+      "assets/images/presets/*.svg",
       "inc/EZ_Customizer/themeCustomizeSettings.json",
       "assets/fonts/*",
       "inc/Customizer_Framework/**/*",

@@ -121,6 +121,7 @@ class Output_Builder {
 			'font-style'      => 'font-style',
 			'text-align'      => 'text-align',
 			'text-decoration' => 'text-decoration',
+			'color'           => 'color',
 		);
 		foreach ( $key_map as $k => $css_prop ) {
 			if ( ! empty( $value[ $k ] ) ) {
