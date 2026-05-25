@@ -42,9 +42,12 @@ Two install paths — pick whichever you prefer:
 
 Go to **Appearance → Customize → Site Identity**.
 
+![Customizer → Site Identity panel showing Logo, Dark Mode Logo, Site Title, Tagline, and Site Icon fields](../../website/images/customizer/customizer-site-identity.webp)
+
 | Setting | What to set | Why |
 |---|---|---|
 | **Logo** | Upload your logo (PNG/SVG with transparent background) | Replaces the text site title in the header |
+| **Dark Mode Logo** *(BuddyX 5.1.0)* | Optional alternate logo that shows when the site is in dark mode | Lets a dark-on-light logo flip to light-on-dark so it stays readable |
 | **Site title** | Your site's name | Shows in the browser tab + search results, and as a fallback if you skip logo |
 | **Tagline** | A short one-line description (optional) | Shows below the title on some layouts and in search-engine listings |
 | **Site icon (favicon)** | Square image, 512×512 recommended | The tiny icon in browser tabs and bookmarks |
@@ -52,12 +55,16 @@ Go to **Appearance → Customize → Site Identity**.
 Click **Publish** at the top.
 
 > **First-time tip**: A simple horizontal logo (PNG, transparent background, around 200px wide) works for almost any layout. If you don't have one yet, leave it blank and your **Site Title** will display as text — that's perfectly fine for now.
+>
+> **Dark Mode Logo tip**: only set this if your main logo doesn't read well on a dark background. If you skip it, BuddyX uses your standard logo in both modes — fine for most logos.
 
 ---
 
 ## Step 3 — Colors: pick your brand color (5 minutes)
 
 Go to **Appearance → Customize → Site Skin**.
+
+![Customizer → Site Skin section showing Color mode (Light/Dark/Auto), Show color-mode toggle, Toggle position, and the 8-preset Style picker](../../website/images/customizer/customizer-site-skin-overview.webp)
 
 You have two paths — pick **one**:
 
@@ -86,6 +93,8 @@ For the full color reference, see [skin-colors/color-scheme.md](../skin-colors/c
 ## Step 4 — Fonts: pick a body font + heading font (5 minutes)
 
 Go to **Appearance → Customize → Typography**.
+
+![Customizer → Typography → Body showing Family / Weight / Style / Size / Line Height / Letter / Transform / Align / Decoration controls](../../website/images/customizer/customizer-typography-body.webp)
 
 | Section | What to set | Recommended |
 |---|---|---|
@@ -121,12 +130,14 @@ WordPress menus live at **Appearance → Menus** (not Customize). One-time setup
 
 Go to **Appearance → Customize → Site Header**.
 
+![Customizer → Site Header section showing Sticky Header, Search Icon, Login Link, Register Link toggles — all ON by default](../../website/images/customizer/customizer-site-header.webp)
+
 | Setting | What it does |
 |---|---|
-| **Sticky header** (on by default) | The header stays visible as visitors scroll. Recommended on. |
-| **Search icon** (on by default) | Shows a search icon in the header so visitors can find content. |
-| **Sign in / Register links** | Shows "Sign in" / "Register" links if WordPress registration is open. Off by default — turn on for community sites. |
-| **Cart icon** | Shows only if WooCommerce/FluentCart/SureCart is active. Auto-hides on non-shop sites. |
+| **Sticky header** *(on by default)* | The header stays visible as visitors scroll. Recommended on. |
+| **Search icon** *(on by default)* | Shows a search icon in the header so visitors can find content. |
+| **Sign-in / Register links** *(on by default)* | Shows "Sign in" / "Register" links in the header. Useful for community sites; turn off for purely brochure sites. |
+| **Cart icon** *(conditional)* | Shows only if WooCommerce/FluentCart/SureCart is active. Auto-hides on non-shop sites — that's why you won't see this toggle until you install one of those plugins. |
 
 Click **Publish**.
 
@@ -198,17 +209,25 @@ By default, WordPress shows your latest blog posts at the root URL. For most sit
 
 BuddyX includes a built-in dark mode. Visitors can switch between light, dark, and "auto" (matches their device).
 
-Go to **Appearance → Customize → Site Skin → Color Mode**.
+Go to **Appearance → Customize → Site Skin → Color Mode** (Color Mode is the first subsection of Site Skin — see the screenshot in Step 3).
 
 | Setting | Default | What it does |
 |---|---|---|
 | **Default color mode** | Light | What new visitors see (Light / Dark / Auto). "Auto" matches the visitor's device. |
-| **Show color-mode toggle** | On | Adds a sun/moon button visitors can use to switch modes. |
+| **Show color-mode toggle** | On (Show) | Adds a sun/moon button visitors can use to switch modes. |
 | **Toggle position** | Both | Header (next to menu icons) / Mobile (mobile menu only) / Both. |
 
 The toggle is **on by default** — visitors get to choose. If you want a one-look-only site, set **Show color-mode toggle** to **Hide**.
 
 Click **Publish**.
+
+The sun/moon icon then appears in your header. Visitors clicking it cycle Light → Dark → Auto and the choice is remembered across page loads.
+
+![Front-end home page in light mode with sun toggle icon visible in the header](../../website/images/frontend/frontend-home-light-toggle.webp)
+
+After click → dark mode applies and persists. No flash of light mode on subsequent page loads (FOUC-free first paint).
+
+![Same home page rendered in dark mode after toggle click — moon icon now shown in header, FOUC-free first paint](../../website/images/frontend/frontend-home-dark.webp)
 
 > Dark mode is fully wired across every page: blog, BuddyPress community surfaces, WooCommerce (if active), comments, forms. No flash-of-wrong-color on page load. See [skin-colors/dark-mode.md](../skin-colors/dark-mode.md) for the full reference.
 

@@ -2,34 +2,16 @@
   {
     "surface": "customizer",
     "target": "?autofocus[section]=site_skin_section",
-    "prep": "scroll to top of Site Skin section so Style preset picker is fully visible",
+    "prep": "Section opens with Color mode + Show toggle + Toggle position visible at top, Style preset picker below. Single canonical shot used across color-scheme.md, dark-mode.md, customize-brand.md.",
     "viewport": "1200x900",
     "dark": false,
-    "path": "customizer/customizer-site-skin-style-presets.webp",
-    "doc_use": "skin-colors/color-scheme.md — Path 1 style presets"
-  },
-  {
-    "surface": "customizer",
-    "target": "?autofocus[section]=site_skin_section",
-    "prep": "scroll to Color Mode subsection (Default color mode + toggle + position)",
-    "viewport": "1200x900",
-    "dark": false,
-    "path": "customizer/customizer-site-skin-color-mode.webp",
-    "doc_use": "skin-colors/dark-mode.md — toggle settings table"
-  },
-  {
-    "surface": "customizer",
-    "target": "?autofocus[section]=site_skin_section",
-    "prep": "scroll to Brand → Site Primary Color (color picker open)",
-    "viewport": "1200x900",
-    "dark": false,
-    "path": "customizer/customizer-site-skin-primary-color.webp",
-    "doc_use": "skin-colors/color-scheme.md — Path 2 custom colors; recipes/customize-brand.md Step 2"
+    "path": "customizer/customizer-site-skin-overview.webp",
+    "doc_use": "skin-colors/color-scheme.md (Path 1 + Path 2), skin-colors/dark-mode.md (toggle settings)"
   },
   {
     "surface": "customizer",
     "target": "?autofocus[section]=title_tagline",
-    "prep": "show Site Identity panel with Logo + Site Title + Tagline + Site Icon",
+    "prep": "Site Identity section — Logo, Dark Mode Logo, Site Title, Tagline, Site Icon all visible.",
     "viewport": "1200x900",
     "dark": false,
     "path": "customizer/customizer-site-identity.webp",
@@ -38,7 +20,7 @@
   {
     "surface": "customizer",
     "target": "?autofocus[section]=body_typography_section",
-    "prep": "Body Typography section — show Font Family + Font Size + Line Height",
+    "prep": "Body Typography section — Family / Weight / Style / Size / Line Height / Letter / Transform / Align / Decoration controls all visible.",
     "viewport": "1200x900",
     "dark": false,
     "path": "customizer/customizer-typography-body.webp",
@@ -47,7 +29,7 @@
   {
     "surface": "customizer",
     "target": "?autofocus[section]=site_header_section",
-    "prep": "Site Header section — show Sticky / Search icon / Sign-in / Register / Cart switches",
+    "prep": "Site Header section — 4 toggles all ON (defaults): Sticky Header / Search Icon / Login Link / Register Link.",
     "viewport": "1200x900",
     "dark": false,
     "path": "customizer/customizer-site-header.webp",
@@ -56,7 +38,7 @@
   {
     "surface": "customizer",
     "target": "?autofocus[section]=site_loader",
-    "prep": "Site Loader section — show Show site loader = Off (default)",
+    "prep": "Site Loader section — Show site loader = OFF (5.1.0 default).",
     "viewport": "1200x900",
     "dark": false,
     "path": "customizer/customizer-site-loader.webp",
@@ -65,7 +47,7 @@
   {
     "surface": "customizer",
     "target": "?autofocus[section]=site_performance_section",
-    "prep": "Site Performance section — show Load Google Fonts locally + Preload local fonts + Flush button",
+    "prep": "Site Performance section — Load Google Fonts Locally toggle OFF (default). Preload + Flush controls are conditionally hidden until Load Locally is ON.",
     "viewport": "1200x900",
     "dark": false,
     "path": "customizer/customizer-site-performance.webp",
@@ -74,19 +56,19 @@
   {
     "surface": "frontend",
     "target": "/",
-    "prep": "logout first; show front page in light mode with sun/moon toggle visible in header",
+    "prep": "logout first; front page in light mode with sun icon visible in header.",
     "viewport": "1200x900",
     "dark": false,
     "path": "frontend/frontend-home-light-toggle.webp",
-    "doc_use": "skin-colors/dark-mode.md — visitor toggle position; quick-start.md Step 9"
+    "doc_use": "skin-colors/dark-mode.md — toggle position default; quick-start.md Step 9"
   },
   {
     "surface": "frontend",
     "target": "/",
-    "prep": "logout first; click toggle to dark mode; show same home page rendered in dark with no flash",
+    "prep": "logout first; localStorage[bx-color-mode]=dark pre-set so first paint is dark (FOUC-free proof).",
     "viewport": "1200x900",
     "dark": true,
     "path": "frontend/frontend-home-dark.webp",
-    "doc_use": "skin-colors/dark-mode.md — dark palette demonstration"
+    "doc_use": "skin-colors/dark-mode.md — dark palette + FOUC-free first paint"
   }
 ]

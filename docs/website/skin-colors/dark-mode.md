@@ -26,13 +26,23 @@ BuddyX has three "Default color mode" choices at **Appearance → Customize → 
 
 The sun/moon icon button in the header lets visitors switch modes on their own. Their choice persists across page loads (via `localStorage`) — so if a visitor toggles dark, every page they visit on your site stays dark.
 
+**Light mode (default):** sun icon visible in the header.
+
+![Front-end home page in light mode with sun toggle icon in the header](../../website/images/frontend/frontend-home-light-toggle.webp)
+
+**After click → dark mode applies:** moon icon shown, palette flips, choice saved to localStorage.
+
+![Same home page rendered in dark mode — moon icon in header, FOUC-free first paint](../../website/images/frontend/frontend-home-dark.webp)
+
 ### Toggle settings
 
 At **Customize → Site Skin → Color Mode**:
 
+![Customizer → Site Skin showing Color mode buttons (Light/Dark/Auto), Show color-mode toggle switch, and Toggle position radio (Header/Mobile/Both)](../../website/images/customizer/customizer-site-skin-overview.webp)
+
 | Setting | Default | What it does |
 |---|---|---|
-| **Show color-mode toggle** | On | Adds a sun/moon button. Turn off if you want a one-look-only site. |
+| **Show color-mode toggle** | On (Show) | Adds a sun/moon button. Turn off if you want a one-look-only site. |
 | **Toggle position** | Both | Where the button appears: **Header** (desktop nav), **Mobile** (mobile menu only), **Both**. |
 
 **Settings**: `site_color_mode_toggle_show` (default `on`), `site_color_mode_toggle_position` (default `both`)

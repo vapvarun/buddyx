@@ -118,7 +118,7 @@ All theme settings live in **Appearance → Customize**:
 
 | Panel | What it controls |
 |---|---|
-| Site Identity *(core WP)* | Logo, site title, tagline, favicon |
+| Site Identity *(core WP + BuddyX)* | Logo, Dark Mode Logo, site title, tagline, favicon |
 | General | Site layout, container width, border radius, page mapping, site loader |
 | Typography | Fonts per heading level, body font, menu font, site-title font |
 | Site Header | Header layout, sub-header, menu, header icons |

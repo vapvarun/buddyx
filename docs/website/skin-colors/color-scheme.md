@@ -11,6 +11,8 @@ Both approaches work together. A preset sets a starting palette; any custom colo
 
 ---
 
+![Customizer → Site Skin section showing Color mode (Light/Dark/Auto), Show color-mode toggle, Toggle position, and the 8-preset Style picker](../../website/images/customizer/customizer-site-skin-overview.webp)
+
 ## Path 1 — Style presets (fastest)
 
 BuddyX ships **8 style presets** plus the **Default** look:

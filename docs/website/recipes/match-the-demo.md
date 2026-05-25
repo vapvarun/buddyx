@@ -118,6 +118,8 @@ Walk through these Customizer panels and make sure nothing's been changed from t
 
 ### Site Loader
 
+![Customizer Site Loader section showing Show site loader = OFF (5.1.0 default)](../../website/images/customizer/customizer-site-loader.webp)
+
 | Setting | Default |
 |---|---|
 | Show site loader | **Off** (5.1.0 default — the modern asset pipeline loads fast enough that a loader is optional) |

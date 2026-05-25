@@ -163,11 +163,51 @@ for (const e of entries) {
     await page.emulateMedia({ colorScheme: 'light' });
   }
 
+  // Pre-prime localStorage on the target origin for color-mode requests
+  // BEFORE navigating, so the first-paint inline script picks it up and
+  // there is no FOUC in the captured frame.
+  if (e.dark && e.surface === 'frontend') {
+    try {
+      // Land on the origin first (any URL on the same host works) so we
+      // can write to localStorage. About:blank does not share storage.
+      await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.evaluate(() => {
+        try { localStorage.setItem('bx-color-mode', 'dark'); } catch (_) {}
+      });
+      log(`pre-set localStorage bx-color-mode=dark for ${e.path}`);
+    } catch (err) {
+      log(`localStorage prep failed (continuing): ${err.message}`);
+    }
+  }
+
+  // Optional declarative prep steps. Use this when prep needs an actual
+  // DOM action (scroll, click) — declared in capture-map.json under
+  // `prep_action: { type: '...', selector?: '...', x?: 0, y?: 0 }`.
+  // Supported types: 'scroll' (y or selector), 'click' (selector), 'wait' (ms).
+  const prep_action = e.prep_action;
+
   log(`navigating to ${url}`);
   try {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
     // Let any customizer JS finish hydrating + live-preview updates settle
     await page.waitForTimeout(SETTLE_MS);
+
+    if (prep_action) {
+      if (prep_action.type === 'scroll') {
+        if (prep_action.selector) {
+          await page.locator(prep_action.selector).first().scrollIntoViewIfNeeded({ timeout: 5000 });
+        } else if (typeof prep_action.y === 'number') {
+          await page.evaluate(y => window.scrollTo(0, y), prep_action.y);
+        }
+        await page.waitForTimeout(300);
+      } else if (prep_action.type === 'click') {
+        await page.locator(prep_action.selector).first().click({ timeout: 5000 });
+        await page.waitForTimeout(SETTLE_MS);
+      } else if (prep_action.type === 'wait') {
+        await page.waitForTimeout(prep_action.ms || 500);
+      }
+    }
+
     await page.screenshot({ path: tmpPng, fullPage: false });
   } catch (err) {
     failed.push({ path: e.path, error: err.message });

@@ -27,10 +27,13 @@ If you don't have these decided yet, decide now (it'll save you Customizer time)
 
 **Customize → Site Identity**:
 
+![Customizer Site Identity panel with Logo, Dark Mode Logo, Site Title, Tagline, and Site Icon fields](../../website/images/customizer/customizer-site-identity.webp)
+
 1. **Logo** — upload your logo. Best as PNG (transparent background) or SVG, around 200×60 pixels for horizontal logos.
-2. **Site title** — your brand name (shows in browser tabs even when you have a logo).
-3. **Tagline** — your one-liner (or leave blank).
-4. **Site icon (favicon)** — upload a square 512×512 image.
+2. **Dark Mode Logo** *(optional)* — alternate logo for when the site is in dark mode. Only set this if your main logo doesn't read well on dark backgrounds.
+3. **Site title** — your brand name (shows in browser tabs even when you have a logo).
+4. **Tagline** — your one-liner (or leave blank).
+5. **Site icon (favicon)** — upload a square 512×512 image.
 
 Click **Publish**.
 
@@ -101,6 +104,8 @@ For most brand colors (medium-to-dark), the defaults work. Only adjust if the co
 
 **Customize → Typography → Body Typography**:
 
+![Customizer Typography Body section with Family / Weight / Size / Line Height / Letter / Transform / Align / Decoration controls](../../website/images/customizer/customizer-typography-body.webp)
+
 1. **Font Family** — pick from the Google Fonts dropdown (1000+ options)
    - **Safe bets**: Inter, Open Sans, Source Sans Pro, Lato, Roboto, IBM Plex Sans, DM Sans
    - **Variable / personality**: Outfit, Plus Jakarta Sans, Manrope
@@ -158,8 +163,12 @@ By default, BuddyX loads Google Fonts from Google's CDN. You can host them on yo
 
 **Customize → Site Performance**:
 
-1. **Load Google Fonts locally** → **On**
-2. **Preload local fonts** → **On** (tells the browser to start downloading fonts in parallel with HTML)
+![Customizer Site Performance section showing Load Google Fonts Locally master toggle (off by default)](../../website/images/customizer/customizer-site-performance.webp)
+
+1. **Load Google Fonts Locally** → **On** (the master toggle — off by default)
+2. After step 1, two additional controls appear:
+   - **Preload Local Fonts** → **On** (tells the browser to start downloading fonts in parallel with HTML)
+   - **Flush Local Fonts Cache** button — click after changing fonts so the cached files refresh
 
 Click **Publish**.
 
