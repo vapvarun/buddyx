@@ -105,6 +105,13 @@
   "lint-staged": {
     "*.php": "bash scripts/lint-php-staged.sh",
     "assets/css/src/**/*.css": "npx stylelint --fix",
-    "assets/js/src/**/*.{js,jsx,ts,tsx}": "cross-env ESLINT_USE_FLAT_CONFIG=true eslint --fix"
+    "assets/js/src/**/*.{js,jsx,ts,tsx}": "cross-env ESLINT_USE_FLAT_CONFIG=true eslint --fix",
+    "docs/website/**/*.md": "node tools/docs-manifest-check.mjs --",
+    "docs/customizer-inventory-snapshot.txt": "node tools/docs-manifest-check.mjs --",
+    "tools/capture-map.json": "node tools/docs-manifest-check.mjs --",
+    "inc/Customizer_Settings/Fields/*.php": [
+      "bash scripts/lint-php-staged.sh",
+      "node tools/docs-manifest-check.mjs --"
+    ]
   }
 }

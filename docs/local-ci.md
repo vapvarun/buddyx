@@ -19,6 +19,34 @@ Per staged file:
 | `*.php` | `php -l` (via `scripts/lint-php-staged.sh`) | PHP syntax errors |
 | `assets/css/src/**/*.css` | `stylelint --fix` | CSS lint errors (auto-fixed inline) |
 | `assets/js/src/**/*.{js,jsx,ts,tsx}` | `eslint --fix` | JS/TS lint errors (auto-fixed inline) |
+| `docs/website/**/*.md` | `node tools/docs-manifest-check.mjs` | Customer-doc references to unknown customizer settings; broken image links; images not registered in `tools/capture-map.json` |
+| `docs/customizer-inventory-snapshot.txt` | `node tools/docs-manifest-check.mjs` | Re-runs the doc check when the inventory is regenerated (catches docs that referenced a field just removed/renamed in code) |
+| `tools/capture-map.json` | `node tools/docs-manifest-check.mjs` | Re-runs when the capture map changes (catches stale image entries) |
+| `inc/Customizer_Settings/Fields/*.php` | `php -l` + `node tools/docs-manifest-check.mjs` | Doc-drift triggered by field renames/removals at the source |
+
+### Docs/manifest drift check
+
+`tools/docs-manifest-check.mjs` is the structural guarantee that the customer docs stay aligned with the actual customizer surface. It compares three sources of truth and reports any pair-wise drift:
+
+1. **Customizer fields** declared in `inc/Customizer_Settings/Fields/*.php` → snapshotted into `docs/customizer-inventory-snapshot.txt` by `tools/dump-customizer-inventory.py`. The check parses the snapshot, not the PHP, so it's fast and deterministic.
+2. **Doc references**: every backticked `setting_id`-shaped token in `docs/website/**/*.md` (heuristic: snake_case starting with `site_`, `buddyx_`, `blog_`, `menu_`, `h[1-6]_`, etc.) is verified against the inventory. Unknown settings → fail.
+3. **Image embeds**: every `![](images/...)` reference must resolve on disk AND have a matching entry in `tools/capture-map.json`. Reverse direction enforced too (orphan capture-map entries fail).
+
+Run manually:
+
+```bash
+node tools/docs-manifest-check.mjs
+```
+
+When the customizer changes, the workflow is:
+
+```bash
+python3 tools/dump-customizer-inventory.py > docs/customizer-inventory-snapshot.txt
+node tools/docs-manifest-check.mjs   # surfaces every doc page that needs updating
+# fix the doc references, then:
+git add docs/ inc/
+git commit -m "..."                  # pre-commit hook re-runs the check
+```
 
 The hook is fast (under 5 seconds for typical commits) so it won't
 slow down the commit workflow. To bypass in an emergency,
