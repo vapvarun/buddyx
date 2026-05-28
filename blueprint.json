@@ -1,0 +1,43 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "BuddyX — Editorial WordPress theme",
+		"description": "Preview BuddyX with the full demo site (7 pages, primary nav, sidebar widgets, dark-mode toggle) pre-installed. Drop in BuddyPress or WooCommerce after activation if you want community/store features.",
+		"author": "Wbcom Designs"
+	},
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"phpExtensionBundles": [
+		"kitchen-sink"
+	],
+	"features": {
+		"networking": true
+	},
+	"landingPage": "/",
+	"login": true,
+	"steps": [
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "wordpress.org/themes",
+				"slug": "buddyx"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; if ( class_exists( '\\\\BuddyX\\\\Buddyx\\\\Starter_Content\\\\Component' ) ) { ( new \\BuddyX\\Buddyx\\Starter_Content\\Component() )->create_demo_content(); }"
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "BuddyX Demo",
+				"blogdescription": "Editorial-grade WordPress theme — preview powered by Playground"
+			}
+		}
+	]
+}

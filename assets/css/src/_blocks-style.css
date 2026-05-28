@@ -1,4 +1,3 @@
-@import "_custom-properties.css";
 
 /*--------------------------------------------------------------
 ## Blocks Style
@@ -56,45 +55,70 @@
 	color: var(--wp--preset--color--accent);
 	border: 1px solid var(--wp--preset--color--accent);
 }
+
 .wp-block-button.is-style-outline-accent .wp-block-button__link:hover {
 	background: var(--wp--preset--color--accent);
 	color: var(--wp--preset--color--base);
 }
+
 .wp-block-button.is-style-link-arrow .wp-block-button__link {
 	background: transparent;
 	color: var(--wp--preset--color--contrast);
 	padding: 0;
 	font-weight: 600;
+	/* `border: none` is required because the base .wp-block-button__link
+	 * rule (and our brand button-border token) apply a 1px border. Without
+	 * resetting it here the link-arrow style renders as a solid button
+	 * with brand-color border instead of a styled text link with arrow,
+	 * which is what the pattern library expects (Hero CTA secondary,
+	 * features alternating "See the type spec", etc.). */
+	border: none;
+	border-radius: 0;
+	min-width: 0;
 }
+
+.wp-block-button.is-style-link-arrow .wp-block-button__link:hover,
+.wp-block-button.is-style-link-arrow .wp-block-button__link:focus {
+	background: transparent;
+	border: none;
+	color: var(--wp--preset--color--primary, var(--wp--preset--color--contrast));
+}
+
 .wp-block-button.is-style-link-arrow .wp-block-button__link::after {
 	content: " →";
 	transition: transform 0.2s ease;
 	display: inline-block;
 }
+
 .wp-block-button.is-style-link-arrow .wp-block-button__link:hover::after {
 	transform: translateX(4px);
 }
+
 .wp-block-separator.is-style-gradient {
 	height: 1px;
 	border: 0;
 	background: linear-gradient(90deg, transparent, var(--wp--preset--color--contrast-3), transparent);
 }
+
 .wp-block-separator.is-style-dotted {
 	border: 0;
 	border-top: 2px dotted var(--wp--preset--color--contrast-3);
 	background: transparent;
 	height: 0;
 }
+
 .wp-block-group.is-style-card {
 	background: var(--wp--preset--color--base-2);
 	border-radius: 16px;
 	padding: var(--wp--preset--spacing--40);
 }
+
 .wp-block-group.is-style-bordered {
 	border: 1px solid var(--wp--preset--color--base-3);
 	border-radius: 16px;
 	padding: var(--wp--preset--spacing--40);
 }
+
 .wp-block-quote.is-style-editorial {
 	font-family: var(--wp--preset--font-family--newsreader);
 	font-style: italic;
@@ -116,14 +140,17 @@
 	padding-left: 0;
 	margin-left: 0;
 }
+
 .wp-block-list.is-style-stacked-links li {
 	padding-left: 0;
 	margin-left: 0;
 }
+
 .wp-block-list.is-style-stacked-links a {
 	text-decoration: none;
 	opacity: 0.85;
 }
+
 .wp-block-list.is-style-stacked-links a:hover {
 	opacity: 1;
 	text-decoration: underline;
@@ -136,17 +163,20 @@
 	padding-left: 0;
 	margin-left: 0;
 }
+
 .has-contrast-background-color .wp-block-list li,
 .has-surface-3-background-color .wp-block-list li {
 	padding-left: 0;
 	margin-left: 0;
 }
+
 .has-contrast-background-color .wp-block-list a,
 .has-surface-3-background-color .wp-block-list a {
 	color: var(--wp--preset--color--base);
 	opacity: 0.85;
 	text-decoration: none;
 }
+
 .has-contrast-background-color .wp-block-list a:hover,
 .has-surface-3-background-color .wp-block-list a:hover {
 	opacity: 1;
@@ -173,9 +203,11 @@
 	padding-bottom: var(--wp--preset--spacing--30);
 	margin: 0;
 }
+
 .buddyx-faq-stack .wp-block-details:last-of-type {
 	border-bottom: 1px solid var(--wp--preset--color--base-3);
 }
+
 .buddyx-faq-stack .wp-block-details > summary {
 	font-size: var(--wp--preset--font-size--large);
 	font-weight: 600;
@@ -187,7 +219,9 @@
 	align-items: center;
 	gap: var(--wp--preset--spacing--20);
 }
+
 .buddyx-faq-stack .wp-block-details > summary::-webkit-details-marker { display: none; }
+
 .buddyx-faq-stack .wp-block-details > summary::after {
 	content: "+";
 	font-family: var(--wp--preset--font-family--inter);
@@ -197,9 +231,11 @@
 	color: var(--wp--preset--color--contrast-3);
 	transition: transform 0.2s ease;
 }
+
 .buddyx-faq-stack .wp-block-details[open] > summary::after {
 	transform: rotate(45deg);
 }
+
 .buddyx-faq-stack .wp-block-details > p,
 .buddyx-faq-stack .wp-block-details > .wp-block-paragraph,
 .buddyx-faq-stack .wp-block-details p:not(summary) {

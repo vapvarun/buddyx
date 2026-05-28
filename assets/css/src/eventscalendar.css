@@ -180,19 +180,19 @@ header.my-events-header a.tribe-button:focus {
 .tribe-events .tribe-events-calendar-month__day-cell--selected,
 .tribe-events .tribe-events-calendar-month__day-cell--selected:focus,
 .tribe-events .tribe-events-calendar-month__day-cell--selected:hover,
-.tribe-events .tribe-events-c-events-bar__search-button:before,
-.tribe-events .tribe-events-c-events-bar__filter-button:before,
-.tribe-events .tribe-events-c-view-selector__button:before,
-.tribe-events-pro.tribe-events-view--week .datepicker .day.current:before {
+.tribe-events .tribe-events-c-events-bar__search-button::before,
+.tribe-events .tribe-events-c-events-bar__filter-button::before,
+.tribe-events .tribe-events-c-view-selector__button::before,
+.tribe-events-pro.tribe-events-view--week .datepicker .day.current::before {
     background: var(--color-link-hover);
 }
 
-.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime:after,
+.tribe-events .tribe-events-calendar-list__event-row--featured .tribe-events-calendar-list__event-date-tag-datetime::after,
 .tribe-events-pro .tribe-events-pro-week-day-selector__events-icon,
 .tribe-events .tribe-events-c-ical__link:active,
 .tribe-events .tribe-events-c-ical__link:focus,
 .tribe-events .tribe-events-c-ical__link:hover,
-.widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime:after {
+.widget .tribe-events-widget .tribe-events-widget-events-list__event-row--featured .tribe-events-widget-events-list__event-date-tag-datetime::after {
     background-color: var(--color-link-hover);
 }
 
@@ -527,13 +527,13 @@ table.tribe-section-content .select2-container--default.tribe-dropdown,
 }
 
 .tribe-community-events-content form select#EventCountry,
-.tribe-community-events-content form input[type=text],
-.tribe-community-events-content input[type=date],
-.tribe-community-events-content input[type=month],
-.tribe-community-events-content input[type=number],
-.tribe-community-events-content input[type=tel],
-.tribe-community-events-content input[type=time],
-.tribe-community-events-content input[type=url] {
+.tribe-community-events-content form input[type="text"],
+.tribe-community-events-content input[type="date"],
+.tribe-community-events-content input[type="month"],
+.tribe-community-events-content input[type="number"],
+.tribe-community-events-content input[type="tel"],
+.tribe-community-events-content input[type="time"],
+.tribe-community-events-content input[type="url"] {
     width: 100%;
 }
 
@@ -613,7 +613,7 @@ header.my-events-header .tribe-button {
     filter: invert(1);
 }
 
-.event-tickets__attendees-admin-form:after {
+.event-tickets__attendees-admin-form::after {
     content: "";
     display: table;
     clear: both;

@@ -7,7 +7,7 @@
     "author": "wbcomdesigns",
     "author_uri": "https://wbcomdesigns.com",
     "description": "Free theme for your community with BuddyPress.",
-    "version": "5.0.3"
+    "version": "5.1.0"
   },
   "dev": {
     "browserSync": {
@@ -62,12 +62,13 @@
       "assets/css/vendor/**/*.css",
       "assets/js/vendor/**/*.js",
       "assets/svg/*.svg",
+      "assets/images/presets/*.svg",
       "inc/EZ_Customizer/themeCustomizeSettings.json",
       "assets/fonts/*",
-      "inc/Kirki/**/*",
-      "inc/Kirki_Option/**/*",
-      "external/include-kirki.php",
-      "external/kirki-utils.php"
+      "inc/Customizer_Framework/**/*",
+      "inc/Customizer_Settings/**/*",
+      "inc/Fonts/data/*.json",
+      "external/buddyx-defaults.php"
     ]
   }
 }

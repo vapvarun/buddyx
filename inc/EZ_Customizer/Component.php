@@ -80,12 +80,20 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Retrieves the theme settings from the JSON file and stores them in class-level variable.
+	 * Retrieves the theme settings from the bundled JSON file.
+	 *
+	 * Reads via file_get_contents() rather than wp_remote_get() — the
+	 * file lives inside the theme so a local FS read is correct here.
+	 * The previous HTTP self-fetch broke in offline environments
+	 * (WordPress Playground without internet, staging behind firewalls).
 	 */
 	private function get_theme_settings_config() {
-		$get_menu_icon        = wp_remote_get( get_theme_file_uri() . '/inc/EZ_Customizer/themeCustomizeSettings.json' );
-		$theme_settings_json  = wp_remote_retrieve_body( $get_menu_icon );
-		$this->theme_settings = apply_filters( 'buddyx_customizer_settings', json_decode( $theme_settings_json, FILE_USE_INCLUDE_PATH ) );
+		$path = get_theme_file_path( '/inc/EZ_Customizer/themeCustomizeSettings.json' );
+		$theme_settings_json = is_readable( $path ) ? file_get_contents( $path ) : '';
+		$this->theme_settings = apply_filters(
+			'buddyx_customizer_settings',
+			$theme_settings_json ? json_decode( $theme_settings_json, true ) : array()
+		);
 	}
 
 	/**

@@ -46,6 +46,11 @@ function buddyx_load_core() {
 	$core_files = array(
 		'/inc/wordpress-shims.php',
 		'/inc/functions.php',
+		// Customizer_Framework (replaces Kirki dependency in 5.1.0).
+		'/inc/Customizer_Framework/Component.php',
+		'/inc/Customizer_Framework/Panel.php',
+		'/inc/Customizer_Framework/Section.php',
+		'/inc/Customizer_Framework/Field.php',
 	);
 
 	foreach ( $core_files as $file ) {
@@ -53,6 +58,14 @@ function buddyx_load_core() {
 		if ( file_exists( $file_path ) ) {
 			require_once $file_path;
 		}
+	}
+
+	// Boot the Customizer_Framework. Idempotent — safe on second call.
+	if ( class_exists( '\\BuddyX\\Buddyx\\Customizer_Framework\\Component' ) ) {
+		\BuddyX\Buddyx\Customizer_Framework\Component::boot( array(
+			'config_id'  => 'buddyx_customizer',
+			'assets_url' => get_template_directory_uri(),
+		) );
 	}
 
 	$core_loaded = true;
@@ -438,9 +451,7 @@ function buddyx_load_external_dependencies() {
 	$base_path = get_template_directory();
 
 	$external_files = array(
-		'/external/require_plugins.php',
-		'/external/include-kirki.php',
-		'/external/kirki-utils.php',
+		'/external/buddyx-defaults.php',
 	);
 
 	foreach ( $external_files as $file ) {

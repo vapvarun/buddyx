@@ -364,6 +364,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.min.css',
 				'global' => true,
 			),
+			'buddyx-tokens-applied'   => array(
+				'file'   => 'bx-tokens-applied.css',
+				'global' => true,
+				'deps'   => array( 'buddyx-global' ),
+			),
 			'buddyx-comments'         => array(
 				'file'             => 'comments.min.css',
 				'preload_callback' => function () {

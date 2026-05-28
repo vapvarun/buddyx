@@ -224,47 +224,47 @@ class BuddyX_FluentCart_Support {
 	 * @return void
 	 */
 	public function buddyx_fluentcart_add_customizer_option() {
-		// Only add if Kirki is available.
-		if ( ! class_exists( '\\Kirki\\Field\\Checkbox_Switch' ) ) {
-			return;
-		}
-
-		new \Kirki\Field\Checkbox_Switch(
-			array(
-				'settings'    => 'site_header_enable_cart',
-				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
-				'section'     => 'site_header_primary_section',
-				'default'     => '1',
-				'priority'    => 10,
-				'choices'     => array(
-					'on'  => esc_html__( 'Yes', 'buddyx' ),
-					'off' => esc_html__( 'No', 'buddyx' ),
-				),
-				'tooltip'     => esc_html__( 'Display FluentCart cart icon in header', 'buddyx' ),
-				'transport'   => 'refresh',
-			)
-		);
-
-		// Add product sidebar option.
-		if ( class_exists( '\\Kirki\\Field\\Radio_Image' ) ) {
-			new \Kirki\Field\Radio_Image(
+		// SureCart's compat file owns the `site_header_enable_cart` setting
+		// declaration. If both plugins are active, only one copy must register
+		// (whichever runs second would otherwise overwrite the first's args).
+		// We yield to SureCart to preserve historical customer data — Kirki
+		// versions of the theme had SureCart's declaration win the race.
+		if ( ! defined( 'SURECART_PLUGIN_FILE' ) ) {
+			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 				array(
-					'settings'    => 'fluentcart_product_sidebar',
-					'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
-					'section'     => 'site_sidebar_layout',
-					'default'     => 'none',
+					'settings'    => 'site_header_enable_cart',
+					'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
+					'section'     => 'site_header_primary_section',
+					'default'     => '1',
 					'priority'    => 10,
 					'choices'     => array(
-						'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
-						'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
-						'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
-						'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+						'on'  => esc_html__( 'Yes', 'buddyx' ),
+						'off' => esc_html__( 'No', 'buddyx' ),
 					),
-					'tooltip'     => esc_html__( 'Choose sidebar layout for single product page.', 'buddyx' ),
+					'tooltip'     => esc_html__( 'Display FluentCart cart icon in header', 'buddyx' ),
 					'transport'   => 'refresh',
 				)
 			);
 		}
+
+		// Add product sidebar option.
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+			array(
+				'settings'    => 'fluentcart_product_sidebar',
+				'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
+				'section'     => 'site_sidebar_layout',
+				'default'     => 'none',
+				'priority'    => 10,
+				'choices'     => array(
+					'left'  => get_template_directory_uri() . '/assets/images/left-sidebar.png',
+					'right' => get_template_directory_uri() . '/assets/images/right-sidebar.png',
+					'both'  => get_template_directory_uri() . '/assets/images/both-sidebar.png',
+					'none'  => get_template_directory_uri() . '/assets/images/without-sidebar.png',
+				),
+				'tooltip'     => esc_html__( 'Choose sidebar layout for single product page.', 'buddyx' ),
+				'transport'   => 'refresh',
+			)
+		);
 	}
 
 	/**
@@ -314,7 +314,7 @@ class BuddyX_FluentCart_Support {
 			 */
 			function buddyx_render_cart_icon() {
 				// Check if cart is enabled.
-				$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+				$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 				if ( ! $cart_enabled ) {
 					return;
 				}
@@ -353,7 +353,7 @@ class BuddyX_FluentCart_Support {
 	 */
 	public function buddyx_fluentcart_add_cart_styles() {
 		// Check if cart is enabled.
-		$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+		$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 		if ( ! $cart_enabled ) {
 			return;
 		}
@@ -377,7 +377,7 @@ class BuddyX_FluentCart_Support {
 	 */
 	public function buddyx_fluentcart_add_cart_scripts() {
 		// Check if cart is enabled.
-		$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+		$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 		if ( ! $cart_enabled ) {
 			return;
 		}

@@ -102,7 +102,13 @@
 }
 
 .post-meta-category a {
-    color: var(--color-theme-primary);
+    /* Use the body link token which is high-contrast by default
+     * (#111 against white = 21:1) AND respects customer-customized
+     * link color. The brand-accent gradient on category badges in
+     * master 5.0.x had only 3.45:1 contrast (failed WCAG AA). Bold
+     * weight + uppercase + underline still make these "pop" without
+     * relying on color alone (WCAG 1.4.1 — Use of Color). */
+    color: var(--bx-color-link, var(--color-link, #111));
     font-size: 13px;
 }
 
@@ -269,7 +275,7 @@ article .entry-header {
     clear: both;
     margin-bottom: 0;
     padding: 1.5em 0 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid var(--bx-color-border, #e8e8e8);
 }
 
 @media (--content-query) {
@@ -288,7 +294,7 @@ article .entry-header {
 }
 
 .buddyx-article:hover {
-    box-shadow: 0 6px 24px 0 rgba(18, 43, 70, .12);
+    box-shadow: 0 6px 24px 0 var(--bx-color-shadow);
 }
 
 .buddyx-article--default {
@@ -305,7 +311,7 @@ article .entry-header {
 }
 
 .buddyx-article--default .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px #eaeaea, 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article .entry-content {
@@ -349,7 +355,7 @@ article .entry-header {
     display: none;
 }
 
-.buddyx-article:after {
+.buddyx-article::after {
     content: " ";
     display: block;
     clear: both;
@@ -391,7 +397,7 @@ article .entry-header {
 }
 
 .buddyx-article--list .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px #eaeaea, 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article--list .buddyx-article .buddyx-post-thumbnail,
@@ -416,7 +422,6 @@ article .entry-header {
     font-size: var(--bx-article-list);
     max-height: calc(var(--bx-article-list) * 1.5 * var(--line-clamp-list-text, 2));
     overflow: hidden;
-    display: block;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--line-clamp-list-text, 2);
@@ -441,7 +446,6 @@ article .entry-header {
     font-size: var(--bx-article-list);
     max-height: calc(var(--bx-article-list) * 1.5 * var(--line-clamp-list-text, 3));
     overflow: hidden;
-    display: block;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--line-clamp-list-text, 3);
@@ -540,7 +544,7 @@ article .entry-header {
     margin: 0;
 }
 
-.buddyx-article--grid .buddyx-article:before {
+.buddyx-article--grid .buddyx-article::before {
     display: block;
     position: absolute;
     left: 8px;
@@ -552,31 +556,31 @@ article .entry-header {
     z-index: 1;
 }
 
-.buddyx-article--grid .buddyx-article.format-image:before {
+.buddyx-article--grid .buddyx-article.format-image::before {
     content: "\f03e";
 }
 
-.buddyx-article--grid .buddyx-article.format-audio:before {
+.buddyx-article--grid .buddyx-article.format-audio::before {
     content: "\f144";
 }
 
-.buddyx-article--grid .buddyx-article.format-video:before {
+.buddyx-article--grid .buddyx-article.format-video::before {
     content: "\f03d";
 }
 
-.buddyx-article--grid .buddyx-article.format-gallery:before {
+.buddyx-article--grid .buddyx-article.format-gallery::before {
     content: "\f03e";
 }
 
-.buddyx-article--grid .buddyx-article.format-quote:before {
+.buddyx-article--grid .buddyx-article.format-quote::before {
     content: "\f10d";
 }
 
-.buddyx-article--grid .buddyx-article.format-link:before {
+.buddyx-article--grid .buddyx-article.format-link::before {
     content: "\f0c1";
 }
 
-.buddyx-article--grid .buddyx-article.has-post-thumbnail:before {
+.buddyx-article--grid .buddyx-article.has-post-thumbnail::before {
     color: #fff;
     z-index: 2;
 }
@@ -605,7 +609,7 @@ article .entry-header {
     text-align: center;
     margin-bottom: 0;
     padding: 0;
-    background-color: #ececec;
+    background-color: var(--bx-color-divider, #ececec);
     border-radius: var(--global-border-radius);
 }
 
@@ -656,7 +660,7 @@ article .entry-header {
     margin-bottom: 0;
 }
 
-.buddyx-article--grid a.post-thumbnail:before {
+.buddyx-article--grid a.post-thumbnail::before {
     content: "";
     position: absolute;
     top: 0;
@@ -679,7 +683,7 @@ article .entry-header {
     transform: scale(1.1);
 }
 
-.buddyx-article--grid a.post-thumbnail:hover:before {
+.buddyx-article--grid a.post-thumbnail:hover::before {
     opacity: 0.6;
 }
 
@@ -730,7 +734,7 @@ article .entry-header {
 }
 
 .buddyx-article--masonry .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px #eaeaea, 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article--masonry .buddyx-article>* {
@@ -814,7 +818,6 @@ article .entry-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: #2f4f4f;
     background-size: cover;
@@ -824,7 +827,7 @@ article .entry-header {
     min-height: 300px;
 }
 
-.buddyx-quote-block:after {
+.buddyx-quote-block::after {
     content: "";
     display: block;
     background-image: linear-gradient(226deg, #96CE4E 0%, #0ACD7E 100%);
@@ -837,7 +840,7 @@ article .entry-header {
     padding: 20px;
 }
 
-.buddyx-quote-block .wp-block-quote:before {
+.buddyx-quote-block .wp-block-quote::before {
     content: "\f10d";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
@@ -886,7 +889,7 @@ article .entry-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e3e3e3;
+    background: var(--bx-color-divider, #e3e3e3);
     position: relative;
 }
 
@@ -926,11 +929,11 @@ article .entry-header {
 .archive-buddyx-gallery-post .gallery .slick-prev,
 .buddyx-post-section .gallery .slick-next,
 .buddyx-post-section .gallery .slick-prev {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 0;
     border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    color: #1a1a1a;
+    box-shadow: 0 0 5px var(--bx-color-shadow);
+    color: var(--bx-color-fg, #1a1a1a);
     font-size: 21px;
     height: 40px;
     line-height: 40px;
@@ -963,7 +966,7 @@ article .entry-header {
 
 .archive-buddyx-gallery-post .gallery .slick-disabled,
 .buddyx-post-section .gallery .slick-disabled {
-    color: #aaa;
+    color: var(--bx-color-fg-muted, #aaa);
     cursor: default;
 }
 
@@ -1116,7 +1119,7 @@ article .entry-header {
 
 .post-meta-tags.badge .post-meta-tag__item>a {
     background-color: var(--color-theme-primary);
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     display: inline-block;
     padding: 4px 8px;
     font-size: 13px;
@@ -1218,7 +1221,7 @@ article .entry-header {
     position: relative;
 }
 
-.buddyx-section-title-over.has-featured-image .post-thumbnail:after {
+.buddyx-section-title-over.has-featured-image .post-thumbnail::after {
     content: "";
     display: block;
     background: rgb(0, 0, 0, 0.1);
@@ -1334,7 +1337,7 @@ article .entry-header {
         width: 100vw;
         transform: translateX(-50%);
         max-width: 1600px;
-        background: #f5f5f5;
+        background: var(--bx-color-bg-muted, #f5f5f5);
     }
 
     .single-post-main-wrapper .buddyx-section-half.has-featured-image .entry-media-image {
@@ -1459,9 +1462,9 @@ article .entry-header {
 #wp-idea-stream button:not(.ed_button):not(.search-submit):not(.submit-sort):not(.wp-embed-share-dialog-close),
 #wp-idea-stream a.button,
 a.wpis-title-button,
-#wp-idea-stream input[type=submit]:not(.search-submit),
-#wp-idea-stream input[type=button]:not(.ed_button),
-#wp-idea-stream input[type=reset],
+#wp-idea-stream input[type="submit"]:not(.search-submit),
+#wp-idea-stream input[type="button"]:not(.ed_button),
+#wp-idea-stream input[type="reset"],
 body.single-ideas #comments .comment-reply-link {
     font-family: inherit;
     font-size: inherit;
@@ -1491,9 +1494,9 @@ body.single-ideas #comments .comment-reply-link {
 #wp-idea-stream a.button:focus,
 a.wpis-title-button:hover,
 a.wpis-title-button:focus,
-#wp-idea-stream input[type=submit]:hover:not(.search-submit),
-#wp-idea-stream input[type=button]:hover:not(.ed_button),
-#wp-idea-stream input[type=reset]:hover,
+#wp-idea-stream input[type="submit"]:hover:not(.search-submit),
+#wp-idea-stream input[type="button"]:hover:not(.ed_button),
+#wp-idea-stream input[type="reset"]:hover,
 body.single-ideas #comments .comment-reply-link:hover {
     background-color: var(--button-background-hover-color);
     border: 1px solid var(--button-border-hover-color);
@@ -1518,7 +1521,7 @@ body.single-ideas #comments .comment-reply-link:hover {
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     border-radius: var(--global-border-radius);
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 #wp-idea-stream ul.idea-list>li+li {
@@ -1546,7 +1549,7 @@ ul#ideas-main-nav form#searchform {
     height: 38px;
 }
 
-#wp-idea-stream ul#ideas-main-nav li form input[type=submit] {
+#wp-idea-stream ul#ideas-main-nav li form input[type="submit"] {
     line-height: 1.1;
 }
 
@@ -1733,29 +1736,29 @@ body.single-lcn_notes .content-wrapper {
 
 .has-base-color,
 .has-base-color a {
-    color: #ffffff;
+    color: var(--wp--preset--color--base, #fff);
 }
 
 .has-base-background-color {
-    background-color: #ffffff;
+    background-color: var(--wp--preset--color--base, #fff);
 }
 
 .has-contrast-color,
 .has-contrast-color a {
-    color: #000000;
+    color: var(--wp--preset--color--contrast, #000);
 }
 
 .has-contrast-background-color {
-    background-color: #000000;
+    background-color: var(--wp--preset--color--contrast, #000);
 }
 
 .has-tertiary-color,
 .has-tertiary-color a {
-    color: #f6f6f6;
+    color: var(--wp--preset--color--tertiary, #f6f6f6);
 }
 
 .has-tertiary-background-color {
-    background-color: #f6f6f6;
+    background-color: var(--wp--preset--color--tertiary, #f6f6f6);
 }
 
 /*--------------------------------------------------------------

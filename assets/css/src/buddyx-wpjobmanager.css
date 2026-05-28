@@ -25,8 +25,8 @@ ul.job_listings {
 }
 
 ul.job_listings li.job_listing {
-    background-color: #fff;
-    border: 1px solid #e7eaec;
+    background-color: var(--bx-color-bg-elevated, #fff);
+    border: 1px solid var(--bx-color-border, #e7eaec);
     margin: 0 0 -1px;
 }
 
@@ -43,7 +43,7 @@ ul.job_listings li.job_listing a {
 }
 
 ul.job_listings li.job_listing a:hover {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     box-shadow: 0 3px 24px 0 rgba(18, 43, 70, 0.08);
     border-left-color: #fff;
     border-right-color: #fff;
@@ -72,7 +72,6 @@ ul.job_listings li.job_listing a div.position {
 ul.job_listings li.job_listing a div.position .company {
     font-size: 14px;
     line-height: 1.35;
-    display: block;
     display: -webkit-box;
     max-height: 1.35em;
     margin: 0;
@@ -81,11 +80,11 @@ ul.job_listings li.job_listing a div.position .company {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 85%;
-    color: #a3a5a9;
+    color: var(--bx-color-fg-muted, #a3a5a9);
 }
 
 ul.job_listings li.job_listing a div.location {
-    color: #a3a5a9;
+    color: var(--bx-color-fg-muted, #a3a5a9);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type {
@@ -129,7 +128,7 @@ ul.job_listings li.job_listing ul.meta li.job-type.temporary {
 
 ul.job_listings li.job_listing ul.meta li.date {
     font-size: 12px;
-    color: #a3a5a9;
+    color: var(--bx-color-fg-muted, #a3a5a9);
     line-height: 18px;
     padding-top: 5px;
 }

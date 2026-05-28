@@ -1,0 +1,44 @@
+{
+  "mode": "free",
+  "release_version": "5.1.0",
+  "ran_at": "2026-05-25T09:52:23Z",
+  "sections": {
+    "A_fresh_install":     { "pass": 3, "fail": 0, "skipped": 0 },
+    "B_upgrade":           { "pass": 1, "fail": 0, "skipped": 1 },
+    "C_core_flows":        { "pass": 9, "fail": 0, "skipped": 1 },
+    "D_regression_guards": { "pass": 2, "fail": 0, "skipped": 0 },
+    "E_extensions":        { "pass": 2, "fail": 0, "skipped": 1 },
+    "F_cross_browser":     { "pass": 1, "fail": 0, "skipped": 2 }
+  },
+  "failures": [],
+  "skipped_with_rationale": [
+    {
+      "id": "C.cron",
+      "rationale": "buddyx_delete_fonts_folder cron event verified present (next: 2026-06-13) but is intentional per the phpcs:ignore on inc/Webfont/class-buddyx-webfont-loader.php:634 (since 4.3.9). Runbook updated 2026-05-25 to whitelist this single cron event; any OTHER buddyx_* cron remains a failure. Not a 5.1.0 regression."
+    }
+  ],
+  "debug_log_issues": [
+    {
+      "section": "preflight",
+      "level": "notice",
+      "line": "[25-May-2026 09:46:00 UTC] Automatic updates starting... Automatic updates complete.",
+      "file": "wp-includes/update.php (WordPress core auto-update, not theme-triggered, whitelisted)"
+    },
+    {
+      "section": "E.buddypress",
+      "level": "deprecated",
+      "line": "[25-May-2026 09:46:32 UTC] PHP Deprecated: Function bp_core_get_user_domain is deprecated since version 12.0.0! Use bp_members_get_user_url() instead.",
+      "file": "Triggered by wp eval in smoke test, but theme also calls bp_core_get_user_domain() in: inc/widgets/bp-profile-completion-widget.php:87, template-parts/header/buddypress-profile.php:118, template-parts/header/navigation.php:72. No browser request triggered this during the walk - may be suppressed by BP's internal compat layer at runtime. Recommend replacing all 3 theme usages with bp_members_get_user_url()."
+    }
+  ],
+  "manual_required": [
+    "Firefox Desktop: Customizer color picker drag interaction for primary color and typography color - verify color value commits correctly on mouseup outside the picker widget.",
+    "Firefox Desktop: Dark-mode toggle keyboard accessibility - Tab to toggle, Enter/Space activates, aria-pressed announces state change to screen reader.",
+    "Firefox Desktop: BP nouveau activity stream infinite scroll - verify no layout jank or overflow at 1440px.",
+    "Safari iOS (390px): Dark-mode toggle tap target size - must be min 44x44pt; verify tapping does not accidentally trigger adjacent nav items.",
+    "Safari iOS (390px): BP profile tab navigation horizontal scroll - swipe behavior on member profile subnav at 390px viewport.",
+    "Safari iOS (390px): WooCommerce checkout form inputs - verify no zoom-on-focus triggered by font-size < 16px on form fields.",
+    "RTL (Hebrew/Arabic locale): Primary templates rendering right-to-left without overflow; icon mirroring; brand glyphs untransformed.",
+    "Accessibility: Focus rings visible on all interactive elements; tab order logical from header to footer; icon-only buttons have aria-label (dark-mode toggle, search icon)."
+  ]
+}

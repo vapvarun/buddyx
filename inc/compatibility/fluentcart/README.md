@@ -208,7 +208,7 @@ This ensures the customizer setting (`fluentcart_product_sidebar`) controls the 
 **Location**: `Customize > Header > Primary Header`
 
 ```php
-new \Kirki\Field\Checkbox_Switch(
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
     array(
         'settings'    => 'site_header_enable_cart',
         'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
@@ -229,7 +229,7 @@ new \Kirki\Field\Checkbox_Switch(
 **Location**: `Customize > Sidebar > Sidebar Layout`
 
 ```php
-new \Kirki\Field\Radio_Image(
+\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
     array(
         'settings'    => 'fluentcart_product_sidebar',
         'label'       => esc_html__( 'FluentCart Product Sidebar', 'buddyx' ),

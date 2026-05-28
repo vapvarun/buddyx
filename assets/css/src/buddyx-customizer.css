@@ -21,13 +21,11 @@
 
 .customize-control-kirki-radio-image .image label {
     width: 48%;
-    padding-top: 10px;
     line-height: 1;
     text-align: center;
     border-radius: 6px !important;
-    padding-left: 10px;
     padding: 10px;
-    background: #DDE0E2;
+    background: #dde0e2;
     transition: background .20s ease, box-shadow .20s ease;
 }
 
@@ -45,7 +43,7 @@
 
 .customize-control-kirki-radio-image .image input:checked+label {
     background: var(--accentColor);
-    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, .08);
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, .08);
 }
 
 /* Hide Custom Color Option */

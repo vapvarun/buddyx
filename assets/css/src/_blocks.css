@@ -1,4 +1,3 @@
-@import "_custom-properties.css";
 
 /*--------------------------------------------------------------
 ## Blocks
@@ -60,14 +59,47 @@
 }
 
 .entry-content h1.wp-block-heading { color: var(--color-h1); }
+
 .entry-content h2.wp-block-heading { color: var(--color-h2); }
+
 .entry-content h3.wp-block-heading { color: var(--color-h3); }
+
 .entry-content h4.wp-block-heading { color: var(--color-h4); }
+
 .entry-content h5.wp-block-heading { color: var(--color-h5); }
+
 .entry-content h6.wp-block-heading { color: var(--color-h6); }
 
 .entry-content > .wp-block-heading:first-child {
 	margin-top: 0;
+}
+
+/* Pages that lead with a full-bleed block (hero, CTA, image cover)
+ * should butt the block directly against the site header — not leave
+ * a body-BG strip. WP / BuddyPress give .entry-content a default
+ * margin-top:1em that exposes that strip; remove it on
+ * page/full-width templates that immediately render an alignfull. */
+.page-template-full-width .entry-content,
+.home .entry-content,
+body:not(.single):not(.archive) .entry-content {
+	margin-top: 0;
+}
+
+/* Full-bleed blocks (alignfull) butt up against the header, footer,
+ * and each other with no body-BG gap. Default 1.5em block top/bottom
+ * margin (from .entry-content .wp-block-group rule in content.css)
+ * creates a visible white/dark strip between:
+ *   - site header and the first alignfull section (top gap)
+ *   - consecutive full-bleed sections (CTA + footer-style pattern)
+ *   - the last alignfull block and the site footer (bottom gap)
+ * Use a Spacer block for intentional spacing between sections.
+ * Specificity 0,3,0 to beat content.css's 0,2,0 .entry-content
+ * .wp-block-group rule. */
+.entry-content > .wp-block-group.alignfull,
+.entry-content > .wp-block-cover.alignfull,
+.entry-content > .wp-block-image.alignfull {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -475,7 +507,7 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 }
 
 .wp-block-separator.has-background {
-	border-color: currentColor;
+	border-color: currentcolor;
 }
 
 /*--------------------------------------------------------------

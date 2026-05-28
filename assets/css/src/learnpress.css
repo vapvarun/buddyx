@@ -19,7 +19,6 @@
 # Imports
 --------------------------------------------------------------*/
 
-@import "_custom-properties.css";
 
 /*--------------------------------------------------------------
 # Archive Course
@@ -33,7 +32,7 @@
     margin-top: 0;
 }
 
-.lp-archive-courses .learn-press-courses[data-layout=grid] .course .course-item .course-content.course-content {
+.lp-archive-courses .learn-press-courses[data-layout="grid"] .course .course-item .course-content.course-content {
     border: 1px solid var(--global-border-color);
     border-top: 0;
 }
@@ -74,7 +73,7 @@
     transition: all .5s ease-in-out;
 }
 
-.lp_course.course .course-thumbnail:before {
+.lp_course.course .course-thumbnail::before {
     content: '';
     position: absolute;
     top: 0;
@@ -88,7 +87,7 @@
     opacity: 0;
 }
 
-.lp_course.course:hover .course-thumbnail:before {
+.lp_course.course:hover .course-thumbnail::before {
     filter: alpha(opacity=100);
     -ms-filter: "alpha(opacity=100)";
     opacity: 1;
@@ -104,11 +103,11 @@ ul.learn-press-courses .course h3.course-title {
 }
 
 .course-price {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .lp-archive-courses .learn-press-courses[data-layout="list"] .course {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 ul.learn-press-courses .course .course-info .course-price .origin-price,
@@ -123,7 +122,7 @@ ul.learn-press-courses .course .course-info .course-price .price {
 }
 
 ul.learn-press-courses .course .course-info .course-instructor a {
-    color: #999999;
+    color: var(--bx-color-fg-muted, #999);
     text-transform: capitalize;
     font-size: 13px !important;
 }
@@ -168,11 +167,11 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 
 .single-lp_course .learn-press-course-results-progress,
 .single-lp_course .course-learning-summary .course-remaining-time {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     padding: 1em;
     margin: 10px 0 30px;
     border-radius: 5px;
-    border: 1px solid #e8e8e8;
+    border: 1px solid var(--bx-color-border, #e8e8e8);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
 }
 
@@ -221,10 +220,10 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 }
 
 ul.learn-press-nav-tabs .course-nav {
-    background: #efefef;
+    background: var(--bx-color-divider, #efefef);
     margin-right: 0.5% !important;
     text-align: center;
-    border: 1px solid #e8e8e8;
+    border: 1px solid var(--bx-color-border, #e8e8e8);
     margin-bottom: -1px !important;
     border-bottom: 0;
 }
@@ -236,37 +235,37 @@ ul.learn-press-nav-tabs .course-nav a {
 }
 
 ul.learn-press-nav-tabs .course-nav.active {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
-ul.learn-press-nav-tabs .course-nav a:after {
+ul.learn-press-nav-tabs .course-nav a::after {
     position: absolute;
     left: 25px;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: 400 normal normal 14px/1 FontAwesome;
     top: 18px;
 }
 
-.course-nav.course-nav-tab-overview a:after {
+.course-nav.course-nav-tab-overview a::after {
     content: "\f02e";
 }
 
-.course-nav.course-nav-tab-curriculum a:after {
+.course-nav.course-nav-tab-curriculum a::after {
     content: "\f1b2";
 }
 
-.course-nav.course-nav-tab-instructor a:after {
+.course-nav.course-nav-tab-instructor a::after {
     content: "\f007";
 }
 
-.course-nav.course-nav-tab-reviews a:after {
+.course-nav.course-nav-tab-reviews a::after {
     content: "\f086";
 }
 
 #learn-press-course-tabs .course-tab-panel {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-    border-radius: 0px 0 8px 8px;
+    border-radius: 0 0 8px 8px;
     overflow: hidden;
     padding: 1em 1.2em;
 }
@@ -336,7 +335,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 
 .course-author .author-wrapper {
     padding: 1em;
-    border: 1px solid #eee;
+    border: 1px solid var(--bx-color-border, #eee);
     overflow: hidden;
     margin-bottom: 10px !important;
 }
@@ -492,7 +491,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
 .widget .course-detail .course-lesson-number {
     font-size: 11px;
     letter-spacing: 0.3px;
-    color: #444444;
+    color: var(--bx-color-fg-muted, #444);
 }
 
 .widget .course-detail .course-description {
@@ -593,14 +592,14 @@ ul.learn-press-nav-tabs .course-nav a:after {
 
 #learn-press-user-profile #learn-press-profile-nav .tabs>li a {
     padding: 15px 20px 15px 48px;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--bx-color-border, #eee);
     position: relative;
 }
 
-#learn-press-user-profile #learn-press-profile-nav .tabs>li a:after {
+#learn-press-user-profile #learn-press-profile-nav .tabs>li a::after {
     position: absolute;
     left: 20px;
-    font: normal normal normal 18px/1 FontAwesome;
+    font: 400 normal normal 18px/1 FontAwesome;
     top: 20px;
 }
 
@@ -612,56 +611,56 @@ ul.learn-press-nav-tabs .course-nav a:after {
     padding: 0 !important;
 }
 
-#learn-press-profile-nav .tabs>li.dashboard a:after {
+#learn-press-profile-nav .tabs>li.dashboard a::after {
     content: "\f201";
 }
 
-#learn-press-profile-nav .tabs>li.courses a:after {
+#learn-press-profile-nav .tabs>li.courses a::after {
     content: "\f19d";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.owned a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.owned a::after {
     content: "\f03a";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.purchased a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.purchased a::after {
     content: "\f217";
 }
 
-#learn-press-profile-nav .tabs>li.quizzes a:after {
+#learn-press-profile-nav .tabs>li.quizzes a::after {
     content: "\f12e";
 }
 
-#learn-press-profile-nav .tabs>li.orders a:after {
+#learn-press-profile-nav .tabs>li.orders a::after {
     content: "\f274";
 }
 
-#learn-press-profile-nav .tabs>li.settings a:after {
+#learn-press-profile-nav .tabs>li.settings a::after {
     content: "\f085";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.basic-information a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.basic-information a::after {
     content: "\f2bb";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.avatar a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.avatar a::after {
     content: "\f007";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.change-password a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.change-password a::after {
     content: "\f13e";
 }
 
-#learn-press-profile-nav .tabs ul.profile-tab-sections li.publicity a:after {
+#learn-press-profile-nav .tabs ul.profile-tab-sections li.publicity a::after {
     content: "\f064";
 }
 
-#learn-press-profile-nav .tabs>li.wishlist a:after {
+#learn-press-profile-nav .tabs>li.wishlist a::after {
     content: "\f004";
 }
 
 #learn-press-profile-nav .tabs>li.active>a {
-    background: #fff !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
 }
 
 .lp-sub-menu {
@@ -693,7 +692,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
         display: none;
     }
     #learn-press-profile-nav #profile-mobile-menu {
-        background: #F5F5F5;
+        background: var(--bx-color-bg-muted, #F5F5F5);
     }
     #learn-press-profile-nav:hover #profile-mobile-menu {
         background: var(--color-theme-primary) !important;
@@ -703,7 +702,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
     #learn-press-profile-nav .tabs>li:hover ul,
     #learn-press-profile-nav .tabs>li:hover a,
     #learn-press-profile-nav .learn-press-tabs {
-        background: #b6b6b6 !important;
+        background: var(--bx-color-fg-muted, #b6b6b6) !important;
         z-index: 99;
     }
     #learn-press-user-profile .learn-press-courses.profile-courses-list {
@@ -719,7 +718,7 @@ ul.learn-press-nav-tabs .course-nav a:after {
     .lp-list-table td {
         padding: 13px 5px !important;
         font-size: 13px !important;
-        font-weight: normal;
+        font-weight: 400;
     }
     .profile-recover-order input[name="order-key"] {
         width: auto !important;

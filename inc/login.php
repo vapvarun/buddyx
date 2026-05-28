@@ -9,10 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Kirki' ) ) {
-	return;
-}
-
 /**
  * Check login page
  */
@@ -102,9 +98,10 @@ add_filter( 'login_title', 'buddyx_login_page_title' );
  * Login load init
  */
 function buddyx_theme_login_load() {
-	$enable_custom_login = get_theme_mod( 'enable_custom_login' );
-
-	if ( $enable_custom_login ) {
+	// `buddyx_is_truthy()` correctly recognizes pre-5.1.0 'on'/'off' string
+	// values; bare `if ( $enable_custom_login )` would treat literal 'off'
+	// as truthy and load the custom login head even when disabled.
+	if ( buddyx_is_truthy( get_theme_mod( 'enable_custom_login' ) ) ) {
 		add_action( 'login_head', 'login_custom_head', 150 );
 	}
 }
@@ -119,7 +116,6 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 	 * Login custom head
 	 */
 	function login_custom_head() {
-		$enable_custom_login_logo       = get_theme_mod( 'enable_custom_login_logo' );
 		$custom_login_logo_image        = get_theme_mod( 'custom_login_logo_image' );
 		$custom_login_logo_image_width  = get_theme_mod( 'custom_login_logo_image_width' );
 		$custom_login_logo_image_height = get_theme_mod( 'custom_login_logo_image_height' );
@@ -127,8 +123,11 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 
 		echo '<style>';
 
-		// Logo.
-		if ( ! empty( $enable_custom_login_logo ) && true === $enable_custom_login_logo ) {
+		// `buddyx_is_truthy()` correctly recognizes 'on' / 1 / '1' / true /
+		// 'yes' as enabled and '' / 'off' / 0 / '0' / false / 'no' as
+		// disabled. Replaces an earlier defensive ad-hoc check
+		// (`! empty($x) && 'off' !== $x`) with the canonical helper.
+		if ( buddyx_is_truthy( get_theme_mod( 'enable_custom_login_logo' ) ) ) {
 			?>
 			.login h1 {
 				display: none !important;

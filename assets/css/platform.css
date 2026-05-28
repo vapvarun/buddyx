@@ -328,8 +328,8 @@ body.buddypress .buddypress-wrap .bb-card-heading {
 .activity-head-bar .bb-subnav-filters-container.bb-subnav-filters-search .subnav-filters-opener {
     width: 40px;
     height: 40px;
-    background-color: var(--color-theme-white-box);
-    border-color: var(--global-border-color);
+    background-color: var(--color-theme-white-box) !important;
+    border-color: var(--global-border-color) !important;
 }
 
 .activity-head-bar .bb-subnav-filters-container.active.bb-subnav-filters-search .subnav-filters-modal {
@@ -1974,7 +1974,7 @@ body #buddypress .bp-list .activity-comments .action .generic-button {
 
 .add-more-members .bb-add-members {
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 
 .add-more-members .bb-add-members .bb-icon-plus-circle {

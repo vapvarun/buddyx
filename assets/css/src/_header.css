@@ -72,6 +72,78 @@
     object-fit: contain;
 }
 
+/* Dark-mode logo swap. Both <img> render in the same anchor; CSS shows
+   the right one based on the resolved color mode. The visitor's explicit
+   light / dark choice always wins over the body class that marks the
+   active style preset itself as dark - otherwise picking "Dark"
+   variation locks the logo regardless of the visitor's toggle (the
+   symptom on BuddyX free 5.1.0 release-review). Cascade reads as:
+     1. Default - light logo visible, dark logo hidden.
+     2. Body.buddyx-dark-style-variation - admin picked a Dark variation;
+        becomes the dark default when visitor hasn't overridden.
+     3. Visitor explicit light / dark - wins via higher-specificity
+        selector chain (:root[data-bx-mode="..."] body .custom-logo--*).
+     4. Auto + prefers-color-scheme - OS preference decides only when
+        visitor hasn't pinned a mode. Always overrides the body class
+        because the visitor opted into "let the OS decide". */
+.custom-logo--dark {
+    display: none;
+}
+
+/* Admin's "Dark variation" default - applies when visitor has no
+   explicit mode override (data-bx-mode unset or "auto"). */
+body.buddyx-dark-style-variation .custom-logo--light {
+    display: none;
+}
+
+body.buddyx-dark-style-variation .custom-logo--dark {
+    display: inline-block;
+}
+
+/* Visitor explicit light always wins. The body descendant in the
+   selector chain bumps specificity to (0,3,2), one above the body-class
+   rule (0,2,1), so the body-class default cannot clobber a visitor's
+   light toggle even when the Dark variation is active. */
+:root[data-bx-mode="light"] body .custom-logo--light {
+    display: inline-block;
+}
+
+:root[data-bx-mode="light"] body .custom-logo--dark {
+    display: none;
+}
+
+/* Visitor explicit dark always wins (same specificity ladder). */
+:root[data-bx-mode="dark"] body .custom-logo--light {
+    display: none;
+}
+
+:root[data-bx-mode="dark"] body .custom-logo--dark {
+    display: inline-block;
+}
+
+/* Auto mode: OS preference decides. Both branches are wired so an
+   OS-light visitor never inherits the dark variation's logo (the
+   visitor opted into "follow my OS", not "follow the admin"). */
+@media (prefers-color-scheme: dark) {
+    :root[data-bx-mode="auto"] body .custom-logo--light {
+        display: none;
+    }
+
+    :root[data-bx-mode="auto"] body .custom-logo--dark {
+        display: inline-block;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root[data-bx-mode="auto"] body .custom-logo--light {
+        display: inline-block;
+    }
+
+    :root[data-bx-mode="auto"] body .custom-logo--dark {
+        display: none;
+    }
+}
+
 .site-title {
     margin: 0;
     margin-bottom: 6px;
@@ -121,19 +193,16 @@ nav div.wp-block-navigation__responsive-dialog {
 
 .site-sub-header {
     position: relative;
-    color: var(--color-subheader-title);
+    color: var(--bx-color-subheader-fg, var(--color-subheader-title));
     margin-bottom: 1rem;
     padding: 30px 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--bx-color-subheader-bg, #f3f4f6);
+    /* Full-bleed band (matches site header + footer behavior) regardless of
+     * boxed/full-width layout. The 100vw + negative margin trick spans
+     * viewport width even when ancestor is constrained. */
     width: 100vw;
     margin-left: -50vw;
     left: 50%;
-}
-
-.layout-boxed .site-sub-header {
-    width: auto;
-    left: auto;
-    margin: 0 -15px;
 }
 
 .site-sub-header>.container,

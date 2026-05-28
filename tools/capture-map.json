@@ -1,0 +1,74 @@
+[
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_skin_section",
+    "prep": "Section opens with Color mode + Show toggle + Toggle position visible at top, Style preset picker below. Single canonical shot used across color-scheme.md, dark-mode.md, customize-brand.md.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-skin-overview.webp",
+    "doc_use": "skin-colors/color-scheme.md (Path 1 + Path 2), skin-colors/dark-mode.md (toggle settings)"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=title_tagline",
+    "prep": "Site Identity section — Logo, Dark Mode Logo, Site Title, Tagline, Site Icon all visible.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-identity.webp",
+    "doc_use": "quick-start.md Step 2; recipes/customize-brand.md Step 1"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=body_typography_section",
+    "prep": "Body Typography section — Family / Weight / Style / Size / Line Height / Letter / Transform / Align / Decoration controls all visible.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-typography-body.webp",
+    "doc_use": "quick-start.md Step 4; recipes/customize-brand.md Step 5"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_header_section",
+    "prep": "Site Header section — 4 toggles all ON (defaults): Sticky Header / Search Icon / Login Link / Register Link.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-header.webp",
+    "doc_use": "quick-start.md Step 5b"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_loader",
+    "prep": "Site Loader section — Show site loader = OFF (5.1.0 default).",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-loader.webp",
+    "doc_use": "recipes/match-the-demo.md Step 4"
+  },
+  {
+    "surface": "customizer",
+    "target": "?autofocus[section]=site_performance_section",
+    "prep": "Site Performance section — Load Google Fonts Locally toggle OFF (default). Preload + Flush controls are conditionally hidden until Load Locally is ON.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "customizer/customizer-site-performance.webp",
+    "doc_use": "recipes/customize-brand.md Step 8; quick-start.md Step 4 tip"
+  },
+  {
+    "surface": "frontend",
+    "target": "/",
+    "prep": "logout first; front page in light mode with sun icon visible in header.",
+    "viewport": "1200x900",
+    "dark": false,
+    "path": "frontend/frontend-home-light-toggle.webp",
+    "doc_use": "skin-colors/dark-mode.md — toggle position default; quick-start.md Step 9"
+  },
+  {
+    "surface": "frontend",
+    "target": "/",
+    "prep": "logout first; localStorage[bx-color-mode]=dark pre-set so first paint is dark (FOUC-free proof).",
+    "viewport": "1200x900",
+    "dark": true,
+    "path": "frontend/frontend-home-dark.webp",
+    "doc_use": "skin-colors/dark-mode.md — dark palette + FOUC-free first paint"
+  }
+]

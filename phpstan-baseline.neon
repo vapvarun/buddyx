@@ -3223,6 +3223,18 @@ parameters:
 			path: inc/Customizer/Component.php
 
 		-
+			message: '#^Property WP_Customize_Control\:\:\$choices \(array\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: inc/Customizer_Framework/Controls/Sortable.php
+
+		-
+			message: '#^Function buddyx_defaults not found\.$#'
+			identifier: function.notFound
+			count: 5
+			path: inc/Customizer_Settings/Component.php
+
+		-
 			message: '#^Class WP_Customize_Control referenced with incorrect case\: WP_Customize_control\.$#'
 			identifier: class.nameCase
 			count: 2
@@ -3257,216 +3269,6 @@ parameters:
 			identifier: method.notFound
 			count: 2
 			path: inc/Image_Sizes/Component.php
-
-		-
-			message: '#^Function buddyx_defaults not found\.$#'
-			identifier: function.notFound
-			count: 5
-			path: inc/Kirki_Option/Component.php
-
-		-
-			message: '#^Instantiated class Kirki\\Panel not found\.$#'
-			identifier: class.notFound
-			count: 5
-			path: inc/Kirki_Option/Component.php
-
-		-
-			message: '#^Instantiated class Kirki\\Section not found\.$#'
-			identifier: class.notFound
-			count: 17
-			path: inc/Kirki_Option/Component.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Color not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Radio not found\.$#'
-			identifier: class.notFound
-			count: 4
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
-			identifier: class.notFound
-			count: 3
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Select not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Blog_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/BuddyPress_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Background not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Footer_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Footer_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Textarea not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Footer_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/General_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Dimension not found\.$#'
-			identifier: class.notFound
-			count: 4
-			path: inc/Kirki_Option/Fields/General_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Dropdown_Pages not found\.$#'
-			identifier: class.notFound
-			count: 3
-			path: inc/Kirki_Option/Fields/General_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/General_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 5
-			path: inc/Kirki_Option/Fields/Header_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Sidebar_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Radio_Image not found\.$#'
-			identifier: class.notFound
-			count: 7
-			path: inc/Kirki_Option/Fields/Sidebar_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: inc/Kirki_Option/Fields/Site_Performance.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Site_Performance.php
-
-		-
-			message: '#^Array has 2 duplicate keys with value ''choices'' \(''choices'', ''choices''\)\.$#'
-			identifier: array.duplicateKey
-			count: 2
-			path: inc/Kirki_Option/Fields/Skin_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Skin_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Color not found\.$#'
-			identifier: class.notFound
-			count: 38
-			path: inc/Kirki_Option/Fields/Skin_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Custom not found\.$#'
-			identifier: class.notFound
-			count: 7
-			path: inc/Kirki_Option/Fields/Skin_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Background not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Typography not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/Sub_Header_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Typography not found\.$#'
-			identifier: class.notFound
-			count: 11
-			path: inc/Kirki_Option/Fields/Typography_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Checkbox_Switch not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Dimension not found\.$#'
-			identifier: class.notFound
-			count: 3
-			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Image not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\Text not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
-
-		-
-			message: '#^Instantiated class Kirki\\Field\\URL not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: inc/Kirki_Option/Fields/WP_Login_Fields.php
 
 		-
 			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
@@ -3589,10 +3391,17 @@ parameters:
 			path: inc/Styles/Component.php
 
 		-
-			message: '#^Class BuddyX\\Buddyx\\Dropdown_Select\\Component does not have a constructor and must be instantiated without any parameters\.$#'
-			identifier: new.noConstructor
+			message: '''
+				#^PHPDoc tag @media has invalid value \(\(prefers\-color\-scheme\: dark\) \:root\[data\-bx\-mode\="auto"\]
+
+				Each dark\-default token also overrides its legacy aliases so any third\-
+				party CSS hooked to `\-\-color\-theme\-primary` etc\. picks up the dark
+				value \(otherwise legacy CSS would render light\-mode colors on dark
+				surfaces — a contrast failure\)\.\)\: Unexpected token "\:", expected '\)' at offset 187 on line 4$#
+			'''
+			identifier: phpDoc.parseError
 			count: 1
-			path: inc/Theme.php
+			path: inc/Tokens/Component.php
 
 		-
 			message: '#^Action callback returns bool but should not return anything\.$#'
@@ -3922,6 +3731,12 @@ parameters:
 			message: '#^Function is_archive invoked with 1 parameter, 0 required\.$#'
 			identifier: arguments.count
 			count: 3
+			path: inc/extra.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between ''0'' and non\-falsy\-string will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
 			path: inc/extra.php
 
 		-
@@ -4785,7 +4600,7 @@ parameters:
 		-
 			message: '#^Function bp_loggedin_user_domain not found\.$#'
 			identifier: function.notFound
-			count: 3
+			count: 1
 			path: template-parts/header/buddypress-profile.php
 
 		-

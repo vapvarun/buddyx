@@ -34,7 +34,7 @@ $blog_edit_link = get_theme_mod( 'blog_edit_link', '' );
 		<?php
 	}
 
-	if ( ! empty( $blog_edit_link ) ) {
+	if ( buddyx_is_truthy( $blog_edit_link ) ) {
 		edit_post_link(
 			sprintf(
 				wp_kses(

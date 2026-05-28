@@ -81,8 +81,6 @@ class Component implements Component_Interface {
 	}
 
 	public function submenu_page_callback() {
-		// instence of tgmpa to check plugins are installed.
-		$tgmpa = call_user_func( array( get_class( $GLOBALS['tgmpa'] ), 'get_instance' ) );
 		?>
 		<div class="buddyx-top-banner-wrapper">
 			<div class="buddyx-top-banner">				
@@ -184,20 +182,6 @@ class Component implements Component_Interface {
 											<p><?php esc_html_e( 'The theme comes with one-click demo installation support. Try the demo and install it on your WordPress BuddyPress site.', 'buddyx' ); ?></p>
 											<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://docs.wbcomdesigns.com/docs/buddyx-free-theme/getting-started-buddyx-free-theme/demo-installation-2/' ); ?>" target="_blank"><?php esc_html_e( 'Demo Installation', 'buddyx' ); ?></a>
 										</div>										
-										<div class="buddyx-welcome-column">
-											<span class="buddyx-box-item-icon">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
-											</span>
-											<h2 class="buddyx-tabs-title">
-												<?php esc_html_e( 'Install Recommended Plugins', 'buddyx' ); ?>											
-											</h2>
-											<p><?php esc_html_e( 'Enhancing your website functionality with WordPress plugins is easy. You can install, activate, and begin using WordPress plugins in minutes.', 'buddyx' ); ?></p>
-											<?php if ( ! $tgmpa->is_tgmpa_complete() ) { ?>
-												<a class="buddyx-box-item-link" href="<?php echo esc_url( admin_url() . 'admin.php?page=tgmpa-install-plugins' ); ?>" target="_blank"><?php esc_html_e( 'Install now', 'buddyx' ); ?></a>
-											<?php } else { ?>
-												<a class="buddyx-box-item-link all-plugin-installed" href="javascript:void(0)"><?php esc_html_e( 'Installed', 'buddyx' ); ?></a>
-											<?php } ?>
-										</div>
 									</div>
 
 									<div class="buddyx-welcome-column buddyx-pro-section child-theme-section">
