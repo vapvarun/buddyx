@@ -1340,8 +1340,8 @@ select#whats-new-post-in {
 }
 
 .activity-update-form #whats-new-textarea textarea {
-	background-color: var(--bx-color-bg-elevated, #ffffff);
-    color: var(--bx-color-fg, #111111);
+	background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, #111);
     padding: 10px;
     min-height: 70px;
     border-radius: var(--form-border-radius) !important;
@@ -6125,4 +6125,58 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
     width: auto;
     max-height: 640px;
     border-radius: 4px;
+}
+
+/*--------------------------------------------------------------
+## BuddyPress filter dropdowns — dark-mode option contrast (5.1.0)
+--------------------------------------------------------------*/
+
+/* The closed <select> on the Members Directory / Groups Directory /
+ * Activity filters etc. inherits its surface from --bx-color-bg-elevated
+ * (white in light mode, dark navy in dark mode) and renders correctly.
+ * BUT in every major browser the open dropdown popover does NOT inherit
+ * the select's background-color - the user agent draws the popover with
+ * its own (white) surface and only `color` cascades down to <option>.
+ * In dark mode the inherited body color is a near-white grey, so the
+ * options paint as white-on-white and become unreadable - the exact
+ * symptom QA reported on BuddyX card 9927357197.
+ *
+ * The fix is to style <option> directly with the same token pair the
+ * select uses. Chrome / Edge / Firefox honour this since ~2021; Safari
+ * uses a native popover but inherits at least the color value, which
+ * keeps text legible there too.
+ *
+ * Scoped to BuddyPress directory selects so we do not stomp other
+ * <option> styling (theme.json block selects, plugin filters that
+ * already paint their own dropdowns, etc.). */
+
+.buddypress-wrap select,
+.buddypress-wrap .select-wrap select,
+.bp-search select,
+#buddypress select,
+.subnav-filters select {
+    /* Reaffirm the closed-select pair so option inheritance has something
+     * to pull from in browsers that DO cascade (Safari). */
+    color: var(--bx-color-fg, var(--global-font-color, inherit));
+}
+
+.buddypress-wrap select option,
+.buddypress-wrap .select-wrap select option,
+.bp-search select option,
+#buddypress select option,
+.subnav-filters select option {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, var(--global-font-color, #1d2327));
+}
+
+/* The :checked / hover states on the open popover paint via the user
+ * agent on most browsers - we only need to ensure they remain legible.
+ * Chrome respects this; Safari paints its own selection chrome. */
+.buddypress-wrap select option:checked,
+.buddypress-wrap .select-wrap select option:checked,
+.bp-search select option:checked,
+#buddypress select option:checked,
+.subnav-filters select option:checked {
+    background-color: var(--bx-color-bg-muted, var(--global-body-lightcolor, #f0f0f0));
+    color: var(--bx-color-fg, inherit);
 }
