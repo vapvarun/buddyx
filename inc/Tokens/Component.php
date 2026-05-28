@@ -1110,16 +1110,25 @@ class Component implements Component_Interface {
 			$default = 'light';
 		}
 
-		// When the customer has NOT explicitly set site_color_mode but HAS
-		// picked a dark-scheme style variation, default the bootstrap to
-		// 'dark' so [data-bx-mode="dark"] CSS (dark logo, color-mode-aware
-		// UI) aligns with the visually dark palette. Visitor's localStorage
-		// still wins, and customer's explicit site_color_mode setting still
-		// wins because we only override the implicit-default branch.
-		$saved_mods = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
-		$explicit   = is_array( $saved_mods ) && array_key_exists( 'site_color_mode', $saved_mods );
-		if ( ! $explicit && true === self::active_variation_is_dark_scheme() ) {
-			$default = 'dark';
+		// Dark style variation defaults the bootstrap to 'dark' so the page
+		// renders dark when the admin picks a Dark preset - the customer
+		// expectation behind "Pick Dark style preset". The earlier
+		// array_key_exists() explicit-check fired true after every customizer
+		// Publish (the framework persists site_color_mode at its 'light'
+		// default whether or not the admin actively changed it), which left
+		// the bootstrap on 'light' and the variation tokens stranded in the
+		// [data-bx-mode="dark"] cascade - a regression reported on card
+		// 9936727519. The corrected semantics: only saved 'auto' or 'dark'
+		// signal admin intent that differs from the variation's natural
+		// mode. A saved 'light' is indistinguishable from the framework
+		// auto-save default, so the dark variation wins. An admin who
+		// genuinely wants a light page with dark palette accents picks
+		// 'auto' (follow visitor device) instead.
+		$saved_mods        = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
+		$saved_value       = is_array( $saved_mods ) ? ( $saved_mods['site_color_mode'] ?? null ) : null;
+		$variation_is_dark = ( true === self::active_variation_is_dark_scheme() );
+		if ( $variation_is_dark ) {
+			$default = in_array( $saved_value, array( 'auto', 'dark' ), true ) ? $saved_value : 'dark';
 		}
 		?>
 		<script id="buddyx-color-mode-bootstrap">
