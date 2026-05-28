@@ -287,12 +287,7 @@ class BuddyX_SureCart_Support {
 	 * @return void
 	 */
 	public function buddyx_surecart_add_customizer_option() {
-		// Only add if Kirki is available.
-		if ( ! class_exists( '\\Kirki\\Field\\Checkbox_Switch' ) ) {
-			return;
-		}
-
-		new \Kirki\Field\Checkbox_Switch(
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
 			array(
 				'settings'    => 'site_header_enable_cart',
 				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
@@ -355,7 +350,7 @@ class BuddyX_SureCart_Support {
 			 */
 			function buddyx_render_cart_icon() {
 				// Check if cart is enabled.
-				$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+				$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 				if ( ! $cart_enabled ) {
 					return;
 				}
@@ -381,7 +376,7 @@ class BuddyX_SureCart_Support {
 	 */
 	public function buddyx_surecart_add_cart_styles() {
 		// Check if cart is enabled.
-		$cart_enabled = get_theme_mod( 'site_header_enable_cart', true );
+		$cart_enabled = buddyx_is_truthy( get_theme_mod( 'site_header_enable_cart', true ) );
 		if ( ! $cart_enabled ) {
 			return;
 		}

@@ -1,0 +1,599 @@
+/**
+ * BuddyX Customizer Framework — control styles.
+ *
+ * Loaded on customize.php only via Component::enqueue_controls().
+ */
+
+/* Typography control — grouped layout (4 logical rows: family / weight+size / lh+ls / transform) */
+.buddyx-typography-controls {
+	display: grid;
+	gap: 12px;
+	margin-top: 10px;
+	padding: 12px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}
+.buddyx-typo-row-pair {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+.buddyx-typo-row--full {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.buddyx-typo-row > span {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	min-height: 16px;
+	font-size: 11px;
+	font-weight: 500;
+	color: #50575e;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+.buddyx-typo-row .buddyx-typo-unit {
+	font-size: 10px;
+	font-weight: 400;
+	font-style: normal;
+	color: #8c8f94;
+	text-transform: lowercase;
+	letter-spacing: 0;
+}
+.buddyx-typo-row select,
+.buddyx-typo-row input {
+	width: 100%;
+	height: 32px;
+	min-height: 32px;
+	box-sizing: border-box;
+	padding: 4px 8px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #ffffff;
+	font-size: 13px;
+	line-height: 1.4;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+.buddyx-typo-row select:focus,
+.buddyx-typo-row input:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+.buddyx-typo-family-search {
+	width: 100%;
+	margin: 0 0 4px;
+	padding: 4px 6px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+/* Background composite control */
+.buddyx-background-controls {
+	display: grid;
+	gap: 8px;
+	margin-top: 8px;
+}
+.buddyx-bg-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 12px;
+}
+.buddyx-bg-row select,
+.buddyx-bg-row input {
+	padding: 4px 6px;
+}
+.buddyx-bg-row .buddyx-bg-image-pick {
+	align-self: flex-start;
+	margin-top: 4px;
+}
+/* Default .buddyx-typo-row (when not paired) gets the same shape as --full */
+.buddyx-typo-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+/* Radio_Image control */
+.buddyx-radio-image-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+	gap: 6px;
+	margin-top: 8px;
+}
+.buddyx-radio-image-option {
+	position: relative;
+	display: block;
+}
+.buddyx-radio-image-option input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.buddyx-radio-image-option img {
+	width: 100%;
+	height: auto;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: border-color 0.15s ease;
+}
+.buddyx-radio-image-option input:checked + img {
+	border-color: #2271b1;
+}
+.buddyx-radio-image-option input:focus-visible + img {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* Swatch-card variant: when a choice carries a `[ image, label ]` shape
+ * the option renders an extra <span class="buddyx-radio-image-label">.
+ * Keys off `:has()` so existing icon-grid usages (blog layout, sidebar
+ * layout) keep their tight 3-up grid; cards-with-label switch to a
+ * roomier 2-up grid so the palette preview reads cleanly. */
+.buddyx-radio-image-grid:has(.buddyx-radio-image-label) {
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 10px;
+}
+.buddyx-radio-image-option:has(.buddyx-radio-image-label) {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 6px;
+	border: 2px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	cursor: pointer;
+}
+.buddyx-radio-image-option:has(.buddyx-radio-image-label):hover {
+	border-color: #8c8f94;
+}
+.buddyx-radio-image-option:has(.buddyx-radio-image-label) img {
+	border: 0;
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.buddyx-radio-image-option:has(input:checked) {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+.buddyx-radio-image-option:has(input:focus-visible) {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+.buddyx-radio-image-label {
+	display: block;
+	font-size: 12px;
+	font-weight: 500;
+	color: #1d2327;
+	text-align: center;
+	line-height: 1.3;
+}
+/* Checkmark badge in the top-right corner of the selected card. */
+.buddyx-radio-image-option:has(.buddyx-radio-image-label)::after {
+	content: "";
+	position: absolute;
+	top: 8px;
+	inset-inline-end: 8px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #2271b1 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6.5 5 8.5 9 4'/></svg>") center / 12px no-repeat;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+.buddyx-radio-image-option:has(input:checked)::after {
+	opacity: 1;
+}
+
+/* Toggle / switch control.
+ *
+ * Two-column grid: title + description stack on the left (col 1, rows 1-2),
+ * switch sits right-aligned and vertically centered across both rows (col 2).
+ * Replaces the old single-row flex layout that crammed all three children on
+ * the same line, making the description italic+truncated next to the label.
+ */
+.buddyx-switch-label {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	column-gap: 12px;
+	row-gap: 2px;
+	align-items: center;
+}
+.buddyx-switch-label .customize-control-title {
+	grid-column: 1;
+	grid-row: 1;
+	font-weight: 600;
+}
+.buddyx-switch-label .customize-control-description {
+	grid-column: 1;
+	grid-row: 2;
+	font-size: 12px;
+	color: #50575e;
+	font-style: normal;
+	line-height: 1.4;
+}
+.buddyx-switch-label .buddyx-switch {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	align-self: center;
+}
+.buddyx-switch {
+	position: relative;
+	display: inline-block;
+	width: 36px;
+	height: 20px;
+	flex-shrink: 0;
+}
+.buddyx-switch-input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+.buddyx-switch-slider {
+	position: absolute;
+	inset: 0;
+	background: #ccc;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.buddyx-switch-slider::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+}
+.buddyx-switch-input:checked + .buddyx-switch-slider {
+	background: #2271b1;
+}
+.buddyx-switch-input:checked + .buddyx-switch-slider::before {
+	transform: translateX(16px);
+}
+.buddyx-switch-input:focus-visible + .buddyx-switch-slider {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* Dimension control */
+.buddyx-dimension-controls {
+	display: flex;
+	gap: 4px;
+	margin-top: 4px;
+}
+.buddyx-dimension-number {
+	width: 80px;
+}
+.buddyx-dimension-unit {
+	width: 70px;
+}
+
+/* Slider control — premium range styling matching customizer color scheme */
+.buddyx-slider-controls {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 6px;
+}
+/* Selectors are scoped through .buddyx-slider-controls so they out-specify
+   WP core's `.customize-control input[type="range"|"number"] { width: 100% }`,
+   which otherwise collapses the range track to 0 and stretches the number field. */
+.customize-control .buddyx-slider-controls input.buddyx-slider-range {
+	flex: 1 1 auto;
+	width: auto;
+	min-width: 0;
+	height: 4px;
+	-webkit-appearance: none;
+	appearance: none;
+	background: linear-gradient(to right, #2271b1 var(--bx-fill, 50%), #dcdcde var(--bx-fill, 50%));
+	border-radius: 2px;
+	outline: none;
+	cursor: pointer;
+}
+.buddyx-slider-range::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #2271b1;
+	border: 2px solid #ffffff;
+	box-shadow: 0 0 0 1px #2271b1, 0 1px 2px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: transform 0.1s ease;
+}
+.buddyx-slider-range::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.buddyx-slider-range::-webkit-slider-thumb:active { transform: scale(1.05); }
+.buddyx-slider-range::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #2271b1;
+	border: 2px solid #ffffff;
+	box-shadow: 0 0 0 1px #2271b1, 0 1px 2px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+}
+.customize-control .buddyx-slider-controls input.buddyx-slider-number {
+	flex: 0 0 64px;
+	width: 64px;
+	height: 28px;
+	padding: 4px 6px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+	text-align: center;
+}
+.buddyx-slider-unit {
+	color: #50575e;
+	font-size: 11px;
+	font-weight: 500;
+	text-transform: uppercase;
+	min-width: 16px;
+}
+
+/* Radio_Buttonset control */
+.buddyx-buttonset {
+	display: flex;
+	gap: 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-top: 4px;
+}
+.buddyx-buttonset-option {
+	flex: 1;
+	position: relative;
+}
+.buddyx-buttonset-option input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.buddyx-buttonset-label {
+	display: block;
+	padding: 6px 10px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 12px;
+}
+.buddyx-buttonset-option input:checked + .buddyx-buttonset-label {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* Repeater control */
+.buddyx-repeater-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 8px 0;
+}
+.buddyx-repeater-row {
+	display: grid;
+	gap: 6px;
+	padding: 8px 32px 8px 8px;
+	background: #f6f6f6;
+	border-radius: 4px;
+	position: relative;
+}
+.buddyx-repeater-row label {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-size: 12px;
+}
+.buddyx-repeater-handle {
+	cursor: grab;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	user-select: none;
+}
+.buddyx-repeater-trash {
+	background: #fff;
+	border: 1px solid #d63638;
+	color: #d63638;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 11px;
+	cursor: pointer;
+	justify-self: end;
+}
+
+/* Sortable control */
+.buddyx-sortable-list {
+	list-style: none;
+	padding: 0;
+	margin: 8px 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.buddyx-sortable-list li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 8px;
+	background: #f6f6f6;
+	border-radius: 4px;
+}
+.buddyx-sortable-handle {
+	cursor: grab;
+	user-select: none;
+}
+
+/* Checkbox control — inline title alongside checkbox */
+.customize-control-title-inline {
+	display: inline-block;
+	margin-left: 6px;
+	vertical-align: middle;
+}
+
+/* Site Skin — cluster head (Phase 3 UX overhaul).
+   Replaces the old <hr> dividers between groups of color fields.
+   Used as the rendered default value of `custom-*-divider` Custom_HTML controls. */
+.customize-control-buddyx-custom-html .bx-cluster-head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 14px;
+	margin: 18px -12px 8px;
+	background: linear-gradient(180deg, #f0f0f1 0%, #f6f7f7 100%);
+	border-top: 1px solid #c3c4c7;
+	border-bottom: 1px solid #dcdcde;
+}
+.customize-control-buddyx-custom-html .bx-cluster-head__icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	border-radius: 4px;
+	background: rgba(34, 113, 177, 0.08);
+	color: #2271b1;
+}
+.customize-control-buddyx-custom-html .bx-cluster-head__icon svg {
+	width: 14px;
+	height: 14px;
+	display: block;
+}
+.customize-control-buddyx-custom-html .bx-cluster-head__text {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+.customize-control-buddyx-custom-html .bx-cluster-head__title {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	line-height: 1.3;
+}
+.customize-control-buddyx-custom-html .bx-cluster-head__caption {
+	font-size: 11px;
+	color: #50575e;
+	line-height: 1.4;
+	margin-top: 1px;
+}
+
+/* Smaller sub-cluster head (visually subordinate to main cluster heads).
+   Used inside the Header cluster to group: Header surface / Site title / Menu. */
+.customize-control-buddyx-custom-html .bx-subcluster-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 0 4px;
+	margin: 10px 0 2px;
+	border-bottom: 1px dashed #dcdcde;
+}
+.customize-control-buddyx-custom-html .bx-subcluster-head__title {
+	font-size: 11px;
+	font-weight: 600;
+	color: #50575e;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+/* Cluster heads should not get the default control wrapper margins. */
+.customize-control-buddyx-custom-html.has-cluster-head {
+	margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+	.customize-control-buddyx-custom-html .bx-cluster-head {
+		padding: 10px 12px;
+		margin: 14px -8px 6px;
+	}
+	.customize-control-buddyx-custom-html .bx-cluster-head__caption {
+		display: none;
+	}
+}
+
+/* Color control — alpha (rgba) opacity slider. Only rendered when the
+ * field is registered with `'choices' => array('alpha' => true)`. */
+.buddyx-color-alpha {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--bx-color-border, #e8e8e8);
+}
+.buddyx-color-alpha-label {
+	font-size: 12px;
+	color: #50575e;
+	white-space: nowrap;
+}
+.buddyx-color-alpha-value {
+	font-weight: 600;
+	color: #1d2327;
+	margin-left: 4px;
+}
+.buddyx-color-alpha-slider {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* Tooltip trigger + popover. Rendered next to a control's label by
+ * customizer-controls.js when a matching entry exists in
+ * window.buddyxCustomizerTooltips (server-emitted map). Trigger is a
+ * keyboard-reachable button; popover dismisses on outside-click or Esc. */
+.customize-control-title .buddyx-tooltip-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	margin-inline-start: 6px;
+	padding: 0;
+	border: 1px solid #c3c4c7;
+	border-radius: 50%;
+	background: transparent;
+	color: #50575e;
+	font: 600 11px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	cursor: pointer;
+	vertical-align: middle;
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.customize-control-title .buddyx-tooltip-trigger:hover,
+.customize-control-title .buddyx-tooltip-trigger:focus-visible {
+	background: #2271b1;
+	color: #fff;
+	border-color: #2271b1;
+	outline: 0;
+}
+.customize-control-title .buddyx-tooltip-trigger[aria-expanded="true"] {
+	background: #2271b1;
+	color: #fff;
+	border-color: #2271b1;
+}
+.buddyx-tooltip-popover {
+	display: block;
+	margin: 6px 0 8px;
+	padding: 8px 10px;
+	background: #1d2327;
+	color: #fff;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 1.5;
+	font-style: normal;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}

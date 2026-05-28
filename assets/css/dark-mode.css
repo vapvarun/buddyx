@@ -2,8 +2,8 @@
     --ld-dark-mode-header-bg: #272727;
     --ld-dark-mode-sidebar-bg: #1c1c1c;
     --ld-dark-mode-content-bg: #121212;
-    --ld-dark-mode-content-text: #cccccc;
-    --ld-dark-mode-link-color: #cccccc;
+    --ld-dark-mode-content-text: #ccc;
+    --ld-dark-mode-link-color: #ccc;
     --ld-dark-mode-link-hover-color: #fff;
     --ld-dark-mode-text-secondary: #aaa;
     --ld-dark-mode-border-color: rgba(255, 255, 255, 0.1);
@@ -178,7 +178,7 @@ body.buddyx-dark-theme.ld-in-focus-mode pre {
     border-color: var(--ld-dark-mode-border-color);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list:before {
+.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list::before {
     background: var(--ld-dark-mode-header-bg);
 }
 

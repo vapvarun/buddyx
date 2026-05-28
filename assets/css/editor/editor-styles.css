@@ -20,6 +20,7 @@
 --------------------------------------------------------------*/
 
 @import "../_custom-properties.css";
+@import "../_bx-tokens.css";
 @import "../_typography.css";
 @import "../_elements.css";
 @import "../_links.css";
@@ -98,16 +99,16 @@ option {
 }
 
 .editor-styles-wrapper {
-    background-color: #ffffff;
+    background-color: #fff;
     color: #505050;
-    font-family: "Open Sans", -apple-system, blinkmacsystemfont, "segoe ui", roboto, "oxygen-sans", ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
+    font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
     line-height: 1.8;
     word-wrap: break-word;
 }
 
 .editor-styles-wrapper>* {
     color: #505050;
-    font-family: "Open Sans", -apple-system, blinkmacsystemfont, "segoe ui", roboto, "oxygen-sans", ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
+    font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
 }
 
 .editor-styles-wrapper h1,
@@ -116,7 +117,7 @@ option {
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-    color: #111111;
+    color: #111;
     line-height: 1.3;
     margin: 0 0 20px;
 }
@@ -178,7 +179,7 @@ option {
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
-    color: currentColor;
+    color: currentcolor;
 }
 
 /*--------------------------------------------------------------

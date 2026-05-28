@@ -14,7 +14,6 @@ use function BuddyX\Buddyx\buddyx;
 use function add_action;
 use function add_filter;
 use function bloginfo;
-use function wp_script_is;
 use function wp_enqueue_script;
 use function get_theme_file_uri;
 use function get_theme_file_path;
@@ -45,42 +44,26 @@ class Component implements Component_Interface {
 			function () {
 				$css_uri = get_theme_file_uri( '/assets/css/' );
 				wp_enqueue_style( 'buddyx-customizer', $css_uri . 'buddyx-customizer.min.css', '', buddyx()->get_asset_version( get_theme_file_path( '/assets/css/buddyx-customizer.min.css' ) ) );
-				if ( class_exists( 'Kirki' ) ) {
-					// Kirki 5.x uses 'kirki-customizer'; older versions used 'kirki_field_dependencies'.
-					// Only add the handle that is actually registered to avoid WP 6.9.1+ notices.
-					$kirki_deps = array( 'customize-controls', 'jquery' );
-					if ( wp_script_is( 'kirki-customizer', 'registered' ) ) {
-						$kirki_deps[] = 'kirki-customizer';
-					} elseif ( wp_script_is( 'kirki_field_dependencies', 'registered' ) ) {
-						$kirki_deps[] = 'kirki_field_dependencies';
-					}
-
-					wp_enqueue_script(
-						'buddyx-customizer-controls',
-						get_theme_file_uri( '/assets/js/customizer-controls.min.js' ),
-						$kirki_deps,
-						buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer-controls.min.js' ) ),
-						true
-					);
-
-					wp_add_inline_style(
-						'buddyx-customizer',
-						'.customize-control.buddyx-force-hidden-by-mode{display:none !important;}'
-					);
-				}
+				wp_add_inline_style(
+					'buddyx-customizer',
+					'.customize-control.buddyx-force-hidden-by-mode{display:none !important;}'
+				);
 			}
 		);
 
-		if ( class_exists( 'Kirki' ) ) {
-			add_filter( 'kirki_field_add_setting_args', array( $this, 'filter_dynamic_preview_setting_args' ), 20, 2 );
-		}
+		add_filter( 'buddyx_customizer_field_args', array( $this, 'filter_dynamic_preview_setting_args' ), 20, 2 );
 	}
 
 	/**
-	 * Force postMessage transport for BuddyX settings rendered by theme dynamic CSS.
+	 * Force refresh transport for BuddyX settings rendered by theme dynamic CSS.
 	 *
-	 * Kirki 5.2.2 no longer live-previews these reliably because BuddyX renders
-	 * many colors/radii from theme-generated CSS variables instead of Kirki output.
+	 * Many colors/radii are rendered from theme-generated CSS variables (the
+	 * Tokens component's :root block) rather than from each setting's own
+	 * `output` map. They were previously forced to `postMessage`, but the
+	 * preview JS (customizer-preview.js) only patches settings that ship an
+	 * `output` payload — so these colors silently did nothing in the live
+	 * preview. `refresh` makes the preview reload, the Tokens component
+	 * regenerates :root, and the change is reflected.
 	 *
 	 * @param array                $args Setting args.
 	 * @param WP_Customize_Manager $wp_customize Customizer manager.
@@ -137,7 +120,7 @@ class Component implements Component_Interface {
 		);
 
 		if ( in_array( $args['settings'], $dynamic_preview_settings, true ) ) {
-			$args['transport'] = 'postMessage';
+			$args['transport'] = 'refresh';
 		}
 
 		return $args;
@@ -196,6 +179,60 @@ class Component implements Component_Interface {
 			array( 'customize-preview' ),
 			buddyx()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
 			true
+		);
+
+		/**
+		 * Field defaults mirror Tokens::$alpha_color_field_defaults_5_1_0 and
+		 * $alpha_color_typography_subkey_defaults_5_1_0. The live-preview JS
+		 * uses this map to suppress inline `!important` writes when the
+		 * effective value still equals the registered default, so the style-
+		 * variation overlay continues to drive colors the customer has not
+		 * personalised.
+		 */
+		$color_defaults = array(
+			'site_loader_bg'                      => '#ef5455',
+			'site_primary_color'                  => '#ef5455',
+			'site_header_bg_color'                => '#ffffff',
+			'site_title_hover_color'              => '#ef5455',
+			'menu_hover_color'                    => '#ef5455',
+			'menu_active_color'                   => '#ef5455',
+			'body_background_color'               => '#f7f7f9',
+			'content_background_color'            => '#f7f7f9',
+			'box_background_color'                => '#ffffff',
+			'secondary_background_color'          => '#fafafa',
+			'site_links_color'                    => '#111111',
+			'site_links_focus_hover_color'        => '#ef5455',
+			'site_buttons_background_color'       => '#ef5455',
+			'site_buttons_background_hover_color' => '#f83939',
+			'site_buttons_text_color'             => '#ffffff',
+			'site_buttons_text_hover_color'       => '#ffffff',
+			'site_buttons_border_color'           => '#ef5455',
+			'site_buttons_border_hover_color'     => '#f83939',
+			'site_footer_title_color'             => '#111111',
+			'site_footer_content_color'           => '#505050',
+			'site_footer_links_color'             => '#111111',
+			'site_footer_links_hover_color'       => '#ef5455',
+			'site_copyright_background_color'     => '#ffffff',
+			'site_copyright_border_color'         => '#e8e8e8',
+			'site_copyright_content_color'        => '#505050',
+			'site_copyright_links_color'          => '#111111',
+			'site_copyright_links_hover_color'    => '#ef5455',
+			'site_title_typography_option[color]'    => '#111111',
+			'site_tagline_typography_option[color]'  => '#757575',
+			'menu_typography_option[color]'          => '#111111',
+			'typography_option[color]'               => '#505050',
+			'h1_typography_option[color]'            => '#111111',
+			'h2_typography_option[color]'            => '#111111',
+			'h3_typography_option[color]'            => '#111111',
+			'h4_typography_option[color]'            => '#111111',
+			'h5_typography_option[color]'            => '#111111',
+			'h6_typography_option[color]'            => '#111111',
+		);
+
+		wp_localize_script(
+			'buddyx-customizer',
+			'buddyxCustomizerDefaults',
+			$color_defaults
 		);
 	}
 }

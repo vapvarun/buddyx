@@ -1,0 +1,109 @@
+/**
+ * Visitor color-mode toggle.
+ *
+ * Single button cycles light → dark → auto. The three SVG icons live
+ * inside the button; data-mode controls which one is visible.
+ */
+
+.bx-color-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 6px;
+}
+
+.bx-color-mode-toggle__btn {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--bx-color-menu-fg, var(--color-menu, currentColor));
+    border-radius: 50%;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    position: relative;
+}
+
+.bx-color-mode-toggle__btn:hover,
+.bx-color-mode-toggle__btn:focus-visible {
+    color: var(--bx-color-menu-hover, var(--color-menu-hover, currentColor));
+    background-color: rgba(0, 0, 0, 0.04);
+    outline: 0;
+}
+
+.bx-color-mode-toggle__btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--bx-color-accent, currentColor);
+}
+
+/* Default: hide all 3 icons, then unhide based on data-mode. Reserves layout
+ * space at all times so CLS stays 0. */
+.bx-color-mode-toggle__btn .bx-icon {
+    display: none;
+    pointer-events: none;
+}
+
+.bx-color-mode-toggle__btn[data-mode="light"] .bx-icon-sun,
+.bx-color-mode-toggle__btn[data-mode="dark"] .bx-icon-moon,
+.bx-color-mode-toggle__btn[data-mode="auto"] .bx-icon-monitor {
+    display: inline-block;
+}
+
+/* Mobile-menu placement: list-item style so it sits naturally next to nav links. */
+.bx-color-mode-toggle-mobile {
+    display: block;
+    margin: 12px 16px;
+}
+
+.bx-color-mode-toggle-mobile .bx-color-mode-toggle__btn {
+    width: auto;
+    padding: 8px 12px;
+    border-radius: 6px;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.bx-color-mode-toggle-mobile .bx-color-mode-toggle__btn::after {
+    content: attr(aria-label);
+    font-size: 14px;
+    font-weight: 500;
+    color: inherit;
+}
+
+.bx-color-mode-toggle-mobile .bx-color-mode-toggle__btn .screen-reader-text {
+    /* Already announced via aria-label + the visible text appended via ::after. */
+    display: none;
+}
+
+/* Dark mode subtle adjustment: hover background flips. */
+:root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:hover,
+:root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:focus-visible {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root[data-bx-mode="auto"] .bx-color-mode-toggle__btn:hover,
+    :root[data-bx-mode="auto"] .bx-color-mode-toggle__btn:focus-visible {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+/* RTL: margin uses logical property already, nothing to mirror. */
+
+/* Reduced motion: drop the 200ms transition. */
+@media (prefers-reduced-motion: reduce) {
+    .bx-color-mode-toggle__btn {
+        transition: none;
+    }
+}
+
+/* Mobile viewport: tighter spacing in the header row. */
+@media (max-width: 640px) {
+    .bx-color-mode-toggle-header {
+        margin: 0 2px;
+    }
+}

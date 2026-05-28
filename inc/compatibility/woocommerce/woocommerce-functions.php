@@ -13,25 +13,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! function_exists( 'buddyx_render_cart_icon' ) ) {
 	/**
 	 * Renders the shopping cart icon with item count.
-	 * This function loads the WooCommerce cart script and displays
-	 * the cart icon with the number of items in the cart if there
-	 * are any items present.
+	 *
+	 * Only renders when WooCommerce is active AND a valid cart page is
+	 * configured. If the cart page option points at a deleted page,
+	 * `wc_get_cart_url()` silently falls back to home_url() — clicking
+	 * the cart icon would then send shoppers to the homepage instead of
+	 * a cart, which is worse than not showing the icon at all.
 	 */
 	function buddyx_render_cart_icon() {
-		// Check if WooCommerce is active and if the cart has items.
-		if ( function_exists( 'is_woocommerce' ) && WC()->cart->cart_contents_count > 0 ) {
-			// Enqueue WooCommerce cart script.
+		// Bail if WooCommerce isn't active.
+		if ( ! class_exists( 'WooCommerce' ) || ! function_exists( 'wc_get_cart_url' ) ) {
+			return;
+		}
+
+		// Bail if no valid cart page is configured (deleted / missing / unpublished).
+		$cart_page_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'cart' ) : 0;
+		if ( $cart_page_id <= 0 || 'publish' !== get_post_status( $cart_page_id ) ) {
+			return;
+		}
+
+		$cart_url = wc_get_cart_url();
+		if ( empty( $cart_url ) || $cart_url === home_url() || $cart_url === home_url( '/' ) ) {
+			return;
+		}
+
+		// Enqueue WC cart fragment script when there's something in the cart.
+		if ( WC()->cart && WC()->cart->cart_contents_count > 0 ) {
 			wp_enqueue_script( 'woocommerce-cart' );
 		}
 		?>
 		<div class="cart">
-			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
-				<span class="fa fa-shopping-cart"> </span>
+			<a href="<?php echo esc_url( $cart_url ); ?>" title="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
+				<span class="fa fa-shopping-cart"></span>
 				<?php
-				// Get the count of items in the cart.
-				$count = WC()->cart->cart_contents_count;
+				$count = WC()->cart ? WC()->cart->cart_contents_count : 0;
 				if ( $count > 0 ) {
-					// Display the item count as a superscript if there are items.
 					?>
 					<sup><?php echo esc_html( $count ); ?></sup>
 					<?php
@@ -62,11 +78,26 @@ if ( ! function_exists( 'buddyx_header_add_to_cart_fragment' ) ) {
 	 * @return array Updated fragments with the cart icon HTML.
 	 */
 	function buddyx_header_add_to_cart_fragment( $fragments ) {
-		// Check if there are items in the cart.
-		if ( WC()->cart->get_cart_contents_count() > 0 ) {
-			// Update the cart icon fragment with the current cart contents count.
-			$fragments['.menu-icons-wrapper .cart a'] = '<a class="menu-icons-wrapper cart" href="' . esc_url( wc_get_cart_url() ) . '" title="' . esc_attr__( 'View your shopping cart', 'buddyx' ) . '"><span class="fa fa-shopping-cart"></span><sup>' . esc_html( WC()->cart->get_cart_contents_count() ) . '</sup></a>';
+		if ( ! class_exists( 'WooCommerce' ) || ! WC()->cart ) {
+			return $fragments;
 		}
+
+		// Skip the fragment update if no valid cart page is configured —
+		// otherwise we would refresh the icon to point at the homepage.
+		$cart_page_id = function_exists( 'wc_get_page_id' ) ? wc_get_page_id( 'cart' ) : 0;
+		if ( $cart_page_id <= 0 || 'publish' !== get_post_status( $cart_page_id ) ) {
+			return $fragments;
+		}
+
+		$cart_url = wc_get_cart_url();
+		if ( empty( $cart_url ) || $cart_url === home_url() || $cart_url === home_url( '/' ) ) {
+			return $fragments;
+		}
+
+		if ( WC()->cart->get_cart_contents_count() > 0 ) {
+			$fragments['.menu-icons-wrapper .cart a'] = '<a class="menu-icons-wrapper cart" href="' . esc_url( $cart_url ) . '" title="' . esc_attr__( 'View your shopping cart', 'buddyx' ) . '"><span class="fa fa-shopping-cart"></span><sup>' . esc_html( WC()->cart->get_cart_contents_count() ) . '</sup></a>';
+		}
+
 		return $fragments;
 	}
 }

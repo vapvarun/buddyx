@@ -159,8 +159,7 @@ class Theme {
 			new Scripts\Component(),
 			new Excerpts\Component(),
 			new Options\Component(),
-			new Kirki\Component(),
-			new Kirki_Option\Component(),
+			new Customizer_Settings\Component(),
 			// new Blocks\Component(), // Disabled: no custom blocks registered yet. Enable when adding blocks to assets/blocks/.
 			new Welcome\Component(),
 		);
@@ -169,14 +168,10 @@ class Theme {
 			$components[] = new Jetpack\Component();
 		}
 
-		if ( defined( 'KIRKI_VERSION' ) && version_compare( KIRKI_VERSION, '4.0', '>=' ) ) {
-			$args         = array();
-			$components[] = new Dropdown_Select\Component( $args );
-		}
-
-		if ( class_exists( 'Kirki' ) ) {
-			$components[] = new Dynamic_Style\Component();
-		}
+		$components[] = new Tokens\Component();
+		$components[] = new Color_Mode_Toggle\Component();
+		$components[] = new Starter_Content\Component();
+		$components[] = new Speculation_Rules\Component();
 
 		return $components;
 	}

@@ -23,6 +23,18 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 
 $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layout-option' ) );
 
+// Defense against invalid saved values. Master 5.0.x and 5.1.0 both use
+// the same -layout suffixed slugs (default-layout / list-layout / grid-layout
+// / masonry-layout) so backward-compat is preserved by-default. This guard
+// only kicks in if a third-party migration / direct DB write stores an
+// unrecognized value — without it the dispatch below tries to load a
+// nonexistent template like `template-parts/layout/entry-list.php` and
+// silently leaves the main content area empty.
+$allowed_layouts = array( 'default-layout', 'list-layout', 'grid-layout', 'masonry-layout' );
+if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
+	$post_layout = 'default-layout';
+}
+
 ?>
 
 	<?php do_action( 'buddyx_sub_header' ); ?>

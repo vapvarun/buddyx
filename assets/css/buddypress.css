@@ -88,7 +88,7 @@ body.bp-nouveau .entry-content {
 
 .buddypress-wrap .select-wrap {
     display: inline-block;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
 }
@@ -128,7 +128,7 @@ body .buddypress-wrap .subnav-filters .last select {
     min-height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
@@ -143,7 +143,7 @@ body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
 .buddypress-wrap #notification-select,
 .buddypress-wrap .standard-form select {
     -webkit-appearance: none;
-    background-image: url("../images/arrow-down.svg");
+    background-image: url(../images/arrow-down.svg);
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 40px;
@@ -159,7 +159,7 @@ body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
 }
 
 .buddypress-wrap .standard-form.profile-edit input:focus {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
     background-color: rgb(255, 255, 255);
 }
 
@@ -294,13 +294,13 @@ button.gamipress-achievement-unlock-with-points-button:hover,
 
 body.buddypress #buddypress.buddypress-wrap .wp-editor-tabs button,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container button,
-body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type=button] {
-    background: #fff;
-    border-color: #ccc;
+body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type="button"] {
+    background: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border, #ccc);
     border-style: solid;
     border-width: 1px;
     border-radius: 0 !important;
-    color: #555;
+    color: var(--bx-color-fg-muted, #555);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
@@ -315,16 +315,16 @@ body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container 
 
 body.buddypress #buddypress.buddypress-wrap .wp-editor-tabs button:hover,
 body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container button:hover,
-body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type=button]:hover {
-    background: #ededed;
-    border-color: #999;
-    color: #333;
+body.buddypress #buddypress.buddypress-wrap .standard-form .wp-editor-container input[type="button"]:hover {
+    background: var(--bx-color-divider, #ededed);
+    border-color: var(--bx-color-fg-muted, #999);
+    color: var(--bx-color-fg-muted, #333);
     outline: 0;
     text-decoration: none;
 }
 
 body.buddypress #buddypress.buddypress-wrap .tmce-active button.switch-tmce {
-    background: #f5f5f5;
+    background: var(--bx-color-bg-muted, #f5f5f5);
     border-radius: 0 !important;
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
@@ -336,14 +336,14 @@ body.buddypress #buddypress.buddypress-wrap .tmce-active button.switch-tmce {
 }
 
 body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
-    background: #f5f5f5;
+    background: var(--bx-color-bg-muted, #f5f5f5);
     border-radius: 0 !important;
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.buddypress .buddypress-wrap .wp-editor-container .button-small[type=button] {
+.buddypress .buddypress-wrap .wp-editor-container .button-small[type="button"] {
     padding: 0 8px 1px !important;
 }
 
@@ -408,7 +408,7 @@ body:not(.round-avatars) .grid .member-status {
 
 @media screen and (max-width: 46.8em) {
     .buddypress-wrap:not(.bp-single-vert-nav) .bp-navs:not(.bp-subnavs) li {
-        background: #f5f5f5;
+        background: var(--bx-color-bg-muted, #f5f5f5);
     }
 
     .buddypress-wrap .subnav-filters div#activity-filter-select,
@@ -419,6 +419,17 @@ body:not(.round-avatars) .grid .member-status {
 
 .buddypress-wrap .bp-navs li {
     margin-bottom: 0;
+}
+
+/* Vertical nav (Customizer: "Display the member/group navigation vertically"):
+   force each nav item to a block so it stacks cleanly. BuddyPress core's
+   priority-nav.min.css sets these items to `display: inline` with an
+   #buddypress-prefixed selector, and as inline elements the current item
+   picked up extra line-box height (~97px vs ~46px), reading as uneven spacing
+   between tabs. Selector is #buddypress-prefixed to out-specify core. */
+#buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-object-nav-nav-items > li,
+#buddypress.buddypress-wrap .bp-navs.vertical ul.bp-priority-subnav-nav-items > li {
+    display: block;
 }
 
 .buddypress-wrap .bp-navs li:not(.current) a:focus,
@@ -459,6 +470,13 @@ ul.component-navigation.activity-nav li {
     display: inline-block;
 }
 
+/* Column navigation for the Activity directory: when the customizer option
+   "Use column navigation for the Activity directory" is on, BuddyPress adds
+   .bp-dir-vert-nav to the wrapper. Stack the nav items instead of inline tabs. */
+.bp-dir-vert-nav ul.component-navigation.activity-nav li {
+    display: block;
+}
+
 ul.component-navigation.activity-nav li a {
     margin: 0;
 }
@@ -470,7 +488,7 @@ ul.component-navigation.activity-nav li a {
 
 .buddypress-wrap ul.subnav {
     width: 100%;
-    background: #fafafa;
+    background: var(--bx-color-bg-muted, #fafafa);
     margin: 15px 0;
     padding: 0 8px;
     border: 1px solid var(--global-border-color);
@@ -495,6 +513,16 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 
 .bp-single-vert-nav .item-body:not(#group-create-body) #subnav:not(.tabbed-links) li {
     margin: 0;
+}
+
+/* Group invite sub-nav ("My Friends" / "All Members"): keep the items on one
+   row at all widths. BuddyPress core ships
+   `:not(.vertical) + .item-body #group-invites-container .bp-invites-nav li
+   { display: block }` (specificity 1,3,1), which stacked the items at desktop.
+   #buddypress-prefixed here so it out-specifies that core rule. */
+#buddypress.buddypress-wrap .bp-invites-nav ul.subnav li {
+    display: inline-block;
+    float: none;
 }
 
 .bp-navs::after,
@@ -530,7 +558,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 
 .bp-pagination-links a.prev,
 .bp-pagination-links a.next {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     font-size: 0;
 }
@@ -603,7 +631,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 .buddypress-wrap form.bp-invites-search-form,
 .buddypress-wrap form.bp-messages-search-form,
 .buddypress-wrap .media_search.media_search {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     box-shadow: none;
     margin: 0;
@@ -625,17 +653,16 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 body .buddypress-wrap .bp-invites-search-form input[type="search"],
 body .buddypress-wrap form.bp-dir-search-form input[type="search"],
 body .buddypress-wrap form.bp-messages-search-form input[type="search"],
-.buddypress-wrap form#group-members-search input[type=search],
-.buddypress-wrap form#group-members-search input[type=text],
-.buddypress-wrap form.bp-dir-search-form input[type=search],
-.buddypress-wrap form.bp-dir-search-form input[type=text],
-.buddypress-wrap form.bp-messages-search-form input[type=search],
-.buddypress-wrap form.bp-messages-search-form input[type=text],
-.buddypress-wrap form[data-bp-search].bp-invites-search-form input[type=search],
-.buddypress-wrap form[data-bp-search].bp-invites-search-form input[type=text],
+.buddypress-wrap form#group-members-search input[type="search"],
+.buddypress-wrap form#group-members-search input[type="text"],
+.buddypress-wrap form.bp-dir-search-form input[type="search"],
+.buddypress-wrap form.bp-dir-search-form input[type="text"],
+.buddypress-wrap form.bp-messages-search-form input[type="search"],
+.buddypress-wrap form.bp-messages-search-form input[type="text"],
+.buddypress-wrap form[data-bp-search].bp-invites-search-form input[type="search"],
+.buddypress-wrap form[data-bp-search].bp-invites-search-form input[type="text"],
 .buddypress-wrap .media_search.media_search .media_search_input {
     background-repeat: no-repeat;
-    background-position: 10px 50%;
     background-size: 16px;
     background-image: url(../images/search.svg);
     background-position: left 10px center;
@@ -647,10 +674,10 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
 
 .buddypress-wrap form.bp-dir-search-form button[type="submit"],
 .buddypress-wrap form.bp-messages-search-form button[type="submit"],
-.buddypress-wrap form#group-members-search button[type=submit],
-.buddypress-wrap form.bp-dir-search-form button[type=submit],
-.buddypress-wrap form.bp-messages-search-form button[type=submit],
-.buddypress-wrap form[data-bp-search].bp-invites-search-form button[type=submit],
+.buddypress-wrap form#group-members-search button[type="submit"],
+.buddypress-wrap form.bp-dir-search-form button[type="submit"],
+.buddypress-wrap form.bp-messages-search-form button[type="submit"],
+.buddypress-wrap form[data-bp-search].bp-invites-search-form button[type="submit"],
 .buddypress-wrap .media_search.media_search .search_option {
     position: absolute;
     right: 0;
@@ -706,6 +733,7 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
 }
 
 @supports (-webkit-touch-callout: none) {
+
     @media (hover: none) and (pointer: coarse) {
         body .buddypress-wrap .subnav-filters .component-filters select,
         body .buddypress-wrap .subnav-filters .last select,
@@ -731,12 +759,35 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
         .buddypress-wrap .standard-form [data-bp-search] input[type="text"],
         .buddypress-wrap .standard-form .groups-members-search input[type="search"],
         .buddypress-wrap .standard-form .groups-members-search input[type="text"],
-        body.personal.attachments #bp-media-library .media-toolbar-primary .components-select-control__input {
+        body.personal.attachments #bp-media-library .media-toolbar-primary .components-select-control__input,
+        #buddypress #group-activity-search,
+        #buddypress #dir-members-search,
+        #buddypress #dir-groups-search,
+        #buddypress #dir-activity-search,
+        body .buddypress-wrap .bp-invites-search-form input[type="search"],
+        body .buddypress-wrap form.bp-dir-search-form input[type="search"],
+        body .buddypress-wrap form.bp-messages-search-form input[type="search"],
+        .buddypress-wrap form#group-members-search input[type="search"],
+        .buddypress-wrap form#group-members-search input[type="text"],
+        .buddypress-wrap form.bp-dir-search-form input[type="search"],
+        .buddypress-wrap form.bp-dir-search-form input[type="text"],
+        .buddypress-wrap form.bp-messages-search-form input[type="search"],
+        .buddypress-wrap form.bp-messages-search-form input[type="text"],
+        .buddypress-wrap form[data-bp-search].bp-invites-search-form input[type="search"],
+        .buddypress-wrap form[data-bp-search].bp-invites-search-form input[type="text"],
+        .buddypress-wrap .media_search.media_search .media_search_input {
             font-size: 16px;
         }
     }
 }
 
+@media screen and (max-width: 767px) {
+    .ac-form textarea,
+    .activity-list .ac-form textarea {
+        font-size: 16px !important;
+        line-height: 1.4;
+    }
+}
 
 /*--------------------------------------------------------------
 # rtMedia Specific
@@ -797,8 +848,8 @@ div#rtmedia-action-update>span {
     position: relative;
 }
 
-.rtm-activity-media-list:before,
-.rtm-activity-media-list:after {
+.rtm-activity-media-list::before,
+.rtm-activity-media-list::after {
     content: normal;
 }
 
@@ -935,7 +986,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 }
 
 .buddypress-wrap .rtm-bp-navs ul li a>span {
-    background: #c8cbcf;
+    background: var(--bx-color-divider, #c8cbcf);
     box-shadow: none;
     border-radius: 100px;
     font-size: 11px;
@@ -962,7 +1013,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
     margin-bottom: 20px;
 }
 
-.buddypress-wrap .rtm-gallery-media-title-container #rtm-media-options:after {
+.buddypress-wrap .rtm-gallery-media-title-container #rtm-media-options::after {
     content: " ";
     display: table;
     clear: both;
@@ -1027,7 +1078,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 }
 
 .media .rtmedia-list.rtmedia-list-media>li.rtmedia-list-item .rtmedia-item-thumbnail {
-    background: #e8e8e8;
+    background: var(--bx-color-border, #e8e8e8);
 }
 
 .media .rtmedia-container ul.rtmedia-list li.rtmedia-list-item div.rtmedia-item-thumbnail,
@@ -1067,8 +1118,8 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 
 @-webkit-keyframes lightBlur {
     0% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
+        -webkit-filter: blur(0);
+        filter: blur(0);
     }
 
     100% {
@@ -1079,8 +1130,8 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 
 @keyframes lightBlur {
     0% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
+        -webkit-filter: blur(0);
+        filter: blur(0);
     }
 
     100% {
@@ -1136,8 +1187,8 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
     border-top: 0;
 }
 
-#buddypress.buddypress-wrap input[type=button],
-#buddypress.buddypress-wrap input[type=submit],
+#buddypress.buddypress-wrap input[type="button"],
+#buddypress.buddypress-wrap input[type="submit"],
 #buddypress.buddypress-wrap a.rtm-button-back {
     padding: 8px 20px;
 }
@@ -1161,7 +1212,6 @@ button.mfp-arrow {
 body:not(.buddyx-mediapress) .mfp-arrow {
     cursor: pointer;
     position: absolute;
-    opacity: 0.65;
     filter: alpha(opacity=65);
     margin: 0;
     top: 50%;
@@ -1178,7 +1228,7 @@ body:not(.buddyx-mediapress) .mfp-arrow {
     -webkit-appearance: none;
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow:after {
+body:not(.buddyx-mediapress) .mfp-arrow::after {
     content: '';
     display: block;
     width: 0;
@@ -1191,14 +1241,14 @@ body:not(.buddyx-mediapress) .mfp-arrow:after {
     border: medium inset transparent;
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow:after {
+body:not(.buddyx-mediapress) .mfp-arrow::after {
     border-top-width: 13px;
     border-bottom-width: 13px;
     top: 8px;
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow-left:after,
-body:not(.buddyx-mediapress) .mfp-arrow-right:after {
+body:not(.buddyx-mediapress) .mfp-arrow-left::after,
+body:not(.buddyx-mediapress) .mfp-arrow-right::after {
     font-family: "Font Awesome 6 Free";
     font-size: 24px;
     font-weight: 900;
@@ -1209,19 +1259,19 @@ body:not(.buddyx-mediapress) .mfp-arrow-right:after {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow-left:after {
+body:not(.buddyx-mediapress) .mfp-arrow-left::after {
     content: '\f104';
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow-right:after {
+body:not(.buddyx-mediapress) .mfp-arrow-right::after {
     content: '\f105';
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow-left:before {
+body:not(.buddyx-mediapress) .mfp-arrow-left::before {
     border: none;
 }
 
-body:not(.buddyx-mediapress) .mfp-arrow-right:before {
+body:not(.buddyx-mediapress) .mfp-arrow-right::before {
     border: none;
 }
 
@@ -1290,7 +1340,8 @@ select#whats-new-post-in {
 }
 
 .activity-update-form #whats-new-textarea textarea {
-    color: inherit;
+	background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, #111);
     padding: 10px;
     min-height: 70px;
     border-radius: var(--form-border-radius) !important;
@@ -1304,7 +1355,7 @@ select#whats-new-post-in {
 
 #buddypress #whats-new-options {
     background: rgba(0, 0, 0, .02);
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--bx-color-border, #ddd);
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -1355,13 +1406,13 @@ button#rtmedia-add-media-button-post-update,
 .rtm-upload-button-wrapper button.rtmedia-comment-media-upload,
 button.rtmedia-comment-media-upload {
     padding: .3em .5em !important;
-    background: #fff !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
     color: rgba(0, 0, 0, .6) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
     text-shadow: none !important;
-    box-shadow: inset 0 0 0 1px #e8e8e8;
+    box-shadow: inset 0 0 0 1px var(--bx-color-border, #e8e8e8);
 }
 
 .activity-list.bp-list {
@@ -1474,13 +1525,13 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
     margin-bottom: 15px;
 }
 
-.activity-list .activity-item .activity-meta.action .fav:before,
-.activity-list .activity-item .activity-meta.action .unfav:before {
+.activity-list .activity-item .activity-meta.action .fav::before,
+.activity-list .activity-item .activity-meta.action .unfav::before {
     content: "\f487";
 }
 
-.activity-list .activity-item .activity-meta.action .unfav:before {
-    color: #db2828;
+.activity-list .activity-item .activity-meta.action .unfav::before {
+    color: var(--bx-color-error, #db2828);
 }
 
 div#buddypress .activity-read-more {
@@ -1496,7 +1547,7 @@ div#buddypress .activity-read-more a {
     margin-top: 15px;
     padding: 12px 25px;
     text-align: center;
-    background-color: #eee;
+    background-color: var(--bx-color-divider, #eee);
     border-radius: var(--global-border-radius);
 }
 
@@ -1585,19 +1636,17 @@ form.ac-form .ac-reply-content .ac-textarea textarea {
         font-size: 0;
     }
 
-    .site-wrapper .bmpro-flag-activity-btn:before,
-    .site-wrapper .bmpro-unflag-activity-btn:before,
-    .bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button:before {
+    .site-wrapper .bmpro-flag-activity-btn::before,
+    .site-wrapper .bmpro-unflag-activity-btn::before,
+    .bp-nouveau .activity-list .activity-item .activity-meta.action .bp-share-button::before {
         margin-right: 0;
     }
 }
 
 .activity-list .activity-item .activity-meta.action .button {
     padding: 6px 12px !important;
-    background: 0 0;
-    color: inherit;
-    background: #fff !important;
-    color: rgba(0, 0, 0, .6) !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
+	color: var(--bx-color-fg, rgba(0, 0, 0, .6)) !important;
     font-weight: 400;
     border-radius: .28571429rem !important;
     text-transform: none;
@@ -1618,8 +1667,9 @@ form.ac-form .ac-reply-content .ac-textarea textarea {
 }
 
 .activity-list .activity-item .activity-content>.activity-meta.action .button:hover {
-    border: 1px solid rgba(0, 0, 0, .8) !important;
-    color: rgba(0, 0, 0, .8) !important;
+	border: 1px solid var(--bx-color-border, rgba(0, 0, 0, .8)) !important;
+    background: var(--bx-color-bg-elevated, #fff) !important;
+	color: var(--bx-color-fg, rgba(0, 0, 0, .8)) !important;
 }
 
 .buddypress-wrap .activity-comments {
@@ -1656,7 +1706,7 @@ form.ac-form .ac-reply-content input {
     text-decoration: none !important;
 }
 
-.activity-list .activity-item .activity-meta.action .delete-activity:before {
+.activity-list .activity-item .activity-meta.action .delete-activity::before {
     content: "\f182";
 }
 
@@ -1737,7 +1787,7 @@ body #buddypress .bp-list .activity-comments .action {
 body #buddypress .bp-list .activity-comments .action .generic-button a {
     background: 0 0;
     padding: 0;
-    color: #939597;
+    color: var(--bx-color-fg-muted, #939597);
     border: 0;
     font-size: 12px;
     line-height: 1;
@@ -1823,7 +1873,7 @@ input#rt_media_comment_submit {
     border-radius: 3px;
 }
 
-#buddypress .rtm-like-comments-info:after {
+#buddypress .rtm-like-comments-info::after {
     content: none;
 }
 
@@ -1840,7 +1890,7 @@ li.load-more a.loading::after {
     animation: spin 1s infinite linear;
 }
 
-.buddypress .buddypress-wrap .generic-button .loading:not(.bp-tooltip):after {
+.buddypress .buddypress-wrap .generic-button .loading:not(.bp-tooltip)::after {
     content: "\f110";
     font-family: "Font Awesome 6 Free";
     font-size: 18px;
@@ -2081,15 +2131,14 @@ li.load-more a.loading::after {
     padding-top: 0;
     display: flex;
     flex-flow: row wrap;
-    margin-bottom: 0;
     width: auto;
     margin: 0 -15px;
 }
 
-.buddypress-wrap .grid.bp-list:after,
-.buddypress-wrap .grid.bp-list>li:after,
-.buddypress-wrap .grid.bp-list:before,
-.buddypress-wrap .grid.bp-list>li:before {
+.buddypress-wrap .grid.bp-list::after,
+.buddypress-wrap .grid.bp-list>li::after,
+.buddypress-wrap .grid.bp-list::before,
+.buddypress-wrap .grid.bp-list>li::before {
     content: normal;
 }
 
@@ -2150,7 +2199,7 @@ li.load-more a.loading::after {
     max-width: 126px;
     width: 100%;
     border: 5px solid #fff;
-    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px #E7E9EC;
+    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
 }
 
 .grid.members-list .list-wrap .item-block,
@@ -2170,7 +2219,6 @@ li.load-more a.loading::after {
 
 @media screen and (min-width: 46.8em) {
     .grid.four>li {
-        width: 33.333333%;
         width: calc(100% / 3);
     }
 }
@@ -2217,16 +2265,14 @@ li.load-more a.loading::after {
     overflow: hidden;
     padding-top: 52.56%;
     display: block;
-    background: #FFEFBA;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #FFFFFF, #FFEFBA);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #FFFFFF, #FFEFBA);
+    background: linear-gradient(to left, #FFF, #FFEFBA);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.buddyx-mem-cover-img:before,
-.buddyx-grp-cover-img:before {
+.buddyx-mem-cover-img::before,
+.buddyx-grp-cover-img::before {
     background: rgba(0, 0, 0, 0.25);
     content: '';
     position: absolute;
@@ -2349,7 +2395,7 @@ li.load-more a.loading::after {
     border: 0;
 }
 
-.groups.group-create .buddypress-wrap.bp-dir-hori-nav .group-create-links li:after {
+.groups.group-create .buddypress-wrap.bp-dir-hori-nav .group-create-links li::after {
     content: none !important;
 }
 
@@ -2374,8 +2420,8 @@ li.load-more a.loading::after {
     background: transparent !important;
 }
 
-.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a:after,
-.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) span:after {
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a::after,
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) span::after {
     content: "";
     display: inline-block;
     width: 24px;
@@ -2384,11 +2430,11 @@ li.load-more a.loading::after {
     margin: 0 15px;
 }
 
-.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a:after {
+.groups.group-create .buddypress-wrap .group-create-buttons li:not(:last-child) a::after {
     background: var(--color-theme-primary);
 }
 
-.buddypress-wrap .bp-invites-content .item-list li .invite-button span.icons:before {
+.buddypress-wrap .bp-invites-content .item-list li .invite-button span.icons::before {
     font-size: 25px;
 }
 
@@ -2406,10 +2452,8 @@ li.load-more a.loading::after {
 
 .buddypress .bp-invites-content ul.item-list>li {
     float: left;
-    padding-left: .5em;
-    padding-right: .5em;
     width: 49.5%;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     margin: 0 0 -1px;
     display: flex;
@@ -2521,7 +2565,6 @@ body.buddypress.group-create #page #primary .entry-header {
     position: relative;
     background: var(--color-theme-white-box);
     box-shadow: none;
-    margin: 1rem 0;
     padding: 1em;
     border-radius: var(--global-border-radius) !important;
     border: 1px solid var(--global-border-color);
@@ -2613,7 +2656,7 @@ body.buddypress.group-create #page #primary .entry-header {
 }
 
 #buddypress #item-header-cover-image #item-header-avatar img.avatar {
-    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px #E7E9EC;
+    box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
     border: 5px solid #fff;
     max-width: 150px;
 }
@@ -2629,7 +2672,7 @@ body.buddypress.group-create #page #primary .entry-header {
 body.bp-nouveau.media #buddypress #item-header-cover-image .user-nicename,
 #buddypress div#item-header-cover-image h2 a,
 #buddypress div#item-header-cover-image h2 {
-    color: #111;
+    color: var(--bx-color-fg, #111);
     text-rendering: inherit;
     text-shadow: none;
     margin: 0 0 15px;
@@ -2714,6 +2757,19 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
     padding: 5px 10px;
 }
 
+.buddypress-wrap .bp-tables-user tbody tr,
+.buddypress-wrap table.wp-profile-fields tbody tr,
+.buddypress-wrap table.forum tbody tr,
+.buddypress-wrap .bp-tables-user tr.alt td,
+.buddypress-wrap table.wp-profile-fields tr.alt td {
+	background: var(--color-theme-white-box);
+}
+
+.buddypress-wrap .bp-tables-user tr td.label,
+.buddypress-wrap table.wp-profile-fields tr td.label,
+.buddypress-wrap table.forum tr td.label {
+	border-color: var(--global-border-color);
+}
 /* change photo */
 
 .buddypress-wrap .drag-drop #drag-drop-area,
@@ -2764,7 +2820,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
 .buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap select {
     padding: 0 40px 0 12px;
     font-size: inherit;
-    border:1px solid var(--global-border-color);
+    border: 1px solid var(--global-border-color);
     -webkit-appearance: none;
 }
 
@@ -2952,8 +3008,7 @@ body.profile_page_bp-profile-edit.modal-open #TB_ajaxContent p.warning {
         float: left;
         margin: 0;
         min-height: 50vh;
-        padding: 0;
-        background: #fdfdfd;
+        background: var(--bx-color-bg-elevated, #fdfdfd);
         border-radius: var(--global-border-radius) 0 0 var(--global-border-radius);
         border: 0;
         border-right: 1px solid var(--global-border-color);
@@ -3229,7 +3284,7 @@ body.single-item.groups #buddypress div#item-header #item-header-cover-image #it
 }
 
 #item-body #group-invites-container .bp-invites-content .item-list>li {
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-bottom: 0;
     margin: 0;
@@ -3412,8 +3467,8 @@ button#bp-delete-avatar {
     color: var(--color-theme-primary);
 }
 
-.buddypress-wrap .buddypress.widget:after,
-.buddypress.widget:after {
+.buddypress-wrap .buddypress.widget::after,
+.buddypress.widget::after {
     content: "";
     display: table;
     clear: both;
@@ -3512,8 +3567,8 @@ button#bp-delete-avatar {
     display: block;
 }
 
-.widget.widget_bp_core_login_widget input[type=text],
-.widget.widget_bp_core_login_widget input[type=password] {
+.widget.widget_bp_core_login_widget input[type="text"],
+.widget.widget_bp_core_login_widget input[type="password"] {
     width: 100%;
     margin-bottom: 8px;
 }
@@ -3544,9 +3599,9 @@ button#bp-delete-avatar {
     background: var(--color-theme-white-box);
 }
 
-#bp-login-widget-form input[type=password],
-#bp-login-widget-form input[type=text] {
-    background-color: #fff;
+#bp-login-widget-form input[type="password"],
+#bp-login-widget-form input[type="text"] {
+    background-color: var(--bx-color-bg-elevated, #fff);
     color: var(--global-font-color);
     border: 1px solid var(--global-border-color);
     border-radius: var(--form-border-radius);
@@ -3554,9 +3609,13 @@ button#bp-delete-avatar {
     min-height: 38px;
 }
 
-#bp-login-widget-form input[type=password]:focus,
-#bp-login-widget-form input[type=text]:focus {
+#bp-login-widget-form input[type="password"]:focus,
+#bp-login-widget-form input[type="text"]:focus {
     color: var(--global-font-color);
+}
+
+#bp-login-widget-form input[type="password"]:focus:not(:focus-visible),
+#bp-login-widget-form input[type="text"]:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -3682,19 +3741,19 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap span.wb-bp-completion {
-    color: #121212;
+    color: var(--bx-color-fg, #121212);
     font-size: 32px;
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-wrap .wb-bp-progress-container {
     height: 6px;
-    background-color: #eef0f3;
+    background-color: var(--bx-color-divider, #eef0f3);
     border-radius: 12px !important;
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-progress-container .wb-bp-progress {
     height: 6px;
-    background-color: #4caf50;
+    background-color: var(--bx-color-presence-online, #4caf50);
     border-radius: 12px !important;
     background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
 }
@@ -3729,14 +3788,14 @@ button#bp-delete-avatar {
     text-align: center;
     float: right;
     color: #fff;
-    background: #4caf50;
-    border: 2px solid #4caf50;
+    background: var(--bx-color-presence-online, #4caf50);
+    border: 2px solid var(--bx-color-presence-online, #4caf50);
     border-radius: 30px;
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.incomplete span.wb-bp-completed-staus {
-    background: red;
-    border: 2px solid red;
+    background: var(--bx-color-error, #dc2626);
+    border: 2px solid var(--bx-color-error, #dc2626);
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap span.wb-bp-section-number {
@@ -3752,11 +3811,11 @@ button#bp-delete-avatar {
 }
 
 .wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number {
-    background: #4caf50;
-    border-color: #4caf50;
+    background: var(--bx-color-presence-online, #4caf50);
+    border-color: var(--bx-color-presence-online, #4caf50);
 }
 
-.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number:before {
+.wb-bp-profile-completion-wrap ul.wb-bp-detailed-progress li.wb-bp-single-section-wrap.completed span.wb-bp-section-number::before {
     content: "";
     display: inline-block;
     font-size: 14px;
@@ -3838,7 +3897,7 @@ button#bp-delete-avatar {
     opacity: 1;
 }
 
-#header-cover-image:hover a.link-change-cover-image .bp-tooltip:after {
+#header-cover-image:hover a.link-change-cover-image .bp-tooltip::after {
     left: 100px;
     right: auto;
     margin-top: 3px;
@@ -3869,7 +3928,7 @@ button#bp-delete-avatar {
     animation: none !important;
 }
 
-[data-bp-tooltip][data-bp-tooltip-pos="right"]:after {
+[data-bp-tooltip][data-bp-tooltip-pos="right"]::after {
     left: 100%;
     margin-top: 0;
     margin-left: 11px;
@@ -3968,8 +4027,6 @@ button#bp-delete-avatar {
 .users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank,
 .users-header .gamipress-buddypress-user-achievements,
 .users-header .gamipress-buddypress-ranks {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: wrap;
     flex-flow: wrap;
@@ -4010,8 +4067,6 @@ button#bp-delete-avatar {
 
 .users-header .gamipress-buddypress-points-type {
     margin: 0 10px 0 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -4079,7 +4134,7 @@ body #buddypress #item-header-cover-image span.activity {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: calc(33.333333% - 10px);
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 4px;
     padding-bottom: 20px;
@@ -4153,7 +4208,7 @@ body #buddypress #item-header-cover-image span.activity {
 
 table#gamipress-earnings-table thead,
 table#gamipress-earnings-table tbody {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table#gamipress-earnings-table thead tr th,
@@ -4280,7 +4335,7 @@ input#gamipress-achievements-search-input {
     box-shadow: 0 1px 2px rgb(18 43 70 / 12%);
     font-size: 13px;
     color: inherit;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     line-height: 1.5;
     border-radius: 6px !important;
     transition: all ease .3s;
@@ -4359,7 +4414,7 @@ input#gamipress-achievements-search-input {
 .single .single-achievement,
 .single-rank {
     padding: 20px !important;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     font-size: 14px;
     line-height: 24px;
@@ -4391,12 +4446,11 @@ input#gamipress-achievements-search-input {
 
 button.gamipress-achievement-unlock-with-points-confirm-button,
 button.gamipress-achievement-unlock-with-points-cancel-button {
-    background: #fff;
-    border-color: #ccc;
+    background: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border, #ccc);
     border-style: solid;
     border-width: 1px;
-    border-radius: 0;
-    color: #555;
+    color: var(--bx-color-fg-muted, #555);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
@@ -4412,9 +4466,9 @@ button.gamipress-achievement-unlock-with-points-cancel-button {
 
 button.gamipress-achievement-unlock-with-points-confirm-button:hover,
 button.gamipress-achievement-unlock-with-points-cancel-button:hover {
-    background: #ededed;
-    border-color: #999999;
-    color: #333;
+    background: var(--bx-color-divider, #ededed);
+    border-color: var(--bx-color-fg-muted, #999);
+    color: var(--bx-color-fg-muted, #333);
     outline: none;
     text-decoration: none;
 }
@@ -4504,7 +4558,7 @@ body.hide-overflow .site-footer {
 
 .buddypress.widget .GamiPress-data-popup.is_active .gamipress-buddypress-user-details-listing {
     display: block !important;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     padding: 20px 20px 10px 20px;
     border: 1px solid var(--global-border-color);
     box-shadow: 0 6px 24px 0 rgba(18, 43, 70, 0.1);
@@ -4541,7 +4595,7 @@ body.hide-overflow .site-footer {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -4597,7 +4651,7 @@ body.hide-overflow .site-footer {
 table.mycred-table thead,
 table.mycred-table tbody,
 table.mycred-table tfoot {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table.mycred-table thead tr th,
@@ -4672,13 +4726,13 @@ h2.badgeos-item-title,
 #badgeos-earned-achievements-container .selected,
 #badgeos-achievements-container .selected,
 #badgeos-earned-ranks-container .selected {
-    background-color: #111 !important;
+    background-color: var(--bx-color-fg, #111) !important;
 }
 
 table.badgeos-rank-table thead,
 table.badgeos-rank-table tbody,
 table.badgeos-rank-table tfoot {
-    background: #fff;
+    background: var(--bx-color-bg-elevated, #fff);
 }
 
 table.badgeos-rank-table thead tr th,
@@ -4851,7 +4905,6 @@ body:not(.logged-in) .activity-list .activity-item .activity-meta .bp-share-butt
 body:not(.logged-in) .bp-share-btn.generic-button {
     font-family: inherit;
     font-size: 14px;
-    margin: 10px;
     border-radius: 3px !important;
     padding: 8px 12px;
     font-weight: 700;
@@ -4922,15 +4975,15 @@ body:not(.logged-in) .bp-share-btn.generic-button {
     margin-top: 15px;
 }
 
-.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-edit:before {
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-edit::before {
     content: "\f464";
 }
 
-.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity_cancel:before {
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity_cancel::before {
     content: "\f335";
 }
 
-.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save:before {
+.activity-list .activity-item .activity-meta.action .button.buddyboss_edit_activity.action-save::before {
     content: "\f15e";
 }
 
@@ -5310,7 +5363,7 @@ div.mpp-bulk-edit-media-action-row select {
     margin: 0 5px 5px 0;
     padding: 0.5em 1em;
     background: transparent !important;
-    color: #565a62 !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
     display: inline-block;
     font-size: 1em;
     float: none;
@@ -5320,13 +5373,13 @@ div.mpp-bulk-edit-media-action-row select {
 }
 
 .mpp-paginator ul .page-numbers:hover {
-    background: #e6e6e6 !important;
-    color: #565a62 !important;
+    background: var(--bx-color-divider, #e6e6e6) !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
 }
 
 .mpp-paginator ul .page-numbers.current {
-    background: #e6e6e6 !important;
-    color: #565a62 !important;
+    background: var(--bx-color-divider, #e6e6e6) !important;
+    color: var(--bx-color-fg-muted, #565a62) !important;
 }
 
 
@@ -5577,18 +5630,18 @@ input.bpfb_remote_image {
     margin-top: 15px;
 }
 
-.activity-list .activity-item .activity-meta.action .bplua-open-activity:before,
-.activity-list .activity-item .activity-meta.action .bplua-close-activity:before {
+.activity-list .activity-item .activity-meta.action .bplua-open-activity::before,
+.activity-list .activity-item .activity-meta.action .bplua-close-activity::before {
     font-family: dashicons;
     font-size: 18px;
     vertical-align: bottom;
 }
 
-.activity-list .activity-item .activity-meta.action .bplua-open-activity:before {
+.activity-list .activity-item .activity-meta.action .bplua-open-activity::before {
     content: "\f528";
 }
 
-.activity-list .activity-item .activity-meta.action .bplua-close-activity:before {
+.activity-list .activity-item .activity-meta.action .bplua-close-activity::before {
     content: "\f160";
 }
 
@@ -5613,9 +5666,9 @@ input.bpfb_remote_image {
     margin-bottom: 10px;
 }
 
-.thickbox-loading form#private-message-form-ux label[for=private_message_subject],
-.thickbox-loading form#private-message-form-ux label[for=private_message_content],
-.thickbox-loading form#public-message-form-ux label[for=public_message_content] {
+.thickbox-loading form#private-message-form-ux label[for="private_message_subject"],
+.thickbox-loading form#private-message-form-ux label[for="private_message_content"],
+.thickbox-loading form#public-message-form-ux label[for="public_message_content"] {
     display: block;
 }
 
@@ -5801,8 +5854,8 @@ body.resume.has-single-member-sidebar .member-home {
     padding: 0;
 }
 
-.activity-update-form #whats-new-buttons .dashicons-admin-media:before {
-    font-family: 'dashicons';
+.activity-update-form #whats-new-buttons .dashicons-admin-media::before {
+    font-family: dashicons;
 }
 
 div#bp-attachments-activity-medium-preview {
@@ -5860,7 +5913,7 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary,
 .components-button.is-secondary,
 .components-button.is-tertiary,
 body.personal.attachments #bp-media-library .split-button .split-button-toggle,
-.activity-update-form #whats-new-buttons > li button {
+.activity-update-form #whats-new-buttons>li button {
     font-family: inherit;
     font-size: initial;
     color: var(--button-text-color) !important;
@@ -5897,17 +5950,17 @@ body.personal.attachments #bp-media-library .components-button.is-tertiary:hover
 .components-button.is-secondary:hover,
 .components-button.is-tertiary:hover,
 body.personal.attachments #bp-media-library .split-button .split-button-toggle:hover,
-.activity-update-form #whats-new-buttons > li button:hover {
+.activity-update-form #whats-new-buttons>li button:hover {
     background-color: var(--button-background-hover-color) !important;
     border: 1px solid var(--button-border-hover-color) !important;
     color: var(--button-text-hover-color) !important;
 }
 
-body.personal.attachments #bp-media-library .wp-filter .view-switch a:before {
+body.personal.attachments #bp-media-library .wp-filter .view-switch a::before {
     color: inherit;
 }
 
-body.personal.attachments #bp-media-library .wp-filter .view-switch a.current:before {
+body.personal.attachments #bp-media-library .wp-filter .view-switch a.current::before {
     color: var(--color-theme-primary);
 }
 
@@ -5928,7 +5981,7 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
     height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
@@ -6059,8 +6112,6 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
 }
 
 .activity-list li.bp_member_blog_pro_group_posts_activity_action .activity-content .activity-inner a.reign-post-img-link {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: wrap;
     flex-flow: wrap;
@@ -6074,4 +6125,58 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
     width: auto;
     max-height: 640px;
     border-radius: 4px;
+}
+
+/*--------------------------------------------------------------
+## BuddyPress filter dropdowns — dark-mode option contrast (5.1.0)
+--------------------------------------------------------------*/
+
+/* The closed <select> on the Members Directory / Groups Directory /
+ * Activity filters etc. inherits its surface from --bx-color-bg-elevated
+ * (white in light mode, dark navy in dark mode) and renders correctly.
+ * BUT in every major browser the open dropdown popover does NOT inherit
+ * the select's background-color - the user agent draws the popover with
+ * its own (white) surface and only `color` cascades down to <option>.
+ * In dark mode the inherited body color is a near-white grey, so the
+ * options paint as white-on-white and become unreadable - the exact
+ * symptom QA reported on BuddyX card 9927357197.
+ *
+ * The fix is to style <option> directly with the same token pair the
+ * select uses. Chrome / Edge / Firefox honour this since ~2021; Safari
+ * uses a native popover but inherits at least the color value, which
+ * keeps text legible there too.
+ *
+ * Scoped to BuddyPress directory selects so we do not stomp other
+ * <option> styling (theme.json block selects, plugin filters that
+ * already paint their own dropdowns, etc.). */
+
+.buddypress-wrap select,
+.buddypress-wrap .select-wrap select,
+.bp-search select,
+#buddypress select,
+.subnav-filters select {
+    /* Reaffirm the closed-select pair so option inheritance has something
+     * to pull from in browsers that DO cascade (Safari). */
+    color: var(--bx-color-fg, var(--global-font-color, inherit));
+}
+
+.buddypress-wrap select option,
+.buddypress-wrap .select-wrap select option,
+.bp-search select option,
+#buddypress select option,
+.subnav-filters select option {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, var(--global-font-color, #1d2327));
+}
+
+/* The :checked / hover states on the open popover paint via the user
+ * agent on most browsers - we only need to ensure they remain legible.
+ * Chrome respects this; Safari paints its own selection chrome. */
+.buddypress-wrap select option:checked,
+.buddypress-wrap .select-wrap select option:checked,
+.bp-search select option:checked,
+#buddypress select option:checked,
+.subnav-filters select option:checked {
+    background-color: var(--bx-color-bg-muted, var(--global-body-lightcolor, #f0f0f0));
+    color: var(--bx-color-fg, inherit);
 }
