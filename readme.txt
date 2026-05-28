@@ -129,6 +129,13 @@ Released under the MIT license
 
 == Changelog ==
 
+= 5.1.0-beta.3 - May 2026 =
+
+Pre-release polish pass before 5.1.0 final. Restores Dark Style preset behaviour after the visitor color-mode toggle work.
+
+* Fix      - Picking the Dark Style preset now renders the site dark by default, matching the preset name. The visitor color-mode toggle still flips light when used.
+* Security - Removed unused @wordpress/* and React development dependencies; updated build-time tooling. No customer-facing impact.
+
 = 5.1.0 =
 **Customizer framework overhaul + Site Skin design tokens + dark mode.**
 
