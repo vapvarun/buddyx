@@ -1,19 +1,15 @@
-// eslint.config.js
+// eslint.config.js - flat config for @wordpress/eslint-plugin 25.x + ESLint 9.
 
-// Using FlatCompat to convert @wordpress/eslint-plugin to flat config format
-import { FlatCompat } from '@eslint/eslintrc';
-// eslint-disable-next-line import/no-unresolved
+import { createRequire } from 'module';
 import tsParser from '@typescript-eslint/parser';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import globals from 'globals';
 
-const __filename = fileURLToPath( import.meta.url );
-const __dirname = path.dirname( __filename );
-
-const compat = new FlatCompat( {
-	baseDirectory: __dirname,
-} );
+// @wordpress/eslint-plugin 25.x exposes flat configs via its default export's
+// `configs` map. The package's exports field restricts deep paths so we have
+// to use the top-level entry, not configs/recommended directly.
+const require = createRequire( import.meta.url );
+const wpPlugin = require( '@wordpress/eslint-plugin' );
+const wpRecommendedConfig = wpPlugin.configs.recommended;
 
 export default [
 	// Global ignores (alternative to .eslintignore)
@@ -29,7 +25,7 @@ export default [
 	},
 
 	// Convert WordPress recommended configuration
-	...compat.extends( 'plugin:@wordpress/eslint-plugin/recommended' ),
+	...wpRecommendedConfig,
 
 	// Configuration files: explicitly allow devDependencies
 	{

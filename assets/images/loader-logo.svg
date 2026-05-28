@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
-  <rect width="72" height="72" fill="#f6f7f7" rx="6"/>
-  <rect x="18" y="22" width="36" height="20" fill="#dcdcde" rx="3"/>
-  <text x="36" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#1d2327">LOGO</text>
-  <circle cx="36" cy="56" r="3" fill="#2271b1" opacity="0.3"/>
-  <circle cx="44" cy="56" r="3" fill="#2271b1" opacity="0.6"/>
-  <circle cx="52" cy="56" r="3" fill="#2271b1"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 72 72"><rect width="72" height="72" fill="#f6f7f7" rx="6"/><rect width="36" height="20" x="18" y="22" fill="#dcdcde" rx="3"/><text x="36" y="36" fill="#1d2327" font-family="system-ui,sans-serif" font-size="9" font-weight="700" text-anchor="middle">LOGO</text><circle cx="36" cy="56" r="3" fill="#2271b1" opacity=".3"/><circle cx="44" cy="56" r="3" fill="#2271b1" opacity=".6"/><circle cx="52" cy="56" r="3" fill="#2271b1"/></svg>
