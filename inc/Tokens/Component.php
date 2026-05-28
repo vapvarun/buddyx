@@ -859,27 +859,60 @@ class Component implements Component_Interface {
 			$decls .= $token . ':' . $value . ';';
 		}
 
-		// Style variation overlay (Phase 7) — applies BEFORE customizer mods
-		// so customer customizer choices win on top.
-		// $variation_palette maps theme.json palette slugs to their colors;
-		// resolve_style_variation_tokens() converts the slugs to --bx-* tokens
-		// per the documented mapping (accent → --bx-color-accent, base →.
-		// --bx-color-bg, contrast → --bx-color-fg, etc.) AND propagates accent
-		// to button-bg/link, base to header-bg, plus emits.
-		// --wp--preset--color--<slug> overrides so blocks/patterns repaint too.
-		// $variation_covered tracks bases the variation already painted so the
-		// downstream derive_for fallback (lines below) doesn't clobber them
-		// with default-color variants when the customer hasn't saved a value.
-		// Variation overlay (colors only). Variation typography is injected
-		// into the Customizer Framework's typography_option theme_mod
-		// defaults via register_variation_theme_mod_filters() so the
-		// framework's Output_Builder emits typography from a single source.
-		$variation_covered = array();
-		$variation_slug    = (string) ( $mods['site_style_variation'] ?? '' );
+		// Style variation overlay (Phase 7). Route to the correct cascade
+		// layer based on the variation's own luminance:
+		//
+		//   Light / default variation -> :root { … }     (becomes the light default)
+		//   Dark variation            -> [data-bx-mode="dark"] { … } (becomes the dark default)
+		//
+		// Why: prior to this routing, the variation overlay always painted
+		// into :root, which meant a Dark variation locked the site to dark
+		// surfaces regardless of the visitor's color-mode toggle. Visitors
+		// who picked "light" via the toggle still saw dark pages and the
+		// dark logo - the toggle was effectively non-functional. Routing
+		// the dark variation into the [data-bx-mode="dark"] selector makes
+		// the variation the dark *default* while leaving :root as the light
+		// surface a visitor's light toggle can fall back to.
+		//
+		// resolve_style_variation_tokens() converts the variation's palette
+		// slugs to --bx-* tokens (accent -> --bx-color-accent, base ->
+		// --bx-color-bg, contrast -> --bx-color-fg, etc.) AND propagates
+		// accent to button-bg/link, base to header-bg, plus emits
+		// --wp--preset--color--<slug> overrides so blocks/patterns repaint
+		// too. $variation_covered tracks bases the variation already
+		// painted so the downstream derive_for fallback (lines below)
+		// doesn't clobber them with default-color variants when the
+		// customer hasn't saved a value.
+		//
+		// Variation typography is injected into the Customizer Framework's
+		// typography_option theme_mod defaults via
+		// register_variation_theme_mod_filters() so the framework's
+		// Output_Builder emits typography from a single source.
+		$variation_covered    = array();
+		$variation_slug       = (string) ( $mods['site_style_variation'] ?? '' );
+		$variation_decls      = '';
+		$variation_is_dark    = false;
 		if ( '' !== $variation_slug ) {
 			$variation_decls = self::resolve_style_variation_tokens( $variation_slug, $variation_covered );
 			if ( '' !== $variation_decls ) {
-				$decls .= $variation_decls;
+				$variation_is_dark = (bool) self::active_variation_is_dark_scheme();
+				if ( ! $variation_is_dark ) {
+					// Light / default / unknown-luminance variation paints into
+					// :root as before; this is the light default. Same behavior
+					// the theme had pre-5.1.0-beta.3.
+					$decls .= $variation_decls;
+					// Variation no longer covers light tokens for the dark
+					// cascade, so $variation_covered is correct as-is.
+				}
+				// For a dark variation we emit $variation_decls into the dark
+				// cascade below via build_dark_block($variation_decls). $variation_covered
+				// is cleared so the customer-default light derives in :root
+				// can still paint a coherent light palette - otherwise the
+				// theme would render *no* light-mode colors when the admin
+				// picks Dark variation, breaking the visitor light toggle.
+				if ( $variation_is_dark ) {
+					$variation_covered = array();
+				}
 			}
 		}
 
@@ -889,7 +922,7 @@ class Component implements Component_Interface {
 		if ( ! $enabled ) {
 			$decls       .= self::legacy_alias_declarations();
 			$light_block  = ':root{' . $decls . '}';
-			$dark_block   = $this->build_dark_block();
+			$dark_block   = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
 			return $light_block . $dark_block;
 		}
 
@@ -995,7 +1028,7 @@ class Component implements Component_Interface {
 		$decls .= self::legacy_alias_declarations();
 
 		$light_block = ':root{' . $decls . '}';
-		$dark_block  = $this->build_dark_block();
+		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
 
 		return $light_block . $dark_block;
 	}
@@ -1027,8 +1060,14 @@ class Component implements Component_Interface {
 	 * party CSS hooked to `--color-theme-primary` etc. picks up the dark
 	 * value (otherwise legacy CSS would render light-mode colors on dark
 	 * surfaces — a contrast failure).
+	 *
+	 * @param string $extra_decls Additional declarations to append AFTER the
+	 *                            dark defaults so they win. Used by
+	 *                            build_token_css() to route a dark style
+	 *                            variation's palette into the dark cascade
+	 *                            instead of stamping it onto :root.
 	 */
-	protected function build_dark_block(): string {
+	protected function build_dark_block( string $extra_decls = '' ): string {
 		$alias_lookup = array(); // token => array of aliases.
 		foreach ( self::$simple_color_tokens as $cfg ) {
 			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
@@ -1042,6 +1081,14 @@ class Component implements Component_Interface {
 			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
 				$dark_decls .= $alias . ':' . $value . ';';
 			}
+		}
+		// Dark style variation overlay layers AFTER $dark_defaults so the
+		// variation's palette wins for tokens it covers. The variation slugs
+		// have already been mapped to --bx-* tokens (and legacy aliases) by
+		// resolve_style_variation_tokens() in build_token_css() before being
+		// passed here, so no additional alias expansion is needed.
+		if ( '' !== $extra_decls ) {
+			$dark_decls .= $extra_decls;
 		}
 		if ( '' === $dark_decls ) {
 			return '';
