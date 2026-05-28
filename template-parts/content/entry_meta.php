@@ -144,7 +144,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 
 	<?php
 	// Edit link - only shown when needed.
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && ! empty( $blog_edit_link ) ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && buddyx_is_truthy( $blog_edit_link ) ) {
 		edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
 	}
 	?>

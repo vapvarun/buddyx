@@ -2,7 +2,6 @@
 # Imports
 --------------------------------------------------------------*/
 
-@import "_custom-properties.css";
 @import "_reset.css";
 @import "_typography.css";
 @import "_elements.css";
@@ -69,7 +68,7 @@ textarea {
     padding-right: 0;
 }
 
-.user-link-wrap .bp-user:after {
+.user-link-wrap .bp-user::after {
     left: -5px;
     right: auto;
 }
@@ -97,12 +96,12 @@ textarea {
     right: auto;
 }
 
-.menu-icons-wrapper #searchform:before {
+.menu-icons-wrapper #searchform::before {
     left: 15px;
     right: auto;
 }
 
-.menu-icons-wrapper #searchform input[type=submit] {
+.menu-icons-wrapper #searchform input[type="submit"] {
     left: 0;
     right: auto;
 }
@@ -202,18 +201,18 @@ select#pa_size {
         left: 12px;
         right: auto;
     }
-    .nav--toggle-sub li.menu-item--has-toggle .sub-menu li:after,
-    .nav--toggle-sub li.menu-item-has-children .sub-menu li:after {
+    .nav--toggle-sub li.menu-item--has-toggle .sub-menu li::after,
+    .nav--toggle-sub li.menu-item-has-children .sub-menu li::after {
         right: auto;
         left: 10px;
     }
-    .menu-item--has-toggle>ul.sub-menu:before,
-    .nav--toggle-sub ul.user-profile-menu .sub-menu:before {
+    .menu-item--has-toggle>ul.sub-menu::before,
+    .nav--toggle-sub ul.user-profile-menu .sub-menu::before {
         right: 28px;
         left: 0;
     }
-    .nav--toggle-sub ul.user-profile-menu .sub-menu:before,
-    .sub-menu li.menu-item--has-toggle>ul.sub-menu:before {
+    .nav--toggle-sub ul.user-profile-menu .sub-menu::before,
+    .sub-menu li.menu-item--has-toggle>ul.sub-menu::before {
         top: 30px;
         right: auto;
         left: 0;
@@ -223,15 +222,15 @@ select#pa_size {
         left: -8px;
         right: auto;
     }
-    .bp-header-submenu:before {
+    .bp-header-submenu::before {
         left: 28px;
         right: auto;
     }
     .main-navigation #user-profile-menu {
-        left: 0px;
+        left: 0;
         right: auto;
     }
-    .user-profile-menu:before {
+    .user-profile-menu::before {
         left: 50px;
         right: auto;
     }
@@ -248,15 +247,15 @@ select#pa_size {
         right: auto;
         left: 0;
     }
-    .user-profile-menu:before {
+    .user-profile-menu::before {
         left: 10px;
         right: auto;
     }
 }
 
 @media (min-width: 768px) {
-    .nav--toggle-sub li.menu-item--has-toggle:after,
-    .nav--toggle-sub li.menu-item-has-children:after {
+    .nav--toggle-sub li.menu-item--has-toggle::after,
+    .nav--toggle-sub li.menu-item-has-children::after {
         left: 0;
         right: auto;
     }
@@ -290,10 +289,10 @@ select#pa_size {
     margin-left: 20px;
 }
 
-.entry-meta.entry-meta .entry-cat-links:before,
-.entry-meta.entry-meta .entry-comments-link a:before,
-.entry-meta.entry-meta .entry-edit-link a:before,
-.entry-meta.entry-meta .entry-featured:before {
+.entry-meta.entry-meta .entry-cat-links::before,
+.entry-meta.entry-meta .entry-comments-link a::before,
+.entry-meta.entry-meta .entry-edit-link a::before,
+.entry-meta.entry-meta .entry-featured::before {
     margin-right: 0;
     margin-left: 4px;
 }
@@ -519,7 +518,7 @@ a.prev.page-numbers {
     padding: 10px 30px 10px 0;
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a:after {
+.woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a::after {
     right: 10px;
     left: auto;
 }

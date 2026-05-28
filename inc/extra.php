@@ -5,6 +5,50 @@
  * @package buddyx
  */
 
+if ( ! function_exists( 'buddyx_is_truthy' ) ) {
+	/**
+	 * Boolean-equivalence helper for theme_mod values.
+	 *
+	 * Treats `true / 1 / '1' / 'on' / 'yes' / 'true' / 'enable'` as truthy
+	 * and `false / 0 / '0' / '' / 'off' / 'no' / 'false' / 'disable' / null`
+	 * as falsy. Any other value falls back to PHP loose-truthiness.
+	 *
+	 * Required because pre-5.1.0 customers carry literal 'on'/'off' string
+	 * values for switch theme_mods (Kirki preserved the choice keys
+	 * directly), and PHP gotchas mean `(int) 'on' === 0` and `(bool) 'off'
+	 * === true` — both of which silently invert the customer's intent.
+	 * WordPress's own `wp_validate_boolean()` is unsuitable here because
+	 * it only recognizes 'false'/'0' as falsy (so `wp_validate_boolean('off')
+	 * === true`). This helper mirrors the values_equal() logic added to
+	 * Active_Callback in commit b4cccf6 so render-time and condition-time
+	 * agree on the same truthiness contract.
+	 *
+	 * @param mixed $value Raw theme_mod value (any scalar / null).
+	 * @return bool
+	 */
+	function buddyx_is_truthy( $value ): bool {
+		if ( is_bool( $value ) ) {
+			return $value;
+		}
+		if ( is_int( $value ) ) {
+			return 0 !== $value;
+		}
+		if ( null === $value ) {
+			return false;
+		}
+		if ( is_string( $value ) ) {
+			$normalized = strtolower( trim( $value ) );
+			if ( in_array( $normalized, array( '1', 'on', 'yes', 'true', 'enable' ), true ) ) {
+				return true;
+			}
+			if ( in_array( $normalized, array( '0', '', 'off', 'no', 'false', 'disable' ), true ) ) {
+				return false;
+			}
+		}
+		return (bool) $value;
+	}
+}
+
 // Content wrapper
 if ( ! function_exists( 'buddyx_content_top' ) ) {
 	function buddyx_content_top() {
@@ -52,10 +96,11 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 				}
 				
-				// Breadcrumbs for all cases
-				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
+				// Breadcrumbs for all cases. `buddyx_is_truthy()` handles
+				// pre-5.1.0 'on'/'off' strings; `! empty('off')` would
+				// otherwise treat the disabled toggle as enabled.
 				do_action( 'buddyx_before_breadcrumb' );
-				if ( ! empty( $breadcrumbs ) ) {
+				if ( buddyx_is_truthy( get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) ) ) ) {
 					buddyx_the_breadcrumb();
 				}
 				do_action( 'buddyx_after_breadcrumb' );
@@ -116,11 +161,62 @@ if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 
 // Site Loader
 if ( ! function_exists( 'buddyx_site_loader' ) ) {
+	/**
+	 * Renders the site loader overlay shown while the page is initializing.
+	 *
+	 * Supports 5 animation types (dots / spinner / pulse / bars / logo) selected
+	 * via the customizer. Adds role=status + aria-live for screen readers, and
+	 * respects prefers-reduced-motion via CSS in assets/css/loaders.css.
+	 */
 	function buddyx_site_loader() {
-		$loader = get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) );
-		if ( $loader == '1' ) {
-			echo '<div class="site-loader"><div class="loader-inner"><span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span></div></div>';
+		// `buddyx_is_truthy()` provides consistent boolean handling across the
+		// theme; this replaces an earlier defensive multi-check that manually
+		// listed '0' / 'off' string variants.
+		if ( ! buddyx_is_truthy( get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) ) ) ) {
+			return;
 		}
+
+		$type  = (string) get_theme_mod( 'site_loader_type', 'dots' );
+		$text  = (string) get_theme_mod( 'site_loader_text', __( 'Loading', 'buddyx' ) );
+		$logo  = (string) get_theme_mod( 'site_loader_logo', '' );
+		$speed = (float) get_theme_mod( 'site_loader_speed', 1.5 );
+		// Clamp to safe range.
+		$speed = max( 0.3, min( 5.0, $speed ) );
+
+		$valid_types = array( 'dots', 'spinner', 'pulse', 'bars', 'logo' );
+		if ( ! in_array( $type, $valid_types, true ) ) {
+			$type = 'dots';
+		}
+
+		$style_attr = sprintf( '--bx-loader-speed:%ss;', $speed );
+		?>
+		<div class="site-loader site-loader--<?php echo esc_attr( $type ); ?>"
+		     role="status"
+		     aria-live="polite"
+		     aria-label="<?php echo esc_attr( $text ); ?>"
+		     style="<?php echo esc_attr( $style_attr ); ?>">
+			<div class="loader-inner">
+				<?php if ( 'logo' === $type ) : ?>
+					<?php if ( $logo ) : ?>
+						<img class="site-loader__logo" src="<?php echo esc_url( $logo ); ?>" alt="<?php echo esc_attr( $text ); ?>" />
+					<?php elseif ( has_custom_logo() ) : ?>
+						<?php the_custom_logo(); ?>
+					<?php else : ?>
+						<span class="site-loader__text"><?php echo esc_html( $text ); ?></span>
+					<?php endif; ?>
+				<?php elseif ( 'bars' === $type ) : ?>
+					<span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+				<?php elseif ( 'spinner' === $type ) : ?>
+					<span class="spinner"></span>
+				<?php elseif ( 'pulse' === $type ) : ?>
+					<span class="pulse"></span>
+				<?php else : ?>
+					<span class="dot"></span><span class="dot dot1"></span><span class="dot dot2"></span><span class="dot dot3"></span><span class="dot dot4"></span>
+				<?php endif; ?>
+			</div>
+			<span class="screen-reader-text"><?php echo esc_html( $text ); ?></span>
+		</div>
+		<?php
 	}
 }
 
@@ -132,11 +228,17 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 	 */
 	function buddyx_site_menu_icon() {
 		// Get the settings for search and cart icons from the theme customizer.
-		$searchicon = (int) get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) );
-		$carticon   = (int) get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) );
+		// `buddyx_is_truthy()` correctly handles the pre-5.1.0 'on'/'off'
+		// string values (Kirki preserved choice keys directly). PHP would
+		// otherwise silently flip the intent: `(int) 'on' === 0` and
+		// `(bool) 'off' === true`. WP core's `wp_validate_boolean()` is
+		// unsuitable because `wp_validate_boolean('off') === true`.
+		$searchicon         = buddyx_is_truthy( get_theme_mod( 'site_search', buddyx_defaults( 'site-search' ) ) );
+		$carticon           = buddyx_is_truthy( get_theme_mod( 'site_cart', buddyx_defaults( 'site-cart' ) ) );
+		$color_toggle_show  = buddyx_is_truthy( get_theme_mod( 'site_color_mode_toggle_show', 'on' ) );
 
-		// Check if either search or cart icon is enabled.
-		if ( ! empty( $searchicon ) || ! empty( $carticon ) ) :
+		// Wrapper renders if any of these icons (search, cart, color-mode toggle) are enabled.
+		if ( ! empty( $searchicon ) || ! empty( $carticon ) || $color_toggle_show ) :
 			?>
 			<div class="menu-icons-wrapper">
 				<?php
@@ -158,6 +260,10 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 				if ( ! empty( $carticon ) && function_exists( 'is_woocommerce' ) ) :
 					buddyx_render_cart_icon();
 				endif;
+
+				// Color-mode toggle (Light / Dark / Auto). Component decides
+				// whether to render based on customizer settings.
+				do_action( 'buddyx_header_actions' );
 				?>
 			</div>
 			<?php
@@ -189,7 +295,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 				array(
 					date_i18n( 'Y' ), // Current year.
 					esc_html( get_bloginfo( 'name' ) ), // Site title.
-					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme///' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
+					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme////' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
 				),
 				$copyright
 			);
@@ -200,7 +306,7 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 				date_i18n( 'Y' ), // Current year.
 				esc_url( home_url( '/' ) ), // Site URL.
 				esc_html( get_bloginfo( 'name' ) ), // Site title.
-				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme///' ), // Theme URL.
+				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme////' ), // Theme URL.
 				esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) // Translated theme name.
 			);
 		}

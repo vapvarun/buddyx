@@ -52,7 +52,7 @@ button.button {
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-button[type=submit]:hover,
+button[type="submit"]:hover,
 a.read-more.button:hover,
 button.button:hover {
     color: var(--button-text-hover-color);
@@ -72,7 +72,7 @@ input[type="submit"]:focus {
 }
 
 button:focus-visible {
-    outline: 2px solid black;
+    outline: 2px solid #000;
 }
 
 input[type="text"],
@@ -91,7 +91,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    color: #666;
+    color: var(--bx-color-fg-muted, #666);
     border: 1px solid var(--global-border-color);
     border-radius: var(--form-border-radius);
     padding: 10px;
@@ -114,7 +114,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-    color: #111;
+    color: var(--bx-color-fg, #111);
 }
 
 a.menu-close:focus-visible {
@@ -148,7 +148,7 @@ select {
     min-height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: var(--bx-color-bg-elevated, #fff);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
@@ -157,6 +157,7 @@ select {
 }
 
 @supports (-webkit-touch-callout: none) {
+
     @media (hover: none) and (pointer: coarse) {
         input[type="text"],
         input[type="email"],
@@ -172,7 +173,8 @@ select {
         input[type="datetime"],
         input[type="datetime-local"],
         select,
-        textarea {
+        textarea,
+        .menu-icons-wrapper #searchform input[type="search"] {
             font-size: 16px;
         }
     }

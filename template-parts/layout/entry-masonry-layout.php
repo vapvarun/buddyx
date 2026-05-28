@@ -44,7 +44,7 @@ $classes = array(
 
 				get_template_part( 'template-parts/content/entry_content', get_post_type() );
 
-				if ( ! empty( $blog_tags ) ) {
+				if ( buddyx_is_truthy( $blog_tags ) ) {
 					get_template_part( 'template-parts/content/entry_tags', get_post_type() );
 				}
 				?>

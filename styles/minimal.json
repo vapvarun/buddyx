@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Minimal",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base",       "color": "#FFFFFF", "name": "Base" },
+				{ "slug": "base-2",     "color": "#FAFAFA", "name": "Base 2" },
+				{ "slug": "base-3",     "color": "#F4F4F4", "name": "Base 3" },
+				{ "slug": "contrast",   "color": "#000000", "name": "Contrast" },
+				{ "slug": "contrast-2", "color": "#525252", "name": "Contrast 2" },
+				{ "slug": "contrast-3", "color": "#737373", "name": "Contrast 3" },
+				{ "slug": "accent",     "color": "#000000", "name": "Black Accent" },
+				{ "slug": "accent-2",   "color": "#525252", "name": "Mid Grey" },
+				{ "slug": "accent-3",   "color": "#D6D3D1", "name": "Stone" },
+				{ "slug": "surface-1",  "color": "#FAFAFA", "name": "Surface 1" },
+				{ "slug": "surface-2",  "color": "#F5F5F5", "name": "Surface 2" },
+				{ "slug": "surface-3",  "color": "#171717", "name": "Surface Dark" }
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"elements": {
+			"h1": { "typography": { "fontFamily": "var(--wp--preset--font-family--newsreader)", "fontWeight": "400", "fontStyle": "normal", "letterSpacing": "-0.02em" } },
+			"h2": { "typography": { "fontFamily": "var(--wp--preset--font-family--newsreader)", "fontWeight": "400", "fontStyle": "normal" } },
+			"link": {
+				"color": { "text": "var(--wp--preset--color--contrast)" },
+				":hover": { "color": { "text": "var(--wp--preset--color--contrast-2)" } }
+			}
+		}
+	}
+}

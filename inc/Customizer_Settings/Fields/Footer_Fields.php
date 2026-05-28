@@ -1,0 +1,73 @@
+<?php
+/**
+ * Footer Customizer Fields
+ *
+ * @package buddyx
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+		/**
+		 *  Footer Section
+		 */
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+			array(
+				'settings' => 'site_footer_bg',
+				'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+				'section'  => 'site_footer_section',
+				'default'  => 'off',
+				'choices'  => array(
+					'on'  => esc_html__( 'Enable', 'buddyx' ),
+					'off' => esc_html__( 'Disable', 'buddyx' ),
+				),
+			)
+		);
+
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'background',
+			array(
+				'settings'        => 'background_setting',
+				'label'           => esc_html__( 'Background Control', 'buddyx' ),
+				'section'         => 'site_footer_section',
+				'default'         => array(
+					'background-color'      => '',
+					'background-image'      => '',
+					'background-repeat'     => 'repeat',
+					'background-position'   => 'center center',
+					'background-size'       => 'cover',
+					'background-attachment' => 'scroll',
+				),
+				'transport'       => 'auto',
+				'sanitize_callback' => function( $value ) {
+					if ( isset( $value['background-color'] ) && is_string( $value['background-color'] ) ) {
+						$value['background-color'] = preg_replace( '/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0\s*\)/', 'rgba($1,$2,$3,0.01)', $value['background-color'] );
+					}
+					return $value;
+				},
+				'output'          => array(
+					array(
+						'element' => '.site-footer-wrapper',
+					),
+				),
+				'active_callback' => array(
+					array(
+						'setting'  => 'site_footer_bg',
+						'operator' => '==',
+						'value'    => '1',
+					),
+				),
+			)
+		);
+
+		/**
+		 *  Site Copyright
+		 */
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'textarea',
+			array(
+				'settings' => 'site_copyright_text',
+				'label'    => esc_html__( 'Add Content', 'buddyx' ),
+				'section'  => 'site_copyright_section',
+				'default'  => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
+				'priority' => 10,
+			)
+		);

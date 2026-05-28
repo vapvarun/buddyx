@@ -40,20 +40,20 @@ div a:hover {
     border: 1px solid var(--button-border-hover-color);
 }
 
-.mvx_regi_main .mvx_regi_form_box input[type=email],
-.mvx_regi_main .mvx_regi_form_box input[type=file],
-.mvx_regi_main .mvx_regi_form_box input[type=password],
-.mvx_regi_main .mvx_regi_form_box input[type=text],
-.mvx_regi_main .mvx_regi_form_box input[type=url],
+.mvx_regi_main .mvx_regi_form_box input[type="email"],
+.mvx_regi_main .mvx_regi_form_box input[type="file"],
+.mvx_regi_main .mvx_regi_form_box input[type="password"],
+.mvx_regi_main .mvx_regi_form_box input[type="text"],
+.mvx_regi_main .mvx_regi_form_box input[type="url"],
 .mvx_regi_main .mvx_regi_form_box textarea,
-#mvx-store-conatiner .mvx-inp-wrap input[type=text],
+#mvx-store-conatiner .mvx-inp-wrap input[type="text"],
 div#mvx-store-conatiner select,
-div.mvx-store-map-filter input[type=text] {
+div.mvx-store-map-filter input[type="text"] {
     border: 1px solid var(--global-border-color);
     border-radius: var(--form-border-radius);
 }
 
-div#mvx-store-conatiner input[type=text]:focus {
+div#mvx-store-conatiner input[type="text"]:focus {
     border: 1px solid var(--global-border-color);
 }
 
@@ -244,7 +244,7 @@ div.mvx-banner-wrap {
 
     .mvx-theme02 .mvx-banner-area {
         padding: 15px;
-        border: 1px solid #eee;
+        border: 1px solid var(--bx-color-border, #eee);
         border-top: 0;
     }
 }
