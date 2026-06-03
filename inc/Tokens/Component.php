@@ -290,8 +290,16 @@ class Component implements Component_Interface {
 		'--bx-color-button-bg-hover'    => '#f83939',
 		'--bx-color-button-fg'          => '#ffffff',
 		'--bx-color-button-fg-hover'    => '#ffffff',
-		'--bx-color-button-border'      => '#ef5455',
-		'--bx-color-button-border-hover' => '#f83939',
+		// Border mirrors the button background so a solid button stays solid.
+		// `--bx-color-button-border` is not in $derive_for, so absent an explicit
+		// `site_buttons_border_color`, only this default emits — hardcoding a hex
+		// orphaned the border at red while a brand change / style-variation
+		// repainted --bx-color-button-bg (red outline on a blue button).
+		// Referencing the bg token makes the border follow the brand; a customer
+		// who sets a distinct border color still wins (simple-token loop emits it
+		// after this). No-save resolves to #ef5455, matching the 5.0.x look.
+		'--bx-color-button-border'      => 'var(--bx-color-button-bg, #ef5455)',
+		'--bx-color-button-border-hover' => 'var(--bx-color-button-bg-hover, #f83939)',
 		'--bx-color-loader-bg'          => '#ef5455',
 		'--bx-color-footer-title'       => '#111111',
 		'--bx-color-footer-fg'          => '#505050',
