@@ -462,6 +462,23 @@ body:not(.round-avatars) .grid .member-status {
     border-color: var(--color-theme-primary);
 }
 
+/*
+ * WCAG 1.4.3 (Contrast): on the activity/members/groups directory navs,
+ * BuddyPress core paints the selected/current item with a dark #555
+ * background, leaving the theme's link-coloured text at ~1.25:1. Restore the
+ * theme's flat, transparent selected treatment (the border-bottom above is the
+ * selection cue) so the text sits on the page background at full contrast.
+ * Scoped to .dir-navs and given the extra class so it outranks BP core.
+ */
+.buddypress-wrap .bp-navs.dir-navs li.selected a,
+.buddypress-wrap .bp-navs.dir-navs li.current a,
+.buddypress-wrap .bp-navs.dir-navs li.selected a:hover,
+.buddypress-wrap .bp-navs.dir-navs li.current a:hover,
+.buddypress-wrap .bp-navs.dir-navs li.selected a:focus,
+.buddypress-wrap .bp-navs.dir-navs li.current a:focus {
+    background: transparent;
+}
+
 .bp-navs.bp-navs {
     overflow: initial;
 }
@@ -3423,6 +3440,22 @@ button#bp-delete-avatar {
 .widget.buddypress div.item-content,
 .widget.buddypress div.item-meta {
     margin: 0;
+}
+
+/*
+ * WCAG 1.4.3 (Contrast): BuddyPress core renders its meta text - member
+ * last-active line, directory pagination count, activity timestamps - at
+ * ~#757575, which is only 4.48:1 on white and fails AA. Map these onto the
+ * theme's AA-compliant muted token so the contrast clears in light and dark.
+ */
+.buddypress-wrap .bp-list li .item-meta,
+.buddypress-wrap .bp-list li .meta,
+.buddypress-wrap .item-meta,
+.buddypress-wrap .pag-count,
+.buddypress-wrap .pag-count .pag-data,
+.buddypress-wrap .activity-list .activity-item .activity-header .time-since,
+.buddypress-wrap .activity-list .activity-item .activity-header .activity-time-since {
+    color: var(--bx-color-fg-muted);
 }
 
 #buddypress.buddypress-wrap .widget.buddypress ul.item-list,

@@ -312,7 +312,7 @@ class Component implements Component_Interface {
 		'--bx-color-copyright-link-hover' => '#ef5455',
 
 		// Foreground (text) extras.
-		'--bx-color-fg-muted'           => '#757575',                // Mid-tone text.
+		'--bx-color-fg-muted'           => '#6a6a6a',                // Mid-tone text (5:1 on #fff for WCAG AA; #757575 was 4.48:1).
 		'--bx-color-fg-subtle'          => '#9ca3af',                // Subtle / placeholder text.
 		'--bx-color-fg-inverse'         => '#ffffff',                // Text on color (light mode default).
 

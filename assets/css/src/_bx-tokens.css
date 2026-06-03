@@ -20,7 +20,7 @@
 :root {
     /* Color — Foreground (text) */
     --bx-color-fg: #1a1a1a;
-    --bx-color-fg-muted: #757575;
+    --bx-color-fg-muted: #6a6a6a; /* 5:1 on #fff (WCAG AA); #757575 was 4.48:1 and failed on BP meta text. */
     --bx-color-fg-subtle: #9ca3af;
     --bx-color-fg-inverse: #fff;
 
