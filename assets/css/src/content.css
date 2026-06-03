@@ -76,6 +76,16 @@
     margin-left: 0;
 }
 
+/*
+ * WCAG 1.4.1 (Use of Color): the author link sits inside the "Written by
+ * <link>" meta text, where its color contrast against the surrounding text is
+ * below 3:1. Underline it so the link is distinguishable without relying on
+ * color alone.
+ */
+.entry-meta span.posted-by>a {
+    text-decoration: underline;
+}
+
 .entry-meta .posted-by img {
     float: left;
     margin-right: 15px;
