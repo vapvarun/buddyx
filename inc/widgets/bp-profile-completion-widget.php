@@ -70,6 +70,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 		// Widget Content
 
+		/* translators: %s: profile completion percentage (e.g. "80%") */
 		$progress_label = sprintf( esc_html__( '%s Complete', 'buddyx' ), $user_progress['completion_percentage'] . '%' );
 		?>
 		<div class="wb-bp-profile-completion-wrap">

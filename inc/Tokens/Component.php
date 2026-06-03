@@ -1052,14 +1052,13 @@ class Component implements Component_Interface {
 
 	/**
 	 * Build the dark-mode override block. Two selectors share the same body:
-	 *   :root[data-bx-mode="dark"]                 — explicit user choice
-	 *
-	 *   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
+	 *   - `:root[data-bx-mode="dark"]` - explicit user choice.
+	 *   - `(prefers-color-scheme: dark) :root[data-bx-mode="auto"]` (media query).
 	 *
 	 * Each dark-default token also overrides its legacy aliases so any third-
 	 * party CSS hooked to `--color-theme-primary` etc. picks up the dark
 	 * value (otherwise legacy CSS would render light-mode colors on dark
-	 * surfaces — a contrast failure).
+	 * surfaces - a contrast failure).
 	 *
 	 * @param string $extra_decls Additional declarations to append AFTER the
 	 *                            dark defaults so they win. Used by

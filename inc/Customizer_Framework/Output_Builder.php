@@ -80,6 +80,11 @@ class Output_Builder {
 		$units  = $rule['units']  ?? '';
 
 		$rendered = $prefix . $value . $suffix . $units;
+		// Stored theme_mod values are concatenated into an inline <style> block.
+		// A CSS property value never legitimately contains angle brackets, so
+		// strip them defensively to ensure a value can't break out of the
+		// element (e.g. a saved "</style>..." payload).
+		$rendered = str_replace( array( '<', '>' ), '', (string) $rendered );
 		return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
 	}
 

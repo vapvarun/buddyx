@@ -143,30 +143,30 @@ The headline change is a self-contained Customizer Framework that replaces the b
 
 **Compatibility (zero database migration)**
 * Every existing `theme_mod` key is preserved byte-for-byte; no settings reset, no opt-in flow.
-* Templates unchanged — all 70+ `get_theme_mod()` call sites continue to work.
+* Templates unchanged - all 70+ `get_theme_mod()` call sites continue to work.
 * Existing customizer mods (colors, typography, layout, header, footer, sidebar, blog, BuddyPress, WP Login, Site Performance) carry over transparently. Customer-saved values always take precedence over modernized defaults.
 
-**Customizer Framework — Kirki replacement**
-* New `inc/Customizer_Framework/` — PSR-4 module under `BuddyX\Buddyx\Customizer_Framework`. 12 custom controls (Color, Typography, Radio_Image, Toggle/switch, Dimension, Custom_HTML, Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable) plus 8 core-dispatched types. Filterable via `buddyx_customizer_field_type_map`.
-* New `inc/Customizer_Settings/` — panels, sections, fields (renamed from `inc/Kirki_Option/`).
+**Customizer Framework - Kirki replacement**
+* New `inc/Customizer_Framework/` - PSR-4 module under `BuddyX\Buddyx\Customizer_Framework`. 12 custom controls (Color, Typography, Radio_Image, Toggle/switch, Dimension, Custom_HTML, Checkbox, Slider, Radio_Buttonset, Repeater, Upload, Sortable) plus 8 core-dispatched types. Filterable via `buddyx_customizer_field_type_map`.
+* New `inc/Customizer_Settings/` - panels, sections, fields (renamed from `inc/Kirki_Option/`).
 * New `buddyx_customizer_field_args` filter point in `Field::register_with_manager` (replaces `kirki_field_add_setting_args`).
 * Removed `inc/Kirki/Component.php`, `external/include-kirki.php`, `inc/Dropdown_Select/Component.php`, the TGM-PA Kirki Toolkit recommendation, and all Kirki `class_exists` guards across `inc/Theme.php`, `inc/Customizer/Component.php`, `inc/Dynamic_Style/Component.php`, `inc/login.php`, fluentcart / surecart compat.
 * Per-field audit (114 customizer fields) ran against Kirki-shape data with simulated 5.0.3 customer DB; round-trip preserved on every type. Inventory snapshot committed at `docs/customizer-inventory-snapshot.txt`.
 
 **Customizer audit fixes (5.1.0)**
 * #6 Removed duplicate cart switch in BuddyPress section.
-* #7 Color iris regression — reinstated WP color picker on customize.php.
-* #8 Typography defaults blank — fixed merge-over-defaults path so saved values render in controls instead of empty inputs.
-* #9 Background defaults blank — same fix for background-composite control.
-* #10 Repeater / sortable read bug — JSON-array round-trip restored.
-* #11 Foreign-sub-key data-loss on save — `sanitize_typography` now whitelists the 11 keys explicitly, dropping unrecognized keys without losing valid sub-values.
+* #7 Color iris regression - reinstated WP color picker on customize.php.
+* #8 Typography defaults blank - fixed merge-over-defaults path so saved values render in controls instead of empty inputs.
+* #9 Background defaults blank - same fix for background-composite control.
+* #10 Repeater / sortable read bug - JSON-array round-trip restored.
+* #11 Foreign-sub-key data-loss on save - `sanitize_typography` now whitelists the 11 keys explicitly, dropping unrecognized keys without losing valid sub-values.
 * #12 BG color iris regression on Background control.
-* #13 Custom HTML wp_kses too strict (`<hr>` was being stripped) — whitelist now covers the patterns used by section dividers.
+* #13 Custom HTML wp_kses too strict (`<hr>` was being stripped) - whitelist now covers the patterns used by section dividers.
 * `sanitize_bool_int` accepts `'on' / 'yes' / 'true' / 'enable'` (closes data-loss path on `site_custom_colors`, `site_breadcrumbs`, `buddypress_avatar_style`).
 
 **Premium Typography control**
 * 5-row paired layout, 9 inputs per field. Three previously-hidden CSS properties exposed: `font-style`, `text-align`, `text-decoration`.
-* Modernized defaults (new installs only — existing customers see no change):
+* Modernized defaults (new installs only - existing customers see no change):
   - h1 / h2 / h3 / h4 / h5 / h6 → Newsreader 700-600 / 40-15 px / 1.1-1.5 lh
   - menu → Inter 500 / 14px / 1.5 / 0.01em
   - sub-menu → Inter 400 / 13px / 1.5
@@ -179,7 +179,7 @@ The headline change is a self-contained Customizer Framework that replaces the b
 * Improve - New installs default to the self-hosted Inter base font; Newsreader stays for editorial accents.
 * Fix - Custom Google Font selections from older versions now load again - the theme reads each saved typography setting and loads the chosen font, self-hosting it when "Load Google Fonts Locally" is enabled.
 
-**Site Loader — premium expansion**
+**Site Loader - premium expansion**
 * 5 animation styles (Pulse / Wave / Bounce / Spinner / Dots) selectable per site.
 * Accessibility: `role="status"`, `aria-live="polite"`, full `prefers-reduced-motion` support.
 * 7 fields total in the new Site Loader section in General settings.
@@ -191,7 +191,7 @@ The headline change is a self-contained Customizer Framework that replaces the b
 * New "Color mode" customizer field (light / dark / auto). Auto follows OS preference; explicit light/dark force one mode for everyone. FOUC-prevention `<head>` script applies the visitor's saved choice via `localStorage` before any CSS loads.
 * Dark token set: framework-supplied premium defaults that pass WCAG AA contrast against dark surfaces. Per-color customizer override deferred to 5.2.1+.
 * 4 derived tokens always emitted regardless of master toggle: `--bx-color-fg-muted`, `--bx-color-border`, `--bx-color-divider`, `--bx-color-shadow`.
-* `--global-border-color` (218 legacy refs in plugin compat) now forwards to `var(--bx-color-border)` — dark mode auto-inherits without per-rule changes.
+* `--global-border-color` (218 legacy refs in plugin compat) now forwards to `var(--bx-color-border)` - dark mode auto-inherits without per-rule changes.
 * Stylesheet cleanup pass: 180 `var(--bx-color-*)` references across 27 built min.css files (foundation + BuddyPress + Platform + LearnDash + LearnPress + LifterLMS + WooCommerce + WC-Vendor + Dokan + MultiVendorX + FluentCart + EventsCalendar + WPJobManager + Youzify + AMP + bbPress). State / brand colors preserved (BP greens / blues / reds, LMS progress orange, vendor pastel chips, presence rainbow gradient, focus indicators, accent-bg badges).
 * Sub Header background now ships neutral - the hardcoded translucent-white default was dropped so the sub-header adapts cleanly to both light and dark mode. Sites that want a fixed sub-header background can set one via "Customize Background?" in the Sub Header section.
 
@@ -199,7 +199,7 @@ The headline change is a self-contained Customizer Framework that replaces the b
 * 45 color fields organized into 9 navigable visual clusters (Mode & Master / Brand / Header / Surfaces / Text & Links / Headings / Buttons / Footer / Copyright) with Lucide-style inline SVG icon heads + 3 Header sub-cluster heads (Header surface / Site title / Menu).
 * `site_primary_color` promoted to its own "Brand" cluster.
 * `site_sub_header_typography[color]` relocated from old Body lump into Header (where it belongs).
-* All setting IDs unchanged — pure UX upgrade.
+* All setting IDs unchanged - pure UX upgrade.
 
 **Theme.json palette helpers (block patterns)**
 * `.has-base-color` / `.has-contrast-color` / `.has-tertiary-color` now reference `var(--wp--preset--color--*)` so dark-mode palette overrides take effect on rendered blocks.

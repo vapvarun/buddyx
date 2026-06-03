@@ -3211,12 +3211,6 @@ parameters:
 			path: inc/Accessibility/Component.php
 
 		-
-			message: '#^Parameter \#3 \$deps of function wp_enqueue_style expects array\<string\>, string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: inc/Customizer/Component.php
-
-		-
 			message: '#^Property WP_Customize_Manager\:\:\$selective_refresh \(WP_Customize_Selective_Refresh\) in isset\(\) is not nullable\.$#'
 			identifier: isset.property
 			count: 1
@@ -3259,16 +3253,16 @@ parameters:
 			path: inc/EZ_Customizer/Component.php
 
 		-
-			message: '#^Parameter \#2 \$associative of function json_decode expects bool\|null, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: inc/EZ_Customizer/Component.php
-
-		-
 			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_right_sidebar_active\(\)\.$#'
 			identifier: method.notFound
 			count: 2
 			path: inc/Image_Sizes/Component.php
+
+		-
+			message: '#^Function buddyx not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: inc/Options/Component.php
 
 		-
 			message: '#^Call to an undefined method BuddyX\\Buddyx\\Template_Tags\:\:is_amp\(\)\.$#'
@@ -3383,25 +3377,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: inc/Styles/Component.php
-
-		-
-			message: '#^Parameter \#3 \$deps of function wp_enqueue_style expects array\<string\>, string given\.$#'
-			identifier: argument.type
-			count: 2
-			path: inc/Styles/Component.php
-
-		-
-			message: '''
-				#^PHPDoc tag @media has invalid value \(\(prefers\-color\-scheme\: dark\) \:root\[data\-bx\-mode\="auto"\]
-
-				Each dark\-default token also overrides its legacy aliases so any third\-
-				party CSS hooked to `\-\-color\-theme\-primary` etc\. picks up the dark
-				value \(otherwise legacy CSS would render light\-mode colors on dark
-				surfaces — a contrast failure\)\.\)\: Unexpected token "\:", expected '\)' at offset 187 on line 4$#
-			'''
-			identifier: phpDoc.parseError
-			count: 1
-			path: inc/Tokens/Component.php
 
 		-
 			message: '#^Action callback returns bool but should not return anything\.$#'
@@ -3682,7 +3657,7 @@ parameters:
 		-
 			message: '#^Function WC not found\.$#'
 			identifier: function.notFound
-			count: 4
+			count: 7
 			path: inc/compatibility/woocommerce/woocommerce-functions.php
 
 		-
@@ -3700,7 +3675,7 @@ parameters:
 		-
 			message: '#^Function wc_get_cart_url not found\.$#'
 			identifier: function.notFound
-			count: 2
+			count: 1
 			path: inc/compatibility/woocommerce/woocommerce-functions.php
 
 		-
@@ -3731,12 +3706,6 @@ parameters:
 			message: '#^Function is_archive invoked with 1 parameter, 0 required\.$#'
 			identifier: arguments.count
 			count: 3
-			path: inc/extra.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between ''0'' and non\-falsy\-string will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
 			path: inc/extra.php
 
 		-

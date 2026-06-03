@@ -65,7 +65,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'buddyx-admin-script',
 				get_template_directory_uri() . '/assets/js/admin/buddyx-admin.min.js',
 				array(),
-				filemtime( get_template_directory() . '/assets/js/admin/buddyx-admin.min.js' ), // Version based on file modification time
+				buddyx()->get_asset_version( get_template_directory() . '/assets/js/admin/buddyx-admin.min.js' ),
 				true
 			);
 		}
@@ -77,7 +77,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'buddyx-customizer-script',
 				get_template_directory_uri() . '/assets/js/admin/buddyx-customizer.min.js',
 				array(),
-				filemtime( get_template_directory() . '/assets/js/admin/buddyx-customizer.min.js' ), // Version based on file modification time
+				buddyx()->get_asset_version( get_template_directory() . '/assets/js/admin/buddyx-customizer.min.js' ),
 				true
 			);
 		}
@@ -86,7 +86,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'buddyx-theme-settings',
 			get_template_directory_uri() . '/assets/css/admin/theme-settings.min.css',
 			array(),
-			filemtime( get_template_directory() . '/assets/css/admin/theme-settings.min.css' ),
+			buddyx()->get_asset_version( get_template_directory() . '/assets/css/admin/theme-settings.min.css' ),
 		);
 	}
 

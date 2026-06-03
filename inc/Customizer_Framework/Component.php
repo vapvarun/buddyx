@@ -391,10 +391,15 @@ class Component {
 		if ( '' === $css ) {
 			return;
 		}
+		// Defense in depth: the builder already strips angle brackets from each
+		// value, but strip again on the assembled payload so no concatenation
+		// path can emit a tag that escapes the <style> element. CSS itself never
+		// needs `<`/`>`, so this is lossless for valid declarations.
+		$css = str_replace( array( '<', '>' ), '', $css );
 		printf(
 			"<style id=\"%s-css\">%s</style>\n",
 			esc_attr( self::get_config( 'config_id' ) ),
-			$css // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — CSS literal generated from sanitized values.
+			$css // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Generated CSS; angle brackets stripped above, esc_html would corrupt selectors.
 		);
 	}
 }
