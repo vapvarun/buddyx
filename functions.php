@@ -422,9 +422,9 @@ function buddyx_compatibility_check() {
 	$wp_version  = $GLOBALS['wp_version'];
 	$php_version = phpversion();
 
-	// Define minimum requirements
-	$min_wp_version  = '4.5';
-	$min_php_version = '7.0';
+	// Define minimum requirements (single source of truth: theme constants).
+	$min_wp_version  = BUDDYX_MINIMUM_WP_VERSION;
+	$min_php_version = BUDDYX_MINIMUM_PHP_VERSION;
 
 	// Check WordPress version
 	if ( version_compare( $wp_version, $min_wp_version, '<' ) ) {

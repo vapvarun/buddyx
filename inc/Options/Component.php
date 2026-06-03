@@ -58,8 +58,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function theme_options_enqueue_scripts(): void {
 
-		// Add BuddyX welcome page script
-		if ( isset( $_GET['page'] ) && $_GET['page'] === 'buddyx-welcome' ) {
+		// Add BuddyX welcome page script.
+		$page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen check, no state change.
+		if ( 'buddyx-welcome' === $page ) {
 			wp_enqueue_script(
 				'buddyx-admin-script',
 				get_template_directory_uri() . '/assets/js/admin/buddyx-admin.min.js',
@@ -114,7 +115,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function register_settings_endpoint(): void {
 		register_rest_route(
-			'my-theme/v1',
+			'buddyx/v1',
 			'/settings',
 			array(
 				'methods'             => WP_REST_Server::EDITABLE,

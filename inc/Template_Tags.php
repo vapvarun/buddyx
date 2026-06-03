@@ -153,7 +153,7 @@ class Template_Tags {
 	 * @return string Asset version number.
 	 */
 	public function get_asset_version( string $filepath ): string {
-		if ( WP_DEBUG ) {
+		if ( WP_DEBUG && file_exists( $filepath ) ) {
 			return (string) filemtime( $filepath );
 		}
 
@@ -171,10 +171,20 @@ class Template_Tags {
 	 * @throws RuntimeException If the asset file cannot be read.
 	 */
 	public function get_theme_asset( string $filename, string $type = 'images', bool $content = false ): ?string {
-		$asset_path = get_template_directory() . '/assets/' . trim( $type, '/' ) . '/' . $filename;
-		$asset_uri  = get_template_directory_uri() . '/assets/' . trim( $type, '/' ) . '/' . $filename;
+		// Constrain inputs to a single asset filename and a flat subdirectory to
+		// prevent path traversal (e.g. "../../wp-config.php").
+		$filename = basename( $filename );
+		$type     = trim( $type, '/' );
+		if ( '' === $filename || preg_match( '#[^A-Za-z0-9_\-]#', $type ) ) {
+			return null;
+		}
 
-		if ( ! file_exists( $asset_path ) ) {
+		$assets_root = wp_normalize_path( get_template_directory() . '/assets/' );
+		$asset_path  = wp_normalize_path( $assets_root . $type . '/' . $filename );
+		$asset_uri   = get_template_directory_uri() . '/assets/' . $type . '/' . $filename;
+
+		// Final path must resolve inside the theme assets directory.
+		if ( 0 !== strpos( $asset_path, $assets_root ) || ! file_exists( $asset_path ) ) {
 			return null;
 		}
 
