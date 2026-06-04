@@ -328,11 +328,9 @@ function buddyx_cleanup_unused_assets() {
 		wp_deregister_style( 'buddyx-woocommerce' );
 	}
 
-	// Remove BuddyPress assets if plugin is not active
-	if ( ! function_exists( 'buddypress' ) && ! class_exists( 'BuddyPress' ) ) {
-		wp_dequeue_style( 'buddyx-buddypress' );
-		wp_deregister_style( 'buddyx-buddypress' );
-	}
+	// Note: the buddyx-buddypress stylesheet is now enqueued only when BuddyPress
+	// is active (see Styles\Component::action_enqueue_styles), so no inactive-plugin
+	// cleanup is required for it here.
 }
 
 /**

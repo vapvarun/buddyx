@@ -1,9 +1,9 @@
 === BuddyX ===
 Contributors: wbcomdesigns
 Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variations, editor-style, custom-colors, custom-logo, featured-images, footer-widgets, theme-options
-Requires at least: 4.8
+Requires at least: 5.4
 Tested up to: 6.9
-Requires PHP: 7.4
+Requires PHP: 8.0
 Stable tag: 5.1.0
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
