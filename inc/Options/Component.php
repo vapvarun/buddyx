@@ -14,6 +14,7 @@ use WP_REST_Server;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
+use function BuddyX\Buddyx\buddyx;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
