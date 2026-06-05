@@ -1,0 +1,48 @@
+{
+  "plugin": {
+    "slug": "buddyx",
+    "name": "BuddyX",
+    "version": "5.1.0",
+    "type": "theme",
+    "text_domain": "buddyx",
+    "pair": "buddyx-pro",
+    "pair_role": "free"
+  },
+  "counts": {
+    "rest_endpoints": 1,
+    "ajax": 2,
+    "admin_pages": 2,
+    "settings_owned": 4,
+    "customizer_sections": 18,
+    "customizer_settings": 128,
+    "hooks_fired_actions": 70,
+    "hooks_fired_filters": 67,
+    "block_patterns": 27,
+    "sidebars": 20,
+    "widgets": 1,
+    "nav_menus": 2,
+    "css_handles": 34,
+    "js_handles": 21,
+    "cron": 1,
+    "wp_cli": 1,
+    "capabilities_sites": 10,
+    "integrations": 25,
+    "tables": 0,
+    "post_types": 0,
+    "shortcodes": 0
+  },
+  "detail_files": {
+    "full": "manifest.json"
+  },
+  "wppqa_baseline": "wppqa-baseline-2026-06-05/SUMMARY.md",
+  "generated": {
+    "at": "2026-06-05T00:00:00+05:30",
+    "from": "wp-plugin-onboard skill",
+    "branch": "master",
+    "commit": "ac3b242",
+    "schema_version": "v2.2-theme",
+    "scan_scope": "fallback_defaults_theme",
+    "scan_path": ".",
+    "php_file_count": 219
+  }
+}

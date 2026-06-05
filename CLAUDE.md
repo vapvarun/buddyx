@@ -1,5 +1,7 @@
 # BuddyX — project-local instructions for Claude Code
 
+> **READ FIRST:** [`audit/manifest.json`](audit/manifest.json) is the canonical inventory — 1 REST endpoint, 2 AJAX handlers, 18 customizer sections / 128 settings, 70 actions + 67 filters fired, 27 block patterns, 20 sidebars, 25 integrations, 1 WP-CLI command (`wp rig`), 8 style variations. Read [`audit/manifest.summary.json`](audit/manifest.summary.json) first (3 KB) and load the full manifest only when needed. Human views: [`audit/FEATURE_AUDIT.md`](audit/FEATURE_AUDIT.md), [`audit/CODE_FLOWS.md`](audit/CODE_FLOWS.md), [`audit/ROLE_MATRIX.md`](audit/ROLE_MATRIX.md). Security baseline: [`audit/wppqa-baseline-2026-06-05/SUMMARY.md`](audit/wppqa-baseline-2026-06-05/SUMMARY.md). Pro coupling: [`audit/derived/cross-plugin-coupling.json`](audit/derived/cross-plugin-coupling.json) (12 hooks consumed by buddyx-pro). Refresh via `/wp-plugin-onboard --refresh` after non-trivial changes.
+
 This is the **wbcomdesigns/buddyx** WordPress classic theme. Active branch:
 `5.1.0` — Kirki-removal release in flight; all code work shipped. Two items
 remain: staging Pass 3 regression sweep (blocker: needs real 5.0.3 customer DB)

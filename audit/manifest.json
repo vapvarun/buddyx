@@ -1,0 +1,3966 @@
+{
+  "$schema": "https://wpmediaverse.com/schemas/wp-plugin-manifest-v2.json",
+  "plugin": {
+    "slug": "buddyx",
+    "name": "BuddyX",
+    "version": "5.1.0",
+    "type": "theme",
+    "namespace": "BuddyX\\Buddyx",
+    "main_file": "functions.php",
+    "text_domain": "buddyx",
+    "extends": null,
+    "pair": "buddyx-pro",
+    "pair_role": "free",
+    "extension_hook_consumed": null,
+    "extension_hook_fired": null
+  },
+  "rest": {
+    "namespace": "buddyx/v1",
+    "endpoints": [
+      {
+        "route": "/settings",
+        "methods": "EDITABLE (POST, PUT, PATCH)",
+        "handler": "BuddyX\\Buddyx\\Options\\Component::update_settings",
+        "permission": "settings_permissions_check -> current_user_can('manage_options')",
+        "purpose": "Persist arbitrary theme settings into the buddyx_theme_settings option (sanitized per-key: email_option/url_option/text).",
+        "where": "inc/Options/Component.php:118 (route), :136 (callback), :191 (permission_callback)"
+      }
+    ]
+  },
+  "ajax": [
+    {
+      "action": "wp_ajax_buddyx_lms_toggle_theme_color",
+      "handler": "BuddyX\\Buddyx\\Accessibility\\Component::toggle_theme_color",
+      "nonce": "buddyx_toggle_theme_color (POST 'nonce', wp_verify_nonce)",
+      "capability": "none (logged-in only; no capability check, nonce only)",
+      "purpose": "LearnDash dark/light mode toggle - sets HttpOnly cookie 'bxtheme' to light|dark. Registered only when SFWD_LMS class exists. No nopriv variant.",
+      "where": "inc/Accessibility/Component.php:43 (hook), :93 (handler)"
+    },
+    {
+      "action": "wp_ajax_buddyx_regenerate_fonts_folder",
+      "handler": "buddyx_regenerate_fonts_folder (global function)",
+      "nonce": "buddyx_regenerate_fonts (POST 'nonce', check_ajax_referer)",
+      "capability": "edit_theme_options (current_user_can check before nonce)",
+      "purpose": "Flush/regenerate the locally-cached Google Fonts folder; deletes fonts dir when buddyx_font_url option is set. No nopriv variant.",
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:771 (hook), :751 (handler)"
+    }
+  ],
+  "admin_pages": [
+    {
+      "title": "BuddyX Settings",
+      "slug": "buddyx-settings",
+      "parent": "(top-level via add_menu_page)",
+      "capability": "manage_options",
+      "source": "inc/Options/Component.php:98",
+      "note": "add_admin_menu() is defined but its admin_menu hook is COMMENTED OUT at inc/Options/Component.php:42, so this page is NOT registered at runtime. Counted as a registration call site per grep baseline (1 of 2 add_menu/submenu)."
+    },
+    {
+      "title": "Getting Started",
+      "slug": "buddyx-welcome",
+      "parent": "themes.php (Appearance)",
+      "capability": "edit_theme_options",
+      "source": "inc/Welcome/Component.php:47",
+      "note": "Active. Hooked on admin_menu (inc/Welcome/Component.php:35). after_switch_theme redirects to this page. Render callback submenu_page_callback() (3-tab Welcome screen: Dashboard / Get BuddyX Pro / Community Addons)."
+    }
+  ],
+  "settings": [
+    {
+      "key": "buddyx_theme_settings",
+      "group": "wp_options (theme-owned)",
+      "type": "array",
+      "default": "(none)",
+      "controls": "Generic key/value bag written by the REST /settings endpoint (update_settings). Sanitized per-key. No reader found in scanned scope.",
+      "where": "inc/Options/Component.php:145 (update_option)"
+    },
+    {
+      "key": "buddyx_font_url",
+      "group": "wp_options (theme-owned)",
+      "type": "string (URL)",
+      "default": "(none)",
+      "controls": "Stored Google Fonts stylesheet URL used by the local webfont loader to know a local font cache exists; gates folder flush in AJAX + on customize_save_after.",
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:759,781 (get_option)"
+    },
+    {
+      "key": "buddyx_fluentcart_defaults_set",
+      "group": "wp_options (theme-owned)",
+      "type": "bool/flag",
+      "default": "(unset)",
+      "controls": "One-time guard flag so FluentCart compatibility default theme_mods are seeded only once.",
+      "where": "inc/compatibility/fluentcart/fluentcart-functions.php (get_option/update_option)"
+    },
+    {
+      "key": "buddyx_surecart_defaults_set",
+      "group": "wp_options (theme-owned)",
+      "type": "bool/flag",
+      "default": "(unset)",
+      "controls": "One-time guard flag so SureCart compatibility default theme_mods are seeded only once.",
+      "where": "inc/compatibility/surecart/surecart-functions.php (get_option/update_option)"
+    }
+  ],
+  "customizer": {
+    "framework_class": "BuddyX\\Buddyx\\Customizer_Framework\\Component (config-driven; Panel::add / Section::add register containers, Field::add -> WP_Customize_Manager::add_setting + add_control at inc/Customizer_Framework/Field.php:115). Field config arrays live in inc/Customizer_Settings/Fields/*.php and inc/compatibility/*/*.php. switch/checkbox defaults normalized to 0/1 via sanitize_bool_int. Legacy inc/Customizer/Component.php adds an empty 'theme_options' section + postMessage transport for core blogname/blogdescription/header_textcolor (no own add_setting). inc/EZ_Customizer is commented out in inc/Theme.php:156 (inactive).",
+    "sections": [
+      {
+        "id": "body_typography_section",
+        "title": "Body",
+        "panel": "typography_panel",
+        "settings_count": 1
+      },
+      {
+        "id": "headings_typography_section",
+        "title": "Headings",
+        "panel": "typography_panel",
+        "settings_count": 6
+      },
+      {
+        "id": "menu_typography_section",
+        "title": "Menu",
+        "panel": "typography_panel",
+        "settings_count": 2
+      },
+      {
+        "id": "site_title_typography_section",
+        "title": "Site Title",
+        "panel": "typography_panel",
+        "settings_count": 2
+      },
+      {
+        "id": "page_mapping",
+        "title": "Page Mapping",
+        "panel": "site_layout_panel",
+        "settings_count": 3
+      },
+      {
+        "id": "site_layout",
+        "title": "Site Layout",
+        "panel": "site_layout_panel",
+        "settings_count": 5
+      },
+      {
+        "id": "site_loader",
+        "title": "Site Loader",
+        "panel": "site_layout_panel",
+        "settings_count": 7
+      },
+      {
+        "id": "site_header_section",
+        "title": "Site Header",
+        "panel": "(top-level section)",
+        "settings_count": 5
+      },
+      {
+        "id": "site_header_primary_section",
+        "title": "(UNREGISTERED - referenced only)",
+        "panel": "(none)",
+        "settings_count": 2
+      },
+      {
+        "id": "site_sub_header_section",
+        "title": "Site Sub Header",
+        "panel": "(top-level section)",
+        "settings_count": 4
+      },
+      {
+        "id": "site_skin_section",
+        "title": "Site Skin",
+        "panel": "(top-level section)",
+        "settings_count": 54
+      },
+      {
+        "id": "site_blog_section",
+        "title": "Site Blog",
+        "panel": "(top-level section)",
+        "settings_count": 12
+      },
+      {
+        "id": "site_sidebar_layout",
+        "title": "Site Sidebar",
+        "panel": "(top-level section)",
+        "settings_count": 9
+      },
+      {
+        "id": "site_wp_login_logo",
+        "title": "Logo",
+        "panel": "site_wp_login",
+        "settings_count": 9
+      },
+      {
+        "id": "site_buddypress_general_section",
+        "title": "General Setting",
+        "panel": "site_buddypress_panel (BuddyPress-only)",
+        "settings_count": 1
+      },
+      {
+        "id": "site_footer_section",
+        "title": "Footer Section",
+        "panel": "site_footer_panel",
+        "settings_count": 2
+      },
+      {
+        "id": "site_copyright_section",
+        "title": "Copyright Section",
+        "panel": "site_footer_panel",
+        "settings_count": 1
+      },
+      {
+        "id": "site_performance_section",
+        "title": "Site Performance",
+        "panel": "(top-level section)",
+        "settings_count": 3
+      }
+    ],
+    "total_settings": 128,
+    "settings_by_section": {
+      "body_typography_section": [
+        {
+          "key": "typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        }
+      ],
+      "headings_typography_section": [
+        {
+          "key": "h1_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "h2_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "h3_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "h4_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "h5_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "h6_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        }
+      ],
+      "menu_typography_section": [
+        {
+          "key": "menu_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "sub_menu_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        }
+      ],
+      "page_mapping": [
+        {
+          "key": "buddyx_404_page",
+          "type": "dropdown-pages",
+          "default": "0",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "buddyx_login_page",
+          "type": "dropdown-pages",
+          "default": "0",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "buddyx_registration_page",
+          "type": "dropdown-pages",
+          "default": "0",
+          "file": "General_Fields.php"
+        }
+      ],
+      "site_blog_section": [
+        {
+          "key": "blog_edit_link",
+          "type": "switch",
+          "default": "''",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_grid_columns",
+          "type": "radio",
+          "default": "'one-column'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_image_position",
+          "type": "radio",
+          "default": "'thumb-left'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_layout_option",
+          "type": "radio_image",
+          "default": "'default-layout'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_masonry_view",
+          "type": "radio",
+          "default": "'without-masonry'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_show_tags",
+          "type": "switch",
+          "default": "''",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "blog_show_tags_style",
+          "type": "radio",
+          "default": "'default'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "buddyx_section_title_over_overlay",
+          "type": "color",
+          "default": "'rgba(0, 0, 0, 0.1)'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "custom-skin-divider1",
+          "type": "custom",
+          "default": "'<hr>'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "post_per_row",
+          "type": "select",
+          "default": "'buddyx-masonry-2'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "single_post_content_width",
+          "type": "radio_image",
+          "default": "'small'",
+          "file": "Blog_Fields.php"
+        },
+        {
+          "key": "single_post_title_layout",
+          "type": "radio_image",
+          "default": "'buddyx-section-title-..'",
+          "file": "Blog_Fields.php"
+        }
+      ],
+      "site_buddypress_general_section": [
+        {
+          "key": "buddypress_avatar_style",
+          "type": "switch",
+          "default": "'on'",
+          "file": "BuddyPress_Fields.php"
+        }
+      ],
+      "site_copyright_section": [
+        {
+          "key": "site_copyright_text",
+          "type": "textarea",
+          "default": "(complex)",
+          "file": "Footer_Fields.php"
+        }
+      ],
+      "site_footer_section": [
+        {
+          "key": "background_setting",
+          "type": "background",
+          "default": "<array>",
+          "file": "Footer_Fields.php"
+        },
+        {
+          "key": "site_footer_bg",
+          "type": "switch",
+          "default": "'off'",
+          "file": "Footer_Fields.php"
+        }
+      ],
+      "site_header_primary_section": [
+        {
+          "key": "site_header_enable_cart",
+          "type": "switch",
+          "default": "'1'",
+          "file": "fluentcart-functions.php"
+        },
+        {
+          "key": "site_header_enable_cart",
+          "type": "switch",
+          "default": "'1'",
+          "file": "surecart-functions.php",
+          "note": "Same setting id registered by BOTH fluentcart and surecart compat files (only one active per site by plugin presence)."
+        }
+      ],
+      "site_header_section": [
+        {
+          "key": "site_cart",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Header_Fields.php"
+        },
+        {
+          "key": "site_login_link",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Header_Fields.php"
+        },
+        {
+          "key": "site_register_link",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Header_Fields.php"
+        },
+        {
+          "key": "site_search",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Header_Fields.php"
+        },
+        {
+          "key": "site_sticky_header",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Header_Fields.php"
+        }
+      ],
+      "site_layout": [
+        {
+          "key": "site_button_border_radius",
+          "type": "dimension",
+          "default": "'6px'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_container_width",
+          "type": "dimension",
+          "default": "'1170px'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_form_border_radius",
+          "type": "dimension",
+          "default": "'6px'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_global_border_radius",
+          "type": "dimension",
+          "default": "'8px'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_layout",
+          "type": "radio_image",
+          "default": "'wide'",
+          "file": "General_Fields.php"
+        }
+      ],
+      "site_loader": [
+        {
+          "key": "site_loader",
+          "type": "switch",
+          "default": "0",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_bg",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_logo",
+          "type": "image",
+          "default": "''",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_speed",
+          "type": "slider",
+          "default": "'1.5'",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_text",
+          "type": "text",
+          "default": "(complex)",
+          "file": "General_Fields.php"
+        },
+        {
+          "key": "site_loader_type",
+          "type": "radio_image",
+          "default": "'dots'",
+          "file": "General_Fields.php"
+        }
+      ],
+      "site_performance_section": [
+        {
+          "key": "site_flush_local_font",
+          "type": "custom",
+          "default": "'<input type=submit..>'",
+          "file": "Site_Performance.php"
+        },
+        {
+          "key": "site_load_google_font_locally",
+          "type": "switch",
+          "default": "''",
+          "file": "Site_Performance.php"
+        },
+        {
+          "key": "site_preload_local_font",
+          "type": "switch",
+          "default": "''",
+          "file": "Site_Performance.php"
+        }
+      ],
+      "site_sidebar_layout": [
+        {
+          "key": "bbpress_sidebar_option",
+          "type": "radio_image",
+          "default": "'right'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "buddypress_groups_sidebar_option",
+          "type": "radio_image",
+          "default": "'right'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "buddypress_members_sidebar_option",
+          "type": "radio_image",
+          "default": "'right'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "buddypress_sidebar_option",
+          "type": "radio_image",
+          "default": "'both'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "fluentcart_product_sidebar",
+          "type": "radio_image",
+          "default": "'none'",
+          "file": "fluentcart-functions.php"
+        },
+        {
+          "key": "sidebar_option",
+          "type": "radio_image",
+          "default": "'right'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "single_post_sidebar_option",
+          "type": "radio_image",
+          "default": "'none'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "sticky_sidebar_option",
+          "type": "switch",
+          "default": "'1'",
+          "file": "Sidebar_Fields.php"
+        },
+        {
+          "key": "woocommerce_sidebar_option",
+          "type": "radio_image",
+          "default": "'right'",
+          "file": "Sidebar_Fields.php"
+        }
+      ],
+      "site_skin_section": [
+        {
+          "key": "body_background_color",
+          "type": "color",
+          "default": "'#f7f7f9'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "box_background_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "content_background_color",
+          "type": "color",
+          "default": "'#f7f7f9'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-body-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-brand-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-button-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-coyright-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-footer-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-header-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-header-menu-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-header-surface-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-header-title-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-headings-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-mode-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "custom-textlinks-divider",
+          "type": "custom",
+          "default": "(complex)",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h1_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h2_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h3_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h4_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h5_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "h6_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "menu_active_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "menu_hover_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "menu_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "secondary_background_color",
+          "type": "color",
+          "default": "'#fafafa'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_background_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_background_hover_color",
+          "type": "color",
+          "default": "'#f83939'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_border_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_border_hover_color",
+          "type": "color",
+          "default": "'#f83939'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_text_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_buttons_text_hover_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_color_mode",
+          "type": "radio_buttonset",
+          "default": "'light'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_color_mode_toggle_position",
+          "type": "radio_buttonset",
+          "default": "'both'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_color_mode_toggle_show",
+          "type": "switch",
+          "default": "'on'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_copyright_background_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_copyright_border_color",
+          "type": "color",
+          "default": "'#e8e8e8'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_copyright_content_color",
+          "type": "color",
+          "default": "'#505050'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_copyright_links_color",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_copyright_links_hover_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_custom_colors",
+          "type": "switch",
+          "default": "'on'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_footer_content_color",
+          "type": "color",
+          "default": "'#505050'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_footer_links_color",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_footer_links_hover_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_footer_title_color",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_header_bg_color",
+          "type": "color",
+          "default": "'#ffffff'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_links_color",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_links_focus_hover_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_primary_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_style_variation",
+          "type": "radio_image",
+          "default": "''",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_sub_header_typography[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_tagline_typography_option[color]",
+          "type": "color",
+          "default": "'#757575'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_title_hover_color",
+          "type": "color",
+          "default": "'#ef5455'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "site_title_typography_option[color]",
+          "type": "color",
+          "default": "'#111111'",
+          "file": "Skin_Fields.php"
+        },
+        {
+          "key": "typography_option[color]",
+          "type": "color",
+          "default": "'#505050'",
+          "file": "Skin_Fields.php"
+        }
+      ],
+      "site_sub_header_section": [
+        {
+          "key": "site_breadcrumbs",
+          "type": "switch",
+          "default": "'on'",
+          "file": "Sub_Header_Fields.php"
+        },
+        {
+          "key": "site_sub_header_bg",
+          "type": "switch",
+          "default": "'off'",
+          "file": "Sub_Header_Fields.php"
+        },
+        {
+          "key": "site_sub_header_typography",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Sub_Header_Fields.php"
+        },
+        {
+          "key": "sub_header_background_setting",
+          "type": "background",
+          "default": "<array>",
+          "file": "Sub_Header_Fields.php"
+        }
+      ],
+      "site_title_typography_section": [
+        {
+          "key": "site_tagline_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        },
+        {
+          "key": "site_title_typography_option",
+          "type": "typography",
+          "default": "<array>",
+          "file": "Typography_Fields.php"
+        }
+      ],
+      "site_wp_login_logo": [
+        {
+          "key": "custom_login_logo_image",
+          "type": "image",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_logo_image_height",
+          "type": "dimension",
+          "default": "'84px'",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_logo_image_width",
+          "type": "dimension",
+          "default": "'84px'",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_logo_space",
+          "type": "dimension",
+          "default": "'0px'",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_logo_title",
+          "type": "text",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_logo_url",
+          "type": "url",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "custom_login_page_title",
+          "type": "text",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "enable_custom_login",
+          "type": "switch",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        },
+        {
+          "key": "enable_custom_login_logo",
+          "type": "switch",
+          "default": "''",
+          "file": "WP_Login_Fields.php"
+        }
+      ]
+    }
+  },
+  "shortcodes": [],
+  "blocks": [],
+  "block_patterns": [
+    {
+      "name": "buddyx/about-founder",
+      "title": "About - Founder Spotlight",
+      "categories": [
+        "buddyx-about",
+        "about"
+      ],
+      "where": "patterns/about-founder.php",
+      "registration": "file-based auto-discovery (WP 6.0+)"
+    },
+    {
+      "name": "buddyx/about-story",
+      "title": "About - Story",
+      "categories": [
+        "buddyx-about",
+        "about"
+      ],
+      "where": "patterns/about-story.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/cta-fullbleed",
+      "title": "CTA - Full-bleed Gradient",
+      "categories": [
+        "buddyx-cta",
+        "call-to-action"
+      ],
+      "where": "patterns/cta-fullbleed.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/cta-newsletter",
+      "title": "CTA - Newsletter Signup",
+      "categories": [
+        "buddyx-cta",
+        "call-to-action"
+      ],
+      "where": "patterns/cta-newsletter.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/features-alternating",
+      "title": "Features - Alternating Rows",
+      "categories": [
+        "buddyx-features",
+        "featured"
+      ],
+      "where": "patterns/features-alternating.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/footer-central",
+      "title": "Footer - Central CTA",
+      "categories": [
+        "buddyx-footer",
+        "footer"
+      ],
+      "where": "patterns/footer-central.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/footer-default-mega",
+      "title": "Footer - Default Mega",
+      "categories": [
+        "buddyx-footer",
+        "footer"
+      ],
+      "where": "patterns/footer-default-mega.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/footer-mega",
+      "title": "Footer - Mega 5-column",
+      "categories": [
+        "buddyx-footer",
+        "footer"
+      ],
+      "where": "patterns/footer-mega.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/footer-simple",
+      "title": "Footer - Simple Centered",
+      "categories": [
+        "buddyx-footer",
+        "footer"
+      ],
+      "where": "patterns/footer-simple.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/footer-small",
+      "title": "Footer - Minimal Bar",
+      "categories": [
+        "buddyx-footer",
+        "footer"
+      ],
+      "where": "patterns/footer-small.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/general-banner-light",
+      "title": "Banner - Light Asymmetric",
+      "categories": [
+        "buddyx-cta",
+        "banner"
+      ],
+      "where": "patterns/general-banner-light.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/general-faq",
+      "title": "FAQ - Editorial",
+      "categories": [
+        "buddyx-pricing-faq",
+        "text"
+      ],
+      "where": "patterns/general-faq.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/general-pricing",
+      "title": "Pricing - 3-tier Editorial",
+      "categories": [
+        "buddyx-pricing-faq",
+        "featured"
+      ],
+      "where": "patterns/general-pricing.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/hero-image-led",
+      "title": "Hero - Image-led",
+      "categories": [
+        "buddyx-hero",
+        "header"
+      ],
+      "where": "patterns/hero-image-led.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/hero-split-screen",
+      "title": "Hero - Split Screen",
+      "categories": [
+        "buddyx-hero",
+        "header"
+      ],
+      "where": "patterns/hero-split-screen.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/hero-typography-led",
+      "title": "Hero - Typography-led",
+      "categories": [
+        "buddyx-hero",
+        "header"
+      ],
+      "where": "patterns/hero-typography-led.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/query-cover-featured",
+      "title": "Posts - 4-up Featured Cards",
+      "categories": [
+        "buddyx-query",
+        "posts"
+      ],
+      "where": "patterns/query-cover-featured.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/query-cover-grid",
+      "title": "Posts - 3-up Editorial Grid",
+      "categories": [
+        "buddyx-query",
+        "posts"
+      ],
+      "where": "patterns/query-cover-grid.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/query-grid-excerpt",
+      "title": "Posts - Asymmetric Hero + Stack",
+      "categories": [
+        "buddyx-query",
+        "posts"
+      ],
+      "where": "patterns/query-grid-excerpt.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/query-listbig",
+      "title": "Posts - Horizontal List Split",
+      "categories": [
+        "buddyx-query",
+        "posts"
+      ],
+      "where": "patterns/query-listbig.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/query-simple-list",
+      "title": "Posts - Minimal Date + Title List",
+      "categories": [
+        "buddyx-query",
+        "posts"
+      ],
+      "where": "patterns/query-simple-list.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/services-grid",
+      "title": "Services - 3-up Grid",
+      "categories": [
+        "buddyx-features",
+        "services"
+      ],
+      "where": "patterns/services-grid.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/social-proof-logos",
+      "title": "Logo Cloud - Trusted by",
+      "categories": [
+        "buddyx-social-proof",
+        "featured"
+      ],
+      "where": "patterns/social-proof-logos.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/social-proof-stats",
+      "title": "Stats Row",
+      "categories": [
+        "buddyx-social-proof",
+        "featured"
+      ],
+      "where": "patterns/social-proof-stats.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/social-proof-testimonials",
+      "title": "Testimonials - Editorial 3-up",
+      "categories": [
+        "buddyx-social-proof",
+        "testimonials"
+      ],
+      "where": "patterns/social-proof-testimonials.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/steps",
+      "title": "Steps - Numbered Process",
+      "categories": [
+        "buddyx-features",
+        "featured"
+      ],
+      "where": "patterns/steps.php",
+      "registration": "file-based auto-discovery"
+    },
+    {
+      "name": "buddyx/team-grid",
+      "title": "Team - 4-up Grid",
+      "categories": [
+        "buddyx-about",
+        "team"
+      ],
+      "where": "patterns/team-grid.php",
+      "registration": "file-based auto-discovery"
+    }
+  ],
+  "post_types": [],
+  "taxonomies": [],
+  "sidebars": [
+    {
+      "id": "sidebar-right",
+      "name": "Right Sidebar",
+      "where": "inc/Sidebars/Component.php:108",
+      "condition": "always"
+    },
+    {
+      "id": "sidebar-left",
+      "name": "Left Sidebar",
+      "where": "inc/Sidebars/Component.php:120",
+      "condition": "always"
+    },
+    {
+      "id": "buddypress-sidebar-left",
+      "name": "Community Left Sidebar",
+      "where": "inc/Sidebars/Component.php:134",
+      "condition": "bp_is_active() && !class_exists('Youzify')"
+    },
+    {
+      "id": "buddypress-sidebar-right",
+      "name": "Activity Directory Right Sidebar",
+      "where": "inc/Sidebars/Component.php:146",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "buddypress-members-sidebar-right",
+      "name": "Members Directory Right Sidebar",
+      "where": "inc/Sidebars/Component.php:158",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "buddypress-groups-sidebar-right",
+      "name": "Groups Directory Right Sidebar",
+      "where": "inc/Sidebars/Component.php:170",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "single_member",
+      "name": "Members Single Profile Sidebar",
+      "where": "inc/Sidebars/Component.php:182",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "single_member_activity",
+      "name": "Members Single User Activity",
+      "where": "inc/Sidebars/Component.php:194",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "single_group",
+      "name": "Groups Single Group Sidebar",
+      "where": "inc/Sidebars/Component.php:206",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "single_group_activity",
+      "name": "Groups Single Group Activity",
+      "where": "inc/Sidebars/Component.php:218",
+      "condition": "bp_is_active() && !Youzify"
+    },
+    {
+      "id": "bbpress-sidebar-left",
+      "name": "bbPress Left Sidebar",
+      "where": "inc/Sidebars/Component.php:233",
+      "condition": "function_exists('is_bbpress')"
+    },
+    {
+      "id": "bbpress-sidebar-right",
+      "name": "bbPress Right Sidebar",
+      "where": "inc/Sidebars/Component.php:245",
+      "condition": "function_exists('is_bbpress')"
+    },
+    {
+      "id": "woocommerce-sidebar-left",
+      "name": "WooCommerce Left Sidebar",
+      "where": "inc/Sidebars/Component.php:259",
+      "condition": "class_exists('WooCommerce')"
+    },
+    {
+      "id": "woocommerce-sidebar-right",
+      "name": "WooCommerce Right Sidebar",
+      "where": "inc/Sidebars/Component.php:271",
+      "condition": "class_exists('WooCommerce')"
+    },
+    {
+      "id": "fluentcart-sidebar-left",
+      "name": "Single Product Left Sidebar",
+      "where": "inc/Sidebars/Component.php:286",
+      "condition": "defined('FLUENTCART_PLUGIN_FILE_PATH')"
+    },
+    {
+      "id": "fluentcart-sidebar-right",
+      "name": "Single Product Right Sidebar",
+      "where": "inc/Sidebars/Component.php:298",
+      "condition": "defined('FLUENTCART_PLUGIN_FILE_PATH')"
+    },
+    {
+      "id": "footer-1",
+      "name": "Footer 1",
+      "where": "inc/Sidebars/Component.php:311",
+      "condition": "always"
+    },
+    {
+      "id": "footer-2",
+      "name": "Footer 2",
+      "where": "inc/Sidebars/Component.php:323",
+      "condition": "always"
+    },
+    {
+      "id": "footer-3",
+      "name": "Footer 3",
+      "where": "inc/Sidebars/Component.php:335",
+      "condition": "always"
+    },
+    {
+      "id": "footer-4",
+      "name": "Footer 4",
+      "where": "inc/Sidebars/Component.php:347",
+      "condition": "always"
+    }
+  ],
+  "widgets": [
+    {
+      "class": "BP_Buddyx_Profile_Completion_Widget",
+      "id_base": "auto (false passed to parent::__construct)",
+      "name": "(BuddyPress) Profile Completion",
+      "purpose": "Shows logged-in user profile completion progress (BuddyPress/BuddyBoss).",
+      "where": "inc/widgets/bp-profile-completion-widget.php:13; register_widget at line 501"
+    }
+  ],
+  "nav_menus": [
+    {
+      "location": "primary",
+      "description": "Primary",
+      "where": "inc/Nav_Menus/Component.php:69 (PRIMARY_NAV_MENU_SLUG)"
+    },
+    {
+      "location": "user_menu",
+      "description": "User Menu",
+      "where": "inc/Nav_Menus/Component.php:74 (BUDDYPRESS_NAV_MENU_SLUG)"
+    }
+  ],
+  "tables": [],
+  "capabilities": [
+    {
+      "cap": "edit_post",
+      "where": "inc/extra.php:876",
+      "gates": "Inline/quick post-meta save guard (per-post edit permission)"
+    },
+    {
+      "cap": "groups_access_group (bp_current_user_can)",
+      "where": "rtmedia/main.php:185",
+      "gates": "rtMedia group home access check inside BuddyPress group"
+    },
+    {
+      "cap": "manage_options",
+      "where": "template-parts/content/entry_meta.php:145",
+      "gates": "Show admin post edit link in entry meta when blog_edit_link enabled"
+    },
+    {
+      "cap": "publish_posts",
+      "where": "template-parts/content/error.php:16",
+      "gates": "Show 'create first post' prompt on empty home for authors"
+    },
+    {
+      "cap": "manage_options",
+      "where": "inc/Options/Component.php:192",
+      "gates": "REST settings endpoint permission_callback"
+    },
+    {
+      "cap": "edit_theme_options",
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:753",
+      "gates": "Webfont folder flush admin action permission"
+    },
+    {
+      "cap": "edit_theme_options",
+      "where": "inc/Welcome/Component.php:65",
+      "gates": "Welcome/getting-started admin notice + page visibility"
+    },
+    {
+      "cap": "manage_options",
+      "where": "inc/Starter_Content/Component.php:307",
+      "gates": "Starter content admin action guard"
+    },
+    {
+      "cap": "manage_options",
+      "where": "inc/Starter_Content/Component.php:339",
+      "gates": "Starter content admin action guard"
+    },
+    {
+      "cap": "manage_options",
+      "where": "inc/Starter_Content/Component.php:360",
+      "gates": "Starter content admin action guard"
+    }
+  ],
+  "services": [],
+  "hooks_fired": [
+    {
+      "name": "buddyx_before_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "404.php:17",
+      "also_fired_at": [
+        "index.php:42",
+        "archive.php:25",
+        "single-fluent-products.php:25",
+        "500.php:17",
+        "single.php:52",
+        "page.php:28",
+        "bbpress.php:27",
+        "buddypress.php:29",
+        "woocommerce/single-product.php:28",
+        "woocommerce/archive-product.php:61",
+        "optional/category.php:20",
+        "optional/singular.php:20",
+        "optional/archive.php:17",
+        "optional/custom-page-template.php:22",
+        "optional/custom-post-template.php:23",
+        "optional/search.php:17",
+        "optional/single.php:17",
+        "optional/page.php:17",
+        "optional/attachment.php:20",
+        "page-templates/full-width-container.php:20",
+        "page-templates/page-right-sidebar.php:20",
+        "page-templates/page-left-sidebar.php:20",
+        "page-templates/page-both-sidebar.php:20",
+        "post-templates/post-both-sidebar.php:31",
+        "post-templates/post-left-sidebar.php:31",
+        "post-templates/post-full-large.php:31",
+        "post-templates/post-full-small.php:31",
+        "post-templates/post-right-sidebar.php:31"
+      ],
+      "consumed_by": [
+        "buddyx-pro: inc/extra.php:535"
+      ]
+    },
+    {
+      "name": "buddyx_after_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "404.php:25",
+      "also_fired_at": [
+        "index.php:114",
+        "archive.php:75",
+        "single-fluent-products.php:56",
+        "500.php:23",
+        "single.php:83",
+        "page.php:91",
+        "bbpress.php:62",
+        "buddypress.php:58",
+        "woocommerce/single-product.php:96",
+        "woocommerce/archive-product.php:155",
+        "optional/category.php:42",
+        "optional/singular.php:34",
+        "optional/archive.php:39",
+        "optional/custom-page-template.php:36",
+        "optional/custom-post-template.php:37",
+        "optional/search.php:39",
+        "optional/single.php:31",
+        "optional/page.php:31",
+        "optional/attachment.php:34",
+        "page-templates/full-width-container.php:39",
+        "page-templates/page-right-sidebar.php:44",
+        "page-templates/page-left-sidebar.php:44",
+        "page-templates/page-both-sidebar.php:49",
+        "post-templates/post-both-sidebar.php:58",
+        "post-templates/post-left-sidebar.php:52",
+        "post-templates/post-full-large.php:46",
+        "post-templates/post-full-small.php:46",
+        "post-templates/post-right-sidebar.php:52"
+      ],
+      "consumed_by": [
+        "buddyx-pro: inc/extra.php:563"
+      ]
+    },
+    {
+      "name": "buddyx_sub_header",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "index.php:40",
+      "also_fired_at": [
+        "archive.php:23",
+        "single-fluent-products.php:23",
+        "single.php:44",
+        "page.php:26",
+        "bbpress.php:25",
+        "buddypress.php:27",
+        "page-templates/full-width-container.php:18",
+        "page-templates/page-right-sidebar.php:18",
+        "page-templates/page-left-sidebar.php:18",
+        "page-templates/page-both-sidebar.php:18",
+        "post-templates/post-both-sidebar.php:23",
+        "post-templates/post-left-sidebar.php:23",
+        "post-templates/post-full-large.php:23",
+        "post-templates/post-full-small.php:23",
+        "post-templates/post-right-sidebar.php:23",
+        "inc/compatibility/fluentcart/fluentcart-functions.php:193"
+      ],
+      "consumed_by": [
+        "buddyx-pro: inc/compatibility/wc-vendors/buddyx_wc_vendors_core_functions.php:369",
+        "buddyx-pro: inc/extra.php:685",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:17",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:21",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:1539"
+      ]
+    },
+    {
+      "name": "buddyx_sidebar_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "sidebar-buddypress.php:18",
+      "also_fired_at": [
+        "sidebar.php:20"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_sidebar_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "sidebar-buddypress.php:81",
+      "also_fired_at": [
+        "sidebar.php:39"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_head_top",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:18",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_head_bottom",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:24",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_body_top",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:30",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/Helpers/Side_Panel.php:22"
+      ]
+    },
+    {
+      "name": "buddyx_page_top",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:35",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_header_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:38",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_header_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "header.php:54",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_footer_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "footer.php:22",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_footer_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "footer.php:49",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_page_bottom",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "footer.php:51",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_body_bottom",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "footer.php:57",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/Helpers/Login_Forms.php:52"
+      ]
+    },
+    {
+      "name": "woocommerce_before_main_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/single-product.php:49",
+      "also_fired_at": [
+        "woocommerce/archive-product.php:84"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_main_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/single-product.php:68",
+      "also_fired_at": [
+        "woocommerce/archive-product.php:133"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_sidebar",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/single-product.php:77",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_before_breadcrumb",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:36",
+      "also_fired_at": [
+        "inc/extra.php:102"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_after_breadcrumb",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:42",
+      "also_fired_at": [
+        "inc/extra.php:106"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_archive_description",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:53",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_before_shop_loop",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:94",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_shop_loop",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:105",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_shop_loop",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:118",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_no_products_found",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/archive-product.php:125",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_wp_body_open",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "inc/wordpress-shims.php:18",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_header_actions",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "inc/extra.php:266",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/Color_Mode_Toggle/Component.php:79"
+      ]
+    },
+    {
+      "name": "bp_before_member_body",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:95",
+      "also_fired_at": [
+        "rtmedia/main.php:306"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_member_media",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:96",
+      "also_fired_at": [
+        "rtmedia/main.php:307"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "rtmedia_sub_nav",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:102",
+      "also_fired_at": [
+        "rtmedia/main.php:211",
+        "rtmedia/main.php:313",
+        "rtmedia/main.php:372"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_member_media",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:110",
+      "also_fired_at": [
+        "rtmedia/main.php:255",
+        "rtmedia/main.php:393"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_member_body",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:111",
+      "also_fired_at": [
+        "rtmedia/main.php:256",
+        "rtmedia/main.php:394"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_group_body",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:181",
+      "also_fired_at": [
+        "rtmedia/main.php:367"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_group_media",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:182",
+      "also_fired_at": [
+        "rtmedia/main.php:368"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_group_status_message",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:191",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_group_status_message",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:205",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_group_media",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:219",
+      "also_fired_at": [
+        "rtmedia/main.php:251",
+        "rtmedia/main.php:389"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_group_body",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:220",
+      "also_fired_at": [
+        "rtmedia/main.php:252",
+        "rtmedia/main.php:390"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_group_home_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:262",
+      "also_fired_at": [
+        "rtmedia/main.php:400"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_member_home_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:265",
+      "also_fired_at": [
+        "rtmedia/main.php:403"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_member_home_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:276",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_member_options_nav",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:298",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_before_group_home_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:338",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_group_options_nav",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "rtmedia/main.php:360",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_entry_content_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/content-buddypress.php:12",
+      "also_fired_at": [
+        "template-parts/content-bbpress.php:12",
+        "template-parts/content/entry-full-width.php:12",
+        "template-parts/content/entry-page.php:12",
+        "template-parts/content/entry_content.php:12"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_entry_content_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/content-buddypress.php:48",
+      "also_fired_at": [
+        "template-parts/content-bbpress.php:40",
+        "template-parts/content/entry-full-width.php:57",
+        "template-parts/content/entry-page.php:49",
+        "template-parts/content/entry_content.php:45"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_before_cart",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:20",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_before_cart_table",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:25",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_before_cart_contents",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:39",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_cart_item_name",
+      "type": "action",
+      "args_count": 2,
+      "args_signature": [
+        "$cart_item",
+        "$cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:115",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_contents",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:170",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_coupon",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:178",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_actions",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:184",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_cart_contents",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:190",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_cart_table",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:193",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_cart_form",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:195",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_before_cart_collaterals",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:197",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_collaterals",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:208",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_after_cart",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "woocommerce/cart/cart.php:214",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_before_group_avatar_group_directory",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/groups/groups-loop.php:55",
+      "also_fired_at": [
+        "buddypress/groups/groups-loop.php:29"
+      ],
+      "consumed_by": [
+        "buddyx-pro: inc/compatibility/buddypress/buddypress-functions.php:192"
+      ]
+    },
+    {
+      "name": "buddyx_before_member_avatar_member_directory",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/members/members-loop.php:128",
+      "also_fired_at": [
+        "buddypress/members/members-loop.php:29",
+        "bb-buddypress/groups/single/members-loop.php:84",
+        "buddypress/groups/single/members-loop.php:29"
+      ],
+      "consumed_by": [
+        "buddyx-pro: inc/compatibility/buddypress/buddypress-functions.php:155"
+      ]
+    },
+    {
+      "name": "buddyx_copyright_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/footer/info.php:12",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_copyright_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/footer/info.php:26",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_entry_before",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/content/entry-post.php:12",
+      "also_fired_at": [
+        "template-parts/content/entry.php:12",
+        "template-parts/content/entry-attachment.php:12"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_entry_after",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/content/entry-post.php:48",
+      "also_fired_at": [
+        "template-parts/content/entry.php:46",
+        "template-parts/content/entry-attachment.php:61"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_mobile_menu_actions",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "template-parts/header/navigation.php:119",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/Color_Mode_Toggle/Component.php:80"
+      ]
+    },
+    {
+      "name": "bp_before_single_activity_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/activity/single/home.php:31",
+      "also_fired_at": [
+        "buddypress/activity/single/home.php:16"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_after_single_activity_content",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/activity/single/home.php:70",
+      "also_fired_at": [
+        "buddypress/activity/single/home.php:24"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bb_group_single_top_header_action",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/groups/single/cover-image-header.php:177",
+      "also_fired_at": [
+        "bb-buddypress/groups/single/group-header.php:65"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "bb_group_single_bottom_header_action",
+      "type": "action",
+      "args_count": 0,
+      "args_signature": [],
+      "where": "bb-buddypress/groups/single/cover-image-header.php:185",
+      "also_fired_at": [
+        "bb-buddypress/groups/single/group-header.php:125"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "search_placeholder",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string 'Enter Keyword'"
+      ],
+      "where": "searchform.php:11",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_show_page_title",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "woocommerce/archive-product.php:31",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_attr_{$context}_output",
+      "type": "filter",
+      "args_count": 4,
+      "args_signature": [
+        "string $output",
+        "array $attributes",
+        "string $context",
+        "array $args"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:35",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_attr_{$context}",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "array $attributes",
+        "string $context",
+        "array $args"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:62",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail_args",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $defaults"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:84",
+      "also_fired_at": [
+        "inc/class-buddyx-breadcrumbs.php:196"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail_object",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "null $breadcrumb",
+        "array $args"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:86",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "string $breadcrumb",
+        "array $args"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:331",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail_labels",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $labels"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:378",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail_post_taxonomy",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $post_taxonomy"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:398",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_breadcrumb_trail_items",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "array $items",
+        "array $args"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:491",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "post_type_archive_title",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "string $label",
+        "string $post_type_name"
+      ],
+      "where": "inc/class-buddyx-breadcrumbs.php:721",
+      "also_fired_at": [
+        "inc/class-buddyx-breadcrumbs.php:754",
+        "inc/class-buddyx-breadcrumbs.php:1174"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_search_slide_toggle_data_attrs",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string ''"
+      ],
+      "where": "inc/extra.php:248",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/AMP/Component.php:42"
+      ]
+    },
+    {
+      "name": "buddyx_search_field_toggle_data_attrs",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string ''"
+      ],
+      "where": "inc/extra.php:252",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/AMP/Component.php:43"
+      ]
+    },
+    {
+      "name": "buddyx_footer_copyright_text",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string $output"
+      ],
+      "where": "inc/extra.php:315",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_add_feature_image_blog_post_as_activity_content",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "string ''",
+        "int $blog_post->ID"
+      ],
+      "where": "inc/extra.php:1008",
+      "also_fired_at": [],
+      "consumed_by": [
+        "buddyx-pro: inc/Helpers/Activity_Functions.php:496"
+      ]
+    },
+    {
+      "name": "bp_get_activity_content",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string $excerpt",
+        "object $activity"
+      ],
+      "where": "inc/extra.php:1031",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_activity_excerpt_append_text",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string ' Read more'"
+      ],
+      "where": "inc/extra.php:1065",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "rtm_main_template_buddypress_enable",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "rtmedia/main.php:38",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_product",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "WC_Product $data",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:43",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_product_id",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "int $product_id",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:44",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_name",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $name",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:53",
+      "also_fired_at": [
+        "woocommerce/cart/cart.php:112"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_visible",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "bool true",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:55",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_permalink",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $permalink",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:56",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_class",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string 'cart_item'",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:58",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_thumbnail",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $image",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:92",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_backorder_notification",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "string $html",
+        "int $product_id"
+      ],
+      "where": "woocommerce/cart/cart.php:122",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_price",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $price",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:129",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_quantity",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $quantity",
+        "string $cart_item_key",
+        "array $cart_item"
+      ],
+      "where": "woocommerce/cart/cart.php:155",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "woocommerce_cart_item_subtotal",
+      "type": "filter",
+      "args_count": 3,
+      "args_signature": [
+        "string $subtotal",
+        "array $cart_item",
+        "string $cart_item_key"
+      ],
+      "where": "woocommerce/cart/cart.php:161",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_customizer_field_type_map",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $type_map"
+      ],
+      "where": "inc/Customizer_Framework/Field.php:23",
+      "also_fired_at": [
+        "inc/Customizer_Framework/Field.php:86"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_customizer_field_args",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "array $args",
+        "WP_Customize_Manager $wp_customize"
+      ],
+      "where": "inc/Customizer_Framework/Field.php:99",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_local_font_file_name",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string 'buddyx-local-fonts'"
+      ],
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:536",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_local_google_fonts_format",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string $format"
+      ],
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:548",
+      "also_fired_at": [
+        "inc/Webfont/class-buddyx-webfont-loader.php:702"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_local_fonts_base_path",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string path"
+      ],
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:571",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_local_fonts_base_url",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string url"
+      ],
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:585",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_local_fonts_directory_name",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "string 'buddyx-local-fonts'"
+      ],
+      "where": "inc/Webfont/class-buddyx-webfont-loader.php:599",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_preloading_styles_enabled",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool $preloading_styles_enabled"
+      ],
+      "where": "inc/Styles/Component.php:352",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_css_files",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $css_files"
+      ],
+      "where": "inc/Styles/Component.php:422",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_js_files",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $js_files"
+      ],
+      "where": "inc/Scripts/Component.php:274",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_enable_post_thumbnails",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:50",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_featured_width",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 900"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:63",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_featured_height",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 515"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:64",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_featured_crop",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:65",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_large_width",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 1024"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:70",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_large_height",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 508"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:71",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_large_crop",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool false"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:72",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_list_width",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 300"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:77",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_list_height",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 250"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:78",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_list_crop",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:79",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_two_width",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 450"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:84",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_two_height",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 300"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:85",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_two_crop",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:86",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_three_width",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 350"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:91",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_three_height",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 250"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:92",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_col_three_crop",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/Post_Thumbnails/Component.php:93",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_variation_is_dark_scheme",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "null $override",
+        "string $variation_slug"
+      ],
+      "where": "inc/Custom_Logo/Component.php:156",
+      "also_fired_at": [
+        "inc/Tokens/Component.php:1177"
+      ],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_google_fonts",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $collected"
+      ],
+      "where": "inc/Fonts/Component.php:309",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_speculation_rules",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $rules"
+      ],
+      "where": "inc/Speculation_Rules/Component.php:115",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_buddyx_user_progress",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $progress_details"
+      ],
+      "where": "inc/widgets/bp-profile-completion-widget.php:309",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "bp_buddyx_user_progress_formatted",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $user_prgress_formatted"
+      ],
+      "where": "inc/widgets/bp-profile-completion-widget.php:397",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_rtmedia_filter_enabled",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "bool true"
+      ],
+      "where": "inc/compatibility/rtmedia/rtmedia-functions.php:25",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_bp_get_activity_css_first_class",
+      "type": "filter",
+      "args_count": 2,
+      "args_signature": [
+        "array $mini_activity_actions",
+        "string $component"
+      ],
+      "where": "inc/compatibility/buddypress/buddypress-functions.php:75",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_user_badges_limit",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "int 10"
+      ],
+      "where": "inc/compatibility/buddypress/buddypress-functions.php:186",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_custom_header_args",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $args"
+      ],
+      "where": "inc/Custom_Header/Component.php:49",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_customizer_settings",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $theme_settings"
+      ],
+      "where": "inc/EZ_Customizer/Component.php:94",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_custom_logo_args",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $args"
+      ],
+      "where": "inc/Custom_Logo/Component.php:65",
+      "also_fired_at": [],
+      "consumed_by": []
+    },
+    {
+      "name": "buddyx_custom_background_args",
+      "type": "filter",
+      "args_count": 1,
+      "args_signature": [
+        "array $args"
+      ],
+      "where": "inc/Custom_Background/Component.php:43",
+      "also_fired_at": [],
+      "consumed_by": []
+    }
+  ],
+  "interactivity": [],
+  "ui_activation": [],
+  "frontend_assets": {
+    "css": [
+      {
+        "handle": "buddyx-global",
+        "src": "assets/css/global.min.css",
+        "deps": [],
+        "condition": "global (always enqueued)",
+        "where": "inc/Styles/Component.php:119 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-tokens-applied",
+        "src": "assets/css/bx-tokens-applied.css",
+        "deps": [
+          "buddyx-global"
+        ],
+        "condition": "global (always)",
+        "where": "inc/Styles/Component.php:119 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-comments",
+        "src": "assets/css/comments.min.css",
+        "deps": [],
+        "condition": "registered; preload when singular & comments open",
+        "where": "inc/Styles/Component.php:119/121 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-content",
+        "src": "assets/css/content.min.css",
+        "deps": [],
+        "condition": "registered (preload_callback __return_false)",
+        "where": "inc/Styles/Component.php:119/121 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-sidebar",
+        "src": "assets/css/sidebar.min.css",
+        "deps": [],
+        "condition": "registered (template-driven)",
+        "where": "inc/Styles/Component.php:119/121 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-widgets",
+        "src": "assets/css/widgets.min.css",
+        "deps": [],
+        "condition": "registered (template-driven)",
+        "where": "inc/Styles/Component.php:119/121 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-front-page",
+        "src": "assets/css/front-page.min.css",
+        "deps": [],
+        "condition": "preload on front-page.php template",
+        "where": "inc/Styles/Component.php:119/121 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-site-loader",
+        "src": "assets/css/loaders.min.css",
+        "deps": [],
+        "condition": "global (always)",
+        "where": "inc/Styles/Component.php:119 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-load-fontawesome",
+        "src": "assets/css/fontawesome.min.css",
+        "deps": [],
+        "condition": "global (always)",
+        "where": "inc/Styles/Component.php:119 via get_css_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-buddypress",
+        "src": "assets/css/buddypress.min.css",
+        "deps": [],
+        "condition": "BuddyPress active && !Youzify",
+        "where": "inc/Styles/Component.php:129",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-platform",
+        "src": "assets/css/platform.min.css",
+        "deps": [],
+        "condition": "buddypress()->buddyboss set (BuddyBoss Platform)",
+        "where": "inc/Styles/Component.php:134",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-bbpress",
+        "src": "assets/css/bbpress.min.css",
+        "deps": [],
+        "condition": "is_bbpress exists || BuddyBoss",
+        "where": "inc/Styles/Component.php:139",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-wc-vendor",
+        "src": "assets/css/wc-vendor.min.css",
+        "deps": [],
+        "condition": "class_exists('WC_Vendors')",
+        "where": "inc/Styles/Component.php:144",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-learnpress",
+        "src": "assets/css/learnpress.min.css",
+        "deps": [],
+        "condition": "class_exists('LearnPress')",
+        "where": "inc/Styles/Component.php:149",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-lifterlms",
+        "src": "assets/css/lifterlms.min.css",
+        "deps": [],
+        "condition": "class_exists('LifterLMS')",
+        "where": "inc/Styles/Component.php:154",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-woocommerce",
+        "src": "assets/css/woocommerce.min.css",
+        "deps": [],
+        "condition": "class_exists('WooCommerce')",
+        "where": "inc/Styles/Component.php:159",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-youzify",
+        "src": "assets/css/buddyx-youzify.min.css",
+        "deps": [],
+        "condition": "class_exists('Youzify')",
+        "where": "inc/Styles/Component.php:164",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-wpjobmanager",
+        "src": "assets/css/buddyx-wpjobmanager.min.css",
+        "deps": [],
+        "condition": "class_exists('WP_Job_Manager')",
+        "where": "inc/Styles/Component.php:169",
+        "context": "frontend"
+      },
+      {
+        "handle": "multivendorx",
+        "src": "assets/css/multivendorx.min.css",
+        "deps": [],
+        "condition": "class_exists('MVX')",
+        "where": "inc/Styles/Component.php:174",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-slick",
+        "src": "assets/css/slick.min.css",
+        "deps": [],
+        "condition": "always (loaded media=print/onload non-critical)",
+        "where": "inc/Styles/Component.php:178",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-rtl",
+        "src": "assets/css/rtl.min.css",
+        "deps": [],
+        "condition": "is_rtl()",
+        "where": "inc/Styles/Component.php:182",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-amp",
+        "src": "assets/css/buddyx-amp.min.css",
+        "deps": [],
+        "condition": "buddyx()->is_amp()",
+        "where": "inc/Styles/Component.php:187",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-dark-mode",
+        "src": "assets/css/dark-mode.min.css",
+        "deps": [],
+        "condition": "always",
+        "where": "inc/Styles/Component.php:191",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-surecart",
+        "src": "assets/css/surecart.min.css",
+        "deps": [],
+        "condition": "defined('SURECART_PLUGIN_FILE')",
+        "where": "inc/Styles/Component.php:195",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-fluentcart",
+        "src": "assets/css/fluentcart.min.css",
+        "deps": [],
+        "condition": "defined('FLUENTCART_PLUGIN_FILE_PATH')",
+        "where": "inc/Styles/Component.php:200",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-eventscalendar",
+        "src": "assets/css/eventscalendar.min.css",
+        "deps": [],
+        "condition": "class_exists('Tribe__Events__Main') (priority 99)",
+        "where": "inc/Styles/Component.php:266",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-dokan",
+        "src": "assets/css/dokan.min.css",
+        "deps": [],
+        "condition": "class_exists('WeDevs_Dokan') (priority 99)",
+        "where": "inc/Styles/Component.php:279",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-learndash",
+        "src": "assets/css/learndash.min.css",
+        "deps": [],
+        "condition": "class_exists('SFWD_LMS') (priority 99)",
+        "where": "inc/Styles/Component.php:292",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-fonts",
+        "src": "Google Fonts URL or local webfont URL (buddyx_get_webfont_url)",
+        "deps": [],
+        "condition": "google_fonts_url not empty; local vs remote per site_load_google_font_locally",
+        "where": "inc/Fonts/Component.php:191/193",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-customizer",
+        "src": "assets/css/buddyx-customizer.min.css",
+        "deps": [],
+        "condition": "customize_controls_enqueue_scripts",
+        "where": "inc/Customizer/Component.php:46",
+        "context": "admin"
+      },
+      {
+        "handle": "buddyx-theme-settings",
+        "src": "assets/css/admin/theme-settings.min.css",
+        "deps": [],
+        "condition": "admin_enqueue_scripts (theme options pages)",
+        "where": "inc/Options/Component.php:86",
+        "context": "admin"
+      },
+      {
+        "handle": "wp-components",
+        "src": "core (wp-components)",
+        "deps": [],
+        "condition": "settings page render",
+        "where": "inc/Options/settings-page.php:9",
+        "context": "admin"
+      },
+      {
+        "handle": "<config_id>-controls (buddyx-controls)",
+        "src": "inc/Customizer_Framework/assets/customizer-controls.css",
+        "deps": [
+          "wp-color-picker"
+        ],
+        "condition": "customizer controls screen",
+        "where": "inc/Customizer_Framework/Component.php:163",
+        "context": "admin"
+      },
+      {
+        "handle": "editor-style (add_editor_style)",
+        "src": "assets/css/editor/editor-styles.min.css",
+        "deps": [],
+        "condition": "block editor (add_editor_style, not wp_enqueue_style)",
+        "where": "inc/Styles/Component.php action_add_editor_styles",
+        "context": "editor"
+      }
+    ],
+    "js": [
+      {
+        "handle": "buddyx-superfish",
+        "src": "assets/js/superfish.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-isotope-pkgd",
+        "src": "assets/js/isotope.pkgd.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-fitvids",
+        "src": "assets/js/fitvids.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-sticky-kit",
+        "src": "assets/js/sticky-kit.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-jquery-cookie",
+        "src": "assets/js/jquery-cookie.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-slick",
+        "src": "assets/js/slick.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer, defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-custom",
+        "src": "assets/js/custom.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "global, footer; localized as buddyx_ajax (nonce buddyx_toggle_theme_color + ajaxurl)",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-gamipress",
+        "src": "assets/js/gamipress.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "class_exists('GamiPress'); global footer defer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-buddypress",
+        "src": "assets/js/buddyx-buddypress.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "class_exists('BuddyPress'); global footer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-learndash",
+        "src": "assets/js/buddyx-learndash.min.js",
+        "deps": [
+          "jquery"
+        ],
+        "condition": "class_exists('SFWD_LMS'); global footer",
+        "where": "inc/Scripts/Component.php:104 via get_js_files()",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-navigation",
+        "src": "assets/js/navigation.min.js",
+        "deps": [],
+        "condition": "!is_amp; async; localized buddyxScreenReaderText",
+        "where": "inc/Accessibility/Component.php:60",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-color-mode-toggle",
+        "src": "assets/js/color-mode-toggle.min.js",
+        "deps": [],
+        "condition": "Color_Mode_Toggle enabled (is_enabled); footer; priority 30",
+        "where": "inc/Color_Mode_Toggle/Component.php:148",
+        "context": "frontend"
+      },
+      {
+        "handle": "comment-reply",
+        "src": "core (comment-reply)",
+        "deps": [],
+        "condition": "singular & comments open & threaded comments",
+        "where": "inc/Comments/Component.php:64",
+        "context": "frontend"
+      },
+      {
+        "handle": "woocommerce-cart",
+        "src": "core/WooCommerce (woocommerce-cart)",
+        "deps": [],
+        "condition": "WooCommerce cart compat",
+        "where": "inc/compatibility/woocommerce/woocommerce-functions.php:42",
+        "context": "frontend"
+      },
+      {
+        "handle": "buddyx-customizer",
+        "src": "assets/js/customizer.min.js",
+        "deps": [
+          "customize-preview"
+        ],
+        "condition": "customize_preview_init",
+        "where": "inc/Customizer/Component.php:176",
+        "context": "admin"
+      },
+      {
+        "handle": "buddyx-admin-script",
+        "src": "assets/js/admin/buddyx-admin.min.js",
+        "deps": [],
+        "condition": "admin page == buddyx-welcome",
+        "where": "inc/Options/Component.php:65",
+        "context": "admin"
+      },
+      {
+        "handle": "buddyx-customizer-script",
+        "src": "assets/js/admin/buddyx-customizer.min.js",
+        "deps": [],
+        "condition": "pagenow == customize.php",
+        "where": "inc/Options/Component.php:77",
+        "context": "admin"
+      },
+      {
+        "handle": "<config_id>-controls (buddyx-controls)",
+        "src": "inc/Customizer_Framework/assets/customizer-controls.js",
+        "deps": [
+          "customize-controls",
+          "wp-color-picker",
+          "jquery-ui-sortable"
+        ],
+        "condition": "customizer controls screen",
+        "where": "inc/Customizer_Framework/Component.php:156",
+        "context": "admin"
+      },
+      {
+        "handle": "<config_id>-preview (buddyx-preview)",
+        "src": "inc/Customizer_Framework/assets/customizer-preview.js",
+        "deps": [
+          "customize-preview",
+          "jquery"
+        ],
+        "condition": "customize_preview_init (live preview engine)",
+        "where": "inc/Customizer_Framework/Component.php:350",
+        "context": "admin"
+      },
+      {
+        "handle": "buddyx-livereload",
+        "src": "//localhost:35729/livereload.js",
+        "deps": [],
+        "condition": "dev livereload (optional/dev, frontend, dev-only)",
+        "where": "optional/dev/dev-proxy-livereload.php:37",
+        "context": "frontend-dev"
+      },
+      {
+        "handle": "buddyx-admin-livereload",
+        "src": "http://localhost:35729/livereload.js",
+        "deps": [],
+        "condition": "dev livereload (admin, dev-only)",
+        "where": "optional/dev/dev-proxy-livereload.php:45",
+        "context": "admin-dev"
+      }
+    ]
+  },
+  "cron": [
+    {
+      "hook": "buddyx_delete_fonts_folder",
+      "interval": "monthly (CLEANUP_FREQUENCY)",
+      "handler": "BuddyX_WebFont_Loader::buddyx_delete_fonts_folder() (deletes local webfont folder + buddyx_font_url option)",
+      "schedule_where": "inc/Webfont/class-buddyx-webfont-loader.php:634 (schedule_cleanup)",
+      "handler_hook_where": "inc/Webfont/class-buddyx-webfont-loader.php:128",
+      "condition": "single-site or main site of multisite; not while wp_installing"
+    }
+  ],
+  "wp_cli": [
+    {
+      "command": "rig",
+      "class": "BuddyX_Command",
+      "registered_where": "wp-cli/buddyx-commands.php:596 (WP_CLI::add_command), file gated by defined('WP_CLI')",
+      "subcommands": [
+        {
+          "name": "rig dev_setup",
+          "where": "wp-cli/buddyx-commands.php:27",
+          "purpose": "Dev environment setup"
+        },
+        {
+          "name": "rig menu_export",
+          "where": "wp-cli/buddyx-commands.php:120",
+          "purpose": "Export a nav menu to JSON"
+        },
+        {
+          "name": "rig menu_import",
+          "where": "wp-cli/buddyx-commands.php:218",
+          "purpose": "Import a nav menu from JSON"
+        },
+        {
+          "name": "rig menu_list",
+          "where": "wp-cli/buddyx-commands.php:322",
+          "purpose": "List nav menus"
+        },
+        {
+          "name": "rig fake_menu_items",
+          "where": "wp-cli/buddyx-commands.php:385",
+          "purpose": "Generate fake menu items"
+        },
+        {
+          "name": "rig fonts_download",
+          "where": "wp-cli/buddyx-commands.php:576",
+          "purpose": "Download Google Fonts locally"
+        }
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "plugin": "BuddyPress",
+      "detection": "class_exists('BuddyPress') / function_exists('buddypress') / function_exists('bp_is_active')",
+      "files": [
+        "inc/compatibility/buddypress/buddypress-functions.php",
+        "inc/Sidebars/Component.php",
+        "inc/Styles/Component.php",
+        "inc/Scripts/Component.php",
+        "inc/widgets/bp-profile-completion-widget.php",
+        "sidebar-buddypress.php",
+        "buddypress.php",
+        "bb-buddypress/"
+      ]
+    },
+    {
+      "plugin": "BuddyBoss Platform",
+      "detection": "isset(buddypress()->buddyboss) / bb_* function_exists checks",
+      "files": [
+        "inc/Styles/Component.php:134 (platform.min.css)",
+        "inc/Sidebars/Component.php:510",
+        "template-parts (bb_* helpers)"
+      ]
+    },
+    {
+      "plugin": "bbPress",
+      "detection": "function_exists('is_bbpress')",
+      "files": [
+        "bbpress.php",
+        "inc/Sidebars/Component.php:232",
+        "inc/Styles/Component.php:138"
+      ]
+    },
+    {
+      "plugin": "WooCommerce",
+      "detection": "class_exists('WooCommerce') / function_exists('is_woocommerce') / WC()",
+      "files": [
+        "woocommerce/",
+        "woocommerce.php",
+        "inc/compatibility/woocommerce/woocommerce-functions.php",
+        "inc/Sidebars/Component.php:258",
+        "inc/Styles/Component.php:158"
+      ]
+    },
+    {
+      "plugin": "Youzify",
+      "detection": "class_exists('Youzify')",
+      "files": [
+        "inc/Styles/Component.php:163",
+        "inc/Sidebars/Component.php:133 (suppresses BP sidebars)"
+      ]
+    },
+    {
+      "plugin": "Dokan (WeDevs_Dokan)",
+      "detection": "class_exists('WeDevs_Dokan')",
+      "files": [
+        "inc/Styles/Component.php:279 (dokan.min.css)",
+        "inc/Sidebars/Component.php:505 (buddyx-dokan body class)"
+      ]
+    },
+    {
+      "plugin": "LearnDash (SFWD_LMS)",
+      "detection": "class_exists('SFWD_LMS')",
+      "files": [
+        "inc/Styles/Component.php:292 (learndash.min.css)",
+        "inc/Scripts/Component.php:255 (buddyx-learndash.js)",
+        "inc/Accessibility/Component.php:43 (wp_ajax_buddyx_lms_toggle_theme_color)"
+      ]
+    },
+    {
+      "plugin": "LearnPress",
+      "detection": "class_exists('LearnPress')",
+      "files": [
+        "inc/Styles/Component.php:148 (learnpress.min.css)"
+      ]
+    },
+    {
+      "plugin": "LifterLMS",
+      "detection": "class_exists('LifterLMS')",
+      "files": [
+        "inc/Styles/Component.php:153 (lifterlms.min.css)",
+        "buddyx_llms_* helpers"
+      ]
+    },
+    {
+      "plugin": "Elementor",
+      "detection": "function_exists('elementor_theme_do_location') / elementor/theme/register_locations action",
+      "files": [
+        "inc/extra.php:416-422 (buddyx_register_elementor_locations: header/footer locations)",
+        "header.php",
+        "footer.php",
+        "404.php"
+      ]
+    },
+    {
+      "plugin": "The Events Calendar (Tribe__Events__Main)",
+      "detection": "class_exists('Tribe__Events__Main')",
+      "files": [
+        "inc/Styles/Component.php:266 (eventscalendar.min.css)"
+      ]
+    },
+    {
+      "plugin": "WP Job Manager",
+      "detection": "class_exists('WP_Job_Manager')",
+      "files": [
+        "inc/Styles/Component.php:169 (buddyx-wpjobmanager.min.css)"
+      ]
+    },
+    {
+      "plugin": "WC Vendors",
+      "detection": "class_exists('WC_Vendors')",
+      "files": [
+        "inc/Styles/Component.php:144 (wc-vendor.min.css)"
+      ]
+    },
+    {
+      "plugin": "MultiVendorX (MVX)",
+      "detection": "class_exists('MVX')",
+      "files": [
+        "inc/Styles/Component.php:174 (multivendorx.min.css)"
+      ]
+    },
+    {
+      "plugin": "GamiPress",
+      "detection": "class_exists('GamiPress')",
+      "files": [
+        "inc/Scripts/Component.php:233 (gamipress.min.js)",
+        "buddyx_profile_achievements helper"
+      ]
+    },
+    {
+      "plugin": "SureCart",
+      "detection": "defined('SURECART_PLUGIN_FILE')",
+      "files": [
+        "inc/compatibility/surecart/surecart-functions.php",
+        "inc/Styles/Component.php:194 (surecart.min.css)"
+      ]
+    },
+    {
+      "plugin": "FluentCart",
+      "detection": "defined('FLUENTCART_PLUGIN_FILE_PATH') / class_exists FluentCart CartResource",
+      "files": [
+        "inc/compatibility/fluentcart/fluentcart-functions.php",
+        "inc/Styles/Component.php:200",
+        "inc/Sidebars/Component.php:285 (fluentcart sidebars)",
+        "single-fluent-products.php"
+      ]
+    },
+    {
+      "plugin": "rtMedia",
+      "detection": "function_exists('rtmedia_init') / class_exists('RTMedia')",
+      "files": [
+        "inc/compatibility/rtmedia/rtmedia-functions.php",
+        "rtmedia/main.php"
+      ]
+    },
+    {
+      "plugin": "MediaPress",
+      "detection": "class_exists('MediaPress')",
+      "files": [
+        "inc/Sidebars/Component.php:540 (buddyx-mediapress body class)"
+      ]
+    },
+    {
+      "plugin": "BP Group Email Subscription (BPGES_Subscription)",
+      "detection": "class_exists('BPGES_Subscription')",
+      "files": [
+        "inc/Sidebars/Component.php:545 (buddyx-bpges body class)"
+      ]
+    },
+    {
+      "plugin": "BuddyPress Docs",
+      "detection": "function_exists('bp_docs_is_docs_component')",
+      "files": [
+        "inc/Sidebars/Component.php:450 (has-docs-sidebar-right)"
+      ]
+    },
+    {
+      "plugin": "AMP",
+      "detection": "buddyx()->is_amp() / function_exists('is_amp_endpoint')",
+      "files": [
+        "inc/AMP/Component.php",
+        "inc/Styles/Component.php:186",
+        "inc/Accessibility/Component.php"
+      ]
+    },
+    {
+      "plugin": "PWA / Service Workers",
+      "detection": "function_exists('wp_service_worker_error_message_placeholder') + add_theme_support('service_worker')",
+      "files": [
+        "inc/PWA/Component.php",
+        "offline.php",
+        "500.php"
+      ]
+    },
+    {
+      "plugin": "Jetpack",
+      "detection": "Jetpack module support (add_theme_support)",
+      "files": [
+        "inc/Jetpack/Component.php"
+      ]
+    },
+    {
+      "plugin": "Yoast SEO",
+      "detection": "function_exists('yoast_breadcrumb')",
+      "files": [
+        "inc/class-buddyx-breadcrumbs.php / breadcrumb output"
+      ]
+    }
+  ],
+  "theme_features": {
+    "style_variations": [
+      "cool",
+      "dark",
+      "editorial",
+      "minimal",
+      "monochrome",
+      "pastel",
+      "vibrant",
+      "warm"
+    ],
+    "starter_content": "Registered via add_theme_support('starter-content', ...) in inc/Starter_Content/Component.php:73. Config provides posts, nav_menus, widgets, options, theme_mods (inc/Starter_Content/Component.php:85-89).",
+    "theme_json": true
+  },
+  "storage_drivers": [],
+  "security": {
+    "wppqa_baseline": "audit/wppqa-baseline-2026-06-05/SUMMARY.md",
+    "uploads_gate": null,
+    "signing_entry_points": [],
+    "always_sign_filter": null,
+    "rate_limit_middleware": null
+  },
+  "static_analysis": {
+    "note": "Phase 2.5 sub-checks not run in this pass (themes; see wppqa baseline for security findings). Run /wp-plugin-onboard --refresh with derivation checks to populate.",
+    "dead_listeners": [],
+    "cap_context_mismatches": [],
+    "extensibility_gaps": [],
+    "js_only_activation": [],
+    "rest_hang_risks": [],
+    "visual_required_no_enforcement": [],
+    "grid_track_overflow_risks": [],
+    "hook_signature_drift": []
+  },
+  "ci_guards": {
+    "script": null,
+    "url_emission_regex": null,
+    "storage_internal_marker": null,
+    "phpstan_level": null
+  },
+  "coding_rules": [],
+  "build_commands": {
+    "release": null,
+    "ci_local": "see docs/local-ci.md"
+  },
+  "category_sources": {
+    "rest": [
+      "inc/Options/**/*.php"
+    ],
+    "ajax": [
+      "inc/**/*.php",
+      "updater/**/*.php"
+    ],
+    "admin_pages": [
+      "inc/Options/**/*.php",
+      "updater/**/*.php"
+    ],
+    "settings": [
+      "inc/Customizer_Settings/**/*.php",
+      "inc/Customizer_Framework/**/*.php",
+      "inc/Options/**/*.php"
+    ],
+    "hooks_fired": [
+      "inc/**/*.php",
+      "template-parts/**/*.php",
+      "*.php",
+      "buddypress/**/*.php",
+      "woocommerce/**/*.php",
+      "bbpress/**/*.php"
+    ],
+    "block_patterns": [
+      "patterns/**/*.php",
+      "inc/Block_Patterns/**/*.php",
+      "inc/Base_Support/**/*.php"
+    ],
+    "sidebars": [
+      "inc/Sidebars/**/*.php",
+      "inc/Widgets/**/*.php"
+    ],
+    "nav_menus": [
+      "inc/Nav_Menus/**/*.php"
+    ],
+    "frontend_assets": [
+      "inc/Styles/**/*.php",
+      "inc/Scripts/**/*.php",
+      "assets/**/*.{js,css}"
+    ],
+    "cron": [
+      "inc/**/*.php"
+    ],
+    "capabilities": [
+      "inc/**/*.php",
+      "updater/**/*.php"
+    ],
+    "integrations": [
+      "inc/compatibility/**/*.php"
+    ],
+    "wp_cli": [
+      "wp-cli/**/*.php"
+    ]
+  },
+  "notes": [
+    "REST baseline (1) MATCHED: exactly 1 register_rest_route at inc/Options/Component.php:118 (buddyx/v1 /settings).",
+    "AJAX baseline (2) MATCHED: 2 unique wp_ajax_ action names - buddyx_lms_toggle_theme_color (Accessibility, conditional on SFWD_LMS) and buddyx_regenerate_fonts_folder (Webfont loader). Neither has a nopriv variant.",
+    "Admin-page baseline (2) MATCHED: 2 registration call sites - add_menu_page 'buddyx-settings' (inc/Options/Component.php:98) and add_submenu_page 'buddyx-welcome' (inc/Welcome/Component.php:47). IMPORTANT: the buddyx-settings add_menu_page is dead code - its admin_menu hook is commented out at inc/Options/Component.php:42, so only buddyx-welcome actually renders in wp-admin.",
+    "Customizer baseline (raw add_section=3, raw add_setting=2) RECONCILED via config-driven framework: raw add_section calls are Customizer_Framework/Component.php:135 (the loop that materializes ALL config sections), inc/Customizer/Component.php:163 (legacy empty 'theme_options' section), and inc/EZ_Customizer/Component.php:106 (INACTIVE - component commented out at inc/Theme.php:156). Raw add_setting calls are Customizer_Framework/Field.php:115 (materializes ALL 128 config settings) and inc/EZ_Customizer/Component.php:117 (INACTIVE).",
+    "Customizer total settings = 128 across 18 section buckets, matching the committed/regenerated inventory (docs/customizer-inventory-snapshot.txt; regenerated via tools/dump-customizer-inventory.py with ZERO drift). All 128 keys enumerated above grouped by section.",
+    "DISCREPANCY: 'site_header_primary_section' is referenced as a target section by the fluentcart and surecart compat field configs (site_header_enable_cart) but is NOT registered via Section::add anywhere in the scanned scope - it is an orphan/unregistered section id. The inventory tool buckets it as a section because fields point at it. site_header_enable_cart is declared identically by BOTH compat files (only one plugin active at a time selects which one registers).",
+    "Several customizer setting ids use array-offset keys (e.g. h1_typography_option[color], typography_option[color], site_sub_header_typography[color]) - these are sub-settings of the parent typography arrays, registered as distinct WP settings by Skin_Fields.php for the color sub-value, and are counted individually in the 128 total.",
+    "Legacy inc/Customizer/Component.php is active (Theme.php:155) but only sets postMessage transport on core blogname/blogdescription/header_textcolor and adds an empty 'theme_options' section - it owns NO add_setting of its own (the 'theme_options' section has no theme fields in scanned scope).",
+    "Theme-owned wp_options: buddyx_theme_settings (REST), buddyx_font_url (webfont cache), buddyx_fluentcart_defaults_set + buddyx_surecart_defaults_set (one-time compat seed guards). No set_theme_mod with a literal buddyx_ option key found - theme_mods are accessed via get_theme_mod against the customizer setting ids above (theme_mods are namespaced under the 'buddyx' stylesheet automatically).",
+    "count reconciliation vs baseline: actions found 70/70, filters found 67/60. Actions match exactly. Filters exceed baseline by 7 (67 unique vs stated 60); no gap - found MORE than baseline. Likely the 60 baseline excluded WooCommerce core-relayed filters in woocommerce/cart/cart.php (11 unique woocommerce_cart_item_* + woocommerce_show_page_title) and/or the dynamic breadcrumb buddyx_attr_{$context} pair. All counted here.",
+    "Dynamic-name filters recorded with literal interpolation pattern: buddyx_attr_{$context} and buddyx_attr_{$context}_output (inc/class-buddyx-breadcrumbs.php:62 and :35).",
+    "4 filters fired via multi-line apply_filters( with name on next line: buddyx_custom_header_args (inc/Custom_Header/Component.php:49), buddyx_customizer_settings (inc/EZ_Customizer/Component.php:94), buddyx_custom_logo_args (inc/Custom_Logo/Component.php:65), buddyx_custom_background_args (inc/Custom_Background/Component.php:43).",
+    "No do_action_ref_array calls found; one apply_filters_ref_array found: bp_get_activity_content (inc/extra.php:1031).",
+    "Excluded a commented-out do_action( 'woocommerce_sidebar' ) at woocommerce/archive-product.php:140 and the do_action('after_setup_theme') in tests/phpunit (tests/ excluded).",
+    "consumed_by populated from theme buddyx-pro (same exclusions): 10 buddyx_* action hooks + 3 buddyx_* filter hooks have consumers; all other buddyx_* hooks have empty consumed_by.",
+    "Baseline gap register_widget/register_sidebar=24: actual call sites are 20 register_sidebar (inc/Sidebars/Component.php) + 1 register_widget (inc/widgets/bp-profile-completion-widget.php:501) = 21. The other 3 baseline hits are non-call-site lines in the same file: the 'use function register_sidebar;' import (line 14), the 'add_action(widgets_init,...register_sidebars)' (line 58), and the 'action_register_sidebars()' method definition (line 107).",
+    "Baseline gap block.json=1: the single block.json is a SCAFFOLD TEMPLATE at scripts/templates/block/block.json (name 'buddyx/BLOCKNAME', icon smiley). It is NOT a registered block - no register_block_type / register_block_type_from_metadata anywhere. Real custom blocks = 0.",
+    "Baseline gap register_block_pattern=3: there are ZERO register_block_pattern() calls. Block patterns (27) are file-based auto-discovery from /patterns/ (WP 6.0+). The 3 baseline hits are register_block_pattern_category references in inc/Base_Support/Component.php (add_action line 52, method def line 209, and the register_block_pattern_category() loop call line 222). 8 pattern categories are registered there.",
+    "Baseline gap register_nav_menus=6 call sites: only 2 actual register_nav_menus() calls (inc/Nav_Menus/Component.php:69 primary, :74 user_menu). Other 4 baseline hits = 'use function register_nav_menus;' (line 17), 'add_action(after_setup_theme,...register_nav_menus)' (line 47), method def 'action_register_nav_menus()' (line 68), and a doc-comment reference in inc/Starter_Content/Component.php:232.",
+    "Baseline gap wp_enqueue_style/register_style=29: 27 grep hits after removing 'use function'. Breakdown: Styles/Component.php loop wp_enqueue_style(119)+wp_register_style(121) iterate get_css_files() (9 handles), plus 16 direct conditional integration stylesheets, plus Fonts(2), Customizer(1), Customizer_Framework(1), Options(1), settings-page(1 wp-components). add_editor_style (editor-styles.min.css) is NOT counted by the grep (uses add_editor_style, not wp_enqueue_style). Distinct frontend CSS handles ~28 + 5 admin/editor handles.",
+    "Baseline gap wp_enqueue_script/register_script=30: 24 grep hits after removing 'use function' (several 'add_action(wp_enqueue_scripts,...)' lines also matched the loose baseline grep, inflating to 30). Real script-enqueue call sites: Scripts/Component.php loop wp_enqueue_script(104)+wp_register_script(106) over get_js_files (7 base + 3 conditional = 10 handles), Accessibility(1 buddyx-navigation), Color_Mode_Toggle(1), Comments(1 comment-reply), Customizer(1), Options(2), Customizer_Framework(2), WooCommerce compat(1 woocommerce-cart), dev-livereload(2 dev-only).",
+    "Baseline gap cron=1: confirmed exactly 1 - buddyx_delete_fonts_folder, monthly, in Webfont loader.",
+    "Baseline gap register_post_type=0 / add_shortcode=0 / CREATE TABLE=0: all confirmed 0.",
+    "Baseline gap wp_cli expected 0: FOUND 1 - WP_CLI::add_command('rig', 'BuddyX_Command') at wp-cli/buddyx-commands.php:596, with 6 subcommands (dev_setup, menu_export, menu_import, menu_list, fake_menu_items, fonts_download). File self-gates with `if ( ! defined('WP_CLI') || ! WP_CLI ) return;`. This is a real WP-CLI command namespace - baseline of 0 is incorrect.",
+    "BuddyX positions as a GENERAL theme (per CLAUDE.md), not a BuddyPress theme, despite the deep BP/BuddyBoss integration surface.",
+    "block.json scaffold lives under scripts/ which is NOT in the exclude list; it is a developer scaffolding template, not a shipped block.",
+    "Profile Completion widget passes `false` as id_base to parent::__construct, so WP derives id_base from the lowercased class name (bp_buddyx_profile_completion_widget)."
+  ],
+  "generated": {
+    "at": "2026-06-05T00:00:00+05:30",
+    "from": "wp-plugin-onboard skill",
+    "branch": "master",
+    "commit": "ac3b242",
+    "schema_version": "v2.2-theme",
+    "scan_scope": "fallback_defaults_theme",
+    "scan_path": ".",
+    "php_file_count": 219
+  }
+}

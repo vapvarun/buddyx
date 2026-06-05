@@ -1,0 +1,109 @@
+{
+  "name": "cross-plugin-coupling",
+  "computed_at": "2026-06-05",
+  "pair": "buddyx-pro",
+  "hooks_consumed_by_pair": [
+    {
+      "hook": "buddyx_before_content",
+      "type": "action",
+      "fired_at": "404.php:17",
+      "consumers": [
+        "buddyx-pro: inc/extra.php:535"
+      ]
+    },
+    {
+      "hook": "buddyx_after_content",
+      "type": "action",
+      "fired_at": "404.php:25",
+      "consumers": [
+        "buddyx-pro: inc/extra.php:563"
+      ]
+    },
+    {
+      "hook": "buddyx_sub_header",
+      "type": "action",
+      "fired_at": "index.php:40",
+      "consumers": [
+        "buddyx-pro: inc/compatibility/wc-vendors/buddyx_wc_vendors_core_functions.php:369",
+        "buddyx-pro: inc/extra.php:685",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:17",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:21",
+        "buddyx-pro: inc/compatibility/learndash/learndash-functions.php:1539"
+      ]
+    },
+    {
+      "hook": "buddyx_body_top",
+      "type": "action",
+      "fired_at": "header.php:30",
+      "consumers": [
+        "buddyx-pro: inc/Helpers/Side_Panel.php:22"
+      ]
+    },
+    {
+      "hook": "buddyx_body_bottom",
+      "type": "action",
+      "fired_at": "footer.php:57",
+      "consumers": [
+        "buddyx-pro: inc/Helpers/Login_Forms.php:52"
+      ]
+    },
+    {
+      "hook": "buddyx_header_actions",
+      "type": "action",
+      "fired_at": "inc/extra.php:266",
+      "consumers": [
+        "buddyx-pro: inc/Color_Mode_Toggle/Component.php:79"
+      ]
+    },
+    {
+      "hook": "buddyx_before_group_avatar_group_directory",
+      "type": "action",
+      "fired_at": "bb-buddypress/groups/groups-loop.php:55",
+      "consumers": [
+        "buddyx-pro: inc/compatibility/buddypress/buddypress-functions.php:192"
+      ]
+    },
+    {
+      "hook": "buddyx_before_member_avatar_member_directory",
+      "type": "action",
+      "fired_at": "bb-buddypress/members/members-loop.php:128",
+      "consumers": [
+        "buddyx-pro: inc/compatibility/buddypress/buddypress-functions.php:155"
+      ]
+    },
+    {
+      "hook": "buddyx_mobile_menu_actions",
+      "type": "action",
+      "fired_at": "template-parts/header/navigation.php:119",
+      "consumers": [
+        "buddyx-pro: inc/Color_Mode_Toggle/Component.php:80"
+      ]
+    },
+    {
+      "hook": "buddyx_search_slide_toggle_data_attrs",
+      "type": "filter",
+      "fired_at": "inc/extra.php:248",
+      "consumers": [
+        "buddyx-pro: inc/AMP/Component.php:42"
+      ]
+    },
+    {
+      "hook": "buddyx_search_field_toggle_data_attrs",
+      "type": "filter",
+      "fired_at": "inc/extra.php:252",
+      "consumers": [
+        "buddyx-pro: inc/AMP/Component.php:43"
+      ]
+    },
+    {
+      "hook": "buddyx_add_feature_image_blog_post_as_activity_content",
+      "type": "filter",
+      "fired_at": "inc/extra.php:1008",
+      "consumers": [
+        "buddyx-pro: inc/Helpers/Activity_Functions.php:496"
+      ]
+    }
+  ],
+  "result_count": 12,
+  "notes": "Free buddyx hooks with at least one add_action/add_filter listener in buddyx-pro."
+}
