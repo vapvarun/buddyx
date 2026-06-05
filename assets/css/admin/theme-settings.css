@@ -1245,4 +1245,141 @@ input#buddyx_post_video {
 --------------------------------------------------------------*/
 .bb-pro-inactive {
     display: none;
+}/*--------------------------------------------------------------
+# Community Bundle (Getting Started > Community Bundle tab)
+# Added by wp-plugin-onboard audit follow-up 2026-06-05.
+# Token-aware (--bx-color-* with hex fallbacks) so it inherits dark mode.
+--------------------------------------------------------------*/
+.buddyx-bundle-hero {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    padding: 28px;
+    margin: 0 0 24px;
+    background: var(--bx-color-bg-subtle, #fbfdff);
+    border: 1px solid var(--bx-color-border, #e2e8f0);
+    border-radius: 16px;
+}
+.buddyx-bundle-hero-icon {
+    flex: 0 0 80px;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    background: var(--bx-color-bg, #fff);
+    border: 1px solid var(--bx-color-border, #e2e8f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.buddyx-bundle-hero-icon img {
+    max-width: 56px;
+    height: auto;
+}
+.buddyx-bundle-hero-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.buddyx-bundle-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: #0957d0;
+    background: rgba(9, 87, 208, 0.08);
+    border: 1px solid rgba(9, 87, 208, 0.2);
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+}
+.buddyx-bundle-hero-body h2.buddyx-tabs-title {
+    margin: 0 0 8px;
+    font-size: 22px;
+    color: var(--bx-color-text, #242424);
+}
+.buddyx-bundle-tagline {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bx-color-text-muted, #515b67);
+    margin: 0 0 18px;
+    max-width: 760px;
+}
+.buddyx-bundle-hero .buddyx-btn-primary {
+    display: inline-block;
+    background: #0957d0;
+    color: #fff;
+    border: 1px solid #0957d0;
+    border-radius: 10px;
+    padding: 10px 26px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+.buddyx-bundle-hero .buddyx-btn-primary:hover,
+.buddyx-bundle-hero .buddyx-btn-primary:focus {
+    background: #08080b;
+    border-color: #08080b;
+    color: #fff;
+}
+.buddyx-bundle-highlights {
+    padding: 4px 4px 8px;
+}
+.buddyx-bundle-highlights-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bx-color-text, #242424);
+    margin: 0 0 16px;
+}
+.buddyx-bundle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+}
+.buddyx-bundle-grid li {
+    margin: 0;
+    padding: 16px 18px;
+    background: var(--bx-color-bg-subtle, #fbfdff);
+    border: 1px solid var(--bx-color-border, #e2e8f0);
+    border-radius: 12px;
+}
+.buddyx-bundle-grid li strong {
+    display: block;
+    font-size: 14px;
+    color: var(--bx-color-text, #242424);
+    margin-bottom: 4px;
+}
+.buddyx-bundle-grid li span {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--bx-color-text-muted, #515b67);
+}
+.buddyx-bundle-foot {
+    font-size: 14px;
+    color: var(--bx-color-text-muted, #515b67);
+    margin: 0;
+}
+.buddyx-bundle-foot a {
+    color: #0957d0;
+    font-weight: 500;
+    text-decoration: none;
+}
+.buddyx-bundle-foot a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .buddyx-bundle-hero {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+    .buddyx-bundle-grid {
+        grid-template-columns: 1fr;
+    }
 }
