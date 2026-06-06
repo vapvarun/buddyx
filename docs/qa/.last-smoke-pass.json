@@ -1,37 +1,49 @@
 {
   "mode": "free",
   "release_version": "5.1.0",
-  "ran_at": "2026-05-25T09:52:23Z",
+  "ran_at": "2026-06-06T08:35:30Z",
+  "head_sha": "f269666",
   "sections": {
     "A_fresh_install":     { "pass": 3, "fail": 0, "skipped": 0 },
     "B_upgrade":           { "pass": 1, "fail": 0, "skipped": 1 },
     "C_core_flows":        { "pass": 9, "fail": 0, "skipped": 1 },
     "D_regression_guards": { "pass": 2, "fail": 0, "skipped": 0 },
-    "E_extensions":        { "pass": 2, "fail": 0, "skipped": 1 },
+    "E_extensions":        { "pass": 3, "fail": 0, "skipped": 1 },
     "F_cross_browser":     { "pass": 1, "fail": 0, "skipped": 2 }
   },
   "failures": [],
   "skipped_with_rationale": [
     {
       "id": "C.cron",
-      "rationale": "buddyx_delete_fonts_folder cron event verified present (next: 2026-06-13) but is intentional per the phpcs:ignore on inc/Webfont/class-buddyx-webfont-loader.php:634 (since 4.3.9). Runbook updated 2026-05-25 to whitelist this single cron event; any OTHER buddyx_* cron remains a failure. Not a 5.1.0 regression."
+      "rationale": "Only buddyx_delete_fonts_folder cron event present (next: 2026-06-13). Whitelisted per runbook since 4.3.9 - intentional font-folder cleanup with phpcs:ignore on inc/Webfont/class-buddyx-webfont-loader.php. No other buddyx_* cron events found."
+    },
+    {
+      "id": "B.theme-mod.migration-from-5.0.x",
+      "rationale": "No real 5.0.x customer DB fixture available. local.sql contains only minimal theme_mods_buddyx (nav_menu_locations + custom_css_post_id, no configured customizer values). Skipped per runbook: requires a real 5.0.x customer DB dump on staging with populated customizer settings to test intent-flip regressions. Remains HIGHEST PRIORITY for human QA before tag."
+    },
+    {
+      "id": "E.bbpress",
+      "rationale": "bbPress plugin not active on test site. function_exists('bbp_is_forum') returns false. Section skipped per runbook rule: integration sections skip when host plugin is inactive."
+    },
+    {
+      "id": "F.firefox-desktop",
+      "rationale": "Chromium-only MCP cannot walk Firefox. Added to manual_required."
+    },
+    {
+      "id": "F.safari-ios",
+      "rationale": "Chromium-only MCP cannot walk Safari iOS. Added to manual_required."
     }
   ],
   "debug_log_issues": [
     {
-      "section": "preflight",
-      "level": "notice",
-      "line": "[25-May-2026 09:46:00 UTC] Automatic updates starting... Automatic updates complete.",
-      "file": "wp-includes/update.php (WordPress core auto-update, not theme-triggered, whitelisted)"
-    },
-    {
-      "section": "E.buddypress",
-      "level": "deprecated",
-      "line": "[25-May-2026 09:46:32 UTC] PHP Deprecated: Function bp_core_get_user_domain is deprecated since version 12.0.0! Use bp_members_get_user_url() instead.",
-      "file": "Triggered by wp eval in smoke test, but theme also calls bp_core_get_user_domain() in: inc/widgets/bp-profile-completion-widget.php:87, template-parts/header/buddypress-profile.php:118, template-parts/header/navigation.php:72. No browser request triggered this during the walk - may be suppressed by BP's internal compat layer at runtime. Recommend replacing all 3 theme usages with bp_members_get_user_url()."
+      "section": "teardown",
+      "level": "warning",
+      "line": "[06-Jun-2026 08:33:14 UTC] PHP Warning: wp_update_themes(): An unexpected error occurred. Something may be wrong with WordPress.org or this server's configuration. (WordPress could not establish a secure connection to WordPress.org.)",
+      "file": "wp-includes/functions.php line 6170 - WP core theme update check, local dev environment without internet access to wordpress.org. Not theme-triggered, not a BuddyX defect. Whitelisted."
     }
   ],
   "manual_required": [
+    "B.theme-mod.migration-from-5.0.x: Restore a real 5.0.x customer DB dump (with populated customizer values) on staging. Activate 5.1.0. Visit home/post/archive/page/login/footer in dark+light. Verify every customizer-set value visibly applies. This is the HIGHEST PRIORITY journey for 5.1.x per CLAUDE.md.",
     "Firefox Desktop: Customizer color picker drag interaction for primary color and typography color - verify color value commits correctly on mouseup outside the picker widget.",
     "Firefox Desktop: Dark-mode toggle keyboard accessibility - Tab to toggle, Enter/Space activates, aria-pressed announces state change to screen reader.",
     "Firefox Desktop: BP nouveau activity stream infinite scroll - verify no layout jank or overflow at 1440px.",
