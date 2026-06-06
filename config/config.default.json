@@ -65,7 +65,9 @@
       "assets/images/presets/*.svg",
       "inc/EZ_Customizer/themeCustomizeSettings.json",
       "assets/fonts/*",
-      "inc/Customizer_Framework/**/*",
+      "inc/Customizer_Framework/**/*.php",
+      "inc/Customizer_Framework/**/*.css",
+      "inc/Customizer_Framework/**/*.js",
       "inc/Customizer_Settings/**/*",
       "inc/Fonts/data/*.json",
       "external/buddyx-defaults.php"

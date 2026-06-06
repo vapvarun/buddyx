@@ -80,6 +80,7 @@ export const paths = {
 			`!${ rootPath }/scripts/**/*.*`,
 			`!${ rootPath }/scrips/**/*.*`,
 			`!${ rootPath }/dist/**/*.*`,
+			`!${ rootPath }/tools/**/*.*`,
 			`!${ rootPath }/rector.php`,
 		],
 		dest: `${ rootPath }/`,
