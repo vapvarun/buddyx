@@ -144,9 +144,11 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
 				'type'       => 'cover-image',
 			)
 		);
-		$default_members_cover = '';
-		$cover_img_url         = isset( $cover_img_url ) ? $cover_img_url : $default_members_cover;
-		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img"><img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" /></div></div>';
+		// Only render the <img> when a cover exists - an empty src is invalid
+		// HTML and makes browsers re-request the page URL as an image. The
+		// wrapper stays so the CSS gradient fallback still paints the card.
+		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" />' : '';
+		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img">' . $cover_img . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $cover_img is built from esc_url() above.
 	}
 
 }
@@ -168,9 +170,11 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
 				'type'       => 'cover-image',
 			)
 		);
-		$default_groups_cover = '';
-		$cover_img_url        = isset( $cover_img_url ) ? $cover_img_url : $default_groups_cover;
-		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img"><img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" /></div></div>';
+		// Only render the <img> when a cover exists - an empty src is invalid
+		// HTML and makes browsers re-request the page URL as an image. The
+		// wrapper stays so the CSS gradient fallback still paints the card.
+		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" />' : '';
+		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img">' . $cover_img . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $cover_img is built from esc_url() above.
 	}
 
 }
