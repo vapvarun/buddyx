@@ -18,6 +18,18 @@ Creating a theme with BuddyX means adopting modern web development practices and
 - **WooCommerce Compatible** - E-commerce ready
 - **Developer Friendly** - Clean code, well-documented
 
+## Try BuddyX in your browser
+
+[![Try in WordPress Playground](https://img.shields.io/badge/Try%20in-WordPress%20Playground-1E40AF?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/wbcomdesigns/buddyx/master/_playground/blueprint.json)
+
+Launches a disposable WordPress site in your browser with the latest WordPress.org release of **BuddyX** and **BuddyPress** active, plus the theme's built-in **sample content** published automatically - 7 pattern-driven pages (Home, About, Services, Pricing, Journal, FAQ, Contact), a primary navigation menu, and a static front page. Nothing is installed on your machine and the site is discarded when you close the tab.
+
+The Playground setup lives in [`_playground/blueprint.json`](_playground/blueprint.json) and pulls BuddyX from the WordPress.org theme directory, so it always reflects the current approved release. Sample content is created by the theme's own [`Starter_Content`](inc/Starter_Content/Component.php) component (BuddyX 5.1.0 or later). Run it locally with:
+
+```bash
+npx @wp-playground/cli@latest run-blueprint --blueprint=_playground/blueprint.json
+```
+
 ## Key Features
 
 ### 🎨 **Design System**
