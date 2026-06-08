@@ -25,7 +25,6 @@ class Component implements Component_Interface {
 	 */
 	public function get_slug(): string {
 		return 'welcome';
-
 	}
 
 	/**
@@ -80,6 +79,11 @@ class Component implements Component_Interface {
 		}
 	}
 
+	/**
+	 * Renders the Getting Started welcome page in the admin.
+	 *
+	 * @return void
+	 */
 	public function submenu_page_callback() {
 		?>
 		<div class="buddyx-top-banner-wrapper">
@@ -863,238 +867,35 @@ class Component implements Component_Interface {
 						<div role="tabpanel" class="bp-plugin-addons" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
 							<div class="buddyx-tabs-content buddyx-addon-body">
 
-								<div class="buddyx-welcome-column buddyx-pro-section">
-									<span class="buddyx-box-item-icon">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="BuddyX Installer">
-									</span>
-									<div class="buddyx-pro-theme-info">
-										<h2 class="buddyx-tabs-title">
-											<?php esc_html_e( 'BuddyPress Premium add-ons', 'buddyx' ); ?>												
-										</h2>
-										<p><?php esc_html_e( 'Extend your social community website with our premium add-ons for BuddyPress.', 'buddyx' ); ?></p>
-										<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://wbcomdesigns.com/plugins/premium-buddypress-add-ons/' ); ?>" target="_blank"><?php esc_html_e( 'View More Addons', 'buddyx' ); ?></a>
+								<div class="buddyx-bundle-hero">
+									<div class="buddyx-bundle-hero-icon">
+										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="<?php esc_attr_e( 'BuddyPress Community Bundle', 'buddyx' ); ?>">
+									</div>
+									<div class="buddyx-bundle-hero-body">
+										<span class="buddyx-bundle-badge"><?php esc_html_e( '27 premium plugins - one bundle', 'buddyx' ); ?></span>
+										<h2 class="buddyx-tabs-title"><?php esc_html_e( 'BuddyPress Community Bundle', 'buddyx' ); ?></h2>
+										<p class="buddyx-bundle-tagline"><?php esc_html_e( 'Instead of buying add-ons one by one, get every premium BuddyPress plugin we make in a single bundle - moderation at scale, richer member profiles, better activity feeds, privacy controls and more. One purchase, all future updates.', 'buddyx' ); ?></p>
+										<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-community-bundle/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get the Community Bundle', 'buddyx' ); ?></a>
 									</div>
 								</div>
 
-								<div class="buddyx-row addons">
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Business Profile', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Business Pages enable your members to connect with their customers, fans, and followers within your social community.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-business-profile/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Ideapush Integration', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'The BuddyPress IdeaPush Integration is an addon of IdeaPush that helps you manage your created ideas through the BuddyPress Profile.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-ideapush-integration/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Contact Me', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Contact Me displays a contact form on a member\'s profiles, allowing logged-in and non-logged-in visitors can be in touch with our community members.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-contact-me/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Social Stories offer a more personal way to interact with your audience.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/wp-stories/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Who Viewed My Profile', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'The Who Viewed My Profile Plugin helps you to know about your profile visitors. It displays the count of the profile views on the member profile header...', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/who-viewed-my-profile-buddypress/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Member Blog Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BP Member Blog Pro plugin provides each of your site users their own writing environment with a fantastic user experience.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-member-blog-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyVendor', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'With the BuddyVendor plugin, you can quickly turn your BuddyPress community into a social marketplace.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyvendor/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Statistics', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Stats plugin creates an activity log of everything that happens on your BuddyPress-powered community site...', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-statistics/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Check-Ins Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow community members and groups to post updates along with selecting their current location.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-check-ins-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Friend & Follow Suggestion', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'BuddyPress Friends and Follow suggestions plugin assists you with improving your BuddyPress or BuddyBoss Platform-based community.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-friend-follow-suggestion/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Giphy', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( "Attach GIF's into your BuddyPress activity, comments, and messages.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-giphy/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'Shortcodes For BuddyPress Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Add and Customize the BuddyPress components on any of the WordPress pages/posts using elementor widgets.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/shortcodes-for-buddypress-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Sticky Post', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Make your posts sticky on BuddyPress by pinning site-wide and group activities on the top of the community wall.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-sticky-post/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Quotes', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow BuddyPress users to post content with attractive background colors and beautiful images.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-quotes/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Auto Friends', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Add selected community members as common friends for all members.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-auto-friends/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Newsfeed', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Orgnanize all the BuddyPress activity-streams just like Facebook newsfeed.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-newsfeed/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Status', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to add status on their profile and give their reactions to all the activity updates.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-status/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Hashtags', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to add multi-language hashtag links on BuddyPress community website.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-hashtags/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Moderation Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to flag inappropriate content on your BuddyPress community site.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-moderation-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Private Community Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( "Lockdown the BuddyPress components to make your member's profile safe.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-private-community-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Polls', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow users to create and respond to polls inside the BuddyPress activity or in groups.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-polls/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profanity', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Specify a list of bad words to control the content in your BuddyPress community.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-profanity/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Resume Manager', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( 'Allow members to create and display resumes on BuddyPress right from their profile page.', 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-resume-manager/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-									<div class="buddyx-col col-same">
-										<div class="buddyx-col-wrapper">
-											<div class="buddyx-col-text">
-												<h4 class="buddyx-feature-title"><?php esc_html_e( 'BuddyPress Profile Pro', 'buddyx' ); ?></h4>
-												<p class="buddyx-col-content"><?php esc_html_e( "Add repeater fields or group of fields to the front-end forms on the member's profile.", 'buddyx' ); ?></p>
-												<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-profile-pro/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get It Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-								</div><!-- .addons -->
-
+								<div class="buddyx-bundle-highlights">
+									<h3 class="buddyx-bundle-highlights-title"><?php esc_html_e( "What's inside the bundle", 'buddyx' ); ?></h3>
+									<ul class="buddyx-bundle-grid">
+										<li><strong><?php esc_html_e( 'BuddyPress Moderation Pro', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Report, review and moderate member content at scale.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyPress Private Community Pro', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Lock your community down to members only, page by page.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyPress Member Blog Pro', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Give every member their own front-end writing space.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyPress Profile Pro', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Repeater fields and richer member identity on profiles.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyPress Polls', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Let members create and vote on polls in the activity feed.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyPress Hashtags', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Topic discovery with clickable hashtags across activity.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'WP Stories', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Social, disappearing stories for a more personal feed.', 'buddyx' ); ?></span></li>
+										<li><strong><?php esc_html_e( 'BuddyVendor', 'buddyx' ); ?></strong><span><?php esc_html_e( 'Turn members into WooCommerce store vendors.', 'buddyx' ); ?></span></li>
+									</ul>
+									<p class="buddyx-bundle-foot">
+										<?php esc_html_e( 'Plus 19 more premium add-ons - all included, all kept up to date.', 'buddyx' ); ?>
+										<a href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-community-bundle/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'See everything in the bundle', 'buddyx' ); ?></a>
+									</p>
+								</div>
 							</div><!-- .buddyx-addon-body -->
 						</div><!-- .tab3 -->
 					</section>

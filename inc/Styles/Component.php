@@ -112,7 +112,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$global_style         = $data['global'];
 			$preloading_available = is_callable( $data['preload_callback'] ) && call_user_func( $data['preload_callback'] );
 
-			if ( $global_style || ( ! $preloading_styles_enabled && $preloading_available ) ) {
+			if ( $global_style || ! $preloading_styles_enabled || $preloading_available ) {
+				// Enqueue global styles always; when preloading is disabled, enqueue every
+				// non-global template stylesheet too (otherwise registered-only sheets such as
+				// buddyx-content would never load); otherwise enqueue only preload-eligible sheets.
 				wp_enqueue_style( $handle, $src, $data['deps'], $version, $data['media'] );
 			} else {
 				wp_register_style( $handle, $src, $data['deps'], $version, $data['media'] );
@@ -121,80 +124,80 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_style_add_data( $handle, 'precache', true );
 		}
 
-		// Enqueue BuddyPress CSS.
-		if ( ! class_exists( 'Youzify' ) ) {
-			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css' );
+		// Enqueue BuddyPress CSS (only when BuddyPress is active and Youzify is not).
+		if ( ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) && ! class_exists( 'Youzify' ) ) {
+			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddypress.min.css' ) );
 		}
 
 		// Enqueue Platform CSS.
 		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css' );
+			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css', array(), buddyx()->get_asset_version( $css_dir . 'platform.min.css' ) );
 		}
 
 		// Enqueue bbPress CSS.
 		if ( function_exists( 'is_bbpress' ) || function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css' );
+			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'bbpress.min.css' ) );
 		}
 
 		// Enqueue WC Vendors CSS.
 		if ( class_exists( 'WC_Vendors' ) ) {
-			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css' );
+			wp_enqueue_style( 'buddyx-wc-vendor', $css_uri . 'wc-vendor.min.css', array(), buddyx()->get_asset_version( $css_dir . 'wc-vendor.min.css' ) );
 		}
 
 		// Enqueue LearnPress CSS.
 		if ( class_exists( 'LearnPress' ) ) {
-			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css' );
+			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'learnpress.min.css' ) );
 		}
 
 		// Enqueue LifterLMS CSS.
 		if ( class_exists( 'LifterLMS' ) ) {
-			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css' );
+			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css', array(), buddyx()->get_asset_version( $css_dir . 'lifterlms.min.css' ) );
 		}
 
 		// Enqueue WooCommerce CSS.
 		if ( class_exists( 'WooCommerce' ) ) {
-			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css' );
+			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css', array(), buddyx()->get_asset_version( $css_dir . 'woocommerce.min.css' ) );
 		}
 
 		// Enqueue Youzify CSS.
 		if ( class_exists( 'Youzify' ) ) {
-			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css' );
+			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddyx-youzify.min.css' ) );
 		}
 
 		// Enqueue WP_Job_Manager CSS.
 		if ( class_exists( 'WP_Job_Manager' ) ) {
-			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css' );
+			wp_enqueue_style( 'buddyx-wpjobmanager', $css_uri . 'buddyx-wpjobmanager.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddyx-wpjobmanager.min.css' ) );
 		}
 
 		// Enqueue MVX CSS.
 		if ( class_exists( 'MVX' ) ) {
-			wp_enqueue_style( 'multivendorx', $css_uri . 'multivendorx.min.css' );
+			wp_enqueue_style( 'multivendorx', $css_uri . 'multivendorx.min.css', array(), buddyx()->get_asset_version( $css_dir . 'multivendorx.min.css' ) );
 		}
 
 		// Enqueue Slick CSS.
-		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css' );
+		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css', array(), buddyx()->get_asset_version( $css_dir . 'slick.min.css' ) );
 
 		// Enqueue RTL CSS.
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css' );
+			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css', array(), buddyx()->get_asset_version( $css_dir . 'rtl.min.css' ) );
 		}
 
 		// Enqueue AMP CSS.
 		if ( buddyx()->is_amp() ) {
-			wp_enqueue_style( 'buddyx-amp', $css_uri . 'buddyx-amp.min.css' );
+			wp_enqueue_style( 'buddyx-amp', $css_uri . 'buddyx-amp.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddyx-amp.min.css' ) );
 		}
 
 		// Enqueue Dark Mode CSS.
-		wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css' );
+		wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dark-mode.min.css' ) );
 
 		// Enqueue SureCart CSS.
 		if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
-			wp_enqueue_style( 'buddyx-surecart', $css_uri . 'surecart.min.css' );
+			wp_enqueue_style( 'buddyx-surecart', $css_uri . 'surecart.min.css', array(), buddyx()->get_asset_version( $css_dir . 'surecart.min.css' ) );
 		}
 
 		// Enqueue FluentCart CSS.
 		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
-			wp_enqueue_style( 'buddyx-fluentcart', $css_uri . 'fluentcart.min.css' );
+			wp_enqueue_style( 'buddyx-fluentcart', $css_uri . 'fluentcart.min.css', array(), buddyx()->get_asset_version( $css_dir . 'fluentcart.min.css' ) );
 		}
 	}
 
@@ -260,7 +263,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue EventsCalendar CSS.
 		if ( class_exists( 'Tribe__Events__Main' ) ) {
-			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', '', buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
+			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', array(), buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
 		}
 	}
 
@@ -273,7 +276,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue Dokan CSS.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
-			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', '', buddyx()->get_asset_version( $css_dir . 'dokan.min.css' ) );
+			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dokan.min.css' ) );
 		}
 	}
 
@@ -286,7 +289,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Enqueue Learndash CSS.
 		if ( class_exists( 'SFWD_LMS' ) ) {
-			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css' );
+			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css', array(), buddyx()->get_asset_version( $css_dir . 'learndash.min.css' ) );
 		}
 	}
 

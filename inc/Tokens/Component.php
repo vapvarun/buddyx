@@ -290,8 +290,16 @@ class Component implements Component_Interface {
 		'--bx-color-button-bg-hover'    => '#f83939',
 		'--bx-color-button-fg'          => '#ffffff',
 		'--bx-color-button-fg-hover'    => '#ffffff',
-		'--bx-color-button-border'      => '#ef5455',
-		'--bx-color-button-border-hover' => '#f83939',
+		// Border mirrors the button background so a solid button stays solid.
+		// `--bx-color-button-border` is not in $derive_for, so absent an explicit
+		// `site_buttons_border_color`, only this default emits — hardcoding a hex
+		// orphaned the border at red while a brand change / style-variation
+		// repainted --bx-color-button-bg (red outline on a blue button).
+		// Referencing the bg token makes the border follow the brand; a customer
+		// who sets a distinct border color still wins (simple-token loop emits it
+		// after this). No-save resolves to #ef5455, matching the 5.0.x look.
+		'--bx-color-button-border'      => 'var(--bx-color-button-bg, #ef5455)',
+		'--bx-color-button-border-hover' => 'var(--bx-color-button-bg-hover, #f83939)',
 		'--bx-color-loader-bg'          => '#ef5455',
 		'--bx-color-footer-title'       => '#111111',
 		'--bx-color-footer-fg'          => '#505050',
@@ -304,7 +312,7 @@ class Component implements Component_Interface {
 		'--bx-color-copyright-link-hover' => '#ef5455',
 
 		// Foreground (text) extras.
-		'--bx-color-fg-muted'           => '#757575',                // Mid-tone text.
+		'--bx-color-fg-muted'           => '#6a6a6a',                // Mid-tone text (5:1 on #fff for WCAG AA; #757575 was 4.48:1).
 		'--bx-color-fg-subtle'          => '#9ca3af',                // Subtle / placeholder text.
 		'--bx-color-fg-inverse'         => '#ffffff',                // Text on color (light mode default).
 
@@ -1052,14 +1060,13 @@ class Component implements Component_Interface {
 
 	/**
 	 * Build the dark-mode override block. Two selectors share the same body:
-	 *   :root[data-bx-mode="dark"]                 — explicit user choice
-	 *
-	 *   @media (prefers-color-scheme: dark) :root[data-bx-mode="auto"]
+	 *   - `:root[data-bx-mode="dark"]` - explicit user choice.
+	 *   - `(prefers-color-scheme: dark) :root[data-bx-mode="auto"]` (media query).
 	 *
 	 * Each dark-default token also overrides its legacy aliases so any third-
 	 * party CSS hooked to `--color-theme-primary` etc. picks up the dark
 	 * value (otherwise legacy CSS would render light-mode colors on dark
-	 * surfaces — a contrast failure).
+	 * surfaces - a contrast failure).
 	 *
 	 * @param string $extra_decls Additional declarations to append AFTER the
 	 *                            dark defaults so they win. Used by

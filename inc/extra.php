@@ -386,7 +386,8 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 		}
 
 		// Check for rtMedia routes early to avoid unnecessary theme mod retrieval.
-		if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/media/' ) !== false ) {
+		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		if ( '' !== $request_uri && strpos( $request_uri, '/media/' ) !== false ) {
 			return;
 		}
 
@@ -883,7 +884,7 @@ if ( ! function_exists( 'buddyx_save_post_meta' ) ) {
 
 		// Verify nonce.
 		if ( ! isset( $_POST['buddyx_post_meta_nonce'] ) ||
-			! wp_verify_nonce( $_POST['buddyx_post_meta_nonce'], 'buddyx_save_post_meta' ) ) {
+			! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['buddyx_post_meta_nonce'] ) ), 'buddyx_save_post_meta' ) ) {
 			return;
 		}
 

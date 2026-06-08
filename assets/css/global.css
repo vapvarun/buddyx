@@ -267,12 +267,6 @@ were hidden (via .neverending) before. */
     }
 }
 
-@media (max-width: 767px) {
-    .page-template-full-width:not(.elementor-editor-active) .site {
-        padding-top: 36px !important;
-    }
-}
-
 @media (--sidebar-query) {
 
     .has-sidebar-right:not(.buddypress):not(.bbpress):not(.woocommerce):not(.woocommerce-page):not(.page-template-full-width-container):not(.post-template-post-full-large):not(.post-template-post-full-small):not(.mediapress):not(.single-fluent-products) .site-wrapper,

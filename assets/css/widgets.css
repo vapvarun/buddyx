@@ -73,6 +73,17 @@
     margin-bottom: 5px;
 }
 
+/*
+ * WCAG 1.4.1 (Use of Color): each category/archive item renders the link
+ * beside its post-count text, where the link color contrast against the
+ * surrounding text is below 3:1. Underline the link so it is distinguishable
+ * without relying on color alone.
+ */
+.widget_categories li>a,
+.widget_archive li>a {
+    text-decoration: underline;
+}
+
 .widget_categories .children {
     padding-top: 0;
 }

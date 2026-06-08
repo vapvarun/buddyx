@@ -328,11 +328,9 @@ function buddyx_cleanup_unused_assets() {
 		wp_deregister_style( 'buddyx-woocommerce' );
 	}
 
-	// Remove BuddyPress assets if plugin is not active
-	if ( ! function_exists( 'buddypress' ) && ! class_exists( 'BuddyPress' ) ) {
-		wp_dequeue_style( 'buddyx-buddypress' );
-		wp_deregister_style( 'buddyx-buddypress' );
-	}
+	// Note: the buddyx-buddypress stylesheet is now enqueued only when BuddyPress
+	// is active (see Styles\Component::action_enqueue_styles), so no inactive-plugin
+	// cleanup is required for it here.
 }
 
 /**
@@ -422,9 +420,9 @@ function buddyx_compatibility_check() {
 	$wp_version  = $GLOBALS['wp_version'];
 	$php_version = phpversion();
 
-	// Define minimum requirements
-	$min_wp_version  = '4.5';
-	$min_php_version = '7.0';
+	// Define minimum requirements (single source of truth: theme constants).
+	$min_wp_version  = BUDDYX_MINIMUM_WP_VERSION;
+	$min_php_version = BUDDYX_MINIMUM_PHP_VERSION;
 
 	// Check WordPress version
 	if ( version_compare( $wp_version, $min_wp_version, '<' ) ) {
