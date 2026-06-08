@@ -1,0 +1,45 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "BuddyX - Live Demo",
+		"description": "BuddyX free WordPress theme running on WordPress Playground with BuddyPress active and the theme's built-in sample content (7 pattern-driven pages, primary menu, and a static front page) already published.",
+		"author": "vapvarun",
+		"categories": [ "theme", "community" ]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"phpExtensionBundles": [ "kitchen-sink" ],
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "buddypress"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "wordpress.org/themes",
+				"slug": "buddyx"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require_once '/wordpress/wp-load.php'; update_option( 'permalink_structure', '/%postname%/' ); if ( class_exists( '\\\\BuddyX\\\\Buddyx\\\\Starter_Content\\\\Component' ) ) { ( new \\BuddyX\\Buddyx\\Starter_Content\\Component() )->create_demo_content(); update_option( 'buddyx_demo_setup_state', 'done' ); } if ( function_exists( 'bp_core_add_page_mappings' ) && function_exists( 'bp_core_get_directory_page_ids' ) ) { if ( ! array_filter( (array) bp_core_get_directory_page_ids( 'all' ) ) ) { bp_core_add_page_mappings( (array) bp_get_option( 'bp-active-components' ), 'keep' ); } } flush_rewrite_rules( false );"
+		}
+	]
+}
