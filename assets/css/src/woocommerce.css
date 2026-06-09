@@ -539,6 +539,9 @@ form.woocommerce-cart-form {
     box-shadow: none;
 }
 
+.woocommerce a.remove {
+	text-decoration: none !important;
+}
 
 /*--------------------------------------------------------------
 # Checkout Page
