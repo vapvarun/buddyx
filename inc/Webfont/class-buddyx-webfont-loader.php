@@ -150,9 +150,11 @@ class Buddyx_WebFont_Loader {
 
 		$google_font_url = file_exists( $this->get_local_stylesheet_path() ) ? $this->get_local_stylesheet_url() : $this->remote_url;
 
-		// If the local file exists, return its URL, with a fallback to the remote URL.
-		update_option( 'buddyx_font_url', wp_json_encode( $google_font_url ) );
-
+		// Caching is owned by buddyx_get_webfont_url(), which stores the
+		// resolved URL keyed to the current font selection so a typography
+		// change invalidates it. Writing an unkeyed option here is what made
+		// the front end keep serving a stale local stylesheet after the fonts
+		// changed.
 		return $google_font_url;
 	}
 
@@ -389,8 +391,16 @@ class Buddyx_WebFont_Loader {
 			}
 		}
 
-		// Caching this for further optimization.
-		update_site_option( 'buddyx_local_font_files', $local_font );
+		// Cache the preload list keyed to the current font selection so it is
+		// invalidated when the typography URL changes (see
+		// buddyx_load_preload_local_fonts()).
+		update_site_option(
+			'buddyx_local_font_files',
+			array(
+				'key'   => md5( (string) $this->remote_url . $this->font_format ),
+				'files' => $local_font,
+			)
+		);
 
 		foreach ( $local_font as $key => $local_font ) {
 			if ( $local_font ) {
@@ -533,7 +543,15 @@ class Buddyx_WebFont_Loader {
 	 * @return string
 	 */
 	public function get_local_stylesheet_filename() {
-		return apply_filters( 'buddyx_local_font_file_name', 'buddyx-local-fonts' );
+		// Key the filename to the requested font URL (plus site URL + content
+		// path, per this method's original design) so a change in the
+		// typography selection produces a different file that regenerates on
+		// the next front-end request. A constant name froze the local
+		// stylesheet to whatever fonts were first cached: the new selection
+		// rendered in the customizer preview (always remote) but never reached
+		// the front end. See buddyx_get_webfont_url().
+		$hash = substr( md5( (string) $this->remote_url . get_site_url() . WP_CONTENT_DIR ), 0, 12 );
+		return apply_filters( 'buddyx_local_font_file_name', 'buddyx-local-fonts-' . $hash, $this->remote_url );
 	}
 
 	/**
@@ -695,12 +713,16 @@ function buddyx_webfont_loader_instance( $font_url = '' ) {
  */
 function buddyx_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
-	// Check if cached font files data preset present or not. Basically avoiding 'Buddyx_WebFont_Loader' class rendering.
+	// Serve the cached preload list only when it matches the current font
+	// selection (same key scheme as buddyx_get_webfont_url). A stale list would
+	// preload font files for the previous selection. Legacy flat-array caches
+	// lack the 'key' entry and are treated as a miss.
+	$cache_key               = md5( (string) $url . $format );
 	$buddyx_local_font_files = get_site_option( 'buddyx_local_font_files', false );
 
-	if ( is_array( $buddyx_local_font_files ) && ! empty( $buddyx_local_font_files ) ) {
+	if ( is_array( $buddyx_local_font_files ) && isset( $buddyx_local_font_files['key'], $buddyx_local_font_files['files'] ) && $buddyx_local_font_files['key'] === $cache_key && is_array( $buddyx_local_font_files['files'] ) ) {
 		$font_format = apply_filters( 'buddyx_local_google_fonts_format', $format );
-		foreach ( $buddyx_local_font_files as $key => $local_font ) {
+		foreach ( $buddyx_local_font_files['files'] as $local_font ) {
 			if ( $local_font ) {
 				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
@@ -727,17 +749,36 @@ function buddyx_load_preload_local_fonts( $url, $format = 'woff2' ) {
  */
 function buddyx_get_webfont_url( $url, $format = 'woff2' ) {
 
-	// Check if already Google font URL present or not. Basically avoiding 'Buddyx_WebFont_Loader' class rendering.
-	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$buddyx_font_url = get_option( 'buddyx_font_url', false );
-	if ( $buddyx_font_url ) {
-		return json_decode( $buddyx_font_url );
+	// Return the cached local stylesheet URL only when it was generated for
+	// the SAME font selection. The cache is keyed on the requested Google
+	// Fonts URL so any typography change (customizer save, a 5.0.x -> 5.1.0
+	// upgrade default, a programmatic / WP-CLI theme_mod update, or a style
+	// variation switch) misses the cache and regenerates instead of serving a
+	// stale stylesheet. Legacy string-encoded caches decode to a non-array and
+	// are treated as a miss, forcing one regeneration after upgrade.
+	$cache_key = md5( (string) $url . $format );
+	$cached    = json_decode( (string) get_option( 'buddyx_font_url', '' ), true );
+	if ( is_array( $cached ) && isset( $cached['key'], $cached['url'] ) && $cached['key'] === $cache_key && '' !== $cached['url'] ) {
+		return $cached['url'];
 	}
 
-	// Now create font URL if its not present.
+	// Generate the local stylesheet for the current selection and cache it
+	// against this selection's key.
 	$font = buddyx_webfont_loader_instance( $url );
 	$font->set_font_format( $format );
-	return $font->get_url();
+	$local_url = $font->get_url();
+
+	update_option(
+		'buddyx_font_url',
+		wp_json_encode(
+			array(
+				'key' => $cache_key,
+				'url' => $local_url,
+			)
+		)
+	);
+
+	return $local_url;
 }
 
 /**
