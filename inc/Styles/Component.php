@@ -139,6 +139,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-gamipress', $css_uri . 'gamipress.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'gamipress.min.css' ) );
 		}
 
+		// Enqueue rtMedia dark-mode compatibility CSS (only when active).
+		if ( class_exists( 'RTMedia' ) ) {
+			wp_enqueue_style( 'buddyx-rtmedia', $css_uri . 'rtmedia.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'rtmedia.min.css' ) );
+		}
+
 		// Enqueue Platform CSS.
 		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css', array(), buddyx()->get_asset_version( $css_dir . 'platform.min.css' ) );
