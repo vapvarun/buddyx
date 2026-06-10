@@ -101,9 +101,11 @@ h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
 h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 
 /* ----- Body links -----
- * `:not(.wp-element-button):not(.wp-block-button__link):not(.button)`
+ * `:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"])`
  * keeps button-as-anchor elements (WP block buttons, pattern CTAs, BP
- * action buttons) from inheriting the body link color. Without this
+ * action buttons, plus plugin button links like Elementor's
+ * `.elementor-button` / GamiPress buttons via the `[class*="button"]`
+ * catch-all) from inheriting the body link color or the prose underline. Without this
  * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
  * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
  * with link color on top of the brand BG → unreadable.
@@ -117,8 +119,8 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * `.site-title a`, specificity 0,1,1). All single/page templates
  * already wrap post content in `.entry-content`, so the scoped rule
  * still covers paragraph-nested links inside post bodies. */
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]),
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
 	/* WCAG 1.4.1 Use of Color: links must be distinguishable from
 	 * surrounding text without relying on color alone. Body-content
@@ -137,10 +139,10 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 	text-decoration: underline;
 	text-underline-offset: 2px;
 }
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
