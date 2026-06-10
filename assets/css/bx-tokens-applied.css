@@ -231,17 +231,18 @@ input[type="submit"]:hover,
  * accent #ef5455 only has 3.87:1 against white — fails. Rather than
  * darken the brand accent globally (would break customer expectations),
  * keep the active state TEXT in the standard menu fg (high contrast) and
- * use the brand accent as a thick UNDERLINE for "you are here" emphasis.
- * Bold weight adds a third non-color cue (WCAG 1.4.1 — Use of Color). */
+ * use the brand accent as a "you are here" bottom-border emphasis. The
+ * earlier text-decoration underline read as dated on nav items; a 2px
+ * accent bottom-border (drawn with an inset box-shadow so it adds no
+ * layout shift vs. inactive items) is the modern equivalent. Bold weight
+ * keeps a non-color cue intact, so WCAG 1.4.1 (Use of Color) still holds. */
 .main-navigation ul li.current-menu-item > a,
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li.current-menu-ancestor > a {
 	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
 	font-weight: 600;
-	text-decoration: underline;
-	text-decoration-color: var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
-	text-decoration-thickness: 2px;
-	text-underline-offset: 4px;
+	text-decoration: none;
+	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
 }
 
 /* ----- Inputs / forms ----- */
