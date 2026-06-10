@@ -1,0 +1,29 @@
+/**
+ * Better Messages - BuddyX dark-mode compatibility.
+ *
+ * Loaded only when Better_Messages is active (see inc/Styles/Component.php).
+ * Better Messages themes itself through its own CSS variables and already
+ * ships a dark palette (--bm-*-dark), but BuddyX's [data-bx-mode="dark"] flag
+ * never triggers it. Map Better Messages' runtime variables onto its own dark
+ * values whenever BuddyX dark mode is on, so the whole messaging UI follows
+ * the theme. RGB-triplet fallbacks mirror the plugin's bundled dark values in
+ * case a future plugin version renames the -dark variables.
+ */
+:root[data-bx-mode="dark"] .bp-messages-wrap {
+	--bm-bg-color: var(--bm-bg-color-dark, 24, 29, 44);
+	--bm-bg-secondary: var(--bm-bg-secondary-dark, 29, 35, 51);
+	--bm-text-color: var(--bm-text-color-dark, 255, 255, 255);
+	--bm-border-color: var(--bm-border-color-dark, 63, 72, 95);
+	--bm-border-secondary-color: var(--bm-border-secondary-color-dark, 63, 72, 95);
+	--bm-hover-bg: var(--bm-hover-bg-dark, 28, 35, 56);
+}
+
+/* A few fields hardcode #fff !important instead of using the variables above;
+ * point them back at the (now dark) Better Messages tokens. */
+:root[data-bx-mode="dark"] .bp-messages-wrap input,
+:root[data-bx-mode="dark"] .bp-messages-wrap textarea,
+:root[data-bx-mode="dark"] .bp-messages-wrap .new-message form > div textarea {
+	background-color: rgba(var(--bm-bg-color), 1) !important;
+	color: rgba(var(--bm-text-color), 1) !important;
+	border-color: rgba(var(--bm-border-secondary-color), 1) !important;
+}
