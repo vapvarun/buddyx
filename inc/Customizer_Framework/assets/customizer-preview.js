@@ -107,6 +107,18 @@
 		return decls ? element + '{' + decls + '}' : '';
 	}
 
+	// site_color_mode is not an `output` (CSS) setting - it swaps the
+	// data-bx-mode attribute on <html>, which drives the dark-token cascade
+	// (:root[data-bx-mode="dark"]{...}, already present in the page). Bind it
+	// directly so the preview reflects Light/Dark/Auto live without a refresh.
+	wp.customize('site_color_mode', (value) => {
+		value.bind((newVal) => {
+			const mode =
+				newVal === 'dark' || newVal === 'auto' ? newVal : 'light';
+			document.documentElement.setAttribute('data-bx-mode', mode);
+		});
+	});
+
 	if (window.buddyxCustomizerOutputs) {
 		Object.entries(window.buddyxCustomizerOutputs).forEach(([settingId, payload]) => {
 			const type = payload && payload._type ? payload._type : '';
