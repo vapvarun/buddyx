@@ -3835,7 +3835,7 @@
       "vibrant",
       "warm"
     ],
-    "starter_content": "Registered via add_theme_support('starter-content', ...) in inc/Starter_Content/Component.php:73. Config provides posts, nav_menus, widgets, options, theme_mods (inc/Starter_Content/Component.php:85-89).",
+    "starter_content": "WP-native add_theme_support('starter-content') intentionally NOT used (removed in 5.1.0 - it caused a full demo import on any Customizer save on fresh installs). Demo content is created only via the explicit 'Set up demo site' admin button (admin_post_buddyx_setup_demo -> Component::handle_setup -> create_demo_content), which is idempotent. See inc/Starter_Content/Component.php.",
     "theme_json": true
   },
   "storage_drivers": [],
