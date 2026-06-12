@@ -126,7 +126,7 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 	 * surrounding text without relying on color alone. Body-content
 	 * links get an underline; per-context CSS can override (e.g.
 	 * pattern CTAs that already have visual chrome). */
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
 
@@ -136,7 +136,7 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 .post-meta-tag__link,
 .tags-list a,
 .tag-links a {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
