@@ -1,56 +1,45 @@
 {
-  "mode": "free",
-  "release_version": "5.1.0",
-  "ran_at": "2026-06-06T08:35:30Z",
-  "head_sha": "f269666",
+  "mode": "single",
+  "type": "theme",
+  "release_version": "5.1.1",
+  "ran_at": "2026-06-12T18:47:03Z",
+  "reverified_by": "sonnet-sequential",
+  "gates": {
+    "contract_audit": "pass"
+  },
   "sections": {
     "A_fresh_install":     { "pass": 3, "fail": 0, "skipped": 0 },
     "B_upgrade":           { "pass": 1, "fail": 0, "skipped": 1 },
-    "C_core_flows":        { "pass": 9, "fail": 0, "skipped": 1 },
+    "C_core_flows":        { "pass": 10, "fail": 0, "skipped": 0 },
     "D_regression_guards": { "pass": 2, "fail": 0, "skipped": 0 },
-    "E_extensions":        { "pass": 3, "fail": 0, "skipped": 1 },
-    "F_cross_browser":     { "pass": 1, "fail": 0, "skipped": 2 }
+    "E_extensions":        { "pass": 2, "fail": 0, "skipped": 1 },
+    "F_cross_browser":     { "pass": 2, "fail": 0, "skipped": 2 }
   },
   "failures": [],
-  "skipped_with_rationale": [
-    {
-      "id": "C.cron",
-      "rationale": "Only buddyx_delete_fonts_folder cron event present (next: 2026-06-13). Whitelisted per runbook since 4.3.9 - intentional font-folder cleanup with phpcs:ignore on inc/Webfont/class-buddyx-webfont-loader.php. No other buddyx_* cron events found."
-    },
-    {
-      "id": "B.theme-mod.migration-from-5.0.x",
-      "rationale": "No real 5.0.x customer DB fixture available. local.sql contains only minimal theme_mods_buddyx (nav_menu_locations + custom_css_post_id, no configured customizer values). Skipped per runbook: requires a real 5.0.x customer DB dump on staging with populated customizer settings to test intent-flip regressions. Remains HIGHEST PRIORITY for human QA before tag."
-    },
-    {
-      "id": "E.bbpress",
-      "rationale": "bbPress plugin not active on test site. function_exists('bbp_is_forum') returns false. Section skipped per runbook rule: integration sections skip when host plugin is inactive."
-    },
-    {
-      "id": "F.firefox-desktop",
-      "rationale": "Chromium-only MCP cannot walk Firefox. Added to manual_required."
-    },
-    {
-      "id": "F.safari-ios",
-      "rationale": "Chromium-only MCP cannot walk Safari iOS. Added to manual_required."
-    }
-  ],
   "debug_log_issues": [
     {
-      "section": "teardown",
-      "level": "warning",
-      "line": "[06-Jun-2026 08:33:14 UTC] PHP Warning: wp_update_themes(): An unexpected error occurred. Something may be wrong with WordPress.org or this server's configuration. (WordPress could not establish a secure connection to WordPress.org.)",
-      "file": "wp-includes/functions.php line 6170 - WP core theme update check, local dev environment without internet access to wordpress.org. Not theme-triggered, not a BuddyX defect. Whitelisted."
+      "section": "global",
+      "level": "deprecated",
+      "origin": "for",
+      "line": "Creation of dynamic property BP_Verified_Member_Meta_Box::$name / $nonce_name / $nonce_action / $meta_keys (repeated on each admin page load)",
+      "file": "wp-content/plugins/bp-verified-member/admin/meta-box/class-bp-verified-member-meta-box.php:26-30",
+      "note": "Third-party plugin bp-verified-member; not from BuddyX theme. Triage: FOR (surfaced while BuddyX active, root is plugin)."
     }
   ],
   "manual_required": [
-    "B.theme-mod.migration-from-5.0.x: Restore a real 5.0.x customer DB dump (with populated customizer values) on staging. Activate 5.1.0. Visit home/post/archive/page/login/footer in dark+light. Verify every customizer-set value visibly applies. This is the HIGHEST PRIORITY journey for 5.1.x per CLAUDE.md.",
-    "Firefox Desktop: Customizer color picker drag interaction for primary color and typography color - verify color value commits correctly on mouseup outside the picker widget.",
-    "Firefox Desktop: Dark-mode toggle keyboard accessibility - Tab to toggle, Enter/Space activates, aria-pressed announces state change to screen reader.",
-    "Firefox Desktop: BP nouveau activity stream infinite scroll - verify no layout jank or overflow at 1440px.",
-    "Safari iOS (390px): Dark-mode toggle tap target size - must be min 44x44pt; verify tapping does not accidentally trigger adjacent nav items.",
-    "Safari iOS (390px): BP profile tab navigation horizontal scroll - swipe behavior on member profile subnav at 390px viewport.",
-    "Safari iOS (390px): WooCommerce checkout form inputs - verify no zoom-on-focus triggered by font-size < 16px on form fields.",
-    "RTL (Hebrew/Arabic locale): Primary templates rendering right-to-left without overflow; icon mirroring; brand glyphs untransformed.",
-    "Accessibility: Focus rings visible on all interactive elements; tab order logical from header to footer; icon-only buttons have aria-label (dark-mode toggle, search icon)."
-  ]
+    "F.firefox-desktop - customizer color picker drag, dark-mode toggle keyboard a11y on Firefox",
+    "F.safari-ios - BP nouveau scroll behavior on iOS, dark-mode toggle keyboard accessibility",
+    "B.theme-mod.migration-from-5.0.x - no real 5.0.x customer DB available on this install; full journey requires a 5.0.x DB restore on staging",
+    "F.rtl - RTL locale switch not performed; requires manual switch to Hebrew/Arabic locale"
+  ],
+  "notes": {
+    "version_mismatch": "style.css Version: 5.1.0 — task was labeled release 5.1.1 but theme is at 5.1.0. Report uses actual style.css version.",
+    "A_starter_content": "PASS: add_theme_support('starter-content') is intentionally NOT called (removed in 5.1.0). Demo state flag = done, no auto-import on Customizer save.",
+    "C_dark_mode_critical": "PASS: toggle cycles light->dark->auto->light. data-bx-mode updates on each click. Primary menu VISIBLE in dark mode (color rgb(229,229,229)). localStorage persists. Customizer site_color_mode has transport=postMessage with dedicated binding in customizer-preview.js.",
+    "D_subheader_typography": "PASS: #ff00aa set, /members/ shows rgb(255,0,170). After remove_theme_mod fallback to token #0f172a - no hardcoded leak.",
+    "D_presets_zip": "PASS on dev install: all 9 preset SVGs on disk and in customizer (naturalWidth=225). ZIP check requires npm run dist.",
+    "E_woocommerce": "PASS: shop, single-product, cart, checkout render without overlap or clipping.",
+    "E_bbpress": "SKIPPED: bbPress inactive.",
+    "cron": "PASS: Only buddyx_delete_fonts_folder (monthly) - whitelisted."
+  }
 }

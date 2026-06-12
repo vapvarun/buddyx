@@ -189,7 +189,7 @@ Desktop visitors don't see the toggle; mobile visitors find it in the mobile men
 
 ### "Dark mode breaks a specific plugin's UI"
 
-Report it to us at **support@wbcomdesigns.com** with: (1) the plugin name + version, (2) the page URL where it breaks, (3) a screenshot in dark mode, (4) the BuddyX version. We test against BuddyPress, WooCommerce, FluentCart, SureCart, bbPress, and the WordPress core surfaces. Other plugins may have their own light-only color assumptions that need a small CSS bridge.
+Report it to us at **support@wbcomdesigns.com** with: (1) the plugin name + version, (2) the page URL where it breaks, (3) a screenshot in dark mode, (4) the BuddyX version. We test against BuddyPress, WooCommerce, FluentCart, SureCart, bbPress, and the WordPress core surfaces. As of 5.1.1, BuddyX also ships dark overrides for several popular add-ons out of the box — Better Messages, GamiPress, rtMedia, and BP Verified Member — loaded only when each plugin is active. Other plugins may have their own light-only color assumptions that need a small CSS bridge.
 
 ---
 

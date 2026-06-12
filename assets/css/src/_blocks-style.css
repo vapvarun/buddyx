@@ -33,7 +33,7 @@
     cursor: pointer;
     display: inline-block;
     line-height: 1.3;
-    border: 1px solid var(--button-border-color);
+    border-color: var(--button-border-color);
     outline: 0;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -47,7 +47,7 @@
 .wp-block-button__link:hover {
     color: var(--button-text-hover-color);
     background-color: var(--button-background-hover-color);
-    border: 1px solid var(--button-border-hover-color);
+    border-color: var(--button-border-hover-color);
 }
 /* Block style variations — premium pattern library (Task 5) */
 .wp-block-button.is-style-outline-accent .wp-block-button__link {

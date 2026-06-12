@@ -137,7 +137,11 @@ $buddyx_skin_master_gate = array(
 			'dark'  => esc_html__( 'Dark', 'buddyx' ),
 			'auto'  => esc_html__( 'Auto', 'buddyx' ),
 		),
-		'transport'   => 'refresh',
+		// postMessage so the preview updates live - the dedicated binding in
+		// inc/Customizer_Framework/assets/customizer-preview.js flips the
+		// <html data-bx-mode> attribute (this setting swaps an attribute, not
+		// CSS, so the output-based preview engine can't handle it).
+		'transport'   => 'postMessage',
 	)
 );
 

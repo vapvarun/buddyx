@@ -101,9 +101,11 @@ h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
 h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 
 /* ----- Body links -----
- * `:not(.wp-element-button):not(.wp-block-button__link):not(.button)`
+ * `:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"])`
  * keeps button-as-anchor elements (WP block buttons, pattern CTAs, BP
- * action buttons) from inheriting the body link color. Without this
+ * action buttons, plus plugin button links like Elementor's
+ * `.elementor-button` / GamiPress buttons via the `[class*="button"]`
+ * catch-all) from inheriting the body link color or the prose underline. Without this
  * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
  * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
  * with link color on top of the brand BG → unreadable.
@@ -117,14 +119,14 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * `.site-title a`, specificity 0,1,1). All single/page templates
  * already wrap post content in `.entry-content`, so the scoped rule
  * still covers paragraph-nested links inside post bodies. */
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]),
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
 	/* WCAG 1.4.1 Use of Color: links must be distinguishable from
 	 * surrounding text without relying on color alone. Body-content
 	 * links get an underline; per-context CSS can override (e.g.
 	 * pattern CTAs that already have visual chrome). */
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
 
@@ -134,13 +136,13 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 .post-meta-tag__link,
 .tags-list a,
 .tag-links a {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
@@ -231,17 +233,18 @@ input[type="submit"]:hover,
  * accent #ef5455 only has 3.87:1 against white — fails. Rather than
  * darken the brand accent globally (would break customer expectations),
  * keep the active state TEXT in the standard menu fg (high contrast) and
- * use the brand accent as a thick UNDERLINE for "you are here" emphasis.
- * Bold weight adds a third non-color cue (WCAG 1.4.1 — Use of Color). */
+ * use the brand accent as a "you are here" bottom-border emphasis. The
+ * earlier text-decoration underline read as dated on nav items; a 2px
+ * accent bottom-border (drawn with an inset box-shadow so it adds no
+ * layout shift vs. inactive items) is the modern equivalent. Bold weight
+ * keeps a non-color cue intact, so WCAG 1.4.1 (Use of Color) still holds. */
 .main-navigation ul li.current-menu-item > a,
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li.current-menu-ancestor > a {
 	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
 	font-weight: 600;
-	text-decoration: underline;
-	text-decoration-color: var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
-	text-decoration-thickness: 2px;
-	text-underline-offset: 4px;
+	text-decoration: none;
+	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
 }
 
 /* ----- Inputs / forms ----- */

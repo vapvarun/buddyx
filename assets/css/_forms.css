@@ -60,8 +60,8 @@ button.button:hover {
     border: 1px solid var(--button-border-hover-color);
 }
 
-button:active,
-button:focus,
+:where(button:active),
+:where(button:focus),
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -71,7 +71,7 @@ input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb;
 }
 
-button:focus-visible {
+:where(button:focus-visible) {
     outline: 2px solid black;
 }
 
