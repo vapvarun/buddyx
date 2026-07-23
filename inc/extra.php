@@ -95,7 +95,7 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
 				} elseif ( get_post_type() === 'page' || is_singular() ) {
 					get_template_part( 'template-parts/content/entry_title', get_post_type() );
 				}
-				
+
 				// Breadcrumbs for all cases. `buddyx_is_truthy()` handles
 				// pre-5.1.0 'on'/'off' strings; `! empty('off')` would
 				// otherwise treat the disabled toggle as enabled.
@@ -988,7 +988,12 @@ add_filter( 'bp_get_activity_content_body', 'buddyx_bp_blogs_activity_content_wi
  *
  * @since 4.2.2
  */
-function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity ) {
+function buddyx_bp_blogs_activity_content_with_read_more( $content, $activity = null ) {
+
+	if ( ! is_object( $activity ) || empty( $activity->id ) ) {
+		return $content;
+	}
+
 	// Only proceed if BuddyPress is active and not BuddyBoss.
 	if ( ! function_exists( 'buddypress' ) || isset( buddypress()->buddyboss ) ) {
 		return $content;

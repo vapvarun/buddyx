@@ -60,6 +60,19 @@ class Output_Builder {
 
 		// Typography: multi-property declaration block from a structured array.
 		if ( 'typography' === $type && is_array( $value ) ) {
+			// A rule may target a SINGLE sub-property (e.g. only 'font-family')
+			// and emit it to a named property — typically a CSS custom property —
+			// so the chosen font is exposed as a reusable token (e.g.
+			// --global-font-family) instead of only a literal declaration block.
+			$choice   = $rule['choice'] ?? '';
+			$property = $rule['property'] ?? '';
+			if ( '' !== $choice && '' !== $property ) {
+				if ( empty( $value[ $choice ] ) ) {
+					return '';
+				}
+				$rendered = str_replace( array( '<', '>' ), '', (string) $value[ $choice ] );
+				return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
+			}
 			$decls = self::typography_declarations( $value );
 			return $decls ? sprintf( '%s{%s}', $element, $decls ) : '';
 		}

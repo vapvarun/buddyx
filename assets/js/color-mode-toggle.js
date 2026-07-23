@@ -22,9 +22,16 @@
 
 	/** Read mode from localStorage; fall back to current <html> attribute. */
 	function readPersisted() {
+		const isDarkPreset = document.documentElement.hasAttribute('data-bx-dark-preset');
 		try {
 			const v = window.localStorage.getItem(STORAGE_KEY);
 			if (v && ORDER.indexOf(v) !== -1) {
+				// Dark style preset: 'auto' would show white defaults on light-OS
+				// because variation tokens only live in the dark cascade. Treat
+				// stored 'auto' as 'dark' so the preset's palette always applies.
+				if (isDarkPreset && v === 'auto') {
+					return 'dark';
+				}
 				return v;
 			}
 		} catch (e) {
@@ -75,10 +82,15 @@
 
 	/**
 	 * Cycle to the next mode in the rotation.
+	 * When the Dark style preset is active, 'auto' is skipped — the cycle runs
+	 * light ↔ dark only, because 'auto' on a light-OS would hide the preset.
 	 * @param {string} current Current mode.
 	 * @return {string} Next mode in the cycle.
 	 */
 	function cycle(current) {
+		if (document.documentElement.hasAttribute('data-bx-dark-preset')) {
+			return current === 'dark' ? 'light' : 'dark';
+		}
 		const idx = ORDER.indexOf(current);
 		return ORDER[(idx + 1) % ORDER.length];
 	}

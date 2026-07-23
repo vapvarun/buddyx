@@ -375,9 +375,14 @@ class Component {
 				),
 			);
 		}
+		// Expose variation-is-dark flag so the preview binding for site_color_mode
+		// can coerce 'auto' to 'dark' when the Dark style preset is active —
+		// matching the PHP bootstrap script's behaviour (dark variation forces dark).
+		$variation_is_dark = ( true === \BuddyX\Buddyx\Tokens\Component::active_variation_is_dark_for_preview() );
 		wp_add_inline_script(
 			self::get_config( 'config_id' ) . '-preview',
-			'window.buddyxCustomizerOutputs = ' . wp_json_encode( $payload ) . ';',
+			'window.buddyxCustomizerOutputs = ' . wp_json_encode( $payload ) . ';'
+			. 'window.buddyxVariationIsDark = ' . ( $variation_is_dark ? 'true' : 'false' ) . ';',
 			'before'
 		);
 	}

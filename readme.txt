@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 5.4
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 5.1.0
+Stable tag: 5.1.2
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,28 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.1.2 - June 2026 =
+
+* New      - Added a BuddyNext-compatible profile header section so the theme aligns with the BuddyNext layout.
+* Improve  - The chosen body font now drives the --global-font-family token, keeping typography consistent across the theme.
+* Fix      - Dark mode now renders correctly when switching from Light mode to Dark mode in the Customizer.
+* Fix      - The brand button fill no longer paints BuddyNext elements red.
+
+= 5.1.1 - June 2026 =
+
+* New      - WordPress Playground support for instant in-browser demos.
+* Improve  - Bare buttons use zero-specificity :where() focus and active styles so child themes can override them cleanly.
+* Fix      - Site Color Mode in the Customizer now updates the live preview instantly when switching Light, Dark, or Auto.
+* Fix      - Saving Customizer settings no longer auto-imports demo content; demo pages are created only via the "Set up demo site" button.
+* Fix      - Cart toggle Customizer control now targets a registered section so it renders.
+* Fix      - Local Google Fonts now apply on the front end after a typography change.
+* Fix      - Button-styled links in content no longer pick up the prose underline.
+* Fix      - The active navigation "you are here" cue uses a bottom border instead of a text underline.
+* Fix      - Removed an unwanted border from block buttons and stray text-decoration from anchors.
+* Fix      - Refreshed bundled WooCommerce template files that had fallen behind core.
+* Fix      - Prevented a PHP 8 fatal by making the activity argument optional in buddyx_bp_blogs_activity_content_with_read_more.
+* Compat   - Dark-mode styling for Better Messages, GamiPress, rtMedia, and BP Verified Member, each loaded only when the plugin is active.
 
 = 5.1.0 - June 2026 =
 

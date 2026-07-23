@@ -302,6 +302,14 @@ defined( 'ABSPATH' ) || exit;
 					array(
 						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), input, optgroup, select, textarea',
 					),
+					// Also expose the chosen body font as the global font-family
+					// token so it is reflected in the customizer's CSS variables
+					// (and consumable by plugins) — not only as a literal rule.
+					array(
+						'element'  => ':root',
+						'property' => '--global-font-family',
+						'choice'   => 'font-family',
+					),
 				),
 			)
 		);

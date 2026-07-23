@@ -896,10 +896,11 @@ class Component implements Component_Interface {
 		// typography_option theme_mod defaults via
 		// register_variation_theme_mod_filters() so the framework's
 		// Output_Builder emits typography from a single source.
-		$variation_covered    = array();
-		$variation_slug       = (string) ( $mods['site_style_variation'] ?? '' );
-		$variation_decls      = '';
-		$variation_is_dark    = false;
+		$variation_covered        = array();
+		$variation_slug           = (string) ( $mods['site_style_variation'] ?? '' );
+		$variation_decls          = '';
+		$variation_is_dark        = false;
+		$dark_variation_token_set = array();
 		if ( '' !== $variation_slug ) {
 			$variation_decls = self::resolve_style_variation_tokens( $variation_slug, $variation_covered );
 			if ( '' !== $variation_decls ) {
@@ -919,7 +920,13 @@ class Component implements Component_Interface {
 				// theme would render *no* light-mode colors when the admin
 				// picks Dark variation, breaking the visitor light toggle.
 				if ( $variation_is_dark ) {
-					$variation_covered = array();
+					// Save which --bx-* tokens the variation covers before clearing.
+					// The customer-save emission loop below uses this to route those
+					// tokens into the dark cascade instead of :root, preventing a
+					// dark-preset value (e.g. site_header_bg_color = #0F0F0F) from
+					// leaking onto the light surface when the visitor toggles to light.
+					$dark_variation_token_set = array_flip( $variation_covered );
+					$variation_covered        = array();
 				}
 			}
 		}
@@ -927,6 +934,8 @@ class Component implements Component_Interface {
 		// Site Custom Colors master toggle gates the customizer-derived tokens
 		// for parity with 5.0.3 behavior. Framework tokens + variation overlay
 		// above still emit.
+		// Customer saves routed to the dark cascade when the dark variation is active.
+		$dark_customer_decls = '';
 		if ( ! $enabled ) {
 			$decls       .= self::legacy_alias_declarations();
 			$light_block  = ':root{' . $decls . '}';
@@ -966,10 +975,22 @@ class Component implements Component_Interface {
 				}
 			}
 			$color = '' !== $value ? self::normalize_color( $value ) : '';
+			// When the dark variation is active, customer-saved values for tokens
+			// the variation covers must go into the dark cascade — not :root. This
+			// prevents a dark-preset color (e.g. site_header_bg_color = #0F0F0F)
+			// from leaking onto the light surface when the visitor toggles to light.
+			$in_dark_variation = isset( $dark_variation_token_set[ $cfg['token'] ] );
 			if ( '' !== $color ) {
-				$decls .= $cfg['token'] . ':' . $color . ';';
-				foreach ( $cfg['aliases'] as $alias ) {
-					$decls .= $alias . ':' . $color . ';';
+				if ( $in_dark_variation ) {
+					$dark_customer_decls .= $cfg['token'] . ':' . $color . ';';
+					foreach ( $cfg['aliases'] as $alias ) {
+						$dark_customer_decls .= $alias . ':' . $color . ';';
+					}
+				} else {
+					$decls .= $cfg['token'] . ':' . $color . ';';
+					foreach ( $cfg['aliases'] as $alias ) {
+						$decls .= $alias . ':' . $color . ';';
+					}
 				}
 			}
 			// Derive variants for every base in $derive_for. When the customer
@@ -982,7 +1003,11 @@ class Component implements Component_Interface {
 			if ( isset( $derive_for[ $mod_key ] ) ) {
 				$token = $derive_for[ $mod_key ][0];
 				if ( '' !== $color ) {
-					$decls .= self::derive_color_variants( $token, $color );
+					if ( $in_dark_variation ) {
+						$dark_customer_decls .= self::derive_color_variants( $token, $color );
+					} else {
+						$decls .= self::derive_color_variants( $token, $color );
+					}
 				} elseif ( ! in_array( $token, $variation_covered, true ) ) {
 					$decls .= self::derive_color_variants( $token, $derive_for[ $mod_key ][1] );
 				}
@@ -1036,7 +1061,9 @@ class Component implements Component_Interface {
 		$decls .= self::legacy_alias_declarations();
 
 		$light_block = ':root{' . $decls . '}';
-		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
+		// Customer decls for dark-variation-covered tokens layer after $variation_decls
+		// so the customer's explicit save wins over the variation's palette default.
+		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls . $dark_customer_decls : '' );
 
 		return $light_block . $dark_block;
 	}
@@ -1117,40 +1144,50 @@ class Component implements Component_Interface {
 			$default = 'light';
 		}
 
-		// Dark style variation defaults the bootstrap to 'dark' so the page
-		// renders dark when the admin picks a Dark preset - the customer
-		// expectation behind "Pick Dark style preset". The earlier
-		// array_key_exists() explicit-check fired true after every customizer
-		// Publish (the framework persists site_color_mode at its 'light'
-		// default whether or not the admin actively changed it), which left
-		// the bootstrap on 'light' and the variation tokens stranded in the
-		// [data-bx-mode="dark"] cascade - a regression reported on card
-		// 9936727519. The corrected semantics: only saved 'auto' or 'dark'
-		// signal admin intent that differs from the variation's natural
-		// mode. A saved 'light' is indistinguishable from the framework
-		// auto-save default, so the dark variation wins. An admin who
-		// genuinely wants a light page with dark palette accents picks
-		// 'auto' (follow visitor device) instead.
-		$saved_mods        = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
-		$saved_value       = is_array( $saved_mods ) ? ( $saved_mods['site_color_mode'] ?? null ) : null;
 		$variation_is_dark = ( true === self::active_variation_is_dark_scheme() );
 		if ( $variation_is_dark ) {
-			$default = in_array( $saved_value, array( 'auto', 'dark' ), true ) ? $saved_value : 'dark';
+			// Dark style preset is active: the site's visual baseline IS dark.
+			// Allowing 'auto' here means visitors on a light-OS see the framework's
+			// light defaults (white backgrounds) because the dark cascade only fires
+			// for [data-bx-mode="dark"] or prefers-color-scheme:dark + auto.
+			// Force 'dark' so the preset's tokens always apply; visitors who prefer
+			// a lighter look can toggle to 'light' via the colour-mode button.
+			$default = 'dark';
 		}
 		?>
 		<script id="buddyx-color-mode-bootstrap">
 		(function(){
 			try {
 				var saved = localStorage.getItem('bx-color-mode');
-				var mode = saved || <?php echo \wp_json_encode( $default ); ?>;
-				if (mode !== 'auto' && mode !== 'light' && mode !== 'dark') mode = 'light';
+				var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
+				var mode = saved || siteDefault;
+				if (mode !== 'auto' && mode !== 'light' && mode !== 'dark') mode = siteDefault;
+				<?php if ( $variation_is_dark ) : ?>
+				// Dark style preset: coerce any stored 'auto' to 'dark' so a
+				// previous toggle click does not hide the dark palette on light-OS.
+				if (mode === 'auto') { mode = 'dark'; }
+				// Signal to color-mode-toggle.js that the dark preset is active so
+				// it can coerce 'auto' too and skip 'auto' in its cycle.
+				document.documentElement.setAttribute('data-bx-dark-preset', '1');
+				<?php endif; ?>
 				document.documentElement.setAttribute('data-bx-mode', mode);
 			} catch (e) {
-				document.documentElement.setAttribute('data-bx-mode', <?php echo \wp_json_encode( $default ); ?>);
+				document.documentElement.setAttribute('data-bx-mode', siteDefault);
 			}
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * Public accessor used by the Customizer Framework's enqueue_preview() to
+	 * expose the variation-is-dark flag to the preview JS so the site_color_mode
+	 * binding can coerce 'auto' to 'dark' when the Dark style preset is active.
+	 *
+	 * @return bool|null true = dark, false = light, null = unknown / none.
+	 */
+	public static function active_variation_is_dark_for_preview(): ?bool {
+		return self::active_variation_is_dark_scheme();
 	}
 
 	/**
@@ -1712,7 +1749,7 @@ class Component implements Component_Interface {
 	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
 	 *   --bx-color-accent-active     shifted 20%
 	 *   --bx-color-accent-focus      shifted 5%
-	 *   --bx-color-accent-bg         rgba(171,193,35.1.08)
+	 *   --bx-color-accent-bg         rgba(171,193,35.1.28)
 	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
 	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
 	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out

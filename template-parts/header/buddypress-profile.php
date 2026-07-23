@@ -13,6 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
 }
 
+// BuddyNext is mutually exclusive with BuddyPress. When it is active, render
+// its full header user section — notification bell + messages icon + avatar
+// profile dropdown (quick links + log out) — and bail, mirroring Reign's
+// BuddyNext header support so BuddyX members get the same header icons by
+// default. Renders nothing when logged out (BuddyX prints its own guest links).
+if ( is_user_logged_in() && function_exists( 'buddynext_header_user_section' ) ) {
+	echo buddynext_header_user_section(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Section returns pre-escaped, safe HTML built in HeaderUserSection::render().
+	return;
+}
+
 // Cache the current user ID once.
 $current_user_id = 0;
 
