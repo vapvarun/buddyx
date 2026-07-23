@@ -272,6 +272,20 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 }
 
 /**
+ * Canonical default for the footer copyright text.
+ *
+ * Single source of truth, shared by the Customizer field
+ * (Footer_Fields.php) and the render site below, so the two cannot drift.
+ *
+ * @return string The default copyright string, with [tokens] unexpanded.
+ */
+if ( ! function_exists( 'buddyx_footer_default_copyright_text' ) ) {
+	function buddyx_footer_default_copyright_text() {
+		return __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'buddyx' );
+	}
+}
+
+/**
  * Function Footer Custom Text
  */
 if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
@@ -284,32 +298,26 @@ if ( ! function_exists( 'buddyx_footer_custom_text' ) ) {
 	 * @return string The formatted footer text.
 	 */
 	function buddyx_footer_custom_text() {
-		// Get the custom copyright text from the theme customizer.
-		$copyright = get_theme_mod( 'site_copyright_text' );
+		/*
+		 * ONE code path, ONE default. This previously read the setting with no
+		 * default, so a fresh site fell into a second, hardcoded branch whose
+		 * markup differed from the Customizer field's default (it linked the site
+		 * title; the token string did not). Opening the Customizer and pressing
+		 * Save without editing anything therefore saved the field default and
+		 * silently changed the footer. Both branches are now the same string,
+		 * sourced from buddyx_footer_default_copyright_text().
+		 */
+		$copyright = get_theme_mod( 'site_copyright_text', buddyx_footer_default_copyright_text() );
 
-		// Check if custom copyright text is set.
-		if ( $copyright ) {
-			// Replace placeholders with actual values.
-			$output = str_replace(
-				array( '[current_year]', '[site_title]', '[theme_author]' ),
-				array(
-					date_i18n( 'Y' ), // Current year.
-					esc_html( get_bloginfo( 'name' ) ), // Site title.
-					'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme////' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>', // Theme author link.
-				),
-				$copyright
-			);
-		} else {
-			// Generate default copyright text.
-			$output = sprintf(
-				'Copyright &copy; %s <span class="buddyx-footer-site-title"><a href="%s">%s</a></span> | Powered by <a href="%s">%s</a>',
-				date_i18n( 'Y' ), // Current year.
-				esc_url( home_url( '/' ) ), // Site URL.
-				esc_html( get_bloginfo( 'name' ) ), // Site title.
-				esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme////' ), // Theme URL.
-				esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) // Translated theme name.
-			);
-		}
+		$output = str_replace(
+			array( '[current_year]', '[site_title]', '[theme_author]' ),
+			array(
+				date_i18n( 'Y' ),
+				'<span class="buddyx-footer-site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></span>',
+				'<a href="' . esc_url( 'https://wbcomdesigns.com/downloads/buddyx-theme/' ) . '">' . esc_html__( 'BuddyX WordPress Theme', 'buddyx' ) . '</a>',
+			),
+			$copyright
+		);
 
 		// Apply filter to allow modifications to the footer text.
 		return apply_filters( 'buddyx_footer_copyright_text', wp_kses_post( $output ) );

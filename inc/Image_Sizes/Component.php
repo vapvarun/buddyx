@@ -78,7 +78,7 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes attribute to enhance responsive image functionality for post thumbnails.
 	 *
 	 * @param array        $attr       Attributes for the image markup.
-	 * @param WP_Post      $attachment Attachment post object.
+	 * @param \WP_Post      $attachment Attachment post object.
 	 * @param string|array $size       Registered image size or flat array of height and width dimensions.
 	 * @return array The filtered attributes for the image markup.
 	 */

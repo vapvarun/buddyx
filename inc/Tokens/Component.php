@@ -1127,8 +1127,9 @@ class Component implements Component_Interface {
 		if ( '' === $dark_decls ) {
 			return '';
 		}
-		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}'
-			. '@media (prefers-color-scheme:dark){:root[data-bx-mode="auto"]{' . $dark_decls . '}}';
+		// Explicit user choice only; the "auto"/system mode was retired in 5.1.4,
+		// so there is no prefers-color-scheme media block any more.
+		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}';
 	}
 
 	/**
@@ -1136,40 +1137,31 @@ class Component implements Component_Interface {
 	 * CSS or paint happens — prevents a flash-of-light-mode on dark-mode pages.
 	 *
 	 * Reads from localStorage so the visitor's choice persists across pages,
-	 * falling back to the customizer-configured default (auto/light/dark).
+	 * falling back to the customizer-configured default (light/dark). A legacy
+	 * saved "auto", from before the option was retired in 5.1.4, resolves to light.
 	 */
 	public function emit_mode_script() {
 		$default = (string) \get_theme_mod( 'site_color_mode', 'light' );
-		if ( ! in_array( $default, array( 'auto', 'light', 'dark' ), true ) ) {
+		if ( ! in_array( $default, array( 'light', 'dark' ), true ) ) {
 			$default = 'light';
 		}
 
-		$variation_is_dark = ( true === self::active_variation_is_dark_scheme() );
-		if ( $variation_is_dark ) {
-			// Dark style preset is active: the site's visual baseline IS dark.
-			// Allowing 'auto' here means visitors on a light-OS see the framework's
-			// light defaults (white backgrounds) because the dark cascade only fires
-			// for [data-bx-mode="dark"] or prefers-color-scheme:dark + auto.
-			// Force 'dark' so the preset's tokens always apply; visitors who prefer
-			// a lighter look can toggle to 'light' via the colour-mode button.
+		// A dark style preset makes dark the visual baseline, so force the default
+		// to dark (a light-OS visitor can still toggle to light). The retired
+		// "auto" mode no longer factors in here.
+		if ( true === self::active_variation_is_dark_scheme() ) {
 			$default = 'dark';
 		}
 		?>
 		<script id="buddyx-color-mode-bootstrap">
 		(function(){
+			// Assigned before the try: localStorage access throws when storage is
+			// blocked, and the catch needs siteDefault to already hold a value.
+			var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
 			try {
 				var saved = localStorage.getItem('bx-color-mode');
-				var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
 				var mode = saved || siteDefault;
-				if (mode !== 'auto' && mode !== 'light' && mode !== 'dark') mode = siteDefault;
-				<?php if ( $variation_is_dark ) : ?>
-				// Dark style preset: coerce any stored 'auto' to 'dark' so a
-				// previous toggle click does not hide the dark palette on light-OS.
-				if (mode === 'auto') { mode = 'dark'; }
-				// Signal to color-mode-toggle.js that the dark preset is active so
-				// it can coerce 'auto' too and skip 'auto' in its cycle.
-				document.documentElement.setAttribute('data-bx-dark-preset', '1');
-				<?php endif; ?>
+				if (mode !== 'light' && mode !== 'dark') mode = siteDefault;
 				document.documentElement.setAttribute('data-bx-mode', mode);
 			} catch (e) {
 				document.documentElement.setAttribute('data-bx-mode', siteDefault);
@@ -1749,7 +1741,7 @@ class Component implements Component_Interface {
 	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
 	 *   --bx-color-accent-active     shifted 20%
 	 *   --bx-color-accent-focus      shifted 5%
-	 *   --bx-color-accent-bg         rgba(171,193,35.1.38)
+	 *   --bx-color-accent-bg         rgba(171,193,35,0.08)
 	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
 	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
 	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out

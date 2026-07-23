@@ -63,6 +63,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				buddyx()->get_asset_version( get_template_directory() . '/assets/js/admin/buddyx-admin.min.js' ),
 				true
 			);
+
+			/*
+			 * The buddyx-install script is gone. BuddyX is distributed on
+			 * WordPress.org, where a theme may not fetch plugin packages from a
+			 * third-party server - and it certainly may not ship a distribution
+			 * licence key to authorize that fetch. The Getting Started screen now
+			 * links to each plugin instead. The one-click installer lives in
+			 * BuddyX Pro, which is self-hosted and may do this.
+			 */
 		}
 
 		// Customizer JS.

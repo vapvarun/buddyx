@@ -146,7 +146,7 @@ class Component implements Component_Interface {
 	 * Checks if the menu item is the current menu item and adds the aria "current" attribute.
 	 *
 	 * @param array   $atts the HTML attributes applied to the menu item's `<a>` element
-	 * @param WP_Post $item the current menu item
+	 * @param \WP_Post $item the current menu item
 	 *
 	 * @return array Modified HTML attributes
 	 */

@@ -90,6 +90,20 @@ class Typography extends \WP_Customize_Control {
 			);
 		}
 
+		// Fonts uploaded via WordPress's native Font Library
+		// (Appearance → Fonts → Upload). Read-only — BuddyX never writes to
+		// the wp_font_family/wp_font_face post types.
+		$custom = array();
+		if ( class_exists( '\\BuddyX\\Buddyx\\Fonts\\Custom_Fonts_Repository' ) ) {
+			$custom = \BuddyX\Buddyx\Fonts\Custom_Fonts_Repository::get_families();
+		}
+		if ( ! empty( $custom ) ) {
+			$groups[] = array(
+				'label' => esc_html__( 'Custom Fonts', 'buddyx' ),
+				'fonts' => $custom,
+			);
+		}
+
 		return array(
 			'default'            => '',
 			'default_label'      => esc_html__( 'Default (theme)', 'buddyx' ),

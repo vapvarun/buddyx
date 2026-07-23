@@ -147,42 +147,37 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 }
 
 /* ----- Buttons -----
- * Note: `.button` is intentionally NOT in this selector list. WP and
- * BuddyPress use `.button` for many low-emphasis links (notification
- * dropdown footer, BP friend buttons, etc.) that should NOT inherit the
- * customer's brand button color. Per-context stylesheets already scope
- * `.button` correctly (woocommerce.css, platform.css, _comments.css).
- * This rule covers only canonical button elements + WP block buttons.
+ * Scoped to theme-owned button contexts, not the bare `button` element.
+ * A plugin's semantic <button> (tabs, sidebar nav, toggles) no longer
+ * matches this rule at all, so it no longer needs to fight back with its
+ * own !important — see the card at 3.basecamp.com/5798509/buckets/37499979/
+ * card_tables/cards/9994359475. This replaces the previous bare-element
+ * selector plus its growing list of per-plugin :not() exclusions
+ * (wc-block-, bn-, mvs-, etc.); none of those are needed anymore since
+ * those plugins' buttons never match a theme-owned class in the first place.
  *
- * Also excluded: header chrome buttons (color-mode toggle, menu-toggle,
- * search-icon) — they're navigation icons, not primary actions.
- *
- * Also excluded: WooCommerce block components ([class*="wc-block-"]) —
- * Cart/Checkout/Mini-Cart block buttons (quantity stepper, remove-item)
- * ship their own styling; the brand-button fill broke their layout.
- *
- * Also excluded: BuddyNext components ([class*="bn-"]) — BuddyNext is a full
- * design system; its tabs, composer tools, header caret, and ghost buttons own
- * their appearance via the --bn-* tokens (which already follow this theme's
- * palette), so the brand-button fill turned every BuddyNext control solid red.
- *
- * Also excluded: WPMediaVerse components ([class*="mvs-"]) — its dashboard,
- * modal and chat tabs, lightbox controls, and Instagram-feed action buttons
- * are flat by design; the brand-button fill turned them into solid red buttons
- * and (once the fill was stripped) left white label text invisible on a light
- * surface. They own their look via the --mvs-* tokens. */
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not([class*="mvs-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]),
+ * `.button` alone (without the `button` element type) is intentionally NOT
+ * in this list: WP and BuddyPress use `.button` on many low-emphasis
+ * anchors (notification dropdown footer, BP friend buttons, etc.) that
+ * should NOT inherit the customer's brand button color. Per-context
+ * stylesheets already scope those correctly (woocommerce.css, platform.css,
+ * _comments.css). `button.button` (an actual <button> element carrying the
+ * class, e.g. the WooCommerce cart's Apply Coupon/Update Cart buttons) is
+ * included, matching prior behavior for those. */
+button.button,
+.wp-element-button,
+.wp-block-button__link,
 input[type="button"],
-input[type="submit"],
-.wp-block-button__link {
+input[type="submit"] {
 	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not([class*="mvs-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]):hover,
+button.button:hover,
+.wp-element-button:hover,
+.wp-block-button__link:hover,
 input[type="button"]:hover,
-input[type="submit"]:hover,
-.wp-block-button__link:hover {
+input[type="submit"]:hover {
 	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg-hover, #ffffff);
 	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #ef5455));

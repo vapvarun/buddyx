@@ -93,7 +93,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *   Create a ticket to add to core?
 	 *
 	 * @param string  $item_output The menu item's starting HTML output.
-	 * @param WP_Post $item        Menu item data object.
+	 * @param \WP_Post $item        Menu item data object.
 	 * @param int     $depth       Depth of menu item. Used for padding.
 	 * @param object  $args        An object of wp_nav_menu() arguments.
 	 * @return string Modified nav menu HTML.

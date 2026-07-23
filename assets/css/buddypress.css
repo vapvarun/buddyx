@@ -3997,6 +3997,12 @@ button#bp-delete-avatar {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 }
 
+:root[data-bx-mode="dark"] #item-header a.link-change-cover-image,
+:root[data-bx-mode="dark"] #item-header a.position-change-cover-image,
+:root[data-bx-mode="dark"] #item-header a.link-change-profile-image {
+    background: rgba(0, 0, 0, 0.9);
+}
+
 #item-header a.link-change-cover-image>i,
 #item-header a.position-change-cover-image>i,
 #item-header a.link-change-profile-image>i {

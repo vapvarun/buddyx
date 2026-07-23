@@ -72,7 +72,9 @@ class Component implements Component_Interface {
 	 */
 	protected function initial_mode(): string {
 		$mode = (string) get_theme_mod( 'site_color_mode', 'light' );
-		return in_array( $mode, array( 'light', 'dark', 'auto' ), true ) ? $mode : 'light';
+		// Light + dark only; the "auto"/system option was retired in 5.1.4. A
+		// legacy saved 'auto' resolves to light.
+		return in_array( $mode, array( 'light', 'dark' ), true ) ? $mode : 'light';
 	}
 
 	/**
@@ -112,10 +114,9 @@ class Component implements Component_Interface {
 
 		$labels = array(
 			'light' => __( 'Light mode (click to switch to dark)', 'buddyx' ),
-			'dark'  => __( 'Dark mode (click to switch to system)', 'buddyx' ),
-			'auto'  => __( 'System mode (click to switch to light)', 'buddyx' ),
+			'dark'  => __( 'Dark mode (click to switch to light)', 'buddyx' ),
 		);
-		$label = $labels[ $mode ];
+		$label = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];
 		?>
 		<div class="bx-color-mode-toggle <?php echo esc_attr( $wrapper ); ?>">
 			<button type="button"
@@ -125,7 +126,6 @@ class Component implements Component_Interface {
 				aria-pressed="<?php echo 'dark' === $mode ? 'true' : 'false'; ?>">
 				<svg class="bx-icon bx-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
 				<svg class="bx-icon bx-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-				<svg class="bx-icon bx-icon-monitor" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
 				<span class="screen-reader-text"><?php echo esc_html( $label ); ?></span>
 			</button>
 		</div>

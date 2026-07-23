@@ -214,7 +214,7 @@ class Component implements Component_Interface {
 	 */
 	protected function theme_mods(): array {
 		return array(
-			'site_color_mode'                 => 'auto',
+			'site_color_mode'                 => 'light',
 			'site_color_mode_toggle_show'     => 'on',
 			'site_color_mode_toggle_position' => 'both',
 			// Pages default to no sidebar - the demo content is composed

@@ -66,7 +66,7 @@ class Component implements Component_Interface {
 	 * regenerates :root, and the change is reflected.
 	 *
 	 * @param array                $args Setting args.
-	 * @param WP_Customize_Manager $wp_customize Customizer manager.
+	 * @param \WP_Customize_Manager $wp_customize Customizer manager.
 	 * @return array
 	 */
 	public function filter_dynamic_preview_setting_args( array $args, WP_Customize_Manager $wp_customize ): array {
@@ -129,7 +129,7 @@ class Component implements Component_Interface {
 	/**
 	 * Adds postMessage support for site title and description, plus a custom Theme Options section.
 	 *
-	 * @param WP_Customize_Manager $wp_customize Customizer manager instance.
+	 * @param \WP_Customize_Manager $wp_customize Customizer manager instance.
 	 */
 	public function action_customize_register( WP_Customize_Manager $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
