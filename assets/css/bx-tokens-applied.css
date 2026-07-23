@@ -164,8 +164,14 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * Also excluded: BuddyNext components ([class*="bn-"]) — BuddyNext is a full
  * design system; its tabs, composer tools, header caret, and ghost buttons own
  * their appearance via the --bn-* tokens (which already follow this theme's
- * palette), so the brand-button fill turned every BuddyNext control solid red. */
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]),
+ * palette), so the brand-button fill turned every BuddyNext control solid red.
+ *
+ * Also excluded: WPMediaVerse components ([class*="mvs-"]) — its dashboard,
+ * modal and chat tabs, lightbox controls, and Instagram-feed action buttons
+ * are flat by design; the brand-button fill turned them into solid red buttons
+ * and (once the fill was stripped) left white label text invisible on a light
+ * surface. They own their look via the --mvs-* tokens. */
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not([class*="mvs-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]),
 input[type="button"],
 input[type="submit"],
 .wp-block-button__link {
@@ -173,7 +179,7 @@ input[type="submit"],
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]):hover,
+button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not([class*="bn-"]):not([class*="mvs-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]):hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
 .wp-block-button__link:hover {

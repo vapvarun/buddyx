@@ -1749,7 +1749,7 @@ class Component implements Component_Interface {
 	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
 	 *   --bx-color-accent-active     shifted 20%
 	 *   --bx-color-accent-focus      shifted 5%
-	 *   --bx-color-accent-bg         rgba(171,193,35.1.28)
+	 *   --bx-color-accent-bg         rgba(171,193,35.1.38)
 	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
 	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
 	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out
