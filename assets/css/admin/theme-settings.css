@@ -21,51 +21,82 @@
 # Getting Started Page
 --------------------------------------------------------------*/
 .buddyx-top-banner-wrapper {
-    margin: 0 0 0 -20px;
+    /* Bleeds back over the 20px wp-admin content padding so the banner runs
+       edge to edge. Logical property: a physical margin-left bleeds the wrong
+       side under RTL. Reset at the mobile breakpoint, where wp-admin drops the
+       padding and the negative margin would push the banner off-screen. */
+    margin: 0;
+    margin-inline-start: -20px;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(180deg, #F5F9FF 0%, #fff 100%);
 }
 
 .buddyx-top-banner {
-    text-align: center;
-    margin: 0;
-    padding: 20px 10px;
-    background: #fff;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 32px 20px;
 }
 
-.buddyx-top-banner * {
-    position: relative;
+.buddyx-banner-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #EAF1FD;
+    color: #0957d0;
+}
+
+.buddyx-banner-body {
+    min-width: 0;
 }
 
 .buddyx-theme-version {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
     display: inline-block;
-    background: #0957d0;
-    margin: 0;
-    padding: 5px 20px;
+    background: #F1F2F4;
+    margin-inline-start: 10px;
+    padding: 3px 12px;
     border-radius: 100px;
-    color: #fff;
-}
-
-.buddyx-top-banner * {
-    color: #fff;
+    color: #637381;
+    vertical-align: middle;
 }
 
 .buddyx-banner-title {
-    width: 100%;
     display: block;
     padding: 0;
-    line-height: 1.2;
-    font-size: 3em;
+    line-height: 1.3;
+    font-size: 26px;
     font-weight: 700;
-    margin: 0 0 10px;
-    color: #0957d0;
+    margin: 0 0 8px;
+    color: #242424;
 }
 
 .buddyx-banner-description {
     font-style: normal;
     max-width: 650px;
-    margin: auto;
+    margin: 0 0 16px;
+}
+
+.buddyx-banner-description p {
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #515b67;
+    font-weight: 400;
+    margin: 0;
+}
+
+.buddyx-btn.buddyx-banner-cta {
+    padding: 10px 22px;
+    font-size: 14px;
+    border-radius: 10px;
 }
 
 .buddyx-banner-description p {
@@ -98,7 +129,11 @@
     display: flex;
     flex-flow: wrap;
     background: #fff;
-    margin: 0 -30px;
+    /* Bleeds back over the panel's 30px padding so the tab strip spans the card.
+       Reset at the mobile breakpoint, where the panel padding shrinks and the
+       strip would otherwise be wider than the viewport. */
+    margin: 0;
+    margin-inline: -30px;
     padding: 0;
     border-bottom: 1px solid var(--bx-color-border, #e6e4e4);
     border-top: 1px solid var(--bx-color-border, #e6e4e4);
@@ -112,7 +147,7 @@
     padding: 0 15px;
 }
 
-.buddyx-dashboard-tabs button {
+.buddyx-dashboard-tabs [role="tab"] {
     display: flex;
     align-items: center;
     margin: 0 20px;
@@ -128,13 +163,13 @@
     transition: all .2s linear;
 }
 
-.buddyx-dashboard-tabs button:hover,
-.buddyx-dashboard-tabs button[aria-selected="true"] {
+.buddyx-dashboard-tabs [role="tab"]:hover,
+.buddyx-dashboard-tabs [role="tab"][aria-selected="true"] {
     color: #0957d0;
     border-color: #0957d0;
 }
 
-.buddyx-dashboard-tabs button:focus:not(:focus-visible) {
+.buddyx-dashboard-tabs [role="tab"]:focus:not(:focus-visible) {
     outline: 0;
 }
 
@@ -143,14 +178,133 @@
 .buddyx-dashboard-welcome-body {
     width: 100%;
     padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    column-gap: 30px;
+    row-gap: 10px;
+    align-items: start;
+}
+
+/* The container is a passthrough (display: contents) so its columns become
+   direct grid items of the body. This lets the family / child-theme / pro
+   sections span the FULL width instead of being trapped in the narrow left
+   column, while Customizer Settings keeps the top row beside the sidebar. */
+.buddyx-welcome-container {
+    display: contents;
+}
+
+.buddyx-welcome-container > .buddyx-welcome-column {
+    grid-column: 1 / -1;
+}
+
+.buddyx-welcome-container > .buddyx-welcome-column:first-child {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.buddyx-dashboard-welcome-body > .buddyx-theme-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Child Theme + Get BuddyX Pro sit side by side to use the full width. */
+.buddyx-pro-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+}
+
+.buddyx-pro-row .buddyx-welcome-column {
+    margin-bottom: 0;
+}
+
+/* "Why upgrade to Pro" benefit cards (tab 2). */
+.buddyx-pro-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.buddyx-highlight-card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 20px;
+    background: #FBFDFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+}
+
+.buddyx-highlight-card .buddyx-family-card-desc {
+    display: block;
+    -webkit-line-clamp: unset;
+}
+
+/* Wbcom Essential free-companion callout (tab 1). */
+.buddyx-welcome-column.buddyx-essential-hero {
+    display: flex;
+    gap: 24px;
     align-items: flex-start;
 }
 
-.buddyx-welcome-container {
-    width: 100%;
-    margin-right: 30px;
+.buddyx-essential-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: #EAF1FD;
+    color: #0957d0;
+}
+
+.buddyx-essential-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.buddyx-essential-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.buddyx-essential-body .buddyx-tabs-title {
+    margin: 8px 0;
+}
+
+.buddyx-essential-body .buddyx-bundle-tagline {
+    margin: 0;
+}
+
+.buddyx-essential-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    list-style: none;
+    margin: 14px 0 18px;
+    padding: 0;
+}
+
+.buddyx-essential-stats li {
+    font-size: 13px;
+    color: #637381;
+}
+
+.buddyx-essential-stats strong {
+    margin-right: 3px;
+    color: #242424;
+    font-weight: 700;
+}
+
+@media (max-width: 782px) {
+    .buddyx-welcome-column.buddyx-essential-hero {
+        flex-direction: column;
+        gap: 16px;
+    }
 }
 
 .buddyx-welcome-column {
@@ -191,32 +345,66 @@
 
 .buddyx-box-item {
     display: flex;
-    -webkit-flex-flow: column nowrap;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
-    text-align: center;
+    gap: 14px;
+    text-align: left;
     position: relative;
-    padding: 12px 15px 19px;
+    padding: 14px 16px;
     background: var(--bx-color-bg-subtle, #fbfdff);
     border: 1px solid var(--bx-color-border, #e2e8f0);
     border-radius: 16px;
+    text-decoration: none;
+    transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.buddyx-box-item:hover,
+.buddyx-box-item:focus {
+    border-color: #0957d0;
+    box-shadow: 0 8px 20px rgba(9, 87, 208, .08);
+    transform: translateY(-2px);
 }
 
 span.buddyx-box-item-icon {
-    width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #EAF1FD;
+    color: #0957d0;
     line-height: 0;
 }
 
-span.buddyx-box-item-icon img {
-    margin-bottom: 10px;
+span.buddyx-box-item-icon img,
+span.buddyx-box-item-icon svg {
+    max-width: 28px;
+    max-height: 28px;
 }
 
 h4.buddyx-box-item-name {
+    flex-grow: 1;
+    min-width: 0;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.3em;
     color: #242424;
-    margin: 0 0 15px;
+    margin: 0;
+}
+
+span.buddyx-box-item-chevron {
+    flex-shrink: 0;
+    display: inline-flex;
+    color: #94A3B8;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.buddyx-box-item:hover span.buddyx-box-item-chevron,
+.buddyx-box-item:focus span.buddyx-box-item-chevron {
+    color: #0957d0;
+    transform: translateX(3px);
 }
 
 a.buddyx-box-item-link {
@@ -230,13 +418,264 @@ a.buddyx-box-item-link {
     border: 1px solid rgba(145, 158, 171, 0.32);
     border-radius: 8px;
     background: #fff;
-}   
+}
+
+/*Wbcom Community Family (bundled plugins grid)*/
+
+.buddyx-family-section {
+    margin-top: 10px;
+}
+
+.buddyx-family-intro {
+    margin: -20px 0 25px;
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #637381;
+    max-width: 760px;
+}
+
+.buddyx-family-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.buddyx-family-card {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: #FBFDFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.buddyx-family-card:hover {
+    border-color: #0957d0;
+    box-shadow: 0 8px 20px rgba(9, 87, 208, .08);
+    transform: translateY(-2px);
+}
+
+.buddyx-family-card.is-active {
+    border-color: #A9E0C3;
+    background: linear-gradient(90deg, #E4F5EC 0%, #FBFDFF 45%);
+}
+
+.buddyx-family-card-logo {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #EAF1FD;
+    color: #0957d0;
+}
+
+.buddyx-family-card-logo img {
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+
+.buddyx-family-card-logo svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.buddyx-family-card-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.buddyx-family-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buddyx-family-card-name {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.3em;
+    color: #242424;
+    margin: 0;
+}
+
+.buddyx-family-card-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5em;
+    color: #637381;
+    margin: 0;
+}
+
+.buddyx-family-card-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.buddyx-family-card-pill--active {
+    color: #0A7A4A;
+    background: #E4F5EC;
+}
+
+.buddyx-family-card-pill--active::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0A7A4A;
+}
+
+.buddyx-family-card-install {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 8px;
+    background: #0957d0;
+    border: 1px solid #0957d0;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.buddyx-family-card-install:hover,
+.buddyx-family-card-install:focus {
+    background: #073e9c;
+    border-color: #073e9c;
+    color: #fff;
+}
+
+.buddyx-install.is-loading {
+    opacity: .7;
+    cursor: default;
+    pointer-events: none;
+}
+
+.buddyx-install-error {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    color: #C0341C;
+}
+
+.buddyx-family-card-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.5em;
+    padding: 5px 14px 5px 16px;
+    color: #212B36;
+    text-decoration: none;
+    border: 1px solid rgba(145, 158, 171, 0.32);
+    border-radius: 8px;
+    background: #fff;
+    transition: all .2s ease;
+}
+
+.buddyx-family-card-link svg {
+    transition: transform .2s ease;
+}
+
+.buddyx-family-card-link:hover,
+.buddyx-family-card-link:focus {
+    background: #0957d0;
+    border-color: #0957d0;
+    color: #fff;
+}
+
+.buddyx-family-card-link:hover svg,
+.buddyx-family-card-link:focus svg {
+    transform: translateX(2px);
+}
+
+.buddyx-family-card-links {
+    margin-top: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.buddyx-family-card-links .buddyx-family-card-link {
+    margin-top: 0;
+}
+
+.buddyx-family-card-link--demo {
+    color: #0957d0;
+    background: #EAF1FD;
+    border-color: #EAF1FD;
+}
+
+.buddyx-family-card-link--demo:hover,
+.buddyx-family-card-link--demo:focus {
+    color: #fff;
+    background: #0957d0;
+    border-color: #0957d0;
+}
+
+@media (max-width: 782px) {
+    /* Single column of full-width rows once the content area gets tight. */
+    .buddyx-family-grid,
+    .buddyx-pro-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* wp-admin goes to its mobile layout here; without dropping the bleed the
+       banner is wider than the viewport and the whole page scrolls sideways. */
+    .buddyx-top-banner-wrapper {
+        margin-inline-start: 0;
+    }
+
+    .buddyx-dashboard-tabs [role="tablist"] {
+        margin-inline: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Finger target rather than a cursor target. Left at its natural height on
+       desktop, where it sits next to 32px-tall wp-admin buttons. */
+    .buddyx-family-card-link {
+        min-height: 40px;
+    }
+}
 
 .buddyx-importer-wrapper {
     display: flex;
     gap: 30px;
     margin: 30px 0 0;
     justify-content: space-between;
+}
+
+.buddyx-importer-wrapper .buddyx-box-item-icon {
+    display: inline-flex;
+    margin-bottom: 14px;
 }
 
 .buddyx-importer-wrapper h2.buddyx-tabs-title {
@@ -248,6 +687,13 @@ a.buddyx-box-item-link {
     padding: 6px 20px 8px;
     background: var(--bx-color-bg-subtle, #fbfdff);
     margin-top: 10px;
+}
+
+.buddyx-importer-wrapper a.buddyx-box-item-link:hover,
+.buddyx-importer-wrapper a.buddyx-box-item-link:focus {
+    background: #0957d0;
+    border-color: #0957d0;
+    color: #fff;
 }
 
 .buddyx-importer-wrapper a.buddyx-box-item-link.all-plugin-installed {
@@ -288,7 +734,12 @@ a.buddyx-box-item-link {
 }
 
 .buddyx-welcome-column.buddyx-pro-section span.buddyx-box-item-icon img {
-    margin: 15px 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    margin: 9px auto;
 }
 
 .buddyx-pro-theme-info a.buddyx-box-item-link,
@@ -310,8 +761,8 @@ a.buddyx-box-item-link {
 
 .buddyx-pro-theme-info a.buddyx-box-item-link:hover,
 .buddyx-pro-theme-info input.buddyx-box-item-link:hover {
-    background: #08080b;
-    border-color: #08080b;
+    background: #073e9c;
+    border-color: #073e9c;
 }
 
 .buddyx-pro-theme-info h2.buddyx-tabs-title {
@@ -351,30 +802,89 @@ form.migrate-buddyx-form label {
 }
 
 .list-section-wrap-widgets h3{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 10px;
+    padding-bottom: 14px;
+    color: #242424;
+    border-bottom: 1px solid #EEF1F4;
+}
+
+.buddyx-sidebar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #EAF1FD;
+    color: #0957d0;
+}
+
+.buddyx-sidebar-icon svg {
+    display: block;
+}
+
+.buddyx-sidebar-list {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.buddyx-sidebar-row {
     display: flex;
     align-items: center;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 21px;
-    margin: 0;
-    color: #242424;
-    gap: 10px;
-}
-
-.buddyx-quick-setting-section p{
-    margin-bottom: 0;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.5em;
-    color: #242424;
-}
-
-.buddyx-quick-setting-section p a {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 15px;
-    color: #0957d0;
+    gap: 12px;
+    padding: 10px 4px;
+    border-bottom: 1px solid #EEF1F4;
     text-decoration: none;
+    border-radius: 8px;
+    transition: background-color .2s ease;
+}
+
+.buddyx-sidebar-list .buddyx-sidebar-row:last-child {
+    border-bottom: 0;
+}
+
+.buddyx-sidebar-row:hover,
+.buddyx-sidebar-row:focus {
+    background: #F5F9FF;
+}
+
+.buddyx-sidebar-row-text {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2px;
+}
+
+.buddyx-sidebar-row-text strong {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.3em;
+    color: #242424;
+}
+
+.buddyx-sidebar-row-text span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4em;
+    color: #637381;
+}
+
+.buddyx-sidebar-row-chevron {
+    flex-shrink: 0;
+    display: inline-flex;
+    color: #94A3B8;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.buddyx-sidebar-row:hover .buddyx-sidebar-row-chevron,
+.buddyx-sidebar-row:focus .buddyx-sidebar-row-chevron {
+    color: #0957d0;
+    transform: translateX(3px);
 }
 
 
@@ -558,7 +1068,7 @@ form.migrate-buddyx-form label {
         justify-content: center;
     }
 
-    .buddyx-dashboard-tabs button {
+    .buddyx-dashboard-tabs [role="tab"] {
         margin: 5px;
     }
 
@@ -667,7 +1177,7 @@ form.migrate-buddyx-form label {
 
 .buddyx-btn-primary:focus,
 .buddyx-btn-primary:hover {
-    background: #090B33;
+    background: #073e9c;
     color: #fff;
 }
 
@@ -845,78 +1355,33 @@ form.migrate-buddyx-form label {
     max-width: 400px;
 }
 
-.buddyxpro-features-compare-content {
-    margin: 30px 0;
+.buddyx-features-column {
+    margin-top: 10px;
 }
 
-.get-pro-buddyx-theme .buddyx-welcome-column.buddyx-pro-section {
-    margin: 0;
-    background: var(--bx-color-bg-subtle, #fbfdff);
-    border: 1px solid var(--bx-color-border, #e2e8f0);
-    text-align: center;
-    padding: 3em;
-}
-
-.get-pro-buddyx-theme .buddyx-pro-theme-info {
-    max-width: 100%;
-}
-
-.get-pro-buddyx-theme .buddyx-pro-theme-info h2.buddyx-tabs-title {
-    margin: 0 0 15px;
-    font-size: 25px;
+.buddyx-features-column .buddyx-tabs-title {
     display: block;
-}
-
-.get-pro-buddyx-theme .buddyx-pro-theme-info a.buddyx-box-item-link {
-    border-radius: 12px;
-    padding: 10px 35px 11px;
-}
-
-.buddyxpro-features-compare-content .buddyx-feature-title {
-    margin: 0;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 38px;
-    color: #0957d0;
-}
-
-.buddyxpro-features-compare-content .buddyx-col-content {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 26px;
-    color: #2d2d2d;
 }
 
 table.buddyx-features-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid transparent;
-    outline: 1px solid #d7d7d7;
-    border-radius: 15px;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
     overflow: hidden;
 }
 
 .buddyx-features-table thead tr th {
-    background-color: #5f5f68;
+    background-color: #242424;
 }
 
 .buddyx-features-table thead tr th h3 {
     color: #fff;
     margin: 0;
     font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 28px;
-}
-
-.buddyx-features-table thead tr th:first-child {
-    border-top-left-radius: 15px;
-}
-
-.buddyx-features-table thead tr th:last-child {
-    border-top-right-radius: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.4em;
 }
 
 .buddyx-features-table thead tr th,
@@ -926,26 +1391,27 @@ table.buddyx-features-table {
 
 .buddyx-features-table tbody tr td {
     font-weight: 500;
-    font-size: 15px;
-    color: #202020;
-    border: 1px solid #D7D7D7;
+    font-size: 14px;
+    color: #242424;
+    border: 1px solid #E2E8F0;
 }
 
 .buddyx-features-table td.buddyx-main-feature {
     margin: 0;
-    background-color: #F1F1F1;
+    background-color: #EAF1FD;
+    color: #0957d0;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 1.5em;
 }
 
 .buddyx-features-table .icon-close {
     content: "";
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     display: block;
     background-image: url(../../images/icon-close.svg);
-    background-size: 25px;
+    background-size: 22px;
     background-repeat: no-repeat;
     margin: 0 auto;
     padding: 0;
@@ -953,11 +1419,11 @@ table.buddyx-features-table {
 
 .buddyx-features-table .icon-check {
     content: "";
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: block;
     background-image: url(../../images/icon-check.svg);
-    background-size: 22px;
+    background-size: 20px;
     background-repeat: no-repeat;
     margin: 0 auto;
     padding: 0;
@@ -983,16 +1449,6 @@ table.buddyx-features-table {
 @media screen and (max-width: 767px) {
     .buddyxpro-features-content .buddyx-btn {
         padding: 12px 15px;
-    }
-
-    .buddyxpro-features-compare-content .buddyx-feature-title {
-        font-size: 26px;
-        line-height: 38px;
-    }
-
-    .buddyxpro-features-compare-content .buddyx-col-content {
-        font-size: 16px;
-        line-height: 22px;
     }
 }
 
@@ -1305,7 +1761,8 @@ input#buddyx_post_video {
     color: var(--bx-color-text, #242424);
 }
 
-.buddyx-bundle-tagline {
+.buddyx-bundle-tagline,
+.buddyx-section-intro {
     font-size: 15px;
     line-height: 1.6;
     color: var(--bx-color-text-muted, #515b67);
@@ -1328,8 +1785,8 @@ input#buddyx_post_video {
 
 .buddyx-bundle-hero .buddyx-btn-primary:hover,
 .buddyx-bundle-hero .buddyx-btn-primary:focus {
-    background: #08080b;
-    border-color: #08080b;
+    background: #073e9c;
+    border-color: #073e9c;
     color: #fff;
 }
 
@@ -1344,41 +1801,10 @@ input#buddyx_post_video {
     margin: 0 0 16px;
 }
 
-.buddyx-bundle-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin: 0 0 18px;
-    padding: 0;
-    list-style: none;
-}
-
-.buddyx-bundle-grid li {
-    margin: 0;
-    padding: 16px 18px;
-    background: var(--bx-color-bg-subtle, #fbfdff);
-    border: 1px solid var(--bx-color-border, #e2e8f0);
-    border-radius: 12px;
-}
-
-.buddyx-bundle-grid li strong {
-    display: block;
-    font-size: 14px;
-    color: var(--bx-color-text, #242424);
-    margin-bottom: 4px;
-}
-
-.buddyx-bundle-grid li span {
-    display: block;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--bx-color-text-muted, #515b67);
-}
-
 .buddyx-bundle-foot {
     font-size: 14px;
     color: var(--bx-color-text-muted, #515b67);
-    margin: 0;
+    margin: 22px 0 0;
 }
 
 .buddyx-bundle-foot a {
@@ -1396,8 +1822,5 @@ input#buddyx_post_video {
         flex-direction: column;
         gap: 16px;
         padding: 20px;
-    }
-    .buddyx-bundle-grid {
-        grid-template-columns: 1fr;
     }
 }

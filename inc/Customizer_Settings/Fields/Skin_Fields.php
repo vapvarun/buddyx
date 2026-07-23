@@ -27,7 +27,7 @@ if ( ! function_exists( 'buddyx_skin_cluster_icon' ) ) {
 			case 'moon':
 				return $open . '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>' . $close;
 			case 'flame':
-				return $open . '<path d="M8.5 14.5A2.5 2.5.1.0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5.1.0 0 2.5 2.5z"/>' . $close;
+				return $open . '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>' . $close;
 			case 'panel-top':
 				return $open . '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/>' . $close;
 			case 'layers':
@@ -37,7 +37,7 @@ if ( ! function_exists( 'buddyx_skin_cluster_icon' ) ) {
 			case 'heading':
 				return $open . '<path d="M6 12h12"/><path d="M6 20V4"/><path d="M18 20V4"/>' . $close;
 			case 'mouse-pointer-2':
-				return $open . '<path d="M4.037 4.688a.495.495.1.0 1 .651-.651l16 6.5a.5.5.1.0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5.1.0 1-.947.063z"/>' . $close;
+				return $open . '<path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/>' . $close;
 			case 'panel-bottom':
 				return $open . '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 15h18"/>' . $close;
 			case 'copyright':
@@ -128,16 +128,19 @@ $buddyx_skin_master_gate = array(
 		'settings'    => 'site_color_mode',
 		'label'       => esc_html__( 'Color mode', 'buddyx' ),
 		'description' => esc_html__( 'Default look for new visitors.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Auto matches the visitor\'s device theme. Light or Dark keeps the site on one look for everyone.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Light or Dark keeps the site on one look for everyone.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'light',
 		'priority'    => 6,
 		'choices'     => array(
 			'light' => esc_html__( 'Light', 'buddyx' ),
 			'dark'  => esc_html__( 'Dark', 'buddyx' ),
-			'auto'  => esc_html__( 'Auto', 'buddyx' ),
 		),
-		'transport'   => 'refresh',
+		// postMessage so the preview updates live - the dedicated binding in
+		// inc/Customizer_Framework/assets/customizer-preview.js flips the
+		// <html data-bx-mode> attribute (this setting swaps an attribute, not
+		// CSS, so the output-based preview engine can't handle it).
+		'transport'   => 'postMessage',
 	)
 );
 
@@ -151,7 +154,9 @@ $buddyx_skin_master_gate = array(
 		'settings'    => 'site_color_mode_toggle_show',
 		'label'       => esc_html__( 'Show color-mode toggle', 'buddyx' ),
 		'description' => esc_html__( 'Let visitors switch the look.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Adds a sun and moon button so visitors can pick Light, Dark, or match their device. Turn off to keep the look you set above.', 'buddyx' ),
+		// "or match their device" (Auto) was retired in 5.1.4 - only Light and Dark
+		// are offered now, so the tooltip no longer promises a mode that is gone.
+		'tooltip'     => esc_html__( 'Adds a sun and moon button so visitors can pick Light or Dark. Turn off to keep the look you set above.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'on',
 		'priority'    => 6,

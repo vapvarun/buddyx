@@ -39,7 +39,6 @@ class Component implements Component_Interface {
 		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_header_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
-		add_filter( 'body_class', array( $this, 'site_single_blog_post_body_classes' ) );
 		if ( class_exists( 'SFWD_LMS' ) ) {
 			add_filter( 'body_class', array( $this, 'site_learndash_body_classes' ) );
 		}
@@ -81,26 +80,6 @@ class Component implements Component_Interface {
 		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' strings.
 		if ( buddyx_is_truthy( get_theme_mod( 'sticky_sidebar_option', buddyx_defaults( 'sticky-sidebar' ) ) ) ) {
 			$classes[] = 'sticky-sidebar-enable';
-		}
-
-		return $classes;
-	}
-
-	/**
-	 * Site single blog post body class.
-	 */
-	public function site_single_blog_post_body_classes( array $classes ): array {
-
-		$single_post_layout = get_theme_mod( 'single_post_layout', buddyx_defaults( 'single-post-layout' ) );
-
-		if ( $single_post_layout === '2' ) {
-			$classes[] = 'single-post-layout-1';
-		} elseif ( $single_post_layout === '3' ) {
-			$classes[] = 'single-post-layout-2';
-		} elseif ( $single_post_layout === '4' ) {
-			$classes[] = 'single-post-layout-3';
-		} else {
-			$classes[] = '';
 		}
 
 		return $classes;
@@ -295,18 +274,20 @@ class Component implements Component_Interface {
 			)
 		);
 
-		// BuddyPress Option.
-		if ( class_exists( 'BuddyPress' ) ) {
-			if ( ! class_exists( 'Youzify' ) ) {
-				\BuddyX\Buddyx\Customizer_Framework\Panel::add(
-					'site_buddypress_panel',
-					array(
-						'title'       => esc_html__( 'Community Settings', 'buddyx' ),
-						'priority'    => 31,
-						'description' => '',
-					)
-				);
-			}
+		// BuddyPress Option. The panel, section and fields share ONE gate:
+		// BuddyPress active AND Youzify absent (Youzify replaces the avatar
+		// styling this section controls). Registering the section without
+		// its parent panel makes WordPress silently drop it, orphaning
+		// buddypress_avatar_style with nowhere to render.
+		if ( class_exists( 'BuddyPress' ) && ! class_exists( 'Youzify' ) ) {
+			\BuddyX\Buddyx\Customizer_Framework\Panel::add(
+				'site_buddypress_panel',
+				array(
+					'title'       => esc_html__( 'Community Settings', 'buddyx' ),
+					'priority'    => 31,
+					'description' => '',
+				)
+			);
 
 			\BuddyX\Buddyx\Customizer_Framework\Section::add(
 				'site_buddypress_general_section',
@@ -379,8 +360,10 @@ class Component implements Component_Interface {
 		require_once $fields_dir . 'WP_Login_Fields.php';
 		require_once $fields_dir . 'Site_Performance.php';
 
-		// BuddyPress fields - only load when BuddyPress is active.
-		if ( class_exists( 'BuddyPress' ) ) {
+		// BuddyPress fields - same gate as the Community panel/section above
+		// (BuddyPress active AND Youzify absent) so the avatar toggle never
+		// registers against a section WordPress dropped.
+		if ( class_exists( 'BuddyPress' ) && ! class_exists( 'Youzify' ) ) {
 			require_once $fields_dir . 'BuddyPress_Fields.php';
 		}
 	}

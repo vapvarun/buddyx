@@ -1,0 +1,31 @@
+/**
+ * rtMedia - BuddyX dark-mode compatibility.
+ *
+ * Loaded only when RTMedia is active (see inc/Styles/Component.php).
+ * rtMedia galleries, media-option menus, upload controls and the "no media"
+ * message hardcode dark text that disappears on a dark surface under
+ * [data-bx-mode="dark"] (the card's "media activity text stays dark / gallery
+ * items don't adapt"). Re-tint the text to the theme foreground and map the
+ * light popover/gallery panels onto the surface token. Media thumbnails keep
+ * their own imagery.
+ */
+:root[data-bx-mode="dark"] .rtmedia-container,
+:root[data-bx-mode="dark"] .rtm-gallery-media-title-container,
+:root[data-bx-mode="dark"] .rtm-media-options,
+:root[data-bx-mode="dark"] .rtmedia-action-buttons,
+:root[data-bx-mode="dark"] .rtmedia-no-media-found,
+:root[data-bx-mode="dark"] .rtm-gallery-item-title,
+:root[data-bx-mode="dark"] .rtmedia-activity-text,
+:root[data-bx-mode="dark"] #rtmedia-nav .rtmedia-tabs li a {
+	color: var(--bx-color-fg, #e5e7eb);
+}
+
+/* Light popovers / gallery panels onto the dark surface. */
+:root[data-bx-mode="dark"] .rtm-media-options-list,
+:root[data-bx-mode="dark"] .rtmedia-uploader-form,
+:root[data-bx-mode="dark"] .rtmedia-gallery-item,
+:root[data-bx-mode="dark"] .rtm-gallery-media-title-container {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+	color: var(--bx-color-fg, #e5e7eb);
+	border-color: var(--bx-color-border, #374151);
+}

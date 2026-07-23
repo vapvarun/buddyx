@@ -55,6 +55,12 @@ defined( 'ABSPATH' ) || exit;
 						'element' => '.site-sub-header',
 					),
 				),
+				// Saved background CSS must stop rendering when the customer
+				// flips 'Customize Background?' back off - active_callback only
+				// hides the control, it does not suppress emission.
+				'output_condition' => static function () {
+					return buddyx_is_truthy( get_theme_mod( 'site_sub_header_bg', 'off' ) );
+				},
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_sub_header_bg',

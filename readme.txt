@@ -1,10 +1,10 @@
 === BuddyX ===
 Contributors: wbcomdesigns
 Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variations, editor-style, custom-colors, custom-logo, featured-images, footer-widgets, theme-options
-Requires at least: 5.4
-Tested up to: 6.9
+Requires at least: 6.5
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 5.1.0
+Stable tag: 5.1.5
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,7 +45,7 @@ WooCommerce, BuddyPress, BuddyBoss Platform, LearnDash, LearnPress, LifterLMS, T
 
 = Need help? =
 
-* [Documentation](https://docs.wbcomdesigns.com/doc_category/buddyx/) - step-by-step guides
+* [Documentation](https://buddyxtheme.com/docs/) - step-by-step guides
 * [Community support forum](https://wordpress.org/support/theme/buddyx/) - free help from the community and our team
 * [GitHub](https://github.com/vapvarun/buddyx) - report issues or contribute
 
@@ -128,6 +128,68 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.1.5 - July 2026 =
+
+* Fix      - Style presets: the color reset arrows on Body Text, H1-H6, Site Title, Tagline, Menu and Subheader controls now revert to the picked preset's color.
+* Fix      - The color picker's Default button now targets the active Style preset's color instead of the original theme default on every preset-managed control.
+* Fix      - Publishing a Style preset no longer saves the preset palette as customer settings, which made dark mode unreadable after picking a light preset and dropped the preset's fonts.
+* Fix      - The visitor dark/light toggle now renders coherent, readable colors with any Style preset published.
+* Fix      - WooCommerce shop and archive pages now honor Breadcrumbs OFF, including legacy on/off values.
+* Fix      - FluentCart cart drawer now opens from the header cart icon. A selector typo previously left the toggle inert.
+* Fix      - Footer and Sub Header background toggles now stop the saved background from rendering when switched off. The saved color returns when re-enabled.
+* Fix      - Community Settings registration is consistent when Youzify runs alongside BuddyPress. The avatar toggle no longer registers against a dropped section.
+* Fix      - Derived background color variants now compute from the correct default #f7f7f9 on sites with nothing saved.
+* Dev      - New output_condition field arg lets the customizer framework gate CSS emission on an owning toggle at render time.
+* Dev      - Typography live preview gained color parity with the PHP output builder.
+* Dev      - Removed dead customizer code: the unregistered single_post_layout body-class filter, a dead blog_layout_style read, and the empty Theme Options section.
+
+= 5.1.4 - July 2026 =
+
+* New      - BuddyNext auth routing and a Manage menu entry.
+* New      - Custom fonts from the WP Font Library are now available in the Typography customizer.
+* Improve  - Color mode now offers Light and Dark only. The Auto/system option has been retired.
+* Improve  - Getting Started family cards now link to each product page so you can install it however you choose.
+* Fix      - Brand button color is scoped to theme-owned selectors instead of the bare button element.
+* Fix      - Cover and avatar image link colors now render correctly in dark mode.
+* Fix      - Corrected a dead header link, a malformed theme URL, and footer default drift.
+* Fix      - Images missing from the production build zip are now included.
+* Fix      - Skin preset and Getting Started icons now render correctly. Packaging no longer rewrites SVG path data when stamping the version.
+* Fix      - Getting Started no longer scrolls sideways on phones, and its tab strip is announced as "Getting Started sections" instead of a placeholder label.
+* Fix      - Getting Started links are now a full 40px tall on phones, so they are comfortable to tap.
+* Security - Removed the bundled third-party plugin installer and the distribution licence keys it shipped in plain text.
+* Dev      - Added the Domain Path header and refreshed the translation template.
+* Dev      - The admin banner and tab strip now use logical margins, so they bleed to the correct side in RTL.
+* Compat   - Tested up to WordPress 7.0.
+
+= 5.1.3 - June 2026 =
+
+* Fix      - Removed a broken local fonts font-collection registration that could surface a Site Editor error.
+* Fix      - Dark mode now renders correctly on BuddyBoss Platform screens.
+* Fix      - The feedback admin notice now displays correctly in dark mode.
+* Fix      - The brand button fill no longer applies to WPMediaVerse buttons.
+
+= 5.1.2 - June 2026 =
+
+* New      - Added a BuddyNext-compatible profile header section so the theme aligns with the BuddyNext layout.
+* Improve  - The chosen body font now drives the --global-font-family token, keeping typography consistent across the theme.
+* Fix      - Dark mode now renders correctly when switching from Light mode to Dark mode in the Customizer.
+* Fix      - The brand button fill no longer paints BuddyNext elements red.
+
+= 5.1.1 - June 2026 =
+
+* New      - WordPress Playground support for instant in-browser demos.
+* Improve  - Bare buttons use zero-specificity :where() focus and active styles so child themes can override them cleanly.
+* Fix      - Site Color Mode in the Customizer now updates the live preview instantly when switching Light, Dark, or Auto.
+* Fix      - Saving Customizer settings no longer auto-imports demo content; demo pages are created only via the "Set up demo site" button.
+* Fix      - Cart toggle Customizer control now targets a registered section so it renders.
+* Fix      - Local Google Fonts now apply on the front end after a typography change.
+* Fix      - Button-styled links in content no longer pick up the prose underline.
+* Fix      - The active navigation "you are here" cue uses a bottom border instead of a text underline.
+* Fix      - Removed an unwanted border from block buttons and stray text-decoration from anchors.
+* Fix      - Refreshed bundled WooCommerce template files that had fallen behind core.
+* Fix      - Prevented a PHP 8 fatal by making the activity argument optional in buddyx_bp_blogs_activity_content_with_read_more.
+* Compat   - Dark-mode styling for Better Messages, GamiPress, rtMedia, and BP Verified Member, each loaded only when the plugin is active.
 
 = 5.1.0 - June 2026 =
 
@@ -304,14 +366,14 @@ Customizer framework overhaul, Site Skin design tokens, and native dark mode. Al
 * Updated: Override templates for enhanced BuddyBoss Platform compatibility.
 * Fixed: PHP warning message on frontend.
 
-= 4.8.4 = 
+= 4.8.4 =
 * Updated: Platform stylesheet for improved visual consistency.
 * Improved: UI of the “Send Messages” tab in group pages.
 * Updated: BuddyBoss Platform override templates for better compatibility.
 * Enhanced: Product listing layout with infinite scroll support for WooCommerce.
 * Refined: UI for Mutual Connections tab when using BuddyBoss.
 
-= 4.8.3 = 
+= 4.8.3 =
 * Updated: Group list view layout optimized for tablet devices.
 * Updated: User interface enhancements across various BuddyBoss Platform tabs.
 * Updated: Improved review section styling and group listing layout for LifterLMS.
@@ -322,45 +384,45 @@ Customizer framework overhaul, Site Skin design tokens, and native dark mode. Al
 * Fixed: Mobile auto-zoom on text input fields now prevented for smoother UX.
 * Updated: Search form behavior improved with better filter handling.
 
-= 4.8.2 = 
-* Added: New hookable positions before and after the breadcrumb for easier customizations.  
-* Updated: Group activity UI improvements when using BuddyPress Member Blog Pro.  
-* Updated: Activity action buttons UI for better integration with BuddyPress Shortcodes.  
-* Updated: Messages UI compatibility fixes with BuddyBoss Platform.  
-* Updated: Single note UI improvements when using LMS Notes integration.  
-* Updated: Search form accessibility improvements and better data escaping for security.  
-* Updated: General UI enhancements with the latest BuddyBoss Platform updates.  
-* Fixed: Input field RTL view issues when using Kirki toolkit.  
+= 4.8.2 =
+* Added: New hookable positions before and after the breadcrumb for easier customizations.
+* Updated: Group activity UI improvements when using BuddyPress Member Blog Pro.
+* Updated: Activity action buttons UI for better integration with BuddyPress Shortcodes.
+* Updated: Messages UI compatibility fixes with BuddyBoss Platform.
+* Updated: Single note UI improvements when using LMS Notes integration.
+* Updated: Search form accessibility improvements and better data escaping for security.
+* Updated: General UI enhancements with the latest BuddyBoss Platform updates.
+* Fixed: Input field RTL view issues when using Kirki toolkit.
 * Fixed: Hidden groups visibility issue when using bbPress.
 
-= 4.8.1 = 
-* Added: Input validation, permission checks, and sanitization to improve overall security.  
-* Fixed: Console JavaScript deprecated warnings.  
-* Fixed: Issue by checking if BuddyPress is active before calling dependent functions.  
-* Updated: `buddypress-profile.php`, `extra.php`, `navigation.php`, and `entry_meta.php` with improved formatting and structure.  
-* Updated: CSS files for better UI consistency.  
-* Updated: BB Platform override templates for compatibility and performance.  
-* Improved: Code efficiency and readability by restructuring conditionals and optimizing string operations.  
-* Improved: WordPress template performance and caching by avoiding redundant data retrieval.  
+= 4.8.1 =
+* Added: Input validation, permission checks, and sanitization to improve overall security.
+* Fixed: Console JavaScript deprecated warnings.
+* Fixed: Issue by checking if BuddyPress is active before calling dependent functions.
+* Updated: `buddypress-profile.php`, `extra.php`, `navigation.php`, and `entry_meta.php` with improved formatting and structure.
+* Updated: CSS files for better UI consistency.
+* Updated: BB Platform override templates for compatibility and performance.
+* Improved: Code efficiency and readability by restructuring conditionals and optimizing string operations.
+* Improved: WordPress template performance and caching by avoiding redundant data retrieval.
 
-= 4.8.0 = 
-* Added: Query patterns including simple list, list, grid excerpt, cover grid, and cover featured for better content display.  
-* Added: Hero patterns including hero main, hero section, and hero count for enhanced page layouts.  
-* Added: Pricing table pattern for better pricing comparisons.  
-* Added: Features block light pattern for modern content presentation.  
-* Added: General FAQ pattern to streamline FAQ sections.  
-* Added: General banner pattern for customizable banner sections.  
-* Fixed: Pagination arrow alignment in RTL view.  
-* Fixed: UI issues with LMS notes.  
-* Fixed: Accessibility issues for better usability.  
-* Updated: Footer patterns for improved design consistency.  
-* Updated: bbPress dropdown tags color and UI with BB Platform.  
+= 4.8.0 =
+* Added: Query patterns including simple list, list, grid excerpt, cover grid, and cover featured for better content display.
+* Added: Hero patterns including hero main, hero section, and hero count for enhanced page layouts.
+* Added: Pricing table pattern for better pricing comparisons.
+* Added: Features block light pattern for modern content presentation.
+* Added: General FAQ pattern to streamline FAQ sections.
+* Added: General banner pattern for customizable banner sections.
+* Fixed: Pagination arrow alignment in RTL view.
+* Fixed: UI issues with LMS notes.
+* Fixed: Accessibility issues for better usability.
+* Updated: Footer patterns for improved design consistency.
+* Updated: bbPress dropdown tags color and UI with BB Platform.
 
-= 4.7.7 = 
-* Updated: Managed BuddyWoo order tab pagination UI with Youzify compatibility.  
-* Updated: Improved UI for BuddyWoo tabs with Youzify integration.  
-* Updated: Resizable text areas for better user experience.  
-* Updated: Enhanced `members-loop.php` to align with BuddyBoss Platform updates.  
+= 4.7.7 =
+* Updated: Managed BuddyWoo order tab pagination UI with Youzify compatibility.
+* Updated: Improved UI for BuddyWoo tabs with Youzify integration.
+* Updated: Resizable text areas for better user experience.
+* Updated: Enhanced `members-loop.php` to align with BuddyBoss Platform updates.
 
 = 4.7.6 =
 * Fixed issue with `content.min.css` being called twice.
@@ -591,7 +653,7 @@ Customizer framework overhaul, Site Skin design tokens, and native dark mode. Al
 = 4.3.9 =
 * Fix: (#436) Update woocommerce pages UI
 * Fix: (#433) Managed single member cover image layout
-* Fix: (#431) - Flush on save customizer setting 
+* Fix: (#431) - Flush on save customizer setting
 * Fix: (#431) - update js file to flush local font files
 * Fix: (#431) Added buddyx customizer js file
 * Fix: (#431) Added site performance customizer setting
@@ -732,7 +794,7 @@ Customizer framework overhaul, Site Skin design tokens, and native dark mode. Al
 
 = 4.0.0 =
 * New Feature: Post Format - Gallery
-* New Feature: Post Format - Link 
+* New Feature: Post Format - Link
 * New Feature: Post Format - Image
 * New Feature: Post Format - Quote
 * New Feature: Post Format - Video

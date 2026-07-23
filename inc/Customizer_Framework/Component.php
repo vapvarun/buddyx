@@ -268,7 +268,6 @@ class Component {
 			'body_background_color',
 			'content_background_color',
 			'site_header_bg_color',
-			'site_footer_background_color',
 			'site_copyright_background_color',
 		),
 		'base-2'     => array(
@@ -276,11 +275,17 @@ class Component {
 			'box_background_color',
 		),
 		'contrast'   => array(
-			'body_text_color',
-			'headings_color',
-			'site_title_color',
-			'menu_color',
-			'subheader_title_color',
+			'typography_option[color]',
+			'h1_typography_option[color]',
+			'h2_typography_option[color]',
+			'h3_typography_option[color]',
+			'h4_typography_option[color]',
+			'h5_typography_option[color]',
+			'h6_typography_option[color]',
+			'site_title_typography_option[color]',
+			'site_tagline_typography_option[color]',
+			'menu_typography_option[color]',
+			'site_sub_header_typography[color]',
 			'site_footer_title_color',
 			'site_footer_links_color',
 			'site_copyright_links_color',
@@ -290,6 +295,18 @@ class Component {
 			'site_copyright_content_color',
 		),
 	);
+
+	/**
+	 * Public accessor for the variation -> per-control colour defaults map.
+	 * Consumed by Tokens\Component::purge_preset_equal_saves() to decide
+	 * whether a saved colour is a real personalisation or just the preset's
+	 * own value persisted by a customizer publish.
+	 *
+	 * @return array<string, array<string, string>> variation slug => { setting_id => hex }.
+	 */
+	public static function get_style_variation_defaults(): array {
+		return self::collect_style_variation_defaults();
+	}
 
 	/**
 	 * Build the variation -> per-control defaults map from the styles
@@ -375,9 +392,14 @@ class Component {
 				),
 			);
 		}
+		// Expose variation-is-dark flag so the preview binding for site_color_mode
+		// can coerce 'auto' to 'dark' when the Dark style preset is active —
+		// matching the PHP bootstrap script's behaviour (dark variation forces dark).
+		$variation_is_dark = ( true === \BuddyX\Buddyx\Tokens\Component::active_variation_is_dark_for_preview() );
 		wp_add_inline_script(
 			self::get_config( 'config_id' ) . '-preview',
-			'window.buddyxCustomizerOutputs = ' . wp_json_encode( $payload ) . ';',
+			'window.buddyxCustomizerOutputs = ' . wp_json_encode( $payload ) . ';'
+			. 'window.buddyxVariationIsDark = ' . ( $variation_is_dark ? 'true' : 'false' ) . ';',
 			'before'
 		);
 	}

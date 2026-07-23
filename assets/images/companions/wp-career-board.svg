@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="WP Career Board">
+  <defs>
+    <linearGradient id="wpcbGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect x="36" y="36" width="440" height="440" rx="110" fill="url(#wpcbGrad)"/>
+  <!-- Briefcase: body -->
+  <rect x="128" y="220" width="256" height="180" rx="20" fill="#FFFFFF"/>
+  <!-- Briefcase: handle -->
+  <path d="M196 220v-32a60 32 0 0 1 120 0v32" fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round"/>
+  <!-- Briefcase: center clasp bar -->
+  <rect x="128" y="290" width="256" height="24" rx="0" fill="url(#wpcbGrad)"/>
+  <!-- Briefcase: clasp knob -->
+  <rect x="232" y="278" width="48" height="48" rx="8" fill="#FFFFFF"/>
+  <rect x="244" y="290" width="24" height="24" rx="4" fill="url(#wpcbGrad)"/>
+</svg>

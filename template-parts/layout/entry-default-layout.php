@@ -17,8 +17,7 @@ $classes = array(
 	'buddyx-article',
 );
 
-$post_style = get_theme_mod( 'blog_layout_style', buddyx_defaults( 'blog-layout-style' ) );
-$blog_tags  = get_theme_mod( 'blog_show_tags', '' );
+$blog_tags = get_theme_mod( 'blog_show_tags', '' );
 ?>
 
 <div class="post-layout <?php echo esc_attr( $post_layout ); ?>">

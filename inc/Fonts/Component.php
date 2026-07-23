@@ -12,6 +12,7 @@ use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 
 require_once __DIR__ . '/Google_Fonts_Catalog.php';
+require_once __DIR__ . '/Custom_Fonts_Repository.php';
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
@@ -32,6 +33,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	protected $google_fonts;
 
 	/**
+	 * Typography setting IDs whose saved value may carry a font-family.
+	 * Hardcoded because Customizer_Framework fields are only registered in
+	 * the customizer context, not on front-end requests where we need to
+	 * scan saved values.
+	 *
+	 * Keep in sync with the typography fields registered in
+	 * inc/Customizer_Settings/Fields/Typography_Fields.php and Sub_Header_Fields.php.
+	 *
+	 * @var array<int, string>
+	 */
+	protected static $typography_settings = array(
+		'site_title_typography_option',
+		'site_tagline_typography_option',
+		'site_sub_header_typography',
+		'h1_typography_option',
+		'h2_typography_option',
+		'h3_typography_option',
+		'h4_typography_option',
+		'h5_typography_option',
+		'h6_typography_option',
+		'menu_typography_option',
+		'sub_menu_typography_option',
+		'typography_option',
+	);
+
+	/**
 	 * Gets the unique identifier for the theme component.
 	 *
 	 * @return string Component slug.
@@ -48,6 +75,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_fonts' ) );
 		add_action( 'init', array( $this, 'buddyx_register_fonts' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
+		add_action( 'wp_head', array( $this, 'print_custom_fonts' ), 50 );
 	}
 
 	/**
@@ -157,20 +185,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				)
 			);
 
-			wp_register_font_collection(
-				'local-fonts',
-				array(
-					'name'          => __( 'Local Fonts', 'buddyx' ),
-					'font_families' => array(
-						array(
-							'family' => 'My Local Font',
-							'file'   => get_template_directory_uri() . '/assets/fonts/my-local-font/my-local-font.woff2',
-							'weight' => '400',
-							'style'  => 'normal',
-						),
-					),
-				)
-			);
 		}
 	}
 
@@ -243,26 +257,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->google_fonts;
 		}
 
-		// Typography setting IDs whose saved value may carry a font-family.
-		// Hardcoded because Customizer_Framework fields are only registered in
-		// the customizer context, not on front-end requests.
-		// Keep in sync with the typography fields registered in
-		// inc/Customizer_Settings/Fields/Typography_Fields.php and Sub_Header_Fields.php.
-		$typography_settings = array(
-			'site_title_typography_option',
-			'site_tagline_typography_option',
-			'site_sub_header_typography',
-			'h1_typography_option',
-			'h2_typography_option',
-			'h3_typography_option',
-			'h4_typography_option',
-			'h5_typography_option',
-			'h6_typography_option',
-			'menu_typography_option',
-			'sub_menu_typography_option',
-			'typography_option',
-		);
-
 		// Self-hosted theme.json families + bare CSS generics — never fetched.
 		$skip = array(
 			'',
@@ -277,14 +271,22 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'fantasy',
 		);
 
+		$custom_names = self::custom_font_names();
+
 		$collected = array();
-		foreach ( $typography_settings as $setting_id ) {
+		foreach ( self::$typography_settings as $setting_id ) {
 			$value = get_theme_mod( $setting_id );
 			if ( ! is_array( $value ) || empty( $value['font-family'] ) ) {
 				continue;
 			}
 			$family = trim( (string) $value['font-family'] );
 			if ( in_array( strtolower( $family ), $skip, true ) ) {
+				continue;
+			}
+			// Skip families uploaded via WordPress's Font Library — those are
+			// self-hosted (see get_custom_fonts_in_use()) and Google doesn't
+			// host them; requesting them from fonts.googleapis.com would just 404.
+			if ( isset( $custom_names[ strtolower( $family ) ] ) ) {
 				continue;
 			}
 			$variant = '';
@@ -348,6 +350,91 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
 
+	/**
+	 * Map of lowercased custom-font family names (uploaded via WordPress's
+	 * Font Library, Appearance → Fonts → Upload) → the canonical family
+	 * name. Lets get_google_fonts() skip requesting a family from Google
+	 * that a site owner has actually self-hosted, and lets
+	 * get_custom_fonts_in_use() resolve a saved theme_mod value back to the
+	 * exact name Custom_Fonts_Repository::get_faces() expects.
+	 *
+	 * @return array<string, string>
+	 */
+	protected static function custom_font_names(): array {
+		static $cache = null;
+		if ( null !== $cache ) {
+			return $cache;
+		}
+		$cache = array();
+		if ( ! class_exists( '\\BuddyX\\Buddyx\\Fonts\\Custom_Fonts_Repository' ) ) {
+			return $cache;
+		}
+		foreach ( array_keys( Custom_Fonts_Repository::get_families() ) as $name ) {
+			$cache[ strtolower( $name ) ] = $name;
+		}
+		return $cache;
+	}
+
+	/**
+	 * Scan the same typography theme_mods as get_google_fonts(), but collect
+	 * only families that were uploaded via WordPress's Font Library, each
+	 * resolved to its @font-face definitions via Custom_Fonts_Repository.
+	 *
+	 * Returns [] when no custom family is selected — the common case for
+	 * every existing site — so print_custom_fonts() has nothing to print.
+	 *
+	 * @return array<string, array<int, array<string, mixed>>>
+	 */
+	protected function get_custom_fonts_in_use(): array {
+		if ( ! class_exists( '\\BuddyX\\Buddyx\\Fonts\\Custom_Fonts_Repository' ) ) {
+			return array();
+		}
+
+		$custom_names = self::custom_font_names();
+		if ( empty( $custom_names ) ) {
+			return array();
+		}
+
+		$in_use = array();
+		foreach ( self::$typography_settings as $setting_id ) {
+			$value = get_theme_mod( $setting_id );
+			if ( ! is_array( $value ) || empty( $value['font-family'] ) ) {
+				continue;
+			}
+			$family = trim( (string) $value['font-family'] );
+			$key    = strtolower( $family );
+			if ( ! isset( $custom_names[ $key ] ) || isset( $in_use[ $custom_names[ $key ] ] ) ) {
+				continue;
+			}
+			$in_use[ $custom_names[ $key ] ] = Custom_Fonts_Repository::get_faces( $custom_names[ $key ] );
+		}
+
+		return $in_use;
+	}
+
+	/**
+	 * Print `@font-face` rules for every Font-Library-uploaded family
+	 * currently selected in a typography theme_mod. Delegates the actual
+	 * CSS generation to WordPress core's wp_print_font_faces() (the same
+	 * function core hooks on `wp_head` for theme.json/style-variation
+	 * fonts — core's own hook passes no args, so it's a no-op for us; we
+	 * call it ourselves with the families actually in use).
+	 *
+	 * No-ops (zero queries beyond the cached name lookup, zero output) for
+	 * every site that hasn't uploaded a custom font — which is every
+	 * existing site today. Guarded with function_exists() since
+	 * wp_print_font_faces() only exists on WP 6.5+.
+	 */
+	public function print_custom_fonts(): void {
+		if ( ! function_exists( 'wp_print_font_faces' ) ) {
+			return;
+		}
+		$fonts = $this->get_custom_fonts_in_use();
+		if ( empty( $fonts ) ) {
+			return;
+		}
+		wp_print_font_faces( $fonts );
+	}
 
 	/**
 	 * Downloads Google Fonts found in the `get_google_fonts()` method.

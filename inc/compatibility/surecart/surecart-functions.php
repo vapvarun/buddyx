@@ -291,7 +291,7 @@ class BuddyX_SureCart_Support {
 			array(
 				'settings'    => 'site_header_enable_cart',
 				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
-				'section'     => 'site_header_primary_section',
+				'section'     => 'site_header_section',
 				'default'     => '1',
 				'priority'    => 10,
 				'choices'     => array(

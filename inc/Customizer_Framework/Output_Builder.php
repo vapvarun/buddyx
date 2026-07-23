@@ -34,6 +34,13 @@ class Output_Builder {
 			if ( empty( $f['output'] ) || empty( $f['settings'] ) ) {
 				continue;
 			}
+			// An 'output_condition' callable gates emission at render time.
+			// Without it, a saved value keeps emitting CSS even after the
+			// customer disables the owning toggle (the toggle only hides the
+			// control via active_callback - it never suppressed the output).
+			if ( isset( $f['output_condition'] ) && is_callable( $f['output_condition'] ) && ! call_user_func( $f['output_condition'] ) ) {
+				continue;
+			}
 			$value = get_theme_mod( $f['settings'], $f['default'] ?? '' );
 			if ( '' === $value || is_null( $value ) ) {
 				continue;
@@ -60,6 +67,19 @@ class Output_Builder {
 
 		// Typography: multi-property declaration block from a structured array.
 		if ( 'typography' === $type && is_array( $value ) ) {
+			// A rule may target a SINGLE sub-property (e.g. only 'font-family')
+			// and emit it to a named property — typically a CSS custom property —
+			// so the chosen font is exposed as a reusable token (e.g.
+			// --global-font-family) instead of only a literal declaration block.
+			$choice   = $rule['choice'] ?? '';
+			$property = $rule['property'] ?? '';
+			if ( '' !== $choice && '' !== $property ) {
+				if ( empty( $value[ $choice ] ) ) {
+					return '';
+				}
+				$rendered = str_replace( array( '<', '>' ), '', (string) $value[ $choice ] );
+				return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
+			}
 			$decls = self::typography_declarations( $value );
 			return $decls ? sprintf( '%s{%s}', $element, $decls ) : '';
 		}

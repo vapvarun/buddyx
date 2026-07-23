@@ -818,6 +818,39 @@
 			}
 		}
 
+		// Point a colour control's reset ("Default") button at a new
+		// colour. ctl.params.default alone is not enough: the wpColorPicker
+		// widget caches options.defaultColor at init (from the input's
+		// data-default-color attribute) and the Default button reads that
+		// cached option at click time. Update both the attribute (covers
+		// pickers that initialise later, e.g. on section expand) and the
+		// live widget option (covers already-initialised pickers).
+		function retargetPickerDefault( ctl, newColor ) {
+			if ( ! ctl || ! ctl.container ) {
+				return;
+			}
+			var run = function () {
+				var $picker = ctl.container.find( '.wp-color-picker, input.color-picker-hex, input[type="text"].wp-color-picker' ).first();
+				if ( ! $picker.length ) {
+					return;
+				}
+				$picker.data( 'default-color', newColor ).attr( 'data-default-color', newColor );
+				if ( jQuery.fn.wpColorPicker && $picker.data( 'a8c-iris' ) ) {
+					try {
+						$picker.wpColorPicker( 'option', 'defaultColor', newColor );
+					} catch ( e ) {
+						// Widget not initialised yet - the attribute update
+						// above will seed it correctly when it does.
+					}
+				}
+			};
+			if ( ctl.deferred && ctl.deferred.embedded ) {
+				ctl.deferred.embedded.done( run );
+			} else {
+				run();
+			}
+		}
+
 		function applyDefaults( slug, options ) {
 			var defaults = map[ slug ];
 			if ( ! defaults ) {
@@ -830,6 +863,7 @@
 				var ctl = wp.customize.control( settingId );
 				if ( ctl && ctl.params ) {
 					ctl.params.default = newColor;
+					retargetPickerDefault( ctl, newColor );
 				}
 				if ( alsoSetValue && wp.customize( settingId ) ) {
 					wp.customize( settingId ).set( newColor );
@@ -850,6 +884,7 @@
 				var ctl = wp.customize.control( settingId );
 				if ( ctl && ctl.params ) {
 					ctl.params.default = origDefault;
+					retargetPickerDefault( ctl, origDefault );
 				}
 				if ( alsoSetValue && wp.customize( settingId ) ) {
 					wp.customize( settingId ).set( origDefault );
@@ -881,6 +916,7 @@
 				}
 				if ( typeof map[ preset ][ ctl.id ] !== 'undefined' ) {
 					ctl.params.default = map[ preset ][ ctl.id ];
+					retargetPickerDefault( ctl, map[ preset ][ ctl.id ] );
 				}
 			} );
 

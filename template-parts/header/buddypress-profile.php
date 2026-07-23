@@ -13,6 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
 }
 
+// BuddyNext is mutually exclusive with BuddyPress. When it is active, render
+// its full header user section — notification bell + messages icon + avatar
+// profile dropdown (quick links + log out) — and bail, mirroring Reign's
+// BuddyNext header support so BuddyX members get the same header icons by
+// default. Renders nothing when logged out (BuddyX prints its own guest links).
+if ( is_user_logged_in() && function_exists( 'buddynext_header_user_section' ) ) {
+	echo buddynext_header_user_section(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Section returns pre-escaped, safe HTML built in HeaderUserSection::render().
+	return;
+}
+
 // Cache the current user ID once.
 $current_user_id = 0;
 
@@ -112,10 +122,15 @@ if ( is_user_logged_in() ) {
 	if ( ( $loggedin_user instanceof WP_User ) ) {
 		// Determine user profile URL based on BP version.
 		// Use function_exists check to prevent errors.
+		// Without BuddyPress there is no member profile to link to, so fall back to
+		// the author archive rather than '#'. Previously the logged-in owner's name
+		// and avatar in the header was a link that went nowhere on every non-BP
+		// site. The mobile header (template-parts/header/navigation.php) has always
+		// used this fallback; this keeps desktop consistent with it.
 		if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
-			$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( $current_user_id ) : '#';
+			$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( $current_user_id ) : get_author_posts_url( $current_user_id );
 		} else {
-			$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( $current_user_id ) : '#';
+			$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( $current_user_id ) : get_author_posts_url( $current_user_id );
 		}
 
 		// Get avatar once and store in variable to avoid multiple function calls.

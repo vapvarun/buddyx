@@ -101,9 +101,11 @@ h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
 h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 
 /* ----- Body links -----
- * `:not(.wp-element-button):not(.wp-block-button__link):not(.button)`
+ * `:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"])`
  * keeps button-as-anchor elements (WP block buttons, pattern CTAs, BP
- * action buttons) from inheriting the body link color. Without this
+ * action buttons, plus plugin button links like Elementor's
+ * `.elementor-button` / GamiPress buttons via the `[class*="button"]`
+ * catch-all) from inheriting the body link color or the prose underline. Without this
  * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
  * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
  * with link color on top of the brand BG → unreadable.
@@ -117,14 +119,14 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
  * `.site-title a`, specificity 0,1,1). All single/page templates
  * already wrap post content in `.entry-content`, so the scoped rule
  * still covers paragraph-nested links inside post bodies. */
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button),
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button) {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]),
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]) {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
 	/* WCAG 1.4.1 Use of Color: links must be distinguishable from
 	 * surrounding text without relying on color alone. Body-content
 	 * links get an underline; per-context CSS can override (e.g.
 	 * pattern CTAs that already have visual chrome). */
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
 
@@ -134,42 +136,48 @@ h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 .post-meta-tag__link,
 .tags-list a,
 .tag-links a {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	text-underline-offset: 2px;
 }
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):hover,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):focus {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
+.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus {
 	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
 }
 
 /* ----- Buttons -----
- * Note: `.button` is intentionally NOT in this selector list. WP and
- * BuddyPress use `.button` for many low-emphasis links (notification
- * dropdown footer, BP friend buttons, etc.) that should NOT inherit the
- * customer's brand button color. Per-context stylesheets already scope
- * `.button` correctly (woocommerce.css, platform.css, _comments.css).
- * This rule covers only canonical button elements + WP block buttons.
+ * Scoped to theme-owned button contexts, not the bare `button` element.
+ * A plugin's semantic <button> (tabs, sidebar nav, toggles) no longer
+ * matches this rule at all, so it no longer needs to fight back with its
+ * own !important — see the card at 3.basecamp.com/5798509/buckets/37499979/
+ * card_tables/cards/9994359475. This replaces the previous bare-element
+ * selector plus its growing list of per-plugin :not() exclusions
+ * (wc-block-, bn-, mvs-, etc.); none of those are needed anymore since
+ * those plugins' buttons never match a theme-owned class in the first place.
  *
- * Also excluded: header chrome buttons (color-mode toggle, menu-toggle,
- * search-icon) — they're navigation icons, not primary actions.
- *
- * Also excluded: WooCommerce block components ([class*="wc-block-"]) —
- * Cart/Checkout/Mini-Cart block buttons (quantity stepper, remove-item)
- * ship their own styling; the brand-button fill broke their layout. */
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]),
+ * `.button` alone (without the `button` element type) is intentionally NOT
+ * in this list: WP and BuddyPress use `.button` on many low-emphasis
+ * anchors (notification dropdown footer, BP friend buttons, etc.) that
+ * should NOT inherit the customer's brand button color. Per-context
+ * stylesheets already scope those correctly (woocommerce.css, platform.css,
+ * _comments.css). `button.button` (an actual <button> element carrying the
+ * class, e.g. the WooCommerce cart's Apply Coupon/Update Cart buttons) is
+ * included, matching prior behavior for those. */
+button.button,
+.wp-element-button,
+.wp-block-button__link,
 input[type="button"],
-input[type="submit"],
-.wp-block-button__link {
+input[type="submit"] {
 	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
 }
-button:not([class*="wp-"]):not([class*="customize-"]):not([class*="wc-block-"]):not(.bx-color-mode-toggle__btn):not(.menu-toggle):not(.menu-close):not(.datepicker button):not([class*="tribe-events"]):hover,
+button.button:hover,
+.wp-element-button:hover,
+.wp-block-button__link:hover,
 input[type="button"]:hover,
-input[type="submit"]:hover,
-.wp-block-button__link:hover {
+input[type="submit"]:hover {
 	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #ef5455));
 	color: var(--bx-color-button-fg-hover, #ffffff);
 	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #ef5455));
@@ -231,17 +239,18 @@ input[type="submit"]:hover,
  * accent #ef5455 only has 3.87:1 against white — fails. Rather than
  * darken the brand accent globally (would break customer expectations),
  * keep the active state TEXT in the standard menu fg (high contrast) and
- * use the brand accent as a thick UNDERLINE for "you are here" emphasis.
- * Bold weight adds a third non-color cue (WCAG 1.4.1 — Use of Color). */
+ * use the brand accent as a "you are here" bottom-border emphasis. The
+ * earlier text-decoration underline read as dated on nav items; a 2px
+ * accent bottom-border (drawn with an inset box-shadow so it adds no
+ * layout shift vs. inactive items) is the modern equivalent. Bold weight
+ * keeps a non-color cue intact, so WCAG 1.4.1 (Use of Color) still holds. */
 .main-navigation ul li.current-menu-item > a,
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li.current-menu-ancestor > a {
 	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
 	font-weight: 600;
-	text-decoration: underline;
-	text-decoration-color: var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
-	text-decoration-thickness: 2px;
-	text-underline-offset: 4px;
+	text-decoration: none;
+	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
 }
 
 /* ----- Inputs / forms ----- */

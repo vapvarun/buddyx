@@ -349,6 +349,8 @@ body.buddypress #buddypress.buddypress-wrap .html-active button.switch-html {
 
 .buddypress-wrap .bp-messages,
 .buddypress-wrap .bp-feedback {
+	background: var(--color-theme-white-box);
+    color: var(--global-font-color);
     padding: 0.615em 2.25em 0.615em 0.7em;
     font-size: 14px;
     line-height: 1.5;
@@ -804,6 +806,108 @@ body .buddypress-wrap form.bp-messages-search-form input[type="search"],
         font-size: 16px !important;
         line-height: 1.4;
     }
+}
+
+form.ac-form .ac-reply-content .ac-textarea textarea,
+.activity-update-form #whats-new-textarea textarea,
+.buddypress-wrap .standard-form textarea,
+.buddypress-wrap .standard-form input[type="text"],
+.buddypress-wrap .standard-form input[type="color"],
+.buddypress-wrap .standard-form input[type="date"],
+.buddypress-wrap .standard-form input[type="datetime"],
+.buddypress-wrap .standard-form input[type="datetime-local"],
+.buddypress-wrap .standard-form input[type="email"],
+.buddypress-wrap .standard-form input[type="month"],
+.buddypress-wrap .standard-form input[type="number"],
+.buddypress-wrap .standard-form input[type="range"],
+.buddypress-wrap .standard-form input[type="search"],
+.buddypress-wrap .standard-form input[type="tel"],
+.buddypress-wrap .standard-form input[type="time"],
+.buddypress-wrap .standard-form input[type="url"],
+.buddypress-wrap .standard-form input[type="week"],
+.buddypress-wrap .standard-form select,
+.buddypress-wrap .standard-form input[type="password"],
+.buddypress-wrap .standard-form [data-bp-search] input[type="search"],
+.buddypress-wrap .standard-form [data-bp-search] input[type="text"],
+.buddypress-wrap .standard-form .groups-members-search input[type="search"],
+.buddypress-wrap .standard-form .groups-members-search input[type="text"] {
+    background-color: var(--color-theme-white-box);
+    color: var(--global-font-color);
+    border-color: var(--global-border-color);
+    border-radius: var(--form-border-radius) !important;
+}
+
+.buddypress-wrap .standard-form input:focus,
+.buddypress-wrap .standard-form textarea:focus,
+.buddypress-wrap .standard-form select:focus {
+    background-color: var(--color-theme-white-box);
+    color: var(--global-font-color);
+}
+
+#message-threads li .thread-content .excerpt {
+    color: var(--global-font-color);
+}
+
+.buddypress-wrap .bp-tables-user tr.alt td,
+.buddypress-wrap table.wp-profile-fields tr.alt td {
+    background: var(--global-body-lightcolor);
+}
+
+.buddypress-wrap .bp-tables-user tr td.label,
+.buddypress-wrap table.wp-profile-fields tr td.label,
+.buddypress-wrap table.forum tr td.label {
+    border-right: 1px solid var(--global-border-color);
+}
+
+.buddypress .buddypress-wrap button:hover,
+.buddypress .buddypress-wrap button:focus,
+.buddypress .buddypress-wrap a.button:focus,
+.buddypress .buddypress-wrap a.button:hover,
+.buddypress .buddypress-wrap input[type="submit"]:focus,
+.buddypress .buddypress-wrap input[type="submit"]:hover,
+.buddypress .buddypress-wrap input[type="button"]:focus,
+.buddypress .buddypress-wrap input[type="button"]:hover,
+.buddypress .buddypress-wrap input[type="reset"]:focus,
+.buddypress .buddypress-wrap input[type="reset"]:hover,
+.buddypress .buddypress-wrap .generic-button a:focus,
+.buddypress .buddypress-wrap .generic-button a:hover,
+.buddypress .buddypress-wrap .comment-reply-link:focus,
+.buddypress .buddypress-wrap .comment-reply-link:hover,
+.buddypress .buddypress-wrap .activity-read-more a:focus,
+.buddypress .buddypress-wrap .activity-read-more a:hover {
+    color: inherit;
+}
+
+.activity-list .activity-item .activity-header .time-since,
+.activity-list .activity-item .activity-header .time-since:hover,
+.single-headers .item-meta,
+.activity-list .activity-item .activity-content .activity-header,
+.activity-list .activity-item .activity-content .comment-header,
+.bp-messages-content time {
+    color: var(--color-meta);
+}
+
+.single-headers .group-status {
+    color: var(--global-title-color);
+}
+
+.buddypress-wrap .tabbed-links ul,
+.buddypress-wrap .tabbed-links ol,
+.buddypress-wrap .tabbed-links ul li.current,
+.buddypress-wrap .tabbed-links ol li.current,
+.bp-avatar-nav ul,
+.bp-avatar-nav ul.avatar-nav-items li.current,
+.buddypress-wrap form.bp-dir-search-form,
+.buddypress-wrap form.bp-messages-search-form,
+.buddypress-wrap form[data-bp-search].bp-invites-search-form,
+.buddypress-wrap form#group-members-search,
+.buddypress-wrap.bp-vertical-navs .dir-navs.activity-nav-tabs ul li.selected,
+.buddypress-wrap.bp-vertical-navs .dir-navs.sites-nav-tabs ul li.selected,
+.buddypress-wrap.bp-vertical-navs .dir-navs.groups-nav-tabs ul li.selected,
+.buddypress-wrap.bp-vertical-navs .dir-navs.members-nav-tabs ul li.selected,
+.buddypress-wrap.bp-vertical-navs .main-navs.user-nav-tabs ul li.selected,
+.buddypress-wrap.bp-vertical-navs .main-navs.group-nav-tabs ul li.selected {
+    border-color: var(--global-border-color);
 }
 
 /*--------------------------------------------------------------
@@ -3891,6 +3995,12 @@ button#bp-delete-avatar {
     -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+:root[data-bx-mode="dark"] #item-header a.link-change-cover-image,
+:root[data-bx-mode="dark"] #item-header a.position-change-cover-image,
+:root[data-bx-mode="dark"] #item-header a.link-change-profile-image {
+    background: rgba(0, 0, 0, 0.9);
 }
 
 #item-header a.link-change-cover-image>i,

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add LiveReload script in development mode.
  */
 
-define( 'BUDDYX_MINIMUM_WP_VERSION', '5.4' );
+define( 'BUDDYX_MINIMUM_WP_VERSION', '6.5' );
 define( 'BUDDYX_MINIMUM_PHP_VERSION', '8.0' );
 
 
@@ -94,6 +94,14 @@ function buddyx_load_plugin_support() {
 		$buddypress_file = $base_path . '/inc/compatibility/buddypress/buddypress-functions.php';
 		if ( file_exists( $buddypress_file ) ) {
 			require_once $buddypress_file;
+		}
+	}
+
+	// BuddyNext compatibility (mutually exclusive with BuddyPress)
+	if ( defined( 'BUDDYNEXT_VERSION' ) && ! ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) ) {
+		$buddynext_file = $base_path . '/inc/compatibility/buddynext/buddynext-functions.php';
+		if ( file_exists( $buddynext_file ) ) {
+			require_once $buddynext_file;
 		}
 	}
 

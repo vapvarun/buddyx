@@ -35,7 +35,9 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 
 				do_action( 'buddyx_before_breadcrumb' );
 
-				if ( ! empty( $breadcrumbs ) ) {
+				// `buddyx_is_truthy()` handles pre-5.1.0 'on'/'off' string values;
+				// `! empty()` treats the literal 'off' string as enabled.
+				if ( buddyx_is_truthy( $breadcrumbs ) ) {
 					buddyx_the_breadcrumb();
 				}
 

@@ -49,6 +49,12 @@ defined( 'ABSPATH' ) || exit;
 						'element' => '.site-footer-wrapper',
 					),
 				),
+				// Saved background CSS must stop rendering when the customer
+				// flips 'Customize Background?' back off - active_callback only
+				// hides the control, it does not suppress emission.
+				'output_condition' => static function () {
+					return buddyx_is_truthy( get_theme_mod( 'site_footer_bg', 'off' ) );
+				},
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_footer_bg',
@@ -67,7 +73,9 @@ defined( 'ABSPATH' ) || exit;
 				'settings' => 'site_copyright_text',
 				'label'    => esc_html__( 'Add Content', 'buddyx' ),
 				'section'  => 'site_copyright_section',
-				'default'  => esc_html__( 'Copyright © [current_year] [site_title] | Powered by [theme_author]', 'buddyx' ),
+				// Shared with the render site (inc/extra.php) so the Customizer default
+				// and what a fresh site actually prints cannot diverge.
+				'default'  => buddyx_footer_default_copyright_text(),
 				'priority' => 10,
 			)
 		);

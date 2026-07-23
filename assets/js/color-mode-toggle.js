@@ -1,5 +1,5 @@
 /**
- * Visitor color-mode toggle — light → dark → auto cycle.
+ * Visitor color-mode toggle — light ↔ dark toggle.
  *
  * Pairs with the bootstrap script in inc/Tokens/Component.php which sets
  * <html data-bx-mode> from localStorage in <head> (FOUC-safe). This module
@@ -13,11 +13,12 @@
 	'use strict';
 
 	const STORAGE_KEY = 'bx-color-mode';
-	const ORDER = ['light', 'dark', 'auto'];
+	// Light ↔ dark only. The "auto"/system option was retired in 5.1.4; a stale
+	// 'auto' in localStorage is no longer valid and resolves to light.
+	const ORDER = ['light', 'dark'];
 	const LABELS = {
 		light: 'Light mode (click to switch to dark)',
-		dark: 'Dark mode (click to switch to system)',
-		auto: 'System mode (click to switch to light)',
+		dark: 'Dark mode (click to switch to light)',
 	};
 
 	/** Read mode from localStorage; fall back to current <html> attribute. */
@@ -74,13 +75,12 @@
 	}
 
 	/**
-	 * Cycle to the next mode in the rotation.
+	 * Toggle between the two modes.
 	 * @param {string} current Current mode.
-	 * @return {string} Next mode in the cycle.
+	 * @return {string} The other mode.
 	 */
 	function cycle(current) {
-		const idx = ORDER.indexOf(current);
-		return ORDER[(idx + 1) % ORDER.length];
+		return current === 'dark' ? 'light' : 'dark';
 	}
 
 	/**

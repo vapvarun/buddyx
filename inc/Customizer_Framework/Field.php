@@ -359,7 +359,9 @@ class Field {
 	 */
 	protected static function build_control_args( string $type, array $args ): array {
 		// Strip keys consumed by Field::register_with_manager / add_setting.
-		$internal = array( '_type', 'settings', 'default', 'transport', 'sanitize_callback', 'capability' );
+		// 'output_condition' is consumed by Output_Builder::collect() at render
+		// time and must not leak into control constructor args.
+		$internal = array( '_type', 'settings', 'default', 'transport', 'sanitize_callback', 'capability', 'output_condition' );
 		$out      = array_diff_key( $args, array_flip( $internal ) );
 
 		$out['label']       = $args['label']       ?? '';

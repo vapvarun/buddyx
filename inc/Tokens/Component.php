@@ -635,6 +635,12 @@ class Component implements Component_Interface {
 		// those spurious saves emit AFTER the style-variation overlay in :root
 		// and clobber the variation's colors. Runs once per site.
 		add_action( 'init', array( __CLASS__, 'maybe_purge_alpha_color_pollution' ), 5 );
+		// Preset-equal saves are not personalisations: strip them at publish
+		// time (and once on upgrade for sites that already published a
+		// preset) so the mode-aware token overlay stays the source of truth.
+		// Runs before register_variation_theme_mod_filters (init 20).
+		add_action( 'init', array( __CLASS__, 'maybe_purge_preset_equal_saves_once' ), 15 );
+		add_action( 'customize_save_after', array( __CLASS__, 'purge_preset_equal_saves' ), 20 );
 	}
 
 	/**
@@ -749,6 +755,134 @@ class Component implements Component_Interface {
 		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 			error_log( sprintf( '[BuddyX 5.1.0] alpha-color pollution purge removed %d theme_mods', $purged ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		}
+	}
+
+	/**
+	 * Purge saved color theme_mods that canonically equal the active Style
+	 * preset's value for that setting (or the registered field default when
+	 * no preset is active).
+	 *
+	 * Why: picking a Style preset in the customizer paints the preset's
+	 * palette into every mapped per-control color setting (so the pickers
+	 * visually reflect the preset). Publishing then persists those values as
+	 * customer theme_mods even though the customer never personalised them.
+	 * Two things break downstream:
+	 *
+	 *  1. Typography `color` sub-keys emit element-level CSS through
+	 *     Output_Builder (e.g. `body{color:#0A0A0A}`) that applies in BOTH
+	 *     color modes - a light preset then renders near-black text on the
+	 *     dark surface (and the Dark preset near-white text on light).
+	 *  2. The saves block/skew the variation theme_mod filters and clutter
+	 *     the DB with values the variation overlay already provides.
+	 *
+	 * A save that equals the preset's value is not a personalisation - the
+	 * token overlay (mode-aware) is the source of truth for it. Values that
+	 * genuinely differ from the preset are always preserved.
+	 *
+	 * Reads/writes the raw theme_mods option (NOT get_theme_mod) so the
+	 * variation theme_mod filters cannot leak injected values back into the
+	 * saved option.
+	 */
+	public static function purge_preset_equal_saves(): void {
+		$mods = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
+		if ( ! is_array( $mods ) ) {
+			return;
+		}
+		$slug     = (string) ( $mods['site_style_variation'] ?? '' );
+		$baseline = array();
+		if ( '' !== $slug ) {
+			$map      = \BuddyX\Buddyx\Customizer_Framework\Component::get_style_variation_defaults();
+			$baseline = $map[ $slug ] ?? array();
+		} else {
+			// Empty "Default" preset: baseline is each field's registered
+			// default (static 5.1.0 snapshots; kept in sync with Skin_Fields).
+			$baseline = self::$alpha_color_field_defaults_5_1_0;
+			foreach ( self::$alpha_color_typography_subkey_defaults_5_1_0 as $setting => $default ) {
+				$baseline[ $setting . '[color]' ] = $default;
+			}
+		}
+		if ( array() === $baseline ) {
+			return;
+		}
+
+		$changed = false;
+		foreach ( $baseline as $setting_id => $expected ) {
+			if ( ! is_string( $expected ) || '' === $expected ) {
+				continue;
+			}
+			if ( preg_match( '/^([^\[]+)\[([^\]]+)\]$/', $setting_id, $m ) ) {
+				$parent = $m[1];
+				$key    = $m[2];
+				$saved  = $mods[ $parent ] ?? null;
+				if ( ! is_array( $saved ) || empty( $saved[ $key ] ) || ! is_string( $saved[ $key ] ) ) {
+					continue;
+				}
+				if ( self::colors_canonically_equal( $saved[ $key ], $expected ) ) {
+					unset( $saved[ $key ] );
+					if ( array() === $saved ) {
+						unset( $mods[ $parent ] );
+					} else {
+						$mods[ $parent ] = $saved;
+					}
+					$changed = true;
+				}
+			} else {
+				$saved = $mods[ $setting_id ] ?? null;
+				if ( ! is_string( $saved ) || '' === $saved ) {
+					continue;
+				}
+				if ( self::colors_canonically_equal( $saved, $expected ) ) {
+					unset( $mods[ $setting_id ] );
+					$changed = true;
+				}
+			}
+		}
+		// Typography sub-keys (font-family / weight / letter-spacing) that
+		// equal the active variation's own override are filter-provided, not
+		// customer personalisations - strip them too. Cleans rows persisted
+		// before the customize_save filter detachment existed, where a save
+		// serialized the injected variation fonts into theme_mods.
+		if ( '' !== $slug ) {
+			foreach ( self::resolve_variation_typography_overrides( $slug ) as $setting => $props ) {
+				$saved = $mods[ $setting ] ?? null;
+				if ( ! is_array( $saved ) || ! is_array( $props ) ) {
+					continue;
+				}
+				$dirty = false;
+				foreach ( $props as $key => $value ) {
+					if ( isset( $saved[ $key ] ) && is_string( $saved[ $key ] ) && trim( $saved[ $key ] ) === trim( (string) $value ) ) {
+						unset( $saved[ $key ] );
+						$dirty = true;
+					}
+				}
+				if ( $dirty ) {
+					if ( array() === $saved ) {
+						unset( $mods[ $setting ] );
+					} else {
+						$mods[ $setting ] = $saved;
+					}
+					$changed = true;
+				}
+			}
+		}
+		if ( $changed ) {
+			\update_option( 'theme_mods_' . \get_stylesheet(), $mods );
+		}
+	}
+
+	/**
+	 * One-time cleanup for sites that already published a Style preset
+	 * before the purge above existed (5.1.5). Runs before
+	 * register_variation_theme_mod_filters() (init 20) so the variation
+	 * filters see the cleaned option and correctly treat the purged
+	 * settings as unsaved.
+	 */
+	public static function maybe_purge_preset_equal_saves_once(): void {
+		if ( get_theme_mod( '_buddyx_preset_equal_purged', false ) ) {
+			return;
+		}
+		self::purge_preset_equal_saves();
+		set_theme_mod( '_buddyx_preset_equal_purged', 1 );
 	}
 
 	/**
@@ -896,10 +1030,11 @@ class Component implements Component_Interface {
 		// typography_option theme_mod defaults via
 		// register_variation_theme_mod_filters() so the framework's
 		// Output_Builder emits typography from a single source.
-		$variation_covered    = array();
-		$variation_slug       = (string) ( $mods['site_style_variation'] ?? '' );
-		$variation_decls      = '';
-		$variation_is_dark    = false;
+		$variation_covered        = array();
+		$variation_slug           = (string) ( $mods['site_style_variation'] ?? '' );
+		$variation_decls          = '';
+		$variation_is_dark        = false;
+		$dark_variation_token_set = array();
 		if ( '' !== $variation_slug ) {
 			$variation_decls = self::resolve_style_variation_tokens( $variation_slug, $variation_covered );
 			if ( '' !== $variation_decls ) {
@@ -919,7 +1054,13 @@ class Component implements Component_Interface {
 				// theme would render *no* light-mode colors when the admin
 				// picks Dark variation, breaking the visitor light toggle.
 				if ( $variation_is_dark ) {
-					$variation_covered = array();
+					// Save which --bx-* tokens the variation covers before clearing.
+					// The customer-save emission loop below uses this to route those
+					// tokens into the dark cascade instead of :root, preventing a
+					// dark-preset value (e.g. site_header_bg_color = #0F0F0F) from
+					// leaking onto the light surface when the visitor toggles to light.
+					$dark_variation_token_set = array_flip( $variation_covered );
+					$variation_covered        = array();
 				}
 			}
 		}
@@ -927,6 +1068,8 @@ class Component implements Component_Interface {
 		// Site Custom Colors master toggle gates the customizer-derived tokens
 		// for parity with 5.0.3 behavior. Framework tokens + variation overlay
 		// above still emit.
+		// Customer saves routed to the dark cascade when the dark variation is active.
+		$dark_customer_decls = '';
 		if ( ! $enabled ) {
 			$decls       .= self::legacy_alias_declarations();
 			$light_block  = ':root{' . $decls . '}';
@@ -946,7 +1089,7 @@ class Component implements Component_Interface {
 			'site_primary_color'             => array( '--bx-color-accent', '#ef5455' ),
 			'site_buttons_background_color'  => array( '--bx-color-button-bg', '#ef5455' ),
 			'site_links_color'               => array( '--bx-color-link', '#111111' ),
-			'body_background_color'          => array( '--bx-color-bg', '#ffffff' ),
+			'body_background_color'          => array( '--bx-color-bg', '#f7f7f9' ),
 			'box_background_color'           => array( '--bx-color-bg-elevated', '#ffffff' ),
 			'site_header_bg_color'           => array( '--bx-color-header-bg', '#ffffff' ),
 		);
@@ -966,10 +1109,22 @@ class Component implements Component_Interface {
 				}
 			}
 			$color = '' !== $value ? self::normalize_color( $value ) : '';
+			// When the dark variation is active, customer-saved values for tokens
+			// the variation covers must go into the dark cascade — not :root. This
+			// prevents a dark-preset color (e.g. site_header_bg_color = #0F0F0F)
+			// from leaking onto the light surface when the visitor toggles to light.
+			$in_dark_variation = isset( $dark_variation_token_set[ $cfg['token'] ] );
 			if ( '' !== $color ) {
-				$decls .= $cfg['token'] . ':' . $color . ';';
-				foreach ( $cfg['aliases'] as $alias ) {
-					$decls .= $alias . ':' . $color . ';';
+				if ( $in_dark_variation ) {
+					$dark_customer_decls .= $cfg['token'] . ':' . $color . ';';
+					foreach ( $cfg['aliases'] as $alias ) {
+						$dark_customer_decls .= $alias . ':' . $color . ';';
+					}
+				} else {
+					$decls .= $cfg['token'] . ':' . $color . ';';
+					foreach ( $cfg['aliases'] as $alias ) {
+						$decls .= $alias . ':' . $color . ';';
+					}
 				}
 			}
 			// Derive variants for every base in $derive_for. When the customer
@@ -982,7 +1137,11 @@ class Component implements Component_Interface {
 			if ( isset( $derive_for[ $mod_key ] ) ) {
 				$token = $derive_for[ $mod_key ][0];
 				if ( '' !== $color ) {
-					$decls .= self::derive_color_variants( $token, $color );
+					if ( $in_dark_variation ) {
+						$dark_customer_decls .= self::derive_color_variants( $token, $color );
+					} else {
+						$decls .= self::derive_color_variants( $token, $color );
+					}
 				} elseif ( ! in_array( $token, $variation_covered, true ) ) {
 					$decls .= self::derive_color_variants( $token, $derive_for[ $mod_key ][1] );
 				}
@@ -1036,7 +1195,9 @@ class Component implements Component_Interface {
 		$decls .= self::legacy_alias_declarations();
 
 		$light_block = ':root{' . $decls . '}';
-		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
+		// Customer decls for dark-variation-covered tokens layer after $variation_decls
+		// so the customer's explicit save wins over the variation's palette default.
+		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls . $dark_customer_decls : '' );
 
 		return $light_block . $dark_block;
 	}
@@ -1100,8 +1261,9 @@ class Component implements Component_Interface {
 		if ( '' === $dark_decls ) {
 			return '';
 		}
-		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}'
-			. '@media (prefers-color-scheme:dark){:root[data-bx-mode="auto"]{' . $dark_decls . '}}';
+		// Explicit user choice only; the "auto"/system mode was retired in 5.1.4,
+		// so there is no prefers-color-scheme media block any more.
+		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}';
 	}
 
 	/**
@@ -1109,48 +1271,49 @@ class Component implements Component_Interface {
 	 * CSS or paint happens — prevents a flash-of-light-mode on dark-mode pages.
 	 *
 	 * Reads from localStorage so the visitor's choice persists across pages,
-	 * falling back to the customizer-configured default (auto/light/dark).
+	 * falling back to the customizer-configured default (light/dark). A legacy
+	 * saved "auto", from before the option was retired in 5.1.4, resolves to light.
 	 */
 	public function emit_mode_script() {
 		$default = (string) \get_theme_mod( 'site_color_mode', 'light' );
-		if ( ! in_array( $default, array( 'auto', 'light', 'dark' ), true ) ) {
+		if ( ! in_array( $default, array( 'light', 'dark' ), true ) ) {
 			$default = 'light';
 		}
 
-		// Dark style variation defaults the bootstrap to 'dark' so the page
-		// renders dark when the admin picks a Dark preset - the customer
-		// expectation behind "Pick Dark style preset". The earlier
-		// array_key_exists() explicit-check fired true after every customizer
-		// Publish (the framework persists site_color_mode at its 'light'
-		// default whether or not the admin actively changed it), which left
-		// the bootstrap on 'light' and the variation tokens stranded in the
-		// [data-bx-mode="dark"] cascade - a regression reported on card
-		// 9936727519. The corrected semantics: only saved 'auto' or 'dark'
-		// signal admin intent that differs from the variation's natural
-		// mode. A saved 'light' is indistinguishable from the framework
-		// auto-save default, so the dark variation wins. An admin who
-		// genuinely wants a light page with dark palette accents picks
-		// 'auto' (follow visitor device) instead.
-		$saved_mods        = \get_option( 'theme_mods_' . \get_stylesheet(), array() );
-		$saved_value       = is_array( $saved_mods ) ? ( $saved_mods['site_color_mode'] ?? null ) : null;
-		$variation_is_dark = ( true === self::active_variation_is_dark_scheme() );
-		if ( $variation_is_dark ) {
-			$default = in_array( $saved_value, array( 'auto', 'dark' ), true ) ? $saved_value : 'dark';
+		// A dark style preset makes dark the visual baseline, so force the default
+		// to dark (a light-OS visitor can still toggle to light). The retired
+		// "auto" mode no longer factors in here.
+		if ( true === self::active_variation_is_dark_scheme() ) {
+			$default = 'dark';
 		}
 		?>
 		<script id="buddyx-color-mode-bootstrap">
 		(function(){
+			// Assigned before the try: localStorage access throws when storage is
+			// blocked, and the catch needs siteDefault to already hold a value.
+			var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
 			try {
 				var saved = localStorage.getItem('bx-color-mode');
-				var mode = saved || <?php echo \wp_json_encode( $default ); ?>;
-				if (mode !== 'auto' && mode !== 'light' && mode !== 'dark') mode = 'light';
+				var mode = saved || siteDefault;
+				if (mode !== 'light' && mode !== 'dark') mode = siteDefault;
 				document.documentElement.setAttribute('data-bx-mode', mode);
 			} catch (e) {
-				document.documentElement.setAttribute('data-bx-mode', <?php echo \wp_json_encode( $default ); ?>);
+				document.documentElement.setAttribute('data-bx-mode', siteDefault);
 			}
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * Public accessor used by the Customizer Framework's enqueue_preview() to
+	 * expose the variation-is-dark flag to the preview JS so the site_color_mode
+	 * binding can coerce 'auto' to 'dark' when the Dark style preset is active.
+	 *
+	 * @return bool|null true = dark, false = light, null = unknown / none.
+	 */
+	public static function active_variation_is_dark_for_preview(): ?bool {
+		return self::active_variation_is_dark_scheme();
 	}
 
 	/**
@@ -1507,22 +1670,59 @@ class Component implements Component_Interface {
 		}
 
 		foreach ( $overrides as $setting => $variation_value ) {
-			// Customer has actively saved this setting → respect their save,
-			// do not override. Variation is a "starting point" only.
-			if ( array_key_exists( $setting, $saved_mods ) ) {
+			// Layering: field default < variation < customer save. A partial
+			// customer save (e.g. only the color sub-key persisted by a preset
+			// pick in the customizer) must NOT disable the variation's other
+			// sub-keys - skipping the whole filter on array_key_exists() used
+			// to drop the preset's fontFamily/weight the moment any sub-key
+			// was saved. $saved_raw is captured at registration because the
+			// filter callback only receives the post-default value and cannot
+			// tell a real save from the caller's default fallback.
+			$saved_raw = $saved_mods[ $setting ] ?? null;
+			if ( null !== $saved_raw && ! is_array( $variation_value ) ) {
+				// Scalar override with a real customer save: save wins outright.
 				continue;
 			}
-			\add_filter(
-				"theme_mod_{$setting}",
-				static function ( $current ) use ( $variation_value ) {
-					if ( is_array( $current ) && is_array( $variation_value ) ) {
-						return array_merge( $current, $variation_value );
-					}
-					return $variation_value;
-				},
-				5
-			);
+			$callback = static function ( $current ) use ( $variation_value, $saved_raw ) {
+				if ( is_array( $variation_value ) ) {
+					$base  = is_array( $current ) ? $current : array();
+					$saved = is_array( $saved_raw ) ? $saved_raw : array();
+					return array_merge( $base, $variation_value, $saved );
+				}
+				return $variation_value;
+			};
+			\add_filter( "theme_mod_{$setting}", $callback, 5 );
+			self::$variation_filter_handles[] = array( "theme_mod_{$setting}", $callback );
 		}
+
+		// WP_Customize_Setting builds a multidimensional root value from the
+		// FILTERED theme_mod before writing it back, so a customizer save
+		// would otherwise persist the filter-injected variation sub-keys
+		// (fontFamily/weight) as if the customer had saved them - polluting
+		// theme_mods and surviving later preset switches. Detach the filters
+		// for the duration of the save; purge_preset_equal_saves() then
+		// cleans the color sub-keys the preset pick itself dirtied.
+		\add_action( 'customize_save', array( __CLASS__, 'detach_variation_theme_mod_filters' ) );
+	}
+
+	/**
+	 * Handles of the theme_mod filters registered by
+	 * register_variation_theme_mod_filters(), as [hook, callback] pairs, so
+	 * they can be detached during a customizer save.
+	 *
+	 * @var array<int, array{0:string, 1:callable}>
+	 */
+	protected static array $variation_filter_handles = array();
+
+	/**
+	 * Remove every variation theme_mod filter (used right before the
+	 * customizer writes settings so injected values are never persisted).
+	 */
+	public static function detach_variation_theme_mod_filters(): void {
+		foreach ( self::$variation_filter_handles as $pair ) {
+			\remove_filter( $pair[0], $pair[1], 5 );
+		}
+		self::$variation_filter_handles = array();
 	}
 
 	/**
@@ -1712,7 +1912,7 @@ class Component implements Component_Interface {
 	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
 	 *   --bx-color-accent-active     shifted 20%
 	 *   --bx-color-accent-focus      shifted 5%
-	 *   --bx-color-accent-bg         rgba(171,193,35.1.08)
+	 *   --bx-color-accent-bg         rgba(171,193,35,0.08)
 	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
 	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
 	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out

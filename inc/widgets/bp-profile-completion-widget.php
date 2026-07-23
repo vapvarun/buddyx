@@ -325,12 +325,20 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 		/*
 		 * Calculate Total Progress percentage.
+		 *
+		 * Seeded before the guard: a site with no countable profile fields would
+		 * otherwise skip the assignment entirely, and the array would then be
+		 * created by the first ['groups'][] write below - returning a shape with
+		 * no 'completion_percentage' key at all for every consumer of the
+		 * bp_buddyx_user_progress_formatted filter.
 		 */
+		$user_prgress_formatted = array(
+			'completion_percentage' => 0,
+		);
+
 		if ( $user_progress_arr['total_fields'] > 0 ) {
-			$profile_completion_percentage = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
-			$user_prgress_formatted        = array(
-				'completion_percentage' => $profile_completion_percentage,
-			);
+			$profile_completion_percentage             = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
+			$user_prgress_formatted['completion_percentage'] = $profile_completion_percentage;
 		}
 
 		/*

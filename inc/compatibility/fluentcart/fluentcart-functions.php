@@ -234,7 +234,7 @@ class BuddyX_FluentCart_Support {
 				array(
 					'settings'    => 'site_header_enable_cart',
 					'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
-					'section'     => 'site_header_primary_section',
+					'section'     => 'site_header_section',
 					'default'     => '1',
 					'priority'    => 10,
 					'choices'     => array(
@@ -331,7 +331,7 @@ class BuddyX_FluentCart_Support {
 				?>
 				<div class="menu-icons-wrapper cart-widget-wrapper">
 					<div class="cart">
-						<a href="#" class="cart-icon-wrap fcart-cart-toogle-button" aria-label="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
+						<a href="#" class="cart-icon-wrap fcart-cart-toggle-button" data-fluent-cart-cart-toggle-button aria-label="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
 							<span class="fa fa-shopping-cart"></span>
 							<?php if ( $item_count > 0 ) : ?>
 								<sup class="count fc-cart-count"><?php echo esc_html( $item_count ); ?></sup>
@@ -398,17 +398,17 @@ class BuddyX_FluentCart_Support {
 					}
 				});
 
-				// Handle cart icon click to toggle FluentCart drawer
+				// Prevent the '#' anchor from jumping the page; FluentCart's own
+				// delegated document click listener (bound to the
+				// data-fluent-cart-cart-toggle-button attribute set on this link)
+				// handles the actual drawer open/close - preventDefault() here
+				// does not stop that listener from also seeing the click.
 				document.addEventListener('DOMContentLoaded', function() {
-					const cartIcon = document.querySelector('.fcart-cart-toogle-button');
-					if (cartIcon) {
+					document.querySelectorAll('.fcart-cart-toggle-button').forEach(function(cartIcon) {
 						cartIcon.addEventListener('click', function(e) {
 							e.preventDefault();
-							// Trigger FluentCart drawer toggle
-							const event = new CustomEvent('fluent_cart_toggle_drawer');
-							document.dispatchEvent(event);
 						});
-					}
+					});
 				});
 			})();
 		</script>

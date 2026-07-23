@@ -1,0 +1,18 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Learnomy">
+  <defs>
+    <linearGradient id="lrnTile" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a8af0"/>
+      <stop offset="1" stop-color="#1b6ec2"/>
+    </linearGradient>
+  </defs>
+  <!-- App tile -->
+  <rect width="256" height="256" rx="58" fill="url(#lrnTile)"/>
+  <!-- Ascending learning path: three rising steps -->
+  <g fill="#ffffff">
+    <rect x="62"  y="146" width="30" height="42"  rx="11"/>
+    <rect x="106" y="120" width="30" height="68"  rx="11"/>
+    <rect x="150" y="92"  width="30" height="96"  rx="11"/>
+  </g>
+  <!-- Summit dot: the learner reaching the goal -->
+  <circle cx="165" cy="70" r="15" fill="#ffffff"/>
+</svg>

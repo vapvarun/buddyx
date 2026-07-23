@@ -2,18 +2,21 @@
 /**
  * BuddyX\Buddyx\Starter_Content\Component class
  *
- * Two complementary demo-content paths:
+ * Demo content is imported through a SINGLE, explicit, customer-triggered path:
  *
- * 1. WP Starter Content API (`add_theme_support('starter-content')`):
- *    On a fresh WP install (`fresh_site` option = 1), opening the
- *    Customizer shows a curated set of demo pages, widgets, and a
- *    primary navigation menu. Customer previews + clicks "Publish"
- *    to commit. WP-native, sanctioned by WP.org review process.
+ *   Admin "Set up demo site" notice + button:
+ *     Works on any site state - fresh install OR existing site that wants the
+ *     demo. Customer-triggered (button click), idempotent, and reversible.
+ *     Creates 7 demo pages, a primary navigation menu, and seeds the relevant
+ *     options + theme_mods.
  *
- * 2. Admin "Set up demo site" notice + button:
- *    Works on any site state — fresh install OR existing site
- *    that wants the demo. Customer-triggered (button click), so
- *    still WP.org-compliant. Re-uses the same pattern compositions.
+ * The WP-native Starter Content API (`add_theme_support('starter-content')`)
+ * is intentionally NOT used. WP core commits the entire registered starter
+ * content (all pages, the front page, menus, widgets) into the site the moment
+ * a customer publishes ANY change in the Customizer on a fresh install - even
+ * an unrelated colour tweak. That surprised site owners with a full demo
+ * import they never asked for. Demo content must only ever be created when the
+ * admin explicitly clicks the button below.
  *
  * Per WP.org guidelines:
  *   - No external HTTP calls.
@@ -22,8 +25,8 @@
  *     is on a WP version that doesn't render `wp:pattern` blocks, the
  *     page exists but is empty (no fatal).
  *   - All copy is translation-ready via `__()`.
- *   - Customer-triggered, never automatic on activation.
- *   - Idempotent — clicking the button twice doesn't double-create.
+ *   - Customer-triggered, never automatic on activation or on save.
+ *   - Idempotent - clicking the button twice doesn't double-create.
  *
  * @package buddyx
  */
@@ -32,7 +35,6 @@ namespace BuddyX\Buddyx\Starter_Content;
 
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
-use function add_theme_support;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -54,45 +56,24 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Hook into after_setup_theme to register starter content + admin actions.
+	 * Hook the admin notice + the button/dismiss handlers.
 	 *
-	 * Priority 12 runs after theme support registrations in the parent
-	 * Base_Support component (priority 10) so we don't race the patterns.
+	 * Demo content is created only via `handle_setup()` (the button), so there
+	 * is no `after_setup_theme` registration here - we deliberately avoid
+	 * `add_theme_support('starter-content')` (see class docblock).
 	 */
 	public function initialize(): void {
-		add_action( 'after_setup_theme', array( $this, 'register' ), 12 );
-		add_action( 'admin_notices',     array( $this, 'maybe_render_notice' ) );
-		add_action( 'admin_post_buddyx_setup_demo',   array( $this, 'handle_setup' ) );
+		add_action( 'admin_notices', array( $this, 'maybe_render_notice' ) );
+		add_action( 'admin_post_buddyx_setup_demo', array( $this, 'handle_setup' ) );
 		add_action( 'admin_post_buddyx_dismiss_demo', array( $this, 'handle_dismiss' ) );
 	}
 
-	/**
-	 * Register the starter-content config.
-	 */
-	public function register(): void {
-		add_theme_support( 'starter-content', $this->config() );
-	}
-
-	/* ----- WP Starter Content config ------------------------------------- */
+	/* ----- Demo content definitions -------------------------------------- */
 
 	/**
-	 * Build the starter-content config array.
-	 *
-	 * @return array<string, mixed>
-	 */
-	protected function config(): array {
-		return array(
-			'posts'      => $this->posts(),
-			'nav_menus'  => $this->nav_menus(),
-			'widgets'    => $this->widgets(),
-			'options'    => $this->options(),
-			'theme_mods' => $this->theme_mods(),
-		);
-	}
-
-	/**
-	 * Page definitions. Each post key becomes a placeholder usable in
-	 * nav_menus, options, and theme_mods (e.g. `{{home}}`).
+	 * Page definitions. Each post key becomes the page slug and is referenced
+	 * by `create_demo_content()` to build the primary nav menu and the static
+	 * front / posts pages.
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
@@ -100,19 +81,19 @@ class Component implements Component_Interface {
 		// Pattern-driven demo pages render full-bleed sections (hero, CTA,
 		// pricing tables, etc.) designed for the no-sidebar
 		// `page-templates/full-width.php` template. Without this assignment,
-		// new installs (and Playground previews) inherit the customizer's
-		// default `sidebar_option = 'right'` so the demo pages render with
-		// a sidebar squeezing the patterns — bad first-impression for a
-		// theme that markets itself as a typography + pattern library.
+		// the demo pages would inherit the customizer's default
+		// `sidebar_option = 'right'` so the patterns render with a sidebar
+		// squeezing them - bad first-impression for a theme that markets
+		// itself as a typography + pattern library.
 		// The `blog` (Journal) page intentionally has NO template assignment
 		// because it's used as the posts page (page_for_posts) and the
 		// archive layout there benefits from the sidebar.
 		return array(
 			'home'     => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'Home', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'Home', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->compose(
+				'post_content'  => $this->compose(
 					array(
 						'buddyx/hero-typography-led',
 						'buddyx/social-proof-logos',
@@ -127,10 +108,10 @@ class Component implements Component_Interface {
 				),
 			),
 			'about'    => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'About', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'About', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->compose(
+				'post_content'  => $this->compose(
 					array(
 						'buddyx/hero-split-screen',
 						'buddyx/about-story',
@@ -140,10 +121,10 @@ class Component implements Component_Interface {
 				),
 			),
 			'services' => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'Services', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'Services', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->compose(
+				'post_content'  => $this->compose(
 					array(
 						'buddyx/services-grid',
 						'buddyx/features-alternating',
@@ -152,10 +133,10 @@ class Component implements Component_Interface {
 				),
 			),
 			'pricing'  => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'Pricing', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'Pricing', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->compose(
+				'post_content'  => $this->compose(
 					array(
 						'buddyx/general-pricing',
 						'buddyx/general-faq',
@@ -168,10 +149,10 @@ class Component implements Component_Interface {
 				'post_content' => '',
 			),
 			'faq'      => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'FAQ', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'FAQ', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->compose(
+				'post_content'  => $this->compose(
 					array(
 						'buddyx/general-faq',
 						'buddyx/cta-newsletter',
@@ -179,10 +160,10 @@ class Component implements Component_Interface {
 				),
 			),
 			'contact'  => array(
-				'post_type'    => 'page',
-				'post_title'   => __( 'Contact', 'buddyx' ),
+				'post_type'     => 'page',
+				'post_title'    => __( 'Contact', 'buddyx' ),
 				'page_template' => 'page-templates/full-width.php',
-				'post_content' => $this->contact_content(),
+				'post_content'  => $this->contact_content(),
 			),
 		);
 	}
@@ -218,7 +199,7 @@ class Component implements Component_Interface {
 			. "<!-- wp:button --><div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"mailto:hello@example.com\">%s</a></div><!-- /wp:button -->\n"
 			. "</div><!-- /wp:buttons -->\n"
 			. "</div>\n"
-			. "<!-- /wp:group -->",
+			. '<!-- /wp:group -->',
 			\esc_html( $heading ),
 			\esc_html( $body ),
 			\esc_html( $cta )
@@ -226,73 +207,20 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Primary nav menu config.
-	 *
-	 * Top-level key MUST match a theme-registered menu location name
-	 * (see register_nav_menus call in inc/Nav_Menus/Component.php).
-	 * BuddyX registers `primary` and `user_menu`. Using `primary` here.
-	 *
-	 * @return array<string, array<string, mixed>>
-	 */
-	protected function nav_menus(): array {
-		return array(
-			'primary' => array(
-				'name'  => __( 'Primary Menu', 'buddyx' ),
-				'items' => array(
-					'page_home',
-					'page_about',
-					'page_services',
-					'page_pricing',
-					'page_blog',
-					'page_faq',
-					'page_contact',
-				),
-			),
-		);
-	}
-
-	/**
-	 * Sidebar widgets — core only.
-	 *
-	 * @return array<string, array<int, mixed>>
-	 */
-	protected function widgets(): array {
-		return array(
-			'sidebar-1' => array(
-				'search',
-				'recent-posts',
-				'recent-comments',
-			),
-		);
-	}
-
-	/**
-	 * Site options.
-	 *
-	 * @return array<string, mixed>
-	 */
-	protected function options(): array {
-		return array(
-			'show_on_front'  => 'page',
-			'page_on_front'  => '{{home}}',
-			'page_for_posts' => '{{blog}}',
-		);
-	}
-
-	/**
-	 * Theme_mods.
+	 * Theme_mods seeded alongside the demo pages so the demo surfaces the
+	 * 5.1.0 features (color mode toggle, no-sidebar full-bleed pages).
 	 *
 	 * @return array<string, mixed>
 	 */
 	protected function theme_mods(): array {
 		return array(
-			'site_color_mode'                 => 'auto',
+			'site_color_mode'                 => 'light',
 			'site_color_mode_toggle_show'     => 'on',
 			'site_color_mode_toggle_position' => 'both',
-			// Pages default to no sidebar — the demo content is composed
+			// Pages default to no sidebar - the demo content is composed
 			// from full-bleed patterns that need the full content width.
 			// Customers can flip back to right/left sidebar in
-			// Customizer → Site Sidebar.
+			// Customizer -> Site Sidebar.
 			'sidebar_option'                  => 'none',
 		);
 	}
@@ -345,7 +273,6 @@ class Component implements Component_Interface {
 
 		\update_option( self::FLAG_OPTION, 'done' );
 
-		$redirect = \admin_url( 'themes.php?page=' );
 		// Add a transient so a success notice shows on the next admin page load.
 		\set_transient( 'buddyx_demo_setup_result', $result, 60 );
 
@@ -362,21 +289,22 @@ class Component implements Component_Interface {
 		}
 		\check_admin_referer( 'buddyx_dismiss_demo' );
 		\update_option( self::FLAG_OPTION, 'dismissed' );
-		\wp_safe_redirect( \wp_get_referer() ?: \admin_url() );
+		$referer = \wp_get_referer();
+		\wp_safe_redirect( $referer ? $referer : \admin_url() );
 		exit;
 	}
 
 	/**
-	 * Create the 7 demo pages, the primary nav menu, sidebar widgets,
-	 * and seed the relevant options + theme_mods.
+	 * Create the 7 demo pages, the primary nav menu, and seed the relevant
+	 * options + theme_mods.
 	 *
-	 * Idempotent — checks existing post slugs before creating, so calling
+	 * Idempotent - checks existing post slugs before creating, so calling
 	 * this twice doesn't double-create. Uses each post key as the slug.
 	 *
 	 * @return array<string, mixed>
 	 */
 	public function create_demo_content(): array {
-		$created = array();
+		$created  = array();
 		$page_ids = array();
 
 		foreach ( $this->posts() as $key => $page ) {
@@ -399,7 +327,7 @@ class Component implements Component_Interface {
 				$page_ids[ $key ] = $post_id;
 				$created[]        = $key;
 				// Apply the optional page template (full-width.php for
-				// pattern-driven demo pages — see posts() docblock).
+				// pattern-driven demo pages - see posts() docblock).
 				if ( ! empty( $page['page_template'] ) ) {
 					\update_post_meta( $post_id, '_wp_page_template', $page['page_template'] );
 				}
@@ -425,17 +353,21 @@ class Component implements Component_Interface {
 					if ( empty( $page_ids[ $slug ] ) ) {
 						continue;
 					}
-					\wp_update_nav_menu_item( $menu_id, 0, array(
-						'menu-item-title'     => \get_the_title( $page_ids[ $slug ] ),
-						'menu-item-object'    => 'page',
-						'menu-item-object-id' => $page_ids[ $slug ],
-						'menu-item-type'      => 'post_type',
-						'menu-item-status'    => 'publish',
-					) );
+					\wp_update_nav_menu_item(
+						$menu_id,
+						0,
+						array(
+							'menu-item-title'     => \get_the_title( $page_ids[ $slug ] ),
+							'menu-item-object'    => 'page',
+							'menu-item-object-id' => $page_ids[ $slug ],
+							'menu-item-type'      => 'post_type',
+							'menu-item-status'    => 'publish',
+						)
+					);
 				}
 				// Assign menu to the theme's primary location.
-				$locations             = (array) \get_theme_mod( 'nav_menu_locations', array() );
-				$locations['primary']  = $menu_id;
+				$locations            = (array) \get_theme_mod( 'nav_menu_locations', array() );
+				$locations['primary'] = $menu_id;
 				\set_theme_mod( 'nav_menu_locations', $locations );
 			}
 		}

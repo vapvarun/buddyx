@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Listora">
+  <defs>
+    <linearGradient id="lstGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6B6B"/>
+      <stop offset="1" stop-color="#EE4036"/>
+    </linearGradient>
+  </defs>
+  <rect x="36" y="36" width="440" height="440" rx="110" fill="url(#lstGrad)"/>
+  <!-- Map pin: teardrop body -->
+  <path d="M256 100 C182 100 130 156 130 230 C130 310 256 430 256 430 C256 430 382 310 382 230 C382 156 330 100 256 100 Z" fill="#FFFFFF"/>
+  <!-- Inner lens circle (cut-out style using overlay) -->
+  <circle cx="256" cy="224" r="56" fill="url(#lstGrad)"/>
+</svg>

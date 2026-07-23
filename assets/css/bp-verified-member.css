@@ -1,0 +1,17 @@
+/**
+ * BP Verified Member - BuddyX dark-mode compatibility.
+ *
+ * Loaded only when BP_Verified_Member is active (see inc/Styles/Component.php).
+ *
+ * The verified/unverified badge is a self-colored icon (#1da1f2 fill + masked
+ * SVG) and the badge tooltip already ships a dark background
+ * (rgba(0, 0, 0, .75)) with white text, so both render correctly on dark
+ * surfaces with no override. The only element that hardcodes a light treatment
+ * is the optional "request verification" button (white pill, black text) - map
+ * it onto the dark surface so it doesn't float as a white block in dark mode.
+ */
+:root[data-bx-mode="dark"] .bp-verified-member-request-button {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+	color: var(--bx-color-fg, #e5e7eb);
+	border: 1px solid var(--bx-color-border, #374151);
+}
