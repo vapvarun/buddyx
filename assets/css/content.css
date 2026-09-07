@@ -177,15 +177,6 @@
     max-width: var(--content-width);
 }
 
-.page-content ul,
-.entry-content ul,
-.entry-summary ul,
-.page-content ol:not(.comment-list),
-.entry-content ol:not(.comment-list),
-.entry-summary ol:not(.comment-list) {
-    margin-left: 1.05em;
-}
-
 .page-header,
 .entry-header,
 .entry-footer,
@@ -249,22 +240,6 @@ article .entry-header {
     }
 
 }
-
-.single-post .entry-content ul:not(.blocks-gallery-grid),
-.single-post .entry-content ol {
-    margin-left: 0;
-    padding: 0;
-    padding-left: 16px;
-}
-
-.entry-content ul ul,
-.entry-content ol ol {
-    margin-right: 0;
-    margin-left: 0;
-    padding-right: 1.5em;
-    padding-left: 1.5em;
-}
-
 
 /* Align .more-link with the content. */
 

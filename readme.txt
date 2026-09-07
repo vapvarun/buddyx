@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 5.1.5
+Stable tag: 5.1.6
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,12 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.1.6 - August 2026 =
+
+* New      - Customizer toggle under Footer to hide the Privacy Policy link that WordPress prints beneath the copyright text.
+* Fix      - Bulleted and numbered lists keep their marker indentation in post and page content.
+* Fix      - Spanish, Simplified Chinese and Traditional Chinese now display translated strings. The bundled translation files were stale and fell back to English.
 
 = 5.1.5 - July 2026 =
 

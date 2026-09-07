@@ -27,12 +27,10 @@ msgid "%s's Post"
 msgstr ""
 
 #: bb-buddypress/activity/entry.php:40
-#, fuzzy
 msgid "Pinned Post"
 msgstr "置頂貼文"
 
 #: bb-buddypress/activity/entry.php:47
-#, fuzzy
 msgid "Turned off notifications"
 msgstr "未找到通知."
 
@@ -44,14 +42,13 @@ msgstr "未找到通知."
 #: buddypress/groups/groups-loop.php:57
 #: buddypress/groups/single/cover-image-header.php:60
 #: buddypress/groups/single/group-header.php:43
-#, fuzzy, php-format
+#, php-format
 msgid "Active %s"
 msgstr "%s在線上"
 
 #: bb-buddypress/groups/groups-loop.php:126
 #: bb-buddypress/groups/single/cover-image-header.php:221
 #: bb-buddypress/groups/single/group-header.php:160
-#, fuzzy
 msgid "Leave Group"
 msgstr "離開組"
 
@@ -70,7 +67,6 @@ msgstr ""
 #: bb-buddypress/members/single/cover-image-header.php:89
 #: bb-buddypress/members/single/cover-image-header.php:275
 #: bb-buddypress/members/single/member-header.php:211
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
@@ -81,7 +77,6 @@ msgstr "取消"
 #: bb-buddypress/members/members-loop.php:282
 #: bb-buddypress/members/single/cover-image-header.php:276
 #: bb-buddypress/members/single/member-header.php:212
-#, fuzzy
 msgid "Confirm"
 msgstr "確認"
 
@@ -94,7 +89,6 @@ msgstr ""
 
 #: bb-buddypress/groups/single/cover-image-header.php:59
 #: bb-buddypress/members/single/cover-image-header.php:85
-#, fuzzy
 msgid "Reposition Cover Photo"
 msgstr "重新置放封面照片"
 
@@ -117,13 +111,11 @@ msgstr ""
 #: bb-buddypress/groups/single/group-header.php:23
 #: buddypress/groups/single/cover-image-header.php:40
 #: buddypress/groups/single/group-header.php:23
-#, fuzzy
 msgid "Change Group Photo"
 msgstr "更改學習圈照片"
 
 #: bb-buddypress/groups/single/cover-image-header.php:199
 #: bb-buddypress/groups/single/group-header.php:139
-#, fuzzy
 msgid "Group Description"
 msgstr "群組描述 (必填)"
 
@@ -131,7 +123,6 @@ msgstr "群組描述 (必填)"
 #: bb-buddypress/members/members-loop.php:264
 #: bb-buddypress/members/single/cover-image-header.php:258
 #: bb-buddypress/members/single/member-header.php:194
-#, fuzzy
 msgid "Remove Connection"
 msgstr "刪除連線"
 
@@ -146,7 +137,6 @@ msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
 #: bb-buddypress/members/members-loop.php:224
-#, fuzzy
 msgid "More Options"
 msgstr "更多選項"
 
@@ -154,13 +144,11 @@ msgstr "更多選項"
 #: bb-buddypress/members/single/member-header.php:54
 #: buddypress/members/single/cover-image-header.php:26
 #: buddypress/members/single/member-header.php:14
-#, fuzzy
 msgid "Change Profile Photo"
 msgstr "變更頭像"
 
 #: bb-buddypress/members/single/groups/invites.php:10
 #: buddypress/members/single/groups/invites.php:10
-#, fuzzy
 msgid "Group Invites"
 msgstr "群組邀請"
 
@@ -171,97 +159,89 @@ msgstr ""
 
 #: buddypress/groups/single/cover-image-header.php:76
 #: buddypress/groups/single/group-header.php:58
-#, fuzzy
 msgid "Group Types"
 msgstr "群組類型"
 
 #: buddypress/groups/single/cover-image-header.php:77
 #: buddypress/groups/single/group-header.php:59
-#, fuzzy
 msgid "Group Type"
 msgstr "群組類型"
 
 #: buddypress/members/single/cover-image-header.php:67
 #: buddypress/members/single/member-header.php:50
-#, fuzzy
 msgid "Member Types"
 msgstr "會員類型"
 
 #: buddypress/members/single/cover-image-header.php:68
 #: buddypress/members/single/member-header.php:51
-#, fuzzy
 msgid "Member Type"
 msgstr "會員類型"
 
 #: buddypress/members/single/groups/invites.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "%s member"
 msgid_plural "%s members"
 msgstr[0] "%s 成員"
 
 #. translators: 1: title.
 #: comments.php:38
-#, fuzzy, php-format
+#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr "在《%1$s》中有 1 則留言"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:44
-#, fuzzy, php-format
+#, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "在《%2$s》中有 %1$s 則留言 "
 
 #: comments.php:60
-#, fuzzy
 msgid "Comments are disabled."
 msgstr "留言被停用。"
 
 #: external/class-tgm-plugin-activation.php:325
-#, fuzzy
 msgid "Install Required Plugins"
 msgstr "安裝所需的插件"
 
 #: external/class-tgm-plugin-activation.php:326
-#, fuzzy
 msgid "Install Plugins"
 msgstr "安裝外掛"
 
 #. translators: %s: plugin name.
 #: external/class-tgm-plugin-activation.php:328
-#, fuzzy, php-format
+#, php-format
 msgid "Installing Plugin: %s"
 msgstr "安裝外掛: %s"
 
 #. translators: %s: plugin name.
 #: external/class-tgm-plugin-activation.php:330
-#, fuzzy, php-format
+#, php-format
 msgid "Updating Plugin: %s"
 msgstr "更新插件: %s"
 
 #: external/class-tgm-plugin-activation.php:331
-#, fuzzy
 msgid "Something went wrong with the plugin API."
 msgstr "插件安裝錯誤."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:334
-#, fuzzy, php-format
+#, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "這個主題需要以下外掛: %1$s."
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:340
-#, fuzzy, php-format
+#, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] "此主題推荐以下插件: %1$s。"
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:346
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this theme: %1$s."
@@ -273,45 +253,41 @@ msgstr[0] ""
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:352
-#, fuzzy, php-format
+#, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] "有一個更新可用 %1$s。"
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:358
-#, fuzzy, php-format
+#, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] "目前尚未啟用的必要安裝外掛: %1$s。"
 
 #. translators: 1: plugin name(s).
 #: external/class-tgm-plugin-activation.php:364
-#, fuzzy, php-format
+#, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "列出的建議安裝的外掛目前尚未啟用: %1$s。"
 
 #: external/class-tgm-plugin-activation.php:369
-#, fuzzy
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "正在安装外掛"
 
 #: external/class-tgm-plugin-activation.php:374
-#, fuzzy
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] "開始更新外掛"
 
 #: external/class-tgm-plugin-activation.php:379
-#, fuzzy
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] "正在啟用外掛"
 
 #: external/class-tgm-plugin-activation.php:383
-#, fuzzy
 msgid "Return to Required Plugins Installer"
 msgstr "返回到所需的外掛安裝程序"
 
@@ -319,32 +295,29 @@ msgstr "返回到所需的外掛安裝程序"
 #: external/class-tgm-plugin-activation.php:825
 #: external/class-tgm-plugin-activation.php:2551
 #: external/class-tgm-plugin-activation.php:3602
-#, fuzzy
 msgid "Return to the Dashboard"
 msgstr "返回控制台"
 
 #: external/class-tgm-plugin-activation.php:385
 #: external/class-tgm-plugin-activation.php:3177
-#, fuzzy
 msgid "Plugin activated successfully."
 msgstr "外掛啟用成功。"
 
 #: external/class-tgm-plugin-activation.php:386
 #: external/class-tgm-plugin-activation.php:2970
-#, fuzzy
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] "以下插件已成功啟用："
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:388
-#, fuzzy, php-format
+#, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr "未執行，外掛%1$s已經啟用"
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:390
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
@@ -352,39 +325,33 @@ msgstr "外掛程式未啟用。該主題需要%s的更高的版本。請更新�
 
 #. translators: 1: dashboard link.
 #: external/class-tgm-plugin-activation.php:392
-#, fuzzy, php-format
+#, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "已安裝並成功啟用全部外掛程式。%1$s"
 
 #: external/class-tgm-plugin-activation.php:393
-#, fuzzy
 msgid "Dismiss this notice"
 msgstr "關閉這項通知"
 
 #: external/class-tgm-plugin-activation.php:394
-#, fuzzy
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr "有一或多個必要或推薦的外掛需要安裝、更新或啟用。"
 
 #: external/class-tgm-plugin-activation.php:395
-#, fuzzy
 msgid "Please contact the administrator of this site for help."
 msgstr "請聯繫本網站的管理員以獲取幫助。"
 
 #: external/class-tgm-plugin-activation.php:520
-#, fuzzy
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr "這個插件需要更新以符合你的主題."
 
 #: external/class-tgm-plugin-activation.php:521
-#, fuzzy
 msgid "Update Required"
 msgstr "需要更新"
 
 #: external/class-tgm-plugin-activation.php:934
-#, fuzzy
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
@@ -392,14 +359,12 @@ msgstr "遠端的外掛封包並未包含正確代稱的資料夾，且經過重
 
 #: external/class-tgm-plugin-activation.php:934
 #: external/class-tgm-plugin-activation.php:944
-#, fuzzy
 msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr "請聯繫插件提供商，並要求他們根據WordPress指南打包他們的插件。"
 
 #: external/class-tgm-plugin-activation.php:944
-#, fuzzy
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
@@ -407,14 +372,13 @@ msgstr "遠端外掛封裝包含超過一個檔案，但這些檔案並未封裝
 
 #: external/class-tgm-plugin-activation.php:1133
 #: external/class-tgm-plugin-activation.php:2966
-#, fuzzy
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr "和"
 
 #. translators: %s: version number
 #: external/class-tgm-plugin-activation.php:2000
-#, fuzzy, php-format
+#, php-format
 msgid "TGMPA v%s"
 msgstr "TGMPA v%s"
 
@@ -423,65 +387,55 @@ msgid "Required"
 msgstr ""
 
 #: external/class-tgm-plugin-activation.php:2294
-#, fuzzy
 msgid "Recommended"
 msgstr "推薦"
 
 #: external/class-tgm-plugin-activation.php:2310
-#, fuzzy
 msgid "WordPress Repository"
 msgstr "WordPress 存放庫"
 
 #: external/class-tgm-plugin-activation.php:2313
-#, fuzzy
 msgid "External Source"
 msgstr "外部來源"
 
 #: external/class-tgm-plugin-activation.php:2316
-#, fuzzy
 msgid "Pre-Packaged"
 msgstr "預包裝"
 
 #: external/class-tgm-plugin-activation.php:2333
-#, fuzzy
 msgid "Not Installed"
 msgstr "未安裝"
 
 #: external/class-tgm-plugin-activation.php:2337
-#, fuzzy
 msgid "Installed But Not Activated"
 msgstr "已安裝但尚未啟用"
 
 #: external/class-tgm-plugin-activation.php:2339
-#, fuzzy
 msgid "Active"
 msgstr "啟用"
 
 #: external/class-tgm-plugin-activation.php:2345
-#, fuzzy
 msgid "Required Update not Available"
 msgstr "需要更新不可用"
 
 #: external/class-tgm-plugin-activation.php:2348
-#, fuzzy
 msgid "Requires Update"
 msgstr "需要更新"
 
 #: external/class-tgm-plugin-activation.php:2351
-#, fuzzy
 msgid "Update recommended"
 msgstr "建議更新"
 
 #. translators: 1: install status, 2: update status
 #: external/class-tgm-plugin-activation.php:2360
-#, fuzzy, php-format
+#, php-format
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2406
-#, fuzzy, php-format
+#, php-format
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
@@ -489,101 +443,89 @@ msgstr[0] "全部 <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2410
-#, fuzzy, php-format
+#, php-format
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] "待安裝 <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2414
-#, fuzzy, php-format
+#, php-format
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] "可用的更新 <span class=\"count\">(%s)</span>"
 
 #. translators: 1: number of plugins.
 #: external/class-tgm-plugin-activation.php:2418
-#, fuzzy, php-format
+#, php-format
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] "待啟用 <span class=\"count\">(%s)</span>"
 
 #: external/class-tgm-plugin-activation.php:2500
-#, fuzzy
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr "未知"
 
 #: external/class-tgm-plugin-activation.php:2508
-#, fuzzy
 msgid "Installed version:"
 msgstr "已安裝的版本:"
 
 #: external/class-tgm-plugin-activation.php:2516
-#, fuzzy
 msgid "Minimum required version:"
 msgstr "所需最低版本:"
 
 #: external/class-tgm-plugin-activation.php:2528
-#, fuzzy
 msgid "Available version:"
 msgstr "可用版本："
 
 #: external/class-tgm-plugin-activation.php:2551
-#, fuzzy
 msgid "No plugins to install, update or activate."
 msgstr "目前沒有需要安裝、更新或啟用的外掛。"
 
 #: external/class-tgm-plugin-activation.php:2565
-#, fuzzy
 msgid "Plugin"
 msgstr "外掛"
 
 #: external/class-tgm-plugin-activation.php:2566
-#, fuzzy
 msgid "Source"
 msgstr "來源"
 
 #: external/class-tgm-plugin-activation.php:2567
-#, fuzzy
 msgid "Type"
 msgstr "類型"
 
 #: external/class-tgm-plugin-activation.php:2571 inc/Welcome/Component.php:93
-#, fuzzy
 msgid "Version"
 msgstr "版本"
 
 #: external/class-tgm-plugin-activation.php:2572
-#, fuzzy
 msgid "Status"
 msgstr "狀態"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2621
-#, fuzzy, php-format
+#, php-format
 msgid "Install %2$s"
 msgstr "安裝 %2$s"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2626
-#, fuzzy, php-format
+#, php-format
 msgid "Update %2$s"
 msgstr "更新 %2$s"
 
 #. translators: %2$s: plugin name in screen reader markup
 #: external/class-tgm-plugin-activation.php:2632
-#, fuzzy, php-format
+#, php-format
 msgid "Activate %2$s"
 msgstr "啟用 %2$s"
 
 #: external/class-tgm-plugin-activation.php:2702
-#, fuzzy
 msgid "Upgrade message from the plugin author:"
 msgstr "來自外掛開發者的升級訊息:"
 
 #: external/class-tgm-plugin-activation.php:2735
-#, fuzzy
 msgid "Install"
 msgstr "安裝"
 
@@ -592,65 +534,56 @@ msgid "Update"
 msgstr ""
 
 #: external/class-tgm-plugin-activation.php:2744
-#, fuzzy
 msgid "Activate"
 msgstr "啟用"
 
 #: external/class-tgm-plugin-activation.php:2775
-#, fuzzy
 msgid "No plugins were selected to be installed. No action taken."
 msgstr "並未選取任何外掛以進行安裝。並未產生任何變更。"
 
 #: external/class-tgm-plugin-activation.php:2777
-#, fuzzy
 msgid "No plugins were selected to be updated. No action taken."
 msgstr "並未選取任何外掛以進行更新。並未產生任何變更。"
 
 #: external/class-tgm-plugin-activation.php:2818
-#, fuzzy
 msgid "No plugins are available to be installed at this time."
 msgstr "目前沒有可安裝的插件。"
 
 #: external/class-tgm-plugin-activation.php:2820
-#, fuzzy
 msgid "No plugins are available to be updated at this time."
 msgstr "當前沒有可用於更新的插件."
 
 #: external/class-tgm-plugin-activation.php:2926
-#, fuzzy
 msgid "No plugins were selected to be activated. No action taken."
 msgstr "並未選取任何外掛以進行啟用。並未產生任何變更。"
 
 #: external/class-tgm-plugin-activation.php:2952
-#, fuzzy
 msgid "No plugins are available to be activated at this time."
 msgstr "目前沒有需要啟用的外掛。"
 
 #: external/class-tgm-plugin-activation.php:3176
-#, fuzzy
 msgid "Plugin activation failed."
 msgstr "外掛啟用失敗。"
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3520
-#, fuzzy, php-format
+#, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr "更新外掛 %1$s (%2$d/%3$d)"
 
 #. translators: 1: plugin name, 2: error message.
 #: external/class-tgm-plugin-activation.php:3523
-#, fuzzy, php-format
+#, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr "在安裝%1$s: <strong>%2$s</strong>時發生錯誤."
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3525
-#, fuzzy, php-format
+#, php-format
 msgid "The installation of %1$s failed."
 msgstr "%1$s 安裝失敗。"
 
 #: external/class-tgm-plugin-activation.php:3529
-#, fuzzy
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
@@ -660,35 +593,31 @@ msgstr ""
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3531
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s installed and activated successfully."
 msgstr "%1$s安裝和啟動成功."
 
 #: external/class-tgm-plugin-activation.php:3531
 #: external/class-tgm-plugin-activation.php:3539
-#, fuzzy
 msgid "Show Details"
 msgstr "顯示詳細資料"
 
 #: external/class-tgm-plugin-activation.php:3531
 #: external/class-tgm-plugin-activation.php:3539
-#, fuzzy
 msgid "Hide Details"
 msgstr "隱藏詳細資訊"
 
 #: external/class-tgm-plugin-activation.php:3532
-#, fuzzy
 msgid "All installations and activations have been completed."
 msgstr "所有安裝和啟動均已完成."
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3534
-#, fuzzy, php-format
+#, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr "安裝和激活插件 %1$s (%2$d/%3$d)"
 
 #: external/class-tgm-plugin-activation.php:3537
-#, fuzzy
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
@@ -696,18 +625,17 @@ msgstr "安裝程序進行中。該程序在某些主機上可能會需要較多
 
 #. translators: 1: plugin name.
 #: external/class-tgm-plugin-activation.php:3539
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s installed successfully."
 msgstr "%1$s 安裝成功。"
 
 #: external/class-tgm-plugin-activation.php:3540
-#, fuzzy
 msgid "All installations have been completed."
 msgstr "所有安裝已完成。"
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: external/class-tgm-plugin-activation.php:3542
-#, fuzzy, php-format
+#, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr "安裝外掛 %1$s (%2$d/%3$d)"
 
@@ -718,34 +646,28 @@ msgid ""
 msgstr ""
 
 #: external/include-kirki.php:55
-#, fuzzy
 msgid "Install Kirki Toolkit now"
 msgstr "立即安裝 Kirki Toolkit"
 
 #: external/include-kirki.php:56
-#, fuzzy
 msgid "Install Now"
 msgstr "立即安裝"
 
 #: external/include-kirki.php:59
-#, fuzzy
 msgid ""
 "You have installed Kirki. Activate it to take advantage of this theme's "
 "features in the customizer."
 msgstr "你安裝了Kirki，啟動它以利用自定義器中的主題功能。"
 
 #: external/include-kirki.php:60
-#, fuzzy
 msgid "Activate Kirki Toolkit now"
 msgstr "立即啟動Kirki工具組"
 
 #: external/include-kirki.php:61
-#, fuzzy
 msgid "Activate Now"
 msgstr "立即啟用"
 
 #: footer.php:29 inc/Kirki_Option/Component.php:1595
-#, fuzzy
 msgid "Footer"
 msgstr "頁尾"
 
@@ -757,22 +679,18 @@ msgid ""
 msgstr ""
 
 #: header.php:35
-#, fuzzy
 msgid "Skip to content"
 msgstr "跳轉至內容"
 
 #: inc/Accessibility/Component.php:73
-#, fuzzy
 msgid "Expand child menu"
 msgstr "展開子選單"
 
 #: inc/Accessibility/Component.php:74
-#, fuzzy
 msgid "Collapse child menu"
 msgstr "收合子選單"
 
 #: inc/Base_Support/Component.php:243
-#, fuzzy
 msgid "Borders"
 msgstr "邊框"
 
@@ -790,7 +708,6 @@ msgid "New comment(s)"
 msgstr ""
 
 #: inc/Customizer/Component.php:85
-#, fuzzy
 msgid "Theme Options"
 msgstr "佈景主題選項"
 
@@ -799,47 +716,38 @@ msgid "-- Select a Page --"
 msgstr ""
 
 #: inc/Editor/Component.php:65 inc/Nav_Menus/Component.php:69
-#, fuzzy
 msgid "Primary"
 msgstr "主要"
 
 #: inc/Editor/Component.php:70
-#, fuzzy
 msgid "Secondary"
 msgstr "次要"
 
 #: inc/Editor/Component.php:75
-#, fuzzy
 msgid "Red"
 msgstr "紅色"
 
 #: inc/Editor/Component.php:80
-#, fuzzy
 msgid "Green"
 msgstr "綠色"
 
 #: inc/Editor/Component.php:85
-#, fuzzy
 msgid "Blue"
 msgstr "藍色"
 
 #: inc/Editor/Component.php:90
-#, fuzzy
 msgid "Yellow"
 msgstr "黃色"
 
 #: inc/Editor/Component.php:95
-#, fuzzy
 msgid "Black"
 msgstr "黑色"
 
 #: inc/Editor/Component.php:100
-#, fuzzy
 msgid "Grey"
 msgstr "灰色"
 
 #: inc/Editor/Component.php:105
-#, fuzzy
 msgid "White"
 msgstr "白色"
 
@@ -852,58 +760,47 @@ msgid "Dusty sun"
 msgstr ""
 
 #: inc/Editor/Component.php:132
-#, fuzzy
 msgid "Small"
 msgstr "小"
 
 #: inc/Editor/Component.php:133
-#, fuzzy
 msgid "S"
 msgstr "S"
 
 #: inc/Editor/Component.php:138
-#, fuzzy
 msgid "Medium"
 msgstr "中"
 
 #: inc/Editor/Component.php:139
-#, fuzzy
 msgid "M"
 msgstr "M"
 
 #: inc/Editor/Component.php:144
-#, fuzzy
 msgid "Large"
 msgstr "大"
 
 #: inc/Editor/Component.php:145
-#, fuzzy
 msgid "L"
 msgstr "L"
 
 #: inc/Editor/Component.php:150
-#, fuzzy
 msgid "Larger"
 msgstr "更大"
 
 #: inc/Editor/Component.php:151
-#, fuzzy
 msgid "XL"
 msgstr "XL"
 
 #: inc/Kirki_Option/Component.php:136
-#, fuzzy
 msgid "General"
 msgstr "一般"
 
 #: inc/Kirki_Option/Component.php:145 inc/Kirki_Option/Component.php:370
 #: inc/Welcome/Component.php:143 inc/Welcome/Component.php:353
-#, fuzzy
 msgid "Site Layout"
 msgstr "網站佈局"
 
 #: inc/Kirki_Option/Component.php:156 inc/Welcome/Component.php:398
-#, fuzzy
 msgid "Site Loader"
 msgstr "現場裝載機"
 
@@ -912,35 +809,29 @@ msgid "Page Mapping"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:178 inc/Welcome/Component.php:408
-#, fuzzy
 msgid "Typography"
 msgstr "排版"
 
 #: inc/Kirki_Option/Component.php:187
-#, fuzzy
 msgid "Site Title"
 msgstr "網站標題"
 
 #: inc/Kirki_Option/Component.php:197 inc/Kirki_Option/Component.php:1344
 #: inc/Welcome/Component.php:418
-#, fuzzy
 msgid "Headings"
 msgstr "標題"
 
 #: inc/Kirki_Option/Component.php:207 inc/Welcome/Component.php:423
 #: template-parts/header/navigation.php:51
-#, fuzzy
 msgid "Menu"
 msgstr "選單"
 
 #: inc/Kirki_Option/Component.php:217 inc/Kirki_Option/Component.php:1161
 #: inc/Welcome/Component.php:428
-#, fuzzy
 msgid "Body"
 msgstr "內文"
 
 #: inc/Kirki_Option/Component.php:228
-#, fuzzy
 msgid "Site Header"
 msgstr "網站標題"
 
@@ -974,22 +865,18 @@ msgid "Community Settings"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:310
-#, fuzzy
 msgid "General Setting"
 msgstr "一般設定"
 
 #: inc/Kirki_Option/Component.php:322 inc/Welcome/Component.php:718
-#, fuzzy
 msgid "Site Footer"
 msgstr "網站頁腳"
 
 #: inc/Kirki_Option/Component.php:331 inc/Welcome/Component.php:723
-#, fuzzy
 msgid "Footer Section"
 msgstr "頁尾部分"
 
 #: inc/Kirki_Option/Component.php:342 inc/Welcome/Component.php:728
-#, fuzzy
 msgid "Copyright Section"
 msgstr "版權區段"
 
@@ -1026,7 +913,6 @@ msgid "Set the buttons border radius for your website (px)"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:431 inc/Welcome/Component.php:378
-#, fuzzy
 msgid "Form Border Radius"
 msgstr "表單邊框半徑"
 
@@ -1046,7 +932,6 @@ msgstr ""
 #: inc/Kirki_Option/Component.php:1936 inc/Kirki_Option/Component.php:2137
 #: inc/Kirki_Option/Component.php:2366 inc/Kirki_Option/Component.php:2424
 #: inc/Kirki_Option/Component.php:2437
-#, fuzzy
 msgid "Enable"
 msgstr "啟用"
 
@@ -1057,12 +942,10 @@ msgstr "啟用"
 #: inc/Kirki_Option/Component.php:1937 inc/Kirki_Option/Component.php:2138
 #: inc/Kirki_Option/Component.php:2367 inc/Kirki_Option/Component.php:2425
 #: inc/Kirki_Option/Component.php:2438
-#, fuzzy
 msgid "Disable"
 msgstr "停用"
 
 #: inc/Kirki_Option/Component.php:462
-#, fuzzy
 msgid "Login Page"
 msgstr "登入頁面"
 
@@ -1071,7 +954,6 @@ msgid "You can redirect user to custom login page."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:474
-#, fuzzy
 msgid "Registration Page"
 msgstr "註冊頁面"
 
@@ -1080,7 +962,6 @@ msgid "You can redirect user to custom registration page."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:486
-#, fuzzy
 msgid "404"
 msgstr "404"
 
@@ -1130,17 +1011,14 @@ msgid "H6 Tag Settings"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:715
-#, fuzzy
 msgid "Menu Settings"
 msgstr "選單設定"
 
 #: inc/Kirki_Option/Component.php:741
-#, fuzzy
 msgid "Sub Menu Settings"
 msgstr "子選單設定"
 
 #: inc/Kirki_Option/Component.php:769
-#, fuzzy
 msgid "Settings"
 msgstr "設定"
 
@@ -1151,14 +1029,12 @@ msgstr ""
 #: inc/Kirki_Option/Component.php:802 inc/Kirki_Option/Component.php:966
 #: inc/Kirki_Option/Component.php:2153 inc/Kirki_Option/Component.php:2166
 #: inc/Kirki_Option/Component.php:2349
-#, fuzzy
 msgid "Yes"
 msgstr "是"
 
 #: inc/Kirki_Option/Component.php:803 inc/Kirki_Option/Component.php:967
 #: inc/Kirki_Option/Component.php:2154 inc/Kirki_Option/Component.php:2167
 #: inc/Kirki_Option/Component.php:2350
-#, fuzzy
 msgid "No"
 msgstr "否"
 
@@ -1187,7 +1063,6 @@ msgid "Background Control"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:922 inc/Welcome/Component.php:543
-#, fuzzy
 msgid "Content Typography"
 msgstr "內容排版"
 
@@ -1200,7 +1075,6 @@ msgid "Set Custom Colors?"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:975
-#, fuzzy
 msgid "Loader"
 msgstr "裝載機"
 
@@ -1209,27 +1083,22 @@ msgid "Site Loader Background"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1019 inc/Welcome/Component.php:458
-#, fuzzy
 msgid "Header"
 msgstr "頁首"
 
 #: inc/Kirki_Option/Component.php:1035
-#, fuzzy
 msgid "Site Title Color"
 msgstr "網站標題顏色"
 
 #: inc/Kirki_Option/Component.php:1053
-#, fuzzy
 msgid "Site Title Hover Color"
 msgstr "網站標題懸停顏色"
 
 #: inc/Kirki_Option/Component.php:1071
-#, fuzzy
 msgid "Site Tagline Color"
 msgstr "網站標語顏色"
 
 #: inc/Kirki_Option/Component.php:1089
-#, fuzzy
 msgid "Header Background Color"
 msgstr "頁首背景顏色"
 
@@ -1238,7 +1107,6 @@ msgid "Menu Color"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1125
-#, fuzzy
 msgid "Menu Hover Color"
 msgstr "選單懸停時的顏色"
 
@@ -1247,17 +1115,14 @@ msgid "Menu Active Color"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1177 inc/Welcome/Component.php:568
-#, fuzzy
 msgid "Body Background Color"
 msgstr "內文背景顏色"
 
 #: inc/Kirki_Option/Component.php:1195
-#, fuzzy
 msgid "Body Text Color"
 msgstr "內文文字顏色"
 
 #: inc/Kirki_Option/Component.php:1213
-#, fuzzy
 msgid "Content Background Color"
 msgstr "內容背景顏色"
 
@@ -1266,12 +1131,10 @@ msgid "Note: This setting will only be used if the box layout is selected."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1236
-#, fuzzy
 msgid "Box Background Color"
 msgstr "框架背景顏色"
 
 #: inc/Kirki_Option/Component.php:1254
-#, fuzzy
 msgid "Secondary Background Color"
 msgstr "二級菜單背景顏色"
 
@@ -1280,87 +1143,70 @@ msgid "Subheader Title Color"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1290 inc/Welcome/Component.php:573
-#, fuzzy
 msgid "Theme Color"
 msgstr "主題顏色"
 
 #: inc/Kirki_Option/Component.php:1308 inc/Welcome/Component.php:578
-#, fuzzy
 msgid "Link Color"
 msgstr "連結色彩"
 
 #: inc/Kirki_Option/Component.php:1326
-#, fuzzy
 msgid "Link Hover"
 msgstr "連結懸停"
 
 #: inc/Kirki_Option/Component.php:1360
-#, fuzzy
 msgid "H1 Color"
 msgstr "H1 顏色"
 
 #: inc/Kirki_Option/Component.php:1378
-#, fuzzy
 msgid "H2 Color"
 msgstr "H2 顏色"
 
 #: inc/Kirki_Option/Component.php:1396
-#, fuzzy
 msgid "H3 Color"
 msgstr "H3 顏色"
 
 #: inc/Kirki_Option/Component.php:1414
-#, fuzzy
 msgid "H4 Color"
 msgstr "H4 顏色"
 
 #: inc/Kirki_Option/Component.php:1432
-#, fuzzy
 msgid "H5 Color"
 msgstr "H5 顏色"
 
 #: inc/Kirki_Option/Component.php:1450
-#, fuzzy
 msgid "H6 Color"
 msgstr "H6 顏色"
 
 #: inc/Kirki_Option/Component.php:1468
-#, fuzzy
 msgid "Buttons"
 msgstr "按鈕"
 
 #: inc/Kirki_Option/Component.php:1485
-#, fuzzy
 msgid "Button Background Color"
 msgstr "按鈕背景顏色"
 
 #: inc/Kirki_Option/Component.php:1504
-#, fuzzy
 msgid "Button Background Hover Color"
 msgstr "按鈕背景懸停顏色"
 
 #: inc/Kirki_Option/Component.php:1523
-#, fuzzy
 msgid "Button Text Color"
 msgstr "按鈕文字顏色"
 
 #: inc/Kirki_Option/Component.php:1541
-#, fuzzy
 msgid "Button Text Hover Color"
 msgstr "按鈕文字懸停顏色"
 
 #: inc/Kirki_Option/Component.php:1559
-#, fuzzy
 msgid "Button Border Color"
 msgstr "按鈕邊框顏色"
 
 #: inc/Kirki_Option/Component.php:1577
-#, fuzzy
 msgid "Button Border Hover Color"
 msgstr "按鈕邊框懸停顏色"
 
 #: inc/Kirki_Option/Component.php:1611
-#, fuzzy
 msgid "Footer Title Color"
 msgstr "頁尾標題色彩"
 
@@ -1369,7 +1215,6 @@ msgid "Footer Content Color"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1647
-#, fuzzy
 msgid "Footer Link Color"
 msgstr "頁尾連結色彩"
 
@@ -1378,17 +1223,14 @@ msgid "Footer Link Hover"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1683
-#, fuzzy
 msgid "Copyright"
 msgstr "版權"
 
 #: inc/Kirki_Option/Component.php:1704
-#, fuzzy
 msgid "Copyright Background Color"
 msgstr "版權背景顏色"
 
 #: inc/Kirki_Option/Component.php:1722
-#, fuzzy
 msgid "Copyright Border Color"
 msgstr "版權區域邊框顏色"
 
@@ -1397,52 +1239,42 @@ msgid "Copyright Content Color"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1757
-#, fuzzy
 msgid "Copyright Link Color"
 msgstr "版權區域連結顏色"
 
 #: inc/Kirki_Option/Component.php:1775
-#, fuzzy
 msgid "Copyright Link Hover Color"
 msgstr "版權區域連結懸停顏色"
 
 #: inc/Kirki_Option/Component.php:1796
-#, fuzzy
 msgid "Blog Layout"
 msgstr "部落格佈局"
 
 #: inc/Kirki_Option/Component.php:1812
-#, fuzzy
 msgid "Image position"
 msgstr "圖像位置"
 
 #: inc/Kirki_Option/Component.php:1817
-#, fuzzy
 msgid "Left"
 msgstr "左"
 
 #: inc/Kirki_Option/Component.php:1818
-#, fuzzy
 msgid "Right"
 msgstr "右"
 
 #: inc/Kirki_Option/Component.php:1833
-#, fuzzy
 msgid "Grid Columns"
 msgstr "網格列"
 
 #: inc/Kirki_Option/Component.php:1838
-#, fuzzy
 msgid "One"
 msgstr "一"
 
 #: inc/Kirki_Option/Component.php:1839 inc/Kirki_Option/Component.php:1880
-#, fuzzy
 msgid "Two"
 msgstr "2"
 
 #: inc/Kirki_Option/Component.php:1854
-#, fuzzy
 msgid "View"
 msgstr "查看"
 
@@ -1459,12 +1291,10 @@ msgid "Post Per Row"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1881
-#, fuzzy
 msgid "Three"
 msgstr "3"
 
 #: inc/Kirki_Option/Component.php:1896
-#, fuzzy
 msgid "Show Tags"
 msgstr "顯示標籤"
 
@@ -1473,22 +1303,18 @@ msgid "Display tags on blog layouts."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1910
-#, fuzzy
 msgid "Tags Style"
 msgstr "標題樣式"
 
 #: inc/Kirki_Option/Component.php:1915
-#, fuzzy
 msgid "Default"
 msgstr "預設"
 
 #: inc/Kirki_Option/Component.php:1916
-#, fuzzy
 msgid "Badge"
 msgstr "徽章"
 
 #: inc/Kirki_Option/Component.php:1917
-#, fuzzy
 msgid "Underline"
 msgstr "底線"
 
@@ -1501,7 +1327,6 @@ msgid "Please remember that the results will be shown in the frontend."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1954
-#, fuzzy
 msgid "Single Post Content Width"
 msgstr "單篇文章的內容寬度"
 
@@ -1510,7 +1335,6 @@ msgid "Single Post Title Layout"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:1984
-#, fuzzy
 msgid "Image Overlay Color"
 msgstr "圖片覆蓋的顏色"
 
@@ -1519,12 +1343,10 @@ msgid "Allow to add image overlay color on single post title layout one."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2013
-#, fuzzy
 msgid "Sidebar Layout"
 msgstr "資訊欄版面配置"
 
 #: inc/Kirki_Option/Component.php:2029
-#, fuzzy
 msgid "Single Post Sidebar Layout"
 msgstr "單篇文章側邊欄佈局"
 
@@ -1545,7 +1367,6 @@ msgid "bbPress Sidebar Layout"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2116
-#, fuzzy
 msgid "WooCommerce Sidebar Layout"
 msgstr "WooCommerce 側邊欄佈局"
 
@@ -1554,7 +1375,6 @@ msgid "Sticky Sidebar ?"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2149 inc/Welcome/Component.php:693
-#, fuzzy
 msgid "Customize Your Logo Section"
 msgstr "自訂 LOGO 部分"
 
@@ -1563,12 +1383,10 @@ msgid "Disable Logo?"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2182
-#, fuzzy
 msgid "Custom Logo"
 msgstr "自訂LOGO"
 
 #: inc/Kirki_Option/Component.php:2205
-#, fuzzy
 msgid "Logo Width"
 msgstr "標誌寬度"
 
@@ -1577,7 +1395,6 @@ msgid "Select the logo width (px)"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2229
-#, fuzzy
 msgid "Logo Height"
 msgstr "Logo高度"
 
@@ -1594,12 +1411,10 @@ msgid "Select the logo bottom spacing (px)"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2277
-#, fuzzy
 msgid "Logo URL"
 msgstr "Logo 的網址"
 
 #: inc/Kirki_Option/Component.php:2300
-#, fuzzy
 msgid "Logo Title"
 msgstr "Logo 標題"
 
@@ -1620,7 +1435,6 @@ msgid "Set the round style for member and group avatars."
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2407
-#, fuzzy
 msgid "Add Content"
 msgstr "增加內容"
 
@@ -1637,22 +1451,18 @@ msgid "Preload Local Fonts ?"
 msgstr ""
 
 #: inc/Kirki_Option/Component.php:2453
-#, fuzzy
 msgid "Flush Local Fonts Cache"
 msgstr "清除本地字型快取"
 
 #: inc/Kirki_Option/Component.php:2454
-#, fuzzy
 msgid "Click the button to reset the local fonts cache."
 msgstr "按兩下該按鈕以重置本地字體暫存。"
 
 #: inc/Nav_Menus/Component.php:74
-#, fuzzy
 msgid "User Menu"
 msgstr "用戶介面"
 
 #: inc/Sidebars/Component.php:103 inc/Welcome/Component.php:653
-#, fuzzy
 msgid "Right Sidebar"
 msgstr "右側邊欄"
 
@@ -1665,12 +1475,10 @@ msgstr "右側邊欄"
 #: inc/Sidebars/Component.php:256 inc/Sidebars/Component.php:268
 #: inc/Sidebars/Component.php:281 inc/Sidebars/Component.php:293
 #: inc/Sidebars/Component.php:305 inc/Sidebars/Component.php:317
-#, fuzzy
 msgid "Add widgets here."
 msgstr "在此新增小工具。"
 
 #: inc/Sidebars/Component.php:115 inc/Welcome/Component.php:648
-#, fuzzy
 msgid "Left Sidebar"
 msgstr "左側邊欄"
 
@@ -1707,67 +1515,59 @@ msgid "Groups Single Group Activity"
 msgstr ""
 
 #: inc/Sidebars/Component.php:228
-#, fuzzy
 msgid "bbPress Left Sidebar"
 msgstr "bbPress的左側邊欄"
 
 #: inc/Sidebars/Component.php:240
-#, fuzzy
 msgid "bbPress Right Sidebar"
 msgstr "bbPress的右側欄"
 
 #: inc/Sidebars/Component.php:254
-#, fuzzy
 msgid "WooCommerce Left Sidebar"
 msgstr "WooCommerce左側邊欄"
 
 #: inc/Sidebars/Component.php:266
-#, fuzzy
 msgid "WooCommerce Right Sidebar"
 msgstr "WooCommerce右側欄"
 
 #: inc/Sidebars/Component.php:279
-#, fuzzy
 msgid "Footer 1"
 msgstr "頁尾 1"
 
 #: inc/Sidebars/Component.php:291
-#, fuzzy
 msgid "Footer 2"
 msgstr "頁尾 2"
 
 #: inc/Sidebars/Component.php:303
-#, fuzzy
 msgid "Footer 3"
 msgstr "頁尾 3"
 
 #: inc/Sidebars/Component.php:315
-#, fuzzy
 msgid "Footer 4"
 msgstr "頁尾 4"
 
 #. translators: %s: stylesheet handle
 #: inc/Styles/Component.php:366
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid theme stylesheet handle: %s"
 msgstr "無效的主題樣式： %s"
 
 #. translators: 1: classname/type of the variable, 2: interface name
 #: inc/Template_Tags.php:54
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The theme templating component %1$s does not implement the %2$s interface."
 msgstr " %2$s 介面不應用於主題樣本化元件 %1$s 。"
 
 #. translators: %s: template tag name
 #: inc/Template_Tags.php:81
-#, fuzzy, php-format
+#, php-format
 msgid "The template tag %s does not exist."
 msgstr "主題標籤 %s 不存在。"
 
 #. translators: 1: template tag method name, 2: component class name
 #: inc/Template_Tags.php:110
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The template tag method %1$s registered by theme component %2$s must either "
 "be a callable or an array."
@@ -1777,7 +1577,7 @@ msgstr ""
 
 #. translators: 1: template tag method name, 2: component class name
 #: inc/Template_Tags.php:121
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The template tag method %1$s registered by theme component %2$s conflicts "
 "with an already registered template tag of the same name."
@@ -1793,12 +1593,11 @@ msgstr ""
 
 #. translators: %s: slug
 #: inc/Theme.php:120
-#, fuzzy, php-format
+#, php-format
 msgid "No theme component with the slug %s exists."
 msgstr "沒有 %s slug 的主題元件存在。"
 
 #: inc/Welcome/Component.php:49 inc/Welcome/Component.php:50
-#, fuzzy
 msgid "Getting Started"
 msgstr "開始進行"
 
@@ -1820,7 +1619,6 @@ msgid "Programming Languages"
 msgstr ""
 
 #: inc/Welcome/Component.php:108
-#, fuzzy
 msgid "Dashboard"
 msgstr "控制台"
 
@@ -1842,24 +1640,20 @@ msgid "Customizer Settings"
 msgstr ""
 
 #: inc/Welcome/Component.php:120
-#, fuzzy
 msgid "Go to Customizer"
 msgstr "前往 [外觀自訂器]"
 
 #: inc/Welcome/Component.php:127
-#, fuzzy
 msgid "Upload Logo"
 msgstr "上傳Logo"
 
 #: inc/Welcome/Component.php:128 inc/Welcome/Component.php:136
 #: inc/Welcome/Component.php:144 inc/Welcome/Component.php:152
 #: inc/Welcome/Component.php:160 inc/Welcome/Component.php:168
-#, fuzzy
 msgid "Go to option"
 msgstr "轉到選項"
 
 #: inc/Welcome/Component.php:135
-#, fuzzy
 msgid "Set Colors"
 msgstr "設定顏色"
 
@@ -1868,12 +1662,10 @@ msgid "Set Typography\t"
 msgstr ""
 
 #: inc/Welcome/Component.php:159 inc/Welcome/Component.php:473
-#, fuzzy
 msgid "Header Layout"
 msgstr "標題佈局"
 
 #: inc/Welcome/Component.php:182 inc/Welcome/Component.php:185
-#, fuzzy
 msgid "Demo Installation"
 msgstr "演示安裝"
 
@@ -1884,7 +1676,6 @@ msgid ""
 msgstr ""
 
 #: inc/Welcome/Component.php:192
-#, fuzzy
 msgid "Install Recommended Plugins"
 msgstr "安裝建議的外掛"
 
@@ -1895,12 +1686,10 @@ msgid ""
 msgstr ""
 
 #: inc/Welcome/Component.php:196
-#, fuzzy
 msgid "Install now"
 msgstr "現在安裝"
 
 #: inc/Welcome/Component.php:198
-#, fuzzy
 msgid "Installed"
 msgstr "已安裝"
 
@@ -1915,7 +1704,6 @@ msgid ""
 msgstr ""
 
 #: inc/Welcome/Component.php:212
-#, fuzzy
 msgid "Download Now"
 msgstr "立即下載"
 
@@ -1930,7 +1718,6 @@ msgid ""
 msgstr ""
 
 #: inc/Welcome/Component.php:235
-#, fuzzy
 msgid "Document"
 msgstr "文件"
 
@@ -1941,12 +1728,10 @@ msgid ""
 msgstr ""
 
 #: inc/Welcome/Component.php:245
-#, fuzzy
 msgid "Go to Documentation"
 msgstr "跳到文件"
 
 #: inc/Welcome/Component.php:250
-#, fuzzy
 msgid "Community"
 msgstr "社群"
 
@@ -1959,7 +1744,6 @@ msgid "Go to Facebook Group"
 msgstr ""
 
 #: inc/Welcome/Component.php:270
-#, fuzzy
 msgid "Videos"
 msgstr "影片"
 
@@ -1975,18 +1759,15 @@ msgid "Watch Now"
 msgstr ""
 
 #: inc/Welcome/Component.php:286
-#, fuzzy
 msgid "Support"
 msgstr "技術支援"
 
 #: inc/Welcome/Component.php:292
-#, fuzzy
 msgid ""
 "Have a question, we are happy to help! Get in touch with our support team."
 msgstr "有問題，我們很樂意幫忙！請聯繫我們的支援團隊。"
 
 #: inc/Welcome/Component.php:294
-#, fuzzy
 msgid "Submit a Ticket"
 msgstr "提交問題"
 
@@ -2023,7 +1804,6 @@ msgid "Take Your Time & Compare Every Feature"
 msgstr ""
 
 #: inc/Welcome/Component.php:341
-#, fuzzy
 msgid "Features"
 msgstr "特色"
 
@@ -2032,7 +1812,6 @@ msgid "BuddyX Pro"
 msgstr ""
 
 #: inc/Welcome/Component.php:348
-#, fuzzy
 msgid "Layout"
 msgstr "佈局"
 
@@ -2041,7 +1820,6 @@ msgid "Content Layout Width"
 msgstr ""
 
 #: inc/Welcome/Component.php:363
-#, fuzzy
 msgid "Sidebar Width"
 msgstr "側邊欄寬度"
 
@@ -2054,12 +1832,10 @@ msgid "Scroll Top"
 msgstr ""
 
 #: inc/Welcome/Component.php:403
-#, fuzzy
 msgid "Loading Text"
 msgstr "載入文字"
 
 #: inc/Welcome/Component.php:433
-#, fuzzy
 msgid "Google Fonts"
 msgstr "Google Fonts"
 
@@ -2068,27 +1844,22 @@ msgid "Font Size (PX/EM)"
 msgstr ""
 
 #: inc/Welcome/Component.php:443
-#, fuzzy
 msgid "Text Transform"
 msgstr "文字轉換"
 
 #: inc/Welcome/Component.php:448
-#, fuzzy
 msgid "Line Height"
 msgstr "行高"
 
 #: inc/Welcome/Component.php:453
-#, fuzzy
 msgid "Letter Spacing"
 msgstr "字母間距"
 
 #: inc/Welcome/Component.php:463
-#, fuzzy
 msgid "Top Bar"
 msgstr "頂欄"
 
 #: inc/Welcome/Component.php:468
-#, fuzzy
 msgid "Sticky Header"
 msgstr "固定頁首"
 
@@ -2113,12 +1884,10 @@ msgid "Login/Register Button Style"
 msgstr ""
 
 #: inc/Welcome/Component.php:503
-#, fuzzy
 msgid "Background Color"
 msgstr "背景色彩"
 
 #: inc/Welcome/Component.php:508
-#, fuzzy
 msgid "Site Search"
 msgstr "網站搜索"
 
@@ -2127,7 +1896,6 @@ msgid "Site Cart"
 msgstr ""
 
 #: inc/Welcome/Component.php:518
-#, fuzzy
 msgid "BuddyPress Components"
 msgstr "BuddyPress 組件"
 
@@ -2137,7 +1905,6 @@ msgid "Side Panel"
 msgstr ""
 
 #: inc/Welcome/Component.php:533
-#, fuzzy
 msgid "Sub Header"
 msgstr "子頁首"
 
@@ -2154,17 +1921,14 @@ msgid "Skin Colors"
 msgstr ""
 
 #: inc/Welcome/Component.php:558
-#, fuzzy
 msgid "Dark Mode"
 msgstr "深色模式"
 
 #: inc/Welcome/Component.php:563
-#, fuzzy
 msgid "Custom Colors"
 msgstr "自定義顏色"
 
 #: inc/Welcome/Component.php:583
-#, fuzzy
 msgid "Primary Header"
 msgstr "主要標題"
 
@@ -2181,47 +1945,38 @@ msgid "Button Border Color / Hover"
 msgstr ""
 
 #: inc/Welcome/Component.php:613
-#, fuzzy
 msgid "List Layout"
 msgstr "列表佈局"
 
 #: inc/Welcome/Component.php:618
-#, fuzzy
 msgid "Grid Layout"
 msgstr "網格佈局"
 
 #: inc/Welcome/Component.php:623
-#, fuzzy
 msgid "Masonry Layout"
 msgstr "瀑布流佈局"
 
 #: inc/Welcome/Component.php:628
-#, fuzzy
 msgid "Blog Layout Style"
 msgstr "部落格布局樣式"
 
 #: inc/Welcome/Component.php:643
-#, fuzzy
 msgid "No Sidebar"
 msgstr "沒有側邊欄"
 
 #: inc/Welcome/Component.php:658
-#, fuzzy
 msgid "Both Sidebar"
 msgstr "邊欄前"
 
 #: inc/Welcome/Component.php:663
-#, fuzzy
 msgid "BuddyPress Sidebar"
 msgstr "BuddyPress的側邊欄"
 
 #: inc/Welcome/Component.php:668
-#, fuzzy
 msgid "WooCommerce Sidebar"
 msgstr "商店側邊欄"
 
 #: inc/Welcome/Component.php:673
-#, fuzzy
 msgid "bbPress Sidebar"
 msgstr "bbPress側邊欄"
 
@@ -2230,7 +1985,6 @@ msgid "LearnDash Sidebar"
 msgstr ""
 
 #: inc/Welcome/Component.php:683
-#, fuzzy
 msgid "Sticky Sidebar"
 msgstr "粘貼側邊欄"
 
@@ -2239,12 +1993,10 @@ msgid "Choose WP Login Theme"
 msgstr ""
 
 #: inc/Welcome/Component.php:703
-#, fuzzy
 msgid "Customize Login Form"
 msgstr "自訂"
 
 #: inc/Welcome/Component.php:708
-#, fuzzy
 msgid "Customize Forget Form"
 msgstr "自訂忽略表格"
 
@@ -2253,7 +2005,6 @@ msgid "Customize Button"
 msgstr ""
 
 #: inc/Welcome/Component.php:733 inc/Welcome/Component.php:829
-#, fuzzy
 msgid "BuddyPress"
 msgstr "BuddyPress"
 
@@ -2270,7 +2021,6 @@ msgstr ""
 #: inc/Welcome/Component.php:850 inc/Welcome/Component.php:855
 #: inc/Welcome/Component.php:860 inc/Welcome/Component.php:865
 #: inc/Welcome/Component.php:870 inc/Welcome/Component.php:875
-#, fuzzy
 msgid "Limited"
 msgstr "有限"
 
@@ -2319,7 +2069,6 @@ msgid "Group Primary Navigation Style"
 msgstr ""
 
 #: inc/Welcome/Component.php:799 inc/Welcome/Component.php:839
-#, fuzzy
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -2340,7 +2089,6 @@ msgid "Sale Badge Style"
 msgstr ""
 
 #: inc/Welcome/Component.php:824
-#, fuzzy
 msgid "Integrations"
 msgstr "整合"
 
@@ -2349,42 +2097,34 @@ msgid "BuddyBoss Platform"
 msgstr ""
 
 #: inc/Welcome/Component.php:844
-#, fuzzy
 msgid "LearnDash"
 msgstr "LearnDash"
 
 #: inc/Welcome/Component.php:849
-#, fuzzy
 msgid "LearnPress"
 msgstr "學習系統"
 
 #: inc/Welcome/Component.php:854
-#, fuzzy
 msgid "LifterLMS"
 msgstr "LifterLMS"
 
 #: inc/Welcome/Component.php:859
-#, fuzzy
 msgid "TutorLMS"
 msgstr "TutorLMS"
 
 #: inc/Welcome/Component.php:864
-#, fuzzy
 msgid "bbPress"
 msgstr "bbPress"
 
 #: inc/Welcome/Component.php:869
-#, fuzzy
 msgid "Dokan"
 msgstr "多供應商系統"
 
 #: inc/Welcome/Component.php:874
-#, fuzzy
 msgid "WC Vendors"
 msgstr "WC供應商"
 
 #: inc/Welcome/Component.php:879
-#, fuzzy
 msgid "GamiPress"
 msgstr "GamiPress"
 
@@ -2789,7 +2529,6 @@ msgid ""
 msgstr ""
 
 #: inc/class-buddyx-breadcrumbs.php:352
-#, fuzzy
 msgid "Browse:"
 msgstr "瀏覽："
 
@@ -2799,42 +2538,39 @@ msgid "Breadcrumbs"
 msgstr ""
 
 #: inc/class-buddyx-breadcrumbs.php:354
-#, fuzzy
 msgid "Home"
 msgstr "首頁"
 
 #: inc/class-buddyx-breadcrumbs.php:355
-#, fuzzy
 msgid "404 Not Found"
 msgstr "404 找不到"
 
 #: inc/class-buddyx-breadcrumbs.php:356
-#, fuzzy
 msgid "Archives"
 msgstr "彙整"
 
 #: inc/class-buddyx-breadcrumbs.php:358
-#, fuzzy, php-format
+#, php-format
 msgid "Search results for: %s"
 msgstr "搜尋結果：%s"
 
 #: inc/class-buddyx-breadcrumbs.php:360
-#, fuzzy, php-format
+#, php-format
 msgid "Page %s"
 msgstr "第 %s 頁"
 
 #: inc/class-buddyx-breadcrumbs.php:362
-#, fuzzy, php-format
+#, php-format
 msgid "Comment Page %s"
 msgstr "留言頁面 %s"
 
 #: inc/class-buddyx-breadcrumbs.php:364
-#, fuzzy, php-format
+#, php-format
 msgid "Minute %s"
 msgstr "分 %s"
 
 #: inc/class-buddyx-breadcrumbs.php:366
-#, fuzzy, php-format
+#, php-format
 msgid "Week %s"
 msgstr "週 %s"
 
@@ -2843,24 +2579,20 @@ msgstr "週 %s"
 #: template-parts/header/buddypress-profile.php:129
 #: template-parts/header/buddypress-profile.php:136
 #: template-parts/header/buddypress-profile.php:137
-#, fuzzy
 msgid "Register"
 msgstr "註冊"
 
 #: inc/class-buddyx-breadcrumbs.php:858
-#, fuzzy
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr "g:i a"
 
 #: inc/class-buddyx-breadcrumbs.php:876
-#, fuzzy
 msgctxt "minute archives time format"
 msgid "i"
 msgstr "i"
 
 #: inc/class-buddyx-breadcrumbs.php:894
-#, fuzzy
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr "歸檔時間格式(時) g a"
@@ -2874,61 +2606,50 @@ msgstr ""
 
 #: inc/class-buddyx-breadcrumbs.php:912 inc/class-buddyx-breadcrumbs.php:982
 #: inc/class-buddyx-breadcrumbs.php:1382
-#, fuzzy
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr "F"
 
 #: inc/class-buddyx-breadcrumbs.php:913 inc/class-buddyx-breadcrumbs.php:1387
-#, fuzzy
 msgctxt "daily archives date format"
 msgid "j"
 msgstr "j"
 
 #: inc/class-buddyx-breadcrumbs.php:942
-#, fuzzy
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr "W"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:53
-#, fuzzy
 msgid "Profile"
 msgstr "個人資料"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:54
 #: inc/compatibility/buddypress/buddypress-functions.php:67
-#, fuzzy
 msgid "Activity"
 msgstr "動態"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:55
-#, fuzzy
 msgid "Groups"
 msgstr "群組"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:56
-#, fuzzy
 msgid "Forums"
 msgstr "論壇"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:57
-#, fuzzy
 msgid "Friends"
 msgstr "朋友"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:58
-#, fuzzy
 msgid "Members"
 msgstr "會員"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:59
-#, fuzzy
 msgid "Blogs"
 msgstr "部落格"
 
 #: inc/compatibility/buddypress/buddypress-functions.php:60
-#, fuzzy
 msgid "Business"
 msgstr "商業"
 
@@ -2938,17 +2659,14 @@ msgid_plural "Recently earned badges"
 msgstr[0] ""
 
 #: inc/extra.php:103
-#, fuzzy
 msgid "Search"
 msgstr "搜尋"
 
 #: inc/extra.php:113
-#, fuzzy
 msgid "View Shopping Cart"
 msgstr "查看書袋"
 
 #: inc/extra.php:149
-#, fuzzy
 msgid "View your shopping cart"
 msgstr "檢視購物車"
 
@@ -2957,32 +2675,26 @@ msgid "BuddyX WordPress Theme"
 msgstr ""
 
 #: inc/extra.php:246
-#, fuzzy
 msgid "Sticky"
 msgstr "置頂"
 
 #: inc/extra.php:257
-#, fuzzy
 msgid "Leave a comment"
 msgstr "發表留言"
 
 #: inc/extra.php:257
-#, fuzzy
 msgid "1 Comment"
 msgstr "1 則留言"
 
 #: inc/extra.php:257
-#, fuzzy
 msgid "% Comments"
 msgstr "% 評論"
 
 #: inc/extra.php:262 template-parts/content/entry_meta.php:124
-#, fuzzy
 msgid "Edit"
 msgstr "編輯"
 
 #: inc/extra.php:377
-#, fuzzy
 msgid "Post Settings"
 msgstr "文章設定"
 
@@ -2995,7 +2707,6 @@ msgid "Overwrite Title Customizer settings"
 msgstr ""
 
 #: inc/extra.php:410
-#, fuzzy
 msgid "Title Style"
 msgstr "標題樣式"
 
@@ -3004,12 +2715,10 @@ msgid "Enter Youtube, Vimeo and etc video url."
 msgstr ""
 
 #: inc/extra.php:463
-#, fuzzy
 msgid "Video URL"
 msgstr "影片網址"
 
 #: inc/extra.php:466 inc/extra.php:479 inc/extra.php:708
-#, fuzzy
 msgid "Add Media"
 msgstr "新增媒體"
 
@@ -3018,7 +2727,6 @@ msgid "Enter audio url."
 msgstr ""
 
 #: inc/extra.php:476
-#, fuzzy
 msgid "Audio URL"
 msgstr "音頻網址"
 
@@ -3027,12 +2735,10 @@ msgid "Input your quote."
 msgstr ""
 
 #: inc/extra.php:489
-#, fuzzy
 msgid "Quote Text"
 msgstr "報價文本"
 
 #: inc/extra.php:495
-#, fuzzy
 msgid "Quote Author"
 msgstr "作者引用"
 
@@ -3041,12 +2747,10 @@ msgid "Input your link."
 msgstr ""
 
 #: inc/extra.php:505
-#, fuzzy
 msgid "Link Title"
 msgstr "連結標題"
 
 #: inc/extra.php:511
-#, fuzzy
 msgid "Link URL"
 msgstr "連結URL"
 
@@ -3058,7 +2762,6 @@ msgid ""
 msgstr ""
 
 #: inc/extra.php:540 inc/extra.php:647
-#, fuzzy
 msgid "Delete image"
 msgstr "刪除圖片"
 
@@ -3067,17 +2770,14 @@ msgid "Add images gallery"
 msgstr ""
 
 #: inc/extra.php:626
-#, fuzzy
 msgid "Add to gallery"
 msgstr "添加到圖庫"
 
 #: inc/extra.php:710
-#, fuzzy
 msgid "Add to Media"
 msgstr "加入媒體"
 
 #: inc/extra.php:849 inc/extra.php:873
-#, fuzzy
 msgid "&hellip;"
 msgstr "&hellip;"
 
@@ -3094,39 +2794,33 @@ msgid "(BuddyPress) Profile Completion"
 msgstr ""
 
 #: inc/widgets/bp-profile-completion-widget.php:77
-#, fuzzy, php-format
+#, php-format
 msgid "%s Complete"
 msgstr "%s 完成"
 
 #: inc/widgets/bp-profile-completion-widget.php:114
-#, fuzzy
 msgid "Complete"
 msgstr "完成"
 
 #: inc/widgets/bp-profile-completion-widget.php:215
 #: inc/widgets/bp-profile-completion-widget.php:453
-#, fuzzy
 msgid "Profile Photo"
 msgstr "頭像照片"
 
 #: inc/widgets/bp-profile-completion-widget.php:235
 #: inc/widgets/bp-profile-completion-widget.php:456
-#, fuzzy
 msgid "Cover Photo"
 msgstr "背景圖片"
 
 #: inc/widgets/bp-profile-completion-widget.php:316
-#, fuzzy
 msgid "Profile Fields"
 msgstr "個人資料欄位"
 
 #: inc/widgets/bp-profile-completion-widget.php:428
-#, fuzzy
 msgid "Complete Your Profile"
 msgstr "完成您的個人資料"
 
 #: inc/widgets/bp-profile-completion-widget.php:462
-#, fuzzy
 msgid "Title:"
 msgstr "標題:"
 
@@ -3155,12 +2849,10 @@ msgid "Search for:"
 msgstr ""
 
 #: searchform.php:11
-#, fuzzy
 msgid "Enter Keyword"
 msgstr "輸入關鍵字"
 
 #: searchform.php:12
-#, fuzzy
 msgid "Go"
 msgstr "送出"
 
@@ -3169,7 +2861,7 @@ msgstr "送出"
 #: template-parts/content-buddypress.php:20
 #: template-parts/content/entry-full-width.php:37
 #: template-parts/content/entry_content.php:21
-#, fuzzy, php-format
+#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "閱讀全文<span class=\"screen-reader-text\">《%s》</span>"
 
@@ -3178,42 +2870,38 @@ msgstr "閱讀全文<span class=\"screen-reader-text\">《%s》</span>"
 #: template-parts/content/entry-full-width.php:50
 #: template-parts/content/entry-page.php:38
 #: template-parts/content/entry_content.php:38
-#, fuzzy
 msgid "Pages:"
 msgstr "頁面:"
 
 #: template-parts/content/entry-attachment.php:35
 #: template-parts/content/entry-post.php:36 template-parts/content/entry.php:34
-#, fuzzy
 msgid "Previous:"
 msgstr "上一頁："
 
 #: template-parts/content/entry-attachment.php:45
 #: template-parts/content/entry-post.php:37 template-parts/content/entry.php:35
-#, fuzzy
 msgid "Next:"
 msgstr "下一頁："
 
 #: template-parts/content/entry-attachment.php:51
-#, fuzzy
 msgid "Post navigation"
 msgstr "文章導航"
 
 #. translators: %s: post title
 #: template-parts/content/entry_actions.php:22
-#, fuzzy, php-format
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "在《<span class=\"screen-reader-text\">%s</span>》發表留言"
 
 #. translators: %s: post title
 #: template-parts/content/entry_actions.php:42
-#, fuzzy, php-format
+#, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "編輯 <span class=\"screen-reader-text\">%s</span>"
 
 #: template-parts/content/entry_meta.php:66
 #: template-parts/content/entry_meta.php:74
-#, fuzzy, php-format
+#, php-format
 msgctxt "post author"
 msgid "Written by %s"
 msgstr "作者: %s"
@@ -3226,87 +2914,81 @@ msgstr ""
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:93
-#, fuzzy, php-format
+#, php-format
 msgctxt "post parent"
 msgid "In %s"
 msgstr "在 %s"
 
 #. translators: %s: post parent title
 #: template-parts/content/entry_meta.php:96
-#, fuzzy, php-format
+#, php-format
 msgctxt "post parent"
 msgid "in %s"
 msgstr "在%s中"
 
 #. translators: %s: post date
 #: template-parts/content/entry_meta.php:113
-#, fuzzy, php-format
+#, php-format
 msgctxt "post date"
 msgid "%s"
 msgstr "%s"
 
 #. translators: separator between taxonomy terms
 #: template-parts/content/entry_taxonomies.php:24
-#, fuzzy
 msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
 #. translators: %s: list of taxonomy terms
 #: template-parts/content/entry_taxonomies.php:31
-#, fuzzy, php-format
+#, php-format
 msgid "Posted in %s"
 msgstr "發表於 [%s] 分類"
 
 #. translators: %s: list of taxonomy terms
 #: template-parts/content/entry_taxonomies.php:37
-#, fuzzy, php-format
+#, php-format
 msgid "Tagged %s"
 msgstr "標籤: %s"
 
 #. translators: %s: taxonomy name
 #: template-parts/content/entry_taxonomies.php:44
-#, fuzzy, php-format
+#, php-format
 msgid "%s:"
 msgstr "%s:"
 
 #: template-parts/content/error-404.php:16
-#, fuzzy
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr "在這裡找不到任何相符內容。請改用以下連結或使用搜尋功能。"
 
 #: template-parts/content/error-404.php:27
-#, fuzzy
 msgid "Most Used Categories"
 msgstr "常用分類"
 
 #. translators: %1$s: smiley
 #: template-parts/content/error-404.php:45
-#, fuzzy, php-format
+#, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "請試著在每月彙整中尋找文章。%1$s"
 
 #: template-parts/content/error-500.php:14
-#, fuzzy
 msgid "Oops! Something went wrong."
 msgstr "哎呀！出了些問題。"
 
 #: template-parts/content/error-offline.php:14
-#, fuzzy
 msgid "Oops! It looks like you&#8217;re offline."
 msgstr "哎呀！看起來您 &#8217;re 離線。"
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content/error.php:23
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "準備好發表你的第一篇文章嗎？<a href=\"%1$s\">由此開始</a>。"
 
 #: template-parts/content/error.php:38
-#, fuzzy
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -3323,101 +3005,83 @@ msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: template-parts/content/page_header.php:22
-#, fuzzy
 msgid "Nothing Found"
 msgstr "查無資料"
 
 #. translators: %s: search query
 #: template-parts/content/page_header.php:41
-#, fuzzy, php-format
+#, php-format
 msgid "Search Results for: %s"
 msgstr "搜尋結果: %s"
 
 #: template-parts/content/pagination.php:13
-#, fuzzy
 msgctxt "previous set of search results"
 msgid "Previous"
 msgstr "上一頁"
 
 #: template-parts/content/pagination.php:14
-#, fuzzy
 msgctxt "next set of search results"
 msgid "Next"
 msgstr "下一個"
 
 #: template-parts/content/pagination.php:15
-#, fuzzy
 msgid "Page navigation"
 msgstr "頁面選單"
 
 #: template-parts/header/buddypress-profile.php:19
-#, fuzzy
 msgid "Messages"
 msgstr "訊息"
 
 #: template-parts/header/buddypress-profile.php:23
 #: template-parts/header/buddypress-profile.php:41
-#, fuzzy
 msgid "9+"
 msgstr "9+"
 
 #: template-parts/header/buddypress-profile.php:37
-#, fuzzy
 msgid "Notifications"
 msgstr "通知"
 
 #: template-parts/header/buddypress-profile.php:70
-#, fuzzy
 msgid "No notifications found."
 msgstr "未找到通知."
 
 #: template-parts/header/buddypress-profile.php:74
-#, fuzzy
 msgid "All Notifications"
 msgstr "所有通知"
 
 #: template-parts/header/buddypress-profile.php:119
-#, fuzzy
 msgid "Login"
 msgstr "登入"
 
 #: template-parts/header/buddypress-profile.php:120
-#, fuzzy
 msgid "Log in"
 msgstr "登入"
 
 #: template-parts/header/navigation.php:17
-#, fuzzy
 msgid "Main menu"
 msgstr "主選單"
 
 #: template-parts/header/navigation.php:41
-#, fuzzy
 msgid "Open menu"
 msgstr "開啟選單"
 
 #: template-parts/header/navigation.php:52
-#, fuzzy
 msgid "Close"
 msgstr "關閉"
 
 #: template-parts/header/navigation.php:76
-#, fuzzy
 msgid "My Account"
 msgstr "我的帳戶"
 
 #: woocommerce/cart/cart.php:30
-#, fuzzy
 msgid "Remove item"
 msgstr "移除項目"
 
 #: woocommerce/cart/cart.php:31
-#, fuzzy
 msgid "Thumbnail image"
 msgstr "縮略圖"
 
 #: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:89
-#, fuzzy
 msgid "Product"
 msgstr "產品"
 
@@ -3426,43 +3090,36 @@ msgid "Price"
 msgstr ""
 
 #: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:120
-#, fuzzy
 msgid "Quantity"
 msgstr "數量"
 
 #: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:146
-#, fuzzy
 msgid "Subtotal"
 msgstr "小計"
 
 #. translators: %s is the product name
 #: woocommerce/cart/cart.php:68
-#, fuzzy, php-format
+#, php-format
 msgid "Remove %s from cart"
 msgstr "從購物車中移除 %s"
 
 #: woocommerce/cart/cart.php:109
-#, fuzzy
 msgid "Available on backorder"
 msgstr "可延期出貨"
 
 #: woocommerce/cart/cart.php:164
-#, fuzzy
 msgid "Coupon:"
 msgstr "優惠券："
 
 #: woocommerce/cart/cart.php:164
-#, fuzzy
 msgid "Coupon code"
 msgstr "優惠券代碼"
 
 #: woocommerce/cart/cart.php:164
-#, fuzzy
 msgid "Apply coupon"
 msgstr "使用優惠券"
 
 #: woocommerce/cart/cart.php:169
-#, fuzzy
 msgid "Update cart"
 msgstr "更新購物車"
 
@@ -3494,6 +3151,5 @@ msgstr ""
 msgid "https://github.com/vapvarun/buddyx"
 msgstr ""
 
-#, fuzzy
 #~ msgid "Requests to Connect"
 #~ msgstr "請求加入好友"

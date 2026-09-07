@@ -79,3 +79,25 @@ defined( 'ABSPATH' ) || exit;
 				'priority' => 10,
 			)
 		);
+
+		/*
+		 * WordPress core auto-links the site's Privacy Policy page (Settings >
+		 * Privacy) beneath the copyright line. Default stays 'on' so existing
+		 * sites keep today's output; site owners who don't want it can turn it
+		 * off here instead of editing template-parts/footer/info.php directly,
+		 * which gets overwritten on every theme update.
+		 */
+		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+			array(
+				'settings'    => 'site_copyright_privacy_link',
+				'label'       => esc_html__( 'Show Privacy Policy Link', 'buddyx' ),
+				'description' => esc_html__( 'Displays a link to your Privacy Policy page (set under Settings > Privacy) beneath the copyright text.', 'buddyx' ),
+				'section'     => 'site_copyright_section',
+				'default'     => 'on',
+				'priority'    => 15,
+				'choices'     => array(
+					'on'  => esc_html__( 'Yes', 'buddyx' ),
+					'off' => esc_html__( 'No', 'buddyx' ),
+				),
+			)
+		);

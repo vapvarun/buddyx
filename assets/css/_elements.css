@@ -35,9 +35,22 @@ hr {
 }
 /* stylelint-enable */
 
+/*
+ * Single source of truth for list-marker indentation, site-wide (theme
+ * templates AND any plugin/editor output that renders a bare ul/ol - e.g.
+ * course/LMS descriptions). list-style-position stays "outside" (UA
+ * default), so the padding below IS the marker's box - dropping it to 0
+ * here left every un-styled ul/ol with nowhere for its marker to sit,
+ * pushing numbers/bullets out past the text column. UI lists that want no
+ * marker/no indent (nav, breadcrumbs, tab lists, comment-thread nesting,
+ * etc.) already pair `list-style: none` with their own explicit
+ * `padding-inline-start: 0` - do the same for any new one rather than
+ * lowering this default.
+ */
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0;
+	padding-inline-start: 1.5em;
 }
 
 ul {
@@ -51,7 +64,19 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+}
+
+ol ol {
+	list-style-type: lower-alpha;
+}
+
+/* Further nesting can adjust list styles as needed */
+ul ul ul {
+	list-style-type: square;
+}
+
+ol ol ol {
+	list-style-type: lower-roman;
 }
 
 dt {
