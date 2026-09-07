@@ -296,7 +296,7 @@ msgid ""
 "according to the WordPress guidelines."
 msgstr ""
 "Bitte kontaktieren Sie den Plugin-Anbieter und bitten Sie ihn, seine Plugins "
-"nach den Wordpress-Richtlinien zu komprimieren."
+"nach den WordPress-Richtlinien zu komprimieren."
 
 #: external/class-tgm-plugin-activation.php:944
 msgid ""

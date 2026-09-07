@@ -387,7 +387,7 @@ msgid ""
 "according to the WordPress guidelines."
 msgstr ""
 "Por favor, póngase en contacto con el proveedor del plugin para que "
-"empaqueten su plugin de acuerdo con las directrices de Wordpress ."
+"empaqueten su plugin de acuerdo con las directrices de WordPress ."
 
 #: external/class-tgm-plugin-activation.php:944
 msgid ""

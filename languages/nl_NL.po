@@ -397,7 +397,7 @@ msgid ""
 "according to the WordPress guidelines."
 msgstr ""
 "Gelieve contact op te nemen met de aanbieder van de plugin en vraag hen de "
-"plugin aan te leveren volgens de Wordpress richtlijnen."
+"plugin aan te leveren volgens de WordPress richtlijnen."
 
 #: external/class-tgm-plugin-activation.php:944
 msgid ""
