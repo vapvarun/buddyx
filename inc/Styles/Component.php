@@ -155,7 +155,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Enqueue bbPress CSS.
-		if ( function_exists( 'is_bbpress' ) || function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+		if ( function_exists( 'buddyx_needs_bbpress_assets' ) && buddyx_needs_bbpress_assets() ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'bbpress.min.css' ) );
 		}
 
@@ -282,7 +282,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue EventsCalendar CSS.
-		if ( class_exists( 'Tribe__Events__Main' ) ) {
+		if ( function_exists( 'buddyx_needs_event_calendar_assets' ) && buddyx_needs_event_calendar_assets() ) {
 			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', array(), buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
 		}
 	}
@@ -295,7 +295,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue Dokan CSS.
-		if ( class_exists( 'WeDevs_Dokan' ) ) {
+		if ( function_exists( 'buddyx_needs_dokan_assets' ) && buddyx_needs_dokan_assets() ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dokan.min.css' ) );
 		}
 	}
@@ -308,7 +308,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue Learndash CSS.
-		if ( class_exists( 'SFWD_LMS' ) ) {
+		if ( function_exists( 'buddyx_needs_learndash_assets' ) && buddyx_needs_learndash_assets() ) {
 			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css', array(), buddyx()->get_asset_version( $css_dir . 'learndash.min.css' ) );
 		}
 	}

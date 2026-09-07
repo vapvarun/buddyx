@@ -572,6 +572,10 @@ a.dokan-btn-theme.active,
     background-color: var(--color-theme-primary);
 }
 
+.dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a {
+    color: #fff !important;
+}
+
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active ul.navigation-submenu {
     border-bottom-color: var(--color-theme-primary);
 }
@@ -583,5 +587,5 @@ a.dokan-btn-theme.active,
 
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover a,
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current a {
-    color: var(--color-theme-primary);
+    color: var(--color-theme-primary) !important;
 }

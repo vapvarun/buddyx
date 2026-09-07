@@ -153,14 +153,12 @@ class Theme {
 			new Custom_Logo\Component(),
 			new Post_Thumbnails\Component(),
 			new Customizer\Component(),
-			//new EZ_Customizer\Component(),
 			new Fonts\Component(),
 			new Styles\Component(),
 			new Scripts\Component(),
 			new Excerpts\Component(),
 			new Options\Component(),
 			new Customizer_Settings\Component(),
-			// new Blocks\Component(), // Disabled: no custom blocks registered yet. Enable when adding blocks to assets/blocks/.
 			new Welcome\Component(),
 		);
 

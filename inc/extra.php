@@ -393,6 +393,17 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 			return;
 		}
 
+		// Only redirect real browser navigations. A non-GET request that
+		// resolves to a 404 (e.g. rtMedia's activity upload POST to
+		// */upload/, or any plugin that posts to an unregistered BP
+		// sub-route) must fall through so a later template_redirect handler
+		// - or WordPress's own 404 response - can deal with it, instead of
+		// being 301'd to the custom 404 page and losing its body.
+		$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) ) : 'GET';
+		if ( ! in_array( $request_method, array( 'GET', 'HEAD' ), true ) ) {
+			return;
+		}
+
 		// Check for rtMedia routes early to avoid unnecessary theme mod retrieval.
 		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 		if ( '' !== $request_uri && strpos( $request_uri, '/media/' ) !== false ) {

@@ -162,6 +162,7 @@ function buddyx_load_contextual() {
 	$frontend_files = array(
 		'/inc/widgets/bp-profile-completion-widget.php',
 		'/inc/class-buddyx-breadcrumbs.php',
+		'/inc/Helpers/Conditional_Assets.php',
 		'/inc/extra.php',
 		'/inc/login.php',
 		'/inc/Webfont/class-buddyx-webfont-loader.php',

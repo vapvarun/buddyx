@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 5.1.6
+Stable tag: 5.1.7
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -128,6 +128,15 @@ Copyright 2013 Klaus Hartl
 Released under the MIT license
 
 == Changelog ==
+
+= 5.1.7 - September 2026 =
+
+* Improve  - Events Calendar, LearnDash, bbPress and Dokan stylesheets now load only on pages that actually use them, instead of on every page whenever the plugin is active. Force one on with the matching buddyx_needs_*_assets filter.
+* Improve  - Updated the WooCommerce cart template to match WooCommerce 11.0.0.
+* Fix      - Dark mode now applies the correct colors to rtMedia media pages and galleries.
+* Fix      - Fixed the Dokan dashboard navigation color in dark mode.
+* Fix      - A non-GET request that resolves to a 404, such as an rtMedia upload, is no longer redirected to the custom 404 page and losing its data.
+* Dev      - Removed the unused EZ_Customizer component, the unreferenced block scaffolding scripts and a dead login helper.
 
 = 5.1.6 - August 2026 =
 

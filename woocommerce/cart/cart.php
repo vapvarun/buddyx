@@ -12,7 +12,7 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 10.8.0
+ * @version 11.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,8 +27,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 				<thead>
 					<tr>
-						<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'buddyx' ); ?></span></th>
-						<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'buddyx' ); ?></span></th>
+						<th scope="col" class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'buddyx' ); ?></span></th>
+						<th scope="col" class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'buddyx' ); ?></span></th>
 						<th scope="col" class="product-name"><?php esc_html_e( 'Product', 'buddyx' ); ?></th>
 						<th scope="col" class="product-price"><?php esc_html_e( 'Price', 'buddyx' ); ?></th>
 						<th scope="col" class="product-quantity"><?php esc_html_e( 'Quantity', 'buddyx' ); ?></th>
@@ -109,7 +109,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								?>
 								</td>
 
-								<td scope="row" role="rowheader" class="product-name" data-title="<?php esc_attr_e( 'Product', 'buddyx' ); ?>">
+								<td role="rowheader" class="product-name" data-title="<?php esc_attr_e( 'Product', 'buddyx' ); ?>">
 								<?php
 								if ( ! $product_permalink ) {
 									echo wp_kses_post( $product_name . '&nbsp;' );

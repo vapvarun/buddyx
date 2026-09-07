@@ -10,13 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Check login page
- */
-function buddyx_is_login_page() {
-	return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
-}
-
-/**
  * Change login logo url
  */
 function buddyx_login_logo_url() {
