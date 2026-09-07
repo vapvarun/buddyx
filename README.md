@@ -25,7 +25,7 @@ BuddyX also pairs tightly with BuddyPress and the wider community stack below, s
 
 ## The BuddyX community stack
 
-BuddyX is built by [Wbcom Designs](https://wbcomdesigns.com/), the team behind Reign and the BuddyPress Community Bundle. Two new community plugins pair with the theme when you want to run a real community, not just a marketing site.
+BuddyX is built by [Wbcom Designs](https://wbcomdesigns.com/), the team behind Reign and the BuddyPress Community Bundle. Two community plugins pair with the theme when you want to run a real community, not just a marketing site.
 
 ### BuddyNext: a complete community platform in one free plugin
 
@@ -44,6 +44,26 @@ Standard WordPress forums slow down once the community passes a few thousand top
 
 - **Site:** https://jetonomy.org/
 - **Download:** https://wbcomdesigns.com/downloads/jetonomy/
+
+## More from Wbcom Designs
+
+Every plugin below is self-hosted on your own WordPress site, with a free core and an optional Pro layer. No per-seat pricing, no per-ticket cut, no platform fee.
+
+| Product | What it does | Links |
+|---|---|---|
+| **BuddyNext** | A complete community platform in one free plugin: activity feed, spaces, member profiles, direct messaging, a member directory, and a full moderation suite. | [Site](https://buddynext.com/) · [Download](https://wbcomdesigns.com/downloads/buddynext/) |
+| **Jetonomy** | Forums, Q&A, and ideas boards on their own database tables, so search and threading stay fast past 100,000 topics. | [Site](https://jetonomy.org/) · [Download](https://wbcomdesigns.com/downloads/jetonomy/) |
+| **Learnomy** | The simplest LMS for WordPress: build courses, sell them with built-in Stripe and PayPal, run quizzes, issue signed certificates, and pay instructors. | [Site](https://learnomy.app/) · [Download](https://wbcomdesigns.com/downloads/learnomy/) |
+| **Eventonomy** | Events, RSVPs, ticketing, and calendars on your own site, with no per-ticket platform fees. | [Site](https://eventonomy.org/) · [Download](https://wbcomdesigns.com/downloads/eventonomy/) |
+| **Listora** | A directory that scales past 100,000 listings: faceted search, frontend submission, business claims, anti-spam, and Gutenberg blocks. | [Site](https://listora.org/) · [Download](https://wbcomdesigns.com/downloads/listora/) |
+| **WP Career Board** | A job board with live search, employer and candidate dashboards, applications, company profiles, and a Pro ATS hiring pipeline. | [Site](https://wpcareerboard.com/) · [Download](https://wbcomdesigns.com/downloads/wp-career-board/) |
+
+### Want more from the theme itself?
+
+**BuddyX Pro** builds on this theme with dark-mode colour controls (47 `dark_*` customizer keys against free's toggle alone), a login modal and login-page designer, scroll-to-top, a side panel, a topbar, marketplace support (Dokan, WCFM, MultiVendorX), dedicated LMS layout controls, AMP and PWA, and 301 customizer settings against free's 130.
+
+- **Product page:** https://wbcomdesigns.com/downloads/buddyx-pro-theme/
+- **Changelog:** https://wbcomdesigns.com/release-notes/buddyx-pro-theme/
 
 ## Installation
 
