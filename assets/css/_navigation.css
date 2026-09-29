@@ -491,10 +491,16 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     /*
 	 * If the dropdown toggle is active with JS, then
 	 * we'll take care of showing the submenu with JS.
+	 *
+	 * The .dropdown-toggle button is display:none at this width (see
+	 * above), so it can never receive focus here - keyboard users can
+	 * only reach these items via :focus/:focus-within on the link
+	 * itself. Do not exclude .menu-item--has-toggle at this breakpoint
+	 * or keyboard users lose the ability to open the submenu entirely.
 	 */
     .nav--toggle-sub li:hover>ul,
     .nav--toggle-sub li.menu-item--toggled-on>ul,
-    .nav--toggle-sub li:not(.menu-item--has-toggle):focus>ul {
+    .nav--toggle-sub li:focus>ul {
         display: block;
         transition: none;
     }
@@ -507,7 +513,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 	 * This selector needs to stay separated, otherwise submenus
 	 * will not be displayed with IE/Edge.
 	 */
-    .nav--toggle-sub li:not(.menu-item--has-toggle):focus-within>ul {
+    .nav--toggle-sub li:focus-within>ul {
         display: block;
         transition: none;
     }
@@ -645,9 +651,21 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     margin: 0 10px;
 }
 
+.menu-icons-wrapper .search.search--buddynext {
+	margin: 0;
+}
+
 .main-navigation .search a,
 .main-navigation .cart a {
     padding: 0;
+}
+
+/* BuddyNext's search icon (buddynext_header_search) is sized by BuddyNext like its
+   bell and messages icons; keep the nav link rules above from collapsing it. */
+.main-navigation .search--buddynext a.bn-header-search {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
 }
 
 .menu-icons-wrapper .search,

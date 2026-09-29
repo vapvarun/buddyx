@@ -67,6 +67,8 @@
 .entry-meta .posted-by {
     display: block;
     margin: 0;
+    padding-left: 53px;
+    min-height: 38px;
     font-weight: 700;
 }
 
@@ -87,8 +89,17 @@
 }
 
 .entry-meta .posted-by img {
-    float: left;
-    margin-right: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: none;
+    margin-right: 0;
+}
+
+.entry-meta .posted-on {
+    display: block;
+    padding-left: 53px;
+	margin-top: -18px;
 }
 
 .entry-edit-link {
@@ -673,8 +684,8 @@ article .entry-header {
 }
 
 .entry-meta__content {
+    position: relative;
     text-align: left;
-    margin-right: 20px;
     flex: 1;
 }
 

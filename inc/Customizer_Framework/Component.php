@@ -386,6 +386,12 @@ class Component {
 							'element'  => $r['element']  ?? '',
 							'property' => $r['property'] ?? '',
 							'units'    => $r['units']    ?? '',
+							// Mirrors Output_Builder's 'exclude' so the live-preview
+							// JS drops the same sub-keys (e.g. 'color') the PHP side
+							// does - otherwise dragging a color picker with dark mode
+							// on would flash the old, non-dark-aware literal color
+							// until the next refresh.
+							'exclude'  => array_values( (array) ( $r['exclude'] ?? array() ) ),
 						);
 					},
 					(array) $f['output']

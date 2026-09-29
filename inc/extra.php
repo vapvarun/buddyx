@@ -243,7 +243,15 @@ if ( ! function_exists( 'buddyx_site_menu_icon' ) ) {
 			<div class="menu-icons-wrapper">
 				<?php
 				// Render the search icon if enabled.
-				if ( ! empty( $searchicon ) ) :
+				if ( ! empty( $searchicon ) && function_exists( 'buddyx_use_buddynext_search' ) && buddyx_use_buddynext_search() ) :
+					// BuddyNext active: the icon opens the community search palette (a real
+					// link to the community search page where the palette script is absent).
+					?>
+					<div class="search search--buddynext">
+						<?php buddynext_header_search(); ?>
+					</div>
+					<?php
+				elseif ( ! empty( $searchicon ) ) :
 					?>
 					<div class="search" <?php echo apply_filters( 'buddyx_search_slide_toggle_data_attrs', '' ); // phpcs:ignore ?>>
 						<a href="#" id="overlay-search" class="search-icon" title="<?php esc_attr_e( 'Search', 'buddyx' ); ?>" aria-label="Toggle search overlay">

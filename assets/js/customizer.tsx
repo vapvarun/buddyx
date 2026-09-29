@@ -161,7 +161,11 @@ const dynamicColorVars: Record<string, string[]> = {
 		'--bx-color-bg-muted',
 		'--global-body-lightcolor',
 	],
-	site_primary_color: ['--bx-color-accent', '--color-theme-primary'],
+	site_primary_color: [
+		'--bx-color-accent',
+		'--color-theme-primary',
+		'--wp--preset--color--primary',
+	],
 	site_links_color: ['--bx-color-link', '--color-link'],
 	site_links_focus_hover_color: [
 		'--bx-color-link-hover',
@@ -233,6 +237,60 @@ const dynamicDimensionVars: Record<string, string> = {
 
 let customColorsEnabled = true;
 
+// Mirrors Tokens\Component::contrast_pick(): white or near-black, whichever
+// has the higher WCAG contrast ratio against the fill.
+function contrastPick(hex: string): string {
+	const lin = (i: number) => {
+		const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+		return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+	};
+	const lum = 0.2126 * lin(1) + 0.7152 * lin(3) + 0.0722 * lin(5) + 0.05;
+	return 1.05 / lum >= lum / 0.053 ? '#ffffff' : '#0a0a0a';
+}
+
+// The button label follows the fill unless the owner picked a label colour,
+// same rule the server applies in Tokens\Component::auto_button_text_decls().
+function syncAutoButtonText(): void {
+	if (!customColorsEnabled) {
+		return;
+	}
+	const read = (id: string): string => {
+		const setting = window.wp.customize<string>(id);
+		return setting && typeof setting.get === 'function'
+			? setting.get()
+			: '';
+	};
+	// Only a customised fill needs a matching label here; while the fill is
+	// the default, the server cascade (including dark mode) already resolves it.
+	const picked = read('site_buttons_background_color');
+	const fill = canonicalizeColor(picked);
+	const followFill =
+		/^#[0-9a-f]{6}$/.test(fill) &&
+		!valueMatchesRegisteredDefault('site_buttons_background_color', picked);
+	const pairs: Array<[string, string[]]> = [
+		[
+			'site_buttons_text_color',
+			['--bx-color-button-fg', '--button-text-color'],
+		],
+		[
+			'site_buttons_text_hover_color',
+			['--bx-color-button-fg-hover', '--button-text-hover-color'],
+		],
+	];
+	pairs.forEach(([id, names]) => {
+		const saved = read(id);
+		if (saved && !valueMatchesRegisteredDefault(id, saved)) {
+			return;
+		}
+		names.forEach((name) =>
+			setBodyCssVariable(
+				name,
+				followFill ? contrastPick(fill) : undefined
+			)
+		);
+	});
+}
+
 function updateDynamicColorVariable(settingId: string, value: string): void {
 	const variableNames = dynamicColorVars[settingId];
 
@@ -253,10 +311,12 @@ function updateDynamicColorVariable(settingId: string, value: string): void {
 	// inline declaration on <body> lets the :root cascade resolve.
 	if (valueMatchesRegisteredDefault(settingId, value)) {
 		variableNames.forEach((name) => setBodyCssVariable(name));
+		syncAutoButtonText();
 		return;
 	}
 
 	variableNames.forEach((name) => setBodyCssVariable(name, value));
+	syncAutoButtonText();
 }
 
 function syncAllDynamicColorVariables(): void {

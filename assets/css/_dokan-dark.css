@@ -1,0 +1,1358 @@
+
+/* stylelint-disable no-descending-specificity -- dark overrides are
+ * appended after the base rules they counter, by design. */
+
+/*--------------------------------------------------------------
+# Color-mode toggle (Dokan seller dashboard)
+----------------------------------------------------------------
+The Dokan dashboard runs on `dokan-dashboard-fullwidth-template`, which
+drops the BuddyX header - so `buddyx_header_actions` (and the toggle it
+renders) never fires. Color_Mode_Toggle\Component::render_dokan_dashboard_toggle()
+prints this floating button on seller-dashboard routes instead. Visible
+in both modes.
+--------------------------------------------------------------*/
+.bx-color-mode-toggle-dokan {
+    position: fixed;
+    inset-block-end: 20px;
+    inset-inline-end: 20px;
+    z-index: 9999;
+    margin: 0;
+    display: inline-flex;
+}
+
+.bx-color-mode-toggle-dokan .bx-color-mode-toggle__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bx-color-bg-elevated, #fff);
+    border: 1px solid var(--bx-color-border, #e8e8e8);
+    box-shadow: var(--bx-shadow-card-md, 0 4px 12px -2px rgba(0, 0, 0, 0.15));
+    color: var(--bx-color-fg, #505050);
+}
+
+.bx-color-mode-toggle-dokan .bx-color-mode-toggle__btn:hover,
+.bx-color-mode-toggle-dokan .bx-color-mode-toggle__btn:focus-visible {
+    color: var(--bx-color-accent, #c92a2b);
+    background-color: var(--bx-color-bg-muted, #fafafa);
+}
+
+
+/*--------------------------------------------------------------
+# Dark mode  ([data-bx-mode="dark"])
+----------------------------------------------------------------
+The Dokan seller dashboard renders three UIs that do not pick up the
+theme's --bx-color-* dark cascade on their own:
+
+  1. Dokan React layout chrome - #dokan-vendor-dashboard-layout-root
+     (Tailwind utilities: .bg-white, .border-gray-200, .text-gray-700).
+  2. WooCommerce Analytics app  - #dokan-analytics-app
+     (@woocommerce/components + @wordpress/components; stable WP/WC core
+     class names - .woocommerce-summary, .woocommerce-chart,
+     .components-card).
+  3. Classic PHP dashboard      - .dokan-dashboard-content plus the Dokan
+     panel / table / alert / select2 primitives, which hardcode
+     #fff / #f5f5f5 / #ddd in dokan-lite's own style.css.
+
+Every rule is scoped to a dashboard container so the shared utility
+classes are only repainted inside the dashboard. If Dokan restyles its
+React layout, only section 1 needs re-checking.
+--------------------------------------------------------------*/
+
+/* Native browser chrome (scrollbars, checkboxes, date/select inputs) keeps
+ * rendering in the OS/browser's light appearance inside the dashboard
+ * unless the page tells it the surface is dark - the theme has no
+ * `color-scheme` declaration anywhere otherwise. Most visible as a light
+ * scrollbar track on Windows/Linux (classic, drawn-in-page scrollbars);
+ * far less noticeable on macOS, whose overlay scrollbars are thin and
+ * transparent except while actively scrolling. */
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root,
+[data-bx-mode="dark"] .dokan-dashboard-content {
+    color-scheme: dark;
+}
+
+/* ---- 1. Dokan React layout chrome ----
+ * Dokan ships its `.bg-white` / `.border-gray-*` utilities as
+ * `:is(.pui-root, .dokan-layout) .bg-white { … !important }`, so these
+ * overrides have to carry !important to win. Scope keeps the blast
+ * radius to the dashboard shell.
+ */
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root main {
+    background-color: var(--bx-color-bg) !important;
+    border-inline-start-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root header.bg-white,
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root .dokan-frontend-layout header {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root .border-gray-200,
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root .border-gray-100 {
+    border-color: var(--bx-color-border) !important;
+}
+
+/* Attribute selectors (not `.text-\[\#25252D\]`) so stylelint's
+ * selector-class-pattern stays happy. Dokan emits these arbitrary-value
+ * text utilities as `color: … !important`, hence the !important here. */
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root .text-gray-700,
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root [class~="text-[#25252D]"] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root [class~="text-[#828282]"] {
+    color: var(--bx-color-fg-muted) !important;
+}
+
+[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root [class~="hover:bg-gray-100"]:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ---- 2. WooCommerce Analytics app (Overview + Reports) ---- */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-layout__header,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-layout__header-wrapper {
+    background-color: var(--bx-color-bg);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary {
+    /* The <ul> ground shows through the 1px gaps as "dividers"; the same
+     * value also serves as the grid's outer frame. */
+    background-color: var(--bx-color-border);
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-dashboard__chart-block,
+[data-bx-mode="dark"] #dokan-analytics-app .components-card,
+[data-bx-mode="dark"] #dokan-analytics-app .components-surface,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-dropdown-button,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-section-header,
+[data-bx-mode="dark"] #dokan-analytics-app .d3-chart__tooltip {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-delta {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .components-input-control__container,
+[data-bx-mode="dark"] #dokan-analytics-app .components-input-control__input,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-legend__item-button,
+[data-bx-mode="dark"] #dokan-analytics-app [id^="woocommerce-legend"][id$="button__primary"],
+[data-bx-mode="dark"] #dokan-analytics-app [id^="woocommerce-legend"][id$="button__secondary"] {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg);
+}
+
+/* @wordpress/components renders its labels/values/headings inside
+ * `.components-text` / `.components-truncate` spans whose Emotion-generated
+ * class carries `color: #1e1e1e` - the wrapper-targeted rules above never
+ * reach it. Repaint the text primitives inside the app, then pull the
+ * label/caption variants back to muted. */
+[data-bx-mode="dark"] #dokan-analytics-app .components-text,
+[data-bx-mode="dark"] #dokan-analytics-app .components-truncate,
+[data-bx-mode="dark"] #dokan-analytics-app h1,
+[data-bx-mode="dark"] #dokan-analytics-app h2,
+[data-bx-mode="dark"] #dokan-analytics-app h3,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-value,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-section-header__title,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-legend__item-total,
+[data-bx-mode="dark"] #dokan-analytics-app .entry-title,
+[data-bx-mode="dark"] #dokan-analytics-app .vendor-earning-title {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-label .components-text,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-label,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-legend__item-title,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-legend__item-title .components-text,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-filters-label,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__label .components-text {
+    color: var(--bx-color-fg-muted);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item.is-selected,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item:hover {
+    background-color: var(--bx-color-bg-muted);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body svg .tick line,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body svg .grid line,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body svg .domain {
+    stroke: var(--bx-color-border);
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body svg .tick text {
+    fill: var(--bx-color-fg-muted);
+}
+
+/* WooCommerce Analytics report TableCard (Reports > Revenue/Orders/etc.).
+ * The table has no <thead> - the header row is the first <tr> in <tbody>
+ * with `<th class="woocommerce-table__header">` (#f0f0f0, label sits in a
+ * nested <button><span>). The sorted column + first data row get a light
+ * tint that WC applies with high specificity. */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__header,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__caption {
+    background-color: var(--bx-color-bg-muted) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__header,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__header button,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__header span,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__header .components-button {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__item,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table td,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table th.woocommerce-table__item,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__row,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__item.is-sorted,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table tr.is-current-period > *,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table tbody tr:nth-child(2) > * {
+    background-color: transparent !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+/* Row hover - the rows carry no class, so target the table directly and
+ * beat WC's `rgb(224,224,224)` / `#f6f6f7` hover fill. */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__row:hover > *,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table tbody tr:hover > td,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table tbody tr:hover > th,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-report-table tbody tr:hover > * {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* "Download" button on the report card (`.components-button` renders #000). */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__download-button,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__download-button svg,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-ellipsis-menu__toggle,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-ellipsis-menu__toggle svg {
+    color: var(--bx-color-fg) !important;
+    fill: currentcolor !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__download-button:hover {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__summary,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__summary-item {
+    background-color: transparent !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__summary-item .woocommerce-table__summary-label {
+    color: var(--bx-color-fg-muted) !important;
+}
+
+/* pagination + "rows per page" footer */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-pagination,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-pagination__page-arrow,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-pagination__page-picker,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-pagination__per-page-picker {
+    background-color: transparent !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+/* ---- 3. Classic PHP dashboard primitives ---- */
+
+/* Page / section headings inside the content area. Most inherit
+ * --bx-color-fg fine; these variants are set dark by Dokan or a
+ * component class and otherwise render invisible on the dark surface. */
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-page-title,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-dashboard-header .entry-title,
+[data-bx-mode="dark"] .dokan-dashboard-content .dashboard-content-area > h1,
+[data-bx-mode="dark"] .dokan-dashboard-content article > h1,
+[data-bx-mode="dark"] .dokan-dashboard-content .product-listing-header h1,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-product-listing h1 {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-panel,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-panel-default {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-panel-heading,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-panel-default > .dokan-panel-heading,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-panel-footer {
+    background-color: var(--bx-color-subheader-bg);
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+/* Dokan section header bars whose own CSS carries 5+ class specificity
+ * (payment settings, shipping) - !important sidesteps the arms race. */
+[data-bx-mode="dark"] .dokan-dashboard-content .payment-methods-listing-header,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-shipping-methods-listing-header {
+    background-color: var(--bx-color-subheader-bg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard-content .payment-methods-listing-header > h2,
+[data-bx-mode="dark"] .dokan-dashboard-content .payment-methods-listing-header h2,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-shipping-methods-listing-header h2 {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table > thead > tr > th,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table > tbody > tr > th,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table > tbody > tr > td,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table > tfoot > tr > td {
+    border-color: var(--bx-color-border);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: var(--bx-color-bg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table-striped > tbody > tr:hover > td,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table-hover > tbody > tr:hover > td {
+    background-color: var(--bx-color-bg-elevated);
+}
+
+/* Progress bars - profile completeness track (#f5f5f5), withdraw
+ * progress, etc. The track text sits white-on-white without this. */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-progress,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-progress-vertical {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-progress-bar,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-progress-bar-info {
+    background-color: var(--bx-color-info) !important;
+    color: var(--bx-color-fg-inverse) !important;
+}
+
+/* Table header labels never sit on a colored ground in the dashboard -
+ * neutralize any theme accent / preset background a plugin build applies
+ * to sortable `<th>` (seen as pink pills on the newer product list). */
+[data-bx-mode="dark"] .dokan-dashboard-content table thead th,
+[data-bx-mode="dark"] .dokan-dashboard-content table thead th a,
+[data-bx-mode="dark"] .dokan-dashboard-content table thead th span {
+    background-color: transparent;
+    color: var(--bx-color-fg);
+}
+
+/* Links inside dashboard data tables - Dokan hardcodes #6d6d6d, which is
+ * near-invisible on the dark surface. Selectors mirror dokan-lite's own
+ * (style.css:1799, :3153) so the override wins on specificity. Product
+ * title stays brightest; row-actions + date stay muted. */
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table td a,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-product-listing .dokan-product-listing-area table.product-listing-table td.column-primary a {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table td a:hover,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-product-listing .dokan-product-listing-area table.product-listing-table td.column-primary a:hover {
+    color: var(--bx-color-link-hover);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table td.column-primary strong a {
+    font-weight: 600;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-product-listing .dokan-product-listing-area table.product-listing-table td .row-actions a,
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table td .row-actions,
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table .post-date,
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table .post-date abbr,
+[data-bx-mode="dark"] .dokan-dashboard table.dokan-table td .status {
+    color: var(--bx-color-fg-muted);
+}
+
+/* WooCommerce stock `<mark>` (yellow UA default) + amounts */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-table mark,
+[data-bx-mode="dark"] .dokan-dashboard-content mark.instock,
+[data-bx-mode="dark"] .dokan-dashboard-content mark.outofstock {
+    background-color: transparent;
+}
+
+/* Order/product status filter row (Dokan `.subsubsub` list - #6d6d6d /
+ * #000 links). Selectors mirror dokan-lite's own specificity so these win. */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-orders-area ul.order-statuses-filter li a,
+[data-bx-mode="dark"] .dokan-dashboard ul.subsubsub li a {
+    color: var(--bx-color-fg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-orders-area ul.order-statuses-filter li.active a,
+[data-bx-mode="dark"] .dokan-dashboard ul.subsubsub li.active a {
+    color: var(--bx-color-fg);
+}
+
+/* Neutral (non-theme, non-semantic) buttons - Dokan hardcodes #eee / #333. */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-btn:not(.dokan-btn-theme):not(.dokan-btn-success):not(.dokan-btn-danger):not(.dokan-btn-info),
+[data-bx-mode="dark"] .dokan-dashboard .dokan-btn-default {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
+    border-color: var(--bx-color-border-strong);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-btn:not(.dokan-btn-theme):not(.dokan-btn-success):not(.dokan-btn-danger):not(.dokan-btn-info):hover,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-btn-default:hover {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+/* native form controls Dokan renders with a white ground */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-form-control,
+[data-bx-mode="dark"] .dokan-dashboard select.dokan-form-control,
+[data-bx-mode="dark"] .dokan-dashboard textarea.dokan-form-control,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-w8 input[type="text"],
+[data-bx-mode="dark"] .dokan-dashboard .dokan-product-meta input {
+    background-color: var(--bx-color-input-bg);
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+/* select2 (bundled vendor lib - hardcodes #fff / #aaa / #ddd) */
+[data-bx-mode="dark"] .dokan-dashboard .select2-container--default .select2-selection,
+[data-bx-mode="dark"] .dokan-dashboard .select2-dropdown,
+[data-bx-mode="dark"] .dokan-dashboard .select2-search__field {
+    background-color: var(--bx-color-input-bg);
+    border-color: var(--bx-color-input-border);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .select2-container--default .select2-selection__rendered {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .select2-results__option[aria-selected="true"] {
+    background-color: var(--bx-color-bg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--bx-color-accent);
+    color: var(--bx-color-fg-inverse);
+}
+
+/* media / banner / profile-image drop zones */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-banner,
+[data-bx-mode="dark"] .dokan-dashboard .image-wrap.dokan-banner,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-feat-image-upload,
+[data-bx-mode="dark"] .dokan-dashboard .profile-info-img.dummy-image {
+    background-color: var(--bx-color-bg-muted);
+    border-color: var(--bx-color-border-strong);
+}
+
+/* Dokan's default (light-grey) placeholder art - dim so it does not glare
+ * on the near-black surface. Real uploads swap the src and are untouched. */
+[data-bx-mode="dark"] .dokan-dashboard img[src*="default-store-banner"],
+[data-bx-mode="dark"] .dokan-dashboard img[src*="default-store-picture"],
+[data-bx-mode="dark"] .dokan-dashboard img[src*="mystery-person"] {
+    filter: brightness(0.55) contrast(1.1);
+}
+
+/* alerts - keep the semantic hue, drop onto a dark base */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-message,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-info {
+    background-color: var(--bx-color-info-bg);
+    border-color: var(--bx-color-info);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-error {
+    background-color: var(--bx-color-error-bg);
+    border-color: var(--bx-color-error);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert-info {
+    background-color: var(--bx-color-info-bg);
+    border-color: var(--bx-color-info);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert-success {
+    background-color: var(--bx-color-success-bg);
+    border-color: var(--bx-color-success);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert-warning {
+    background-color: var(--bx-color-warning-bg);
+    border-color: var(--bx-color-warning);
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert-danger {
+    background-color: var(--bx-color-error-bg);
+    border-color: var(--bx-color-error);
+    color: var(--bx-color-fg);
+}
+
+/* magnific-popup product quick-add / media modal */
+[data-bx-mode="dark"] .dokan-dashboard .mfp-content .dokan-add-new-product-popup,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-modal-content {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+
+
+/* ---- 4. "Latest" product editor + other React roots ----
+ * The latest product editor (#dokan-vendor-dashboard-root /
+ * #dokan-stores-product-editor-js) is built on @wordpress/dataviews
+ * DataForm cards (`.dataforms-layouts-*`, hashed CSS-module classes),
+ * Tailwind utilities, @wordpress/components primitives and a Quill
+ * (`.ql-*`) rich-text field. None of it flips via the token cascade, and
+ * the CSS-module / Emotion classes are specificity- and !important-heavy,
+ * so these overrides carry !important and stay scoped to `.dokan-dashboard`
+ * (the body class present on every dashboard route). The purple nav rail
+ * (`.dokan-frontend-sidebar`) is excluded - it is meant to stay branded. */
+[data-bx-mode="dark"] .dokan-dashboard [class*="dataforms-layouts-card"],
+[data-bx-mode="dark"] .dokan-dashboard .dataforms-layouts-panel__field,
+[data-bx-mode="dark"] .dokan-dashboard .components-panel,
+[data-bx-mode="dark"] .dokan-dashboard .components-panel__body,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-product-editor-card,
+[data-bx-mode="dark"] .dokan-dashboard .ql-toolbar,
+[data-bx-mode="dark"] .dokan-dashboard .ql-container {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .ql-editor {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .ql-editor.ql-blank::before {
+    color: var(--bx-color-fg-subtle);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .ql-snow .ql-stroke {
+    stroke: var(--bx-color-fg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .ql-snow .ql-fill {
+    fill: var(--bx-color-fg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .ql-snow .ql-picker {
+    color: var(--bx-color-fg-muted);
+}
+
+/* Classic TinyMCE (wp_editor) chrome - RMA policy, store ToC, announcements.
+ * The editable body lives in an iframe we can't reach from here, so it
+ * stays a light "paper" surface; the toolbar / statusbar / borders are
+ * darkened so they don't glare. */
+[data-bx-mode="dark"] .dokan-dashboard .wp-editor-container,
+[data-bx-mode="dark"] .dokan-dashboard .mce-tinymce,
+[data-bx-mode="dark"] .dokan-dashboard .mce-toolbar-grp,
+[data-bx-mode="dark"] .dokan-dashboard .mce-statusbar,
+[data-bx-mode="dark"] .dokan-dashboard .mce-menubar,
+[data-bx-mode="dark"] .dokan-dashboard .mce-panel,
+[data-bx-mode="dark"] .dokan-dashboard .wp-switch-editor,
+[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .mce-btn button,
+[data-bx-mode="dark"] .dokan-dashboard .mce-ico,
+[data-bx-mode="dark"] .dokan-dashboard .mce-statusbar .mce-path-item,
+[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar input[type="button"] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .mce-btn:hover,
+[data-bx-mode="dark"] .dokan-dashboard .mce-btn.mce-active,
+[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar input[type="button"]:hover {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+/* @wordpress/components form toggle (column show/hide menu, settings…).
+ * The off-state track is near-invisible on dark; make it a visible grey
+ * and the on-state the accent so state reads at a glance. */
+[data-bx-mode="dark"] .dokan-dashboard .components-form-toggle .components-form-toggle__track {
+    background-color: var(--bx-color-border-strong) !important;
+    border-color: var(--bx-color-border-strong) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-form-toggle.is-checked .components-form-toggle__track {
+    background-color: var(--bx-color-accent) !important;
+    border-color: var(--bx-color-accent) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-form-toggle__thumb {
+    background-color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-fg) !important;
+}
+
+/* Menu-group labels ("Columns:", filter section headings). */
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-group__label,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-ellipsis-menu__title,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [class*="menu-group"] > [class*="label"] {
+    color: var(--bx-color-fg-muted) !important;
+}
+
+/* Tame the focus ring on menu items (WP paints a 1.5px white inset). */
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role^="menuitem"]:focus,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] .components-menu-item__button:focus {
+    box-shadow: inset 0 0 0 1px var(--bx-color-accent) !important;
+}
+
+/* Tailwind utilities across the React roots. Dokan ships `.bg-white` etc.
+ * as `:is(.pui-root, .dokan-layout) .bg-white { … !important }`. */
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"], .dokan-layout) .bg-white,
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"], .dokan-layout) .bg-gray-50,
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"], .dokan-layout) .bg-gray-100 {
+    background-color: var(--bx-color-bg-elevated) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"], .dokan-layout) [class*="border-gray-"] {
+    border-color: var(--bx-color-border) !important;
+}
+
+/* Headings / gray body text across the React roots (excludes the nav rail). */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-header-title,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-header-title h1,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-header-title h2,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-header-title h3,
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"]) :not(.dokan-frontend-sidebar):not(.dokan-frontend-sidebar *):is([class*="text-gray-7"], [class*="text-gray-8"], [class*="text-gray-9"], h1, h2, h3),
+[data-bx-mode="dark"] .dokan-dashboard .dataforms-layouts-card__field-label {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard :is([id*="dokan"][id*="dashboard-root"], [id*="product-editor"]) :not(.dokan-frontend-sidebar):not(.dokan-frontend-sidebar *):is([class*="text-gray-4"], [class*="text-gray-5"], [class*="text-gray-6"], .help-text, .dokan-form-help-text) {
+    color: var(--bx-color-fg-muted) !important;
+}
+
+/* @wordpress/components primitives shared by the editor + analytics */
+[data-bx-mode="dark"] .dokan-dashboard .components-base-control__label,
+[data-bx-mode="dark"] .dokan-dashboard .components-panel__body-title,
+[data-bx-mode="dark"] .dokan-dashboard .components-text,
+[data-bx-mode="dark"] .dokan-dashboard .components-truncate {
+    color: var(--bx-color-fg);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-text-control__input,
+[data-bx-mode="dark"] .dokan-dashboard .components-select-control__input,
+[data-bx-mode="dark"] .dokan-dashboard .components-textarea-control__input,
+[data-bx-mode="dark"] .dokan-dashboard .components-input-control__input,
+[data-bx-mode="dark"] .dokan-dashboard .components-input-control__container {
+    background-color: var(--bx-color-input-bg) !important;
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg) !important;
+}
+
+/* @wordpress/components InputControl draws its 1px frame on a separate
+ * `__backdrop` element (fixed #e9e9e9) - a glaring light outline on every
+ * field of the "latest" product editor. */
+[data-bx-mode="dark"] .dokan-dashboard .components-input-control__backdrop {
+    border-color: var(--bx-color-border) !important;
+    box-shadow: none !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-input-control:focus-within .components-input-control__backdrop,
+[data-bx-mode="dark"] .dokan-dashboard .components-text-control__input:focus,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__control--is-focused {
+    border-color: var(--bx-color-accent) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-toggle-control .components-form-toggle__track {
+    background-color: var(--bx-color-border-strong);
+}
+
+/* DataForm card headers + Dokan's own card-title wrapper */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-form-card-title,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-form-card-header-content,
+[data-bx-mode="dark"] .dokan-dashboard .dataforms-layouts-card__field-header-content,
+[data-bx-mode="dark"] .dokan-dashboard [class*="__heading-lg"],
+[data-bx-mode="dark"] .dokan-dashboard [class*="__heading-md"] {
+    color: var(--bx-color-fg);
+}
+
+/* react-select (the editor's dropdowns - Stock status, etc.) */
+[data-bx-mode="dark"] .dokan-dashboard .react-select__control {
+    background-color: var(--bx-color-input-bg) !important;
+    border-color: var(--bx-color-input-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__menu,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__menu-list {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__single-value,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__input,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__input-container {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__option--is-focused {
+    background-color: var(--bx-color-bg-muted);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__option--is-selected {
+    background-color: var(--bx-color-accent);
+    color: var(--bx-color-fg-inverse);
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__multi-value {
+    background-color: var(--bx-color-bg-muted);
+}
+
+/* Some react-select instances (coupon form product / category search,
+ * store settings…) are rendered WITHOUT the `react-select__` classNamePrefix
+ * - they only carry Emotion `css-<hash>-control` / `-menu` / `-option`
+ * classes. The `-suffix` part is stable, so match on it (scoped to the
+ * `.react-select` wrapper so it can't leak). */
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-control"] {
+    background-color: var(--bx-color-input-bg) !important;
+    border-color: var(--bx-color-input-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-menu"],
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-MenuList"] {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-option"] {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-option"]:hover,
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-option"][class*="focused"] {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-singleValue"],
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-placeholder"] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-multiValue"] {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select [class*="-multiValue"] [class*="-label"] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__multi-value__label {
+    color: var(--bx-color-fg);
+}
+
+/* Native checkboxes / radios Dokan leaves on a white ground. Only the
+ * unchecked state needs help - `:checked` keeps the accent fill. */
+[data-bx-mode="dark"] .dokan-dashboard .dataforms-layouts-card__field input[type="checkbox"]:not(:checked),
+[data-bx-mode="dark"] .dokan-dashboard .dataforms-layouts-card__field input[type="radio"]:not(:checked),
+[data-bx-mode="dark"] .dokan-dashboard .dokan-form-card input[type="checkbox"]:not(:checked),
+[data-bx-mode="dark"] .dokan-dashboard .components-checkbox-control__input:not(:checked) {
+    background-color: var(--bx-color-input-bg);
+    border-color: var(--bx-color-input-border);
+}
+
+/* ---- 5. Dokan PUI React design system (latest dashboard: Products /
+ *         Orders DataViews lists, and their dialogs/menus) ----
+ * Dokan's React UI ("PUI") is a shadcn/Radix-style system: every surface
+ * paints from CSS custom properties (`--background`, `--card`, `--border`,
+ * `--muted` …) declared on `.pui-root` (which also carries a literal
+ * `.light` / `.dark` class we cannot toggle from CSS). Redefining that
+ * token set under dark mode flips the whole React UI in one place - far
+ * more robust than chasing individual `.dataviews-*` / `.components-*`
+ * nodes, and it survives Dokan component churn.
+ *
+ * `.pui-root` can portal dialogs to <body>, so the override is anchored
+ * on `.dokan-dashboard` (a body class) rather than a dashboard container.
+ * The React app writes the token set as an *inline* style on `.pui-root`,
+ * so every override here has to be `!important` to win. `--primary` /
+ * `--ring` are left to Dokan (brand colour). */
+[data-bx-mode="dark"] .dokan-dashboard .pui-root,
+[data-bx-mode="dark"] .dokan-dashboard .pui-root.light {
+    --background: var(--bx-color-bg) !important;
+    --foreground: var(--bx-color-fg) !important;
+    --card: var(--bx-color-bg-elevated) !important;
+    --card-foreground: var(--bx-color-fg) !important;
+    --popover: var(--bx-color-bg-elevated) !important;
+    --popover-foreground: var(--bx-color-fg) !important;
+    --secondary: var(--bx-color-subheader-bg) !important;
+    --secondary-foreground: var(--bx-color-fg) !important;
+    --muted: var(--bx-color-bg-muted) !important;
+    --muted-foreground: var(--bx-color-fg-muted) !important;
+    --accent: var(--bx-color-subheader-bg) !important;
+    --accent-foreground: var(--bx-color-fg) !important;
+    --border: var(--bx-color-border) !important;
+    --input: var(--bx-color-border) !important;
+    --color-border: var(--bx-color-border) !important;
+    --color-background: var(--bx-color-bg-elevated) !important;
+    --color-foreground: var(--bx-color-fg) !important;
+    --sidebar: var(--bx-color-bg) !important;
+    --sidebar-foreground: var(--bx-color-fg) !important;
+    /* Dokan button tokens - keep primary branded, make the "secondary" /
+     * "tertiary" (white outline) variants a subtle dark button. */
+    --color-dokan-btn-secondary: var(--bx-color-bg-elevated) !important;
+    --color-dokan-btn-secondary-hover: var(--bx-color-bg-muted) !important;
+    --color-dokan-btn-tertiary: var(--bx-color-bg-elevated) !important;
+    --color-dokan-btn-tertiary-hover: var(--bx-color-bg-muted) !important;
+    --dokan-btn-secondary-text-color: var(--bx-color-fg) !important;
+}
+
+/* Secondary / cancel buttons in the React UI carry `text-white bg-blue-600`
+ * Tailwind classes that `.dokan-btn-secondary { … !important }` overrides
+ * to white - repaint the text so it reads on the dark button. */
+[data-bx-mode="dark"] .dokan-dashboard .pui-root .dokan-btn-secondary,
+[data-bx-mode="dark"] .dokan-dashboard .pui-root .dokan-btn-tertiary {
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+/* DataViews still hardcodes a `#fff` fallback on a couple of surfaces and
+ * the sortable column headers pick up the theme's button fill. */
+[data-bx-mode="dark"] .dokan-dashboard .pui-root-dataviews,
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-wrapper,
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table__checkbox-column,
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table__actions-column--sticky {
+    background-color: var(--bx-color-bg-elevated) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table__row:hover td {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table-header-button,
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table thead th .components-button {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Title cell link - Dokan's `.text-dokan-link` (#7047EB) is low-contrast
+ * on the dark surface. */
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-title-field a,
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-view-table__row a.text-dokan-link {
+    color: var(--bx-color-fg) !important;
+}
+
+/* Empty-state icon disc ("No data found" / "No Order Yet"). */
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-no-results [class*="rounded-full"],
+[data-bx-mode="dark"] .dokan-dashboard .dataviews-no-results [class*="bg-gray"] {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+/* Dokan's React UI sprinkles arbitrary-hex Tailwind classes
+ * (text-[#111827], bg-[#EFEAFF] …) that bypass the token overlay - most
+ * visibly the module empty states (Store Stats, Q&A, …) where the
+ * "No data found" caption is #111827 on the dark surface and the icon
+ * disc is a light lavender. Attribute selectors keep stylelint happy. */
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#111827]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#1F2937]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#1f2937]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#25252D]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#2F2F2F]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#374151]"] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#6B7280]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#6b7280]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#828282]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="text-[#9CA3AF]"] {
+    color: var(--bx-color-fg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="bg-[#EFEAFF]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="bg-[#F9FAFB]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="bg-[#F3F4F6]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class~="bg-[#F5F5F5]"],
+[data-bx-mode="dark"] .dokan-dashboard .pui-root [class*="bg-primary-50"] {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+/* ---- 6. Popovers, dropdown menus, hover states ----
+ * Menus/popovers portal to a body-level container, so anchor on
+ * `.dokan-dashboard` (a body class). On the front end every
+ * `.components-popover` under that class is dashboard UI (the account
+ * popover, DataViews menus, the WooCommerce analytics date-range picker,
+ * the classic payment-method dropdown). */
+[data-bx-mode="dark"] .dokan-dashboard .components-popover__content,
+[data-bx-mode="dark"] .dokan-dashboard .components-dropdown__content,
+[data-bx-mode="dark"] .dokan-dashboard .header-popover,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-dashboard-header-dropdown,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"],
+[data-bx-mode="dark"] .dokan-dashboard [role="listbox"],
+[data-bx-mode="dark"] .dokan-dashboard [id^="portal/"] [class*="-Menu-Menu"],
+[data-bx-mode="dark"] .dokan-dashboard [id^="portal/"] [class*="-Menu-"][role="menu"] {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg);
+}
+
+/* WooCommerce analytics date-range picker (portals out of #dokan-analytics-app).
+ * Its preset grid is `.woocommerce-segmented-selection__*`, headers /
+ * footer are their own white bands. */
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__content .woocommerce-filters-date__text,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__content-controls,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__label,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__tabs {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__content .components-tab-panel__tabs-item,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__content h4,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-filters-date__content label,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__item,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__label {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__label:hover,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__input:checked + .woocommerce-segmented-selection__label {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-segmented-selection__item {
+    border-color: var(--bx-color-border) !important;
+}
+
+/* react-day-picker (Custom tab) - PascalCase classes, so use attribute
+ * selectors to keep stylelint's selector-class-pattern happy. */
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-calendar,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-calendar__input-group input,
+[data-bx-mode="dark"] .dokan-dashboard [class~="DayPicker"],
+[data-bx-mode="dark"] .dokan-dashboard [class~="DayPicker-Month"] {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard [class~="DayPicker-Day"]:hover:not([class~="DayPicker-Day--disabled"]) {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard [class~="DayPicker-Day--today"] {
+    color: var(--bx-color-accent) !important;
+}
+
+/* @wordpress/components DateTimePicker / DatePicker (`.components-datetime`)
+ * - the coupon "Expire Date" and any WP date field. Day buttons render
+ * `color: #1e1e1e` and the prev/next-month nav buttons pick up the accent
+ * as a solid fill (`…-ViewPreviousMonth` Emotion label). */
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__time,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__calendar-help {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day-of-week,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__time-field label,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__time-legend {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day:disabled,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day[aria-disabled="true"] {
+    color: var(--bx-color-fg-subtle) !important;
+    opacity: 1 !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day:hover:not(:disabled) {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day.is-selected,
+[data-bx-mode="dark"] .dokan-dashboard .components-datetime__date__day[aria-pressed="true"] {
+    background-color: var(--bx-color-accent) !important;
+    color: var(--bx-color-fg-inverse) !important;
+}
+
+/* Month nav buttons - Emotion class `…-ViewPreviousMonthButton`; they
+ * portal with the calendar, so scope only to `.dokan-dashboard`. */
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewPreviousMonthButton"],
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewNextMonthButton"],
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewPreviousMonth"],
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewNextMonth"] {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewPreviousMonthButton"]:hover,
+[data-bx-mode="dark"] .dokan-dashboard [class*="ViewNextMonthButton"]:hover {
+    background-color: var(--bx-color-bg-elevated) !important;
+}
+
+/* @wordpress/components Menu items (DataViews row-actions ⋮ etc.). Emotion
+ * class hashes are build-specific, so hook on ARIA roles. */
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role="menuitem"],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role="menuitemcheckbox"],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role="menuitemradio"],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] > a,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] > button {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role^="menuitem"]:hover,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role^="menuitem"]:focus,
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role^="menuitem"][data-active-item],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role^="menuitem"][aria-selected="true"] {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role="separator"],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] hr {
+    border-color: var(--bx-color-border) !important;
+    background-color: var(--bx-color-border) !important;
+}
+
+/* --- Every other dropdown / suggestion / tooltip surface --- */
+
+/* WP MenuItem (`.components-menu-item__button`), autocomplete + combobox
+ * + token-field suggestion lists, WC dropdown-button menu. */
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-item__button,
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-item__item,
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-group,
+[data-bx-mode="dark"] .dokan-dashboard .components-autocomplete__result,
+[data-bx-mode="dark"] .dokan-dashboard .components-combobox-control__suggestions,
+[data-bx-mode="dark"] .dokan-dashboard .components-form-token-field__suggestions-list,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-dropdown-button__menu,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-select-control__listbox,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-search__inline-container {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-item__button:hover,
+[data-bx-mode="dark"] .dokan-dashboard .components-menu-item__button:focus,
+[data-bx-mode="dark"] .dokan-dashboard .components-autocomplete__result:hover,
+[data-bx-mode="dark"] .dokan-dashboard .components-autocomplete__result[aria-selected="true"],
+[data-bx-mode="dark"] .dokan-dashboard .components-form-token-field__suggestion:hover,
+[data-bx-mode="dark"] .dokan-dashboard .components-form-token-field__suggestion.is-selected,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-select-control__option:hover,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-select-control__option.is-selected {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Native <select> / <option> in the dashboard (bulk actions, chart
+ * interval, classic settings selects). */
+[data-bx-mode="dark"] .dokan-dashboard-content select,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-chart__interval-select select,
+[data-bx-mode="dark"] .dokan-dashboard .components-select-control__input {
+    background-color: var(--bx-color-input-bg) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard-content select option {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+/* react-select option states (menus for Categories/Tags/Brands/Stock…). */
+[data-bx-mode="dark"] .dokan-dashboard .react-select__option,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__group-heading {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .react-select__option--is-focused,
+[data-bx-mode="dark"] .dokan-dashboard .react-select__option:hover {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+/* Tooltips (`.components-tooltip`, WC help tips). */
+[data-bx-mode="dark"] .dokan-dashboard .components-tooltip .components-popover__content,
+[data-bx-mode="dark"] .dokan-dashboard .woocommerce-tooltip__content,
+[data-bx-mode="dark"] .dokan-dashboard .wp-tooltip {
+    background-color: var(--bx-color-fg) !important;
+    color: var(--bx-color-bg) !important;
+}
+
+/* Classic Dokan / Chosen dropdowns. */
+[data-bx-mode="dark"] .dokan-dashboard .chosen-container .chosen-drop,
+[data-bx-mode="dark"] .dokan-dashboard .chosen-container .chosen-single,
+[data-bx-mode="dark"] .dokan-dashboard .chosen-container .chosen-results {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .chosen-container .chosen-results li.highlighted {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Classic sidebar sub-menu (`.navigation-submenu` on the non-React nav). */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-dash-sidebar ul.navigation-submenu {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-dash-sidebar ul.navigation-submenu li a {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .header-popover a,
+[data-bx-mode="dark"] .dokan-dashboard .components-popover.dokan-layout a[class*="text-["] {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .header-popover li:hover a,
+[data-bx-mode="dark"] .dokan-dashboard .header-popover a:hover,
+[data-bx-mode="dark"] .dokan-dashboard .header-popover a:focus,
+[data-bx-mode="dark"] .dokan-dashboard .header-popover a[data-active="true"] {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Classic payment-method "Add Payment Method" toggle + its dropdown -
+ * dokan-lite hardcodes #ddd / #fff (style.css:2564+). */
+[data-bx-mode="dark"] .dokan-dashboard-content #toggle-vendor-payment-method-drop-down {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down li a,
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down li div span {
+    color: var(--bx-color-fg) !important;
+}
+
+/* dokan-lite hovers the `li`, not the `a` (style.css:2641); its selector is
+ * ~7 levels deep, so !important - not specificity - is what wins here. */
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down li:hover,
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down li a:hover {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard-content #vendor-payment-method-drop-down li:not(:last-child) {
+    border-bottom-color: var(--bx-color-border) !important;
+}
+
+/* Dokan React menu items (Export All ⋮, header account, etc.) that land
+ * outside `.pui-root` and so miss the token overlay - their hover / focus
+ * fill is a Tailwind `hover:bg-gray-*` or `--primary` at low alpha (light
+ * on dark). */
+[data-bx-mode="dark"] .dokan-dashboard [class*="dropdown"] [role="menuitem"]:hover,
+[data-bx-mode="dark"] .dokan-dashboard [class*="dropdown"] [role="menuitem"][data-active="true"],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] [role="menuitem"][data-highlighted],
+[data-bx-mode="dark"] .dokan-dashboard [role="menu"] li:hover > a,
+[data-bx-mode="dark"] .dokan-dashboard button[class*="hover:bg-gray"]:hover,
+[data-bx-mode="dark"] .dokan-dashboard button[class*="hover:bg-gray"]:focus,
+[data-bx-mode="dark"] .dokan-dashboard [class*="dropdown"] button:hover,
+[data-bx-mode="dark"] .dokan-dashboard [class*="dropdown"] button:focus {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Stuck loading spinner (`role="status"` in new-dashboard.php) shown while
+ * the React app fetches - `text-gray-200`, a bright disc on the dark page. */
+[data-bx-mode="dark"] .dokan-dashboard [role="status"] svg.animate-spin,
+[data-bx-mode="dark"] .dokan-dashboard #dokan-vendor-dashboard-root svg.animate-spin {
+    color: var(--bx-color-border-strong) !important;
+}
+
+/* ---- 7. Alert / notice hardening ----
+ * dokan-lite's `.dokan-alert-*` variants (style.css:97+) all use pale
+ * pastel grounds; keep the semantic hue but drop onto a dark base. The
+ * base rules in section 3 win by specificity but not against Dokan's
+ * `.dokan-message`/`.dokan-info`/`.dokan-error` (fired via
+ * global/dokan-error.php as `.dokan-alert.dokan-alert-danger`). */
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert.dokan-alert-danger,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-alert-danger {
+    background-color: var(--bx-color-error-bg) !important;
+    border-color: var(--bx-color-error) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert.dokan-alert-warning,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-alert-warning {
+    background-color: var(--bx-color-warning-bg) !important;
+    border-color: var(--bx-color-warning) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert.dokan-alert-success,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-alert-success {
+    background-color: var(--bx-color-success-bg) !important;
+    border-color: var(--bx-color-success) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert.dokan-alert-info,
+[data-bx-mode="dark"] .dokan-dashboard-content .dokan-alert-info {
+    background-color: var(--bx-color-info-bg) !important;
+    border-color: var(--bx-color-info) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert strong,
+[data-bx-mode="dark"] .dokan-dashboard .dokan-alert a {
+    color: var(--bx-color-fg) !important;
+}
+
+
+
+
+/* ---- 8. WordPress media modal (`wp.media`) ----
+ * Opened from the vendor dashboard for product images, the store banner,
+ * profile picture, etc. It is WP core admin CSS loaded on the front end
+ * and appends to <body>, so it sits under `.dokan-dashboard`. Text was
+ * inheriting the theme's #f5f5f5 onto a #fff panel (white on white). */
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-modal-content,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-frame-content,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-frame-toolbar,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-toolbar,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-sidebar,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachments-browser .media-toolbar,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .uploader-inline {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-frame-menu .media-menu,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-frame-router .media-router {
+    background-color: var(--bx-color-bg-muted) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-menu .media-menu-item,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-router .media-menu-item,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-frame-title h1,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment-details .setting,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment-info,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .uploader-inline-content,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal label {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-menu-item:hover,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-menu-item.active,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-router .media-menu-item.active {
+    background-color: var(--bx-color-bg-elevated) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Grid + individual attachments. */
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachments,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment .attachment-preview,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment .thumbnail {
+    background-color: var(--bx-color-bg-elevated) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment.selected .attachment-preview,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .attachment.details .attachment-preview {
+    box-shadow: inset 0 0 0 3px var(--bx-color-bg-elevated), inset 0 0 0 5px var(--bx-color-accent) !important;
+}
+
+/* Toolbar controls: date filter <select>, search box. */
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-toolbar select,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-toolbar input[type="search"],
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-toolbar .search {
+    background-color: var(--bx-color-input-bg) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+/* Modal buttons (Select Files, Use this media). `.button` is white/#e2e2e2. */
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-button,
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .button:not(.button-primary),
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .browser.button {
+    background-color: var(--bx-color-bg-muted) !important;
+    border-color: var(--bx-color-border-strong) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-modal-close {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .dokan-dashboard .media-modal .media-modal-close:hover {
+    color: var(--bx-color-accent) !important;
+}
+
+/* the semi-transparent backdrop behind the modal. */
+[data-bx-mode="dark"] .dokan-dashboard .media-modal-backdrop {
+    background-color: var(--bx-color-bg-overlay) !important;
+}
+
+/* ---- WooCommerce Analytics loading / placeholder states ----
+ * While a report is fetching, the summary numbers become grey shimmer
+ * bars (`.is-placeholder`, ~#e2e4e7) and the chart body is a white block
+ * with a spinner. As admin / non-seller the request never resolves, so
+ * these persist. Repaint the placeholders to the muted surface. */
+[data-bx-mode="dark"] #dokan-analytics-app .is-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item.is-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body .components-placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body.is-loading,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-table__placeholder,
+[data-bx-mode="dark"] #dokan-analytics-app .components-summary__placeholder {
+    background-color: var(--bx-color-bg-muted) !important;
+    color: var(--bx-color-fg-muted) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+/* individual shimmer bars - when `.woocommerce-summary` (the <ul>) or the
+ * `__item-container` <li> carries `.is-placeholder`, the label/value/delta
+ * divs inside get `background: #f0f0f0`. */
+[data-bx-mode="dark"] #dokan-analytics-app .is-placeholder span,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary.is-placeholder .woocommerce-summary__item-label,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary.is-placeholder .woocommerce-summary__item-value,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary.is-placeholder .woocommerce-summary__item-delta,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-container.is-placeholder .woocommerce-summary__item-label,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-container.is-placeholder .woocommerce-summary__item-value,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-summary__item-container.is-placeholder .woocommerce-summary__item-delta,
+[data-bx-mode="dark"] #dokan-analytics-app [class*="placeholder"] [class*="is-placeholder"] {
+    background-color: var(--bx-color-border-strong) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__interval-select,
+[data-bx-mode="dark"] #dokan-analytics-app .d3-chart__empty-message,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__empty-message,
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-load-more {
+    background-color: transparent !important;
+    color: var(--bx-color-fg-muted) !important;
+}
+
+/* Any residual light block inside the chart card while it loads. */
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart__body > div:not([class]),
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart [class*="placeholder"],
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-dashboard__chart-block .is-loading {
+    background-color: var(--bx-color-bg-muted) !important;
+}
+
+[data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart svg > rect,
+[data-bx-mode="dark"] #dokan-analytics-app .d3-chart__viewport > rect {
+    fill: transparent !important;
+}
+
+/* stylelint-enable no-descending-specificity */

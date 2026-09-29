@@ -2,9 +2,9 @@
 Contributors: wbcomdesigns
 Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variations, editor-style, custom-colors, custom-logo, featured-images, footer-widgets, theme-options
 Requires at least: 6.5
-Tested up to: 7.0
-Requires PHP: 8.0
-Stable tag: 5.1.7
+Tested up to: 7.1
+Requires PHP: 8.1
+Stable tag: 5.1.8
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,7 +31,7 @@ Drop in ready-made layouts for your home page, about page, services, pricing, te
 * **Fully responsive** - looks great on desktop, tablet and mobile
 * **Translation-ready** - use it in any language
 * **Right-to-left support** - works for Arabic, Hebrew, Persian, Urdu and other RTL languages
-* **Accessibility-tested** to WCAG 2.1 AA - keyboard friendly, screen-reader friendly, visible focus styles
+* **Accessibility-tested** - keyboard friendly, screen-reader friendly, visible focus styles
 * **Lightweight** - no bloat, no jQuery dependencies in core, fast page loads
 * **Compatible with the WordPress Site Editor** - edit colours, fonts and spacing visually
 
@@ -95,17 +95,7 @@ Url: http://markgoodyear.com/labs/scrollup/
 Copyright (c) Mark Goodyear - @markgdyr - http://markgoodyear.com
 License: MIT
 
-jQuery Superfish Menu Plugin - v1.7.10
-Copyright (c) 2018 Joel Birch
-License: MIT/GPL - https://opensource.org/licenses/MIT
-Source: https://github.com/joeldbirch/superfish
-
 Sticky-kit v1.1.3 | MIT | Leaf Corcoran 2015 | http://leafo.net
-
-FitVids 1.1
-Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
-Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
-Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 
 Isotope PACKAGED v3.0.6
 Licensed GPLv3 for open source use
@@ -122,12 +112,28 @@ License: GPL-2.0+
 Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
-jQuery Cookie Plugin v1.4.1
-https://github.com/carhartl/jquery-cookie
-Copyright 2013 Klaus Hartl
-Released under the MIT license
-
 == Changelog ==
+
+= 5.1.8 - September 2026 =
+
+* New      - Dark mode for the whole Dokan seller dashboard, with a floating color-mode toggle.
+* New      - Search results and the 404 page can now include content from Wbcom plugins.
+* Improve  - Button text now follows the button color, so labels stay readable on any accent you choose. A label color you set in the Customizer still wins.
+* Improve  - The default accent color is now #c92a2b so white button text and red links pass WCAG AA contrast. Sites that saved their own colors are not changed.
+* Improve  - Blocks and plugins that use the WordPress primary color preset now follow the Customizer primary color and the active style variation.
+* Improve  - Button colors are now set through theme.json, so plugins can style buttons with the standard WordPress classes without overrides.
+* Improve  - The block editor now offers Soft, Medium and Lifted shadow presets, and full-width blocks use the root-padding-aware alignment setting.
+* Improve  - Page-to-page navigation uses a soft cross-fade in browsers that support view transitions, and is skipped when the visitor prefers reduced motion.
+* Fix      - Dark mode now covers Tutor LMS modals, cart and checkout, and no longer hides header, heading, menu or body text in the Customizer preview.
+* Fix      - Dokan dashboard scrollbars are now dark in dark mode.
+* Fix      - Count badges in BuddyPress navigation keep readable text in dark mode.
+* Fix      - The post date no longer wraps around the author avatar in the byline.
+* Fix      - Links in post content no longer ignore the link color you set.
+* Fix      - A page assigned a sidebar page template now keeps that layout instead of the Customizer sidebar setting.
+* Fix      - The BuddyNext header search, focus ring and mobile menu toggle now behave consistently.
+* Dev      - `npm run lint:theme-json` now checks theme.json and every style variation for valid JSON, unique palette slugs and readable text colors.
+* Dev      - Replaced the Superfish, FitVids and jquery-cookie scripts with native code, and added a speculation rules fallback for when WordPress core declines to emit one.
+* Compat   - Tested with WordPress 7.1. The minimum PHP version is now 8.1.
 
 = 5.1.7 - September 2026 =
 

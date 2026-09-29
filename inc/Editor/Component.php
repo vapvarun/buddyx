@@ -64,7 +64,7 @@ class Component implements Component_Interface {
 				array(
 					'name'  => __( 'Primary', 'buddyx' ),
 					'slug'  => 'theme-primary',
-					'color' => '#ef5455',
+					'color' => '#c92a2b',
 				),
 				array(
 					'name'  => __( 'Secondary', 'buddyx' ),

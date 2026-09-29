@@ -33,21 +33,21 @@
     --bx-color-bg-overlay: rgba(0, 0, 0, 0.5);
 
     /* Color — Brand / accent */
-    --bx-color-accent: #ef5455;
+    --bx-color-accent: #c92a2b;
     --bx-color-accent-secondary: #3a7882;
     --bx-color-accent-tertiary: #f4d35e;
 
     /* Color — Links */
     --bx-color-link: #111;
-    --bx-color-link-hover: #ef5455;
+    --bx-color-link-hover: #c92a2b;
 
     /* Color — Buttons */
-    --bx-color-button-bg: #ef5455;
-    --bx-color-button-bg-hover: #f83939;
+    --bx-color-button-bg: #c92a2b;
+    --bx-color-button-bg-hover: #b82526;
     --bx-color-button-fg: #fff;
     --bx-color-button-fg-hover: #fff;
-    --bx-color-button-border: #ef5455;
-    --bx-color-button-border-hover: #f83939;
+    --bx-color-button-border: #c92a2b;
+    --bx-color-button-border-hover: #b82526;
 
     /* Color — Header / branding */
     --bx-color-header-bg: #fff;
@@ -76,17 +76,17 @@
     --bx-color-footer-title: #111;
     --bx-color-footer-fg: #505050;
     --bx-color-footer-link: #111;
-    --bx-color-footer-link-hover: #ef5455;
+    --bx-color-footer-link-hover: #c92a2b;
 
     /* Color — Copyright */
     --bx-color-copyright-bg: #fff;
     --bx-color-copyright-border: #e8e8e8;
     --bx-color-copyright-fg: #505050;
     --bx-color-copyright-link: #111;
-    --bx-color-copyright-link-hover: #ef5455;
+    --bx-color-copyright-link-hover: #c92a2b;
 
     /* Color — Loader */
-    --bx-color-loader-bg: #ef5455;
+    --bx-color-loader-bg: #c92a2b;
     --bx-loader-color: #fff;
     --bx-loader-speed: 1.5s;
 
@@ -118,7 +118,7 @@
     /* Color — Forms */
     --bx-color-input-bg: #fff;
     --bx-color-input-border: #d4d4d4;
-    --bx-color-input-focus-border: #ef5455;
+    --bx-color-input-focus-border: #c92a2b;
     --bx-color-input-fg: #1a1a1a;
     --bx-color-input-placeholder: #9ca3af;
 

@@ -90,6 +90,11 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => '.site-sub-header, .site-sub-header .entry-header .entry-title, .site-sub-header .page-header .page-title, .site-sub-header .entry-header, .site-sub-header .page-header, .site-sub-header .entry-title, .site-sub-header .page-title',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-subheader-fg variable (same reasoning as the
+						// site-title/heading/menu fixes for BuddyX's header-text-not-
+						// visible-in-dark-mode bug).
+						'exclude' => array( 'color' ),
 					),
 				),
 			)

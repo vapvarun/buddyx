@@ -44,7 +44,7 @@
 	/**
 	 * Build CSS for a Typography object value (matches PHP Output_Builder).
 	 */
-	function typographyCss(element, val) {
+	function typographyCss(element, val, exclude) {
 		// Kirki legacy 'variant' -> font-weight (+ font-style for italic combos)
 		if (val.variant && !val['font-weight']) {
 			let v = String(val.variant).toLowerCase();
@@ -76,9 +76,10 @@
 			'text-decoration': 'text-decoration',
 			'color': 'color',
 		};
+		const excluded = exclude || [];
 		let decls = '';
 		Object.entries(map).forEach(([k, p]) => {
-			if (val[k]) {
+			if (val[k] && excluded.indexOf(k) === -1) {
 				decls += p + ':' + val[k] + ';';
 			}
 		});
@@ -137,7 +138,7 @@
 							if (type === 'background') {
 								css += backgroundCss(r.element, newVal);
 							} else {
-								css += typographyCss(r.element, newVal);
+								css += typographyCss(r.element, newVal, r.exclude);
 							}
 						} else if (newVal !== '' && newVal !== null && typeof newVal !== 'undefined') {
 							const property = r.property || 'color';

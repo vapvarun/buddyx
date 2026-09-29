@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 define( 'BUDDYX_MINIMUM_WP_VERSION', '6.5' );
-define( 'BUDDYX_MINIMUM_PHP_VERSION', '8.0' );
+define( 'BUDDYX_MINIMUM_PHP_VERSION', '8.1' );
 
 
 
@@ -166,6 +166,9 @@ function buddyx_load_contextual() {
 		'/inc/extra.php',
 		'/inc/login.php',
 		'/inc/Webfont/class-buddyx-webfont-loader.php',
+		// Federated search support for Wbcom plugin content (BuddyNext /
+		// Jetonomy / Eventonomy / WPMediaVerse / Learnomy). Self-suppressing.
+		'/inc/compatibility/wbcom-search/search-federation.php',
 	);
 
 	foreach ( $frontend_files as $file ) {

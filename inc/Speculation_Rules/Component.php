@@ -60,14 +60,18 @@ class Component implements Component_Interface {
 	 *   - The current request is the customizer preview (avoids prerender
 	 *     conflicts with the live-preview iframe).
 	 *   - WordPress core (or another plugin) already provides speculation
-	 *     rules via wp_get_speculation_rules() — defer to that.
+	 *     rules via wp_get_speculation_rules() — defer to that. Core (as of
+	 *     6.8) only actually emits rules for logged-out visitors on sites
+	 *     with pretty permalinks; for everyone else wp_get_speculation_rules()
+	 *     returns null, so checking the function's mere existence is not
+	 *     enough — the fallback below must still run for those visitors.
 	 */
 	public function emit_rules() {
 		if ( is_customize_preview() ) {
 			return;
 		}
-		if ( function_exists( 'wp_get_speculation_rules' ) ) {
-			// Core / Speculative Loading plugin handles emission.
+		if ( function_exists( 'wp_get_speculation_rules' ) && null !== wp_get_speculation_rules() ) {
+			// Core / Speculative Loading plugin is already emitting rules for this request.
 			return;
 		}
 

@@ -375,7 +375,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $classes;
 		}
 
-		$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
+		// An explicitly assigned sidebar page template takes precedence over the
+		// global customizer setting, matching the layout the template itself renders.
+		$page_template_sidebar_map = array(
+			'page-templates/page-left-sidebar.php'  => 'left',
+			'page-templates/page-right-sidebar.php' => 'right',
+			'page-templates/page-both-sidebar.php'  => 'both',
+		);
+		$assigned_page_template = is_singular() ? get_page_template_slug() : '';
+		$default_sidebar        = isset( $page_template_sidebar_map[ $assigned_page_template ] )
+			? $page_template_sidebar_map[ $assigned_page_template ]
+			: get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 
 		if ( $this->is_left_sidebar_active() && $default_sidebar == 'left' ) {
 			$classes[] = 'has-sidebar-left';

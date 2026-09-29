@@ -72,7 +72,7 @@
  * post's author. Adds a subtle accent border to make it scannable. */
 .comment.bypostauthor > .comment-body,
 .comment-list li.bypostauthor {
-    border-left: 3px solid var(--bx-color-accent, #ef5455);
+    border-left: 3px solid var(--bx-color-accent, #c92a2b);
 }
 
 .comment.bypostauthor .comment-author .fn::after {
@@ -101,8 +101,8 @@
 .comment-form input[type="url"]:focus,
 .comment-form textarea:focus {
     outline: 0;
-    border-color: var(--bx-color-input-focus-border, var(--bx-color-accent, #ef5455));
-    box-shadow: 0 0 0 3px var(--bx-color-shadow, rgba(239, 84, 85, 0.18));
+    border-color: var(--bx-color-input-focus-border, var(--bx-color-accent, #c92a2b));
+    box-shadow: 0 0 0 3px var(--bx-color-shadow, rgba(201, 42, 43, 0.18));
 }
 
 /* Required-field asterisk uses the accent token instead of default red */

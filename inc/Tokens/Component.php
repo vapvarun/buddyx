@@ -271,11 +271,11 @@ class Component implements Component_Interface {
 		'--bx-color-fg'                 => '#505050',
 		'--bx-color-header-bg'          => '#ffffff',
 		'--bx-color-site-title'         => '#111111',
-		'--bx-color-site-title-hover'   => '#ef5455',
+		'--bx-color-site-title-hover'   => '#c92a2b',
 		'--bx-color-site-tagline'       => '#757575',
 		'--bx-color-menu-fg'            => '#111111',
-		'--bx-color-menu-hover'         => '#ef5455',
-		'--bx-color-menu-active'        => '#ef5455',
+		'--bx-color-menu-hover'         => '#c92a2b',
+		'--bx-color-menu-active'        => '#c92a2b',
 		'--bx-color-subheader-fg'       => '#111111',
 		'--bx-color-h1'                 => '#111111',
 		'--bx-color-h2'                 => '#111111',
@@ -283,11 +283,11 @@ class Component implements Component_Interface {
 		'--bx-color-h4'                 => '#111111',
 		'--bx-color-h5'                 => '#111111',
 		'--bx-color-h6'                 => '#111111',
-		'--bx-color-accent'             => '#ef5455',
+		'--bx-color-accent'             => '#c92a2b',
 		'--bx-color-link'               => '#111111',
-		'--bx-color-link-hover'         => '#ef5455',
-		'--bx-color-button-bg'          => '#ef5455',
-		'--bx-color-button-bg-hover'    => '#f83939',
+		'--bx-color-link-hover'         => '#c92a2b',
+		'--bx-color-button-bg'          => '#c92a2b',
+		'--bx-color-button-bg-hover'    => '#b82526',
 		'--bx-color-button-fg'          => '#ffffff',
 		'--bx-color-button-fg-hover'    => '#ffffff',
 		// Border mirrors the button background so a solid button stays solid.
@@ -297,19 +297,19 @@ class Component implements Component_Interface {
 		// repainted --bx-color-button-bg (red outline on a blue button).
 		// Referencing the bg token makes the border follow the brand; a customer
 		// who sets a distinct border color still wins (simple-token loop emits it
-		// after this). No-save resolves to #ef5455, matching the 5.0.x look.
-		'--bx-color-button-border'      => 'var(--bx-color-button-bg, #ef5455)',
-		'--bx-color-button-border-hover' => 'var(--bx-color-button-bg-hover, #f83939)',
-		'--bx-color-loader-bg'          => '#ef5455',
+		// after this). No-save resolves to #c92a2b, matching the 5.0.x look.
+		'--bx-color-button-border'      => 'var(--bx-color-button-bg, #c92a2b)',
+		'--bx-color-button-border-hover' => 'var(--bx-color-button-bg-hover, #b82526)',
+		'--bx-color-loader-bg'          => '#c92a2b',
 		'--bx-color-footer-title'       => '#111111',
 		'--bx-color-footer-fg'          => '#505050',
 		'--bx-color-footer-link'        => '#111111',
-		'--bx-color-footer-link-hover'  => '#ef5455',
+		'--bx-color-footer-link-hover'  => '#c92a2b',
 		'--bx-color-copyright-bg'       => '#ffffff',
 		'--bx-color-copyright-border'   => '#e8e8e8',
 		'--bx-color-copyright-fg'       => '#505050',
 		'--bx-color-copyright-link'     => '#111111',
-		'--bx-color-copyright-link-hover' => '#ef5455',
+		'--bx-color-copyright-link-hover' => '#c92a2b',
 
 		// Foreground (text) extras.
 		'--bx-color-fg-muted'           => '#6a6a6a',                // Mid-tone text (5:1 on #fff for WCAG AA; #757575 was 4.48:1).
@@ -352,7 +352,7 @@ class Component implements Component_Interface {
 		// Forms.
 		'--bx-color-input-bg'           => '#ffffff',
 		'--bx-color-input-border'       => '#d4d4d4',
-		'--bx-color-input-focus-border' => '#ef5455',         // Same as accent default.
+		'--bx-color-input-focus-border' => '#c92a2b',         // Same as accent default.
 		'--bx-color-input-fg'           => '#1a1a1a',
 		'--bx-color-input-placeholder'  => '#9ca3af',
 
@@ -473,6 +473,7 @@ class Component implements Component_Interface {
 	protected static array $dark_defaults = array(
 		// Brand / accent — slightly brighter red for dark-bg contrast.
 		'--bx-color-accent'               => '#ff6b6b',
+		'--bx-color-accent-inverse'       => '#0a0a0a',
 		'--bx-color-button-bg'            => '#ff6b6b',
 		'--bx-color-button-bg-hover'      => '#ff8989',
 		'--bx-color-button-fg'            => '#0a0a0a',
@@ -641,6 +642,50 @@ class Component implements Component_Interface {
 		// Runs before register_variation_theme_mod_filters (init 20).
 		add_action( 'init', array( __CLASS__, 'maybe_purge_preset_equal_saves_once' ), 15 );
 		add_action( 'customize_save_after', array( __CLASS__, 'purge_preset_equal_saves' ), 20 );
+		// Owner-saved Customizer colours feed theme.json's palette, so core
+		// blocks, the block editor and plugins that read the WordPress
+		// `--wp--preset--color--*` variables see the same value as BuddyX.
+		\add_filter( 'wp_theme_json_data_theme', array( __CLASS__, 'filter_theme_json_palette' ) );
+		// Core caches the resolved theme.json (persistently with an object
+		// cache), so drop it whenever the saved Customizer values change.
+		\add_action( 'update_option_theme_mods_' . \get_stylesheet(), 'wp_clean_theme_json_cache' );
+	}
+
+	/**
+	 * Overlay owner-saved Customizer colours onto theme.json's palette.
+	 *
+	 * @param \WP_Theme_JSON_Data $json Theme layer data.
+	 * @return \WP_Theme_JSON_Data
+	 */
+	public static function filter_theme_json_palette( $json ) {
+		$map     = array( 'primary' => 'site_primary_color' );
+		$data    = $json->get_data();
+		$palette = $data['settings']['color']['palette']['theme'] ?? array();
+		if ( ! is_array( $palette ) ) {
+			return $json;
+		}
+		$changed = false;
+		foreach ( $palette as $i => $entry ) {
+			$mod = $map[ $entry['slug'] ?? '' ] ?? '';
+			if ( '' === $mod ) {
+				continue;
+			}
+			$saved = \get_theme_mod( $mod, '' );
+			$color = is_string( $saved ) && '' !== $saved ? self::normalize_color( $saved ) : '';
+			if ( '' !== $color && ! self::colors_canonically_equal( $color, (string) $entry['color'] ) ) {
+				$palette[ $i ]['color'] = $color;
+				$changed                = true;
+			}
+		}
+		if ( ! $changed ) {
+			return $json;
+		}
+		return $json->update_with(
+			array(
+				'version'  => $data['version'],
+				'settings' => array( 'color' => array( 'palette' => $palette ) ),
+			)
+		);
 	}
 
 	/**
@@ -1071,7 +1116,7 @@ class Component implements Component_Interface {
 		// Customer saves routed to the dark cascade when the dark variation is active.
 		$dark_customer_decls = '';
 		if ( ! $enabled ) {
-			$decls       .= self::legacy_alias_declarations();
+			$decls       .= self::legacy_alias_declarations() . self::auto_button_text_decls( $mods );
 			$light_block  = ':root{' . $decls . '}';
 			$dark_block   = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
 			return $light_block . $dark_block;
@@ -1086,8 +1131,8 @@ class Component implements Component_Interface {
 		// Default colors mirror _bx-tokens.css so derivation always produces
 		// the same variants whether or not customer has saved a value.
 		$derive_for = array(
-			'site_primary_color'             => array( '--bx-color-accent', '#ef5455' ),
-			'site_buttons_background_color'  => array( '--bx-color-button-bg', '#ef5455' ),
+			'site_primary_color'             => array( '--bx-color-accent', '#c92a2b' ),
+			'site_buttons_background_color'  => array( '--bx-color-button-bg', '#c92a2b' ),
 			'site_links_color'               => array( '--bx-color-link', '#111111' ),
 			'body_background_color'          => array( '--bx-color-bg', '#f7f7f9' ),
 			'box_background_color'           => array( '--bx-color-bg-elevated', '#ffffff' ),
@@ -1192,7 +1237,7 @@ class Component implements Component_Interface {
 		// party and pre-token CSS rules referencing legacy var names
 		// flip colour-mode through the canonical token automatically.
 		// See $legacy_aliases doc-block for context.
-		$decls .= self::legacy_alias_declarations();
+		$decls .= self::legacy_alias_declarations() . self::auto_button_text_decls( $mods );
 
 		$light_block = ':root{' . $decls . '}';
 		// Customer decls for dark-variation-covered tokens layer after $variation_decls
@@ -1584,7 +1629,8 @@ class Component implements Component_Interface {
 			return '';
 		}
 
-		$decls = '';
+		$decls     = '';
+		$has_slugs = array_column( $palette, 'slug' );
 		foreach ( $palette as $entry ) {
 			$pal_slug = $entry['slug'] ?? '';
 			$color    = $entry['color'] ?? '';
@@ -1601,6 +1647,12 @@ class Component implements Component_Interface {
 			// `var(--wp--preset--color--<slug>)` reference) repaint to the
 			// variation's palette instead of theme.json's static value.
 			$decls .= '--wp--preset--color--' . $pal_slug . ':' . $normalized . ';';
+			// theme.json's `primary` is the brand slot plugins read. Variations
+			// name their brand colour `accent`, so mirror it unless the
+			// variation defines `primary` itself.
+			if ( 'accent' === $pal_slug && ! in_array( 'primary', $has_slugs, true ) ) {
+				$decls .= '--wp--preset--color--primary:' . $normalized . ';';
+			}
 
 			// Paint every --bx-* token registered for this slug (declared in.
 			// $variation_palette_targets). One slug fans out to multiple
@@ -1901,7 +1953,39 @@ class Component implements Component_Interface {
 	 * @return string Either `#0a0a0a` or `#ffffff`.
 	 */
 	protected static function contrast_pick( array $rgb ): string {
-		return self::rgb_luminance( $rgb ) > 0.5 ? '#0a0a0a' : '#ffffff';
+		$lum      = self::rgb_luminance( $rgb ) + 0.05;
+		$vs_white = 1.05 / $lum;
+		$vs_dark  = $lum / ( self::rgb_luminance( array( 10, 10, 10 ) ) + 0.05 );
+		return $vs_white >= $vs_dark ? '#ffffff' : '#0a0a0a';
+	}
+
+	/**
+	 * Declarations that make the button label follow the button fill.
+	 *
+	 * The fill may be the theme default, a Customizer pick, or a style
+	 * variation, so the label reads `--bx-color-button-bg-inverse` (emitted by
+	 * derive_color_variants) instead of a fixed white. An owner-saved label
+	 * colour wins: a saved value equal to the field default counts as unsaved,
+	 * matching purge_preset_equal_saves().
+	 *
+	 * @param array<string,mixed> $mods Customizer theme mods.
+	 * @return string CSS declarations.
+	 */
+	protected static function auto_button_text_decls( array $mods ): string {
+		$default_bg = self::color_to_rgb( '#c92a2b' );
+		$fallback   = null !== $default_bg ? self::contrast_pick( $default_bg ) : '#ffffff';
+		$decls      = '';
+		foreach ( array(
+			'site_buttons_text_color'       => array( '--bx-color-button-fg', '--button-text-color', 'var(--bx-color-button-bg-inverse,' . $fallback . ')' ),
+			'site_buttons_text_hover_color' => array( '--bx-color-button-fg-hover', '--button-text-hover-color', 'var(--bx-color-button-fg)' ),
+		) as $mod_key => list( $token, $alias, $value ) ) {
+			$saved = $mods[ $mod_key ] ?? '';
+			if ( is_string( $saved ) && '' !== $saved && ! self::colors_canonically_equal( $saved, '#ffffff' ) ) {
+				continue;
+			}
+			$decls .= $token . ':' . $value . ';' . $alias . ':var(' . $token . ');';
+		}
+		return $decls;
 	}
 
 	/**

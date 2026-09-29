@@ -12,7 +12,7 @@ BuddyX also pairs tightly with BuddyPress and the wider community stack below, s
 ## Requirements
 
 - WordPress 6.5 or later
-- PHP 8.0 or later
+- PHP 8.1 or later
 
 ## Highlights
 

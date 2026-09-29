@@ -279,9 +279,19 @@ select#pa_size {
 }
 
 .entry-meta.entry-meta .posted-by img {
-    float: right;
+    float: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
     margin-right: 0;
-    margin-left: 15px;
+    margin-left: 0;
+}
+
+.entry-meta .posted-by,
+.entry-meta .posted-on {
+    padding-right: 53px;
+    padding-left: 0;
 }
 
 .buddyx-article-list-thumbnail.buddyx-article-list-thumbnail {

@@ -155,12 +155,10 @@ function buddyx_initEachNavToggleSmall(nav) {
         return;
     }
 
-    // Add an initial values for the attribute.
+    // Add an initial values for the attribute. custom.js (mobileNav) keeps it in
+    // step with the open state; a click handler here wrote it on e.target, which
+    // is the bars icon inside the button when the icon is what gets clicked.
     menuTOGGLE.setAttribute('aria-expanded', 'false');
-
-    menuTOGGLE.addEventListener('click', (e) => {
-        e.target.setAttribute('aria-expanded', 'false' === e.target.getAttribute('aria-expanded') ? 'true' : 'false');
-    }, false);
 }
 
 /**

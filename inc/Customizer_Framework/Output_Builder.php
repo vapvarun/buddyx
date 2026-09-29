@@ -80,7 +80,15 @@ class Output_Builder {
 				$rendered = str_replace( array( '<', '>' ), '', (string) $value[ $choice ] );
 				return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
 			}
-			$decls = self::typography_declarations( $value );
+			// 'exclude' drops sub-keys (e.g. 'color') that another system already
+			// owns - e.g. Tokens\Component emits site-title/heading color as a
+			// dark-mode-aware CSS variable, so a literal color here would win on
+			// specificity and never adapt when [data-bx-mode="dark"] is set.
+			$typography_value = $value;
+			foreach ( (array) ( $rule['exclude'] ?? array() ) as $excluded_key ) {
+				unset( $typography_value[ $excluded_key ] );
+			}
+			$decls = self::typography_declarations( $typography_value );
 			return $decls ? sprintf( '%s{%s}', $element, $decls ) : '';
 		}
 

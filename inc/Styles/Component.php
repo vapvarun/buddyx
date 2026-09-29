@@ -149,6 +149,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-bp-verified-member', $css_uri . 'bp-verified-member.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'bp-verified-member.min.css' ) );
 		}
 
+		// Enqueue TutorLMS dark-mode compatibility CSS (only when active).
+		if ( function_exists( 'tutor' ) ) {
+			wp_enqueue_style( 'buddyx-tutorlms', $css_uri . 'tutorlms.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'tutorlms.min.css' ) );
+		}
+
 		// Enqueue Platform CSS.
 		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 			wp_enqueue_style( 'buddyx-platform', $css_uri . 'platform.min.css', array(), buddyx()->get_asset_version( $css_dir . 'platform.min.css' ) );

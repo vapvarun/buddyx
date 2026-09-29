@@ -1,0 +1,261 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Global
+# Dark Mode
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
+
+.site>.tutor-wrap,
+.site>.container>.tutor-wrap {
+    margin: 2rem auto;
+}
+
+/*--------------------------------------------------------------
+# Dark Mode
+--------------------------------------------------------------*/
+:root[data-bx-mode="dark"] {
+	--tutor-border-color: var(--global-border-color);
+	--tutor-body-color: var(--global-font-color);
+	--tutor-color-secondary: var(--color-meta);
+
+	/* The single-lesson "Learning Area" and the student "Dashboard" are each
+	 * separate React apps (tutor-learning-area.min.css, tutor-dashboard.min.css)
+	 * with their own design-token system, distinct from the --tutor-color-*
+	 * tokens above. Their surfaces/text/tab tokens are never redefined for
+	 * dark mode, so hover states (lesson list, topic headers, the "More"
+	 * pages menu, dashboard sidebar nav) and inherited text throughout both
+	 * apps fall back to this light palette. Re-hook the tokens that matter. */
+	--tutor-surface-base: var(--bx-color-bg-page, #0c0f14);
+	--tutor-surface-l1: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-surface-l1-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-surface-l2: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-surface-l2-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-surface-l3: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-surface-sidebar-l1: var(--bx-color-bg-page, #0c0f14);
+	--tutor-surface-brand-tertiary: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-tab-l3: var(--bx-color-bg-subtle, #111827);
+	--tutor-tab-l3-active-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-tab-sidebar-l2-active: var(--bx-color-bg-subtle, #111827);
+	--tutor-tab-sidebar-l2-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-tab-sidebar-l4-active: var(--bx-color-bg-subtle, #111827);
+	--tutor-tab-sidebar-l4-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-text-primary: var(--bx-color-fg, #e5e7eb);
+	--tutor-text-secondary: var(--bx-color-fg-muted, #a3a3a3);
+	--tutor-text-subdued: var(--bx-color-fg-muted, #a3a3a3);
+	--tutor-border-idle: var(--bx-color-border, #374151);
+	--tutor-border-idle2: var(--bx-color-border, #374151);
+
+	/* tutor-core.min.css: shared button/icon tokens used by the outline and
+	 * secondary buttons (date-range filter, sort toggle, "Clear Selection")
+	 * across every Tutor app on the site, not just the two above. */
+	--tutor-button-secondary: var(--bx-color-bg-subtle, #111827);
+	--tutor-button-secondary-hover: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-button-secondary-focused: var(--bx-color-bg-subtle, #111827);
+	--tutor-button-outline-inverse: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-button-outline-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-button-outline-focused-inverse: var(--bx-color-bg-elevated, #1f2937);
+	--tutor-button-ghost-hover: var(--bx-color-bg-subtle, #111827);
+	--tutor-button-disabled: var(--bx-color-bg-subtle, #111827);
+	--tutor-icon-idle: var(--bx-color-fg, #e5e7eb);
+	--tutor-icon-secondary: var(--bx-color-fg-muted, #a3a3a3);
+	--tutor-icon-subdued: var(--bx-color-fg-muted, #a3a3a3);
+	--tutor-icon-hover: var(--bx-color-fg, #e5e7eb);
+}
+
+/* Utility text-color classes Tutor reuses across course cards, the course
+ * single page and the learning area. */
+:root[data-bx-mode="dark"] .tutor-color-black,
+:root[data-bx-mode="dark"] .tutor-course-name,
+:root[data-bx-mode="dark"] .tutor-course-name a,
+:root[data-bx-mode="dark"] .tutor-meta,
+:root[data-bx-mode="dark"] .tutor-meta a,
+:root[data-bx-mode="dark"] .tutor-meta-value,
+:root[data-bx-mode="dark"] .tutor-ratings-average,
+:root[data-bx-mode="dark"] .tutor-page-permission-denied {
+	color: var(--bx-color-fg, #e5e7eb);
+}
+
+:root[data-bx-mode="dark"] .tutor-color-secondary,
+:root[data-bx-mode="dark"] .tutor-color-subdued,
+:root[data-bx-mode="dark"] .tutor-color-muted,
+:root[data-bx-mode="dark"] .tutor-color-hints,
+:root[data-bx-mode="dark"] .tutor-meta-icon {
+	color: var(--bx-color-fg-muted, #a3a3a3);
+}
+
+/* Course tag pills (sidebar "Tags" widget). */
+:root[data-bx-mode="dark"] .tutor-tag-list a {
+	color: var(--bx-color-fg-muted, #a3a3a3);
+	border-color: var(--bx-color-border, #374151);
+}
+
+/* Course cards (archive grid + sidebar pricing card) and the course single
+ * page's content accordion. */
+:root[data-bx-mode="dark"] .tutor-card,
+:root[data-bx-mode="dark"] .tutor-single-course-sidebar .tutor-sidebar-card .tutor-card-body,
+:root[data-bx-mode="dark"] .tutor-accordion-item,
+:root[data-bx-mode="dark"] .tutor-course-details-widget,
+:root[data-bx-mode="dark"] .tutor-course-details-instructors,
+:root[data-bx-mode="dark"] .tutor-review-list-item {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+	border-color: var(--bx-color-border, #374151);
+}
+
+/* border-color does not inherit, so elements with their own divider border
+ * (card footer above "Enroll Course", course-tabs underline) need their own
+ * override, not just their container's. */
+:root[data-bx-mode="dark"] .tutor-card-footer,
+:root[data-bx-mode="dark"] .tutor-nav,
+:root[data-bx-mode="dark"] .tutor-accordion-item-body-content {
+	border-color: var(--bx-color-border, #374151);
+}
+
+/* "About Course" read-more truncation fades to a hardcoded white gradient
+ * to blend with a light page; swap it for a fade to the dark page bg. */
+:root[data-bx-mode="dark"] .tutor-toggle-more-collapsed::before {
+	background-image: linear-gradient(rgba(10, 10, 10, 0) 1.31%, rgba(10, 10, 10, 0.72) 15.41%, rgb(10, 10, 10) 100%) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-accordion-item-header,
+:root[data-bx-mode="dark"] .tutor-course-content-list-item {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+	color: var(--bx-color-fg, #e5e7eb);
+}
+
+/* Sticky course-tabs backdrop (Course Info / Reviews / Announcements) uses a
+ * translucent white intended to blur over a light page. */
+:root[data-bx-mode="dark"] .tutor-is-sticky {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+}
+
+/* Course archive sort/filter dropdown. */
+:root[data-bx-mode="dark"] .tutor-form-control,
+:root[data-bx-mode="dark"] .tutor-form-select-dropdown {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+	color: var(--bx-color-fg, #e5e7eb);
+	border-color: var(--bx-color-border, #374151) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-form-select-option {
+	color: var(--bx-color-fg, #e5e7eb);
+}
+
+:root[data-bx-mode="dark"] .tutor-form-select-option:hover,
+:root[data-bx-mode="dark"] .tutor-form-select-option.is-active {
+	background-color: var(--bx-color-bg-subtle, #111827);
+}
+
+/* The single-lesson "distraction-free learning" template renders its own
+ * full-viewport shell (page background, header bar, curriculum sidebar)
+ * outside the normal template flow, so it never picks up the theme's dark
+ * surface on its own. */
+:root[data-bx-mode="dark"] body.tutor-lms,
+:root[data-bx-mode="dark"] .tutor-learning-area {
+	background-color: var(--bx-color-bg-page, #0c0f14) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-header,
+:root[data-bx-mode="dark"] .tutor-learning-header-inner,
+:root[data-bx-mode="dark"] .tutor-learning-sidebar-curriculum,
+:root[data-bx-mode="dark"] .tutor-lesson-content-tab {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+	border-color: var(--bx-color-border, #374151);
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-header-title,
+:root[data-bx-mode="dark"] .tutor-learning-progress,
+:root[data-bx-mode="dark"] .tutor-learning-progress-text,
+:root[data-bx-mode="dark"] .tutor-learning-progress span,
+:root[data-bx-mode="dark"] .tutor-learning-nav-header-title,
+:root[data-bx-mode="dark"] .tutor-learning-header a,
+:root[data-bx-mode="dark"] .tutor-learning-sidebar-curriculum,
+:root[data-bx-mode="dark"] .tutor-learning-sidebar-curriculum a,
+:root[data-bx-mode="dark"] .tutor-learning-nav-item,
+:root[data-bx-mode="dark"] .tutor-lesson-content-tab,
+:root[data-bx-mode="dark"] .tutor-lesson-content-tab p {
+	color: var(--bx-color-fg, #e5e7eb) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-text-subdued {
+	color: var(--bx-color-fg-muted, #a3a3a3) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-nav-item.active,
+:root[data-bx-mode="dark"] .tutor-learning-nav-item:hover {
+	background-color: var(--bx-color-bg-subtle, #111827) !important;
+}
+
+/* Ghost buttons (Previous/Next, "More") hover to a hardcoded light gray
+ * that clashes with the white text set above. */
+:root[data-bx-mode="dark"] .tutor-btn-ghost:hover {
+	background-color: var(--bx-color-bg-subtle, #111827) !important;
+	color: var(--bx-color-fg, #e5e7eb) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-header .tutor-btn-secondary {
+	background-color: var(--bx-color-bg-subtle, #111827) !important;
+	color: var(--bx-color-fg, #e5e7eb) !important;
+	border-color: var(--bx-color-border, #374151) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-area-footer,
+:root[data-bx-mode="dark"] .tutor-learning-sidebar-pages {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+	border-color: var(--bx-color-border, #374151) !important;
+}
+
+/* Previous/Next lesson links have their own hardcoded color, not inherited
+ * from the footer, so the footer's own color override doesn't reach them. */
+:root[data-bx-mode="dark"] .tutor-learning-area-footer,
+:root[data-bx-mode="dark"] .tutor-learning-area-footer .tutor-btn-ghost {
+	color: var(--bx-color-fg, #e5e7eb) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-learning-pages-item {
+	color: var(--bx-color-fg, #e5e7eb) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-expand-btn {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+	border-color: var(--bx-color-border, #374151) !important;
+}
+
+:root[data-bx-mode="dark"] .tutor-expand-btn svg {
+	color: var(--bx-color-fg, #e5e7eb);
+}
+
+/* Modal shell (login, confirm, alert, QnA, review, bulk-action popups) has
+ * hardcoded light backgrounds (#eff1f7 / #fff) with no dark-mode hook of its
+ * own in tutor.min.css. */
+:root[data-bx-mode="dark"] .tutor-modal-content,
+:root[data-bx-mode="dark"] .tutor-modal-content-white,
+:root[data-bx-mode="dark"] .tutor-modal-footer {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+}
+
+/* Cart course meta (duration / difficulty) is rgba(0,0,0,.6) - solid black at
+ * 60% opacity, unreadable against a dark page background. */
+:root[data-bx-mode="dark"] .tutor-cart-page .tutor-cart-course-item .tutor-cart-course-info li {
+	color: var(--bx-color-fg-muted, #a3a3a3);
+}
+
+/* Checkout order-summary box is a hardcoded #fafafa card; its own text has no
+ * color rule and just inherits the page's (already dark-mode-correct) light
+ * font color, so on the unpatched #fafafa background it was near-white text
+ * on a near-white box - only the background needs to move. */
+:root[data-bx-mode="dark"] .tutor-checkout-page .tutor-checkout-details .tutor-checkout-details-inner {
+	background-color: var(--bx-color-bg-elevated, #1f2937);
+}
+
+/* "No payment method" / other checkout alerts pin a hardcoded white card with
+ * dark text (readable on its own, but a stark light box on an otherwise dark
+ * checkout page). */
+:root[data-bx-mode="dark"] .tutor-alert.tutor-warning {
+	background-color: var(--bx-color-bg-elevated, #1f2937) !important;
+	color: var(--bx-color-fg, #e5e7eb) !important;
+	border-color: var(--bx-color-border, #374151) !important;
+}

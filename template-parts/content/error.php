@@ -33,11 +33,23 @@ namespace BuddyX\Buddyx;
 			</p>
 			<?php
 		} elseif ( is_search() ) {
-			?>
-			<p>
-				<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'buddyx' ); ?>
-			</p>
-			<?php
+			// When federated Wbcom-plugin panels have matches, the "nothing
+			// matched" line is contradicted by the panels rendered right below,
+			// so show a neutral message instead. Falls back to the standard
+			// copy on any site without those plugins.
+			if ( function_exists( 'buddyx_search_federation_has_results' ) && buddyx_search_federation_has_results() ) {
+				?>
+				<p>
+					<?php esc_html_e( 'No posts or pages matched your search. See related results below.', 'buddyx' ); ?>
+				</p>
+				<?php
+			} else {
+				?>
+				<p>
+					<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'buddyx' ); ?>
+				</p>
+				<?php
+			}
 		} else {
 			?>
 			<p>

@@ -104,3 +104,11 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+/* Cross-document page transitions where supported; skipped for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+
+	@view-transition {
+		navigation: auto;
+	}
+}

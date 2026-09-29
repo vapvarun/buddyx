@@ -583,7 +583,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 }
 
 .bp-pagination-links span.page-numbers:not(.dots) {
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     background-color: var(--color-theme-primary);
 }
 
@@ -594,7 +594,7 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
     border-radius: 100px;
     font-size: 11px;
     font-weight: 600;
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     letter-spacing: -0.26px;
     line-height: 16px;
     border: 0;

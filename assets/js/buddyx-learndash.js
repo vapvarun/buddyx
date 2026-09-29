@@ -18,13 +18,13 @@
         $(document).on('click', '#buddyx-toggle-track', function (e) {
             e.preventDefault();
             var color = '';
-            
+
             if (!$('body').hasClass('buddyx-dark-theme')) {
-                $.cookie('bxtheme', 'dark', { path: '/' });
+                document.cookie = 'bxtheme=dark; path=/';
                 $('body').addClass('buddyx-dark-theme');
                 color = 'dark';
             } else {
-                $.removeCookie('bxtheme', { path: '/' });
+                document.cookie = 'bxtheme=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
                 $('body').removeClass('buddyx-dark-theme');
             }
 

@@ -69,7 +69,7 @@ body.layout-boxed .site {
 }
 .site-title a:hover,
 .site-title a:focus {
-	color: var(--bx-color-site-title-hover, var(--bx-color-accent, #ef5455));
+	color: var(--bx-color-site-title-hover, var(--bx-color-accent, #c92a2b));
 }
 .site-description {
 	color: var(--bx-color-site-tagline, var(--bx-color-fg, #757575));
@@ -83,7 +83,7 @@ body.layout-boxed .site {
 .main-navigation a:hover,
 .main-navigation li.current-menu-item > a,
 .main-navigation li.current_page_item > a {
-	color: var(--bx-color-menu-hover, var(--bx-color-accent, #ef5455));
+	color: var(--bx-color-menu-hover, var(--bx-color-accent, #c92a2b));
 }
 
 /* ----- Sub-header ----- */
@@ -101,49 +101,16 @@ h5, .h5 { color: var(--bx-color-h5, var(--bx-color-fg, #111111)); }
 h6, .h6 { color: var(--bx-color-h6, var(--bx-color-fg, #111111)); }
 
 /* ----- Body links -----
- * `:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"])`
- * keeps button-as-anchor elements (WP block buttons, pattern CTAs, BP
- * action buttons, plus plugin button links like Elementor's
- * `.elementor-button` / GamiPress buttons via the `[class*="button"]`
- * catch-all) from inheriting the body link color or the prose underline. Without this
- * exclusion, the .entry-content a rule (specificity 0,2,0) overrides
- * the button rule below (0,1,0) and renders Email-us / Buy-Now etc.
- * with link color on top of the brand BG → unreadable.
- *
- * Selector scope is intentionally limited to `.entry-content` and
- * `.comment-content`. An earlier unscoped `p a:not(...)` selector was
- * dropped because BuddyX renders the masthead site title as
- * `<p class="site-title">` (see template-parts/header/branding.php),
- * which the unscoped `p a:not(...)` rule (specificity 0,3,2) was
- * overriding the customer's `site_title_color` (selector
- * `.site-title a`, specificity 0,1,1). All single/page templates
- * already wrap post content in `.entry-content`, so the scoped rule
- * still covers paragraph-nested links inside post bodies. */
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]),
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]) {
+ * The `a` element is intentionally not scoped to `.entry-content` or
+ * `.hentry` because the theme's accent color is a global brand color that
+ * should apply to all links, not just post content. */
+a {
 	color: var(--bx-color-link, var(--bx-color-accent, #111111));
-	/* WCAG 1.4.1 Use of Color: links must be distinguishable from
-	 * surrounding text without relying on color alone. Body-content
-	 * links get an underline; per-context CSS can override (e.g.
-	 * pattern CTAs that already have visual chrome). */
-	/* text-decoration: underline; */
-	text-underline-offset: 2px;
 }
 
-/* Post meta category + tag links — underlined to pass link-in-text-block
- * even when the saved customer color happens to match surrounding text. */
-.post-meta-category__link,
-.post-meta-tag__link,
-.tags-list a,
-.tag-links a {
-	/* text-decoration: underline; */
-	text-underline-offset: 2px;
-}
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
-.entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):hover,
-.comment-content a:not(.wp-element-button):not(.wp-block-button__link):not(.button):not([class*="button"]):focus {
-	color: var(--bx-color-link-hover, var(--bx-color-accent, #ef5455));
+a:hover,
+a:focus {
+	color: var(--bx-color-link-hover, var(--bx-color-accent, #c92a2b));
 }
 
 /* ----- Buttons -----
@@ -169,18 +136,18 @@ button.button,
 .wp-block-button__link,
 input[type="button"],
 input[type="submit"] {
-	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #ef5455));
+	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #c92a2b));
 	color: var(--bx-color-button-fg, #ffffff);
-	border-color: var(--bx-color-button-border, var(--bx-color-accent, #ef5455));
+	border-color: var(--bx-color-button-border, var(--bx-color-accent, #c92a2b));
 }
 button.button:hover,
 .wp-element-button:hover,
 .wp-block-button__link:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #ef5455));
+	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #c92a2b));
 	color: var(--bx-color-button-fg-hover, #ffffff);
-	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #ef5455));
+	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #c92a2b));
 }
 
 /* ----- Footer ----- */
@@ -200,7 +167,7 @@ input[type="submit"]:hover {
 }
 .site-footer a:hover,
 .footer-widgets a:hover {
-	color: var(--bx-color-footer-link-hover, var(--bx-color-link-hover, #ef5455));
+	color: var(--bx-color-footer-link-hover, var(--bx-color-link-hover, #c92a2b));
 }
 
 /* ----- Copyright -----
@@ -231,12 +198,12 @@ input[type="submit"]:hover {
 .site-info a:hover,
 .site-copyright a:hover,
 .copyright-section a:hover {
-	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #ef5455));
+	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #c92a2b));
 }
 
 /* ----- Active menu state — accessible distinguisher -----
  * Per-WCAG 1.4.3 AA, body text needs a 4.5:1 contrast ratio. The default
- * accent #ef5455 only has 3.87:1 against white — fails. Rather than
+ * accent #c92a2b only has 3.87:1 against white — fails. Rather than
  * darken the brand accent globally (would break customer expectations),
  * keep the active state TEXT in the standard menu fg (high contrast) and
  * use the brand accent as a "you are here" bottom-border emphasis. The
@@ -250,7 +217,7 @@ input[type="submit"]:hover {
 	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #ef5455));
+	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #c92a2b));
 }
 
 /* ----- Inputs / forms ----- */

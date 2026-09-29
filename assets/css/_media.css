@@ -19,6 +19,37 @@ object {
 }
 
 /*--------------------------------------------------------------
+## Responsive Video Embeds
+CSS replacement for the FitVids jQuery plugin: forces a 16:9
+intrinsic ratio on common video-embed iframes instead of the
+old JS wrap-in-a-div + padding-top hack. Wrapped in :where() so
+it carries zero specificity and the exclusions below always win,
+regardless of source order.
+--------------------------------------------------------------*/
+:where(
+	iframe[src*="youtube.com"],
+	iframe[src*="youtube-nocookie.com"],
+	iframe[src*="vimeo.com"],
+	iframe[src*="player.vimeo.com"],
+	iframe[src*="kickstarter.com"]
+) {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+}
+
+/* Plugins that already manage their own responsive video sizing. */
+.ld-video iframe,
+.tutor-video-player iframe,
+.elementor-video-container iframe,
+.elementor-widget-video iframe,
+.fitvidsignore {
+	width: revert;
+	height: revert;
+	aspect-ratio: revert;
+}
+
+/*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {

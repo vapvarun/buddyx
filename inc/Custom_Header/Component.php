@@ -74,6 +74,13 @@ class Component implements Component_Interface {
 			return;
 		}
 
-		echo '<style type="text/css">.site-title a, .site-description { color: #' . esc_attr( $header_text_color ) . '; }</style>';
+		// Scoped to light mode only: customer-saved colors are treated as
+		// light-mode values throughout the token system (see the $dark_defaults
+		// docblock in Tokens\Component) - dark mode always uses the framework's
+		// dark defaults for --bx-color-site-title instead. Without this scope,
+		// this hardcoded, non-token color wins on specificity over the dark
+		// cascade and stays fixed even when the background goes dark, making
+		// the header text unreadable in Dark mode / Dark style preset.
+		echo '<style type="text/css">:root:not([data-bx-mode="dark"]) .site-title a, :root:not([data-bx-mode="dark"]) .site-description { color: #' . esc_attr( $header_text_color ) . '; }</style>';
 	}
 }

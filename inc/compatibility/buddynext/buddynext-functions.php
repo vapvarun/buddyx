@@ -14,6 +14,8 @@
  *      quick links. Log Out is always kept by BuddyNext.
  *   2. Points Log in / Register / Forgot password links at BuddyNext's single
  *      auth-hub page instead of letting them fall through to wp-login.php.
+ *   3. Routes the header search icon to BuddyNext's community search
+ *      (see buddyx_use_buddynext_search()).
  *
  * Loaded from functions.php only when BUDDYNEXT_VERSION is defined and
  * BuddyPress is inactive (the two are mutually exclusive at runtime).
@@ -22,6 +24,25 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+if ( ! function_exists( 'buddyx_use_buddynext_search' ) ) {
+	/**
+	 * Whether the header search icon is BuddyNext's community search.
+	 *
+	 * On by default with BuddyNext, so the icon opens the same palette as Ctrl+K on
+	 * BuddyNext pages and lands on the community search page elsewhere. Return false
+	 * from `buddyx_use_buddynext_header_search` to keep the WordPress search overlay.
+	 *
+	 * @return bool
+	 */
+	function buddyx_use_buddynext_search() {
+		if ( ! function_exists( 'buddynext_header_search' ) ) {
+			return false;
+		}
+
+		return (bool) apply_filters( 'buddyx_use_buddynext_header_search', true );
+	}
+}
 
 if ( ! function_exists( 'buddyx_buddynext_user_profile_menu_items' ) ) {
 	/**

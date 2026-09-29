@@ -56,11 +56,6 @@ p:empty::before {
     content: none;
 }
 
-.wp-embed-responsive .wp-block-embed-vimeo .wp-block-embed__wrapper::before,
-.wp-embed-responsive .wp-block-embed-youtube .wp-block-embed__wrapper::before {
-    content: none;
-}
-
 body.elementor_library-template-default .primary-sidebar,
 body.elementor-editor-active .primary-sidebar {
     display: none;

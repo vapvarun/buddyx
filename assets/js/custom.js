@@ -110,19 +110,9 @@
 
     // Desktop Menu Toggle
     BUDDYX.desktopMenuToggle = function() {
-        $('.buddyx-desktop-menu #primary-menu').superfish({
-            delay: 600,
-            animation: {
-                opacity: 'show'
-            },
-            animationOut: {
-                opacity: 'hide'
-            },
-            speed: 'fast',
-            speedOut: 'fast',
-            cssArrows: false,
-            disableHI: false,
-        });
+        // Submenu open/close (hover, click, keyboard) is handled by the
+        // theme's own nav--toggle-sub system (see navigation.js and
+        // _navigation.css) which already targets #primary-menu.
 
         $("#primary-menu a, .desktop-icons a, .bp-icon-wrap").on('focusin', function() {
             $('.user-link-wrap').removeClass("active");
@@ -209,6 +199,7 @@
 
         var closeWidget = function() {
             $('body').removeClass('mobile-menu-opened');
+            widget.attr('aria-expanded', 'false');
             // Return focus to trigger element
             if (menuTriggerElement) {
                 $(menuTriggerElement).focus();
@@ -218,6 +209,7 @@
 
         var openWidget = function() {
             $('body').addClass('mobile-menu-opened');
+            widget.attr('aria-expanded', 'true');
             // Focus first focusable element in mobile menu
             setTimeout(function() {
                 var $mobileMenu = $('.buddyx-mobile-menu');
@@ -244,57 +236,6 @@
                 columnWidth: '.buddyx-grid-sizer',
             }
         });
-
-    };
-
-    // fitVids
-    BUDDYX.fitVids = function() {
-
-        // LearnDash Player fix
-        if ( $( '.ld-video iframe' ).length > 0 ) {
-            $( '.ld-video iframe' ).addClass( 'fitvidsignore' );
-        }
-
-        // Tutor Player fix
-        if ( $( '.tutor-video-player iframe' ).length > 0 ) {
-            $( '.tutor-video-player iframe' ).addClass( 'fitvidsignore' );
-        }
-
-        var doFitVids = function() {
-            setTimeout(
-                function() {
-                    var youtubeSelector = 'iframe[src*="youtube"]';
-                    var vimeoSelector = '';
-                    if (
-                        ! $( '.tutor-course-details-page' ).length > 0 &&
-                        ! $( '.tutor-course-single-content-wrapper' ).length > 0
-                    ) {
-                        vimeoSelector = 'iframe[src*="vimeo"]';
-                    }
-                    var dynamicSelector = youtubeSelector + ( vimeoSelector ? ',' + vimeoSelector : '' );
-                    $( dynamicSelector ).parent().fitVids();
-                },
-                300
-            );
-        };
-        doFitVids();
-        // Unbind previous before binding new to prevent duplicate handlers
-        $( document ).off('ajaxComplete.buddyxFitVids').on('ajaxComplete.buddyxFitVids', function() {
-            if ( !$( '.elementor-popup-modal .elementor-widget-video' ).length ) {
-                doFitVids();
-            }
-            $( '.elementor-video-container' ).addClass( 'fitvidsignore' );
-        } );
-
-        var doFitVidsOnLazyLoad = function( event, data ) {
-            if ( typeof data !== 'undefined' && typeof data.element !== 'undefined' ) {
-                // load iframe in correct dimension
-                if ( data.element.getAttribute( 'data-lazy-type' ) == 'iframe' ) {
-                    doFitVids();
-                }
-            }
-        };
-        $( document ).on( 'bp_nouveau_lazy_load', doFitVidsOnLazyLoad );
 
     };
 
@@ -409,7 +350,6 @@
         BUDDYX.desktopMenuToggle();
         BUDDYX.mobileNav();
         BUDDYX.stickySidebar();
-        BUDDYX.fitVids();
         BUDDYX.tableDataAtt();
         BUDDYX.galleryPostSlider();
     });

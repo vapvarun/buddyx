@@ -172,13 +172,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$js_files = array(
-			'buddyx-superfish'     => array(
-				'file'    => 'superfish.min.js',
-				'global'  => true,
-				'footer'  => true,
-				'deps'    => array( 'jquery' ),
-				'loading' => 'defer',
-			),
 			'buddyx-isotope-pkgd'  => array(
 				'file'    => 'isotope.pkgd.min.js',
 				'global'  => true,
@@ -186,22 +179,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'deps'    => array( 'jquery' ),
 				'loading' => 'defer',
 			),
-			'buddyx-fitvids'       => array(
-				'file'    => 'fitvids.min.js',
-				'global'  => true,
-				'footer'  => true,
-				'deps'    => array( 'jquery' ),
-				'loading' => 'defer',
-			),
 			'buddyx-sticky-kit'    => array(
 				'file'    => 'sticky-kit.min.js',
-				'global'  => true,
-				'footer'  => true,
-				'deps'    => array( 'jquery' ),
-				'loading' => 'defer',
-			),
-			'buddyx-jquery-cookie' => array(
-				'file'    => 'jquery-cookie.min.js',
 				'global'  => true,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),

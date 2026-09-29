@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-theme-loader, #ef5455);
+    background: var(--color-theme-loader, #c92a2b);
     --bx-loader-color: #fff;
     --bx-loader-speed: 1.5s;
 }

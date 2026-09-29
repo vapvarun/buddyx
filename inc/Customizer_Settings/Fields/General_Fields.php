@@ -144,7 +144,7 @@ defined( 'ABSPATH' ) || exit;
 				'settings' => 'site_loader_bg',
 				'label'    => esc_html__( 'Background color', 'buddyx' ),
 				'section'  => 'site_loader',
-				'default'  => '#ef5455',
+				'default'  => '#c92a2b',
 				'choices'  => array( 'alpha' => true ),
 				'priority' => 10,
 				'transport' => 'postMessage',

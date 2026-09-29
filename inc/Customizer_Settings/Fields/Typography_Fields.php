@@ -32,6 +32,13 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => '.site-title a',
+						// Color is excluded here: Tokens\Component already emits it as
+						// the dark-mode-aware --bx-color-site-title CSS variable. A
+						// literal color from this generic output would tie the header
+						// text to its light-mode value and make it unreadable once
+						// [data-bx-mode="dark"] is set (see BuddyX bug: header text not
+						// visible in Dark mode / Dark style preset).
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -58,6 +65,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => '.site-description',
+						// Same reasoning as the site-title rule above: color is owned
+						// by Tokens\Component's --bx-color-site-tagline variable.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -87,6 +97,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h1',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h1 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -113,6 +126,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h2',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h2 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -139,6 +155,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h3',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h3 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -165,6 +184,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h4',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h4 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -191,6 +213,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h5',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h5 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -217,6 +242,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'h6',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-h6 variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -246,6 +274,9 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => '.main-navigation a, .main-navigation ul li a, .nav--toggle-sub li.menu-item-has-children, .nav--toggle-small .menu-toggle',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-menu-fg variable; see the site-title rule above.
+						'exclude' => array( 'color' ),
 					),
 				),
 			)
@@ -301,6 +332,10 @@ defined( 'ABSPATH' ) || exit;
 				'output'   => array(
 					array(
 						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), input, optgroup, select, textarea',
+						// Color is owned by Tokens\Component's dark-mode-aware
+						// --bx-color-fg variable (--global-font-color alias); see the
+						// site-title rule above for the full reasoning.
+						'exclude' => array( 'color' ),
 					),
 					// Also expose the chosen body font as the global font-family
 					// token so it is reflected in the customizer's CSS variables

@@ -91,7 +91,7 @@
 				},
 				{
 					"slug": "primary",
-					"color": "#ef5455",
+					"color": "#c92a2b",
 					"name": "Primary"
 				},
 				{
@@ -350,6 +350,26 @@
 		"layout": {
 			"contentSize": "720px",
 			"wideSize": "1200px"
+		},
+		"useRootPaddingAwareAlignments": true,
+		"shadow": {
+			"presets": [
+				{
+					"slug": "soft",
+					"name": "Soft",
+					"shadow": "0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1)"
+				},
+				{
+					"slug": "medium",
+					"name": "Medium",
+					"shadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"
+				},
+				{
+					"slug": "lifted",
+					"name": "Lifted",
+					"shadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+				}
+			]
 		}
 	},
 	"styles": {
@@ -363,6 +383,24 @@
 			"link": {
 				"typography": {
 					"textDecoration": "none"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--bx-color-button-bg, var(--wp--preset--color--primary))",
+					"text": "var(--bx-color-button-fg, var(--wp--preset--color--base))"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--bx-color-button-bg-hover, var(--wp--preset--color--primary))",
+						"text": "var(--bx-color-button-fg-hover, var(--wp--preset--color--base))"
+					}
+				},
+				":focus": {
+					"color": {
+						"background": "var(--bx-color-button-bg-hover, var(--wp--preset--color--primary))",
+						"text": "var(--bx-color-button-fg-hover, var(--wp--preset--color--base))"
+					}
 				}
 			},
 			"caption": {

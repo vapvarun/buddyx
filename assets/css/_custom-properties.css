@@ -14,8 +14,8 @@
     --content-width: 100%;
     --dropdown-symbol-width: 0.7em;
     /* Custom editor colors */
-    --color-theme-primary: #ef5455;
-    --color-theme-loader: #ef5455;
+    --color-theme-primary: #c92a2b;
+    --color-theme-loader: #c92a2b;
     --color-theme-secondary: #41848f;
     --color-theme-red: #c0392b;
     --color-theme-green: #27ae60;
@@ -39,8 +39,8 @@
     --color-menu-active: #ee4036;
     --color-subheader-title: #111;
     --color-link: #111;
-    --color-link-hover: #ef5455;
-    --color-link-active: #ef5455;
+    --color-link-hover: #c92a2b;
+    --color-link-active: #c92a2b;
     --color-h1: #111;
     --color-h2: #111;
     --color-h3: #111;
@@ -53,21 +53,21 @@
     --global-border-color: var(--bx-color-border, #e8e8e8);
     --button-text-color: #fff;
     --button-text-hover-color: #fff;
-    --button-background-color: #ef5455;
-    --button-background-hover-color: #f83939;
-    --button-border-color: #ef5455;
-    --button-border-hover-color: #f83939;
+    --button-background-color: #c92a2b;
+    --button-background-hover-color: #b82526;
+    --button-border-color: #c92a2b;
+    --button-border-hover-color: #b82526;
     --color-quote-border: #2e2c42;
     --color-quote-citation: #475569;
 
     --color-footer-title: #111;
     --color-footer-content: #505050;
     --color-footer-link: #111;
-    --color-footer-link-hover: #ef5455;
+    --color-footer-link-hover: #c92a2b;
     --color-copyright-bg: #fff;
     --color-copyright-content: #505050;
     --color-copyright-link: #111;
-    --color-copyright-link-hover: #ef5455;
+    --color-copyright-link-hover: #c92a2b;
     /* Custom editor font sizes */
     --font-size-small: calc(16 / var(--global-font-size) * 1rem);
     --font-size-regular: calc(var(--global-font-size) / 16 * 1rem);

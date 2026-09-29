@@ -44,7 +44,12 @@
  * !important is required to win over higher-specificity default-state rules
  * such as `body.buddypress button { outline: 0 }` that suppress focus rings.
  */
-:focus-visible {
+/*
+ * BuddyNext draws its own single focus ring on its roots (bn-base.css: .bn-app,
+ * .bn-lightbox, .bn-search-overlay, .bn-ob-wrap and the buddynext blocks), so this
+ * rule must not stack a second outline on top of it.
+ */
+:focus-visible:not(:where(.bn-app *, .bn-lightbox *, .bn-search-overlay *, .bn-ob-wrap *, [class*="wp-block-buddynext-"] *)) {
 	outline: 2px solid #2271b1 !important;
 	outline-offset: 2px !important;
 }

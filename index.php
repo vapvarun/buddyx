@@ -90,6 +90,19 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 		} else {
 			get_template_part( 'template-parts/content/error' );
 		}
+
+		/**
+		 * Federated search result panels for Wbcom plugin content (BuddyNext,
+		 * Jetonomy, Eventonomy, WPMediaVerse, Learnomy). Fires below the native
+		 * results, still inside <main>. The handler self-suppresses when this is
+		 * not a search request, the query is empty, or no provider plugin matched
+		 * - so on a site without those plugins this is a no-op.
+		 *
+		 * @see inc/compatibility/wbcom-search/search-federation.php
+		 */
+		if ( is_search() ) {
+			do_action( 'buddyx_search_after_results' );
+		}
 		?>
 
 	</main><!-- #primary -->

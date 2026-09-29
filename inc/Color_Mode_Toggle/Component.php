@@ -40,9 +40,10 @@ class Component implements Component_Interface {
 	 * Hook in render points + asset enqueue.
 	 */
 	public function initialize(): void {
-		add_action( 'buddyx_header_actions',         array( $this, 'render_header_toggle' ), 50 );
-		add_action( 'buddyx_mobile_menu_actions',    array( $this, 'render_mobile_toggle' ), 50 );
-		add_action( 'wp_enqueue_scripts',            array( $this, 'enqueue_assets' ), 30 );
+		add_action( 'buddyx_header_actions', array( $this, 'render_header_toggle' ), 50 );
+		add_action( 'buddyx_mobile_menu_actions', array( $this, 'render_mobile_toggle' ), 50 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ), 30 );
+		add_action( 'wp_footer', array( $this, 'render_dokan_dashboard_toggle' ) );
 	}
 
 	/**
@@ -104,19 +105,47 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Dokan seller-dashboard render hook.
+	 *
+	 * The Dokan dashboard uses `dokan-dashboard-fullwidth-template`, which
+	 * swaps out the BuddyX header entirely — so `buddyx_header_actions`
+	 * never fires and a vendor sitting in the dashboard has no way to
+	 * switch modes. Render a floating toggle (fixed, bottom-inline-end)
+	 * on those routes only. Reuses the same `.bx-color-mode-toggle__btn`
+	 * markup so color-mode-toggle.js binds to it via event delegation
+	 * with no extra JS. Styling lives in assets/css/src/dokan.css
+	 * (`.bx-color-mode-toggle-dokan`), which is already enqueued on
+	 * seller-dashboard routes via buddyx_needs_dokan_assets().
+	 */
+	public function render_dokan_dashboard_toggle(): void {
+		if ( ! $this->is_enabled() ) {
+			return;
+		}
+		if ( ! function_exists( 'dokan_is_seller_dashboard' ) || ! dokan_is_seller_dashboard() ) {
+			return;
+		}
+		$this->render( 'dokan' );
+	}
+
+	/**
 	 * Render the toggle markup.
 	 *
-	 * @param string $context 'header' or 'mobile'.
+	 * @param string $context 'header', 'mobile' or 'dokan'.
 	 */
 	protected function render( string $context ): void {
-		$mode    = $this->initial_mode();
-		$wrapper = 'mobile' === $context ? 'bx-color-mode-toggle-mobile' : 'bx-color-mode-toggle-header';
+		$mode     = $this->initial_mode();
+		$wrappers = array(
+			'mobile' => 'bx-color-mode-toggle-mobile',
+			'dokan'  => 'bx-color-mode-toggle-dokan',
+			'header' => 'bx-color-mode-toggle-header',
+		);
+		$wrapper  = isset( $wrappers[ $context ] ) ? $wrappers[ $context ] : $wrappers['header'];
 
 		$labels = array(
 			'light' => __( 'Light mode (click to switch to dark)', 'buddyx' ),
 			'dark'  => __( 'Dark mode (click to switch to light)', 'buddyx' ),
 		);
-		$label = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];
+		$label  = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];
 		?>
 		<div class="bx-color-mode-toggle <?php echo esc_attr( $wrapper ); ?>">
 			<button type="button"
@@ -139,7 +168,7 @@ class Component implements Component_Interface {
 		if ( ! $this->is_enabled() ) {
 			return;
 		}
-		$theme    = wp_get_theme();
+		$theme     = wp_get_theme();
 		$theme_uri = get_template_directory_uri();
 		$theme_dir = get_template_directory();
 		$src       = $theme_uri . '/assets/js/color-mode-toggle.min.js';
