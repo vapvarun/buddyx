@@ -60,7 +60,7 @@ $group_cover_link = trailingslashit( $admin_link . 'group-cover-image' );
 						esc_html__( 'Active %s', 'buddyx' ),
 						sprintf(
 							'<span data-livestamp="%1$s">%2$s</span>',
-							bp_core_get_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							esc_attr( bp_core_get_iso8601_date( bp_get_group_last_active( 0, array( 'relative' => false ) ) ) ),
 							esc_html( bp_get_group_last_active() )
 						)
 					);

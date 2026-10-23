@@ -92,7 +92,6 @@
     --line-clamp-with-media: 2;
     --line-clamp-no-media: 3;
     --line-clamp-big-title: 2;
-    --line-clamp-big-text: var(--line-clamp-big-text);
     --bx-article-big-sm: 1rem;
     --bx-article-big-md: 1rem;
     --bx-article-big-lg: 1.25rem;
@@ -100,7 +99,6 @@
     --bx-article-big-title-md: 1.75rem;
     --bx-article-big-title-lg: 2.25rem;
     --line-clamp-list-title: 2;
-    --line-clamp-list-text: var(--line-clamp-list-text);
     --bx-article-list-sm: 1rem;
     --bx-article-list-md: 1rem;
     --bx-article-list-lg: 1.15rem;
@@ -108,7 +106,6 @@
     --bx-article-list-title-md: 1.5rem;
     --bx-article-list-title-lg: 1.75rem;
     --line-clamp-card-title: 2;
-    --line-clamp-card-text: var(--line-clamp-card-text);
     --bx-article-card-title-sm: 1.2rem;
     --bx-article-card-title-md: 1.5rem;
     --bx-article-card-title-lg: 1.5rem;
@@ -116,7 +113,6 @@
     --bx-article-list-card-md: 1rem;
     --bx-article-list-card-lg: 1.15rem;
     --line-clamp-grid-title: 2;
-    --line-clamp-grid-text: var(--line-clamp-grid-text);
     --bx-article-grid-title-sm: 1.5rem;
     --bx-article-grid-title-md: 1.75rem;
     --bx-article-grid-title-lg: 2.25rem;

@@ -174,7 +174,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$js_files = array(
 			'buddyx-isotope-pkgd'  => array(
 				'file'    => 'isotope.pkgd.min.js',
-				'global'  => true,
+				'global'  => false,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
 				'loading' => 'defer',
@@ -188,7 +188,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			),
 			'buddyx-slick'         => array(
 				'file'    => 'slick.min.js',
-				'global'  => true,
+				'global'  => false,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
 				'loading' => 'defer',
@@ -199,12 +199,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'footer'   => true,
 				'deps'     => array( 'jquery' ),
 				'loading'  => null,
-				'localize' => array(
-					'buddyx_ajax' => array(
-						'nonce'   => wp_create_nonce( 'buddyx_toggle_theme_color' ),
-						'ajaxurl' => admin_url( 'admin-ajax.php' ),
-					),
-				),
 			),
 		);
 
@@ -223,17 +217,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'BuddyPress' ) ) {
 			$js_files['buddyx-buddypress'] = array(
 				'file'    => 'buddyx-buddypress.min.js',
-				'global'  => true,
-				'footer'  => true,
-				'deps'    => array( 'jquery' ),
-				'loading' => null,
-			);
-		}
-
-		// Conditionally add LearnDash script
-		if ( class_exists( 'SFWD_LMS' ) ) {
-			$js_files['buddyx-learndash'] = array(
-				'file'    => 'buddyx-learndash.min.js',
 				'global'  => true,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),

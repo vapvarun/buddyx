@@ -167,8 +167,7 @@ if ( is_user_logged_in() ) {
 
 	if ( $login_enabled ) {
 		// Login Page URL - get once.
-		$login_page_id  = get_theme_mod( 'buddyx_login_page', 0 );
-		$login_page_url = $login_page_id ? get_permalink( $login_page_id ) : wp_login_url();
+		$login_page_url = buddyx_get_mapped_page_url( 'buddyx_login_page', wp_login_url() );
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>">
@@ -183,8 +182,7 @@ if ( is_user_logged_in() ) {
 		( function_exists( 'bp_is_active' ) && bp_get_option( 'bp-enable-membership-requests' ) );
 
 	if ( $can_register && $register_enabled ) {
-		$registration_page_id  = get_theme_mod( 'buddyx_registration_page', 0 );
-		$registration_page_url = $registration_page_id ? get_permalink( $registration_page_id ) : wp_registration_url();
+		$registration_page_url = buddyx_get_mapped_page_url( 'buddyx_registration_page', wp_registration_url() );
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>">

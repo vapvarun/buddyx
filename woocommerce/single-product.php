@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' );
 
+buddyx()->print_styles( 'buddyx-content' );
+
 $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
 
 do_action( 'buddyx_before_content' );

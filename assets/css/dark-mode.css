@@ -11,212 +11,361 @@
 
 
 /* Header Area */
-.buddyx-dark-theme.ld-in-focus-mode a {
+:root[data-bx-mode="dark"] .ld-in-focus-mode a {
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-mobile-nav span {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-mobile-nav span {
     background-color: var(--ld-dark-mode-content-text);
 }
 
 @media (max-width: 768px) {
-    .buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions {
+    :root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions {
         background-color: var(--ld-dark-mode-header-bg);
     }
 }
 
-body:not(.buddyx-dark-theme) .learndash-light-mode,
-body.buddyx-dark-theme .learndash-dark-mode {
-    display: none;
-}
-
-#buddyx-toggle-track {
-    width: 30px;
+/* Color-mode toggle rendered in the LearnDash focus header
+ * (Color_Mode_Toggle\Component::render_focus_toggle()). */
+.bx-color-mode-toggle-focus {
     height: 100%;
     display: flex;
     align-items: center;
+    border-left: 1px solid var(--global-border-color);
 }
 
-.buddyx-dark-theme #buddyx-toggle-track {
+:root[data-bx-mode="dark"] .bx-color-mode-toggle-focus {
     color: #fff;
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
+/* Sit flat on the focus header, not on the dark button surface. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .bx-color-mode-toggle__btn,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .bx-color-mode-toggle__btn:hover,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .bx-color-mode-toggle__btn:focus-visible {
+    background: transparent;
+    box-shadow: none;
+}
+
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
     background: var(--ld-dark-mode-header-bg);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header {
     border: 0;
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-progress,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-action,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu,
-.buddyx-dark-theme.ld-in-focus-mode #buddyx-toggle-track,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-progress,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-action,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .bx-color-mode-toggle-focus,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions {
     border-color: var(--ld-dark-mode-border-color);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-text,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-text,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-item-preview.ld-is-current-item {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-item-preview.ld-is-current-item {
     color: var(--ld-dark-mode-link-hover-color);
 }
 
 /* Main Content Area */
-body.buddyx-dark-theme.ld-in-focus-mode,
-body.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper {
+:root[data-bx-mode="dark"] body.ld-in-focus-mode,
+:root[data-bx-mode="dark"] body.ld-in-focus-mode .learndash-wrapper {
     background: var(--ld-dark-mode-content-bg);
 }
 
-body.buddyx-dark-theme.ld-in-focus-mode pre {
+:root[data-bx-mode="dark"] body.ld-in-focus-mode pre {
     background: rgba(0, 0, 0, 0.7);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content {
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h1,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h2,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h3,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h4,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h5,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus .ld-focus-content h6 {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h1,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h2,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h3,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h4,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h5,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus .ld-focus-content h6 {
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list a.ld-table-list-item-preview {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-table-list a.ld-table-list-item-preview {
     color: var(--ld-dark-mode-link-color);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-item,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-items,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-content-actions,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-table-list.ld-no-pagination,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item,
-.buddyx-dark-theme.ld-in-focus-mode .ld-focus.ld-focus .buddyx-sfwd-course-position-wrapper {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-item,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-table-list .ld-table-list-items,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-content-actions,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-table-list.ld-no-pagination,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-focus.ld-focus .buddyx-sfwd-course-position-wrapper {
     border-color: var(--ld-dark-mode-border-color);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:focus,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:focus-visible,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:focus-within,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:hover,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:focus,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:focus-visible,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:focus-within,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:hover,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:focus,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:focus-visible,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:focus-within,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:hover {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:focus,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:focus-visible,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:focus-within,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:hover,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:focus,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:focus-visible,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:focus-within,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:hover,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:focus,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:focus-visible,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:focus-within,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:hover {
     background-color: rgb(255, 255, 255, 0.1);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__back-to-course-link:hover,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__next-link:hover,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:active,
-.buddyx-dark-theme.ld-in-focus-mode .ld-navigation__previous-link:hover {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__back-to-course-link:hover,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__next-link:hover,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:active,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-navigation__previous-link:hover {
     background-color: rgb(255, 255, 255, 0.2)
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .ld-breadcrumbs.ld-breadcrumbs--modern,
-.buddyx-dark-theme.ld-in-focus-mode .ld-breakpoint--small .ld-navigation,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper:not(.ld-registration__outer-wrapper):not(.learndash-wrapper--modern) .ld-content-actions {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-breadcrumbs.ld-breadcrumbs--modern,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-breakpoint--small .ld-navigation,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper:not(.ld-registration__outer-wrapper):not(.learndash-wrapper--modern) .ld-content-actions {
     border-color: var(--ld-dark-mode-border-color);
 }
 
 /* Breadcrumbs */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-topic-status,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper pre {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-topic-status,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper pre {
     color: var(--ld-dark-mode-text-secondary);
     background-color: var(--ld-dark-mode-sidebar-bg);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-breadcrumbs {
     border-radius: 0;
 }
 
 /* Tabs */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab {
     color: var(--ld-dark-mode-text-secondary);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation::after {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-tabs .ld-tabs-navigation::after {
     background: var(--ld-dark-mode-header-bg);
 }
 
 /* Sidebar */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list .lms-count {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list .lms-count {
     background-color: rgb(255, 255, 255, 0.1) !important;
     color: #fff !important;
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link:hover {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link:hover {
     background-color: rgb(255, 255, 255, 0.2) !important;
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-topic-sidebar-progress,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list h4.lms-course-sidebar-heading {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-topic-sidebar-progress,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list h4.lms-course-sidebar-heading {
     border-color: var(--ld-dark-mode-border-color);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list::before {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list::before {
     background: var(--ld-dark-mode-header-bg);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item {
     background: var(--ld-dark-mode-sidebar-bg) !important;
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .ld-pagination .ld-pages i,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .ld-pagination .ld-pages span,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list h4.lms-course-sidebar-heading,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list ul.course-members-list {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .ld-pagination .ld-pages i,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .ld-pagination .ld-pages span,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list h4.lms-course-sidebar-heading,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list ul.course-members-list {
     color: var(--ld-dark-mode-link-color);
 }
 
 /* Topics List */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-items {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-items {
     background: var(--ld-dark-mode-sidebar-bg);
     color: var(--ld-dark-mode-content-text);
 }
 
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview,
-.buddyx-dark-theme.ld-in-focus-mode .ld-progress-bar {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .ld-progress-bar {
     color: var(--ld-dark-mode-content-text);
 }
 
 /* Sidebar: Current Item */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title {
     color: var(--ld-dark-mode-link-color);
     background: none;
 }
 
 /* Sidebar: Section Headings */
-.buddyx-dark-theme.ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-section-heading {
+:root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-section-heading {
     color: var(--ld-dark-mode-text-secondary);
     border-top: 1px solid var(--ld-dark-mode-border-color);
+}
+/* ------------------------------------------------------------------
+ * LearnDash outside Focus Mode + accent / link contrast.
+ *
+ * Keyed on <html data-bx-mode="dark"> (set in <head>, so there is no light
+ * flash) and painted from the theme tokens. The rules above only cover the
+ * focus layout, which left the course page content list as white cards.
+ * ---------------------------------------------------------------- */
+
+/* Course / lesson / topic content lists. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list .ld-item-list-item,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list .ld-item-list-item .ld-status-icon {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-item-title,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item a.ld-item-name {
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-title .ld-item-components,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-item-details,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-lesson-meta {
+    color: var(--ld-dark-mode-text-secondary);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-sep,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item-expanded .ld-table-list-items {
+    border-color: var(--bx-color-border);
+}
+
+/* Text on the accent colour: the dark accent is light, so use the theme's
+ * on-accent foreground (dark) instead of LearnDash's fixed white. Status
+ * badges are excluded (they keep LearnDash's own coloured background and white
+ * text). The Lesson Content header is also skipped once its colours are set in
+ * Customize > LearnDash Styles > Global Styles (body.bx-ld-custom-header), so a
+ * customised background / text colour is never overridden. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header),
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header) *,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-navigation-heading,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-navigation-heading *,
+:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header) .learndash-wrapper .ld-table-list-header.ld-primary-background,
+:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header) .learndash-wrapper .ld-table-list-header.ld-primary-background * {
+    color: var(--bx-color-button-fg, #0a0a0a) !important;
+}
+
+/* Previous / Next navigation links in the focus header: the default LearnDash
+ * blue is too dark on the dark header, so use the theme accent. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .ld-content-action .ld-button-transparent,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .ld-content-action .ld-button-transparent .ld-text,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-focus-header .ld-content-action .ld-button-transparent .ld-icon,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-content-actions .ld-button-transparent,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-content-actions .ld-button-transparent .ld-text,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-content-actions .ld-button-transparent .ld-icon {
+    color: var(--bx-color-accent, #ff6b6b);
+}
+
+/* Skip link shown on keyboard focus (LearnDash focus layout): WordPress's
+ * default light surface plus the dark-mode link colour was ~1.4:1. */
+:root[data-bx-mode="dark"] a.screen-reader-shortcut:focus {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+/* Expanded course content: nested topic / quiz titles were #333 on dark. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-topic-title,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-table-list-item-preview .ld-topic-title {
+    color: var(--bx-color-fg);
+}
+
+/* Course status panel (enrolled / progress): light panel and white track. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-status {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-status .ld-progress-bar {
+    background-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-status .ld-progress-bar-percentage.ld-secondary-background {
+    background-color: var(--bx-color-accent, #ff6b6b);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-status .ld-progress-percentage.ld-secondary-color,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-progress .ld-secondary-color {
+    color: var(--bx-color-accent, #ff6b6b);
+}
+
+/* Dividers inside the lesson / topic content lists. LearnDash hard-codes the
+ * light #e2e7ed for the row separators, the incomplete status ring and the
+ * progress separator on the accent header, which read as bright lines on dark. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list-item,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-topic-list .ld-table-list-item,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item-expanded .ld-table-list-item {
+    border-bottom-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list .ld-status-icon.ld-status-incomplete {
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list-header .ld-lesson-list-progress,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-lesson-list-progress {
+    border-right-color: rgba(10, 10, 10, 0.35);
+}
+
+/* List footer (shown when a lesson's topics are paginated) and the pagination
+ * control: LearnDash paints both #e2e7ed with #333 text, a bright bar on dark. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list .ld-table-list-footer {
+    background-color: var(--ld-dark-mode-header-bg, #272727);
+    border-top: 1px solid var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list.ld-no-pagination .ld-table-list-footer {
+    background-color: transparent;
+    border-top: 0;
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-table-list.ld-no-pagination {
+    border-bottom-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination .ld-pages a,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination .ld-pages i {
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination .ld-pages {
+    background-color: var(--bx-color-bg-elevated);
+    border: 1px solid var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination .ld-pages i:hover,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-pagination .ld-pages a:hover {
+    color: var(--bx-color-accent, #ff6b6b);
+}
+
+/* Decorative "|" between "2 Topics | 1 Quiz": LearnDash's #e2e7ed reads as a bright bar. */
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list-item .ld-sep {
+    color: var(--bx-color-fg-muted);
 }

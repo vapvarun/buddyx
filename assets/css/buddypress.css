@@ -1082,8 +1082,10 @@ body:not(.logged-in) .activity-list.bp-list .activity-item {
 
 .card-head-content-type {
     margin: 0 !important;
+    color: var(--color-h6);
     font-size: 14px;
     font-weight: 700;
+    line-height: 1.3;
     text-transform: capitalize;
     display: inline-block;
 }
@@ -5832,4 +5834,83 @@ body.personal.attachments #bp-media-library .media-toolbar-primary .components-s
 .subnav-filters select option:checked {
     background-color: var(--bx-color-bg-muted, var(--global-body-lightcolor, #f0f0f0));
     color: var(--bx-color-fg, inherit);
+}
+
+/*--------------------------------------------------------------
+# Messages - colour-mode aware surfaces
+BuddyPress Nouveau hardcodes light colours on the Messages screen
+(#fafafa, #eaeaea, #555, #737373). Repaint them from theme tokens so
+they follow dark mode.
+--------------------------------------------------------------*/
+.buddypress-wrap #message-threads li.selected,
+.buddypress-wrap #message-threads li.thread-item {
+    background-color: var(--bx-color-bg-elevated, #fff);
+}
+
+.buddypress-wrap #message-threads li.selected {
+    background-color: var(--bx-color-bg-muted, #fafafa);
+}
+
+.buddypress-wrap .bp-messages-content #thread-preview h2:first-child,
+.buddypress-wrap .bp-messages-content #bp-message-thread-header h2:first-child {
+    background-color: var(--bx-color-bg-subtle, #eaeaea);
+    color: var(--bx-color-fg, #1a1a1a);
+}
+
+.buddypress-wrap .bp-messages-content #thread-preview .preview-content .preview-message {
+    background-color: var(--bx-color-bg-muted, #fafafa);
+    color: var(--bx-color-fg, inherit);
+}
+
+.buddypress-wrap .bp-messages-content #bp-message-thread-list .message-metadata time {
+    color: var(--bx-color-fg-muted, #6a6a6a);
+}
+
+/* Messages - hardcoded #eaeaea / #ccc borders and shadows. */
+.buddypress-wrap #message-threads,
+.buddypress-wrap .bp-messages-content #bp-message-thread-list {
+    border-top-color: var(--bx-color-border, #eaeaea);
+}
+
+.buddypress-wrap .bp-messages-content #thread-preview {
+    border-color: var(--bx-color-border, #eaeaea);
+}
+
+.buddypress-wrap .bp-messages-content #bp-message-thread-list .message-metadata {
+    border-bottom-color: var(--bx-color-border-strong, #ccc);
+    box-shadow: none;
+}
+
+.buddypress-wrap .bp-messages-content #bp-message-thread-list li:nth-child(2n) .message-content {
+    background-color: var(--bx-color-bg-muted, #fafafa);
+}
+
+/* Messages - remaining hardcoded borders and greys (inbox rows, filters, headers, notices). */
+.buddypress-wrap #message-threads li {
+    border-bottom-color: var(--bx-color-border, #eaeaea);
+}
+
+.buddypress-wrap .bp-messages-content time,
+.buddypress-wrap #message-threads li .thread-from .num-recipients,
+.buddypress-wrap #message-threads li .thread-to .num-recipients,
+.buddypress-wrap #message-threads li .thread-content .excerpt,
+.buddypress-wrap table#message-threads .thread-info p.thread-excerpt {
+    color: var(--bx-color-fg-muted, #6a6a6a);
+}
+
+.buddypress-wrap .bp-messages-content .preview-pane-header,
+.buddypress-wrap .bp-messages-content .single-message-thread-header {
+    border-bottom-color: var(--bx-color-border, #eaeaea);
+}
+
+.buddypress-wrap .bp-navs.bp-messages-filters ul li a {
+    border-color: var(--bx-color-border-strong, #ccc);
+}
+
+.buddypress-wrap .bp-messages {
+    border-color: var(--bx-color-border-strong, #ccc);
+}
+
+.buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap:hover {
+    outline-color: var(--bx-color-border-strong, #d6d6d6);
 }

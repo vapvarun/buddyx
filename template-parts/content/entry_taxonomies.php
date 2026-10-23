@@ -39,14 +39,19 @@ $taxonomies = wp_list_filter(
 			default:
 				$class            = str_replace( '_', '-', $taxonomy->name ) . '-links term-links';
 				$list             = get_the_term_list( $post->ID, $taxonomy->name, '', esc_html( $separator ), '' );
-				$placeholder_text = sprintf(
-					/* translators: %s: taxonomy name */
-					__( '%s:', 'buddyx' ),
-					$taxonomy->labels->name // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
+				// Keep a trailing %s so printf() below can substitute the term links.
+				$placeholder_text = str_replace(
+					'%',
+					'%%',
+					sprintf(
+						/* translators: %s: taxonomy name */
+						__( '%s:', 'buddyx' ),
+						$taxonomy->labels->name
+					)
+				) . ' %s';
 		}
 
-		if ( empty( $list ) ) {
+		if ( empty( $list ) || is_wp_error( $list ) ) {
 			continue;
 		}
 		?>

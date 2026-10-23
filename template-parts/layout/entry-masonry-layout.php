@@ -15,6 +15,9 @@ $blog_masonry_view = get_theme_mod( 'blog_masonry_view', buddyx_defaults( 'blog-
 $post_per_row      = get_theme_mod( 'post_per_row', buddyx_defaults( 'post-per-row' ) );
 $blog_tags         = get_theme_mod( 'blog_show_tags', '' );
 
+// Isotope is only needed where the masonry grid is rendered.
+buddyx()->print_scripts( 'buddyx-isotope-pkgd' );
+
 $classes = array(
 	'entry',
 	'entry-layout',

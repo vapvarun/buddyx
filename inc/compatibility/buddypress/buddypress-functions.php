@@ -60,8 +60,8 @@ if ( ! function_exists( 'buddyx_bp_get_activity_css_first_class' ) ) {
 			'business' => __( 'Business', 'buddyx' ),
 		);
 
-		// Get the component for the current activity.
-		$component = $activities_template->activity->component;
+		// Get the component for the current activity, guarding against a missing template or property.
+		$component = isset( $activities_template->activity->component ) ? (string) $activities_template->activity->component : '';
 
 		// Default to 'Activity' if the component is not in the mapping.
 		$mini_activity_actions = isset( $mini_activity_actions[ $component ] ) ? $mini_activity_actions[ $component ] : __( 'Activity', 'buddyx' );
@@ -220,6 +220,19 @@ if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
 			if ( ! is_array( $exclude ) ) {
 				$exclude = explode( ',', $exclude );
 			}
+			// The thumbnail is plugin-generated <img> markup. Escape it with the post allowlist,
+			// extended so responsive-image attributes are not stripped.
+			$thumbnail_kses        = wp_kses_allowed_html( 'post' );
+			$thumbnail_kses['img'] = array_merge(
+				isset( $thumbnail_kses['img'] ) ? $thumbnail_kses['img'] : array(),
+				array(
+					'srcset'        => true,
+					'sizes'         => true,
+					'loading'       => true,
+					'decoding'      => true,
+					'fetchpriority' => true,
+				)
+			);
 			// Initialize our output and counters.
 			$achievements      = '';
 			$achievement_count = 0;
@@ -281,12 +294,13 @@ if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
 				$query_count      += $achievement_posts->found_posts;
 				while ( $achievement_posts->have_posts() ) :
 					$achievement_posts->the_post();
-					// If we were given an ID, get the post.
-					if ( is_numeric( get_the_ID() ) ) {
-						$achievement = get_post( get_the_ID() );
+					// Inside the loop the current post ID is always available; skip anything unexpected.
+					$achievement_id = get_the_ID();
+					if ( ! is_numeric( $achievement_id ) ) {
+						continue;
 					}
 					$achievements .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
-					$achievements .= '<a href="' . get_permalink( $achievement->ID ) . '">' . badgeos_get_achievement_post_thumbnail( $achievement->ID ) . '</a>';
+					$achievements .= '<a href="' . esc_url( get_permalink( $achievement_id ) ) . '">' . wp_kses( badgeos_get_achievement_post_thumbnail( $achievement_id ), $thumbnail_kses ) . '</a>';
 					$achievements .= '</div>';
 					++$achievement_count;
 				endwhile;
@@ -294,8 +308,8 @@ if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
 				$post = $old_post;
 			}
 			echo '<div class="ps-badgeos__list-wrapper">';
-			echo '<div class="ps-badgeos__list-title">' . _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) . '</div>';
-			echo '<div class="ps-badgeos__list">' . $achievements . '</div>';
+			echo '<div class="ps-badgeos__list-title">' . esc_html( _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) ) . '</div>';
+			echo '<div class="ps-badgeos__list">' . $achievements . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Each part is escaped when built above.
 			echo '</div>';
 		}
 	}

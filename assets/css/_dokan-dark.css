@@ -545,36 +545,6 @@ React layout, only section 1 needs re-checking.
     color: var(--bx-color-fg-muted);
 }
 
-/* Classic TinyMCE (wp_editor) chrome - RMA policy, store ToC, announcements.
- * The editable body lives in an iframe we can't reach from here, so it
- * stays a light "paper" surface; the toolbar / statusbar / borders are
- * darkened so they don't glare. */
-[data-bx-mode="dark"] .dokan-dashboard .wp-editor-container,
-[data-bx-mode="dark"] .dokan-dashboard .mce-tinymce,
-[data-bx-mode="dark"] .dokan-dashboard .mce-toolbar-grp,
-[data-bx-mode="dark"] .dokan-dashboard .mce-statusbar,
-[data-bx-mode="dark"] .dokan-dashboard .mce-menubar,
-[data-bx-mode="dark"] .dokan-dashboard .mce-panel,
-[data-bx-mode="dark"] .dokan-dashboard .wp-switch-editor,
-[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar {
-    background-color: var(--bx-color-bg-elevated) !important;
-    border-color: var(--bx-color-border) !important;
-    color: var(--bx-color-fg) !important;
-}
-
-[data-bx-mode="dark"] .dokan-dashboard .mce-btn button,
-[data-bx-mode="dark"] .dokan-dashboard .mce-ico,
-[data-bx-mode="dark"] .dokan-dashboard .mce-statusbar .mce-path-item,
-[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar input[type="button"] {
-    color: var(--bx-color-fg) !important;
-}
-
-[data-bx-mode="dark"] .dokan-dashboard .mce-btn:hover,
-[data-bx-mode="dark"] .dokan-dashboard .mce-btn.mce-active,
-[data-bx-mode="dark"] .dokan-dashboard .quicktags-toolbar input[type="button"]:hover {
-    background-color: var(--bx-color-bg-muted) !important;
-}
-
 /* @wordpress/components form toggle (column show/hide menu, settings…).
  * The off-state track is near-invisible on dark; make it a visible grey
  * and the on-state the accent so state reads at a glance. */

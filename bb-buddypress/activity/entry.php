@@ -78,9 +78,9 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 	?>
 
 	<div class="activity-card-head">
-		<h6 class="card-head-content-type">
-			<?php echo buddyx_bp_get_activity_css_first_class(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		</h6>
+		<span class="card-head-content-type">
+			<?php echo esc_html( buddyx_bp_get_activity_css_first_class() ); ?>
+		</span>
 	</div>
 
 	<div class="activity-item-head">

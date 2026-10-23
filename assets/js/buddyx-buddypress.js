@@ -35,16 +35,4 @@
         BUDDYX.mediaPress();
     });
 
-    $(window).on('resize', function () {
-        // Do stuff on resize
-    });
-
-    $(window).on('scroll', function () {
-        // Do stuff on scroll
-    });
-
-    $(window).on('load', function () {
-        // Do stuff on load
-    });
-
 })(jQuery, window, document);

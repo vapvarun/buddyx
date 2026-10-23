@@ -41,7 +41,7 @@ class Component implements Component_Interface {
 			'<a href="%1$s" class="more-link">%2$s</a>',
 			esc_url( get_permalink( get_the_ID() ) ),
 			/* translators: %s: Post title. */
-			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'buddyx' ), get_the_title( get_the_ID() ) )
+			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'buddyx' ), esc_html( get_the_title( get_the_ID() ) ) )
 		);
 		return ' &hellip; ' . $link;
 	}

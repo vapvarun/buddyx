@@ -39,9 +39,6 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_navigation_script' ) );
 		add_action( 'wp_head', array( $this, 'action_wp_head_amp_script' ) );
-		if ( class_exists( 'SFWD_LMS' ) ) {
-			add_action( 'wp_ajax_buddyx_lms_toggle_theme_color', array( $this, 'toggle_theme_color' ) );
-		}
 		add_action( 'wp_print_footer_scripts', array( $this, 'action_print_skip_link_focus_fix' ) );
 		add_filter( 'nav_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
 		add_filter( 'page_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
@@ -85,35 +82,6 @@ class Component implements Component_Interface {
 			<script>document.documentElement.classList.remove( 'no-js' );</script>
 			<?php
 		}
-	}
-
-	/**
-	 * Learndash dark mode toggle.
-	 */
-	public function toggle_theme_color() {
-		// Verify nonce
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'buddyx_toggle_theme_color' ) ) {
-			die( 'Security check failed' );
-		}
-		
-		$cookie_name  = 'bxtheme';
-		$cookie_value = ! empty( $_POST['color'] ) ? sanitize_text_field( $_POST['color'] ) : 'light';
-		
-		// Validate allowed values
-		if ( ! in_array( $cookie_value, array( 'light', 'dark' ) ) ) {
-			$cookie_value = 'light';
-		}
-		
-		setcookie( 
-			$cookie_name, 
-			$cookie_value, 
-			time() + ( 86400 * 30 ), 
-			'/', 
-			'', 
-			is_ssl(),  // Secure flag
-			true       // HttpOnly flag
-		);
-		die();
 	}
 
 	/**

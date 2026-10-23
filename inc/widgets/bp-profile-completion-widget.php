@@ -406,6 +406,37 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 	}
 
 	/**
+	 * Sanitize the widget settings before they are saved.
+	 *
+	 * @param array $new_instance Values submitted from the widget form.
+	 * @param array $old_instance Previously saved values.
+	 * @return array Sanitized settings.
+	 */
+	function update( $new_instance, $old_instance ) {
+		$instance = array();
+
+		$instance['title'] = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+
+		if ( isset( $new_instance['profile_groups_enabled'] ) ) {
+			$instance['profile_groups_enabled'] = array_values(
+				array_filter( array_map( 'absint', (array) $new_instance['profile_groups_enabled'] ) )
+			);
+		}
+
+		if ( isset( $new_instance['profile_photos_enabled'] ) ) {
+			$instance['profile_photos_enabled'] = array_values(
+				array_intersect( array( 'profile_photo', 'cover_photo' ), array_map( 'sanitize_key', (array) $new_instance['profile_photos_enabled'] ) )
+			);
+		}
+
+		if ( isset( $new_instance['profile_hide_widget'] ) && 'hide_widget' === $new_instance['profile_hide_widget'] ) {
+			$instance['profile_hide_widget'] = 'hide_widget';
+		}
+
+		return $instance;
+	}
+
+	/**
 	 * Widget settings form.
 	 */
 	function form( $instance ) {

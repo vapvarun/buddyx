@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 5.1.8
+Stable tag: 5.1.9
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -113,6 +113,24 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+
+= 5.1.9 - October 2026 =
+
+* New      - Dark mode for the IdeaPush board, form, selects and popups, and WB Gamification now follows the BuddyX accent colors.
+* Improve  - Dark mode now covers WooCommerce checkout (Blocks and shortcode), classic editors on every front-end form, bbPress posts, and WooCommerce country and state fields.
+* Improve  - Dark, slider and site loader stylesheets, and the LearnDash focus-mode dark stylesheet, now load only where they are used.
+* Improve  - Header scroll handling is lighter, with passive listeners and no per-frame padding updates.
+* Improve  - Menus close when keyboard focus leaves a submenu, and table cells are labelled from their own header row.
+* Fix      - The dark mode choice saved by 5.1.8 on LearnDash pages now carries over to the color-mode toggle.
+* Fix      - Header Log in and Register links no longer lead to a 404 when the mapped page is unpublished.
+* Fix      - Paged day archives no longer crash, paged week breadcrumbs render, and breadcrumbs are no longer cached per first post.
+* Fix      - The 2-slide gallery on single posts with the Half title layout works again, and each gallery slider starts once.
+* Fix      - The site loader can no longer cover the site, and the fixed header stays attached to the admin bar on small screens.
+* Fix      - Archive excerpts are no longer wrapped in a second paragraph, and custom taxonomy term links show in the post footer.
+* Fix      - SureCart no longer overwrites a page template an admin chose.
+* Security - Post titles, breadcrumb names and BadgeOS profile output are now escaped, profile completion widget settings are sanitized on save, and login logo dimensions are re-validated.
+* Security - Google font downloads now verify SSL.
+* Dev      - Removed the retired auto color mode, `buddyx_posted_on()` and other functions nothing calls.
 
 = 5.1.8 - September 2026 =
 

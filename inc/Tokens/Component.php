@@ -459,8 +459,7 @@ class Component implements Component_Interface {
 	);
 
 	/**
-	 * Dark-mode token overrides. Applied via [data-bx-mode="dark"] :root { ... }
-	 * and via @media (prefers-color-scheme: dark) for users in 'auto' mode.
+	 * Dark-mode token overrides. Applied via :root[data-bx-mode="dark"] { ... }.
 	 *
 	 * Values are framework-supplied premium defaults that pass WCAG AA contrast
 	 * against `--bx-color-bg` (#0a0a0a). Customer customizer-saved values are
@@ -626,6 +625,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'emit_tokens' ), 20 );
 		add_action( 'wp_head', array( $this, 'emit_mode_script' ), 1 );
+		add_action( 'send_headers', array( $this, 'reissue_legacy_mode_cookie' ) );
 		// Hooked after init priority 10 so customizer fields are registered
 		// before we read their defaults; filter is a no-op when no variation
 		// is active or the customer has actively saved the field.
@@ -1265,9 +1265,7 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Build the dark-mode override block. Two selectors share the same body:
-	 *   - `:root[data-bx-mode="dark"]` - explicit user choice.
-	 *   - `(prefers-color-scheme: dark) :root[data-bx-mode="auto"]` (media query).
+	 * Build the dark-mode override block for `:root[data-bx-mode="dark"]`.
 	 *
 	 * Each dark-default token also overrides its legacy aliases so any third-
 	 * party CSS hooked to `--color-theme-primary` etc. picks up the dark
@@ -1312,6 +1310,23 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Re-send the legacy LearnDash focus-mode `bxtheme` cookie without HttpOnly.
+	 *
+	 * Up to 5.1.8 the focus-mode toggle saved the visitor's choice in an
+	 * HttpOnly `bxtheme` cookie, which the bootstrap script cannot read. Sending
+	 * it back readable (same name and path, so the browser replaces it) lets the
+	 * bootstrap migrate the choice on this very page and then expire it. The
+	 * page HTML stays the same for every visitor, so page caches are unaffected.
+	 */
+	public function reissue_legacy_mode_cookie() {
+		if ( ! isset( $_COOKIE['bxtheme'] ) || headers_sent() ) {
+			return;
+		}
+		$legacy = 'dark' === sanitize_key( wp_unslash( $_COOKIE['bxtheme'] ) ) ? 'dark' : 'light';
+		setcookie( 'bxtheme', $legacy, time() + MINUTE_IN_SECONDS, '/', '', is_ssl(), false );
+	}
+
+	/**
 	 * Emit a tiny inline script that sets <html data-bx-mode="..."> before any
 	 * CSS or paint happens — prevents a flash-of-light-mode on dark-mode pages.
 	 *
@@ -1337,8 +1352,19 @@ class Component implements Component_Interface {
 			// Assigned before the try: localStorage access throws when storage is
 			// blocked, and the catch needs siteDefault to already hold a value.
 			var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
+			// One-time migration of the legacy focus-mode cookie (see
+			// reissue_legacy_mode_cookie()): a saved choice wins, an old "dark"
+			// only seeds an empty one. Expired either way.
+			var legacy = /(?:^|;\s*)bxtheme=([a-z]*)/.exec(document.cookie);
+			if (legacy) {
+				document.cookie = 'bxtheme=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+			}
 			try {
 				var saved = localStorage.getItem('bx-color-mode');
+				if (!saved && legacy && legacy[1] === 'dark') {
+					saved = 'dark';
+					localStorage.setItem('bx-color-mode', saved);
+				}
 				var mode = saved || siteDefault;
 				if (mode !== 'light' && mode !== 'dark') mode = siteDefault;
 				document.documentElement.setAttribute('data-bx-mode', mode);
@@ -1348,17 +1374,6 @@ class Component implements Component_Interface {
 		})();
 		</script>
 		<?php
-	}
-
-	/**
-	 * Public accessor used by the Customizer Framework's enqueue_preview() to
-	 * expose the variation-is-dark flag to the preview JS so the site_color_mode
-	 * binding can coerce 'auto' to 'dark' when the Dark style preset is active.
-	 *
-	 * @return bool|null true = dark, false = light, null = unknown / none.
-	 */
-	public static function active_variation_is_dark_for_preview(): ?bool {
-		return self::active_variation_is_dark_scheme();
 	}
 
 	/**

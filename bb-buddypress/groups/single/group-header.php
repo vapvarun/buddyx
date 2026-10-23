@@ -15,7 +15,7 @@ $tooltip_position = bp_disable_group_cover_image_uploads() ? 'down' : 'up';
 add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerpt_view_more', 99, 2 );
 ?>
 
-<div class="item-header-cover-image-wrapper hide-header-cover-image">
+<div id="cover-image-container" class="item-header-cover-image-wrapper hide-header-cover-image <?php echo esc_attr( function_exists( 'bb_platform_group_header_style' ) ? bb_platform_group_header_style() : '' ); ?>">
 	<div id="item-header-cover-image" class="<?php echo esc_attr( bp_disable_group_cover_image_uploads() ? 'bb-disable-cover-img' : 'bb-enable-cover-img' ); ?>">
 		<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 			<div id="item-header-avatar">

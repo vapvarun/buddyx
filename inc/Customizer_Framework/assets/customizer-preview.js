@@ -112,16 +112,10 @@
 	// site_color_mode is not an `output` (CSS) setting - it swaps the
 	// data-bx-mode attribute on <html>, which drives the dark-token cascade
 	// (:root[data-bx-mode="dark"]{...}, already present in the page). Bind it
-	// directly so the preview reflects Light/Dark/Auto live without a refresh.
+	// directly so the preview reflects Light/Dark live without a refresh.
 	wp.customize('site_color_mode', (value) => {
 		value.bind((newVal) => {
-			let mode = newVal === 'dark' || newVal === 'auto' ? newVal : 'light';
-			// Dark style preset: 'auto' resolves to 'dark' here too, matching the
-			// PHP bootstrap script. Variation tokens only live in the dark cascade,
-			// so auto + light-OS would show the white framework defaults instead.
-			if (mode === 'auto' && window.buddyxVariationIsDark) {
-				mode = 'dark';
-			}
+			const mode = newVal === 'dark' ? 'dark' : 'light';
 			document.documentElement.setAttribute('data-bx-mode', mode);
 		});
 	});

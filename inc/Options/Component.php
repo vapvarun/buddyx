@@ -84,6 +84,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				buddyx()->get_asset_version( get_template_directory() . '/assets/js/admin/buddyx-customizer.min.js' ),
 				true
 			);
+
+			wp_localize_script(
+				'buddyx-customizer-script',
+				'buddyxCustomizer',
+				array(
+					'regenerateFontsNonce' => wp_create_nonce( 'buddyx_regenerate_fonts' ),
+				)
+			);
 		}
 
 		wp_enqueue_style(

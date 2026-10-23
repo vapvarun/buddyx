@@ -468,8 +468,27 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     font-weight: 700;
     line-height: inherit;
     letter-spacing: inherit;
-    border-radius: 100px;
     transition: all .15s ease;
+}
+
+/* Default pill radius at the same weight as LearnDash's own rule (0,2,0), so
+ * Customize > LearnDash Styles > Global Styles > Button Radius (0,3,0) wins. */
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-button,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-expand-button,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .btn-join,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) #btn-join,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .learndash_mark_complete_button,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) #learndash_mark_complete_button,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-login-modal .ld-button,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-login-modal input[type="submit"],
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-login-modal .ld-login-modal-register #wp-submit,
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
+.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+.ldx-plugin .uo-toolkit-grid__course-action input,
+.learndash-resume-button input[type="submit"],
+.learndash-wrapper:where(:not(.learndash-wrapper--modern)) .ld-login-button,
+.learndash-reset-form .learndash-reset-button[type="submit"] {
+    border-radius: 100px;
 }
 
 /* Modern Layout */

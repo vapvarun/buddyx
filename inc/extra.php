@@ -116,46 +116,25 @@ if ( ! function_exists( 'buddyx_sub_header' ) ) {
  */
 if ( ! function_exists( 'buddyx_the_breadcrumb' ) ) {
 	/**
-	 * Displays breadcrumb navigation for BuddyX theme, with caching.
+	 * Displays breadcrumb navigation: Yoast SEO breadcrumbs when enabled, else the theme trail.
 	 *
-	 * This function checks if Yoast SEO breadcrumbs are enabled. If so, it uses
-	 * `yoast_breadcrumb` to display them. If not, it falls back to the `buddyx_get_breadcrumb`
-	 * function to display custom breadcrumbs. The output is cached using `wp_cache` to improve
-	 * performance and avoid regenerating breadcrumbs on every page load.
-	 *
-	 * Caching is performed based on the current post or page ID, and the cache duration is set
-	 * to 12 hours.
+	 * Not cached: the trail is cheap to build and depends on the whole query, not just the
+	 * first post, so a per-post cache served one page's trail on other pages.
 	 *
 	 * @return void
 	 */
 	function buddyx_the_breadcrumb() {
-		// Generate a unique transient key based on the post ID or page ID.
-		$post_id       = get_the_ID();
-		$transient_key = 'buddyx_breadcrumb_' . $post_id;
+		ob_start();
 
-		// Try to get the cached breadcrumb.
-		$breadcrumb = get_transient( $transient_key );
-
-		if ( false === $breadcrumb ) {
-			// No cached breadcrumb, generate it.
-			ob_start();
-
-			$wpseo_titles = get_option( 'wpseo_titles' );
-			if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
-				yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-			} else {
-				echo '<div class="buddyx-breadcrumbs">';
-					buddyx_get_breadcrumb();
-				echo '</div>';
-			}
-
-			// Store the generated breadcrumb.
-			$breadcrumb = ob_get_clean();
-			set_transient( $transient_key, $breadcrumb, 12 * HOUR_IN_SECONDS ); // Cache for 12 hours.
+		$wpseo_titles = get_option( 'wpseo_titles' );
+		if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
+			yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+		} else {
+			// buddyx_get_breadcrumb() already wraps the trail in .buddyx-breadcrumbs.
+			buddyx_get_breadcrumb();
 		}
 
-		// Output the breadcrumb.
-		echo wp_kses_post( $breadcrumb );
+		echo wp_kses_post( ob_get_clean() );
 	}
 }
 
@@ -355,36 +334,6 @@ if ( ! function_exists( 'buddyx_categorized_blog' ) ) {
 }
 
 /**
- * Blog Post Meta
- */
-if ( ! function_exists( 'buddyx_posted_on' ) ) {
-
-	function buddyx_posted_on() {
-
-		global $post;
-
-		if ( is_sticky() && is_home() && ! is_paged() ) {
-			echo '<span class="entry-featured">' . esc_html__( 'Sticky', 'buddyx' ) . '</span>';
-		}
-
-		if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && buddyx_categorized_blog() ) {
-			echo '<span class="entry-cat-links">' . get_the_category_list( ', ' ) . '</span>';
-		}
-
-		if ( ! is_search() ) {
-
-			if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-				echo '<span class="entry-comments-link">';
-				comments_popup_link( esc_html__( 'Leave a comment', 'buddyx' ), esc_html__( '1 Comment', 'buddyx' ), esc_html__( '% Comments', 'buddyx' ) );
-				echo '</span>';
-			}
-		}
-
-		edit_post_link( esc_html__( 'Edit', 'buddyx' ), '<span class="entry-edit-link">', '</span>' );
-	}
-}
-
-/**
  * Managing 404 URL in Frontend
  */
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
@@ -480,22 +429,8 @@ if ( ! function_exists( 'buddyx_llms_theme_support' ) ) {
 	add_action( 'after_setup_theme', 'buddyx_llms_theme_support' );
 }
 
-/**
- * Example usage for learndash-focus-header-usermenu-after action.
- */
-add_action(
-	'learndash-focus-header-usermenu-after',
-	function ( $course_id, $user_id ) {
-		?>
-		<a href="#" id="buddyx-toggle-track">
-			<span class="learndash-dark-mode"><i class="fa fa-moon"></i></span>
-			<span class="learndash-light-mode"><i class="fa fa-sun"></i></span>
-		</a>
-		<?php
-	},
-	10,
-	2
-);
+// The legacy LearnDash `#buddyx-toggle-track` dark/light anchor was replaced by
+// Color_Mode_Toggle\Component::render_focus_toggle() on the focus-header nav hook.
 
 /**
  * Remove buddyx remove single post subheader.
@@ -686,7 +621,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 										</div>
 
 										<div class="actions">
-											<a href="#" id="' . $image_id . '" class="delete" title="' . __( 'Delete image', 'buddyx' ) . '"><i class="dashicons dashicons-no"></i></a>
+											<a href="#" id="' . $image_id . '" class="delete" title="' . esc_attr__( 'Delete image', 'buddyx' ) . '"><i class="dashicons dashicons-no"></i></a>
 										</div>
 									</li>';
 								$image_gallery .= $image_id . ',';
@@ -700,7 +635,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 				</div>
 				<div class="clearfix buddyx_image_gallery_description">
 					<p class="add_buddyx_images hide-if-no-js">
-						<a class="components-button is-primary" href="#"><?php echo __( 'Add images gallery', 'buddyx' ); ?></a>
+						<a class="components-button is-primary" href="#"><?php esc_html_e( 'Add images gallery', 'buddyx' ); ?></a>
 					</p>
 				</div>
 			</div>
@@ -770,9 +705,9 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 						/* Create the media frame.  */
 						image_gallery_frame = wp.media.frames.downloadable_file = wp.media({
 							/* Set the title of the modal.  */
-							title: '<?php echo __( 'Add images gallery', 'buddyx' ); ?>',
+							title: '<?php echo esc_js( __( 'Add images gallery', 'buddyx' ) ); ?>',
 							button: {
-								text: '<?php echo __( 'Add to gallery', 'buddyx' ); ?>',
+								text: '<?php echo esc_js( __( 'Add to gallery', 'buddyx' ) ); ?>',
 							},
 							multiple: true
 						});
@@ -793,7 +728,7 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 												</div>\
 											</div>\
 											<div class="actions">\
-												<a href="#" class="delete" title="<?php echo __( 'Delete image', 'buddyx' ); ?>"><i class="dashicons dashicons-no"></i></a>\
+												<a href="#" class="delete" title="<?php echo esc_attr( esc_js( __( 'Delete image', 'buddyx' ) ) ); ?>"><i class="dashicons dashicons-no"></i></a>\
 											</div>\
 										</li>');
 								}
@@ -854,9 +789,9 @@ if ( ! function_exists( 'render_buddyx_add_post_format_meta_box' ) ) {
 						/* Create the media frame.  */
 						image_gallery_frame = wp.media.frames.downloadable_file = wp.media({
 							/* Set the title of the modal.  */
-							title: '<?php echo __( 'Add Media', 'buddyx' ); ?>',
+							title: '<?php echo esc_js( __( 'Add Media', 'buddyx' ) ); ?>',
 							button: {
-								text: '<?php echo __( 'Add to Media', 'buddyx' ); ?>',
+								text: '<?php echo esc_js( __( 'Add to Media', 'buddyx' ) ); ?>',
 							},
 							multiple: true
 						});

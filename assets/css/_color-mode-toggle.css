@@ -48,8 +48,7 @@
 }
 
 .bx-color-mode-toggle__btn[data-mode="light"] .bx-icon-sun,
-.bx-color-mode-toggle__btn[data-mode="dark"] .bx-icon-moon,
-.bx-color-mode-toggle__btn[data-mode="auto"] .bx-icon-monitor {
+.bx-color-mode-toggle__btn[data-mode="dark"] .bx-icon-moon {
     display: inline-block;
 }
 
@@ -83,13 +82,6 @@
 :root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:hover,
 :root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:focus-visible {
     background-color: rgba(255, 255, 255, 0.08);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root[data-bx-mode="auto"] .bx-color-mode-toggle__btn:hover,
-    :root[data-bx-mode="auto"] .bx-color-mode-toggle__btn:focus-visible {
-        background-color: rgba(255, 255, 255, 0.08);
-    }
 }
 
 /* RTL: margin uses logical property already, nothing to mirror. */

@@ -243,8 +243,29 @@ class BuddyX_SureCart_Support {
 			return;
 		}
 		
-		// Set full width template.
-		update_post_meta( $new_value, '_wp_page_template', 'page-templates/full-width.php' );
+		// Set full width template, keeping any template the administrator already chose.
+		$this->buddyx_surecart_maybe_set_full_width_template( $new_value );
+	}
+
+	/**
+	 * Set the full width page template only when the page has none of its own.
+	 *
+	 * An empty value or 'default' means the page uses the theme default, so it is safe to
+	 * replace. Any other value is a template an administrator picked and is left alone.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @param int $page_id Page ID.
+	 * @return void
+	 */
+	protected function buddyx_surecart_maybe_set_full_width_template( $page_id ) {
+		$current_template = get_post_meta( $page_id, '_wp_page_template', true );
+
+		if ( '' !== $current_template && 'default' !== $current_template ) {
+			return;
+		}
+
+		update_post_meta( $page_id, '_wp_page_template', 'page-templates/full-width.php' );
 	}
 
 	/**
@@ -271,7 +292,7 @@ class BuddyX_SureCart_Support {
 		// Set template for each existing page.
 		foreach ( array_filter( $page_ids ) as $page_id ) {
 			if ( get_post( $page_id ) ) {
-				update_post_meta( $page_id, '_wp_page_template', 'page-templates/full-width.php' );
+				$this->buddyx_surecart_maybe_set_full_width_template( $page_id );
 			}
 		}
 		

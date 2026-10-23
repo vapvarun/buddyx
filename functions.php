@@ -60,6 +60,14 @@ function buddyx_load_core() {
 		}
 	}
 
+	// Register WP-CLI commands (the file itself is a no-op outside WP-CLI).
+	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+		$cli_file = $base_path . '/wp-cli/buddyx-commands.php';
+		if ( file_exists( $cli_file ) ) {
+			require_once $cli_file;
+		}
+	}
+
 	// Boot the Customizer_Framework. Idempotent — safe on second call.
 	if ( class_exists( '\\BuddyX\\Buddyx\\Customizer_Framework\\Component' ) ) {
 		\BuddyX\Buddyx\Customizer_Framework\Component::boot( array(
@@ -143,8 +151,12 @@ function buddyx_load_plugin_support() {
 /**
  * Load context-specific files
  *
- * Loads files based on current context (admin vs frontend) to avoid
- * loading unnecessary components.
+ * Loads the theme's helper files on every request. Despite the "front-end"
+ * grouping, several of these files register hooks that admin requests need
+ * (post meta box and save_post in extra.php, the profile completion widget
+ * on widgets_init, and the font-regeneration AJAX handler), so there is no
+ * is_admin() split here. Files that only matter on the front end guard
+ * themselves where needed.
  *
  * @since 2.0.0
  * @return void
@@ -158,7 +170,7 @@ function buddyx_load_contextual() {
 
 	$base_path = get_template_directory();
 
-	// Frontend-only components
+	// Helper files loaded on every request (see the docblock above).
 	$frontend_files = array(
 		'/inc/widgets/bp-profile-completion-widget.php',
 		'/inc/class-buddyx-breadcrumbs.php',

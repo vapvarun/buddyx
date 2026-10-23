@@ -5,6 +5,7 @@
             e.preventDefault();
             var data = {
                 'action': 'buddyx_regenerate_fonts_folder',
+                'nonce': window.buddyxCustomizer ? window.buddyxCustomizer.regenerateFontsNonce : '',
             };
 
             $.post(ajaxurl, data, function(response) {});

@@ -70,6 +70,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_event_calendar_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_dokan_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_ideapush_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_learndash_style' ), 99 );
 		add_filter( 'style_loader_tag', array( $this, 'add_preload_for_critical_css' ), 10, 4 );
 	}
@@ -104,6 +105,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$src     = $css_uri . $data['file'];
 			$version = buddyx()->get_asset_version( $css_dir . $data['file'] );
 
+			if ( 'buddyx-load-fontawesome' === $handle ) {
+				/**
+				 * Filters the Font Awesome stylesheet URL.
+				 *
+				 * Lets a site point at a different Font Awesome build, for example a self-hosted kit.
+				 *
+				 * @param string $src Stylesheet URL.
+				 */
+				$src = (string) apply_filters( 'buddyx_fontawesome_css', $src );
+			}
+
 			/*
 			 * Enqueue global stylesheets immediately and register the other ones for later use
 			 * (unless preloading stylesheets is disabled, in which case stylesheets should be immediately
@@ -137,6 +149,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue GamiPress dark-mode compatibility CSS (only when active).
 		if ( class_exists( 'GamiPress' ) ) {
 			wp_enqueue_style( 'buddyx-gamipress', $css_uri . 'gamipress.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'gamipress.min.css' ) );
+		}
+
+		// Enqueue WB Gamification accent mapping (only when active).
+		if ( defined( 'WB_GAM_VERSION' ) ) {
+			wp_enqueue_style( 'buddyx-wb-gamification', $css_uri . 'wb-gamification.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'wb-gamification.min.css' ) );
 		}
 
 		// Enqueue rtMedia dark-mode compatibility CSS (only when active).
@@ -199,9 +216,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'multivendorx', $css_uri . 'multivendorx.min.css', array(), buddyx()->get_asset_version( $css_dir . 'multivendorx.min.css' ) );
 		}
 
-		// Enqueue Slick CSS.
-		wp_enqueue_style( 'buddyx-slick', $css_uri . 'slick.min.css', array(), buddyx()->get_asset_version( $css_dir . 'slick.min.css' ) );
-
 		// Enqueue RTL CSS.
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'buddyx-rtl', $css_uri . 'rtl.min.css', array(), buddyx()->get_asset_version( $css_dir . 'rtl.min.css' ) );
@@ -212,8 +226,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-amp', $css_uri . 'buddyx-amp.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddyx-amp.min.css' ) );
 		}
 
-		// Enqueue Dark Mode CSS.
-		wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dark-mode.min.css' ) );
+		// Enqueue Dark Mode CSS (it only styles LearnDash focus mode, so only on LearnDash screens).
+		if ( function_exists( 'buddyx_needs_learndash_assets' ) && buddyx_needs_learndash_assets() ) {
+			wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dark-mode.min.css' ) );
+		}
 
 		// Enqueue SureCart CSS.
 		if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
@@ -289,6 +305,18 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue EventsCalendar CSS.
 		if ( function_exists( 'buddyx_needs_event_calendar_assets' ) && buddyx_needs_event_calendar_assets() ) {
 			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', array(), buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
+		}
+	}
+
+	/**
+	 * Register and enqueue the IdeaPush dark-mode compat stylesheet.
+	 */
+	public function buddyx_enqueue_ideapush_style() {
+		$css_uri = get_theme_file_uri( '/assets/css/' );
+		$css_dir = get_theme_file_path( '/assets/css/' );
+
+		if ( function_exists( 'buddyx_needs_ideapush_assets' ) && buddyx_needs_ideapush_assets() ) {
+			wp_enqueue_style( 'buddyx-ideapush', $css_uri . 'ideapush.min.css', array(), buddyx()->get_asset_version( $css_dir . 'ideapush.min.css' ) );
 		}
 	}
 
@@ -427,7 +455,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			),
 			'buddyx-site-loader'      => array(
 				'file'   => 'loaders.min.css',
-				'global' => true,
+				// Same condition buddyx_site_loader() uses to render the overlay markup.
+				'global' => buddyx_is_truthy( get_theme_mod( 'site_loader', buddyx_defaults( 'site-loader' ) ) ),
+			),
+			'buddyx-slick'            => array(
+				'file' => 'slick.min.css',
 			),
 			'buddyx-load-fontawesome' => array(
 				'file'   => 'fontawesome.min.css',

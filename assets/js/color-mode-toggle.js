@@ -16,10 +16,15 @@
 	// Light ↔ dark only. The "auto"/system option was retired in 5.1.4; a stale
 	// 'auto' in localStorage is no longer valid and resolves to light.
 	const ORDER = ['light', 'dark'];
-	const LABELS = {
-		light: 'Light mode (click to switch to dark)',
-		dark: 'Dark mode (click to switch to light)',
-	};
+	// Translated labels are passed from PHP (buddyxColorModeLabels); the English
+	// strings are only a fallback if that data is missing.
+	const LABELS = Object.assign(
+		{
+			light: 'Light mode (click to switch to dark)',
+			dark: 'Dark mode (click to switch to light)',
+		},
+		window.buddyxColorModeLabels || {}
+	);
 
 	/** Read mode from localStorage; fall back to current <html> attribute. */
 	function readPersisted() {
@@ -28,7 +33,7 @@
 			if (v && ORDER.indexOf(v) !== -1) {
 				return v;
 			}
-		} catch (e) {
+		} catch {
 			/* private mode */
 		}
 		const attr = document.documentElement.getAttribute('data-bx-mode');
@@ -42,13 +47,14 @@
 	function writePersisted(mode) {
 		try {
 			window.localStorage.setItem(STORAGE_KEY, mode);
-		} catch (e) {
+		} catch {
 			/* private mode — accept ephemeral state */
 		}
 	}
 
 	/**
-	 * Apply mode to <html> + sync all buttons + dispatch event.
+	 * Apply mode to <html data-bx-mode> + sync all buttons + dispatch event.
+	 * The attribute is the single source of truth; no body class is mirrored.
 	 * @param {string} mode One of light|dark|auto.
 	 */
 	function applyMode(mode) {

@@ -71,7 +71,7 @@ add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerp
 
 </div><!-- #cover-image-container --> 
 
-<div id="cover-image-container" class="item-header-cover-image-wrapper">
+<div id="cover-image-container" class="item-header-cover-image-wrapper <?php echo esc_attr( function_exists( 'bb_platform_group_header_style' ) ? bb_platform_group_header_style() : '' ); ?>">
 	<div id="item-header-cover-image" class="item-header-wrap <?php echo esc_attr( bp_disable_group_cover_image_uploads() ? 'bb-disable-cover-img' : 'bb-enable-cover-img' ); ?>">
 		<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 			<div id="item-header-avatar">

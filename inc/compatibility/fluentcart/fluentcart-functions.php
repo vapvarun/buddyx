@@ -76,9 +76,6 @@ class BuddyX_FluentCart_Support {
 		// Single product page modifications.
 		add_action( 'wp', array( $this, 'buddyx_fluentcart_single_page_setup' ) );
 
-		// Archive page modifications.
-		add_action( 'wp', array( $this, 'buddyx_fluentcart_archive_page_setup' ) );
-
 		// Add sub-header to FluentCart archive pages.
 		add_action( 'fluent_cart/generic_template/before_content', array( $this, 'buddyx_fluentcart_render_archive_sub_header' ) );
 
@@ -160,20 +157,6 @@ class BuddyX_FluentCart_Support {
 			return $product_sidebar;
 		}
 		return $value;
-	}
-
-	/**
-	 * Setup modifications for FluentCart archive pages.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function buddyx_fluentcart_archive_page_setup() {
-		// Early return if not a FluentCart archive page.
-		if ( ! is_tax( 'product-categories' ) && ! is_tax( 'product-brands' ) && ! is_post_type_archive( 'fluent-products' ) ) {
-			return;
-		}
 	}
 
 	/**

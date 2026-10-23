@@ -117,7 +117,9 @@ a#bbp-cancel-reply-to-link {
 }
 
 #bbpress-forums div.odd,
-#bbpress-forums ul.odd {
+#bbpress-forums ul.odd,
+#bbpress-forums div.even,
+#bbpress-forums ul.even {
     background: var(--bx-color-bg-elevated, #fff) !important;
 }
 

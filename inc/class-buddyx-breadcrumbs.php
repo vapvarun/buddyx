@@ -555,7 +555,7 @@ class BuddyX_Breadcrumbs {
 	protected function add_site_home_link() {
 
 		$network = is_multisite() && ! is_main_site() && true === $this->args['network'];
-		$label   = $network ? get_bloginfo( 'name' ) : $this->labels['home'];
+		$label   = $network ? esc_html( get_bloginfo( 'name' ) ) : $this->labels['home'];
 		$rel     = $network ? '' : ' rel="home"';
 
 		$this->items[] = sprintf( '<a href="%s"%s>%s</a>', esc_url( user_trailingslashit( home_url() ) ), $rel, $label );
@@ -583,7 +583,7 @@ class BuddyX_Breadcrumbs {
 
 			// If on the main front page, add the network home title.
 			elseif ( true === $this->args['show_title'] ) {
-				$this->items[] = is_multisite() && true === $this->args['network'] ? get_bloginfo( 'name' ) : $this->labels['home'];
+				$this->items[] = is_multisite() && true === $this->args['network'] ? esc_html( get_bloginfo( 'name' ) ) : $this->labels['home'];
 			}
 		}
 	}
@@ -611,10 +611,10 @@ class BuddyX_Breadcrumbs {
 
 		// Add the posts page item.
 		if ( is_paged() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), $title );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), esc_html( $title ) );
 
 		} elseif ( $title && true === $this->args['show_title'] ) {
-			$this->items[] = $title;
+			$this->items[] = esc_html( $title );
 		}
 	}
 
@@ -650,10 +650,10 @@ class BuddyX_Breadcrumbs {
 		if ( $post_title = single_post_title( '', false ) ) {
 
 			if ( ( 1 < get_query_var( 'page' ) || is_paged() ) || ( get_option( 'page_comments' ) && 1 < absint( get_query_var( 'cpage' ) ) ) ) {
-				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), $post_title );
+				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), esc_html( $post_title ) );
 
 			} elseif ( true === $this->args['show_title'] ) {
-				$this->items[] = $post_title;
+				$this->items[] = esc_html( $post_title );
 			}
 		}
 	}
@@ -721,7 +721,7 @@ class BuddyX_Breadcrumbs {
 							$label = apply_filters( 'post_type_archive_title', $label, $post_type_object->name );
 
 							// Add the post type archive link to the trail.
-							$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), $label );
+							$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), esc_html( $label ) );
 
 							$done_post_type = true;
 
@@ -741,7 +741,7 @@ class BuddyX_Breadcrumbs {
 				$post_id = get_option( 'page_for_posts' );
 
 				if ( 'posts' !== get_option( 'show_on_front' ) && 0 < $post_id ) {
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), get_the_title( $post_id ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), esc_html( get_the_title( $post_id ) ) );
 				}
 
 				// If the post type is not 'post'.
@@ -753,7 +753,7 @@ class BuddyX_Breadcrumbs {
 				// Core filter hook.
 				$label = apply_filters( 'post_type_archive_title', $label, $post_type_object->name );
 
-				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), $label );
+				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), esc_html( $label ) );
 			}
 		}
 
@@ -764,10 +764,10 @@ class BuddyX_Breadcrumbs {
 
 		// Add the term name to the trail end.
 		if ( is_paged() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $term->taxonomy ) ), single_term_title( '', false ) );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $term->taxonomy ) ), esc_html( single_term_title( '', false ) ) );
 
 		} elseif ( true === $this->args['show_title'] ) {
-			$this->items[] = single_term_title( '', false );
+			$this->items[] = esc_html( single_term_title( '', false ) );
 		}
 	}
 
@@ -798,10 +798,10 @@ class BuddyX_Breadcrumbs {
 
 		// Add the post type [plural] name to the trail end.
 		if ( is_paged() || is_author() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), post_type_archive_title( '', false ) );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), esc_html( post_type_archive_title( '', false ) ) );
 
 		} elseif ( true === $this->args['show_title'] ) {
-			$this->items[] = post_type_archive_title( '', false );
+			$this->items[] = esc_html( post_type_archive_title( '', false ) );
 		}
 
 		// If viewing a post type archive by author.
@@ -834,10 +834,10 @@ class BuddyX_Breadcrumbs {
 
 		// Add the author's display name to the trail end.
 		if ( is_paged() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $user_id ) ), get_the_author_meta( 'display_name', $user_id ) );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $user_id ) ), esc_html( get_the_author_meta( 'display_name', $user_id ) ) );
 
 		} elseif ( true === $this->args['show_title'] ) {
-			$this->items[] = get_the_author_meta( 'display_name', $user_id );
+			$this->items[] = esc_html( get_the_author_meta( 'display_name', $user_id ) );
 		}
 	}
 
@@ -918,7 +918,7 @@ class BuddyX_Breadcrumbs {
 
 		// Add the day item.
 		if ( is_paged() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y' ) ), get_the_time( 'm' ), get_the_time( 'd' ) ), $day );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y' ), get_the_time( 'm' ), get_the_time( 'd' ) ) ), $day );
 
 		} elseif ( true === $this->args['show_title'] ) {
 			$this->items[] = $day;
@@ -946,19 +946,7 @@ class BuddyX_Breadcrumbs {
 
 		// Add the week item.
 		if ( is_paged() ) {
-			$this->items[] = esc_url(
-				get_archives_link(
-					add_query_arg(
-						array(
-							'm' => get_the_time( 'Y' ),
-							'w' => get_the_time( 'W' ),
-						),
-						home_url()
-					),
-					$week,
-					false
-				)
-			);
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() ) ), $week );
 
 		} elseif ( true === $this->args['show_title'] ) {
 			$this->items[] = $week;
@@ -1102,7 +1090,7 @@ class BuddyX_Breadcrumbs {
 			}
 
 			// Add the formatted post link to the array of parents.
-			$parents[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), get_the_title( $post_id ) );
+			$parents[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), esc_html( get_the_title( $post_id ) ) );
 
 			// If there's no longer a post parent, break out of the loop.
 			if ( 0 >= $post->post_parent ) {
@@ -1173,7 +1161,7 @@ class BuddyX_Breadcrumbs {
 			// Core filter hook.
 			$label = apply_filters( 'post_type_archive_title', $label, $post_type_object->name );
 
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type ) ), $label );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type ) ), esc_html( $label ) );
 		}
 
 		// Map the rewrite tags if there's a `%` in the slug.
@@ -1243,7 +1231,7 @@ class BuddyX_Breadcrumbs {
 			}
 
 			// Add the category archive link to the trail.
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), $term->name );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), esc_html( $term->name ) );
 		}
 	}
 
@@ -1326,7 +1314,7 @@ class BuddyX_Breadcrumbs {
 			$term = get_term( $term_id, $taxonomy );
 
 			// Add the formatted term link to the array of parent terms.
-			$parents[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), $term->name );
+			$parents[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), esc_html( $term->name ) );
 
 			// Set the parent term's parent as the parent ID.
 			$term_id = $term->parent;
@@ -1387,7 +1375,7 @@ class BuddyX_Breadcrumbs {
 
 				// If using the %author% tag, add a link to the post author archive.
 				elseif ( '%author%' == $tag ) {
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $post->post_author ) ), get_the_author_meta( 'display_name', $post->post_author ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $post->post_author ) ), esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) );
 				}
 
 				// If using the %category% tag, add a link to the first category archive to match permalinks.

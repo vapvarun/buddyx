@@ -573,12 +573,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$local_font_path = trailingslashit( $font_family_dir ) . $font_file_name;
 
 				if ( ! file_exists( $local_font_path ) ) {
-					$font_response = wp_remote_get(
-						$font_url,
-						array(
-							'sslverify' => false,
-						)
-					);
+					$font_response = wp_remote_get( $font_url );
 
 					if ( is_wp_error( $font_response ) || wp_remote_retrieve_response_code( $font_response ) !== 200 ) {
 						continue; // Skip if the font file couldn't be downloaded.

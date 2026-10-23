@@ -17,7 +17,6 @@
 /*--------------------------------------------------------------
 # Imports
 --------------------------------------------------------------*/
-@import "_forms.css";
 @import "sidebar.css";
 @import "widgets.css";
 
@@ -602,6 +601,137 @@ form.woocommerce-cart-form {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+/* Checkout order-note textarea: WooCommerce paints it white, which leaves the
+ * theme's light dark-mode text unreadable. */
+.woocommerce-checkout textarea,
+.wc-block-components-textarea,
+.wc-block-components-textarea:focus,
+.woocommerce-checkout textarea:focus {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, #111);
+}
+
+.wc-block-components-textarea:focus,
+.woocommerce-checkout textarea:focus {
+    outline: 2px solid var(--bx-color-accent, currentColor);
+    outline-offset: 0;
+}
+
+/* Checkout Blocks fields: text inputs sat on a near-invisible border while the
+ * selects used a bright one. Use one visible token for every field. */
+.wc-block-components-form .wc-block-components-text-input input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+.wc-block-components-textarea,
+.wc-blocks-components-select .wc-blocks-components-select__select {
+    border-color: var(--bx-color-border-strong, #d4d4d4);
+}
+
+/* Checkout Blocks fields: WooCommerce sets the focused border to currentcolor,
+ * a near-white flash in dark mode. Use the accent instead. The focus ring
+ * itself comes from the site-wide :focus-visible rule in _accessibility.css. */
+.wc-block-components-form .wc-block-components-text-input input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+.wc-block-components-form .wc-block-components-text-input input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-within,
+.wc-block-components-form .wc-blocks-components-select .wc-blocks-components-select__select:focus {
+    border-color: var(--bx-color-accent, currentColor);
+    box-shadow: none;
+}
+
+/* Checkout Blocks country/state selects: WooCommerce paints the container
+ * white, leaving the light dark-mode label and value unreadable. */
+.wc-blocks-components-select .wc-blocks-components-select__container {
+    background-color: var(--bx-color-bg-elevated, #fff);
+}
+
+.wc-blocks-components-select .wc-blocks-components-select__select,
+.wc-blocks-components-select .wc-blocks-components-select__label {
+    color: var(--bx-color-fg, #111);
+}
+
+.wc-blocks-components-select .wc-blocks-components-select__expand {
+    fill: var(--bx-color-fg, #111);
+}
+
+/* Checkout Blocks notice banners keep WooCommerce's light tint in dark mode. */
+:root[data-bx-mode="dark"] .wc-block-components-notice-banner {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .wc-block-components-notice-banner > .wc-block-components-notice-banner__content {
+    color: var(--bx-color-fg);
+}
+
+
+/* Select2 country/state (classic checkout, My Account addresses and any other
+ * WooCommerce form), the order-notes textarea and the info/error notices use
+ * WooCommerce's light defaults, so follow the theme tokens instead. The field
+ * and its dropdown must be styled together: the text colour is global, so a
+ * field left white shows light text on white in dark mode. */
+.select2-container.select2-container--default span.select2-selection--single,
+.select2-dropdown {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border-strong, #d4d4d4);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-container--default .select2-results__option,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    color: var(--bx-color-fg, #111);
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    border-color: var(--bx-color-border-strong, #d4d4d4);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted[data-selected] {
+    background-color: var(--bx-color-accent, #1e85be);
+    color: var(--bx-color-accent-inverse, #fff);
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"],
+.select2-container--default .select2-results__option[data-selected="true"] {
+    background-color: var(--bx-color-bg-muted, #ddd);
+    color: var(--bx-color-fg, #111);
+}
+
+/* Select2 draws its own highlight; the global :focus-visible ring would stack
+ * blue lines on top of it. */
+.select2-container--default .select2-results__option:focus-visible,
+.select2-container--default .select2-results__options:focus-visible,
+.select2-container--default .select2-search__field:focus-visible {
+    outline: 0 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-top-color: var(--bx-color-fg, #111);
+}
+
+.woocommerce-checkout .woocommerce-input-wrapper input.input-text:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+.woocommerce-checkout .woocommerce-input-wrapper textarea,
+.woocommerce-checkout #order_comments {
+    border-color: var(--bx-color-border-strong, #d4d4d4);
+}
+
+.woocommerce-checkout #order_comments {
+    background-color: var(--bx-color-bg-elevated, #fff);
+    color: var(--bx-color-fg, #111);
+}
+
+.woocommerce-checkout .woocommerce-input-wrapper input.input-text:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+.woocommerce-checkout #order_comments:focus,
+.select2-container.select2-container--default.select2-container--focus span.select2-selection--single,
+.select2-container.select2-container--default.select2-container--open span.select2-selection--single {
+    border-color: var(--bx-color-accent, currentColor);
+}
+
+:root[data-bx-mode="dark"] .woocommerce-info,
+:root[data-bx-mode="dark"] .woocommerce-message,
+:root[data-bx-mode="dark"] .woocommerce-error {
+    color: var(--bx-color-fg);
+}
+
 
 .select2-dropdown {
     margin-top: 0;

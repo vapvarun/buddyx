@@ -10,6 +10,7 @@ namespace BuddyX\Buddyx\Comments;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
+use function add_filter;
 use function is_singular;
 use function comments_open;
 use function get_option;
@@ -39,6 +40,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_comment_reply_script' ) );
+		add_filter( 'comment_form_defaults', array( $this, 'filter_comment_form_defaults' ) );
 	}
 
 	/**

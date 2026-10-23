@@ -6,7 +6,7 @@
  * each activity.
  *
  * @since 3.0.0
- * @version 3.0.0
+ * @version 14.0.0
  */
 
 bp_nouveau_activity_hook( 'before', 'entry' ); ?> 
@@ -14,9 +14,9 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 <li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>" <?php bp_nouveau_activity_data_attribute_id(); ?> data-bp-timestamp="<?php bp_nouveau_activity_timestamp(); ?>">
 
 	<div class="activity-card-head">
-		<h6 class="card-head-content-type">
-			<?php echo buddyx_bp_get_activity_css_first_class(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		</h6>
+		<span class="card-head-content-type">
+			<?php echo esc_html( buddyx_bp_get_activity_css_first_class() ); ?>
+		</span>
 	</div>    
 
 	<div class="activity-item-head">
@@ -41,6 +41,8 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 
 	<div class="activity-content">
 
+		<?php bp_nouveau_activity_hook( 'before', 'entry_content' ); ?>
+
 		<?php if ( bp_nouveau_activity_has_content() ) : ?>
 
 			<div class="activity-inner">
@@ -50,6 +52,8 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 			</div>
 
 		<?php endif; ?>
+
+		<?php bp_nouveau_activity_hook( 'after', 'entry_content' ); ?>
 
 		<?php bp_nouveau_activity_entry_buttons(); ?>
 

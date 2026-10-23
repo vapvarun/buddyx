@@ -25,13 +25,12 @@ namespace BuddyX\Buddyx;
 						),
 					)
 				),
-				get_the_title()
+				esc_html( get_the_title() )
 			)
 		);
 	} else {
-		echo '<p>';
+		// the_excerpt() wraps its own <p>; another one around it nests paragraphs.
 		the_excerpt();
-		echo '</p>';
 	}
 	wp_link_pages(
 		array(

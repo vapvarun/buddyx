@@ -234,6 +234,13 @@ were hidden (via .neverending) before. */
     overflow: hidden;
 }
 
+/* clip hides overflow without creating a scroll container, so position: sticky keeps working inside .site. */
+@supports (overflow: clip) {
+    .site {
+        overflow: clip;
+    }
+}
+
 .site-wrapper {
     margin: 1rem 0;
 }
@@ -610,4 +617,49 @@ were hidden (via .neverending) before. */
         order: 3;
         width: 100%;
     }
+}
+/* Dark mode: classic TinyMCE (wp_editor) on any front-end form - bbPress,
+ * BuddyPress Messages, Dokan, plugin forms. The editable body is an iframe
+ * painted from custom.js; this block covers the chrome, the Text tab and the
+ * menus and inline link toolbar TinyMCE appends to <body>. */
+[data-bx-mode="dark"] .wp-editor-wrap .wp-editor-container,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-tinymce,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-toolbar-grp,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-statusbar,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-menubar,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-panel,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-listbox,
+[data-bx-mode="dark"] .wp-editor-wrap .wp-switch-editor,
+[data-bx-mode="dark"] .wp-editor-wrap .quicktags-toolbar,
+[data-bx-mode="dark"] .wp-editor-wrap .wp-editor-area,
+[data-bx-mode="dark"] .mce-floatpanel,
+[data-bx-mode="dark"] .mce-inline-toolbar-grp {
+    background-color: var(--bx-color-bg-elevated) !important;
+    border-color: var(--bx-color-border) !important;
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .wp-editor-wrap .mce-btn button,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-ico,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-statusbar .mce-path-item,
+[data-bx-mode="dark"] .wp-editor-wrap .quicktags-toolbar input[type="button"],
+[data-bx-mode="dark"] .mce-menu .mce-text,
+[data-bx-mode="dark"] .mce-inline-toolbar-grp .mce-ico {
+    color: var(--bx-color-fg) !important;
+}
+
+[data-bx-mode="dark"] .wp-editor-wrap .quicktags-toolbar input[type="button"] {
+    background-color: var(--bx-color-bg-muted) !important;
+    border-color: var(--bx-color-border) !important;
+}
+
+[data-bx-mode="dark"] .wp-editor-wrap .mce-btn:hover,
+[data-bx-mode="dark"] .wp-editor-wrap .mce-btn.mce-active,
+[data-bx-mode="dark"] .wp-editor-wrap .quicktags-toolbar input[type="button"]:hover,
+[data-bx-mode="dark"] .mce-inline-toolbar-grp .mce-btn:hover,
+[data-bx-mode="dark"] .mce-menu .mce-menu-item:hover,
+[data-bx-mode="dark"] .mce-menu .mce-menu-item:focus,
+[data-bx-mode="dark"] .mce-menu .mce-menu-item.mce-selected {
+    background-color: var(--bx-color-bg-muted) !important;
+    border-color: var(--bx-color-border-strong) !important;
 }

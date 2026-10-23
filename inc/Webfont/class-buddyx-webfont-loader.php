@@ -278,6 +278,11 @@ class Buddyx_WebFont_Loader {
 	}
 
 	/**
+	 * Option key holding the registry of downloaded font files.
+	 */
+	const DOWNLOADED_FILES_OPTION = 'buddyx_downloaded_font_files';
+
+	/**
 	 * Download files mentioned in our CSS locally.
 	 *
 	 * @access public
@@ -286,7 +291,7 @@ class Buddyx_WebFont_Loader {
 	 */
 	public function get_local_files_from_css() {
 		$font_files = $this->get_remote_files_from_css();
-		$stored     = get_site_option( 'ast_downloaded_font_files', array() );
+		$stored     = get_site_option( self::DOWNLOADED_FILES_OPTION, array() );
 		$change     = false; // If in the end this is true, we need to update the cache option.
 
 		if ( ! defined( 'FS_CHMOD_DIR' ) ) {
@@ -365,7 +370,7 @@ class Buddyx_WebFont_Loader {
 				}
 			}
 
-			update_site_option( 'ast_downloaded_font_files', $stored );
+			update_site_option( self::DOWNLOADED_FILES_OPTION, $stored );
 		}
 
 		return $stored;
@@ -667,6 +672,7 @@ class Buddyx_WebFont_Loader {
 		// Delete previously created supportive options.
 		delete_option( 'buddyx_font_url' );
 		delete_site_option( 'buddyx_local_font_files' );
+		delete_site_option( self::DOWNLOADED_FILES_OPTION );
 		return $this->get_filesystem()->delete( $this->get_fonts_folder(), true );
 	}
 
@@ -790,12 +796,11 @@ function buddyx_get_webfont_url( $url, $format = 'woff2' ) {
  * @since 4.3.9
  */
 function buddyx_regenerate_fonts_folder() {
-	
+	check_ajax_referer( 'buddyx_regenerate_fonts', 'nonce' );
+
 	if ( ! current_user_can( 'edit_theme_options' ) ) {
 		wp_send_json_error( 'invalid_permissions' );
 	}
-
-	check_ajax_referer( 'buddyx_regenerate_fonts', 'nonce' );
 
 	if ( get_option( 'buddyx_font_url' ) ) {
 		$local_font_loader = buddyx_webfont_loader_instance( '' );

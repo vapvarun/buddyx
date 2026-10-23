@@ -80,6 +80,38 @@ if ( ! function_exists( 'buddyx_needs_event_calendar_assets' ) ) {
 	}
 }
 
+if ( ! function_exists( 'buddyx_needs_ideapush_assets' ) ) {
+	/**
+	 * Whether the current request needs IdeaPush dark-mode compat CSS
+	 * (buddyx-ideapush): the `idea` post type or a page with [ideapush].
+	 *
+	 * @return bool
+	 */
+	function buddyx_needs_ideapush_assets(): bool {
+		// IdeaPush registers its board shortcode callback and the `idea` post type.
+		if ( ! function_exists( 'idea_push_board_shortcode' ) ) {
+			return false;
+		}
+
+		if ( is_singular( 'idea' ) || is_post_type_archive( 'idea' ) ) {
+			return true;
+		}
+
+		$post = get_post();
+		if ( $post instanceof WP_Post && has_shortcode( $post->post_content, 'ideapush' ) ) {
+			return true;
+		}
+
+		/**
+		 * Filters whether the current request needs IdeaPush assets, for cases
+		 * this content sniff can't see (custom templates, page builders, etc.).
+		 *
+		 * @param bool $needs_assets
+		 */
+		return (bool) apply_filters( 'buddyx_needs_ideapush_assets', false );
+	}
+}
+
 if ( ! function_exists( 'buddyx_needs_learndash_assets' ) ) {
 	/**
 	 * Whether the current request needs LearnDash integration CSS

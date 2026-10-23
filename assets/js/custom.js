@@ -65,15 +65,84 @@
         $('.site-loader').addClass('loaded');
     };
 
-    // Header Height
-    BUDDYX.headerClass = function() {
-        var $document = $(document),
-            $elementHeader = $('body.sticky-header, .sticky-header .site-header-wrapper'),
-            className = 'has-sticky-header';
+    // Keep --bx-adminbar-offset equal to the part of the admin bar still on screen. On narrow
+    // screens WordPress makes the admin bar scroll away with the page, so a fixed header must
+    // follow it up instead of jumping to the top and leaving a gap below it.
+    BUDDYX.syncAdminBarOffset = function() {
+        var adminBar = document.getElementById('wpadminbar'),
+            offset = 0;
 
-        $document.on('scroll', function() {
-            $elementHeader.toggleClass(className, $document.scrollTop() >= 1);
+        if (adminBar) {
+            offset = Math.max(0, Math.round(adminBar.getBoundingClientRect().bottom));
+        }
+
+        if (BUDDYX.adminBarOffset !== offset) {
+            BUDDYX.adminBarOffset = offset;
+            document.documentElement.style.setProperty('--bx-adminbar-offset', offset + 'px');
+        }
+    };
+
+    // Header Height
+    BUDDYX.headerClassUpdate = function() {
+        var $elementHeader = $('body.sticky-header, .sticky-header .site-header-wrapper'),
+            className = 'has-sticky-header',
+            isSticky = $(document).scrollTop() >= 1;
+
+        BUDDYX.syncAdminBarOffset();
+
+        /*
+         * Measure the header while it is still in the flow, then toggle the class and set the
+         * .site padding in the same pass. Toggling first and measuring afterwards (as headerScroll
+         * does) forces a layout while the fixed header is out of the flow and the padding is not
+         * applied yet. The page is briefly shorter, so the browser clamps the scroll position and
+         * the first scroll away from the top is swallowed on short pages or with a tall header.
+         */
+        if ($elementHeader.length && $('body').hasClass(className) !== isSticky) {
+            $('.site').css('paddingTop', isSticky ? $('.site-header-wrapper').height() + 10 + 'px' : '0px');
+        }
+
+        $elementHeader.toggleClass(className, isSticky);
+    };
+
+    /*
+     * Binds a passive scroll listener. jQuery cannot pass { passive: true }, so the real
+     * scroll event is bound natively. The jQuery binding only serves scripts that fire
+     * $(target).trigger('scroll') themselves, which has no originalEvent.
+     */
+    BUDDYX.onScroll = function(target, handler) {
+        target.addEventListener('scroll', handler, { passive: true });
+
+        $(target).on('scroll', function(event) {
+            if (!event.originalEvent) {
+                handler();
+            }
         });
+    };
+
+    // Binds the scroll listener once; later calls (resize / load) only re-sync the header state.
+    BUDDYX.headerClass = function() {
+        var ticking = false;
+
+        if (BUDDYX.headerClassBound) {
+            BUDDYX.headerClassUpdate();
+            return;
+        }
+
+        BUDDYX.headerClassBound = true;
+
+        BUDDYX.onScroll(document, function() {
+            if (ticking) {
+                return;
+            }
+
+            ticking = true;
+            window.requestAnimationFrame(function() {
+                ticking = false;
+                BUDDYX.headerClassUpdate();
+            });
+        });
+
+        BUDDYX.headerClassUpdate();
     };
 
     // Header Scroll
@@ -145,10 +214,6 @@
 
         $(".user-link-wrap ul#user-profile-menu > li:last-child a").on('focusout', function() {
             $('.user-link-wrap').removeClass("active");
-        });
-
-        $(".buddyx-mobile-menu").on('focusout', function() {
-            $('.mobile-menu-heading .close-menu').trigger('focusin');
         });
     };
 
@@ -228,7 +293,14 @@
     // Blog Layout
     BUDDYX.blogLayout = function() {
 
-        $('.buddyx-article--masonry:not(.without-masonry)').isotope({
+        var $masonry = $('.buddyx-article--masonry:not(.without-masonry)');
+
+        // Isotope is only loaded on pages that render the masonry layout.
+        if (!$masonry.length || !$.fn.isotope) {
+            return;
+        }
+
+        $masonry.isotope({
             itemSelector: '.buddyx-article-col',
             percentPosition: true,
             masonry: {
@@ -276,73 +348,126 @@
     // tableDataAtt
     BUDDYX.tableDataAtt = function() {
 
-        if ($('table').length) {
-            var $th = $("thead th");
-            $('tbody tr td').attr('data-attr', function() {
+        // Label each table's cells from that table's own header row.
+        $('table').each(function() {
+            var $table = $(this),
+                $th = $table.children('thead').find('th');
+
+            if (!$th.length) {
+                return;
+            }
+
+            // children() keeps a nested table's cells out of this table's pass.
+            $table.children('tbody').children('tr').children('td').attr('data-attr', function() {
                 return $th.eq($(this).index()).text();
             });
-        }
+        });
     };
 
     // Gallery Slider
     BUDDYX.galleryPostSlider = function() {
 
+        // Slick is only loaded on pages that render a gallery block.
+        if (!$.fn.slick) {
+            return;
+        }
+
+        var obj_rtl = $('body').hasClass('rtl');
+        var arrows = {
+            nextArrow: '<button class="slick-next slick-arrow"><i class="fa fa-angle-right"></i></button>',
+            prevArrow: '<button class="slick-prev slick-arrow"><i class="fa fa-angle-left"></i></button>'
+        };
+
         $('.buddyx-gallery-block .gallery').each(function() {
-            var obj_rtl;
-            if ($('body').hasClass("rtl")) {
-                obj_rtl = true;
-            } else {
-                obj_rtl = false;
+            var $gallery = $(this),
+                settings;
+
+            // Already initialised (repeated call): slick throws if it is initialised twice.
+            if ($gallery.hasClass('slick-initialized')) {
+                return;
             }
 
-            $('.buddyx-article--default .buddyx-gallery-block .gallery').slick({
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                nextArrow: '<button class="slick-next slick-arrow"><i class="fa fa-angle-right"></i></button>',
-                prevArrow: '<button class="slick-prev slick-arrow"><i class="fa fa-angle-left"></i></button>',
-                rtl: obj_rtl,
-                responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2
+            // One layout per gallery. When several apply, the first match wins: before 5.1.9 each
+            // layout called .slick() in this order and slick ignores a second init on the same gallery.
+            // A single post's .buddyx-post-section also carries .buddyx-section-half, so it gets 2 slides.
+            if ($gallery.closest('.buddyx-article--default').length) {
+                settings = {
+                    slidesToShow: 4,
+                    responsive: [{
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1
+                            }
                         }
-                    },
-                    {
+                    ]
+                };
+            } else if ($gallery.closest('.buddyx-post-section').length) {
+                settings = {
+                    slidesToShow: 2,
+                    responsive: [{
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 1
                         }
-                    }
-                ]
-            });
+                    }]
+                };
+            } else if ($gallery.closest('.buddyx-article--list, .buddyx-article--masonry, .buddyx-section-half').length) {
+                settings = {
+                    slidesToShow: 1
+                };
+            } else {
+                return;
+            }
 
-            $('.buddyx-post-section .buddyx-gallery-block .gallery').slick({
+            $gallery.slick($.extend({
                 infinite: false,
-                slidesToShow: 2,
                 slidesToScroll: 1,
-                nextArrow: '<button class="slick-next slick-arrow"><i class="fa fa-angle-right"></i></button>',
-                prevArrow: '<button class="slick-prev slick-arrow"><i class="fa fa-angle-left"></i></button>',
-                rtl: obj_rtl,
-                responsive: [{
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }]
-            });
-
-            $('.buddyx-article--list .buddyx-gallery-block .gallery, .buddyx-article--masonry .buddyx-gallery-block .gallery, .buddyx-section-half .buddyx-gallery-block .gallery').slick({
-                infinite: false,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                nextArrow: '<button class="slick-next slick-arrow"><i class="fa fa-angle-right"></i></button>',
-                prevArrow: '<button class="slick-prev slick-arrow"><i class="fa fa-angle-left"></i></button>',
                 rtl: obj_rtl
-            });
+            }, arrows, settings));
         });
 
     };
+
+    // Dark mode: the TinyMCE iframe body is unreachable from CSS, so paint it from the theme tokens.
+    // Bound at load, not on ready: editors initialise from an inline footer script and can finish first.
+    BUDDYX.editorDarkMode = function() {
+        var root = document.documentElement;
+
+        function paint(editor) {
+            var body = editor && editor.getBody && editor.getBody();
+            if (!body) {
+                return;
+            }
+            if (root.getAttribute('data-bx-mode') === 'dark') {
+                var styles = window.getComputedStyle(root);
+                body.style.backgroundColor = styles.getPropertyValue('--bx-color-bg-elevated').trim();
+                body.style.color = styles.getPropertyValue('--bx-color-fg').trim();
+            } else {
+                body.style.backgroundColor = '';
+                body.style.color = '';
+            }
+        }
+
+        function paintAll() {
+            if (window.tinymce && window.tinymce.editors) {
+                window.tinymce.editors.forEach(paint);
+            }
+        }
+
+        $(document).on('tinymce-editor-init', function(event, editor) {
+            paint(editor);
+        });
+        document.addEventListener('bx:color-mode-change', paintAll);
+        paintAll();
+    };
+
+    BUDDYX.editorDarkMode();
 
     $(function() {
         BUDDYX.headerClass();
@@ -354,13 +479,11 @@
         BUDDYX.galleryPostSlider();
     });
 
+    // Scrolling only changes the .site padding when the sticky state flips, which
+    // headerClass() handles. A resize can change the header height without a flip,
+    // so re-measure it here.
     $(window).on('resize', function() {
-        // do stuff
         BUDDYX.headerClass();
-    });
-
-    $(window).on('scroll', function() {
-        // do stuff
         BUDDYX.headerScroll();
     });
 

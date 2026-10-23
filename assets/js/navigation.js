@@ -108,15 +108,18 @@ function buddyx_initEachNavToggleSubmenu(nav) {
             // These specific selectors help us only select items that are visible.
             var focusSelector = 'ul.toggle-show > li > a, ul.toggle-show > li > button';
 
+            // e.target is the focused link; the submenu itself is the element the listener is bound to.
+            var submenu = e.currentTarget;
+
             if (buddyx_keymap.TAB === e.keyCode) {
                 if (e.shiftKey) {
                     // Means we're tabbing out of the beginning of the submenu.
-                    if (buddyx_isfirstFocusableElement(e.target, document.activeElement, focusSelector)) {
-                        buddyx_toggleSubMenu(e.target.parentNode, false);
+                    if (buddyx_isfirstFocusableElement(submenu, document.activeElement, focusSelector)) {
+                        buddyx_toggleSubMenu(submenu.parentNode, false);
                     }
                     // Means we're tabbing out of the end of the submenu.
-                } else if (buddyx_islastFocusableElement(e.target, document.activeElement, focusSelector)) {
-                    buddyx_toggleSubMenu(e.target.parentNode, false);
+                } else if (buddyx_islastFocusableElement(submenu, document.activeElement, focusSelector)) {
+                    buddyx_toggleSubMenu(submenu.parentNode, false);
                 }
             }
         });
@@ -254,58 +257,3 @@ function buddyx_islastFocusableElement(container, element, focusSelector) {
     }
     return false;
 }
-
-(function() {
-
-    var buddyxHeader = document.getElementById('masthead'),
-        mobnavWrap = document.querySelectorAll('.buddyx-mobile-menu')[0];
-    if (!buddyxHeader || !mobnavWrap) {
-        return;
-    }
-
-    document.addEventListener('keydown', function(event) {
-
-        var selectors = 'input, a, button',
-            elements = mobnavWrap.querySelectorAll(selectors),
-            closMenu = document.querySelector('.menu-close'),
-            lastEl = elements[elements.length - 1],
-            firstEl = elements[0],
-            activeEl = document.activeElement,
-            tabKey = event.keyCode === 9,
-            shiftKey = event.shiftKey;
-
-        var firstEl_id = jQuery(activeEl).attr('id');
-        /*
-        console.log("======================");
-        console.log(firstEl);
-        console.log(firstEl_id + " == "+ jQuery('#' + firstEl_id).attr('class') +" == "+ jQuery('#' + firstEl_id).hasClass('focus-visible'));
-        console.log(lastEl); 
-        console.log(activeEl);
-        console.log("+++++++++++++++++++++++");
-        */
-
-        if (firstEl_id == 'menu-toggle' && jQuery('#' + firstEl_id).hasClass('menu-toggle-open')) {
-            closMenu.focus();
-        }
-
-        if (firstEl_id == 'menu-close' && !jQuery('#menu-toggle').hasClass('menu-toggle-open')) {
-            lastEl.focus();
-        }
-        if (!shiftKey && tabKey && lastEl === activeEl) {
-            event.preventDefault();
-            closMenu.focus();
-        }
-
-        if (shiftKey && tabKey && firstEl === activeEl) {
-            event.preventDefault();
-            closMenu.focus();
-        }
-
-        if (shiftKey && tabKey && closMenu === activeEl) {
-            event.preventDefault();
-            lastEl.focus();
-        }
-
-    });
-
-}());

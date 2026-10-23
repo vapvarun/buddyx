@@ -1,0 +1,1 @@
+:root{--wbcom-link-color:var(--bx-color-accent,#c92a2b);--wbcom-link-hover-color:var(--bx-color-link-hover,#b82526)}:root[data-bx-mode=dark] body .gam-nudge__action,:root[data-bx-mode=dark] body .wb-gam-btn--primary{color:var(--bx-color-accent-inverse,#0a0a0a)}

@@ -35,10 +35,6 @@ function buddyx_get_insufficient_requirements_message() {
 		return sprintf( __( 'BuddyX requires at least PHP version %1$s. You are running version %2$s. Please update and try again.', 'buddyx' ), BUDDYX_MINIMUM_PHP_VERSION, phpversion() );
 	}
 
-	if ( buddyx_template_pack_check() ) {
-		return __( 'BuddyX requires the BuddyPress Template Pack "BP Nouveau" to be active. Please activate this Template Pack from the BuddyPress Options.', 'buddyx' );
-	}
-
 	return '';
 }
 

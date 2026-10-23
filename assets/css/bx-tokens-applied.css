@@ -130,12 +130,15 @@ a:focus {
  * stylesheets already scope those correctly (woocommerce.css, platform.css,
  * _comments.css). `button.button` (an actual <button> element carrying the
  * class, e.g. the WooCommerce cart's Apply Coupon/Update Cart buttons) is
- * included, matching prior behavior for those. */
+ * included, matching prior behavior for those.
+ *
+ * Bare input[type=button|submit] is wrapped in :where() so it stays at
+ * element specificity (0,0,1): a plugin's own one-class rule wins over the
+ * brand color, while unstyled inputs still pick it up. */
 button.button,
 .wp-element-button,
 .wp-block-button__link,
-input[type="button"],
-input[type="submit"] {
+input:where([type="button"], [type="submit"]) {
 	background-color: var(--bx-color-button-bg, var(--bx-color-accent, #c92a2b));
 	color: var(--bx-color-button-fg, #ffffff);
 	border-color: var(--bx-color-button-border, var(--bx-color-accent, #c92a2b));
@@ -143,8 +146,7 @@ input[type="submit"] {
 button.button:hover,
 .wp-element-button:hover,
 .wp-block-button__link:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
+input:where([type="button"], [type="submit"]):hover {
 	background-color: var(--bx-color-button-bg-hover, var(--bx-color-accent, #c92a2b));
 	color: var(--bx-color-button-fg-hover, #ffffff);
 	border-color: var(--bx-color-button-border-hover, var(--bx-color-accent, #c92a2b));

@@ -1,0 +1,22 @@
+/**
+ * WB Gamification - BuddyX brand integration.
+ *
+ * Loaded only when WB Gamification is active (see inc/Styles/Component.php).
+ * The plugin already maps its neutral surface/text/border colours onto the
+ * --bx-color-* tokens and flips them with [data-bx-mode], so only the accent
+ * is left: its blocks default to a purple unless the theme provides
+ * --wbcom-link-color. Point it at the BuddyX accent so points, badges and
+ * leaderboards match the active skin in light and dark mode.
+ */
+:root {
+    --wbcom-link-color: var(--bx-color-accent, #c92a2b);
+    --wbcom-link-hover-color: var(--bx-color-link-hover, #b82526);
+}
+
+/* On-accent text. The dark accent is a light coral, so the plugin's fixed white
+ * label on accent-filled buttons falls below 3:1. Use the theme's on-accent
+ * colour there; light mode keeps the plugin's white-on-dark-accent. */
+:root[data-bx-mode="dark"] body .gam-nudge__action,
+:root[data-bx-mode="dark"] body .wb-gam-btn--primary {
+    color: var(--bx-color-accent-inverse, #0a0a0a);
+}

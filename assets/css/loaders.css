@@ -173,6 +173,23 @@
     transition: opacity 0.3s ease-out;
 }
 
+/* Failsafe: never let the overlay outlive a stalled load or a JS failure. */
+.site-loader {
+    animation: bx-loader-failsafe 0.3s ease-out 6s forwards;
+}
+
+@keyframes bx-loader-failsafe {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+.no-js .site-loader {
+    display: none;
+}
+
 .elementor-editor-active .site-loader,
 .elementor-editor-preview .site-loader {
     display: none !important;

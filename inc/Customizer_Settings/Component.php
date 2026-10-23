@@ -40,7 +40,7 @@ class Component implements Component_Interface {
 		add_filter( 'body_class', array( $this, 'site_sticky_header_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
 		if ( class_exists( 'SFWD_LMS' ) ) {
-			add_filter( 'body_class', array( $this, 'site_learndash_body_classes' ) );
+			add_filter( 'body_class', array( $this, 'site_learndash_customizer_body_classes' ) );
 		}
 		if ( class_exists( 'BuddyPress' ) ) {
 			add_filter( 'body_class', array( $this, 'site_buddypress_body_classes' ) );
@@ -86,11 +86,23 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * LearnDash dark mode body class.
+	 * LearnDash Customizer body class.
+	 *
+	 * Flags a body whose Lesson Content header colours were set in Customize >
+	 * LearnDash Styles > Global Styles, so the dark-mode on-accent text rule in
+	 * dark-mode.css leaves the customised colours alone.
 	 */
-	public function site_learndash_body_classes( array $classes ): array {
-		if ( isset( $_COOKIE['bxtheme'] ) && 'dark' === $_COOKIE['bxtheme'] && is_user_logged_in() ) {
-			$classes[] = 'buddyx-dark-theme';
+	public function site_learndash_customizer_body_classes( array $classes ): array {
+		$header_settings = array(
+			'learndash_ld30_global_content_header_background_color',
+			'learndash_ld30_global_content_header_text_color',
+		);
+
+		foreach ( $header_settings as $setting ) {
+			if ( '' !== (string) get_theme_mod( $setting, '' ) ) {
+				$classes[] = 'bx-ld-custom-header';
+				break;
+			}
 		}
 
 		return $classes;

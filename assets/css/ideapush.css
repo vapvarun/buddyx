@@ -1,0 +1,124 @@
+/*--------------------------------------------------------------
+# IdeaPush: dark mode
+----------------------------------------------------------------
+IdeaPush ships one front-end stylesheet with hardcoded white and light
+backgrounds and borders and no dark-mode hook, so the idea form, board
+panel, filters, dialogs and the Alertify confirm popup stay light under
+dark mode. Re-point those surfaces at the --bx-color-* tokens. Scoped to
+the same dark selector as the token layer; light mode is untouched.
+--------------------------------------------------------------*/
+
+:root[data-bx-mode="dark"] {
+
+	/* Idea submission form and board side panel. */
+	.ideapush-container .ideapush-container-form input,
+	.ideapush-container .ideapush-container-form textarea,
+	.tagsinput,
+	#idea-push-new-comment,
+	.ideapush-search-input,
+	.ideapush-container select,
+	.ideapush-sort,
+	.ideapush-status-filter,
+	.ideapush-tags-filter {
+		background-color: var(--bx-color-input-bg);
+		border-color: var(--bx-color-input-border);
+		color: var(--bx-color-fg);
+
+		&:focus {
+			background-color: var(--bx-color-input-bg);
+		}
+	}
+
+	.ideapush-form-inner,
+	.ideapush-container-form fieldset {
+		background-color: var(--bx-color-bg-elevated);
+		border-color: var(--bx-color-border);
+		color: var(--bx-color-fg);
+	}
+
+	/* Native scrollbars and select arrows inside the form follow the dark scheme. */
+	.ideapush-container .ideapush-container-form textarea,
+	.ideapush-container .ideapush-container-form select,
+	.ideapush-container select,
+	.tagsinput,
+	#idea-push-new-comment {
+		color-scheme: dark;
+		scrollbar-color: var(--bx-color-input-border) var(--bx-color-input-bg);
+	}
+
+	.file-area .file-dummy,
+	.ideapush-form-idea-attachment-label,
+	.ideapush-user-profile-attachment-label,
+	.ideapush-form-idea-tags,
+	.idea-item-status,
+	.ideapush-container .idea-item-tag,
+	.ideapush-container .idea-item-file,
+	.ideapush-container .idea-item-file-download {
+		background-color: var(--bx-color-bg-muted);
+		border-color: var(--bx-color-border);
+		color: var(--bx-color-fg);
+	}
+
+	/* IdeaPush sets the dashed attachment border with !important. */
+	.ideapush-form-idea-attachment-label,
+	.ideapush-user-profile-attachment-label {
+		border-color: var(--bx-color-border) !important;
+	}
+
+	/* Dividers and vote box. */
+	.ideapush-container .idea-item,
+	.ideapush-container .idea-vote-container {
+		border-color: var(--bx-color-border);
+	}
+
+	/* Attachment / confirm dialogs. */
+	.ideapush-dialog,
+	.single-idea .ui-dialog,
+	.ideapush-dialog-image {
+		background: var(--bx-color-bg-elevated);
+		color: var(--bx-color-fg);
+		box-shadow: 0 0 18px 2px var(--bx-color-shadow);
+
+		.ui-button,
+		.close-button {
+			background-color: var(--bx-color-bg-muted);
+			color: var(--bx-color-fg);
+		}
+	}
+
+	/* IdeaPush sets !important on its own rule; match it. */
+	.ideapush-dialog .alertify input,
+	.single-idea .alertify input {
+		background-color: var(--bx-color-input-bg) !important;
+		color: var(--bx-color-fg) !important;
+	}
+
+	/* Alertify confirm / alert popups (e.g. "Are you sure you want to delete this idea?"). */
+	.alertify {
+
+		.dialog > div,
+		.alert > div {
+			background-color: var(--bx-color-bg-elevated);
+			color: var(--bx-color-fg);
+		}
+
+		.dialog .msg,
+		.alert .msg {
+			color: var(--bx-color-fg);
+		}
+
+		.cancel {
+			background-color: var(--bx-color-bg-muted);
+		}
+	}
+
+	/* Leaderboard and comments. */
+	.ideapush-leader-board-menu li.active,
+	.ideapush-leader-board-content,
+	.ideapush-comments-listing,
+	.idea-push-comments-container li {
+		background: var(--bx-color-bg-elevated);
+		border-color: var(--bx-color-border);
+		color: var(--bx-color-fg);
+	}
+}

@@ -18,6 +18,7 @@ namespace BuddyX\Buddyx\Color_Mode_Toggle;
 
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
+use function class_exists;
 use function buddyx_is_truthy;
 use function get_theme_mod;
 use function wp_enqueue_script;
@@ -44,6 +45,13 @@ class Component implements Component_Interface {
 		add_action( 'buddyx_mobile_menu_actions', array( $this, 'render_mobile_toggle' ), 50 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ), 30 );
 		add_action( 'wp_footer', array( $this, 'render_dokan_dashboard_toggle' ) );
+		// LearnDash Focus Mode hides the theme header, so the header/mobile
+		// placements cannot reach it. LD's own focus-header nav hook is the
+		// render point there; it replaces the legacy `#buddyx-toggle-track`
+		// anchor and its separate bxtheme cookie + AJAX stack.
+		if ( class_exists( 'SFWD_LMS' ) ) {
+			add_action( 'learndash-focus-header-nav-after', array( $this, 'render_focus_toggle' ) );
+		}
 	}
 
 	/**
@@ -128,23 +136,36 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * LearnDash Focus Mode header render hook.
+	 *
+	 * No position check: the theme header and mobile drawer are absent in
+	 * Focus Mode, so this placement renders whenever the toggle is enabled.
+	 * Same gate, same markup and same single persistence path as the other
+	 * placements.
+	 */
+	public function render_focus_toggle(): void {
+		if ( ! $this->is_enabled() ) {
+			return;
+		}
+		$this->render( 'focus' );
+	}
+
+	/**
 	 * Render the toggle markup.
 	 *
-	 * @param string $context 'header', 'mobile' or 'dokan'.
+	 * @param string $context 'header', 'mobile', 'dokan' or 'focus'.
 	 */
 	protected function render( string $context ): void {
 		$mode     = $this->initial_mode();
 		$wrappers = array(
 			'mobile' => 'bx-color-mode-toggle-mobile',
 			'dokan'  => 'bx-color-mode-toggle-dokan',
+			'focus'  => 'bx-color-mode-toggle-header bx-color-mode-toggle-focus',
 			'header' => 'bx-color-mode-toggle-header',
 		);
 		$wrapper  = isset( $wrappers[ $context ] ) ? $wrappers[ $context ] : $wrappers['header'];
 
-		$labels = array(
-			'light' => __( 'Light mode (click to switch to dark)', 'buddyx' ),
-			'dark'  => __( 'Dark mode (click to switch to light)', 'buddyx' ),
-		);
+		$labels = $this->get_labels();
 		$label  = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];
 		?>
 		<div class="bx-color-mode-toggle <?php echo esc_attr( $wrapper ); ?>">
@@ -162,6 +183,18 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Translated button labels, shared by the markup and the toggle script.
+	 *
+	 * @return array<string, string> Label per mode.
+	 */
+	protected function get_labels(): array {
+		return array(
+			'light' => __( 'Light mode (click to switch to dark)', 'buddyx' ),
+			'dark'  => __( 'Dark mode (click to switch to light)', 'buddyx' ),
+		);
+	}
+
+	/**
 	 * Enqueue toggle JS only when toggle is enabled.
 	 */
 	public function enqueue_assets(): void {
@@ -175,5 +208,7 @@ class Component implements Component_Interface {
 		$path      = $theme_dir . '/assets/js/color-mode-toggle.min.js';
 		$ver       = file_exists( $path ) ? filemtime( $path ) : $theme->get( 'Version' );
 		wp_enqueue_script( 'buddyx-color-mode-toggle', $src, array(), $ver, true );
+		// The script rewrites the button label on every mode change, so it needs the translations.
+		wp_localize_script( 'buddyx-color-mode-toggle', 'buddyxColorModeLabels', $this->get_labels() );
 	}
 }

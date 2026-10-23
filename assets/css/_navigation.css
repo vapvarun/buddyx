@@ -59,8 +59,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 @media (max-width: 600px) {
+    /* The admin bar scrolls away on narrow screens; --bx-adminbar-offset (set in custom.js)
+       is the part of it still visible, so the fixed header follows it up without a gap. */
     body.admin-bar .site-header-wrapper.has-sticky-header {
-        top: 0;
+        top: var(--bx-adminbar-offset, 0);
     }
 
     body.admin-bar .has-sticky-header .main-navigation .primary-menu-container {
@@ -119,10 +121,14 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         opacity: 0;
         visibility: hidden;
         background-color: rgba(0, 0, 0, 0.7);
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+        /*
+         * Only fade opacity/visibility. Transitioning z-index (via "all") let the overlay
+         * tie with the sticky header at z-index 999 for a frame and flash over the open menu.
+         */
+        -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+        -moz-transition: opacity 0.3s ease, visibility 0.3s ease;
+        -o-transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .has-sticky-header .mobile-menu-close {
