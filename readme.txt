@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 5.1.9
+Stable tag: 5.2.0
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,7 +53,7 @@ WooCommerce, BuddyPress, BuddyBoss Platform, LearnDash, LearnPress, LifterLMS, T
 
 There are multiple ways you can use a child theme with the BuddyX Theme. Use any of the methods mentioned below to create a child theme or use one of the child themes we have created.
 
-1. Download the child theme from Github - https://github.com/vapvarun/buddyx-child-theme
+1. Download the child theme from Github - https://github.com/wbcomdesigns/buddyx-child/releases/latest
 2. More information on creating a child theme - https://codex.wordpress.org/Child_Themes
 
 == BuddyX License ==
@@ -113,6 +113,48 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+
+= 5.2.0 - November 2026 =
+
+Presentation release: one Theme Color for light and dark mode, tidier phone layouts, theme-drawn icons and a LearnDash pass. Ships with BuddyX Pro 5.2.0.
+
+* New      - One header render with a built-in, keyboard-accessible More menu for long menus, including right-to-left sites.
+* New      - LearnDash course cards and the single course show category, lessons, price and rating, with Start or Continue buttons and a progress bar for enrolled members.
+* New      - The theme draws its own SVG icons, so Font Awesome is optional, and the theme no longer needs jQuery.
+* Improve  - One Theme Color drives the brand in light and dark mode, and every colour control previews live in the Customizer.
+* Improve  - LearnDash, Tutor LMS 4, Sensei, LifterLMS, LearnPress, WPForms, The Events Calendar and Elementor follow the theme colours and dark mode.
+* Improve  - Compact directory cards, grouped profile fields, a compact activity preview card and one widget title scale across sidebars.
+* Improve  - BuddyPress and WooCommerce styles load only where they are used, and one variable Inter file is preloaded.
+* Improve  - The mobile color-mode toggle shows a short Light mode or Dark mode label.
+* Improve  - Links inside post, page, comment and course text are underlined, so they stand out from body text in dark mode.
+* Improve  - The current menu item is marked by the Menu Active color and bold text, without an underline bar, the same as BuddyX Pro.
+* Fix      - When the current page sits inside the More menu on narrower screens, More is marked as active.
+* Fix      - Escape closes an open header dropdown, including More, while focus or the pointer is still on it.
+* Fix      - LearnDash topic status strip, progress track and quiz result time meet AA contrast in dark mode.
+* Fix      - The profile online dot sits on the profile photo, and the change photo and cover links have an accessible name.
+* Fix      - One H1 and one breadcrumb trail per page, and header cart count clears when the cart empties.
+* Fix      - A front page that lists posts keeps one page heading, hidden from view, when a logo replaces the site title.
+* Fix      - A stray character in a Customizer value can no longer break the site CSS.
+* Fix      - Dark mode contrast for the LearnDash login modal, quiz points panel and Modern layout, and the sticky sidebar scrollbar.
+* Fix      - Select arrows are visible in dark mode and sit on the start side in right-to-left sites.
+* Fix      - Prev and Next buttons on the group Manage Members pager no longer touch.
+* Fix      - Set up demo site keeps a community site's menu and home page, shows a result notice and cannot run twice.
+* Fix      - The Customizer preview hides the site title and tagline when Display Site Title and Tagline is unticked.
+* Fix      - Every LearnDash quiz question type (hints, sort, matrix sort, free text, cloze, essay, category scores and answer icons) is readable in dark mode, including after Check and in the review.
+* Fix      - LearnDash quiz answers keep wrapped text, images and lists beside the input, and the Correct and Incorrect badges no longer cover answer text.
+* Fix      - LearnDash Assessment rating options show each radio beside its word.
+* Fix      - LearnDash free-text answers and long unbroken words no longer widen the page on phones, including Focus Mode.
+* Fix      - The LearnDash review toggle between your answer and the correct answer stays readable and easy to tap.
+* Fix      - The footer stays at the bottom of short pages, such as an empty Events Calendar day.
+* Fix      - LearnPress order history buttons and table columns are readable, and BuddyPress forum settings and form hints follow dark mode.
+* Fix      - Forum topic excerpts in the activity stream use a subtle border in dark mode.
+* Fix      - Child themes holding a copy of the 5.1.9 header navigation template no longer show two menus and two icon sets, and their desktop menu appears straight away.
+* Fix      - LearnDash course category links sit above the course grid in the Grid and Masonry blog layouts instead of taking a grid cell.
+* Fix      - Footer block widget headings follow the Footer Title color.
+* Dev      - Removed public functions keep deprecated stubs, every theme hook has a docblock, and colour maths moves to a shared trait.
+* Dev      - Youzify support is removed.
+* Dev      - Jetpack theme support (Infinite Scroll, responsive videos) is removed; the theme no longer loads it when Jetpack is active.
+* Compat   - Aligned with BuddyX Pro 5.2.0. Install both updates together.
 
 = 5.1.9 - October 2026 =
 

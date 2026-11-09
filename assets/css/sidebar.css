@@ -26,11 +26,213 @@
     display: block;
 }
 
-@media screen and (max-width: 60em) {
-    .sticky-sidebar-enable .sticky-sidebar.is_stuck {
-        position: static !important;
+/* Sticky sidebar (Customizer > Sidebar): plain CSS, wide screens only. It stays
+ * clear of the admin bar and of a sticky header (custom.js sets both heights). */
+@media screen and (min-width: 960px) {
+    .sticky-sidebar-enable .sticky-sidebar {
+        position: sticky;
+        top: calc(var(--bx-adminbar-offset, 0px) + var(--bx-sticky-header-height, 0px) + 32px);
+        /* A stack taller than the screen scrolls inside its own box, so its last widget stays reachable. */
+        max-height: calc(100vh - var(--bx-adminbar-offset, 0px) - var(--bx-sticky-header-height, 0px) - 48px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--global-border-color) transparent;
     }
-    .sticky-sidebar-enable .widget-area>div {
-        height: auto !important;
-    }
+}
+/* Default BuddyPress directory widgets (shown when a directory sidebar has none): compact, theme-weight titles, one-line meta. */
+.primary-sidebar .widget[class*="wp-block-bp-"] .widget-title {
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    padding: 0 0 10px;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item-options {
+    font-size: 0.8125rem;
+    margin-bottom: 12px;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] ul.item-list > li {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item-avatar {
+    flex: 0 0 40px;
+    margin: 0;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item-avatar img {
+    height: 40px;
+    width: 40px;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item {
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item-title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.9375rem;
+    line-height: 1.3;
+}
+
+.primary-sidebar .widget[class*="wp-block-bp-"] .item-meta {
+    color: var(--bx-color-fg-muted);
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Sidebar widget system: one title scale and one list/row treatment for the widgets that ship with BuddyPress and bbPress. */
+.primary-sidebar .widget .widget-title {
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    padding: 0 0 10px;
+}
+
+.primary-sidebar .widget:empty {
+    display: none;
+}
+
+.primary-sidebar :is(.widget_display_topics, .widget_display_replies, .widget_display_forums, .widget_display_views) ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-sidebar :is(.widget_display_topics, .widget_display_replies, .widget_display_forums, .widget_display_views) li {
+    border-bottom: 1px solid var(--bx-color-border);
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.primary-sidebar :is(.widget_display_topics, .widget_display_replies, .widget_display_forums, .widget_display_views) li:first-child {
+    padding-top: 0;
+}
+
+.primary-sidebar :is(.widget_display_topics, .widget_display_replies, .widget_display_forums, .widget_display_views) li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.primary-sidebar :is(.widget_display_topics, .widget_display_replies) li > a {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.primary-sidebar .widget_display_stats .bbp-stats {
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin: 0;
+    row-gap: 8px;
+}
+
+.primary-sidebar .widget_display_stats .bbp-stats dt {
+    color: var(--bx-color-fg-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.primary-sidebar .widget_display_stats .bbp-stats dd {
+    margin: 0;
+    text-align: end;
+}
+
+.primary-sidebar .widget_display_search .bbp-search-form form > div {
+    display: flex;
+    gap: 8px;
+}
+
+.primary-sidebar .widget_display_search .bbp-search-form input[type="text"] {
+    flex: 1;
+    min-width: 0;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--bx-color-border);
+    margin: 0 0 12px;
+    padding: 0 0 12px;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote::before,
+.primary-sidebar .bp-latest-activities-block blockquote::after,
+.primary-sidebar .bp-latest-activities-block .activity-item::before,
+.primary-sidebar .bp-latest-activities-block .activity-item::after {
+    display: none;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote p {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    font-size: 0.9375rem;
+    font-style: normal;
+    line-height: 1.4;
+    margin: 0 0 8px;
+    overflow: hidden;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote footer {
+    align-items: center;
+    color: var(--bx-color-fg-muted);
+    display: flex;
+    font-size: 0.8125rem;
+    font-style: normal;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote footer cite {
+    display: inline-flex;
+    font-style: normal;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote footer img {
+    height: 24px;
+    width: 24px;
+}
+
+.primary-sidebar .buddypress.widget div.activity-list blockquote .activity-item:not(.mini) {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.primary-sidebar .buddypress.widget div.activity-list blockquote .activity-item:not(.mini)::before,
+.primary-sidebar .buddypress.widget div.activity-list blockquote .activity-item:not(.mini)::after,
+.primary-sidebar .bp-latest-activities-block blockquote footer::before,
+.primary-sidebar .bp-latest-activities-block blockquote footer::after {
+    display: none;
+}
+
+.primary-sidebar .bp-latest-activities-block blockquote footer cite::before {
+    display: none;
 }

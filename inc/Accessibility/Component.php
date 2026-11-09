@@ -39,7 +39,6 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_navigation_script' ) );
 		add_action( 'wp_head', array( $this, 'action_wp_head_amp_script' ) );
-		add_action( 'wp_print_footer_scripts', array( $this, 'action_print_skip_link_focus_fix' ) );
 		add_filter( 'nav_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
 		add_filter( 'page_menu_link_attributes', array( $this, 'filter_nav_menu_link_attributes_aria_current' ), 10, 2 );
 	}
@@ -67,8 +66,10 @@ class Component implements Component_Interface {
 			'buddyx-navigation',
 			'buddyxScreenReaderText',
 			array(
-				'expand'   => esc_attr__( 'Expand child menu', 'buddyx' ),
-				'collapse' => esc_attr__( 'Collapse child menu', 'buddyx' ),
+				'expand'    => esc_attr__( 'Expand child menu', 'buddyx' ),
+				'collapse'  => esc_attr__( 'Collapse child menu', 'buddyx' ),
+				'more'      => esc_html__( 'More', 'buddyx' ),
+				'moreLabel' => esc_attr__( 'More menu items', 'buddyx' ),
 			)
 		);
 	}
@@ -85,36 +86,12 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Prints an inline script to fix skip link focus in IE11.
-	 *
-	 * The script is not enqueued because it is tiny and because it is only for IE11,
-	 * thus it does not warrant having an entire dedicated blocking script being loaded.
-	 *
-	 * Since it will never need to be changed, it is simply printed in its minified version.
-	 *
-	 * @see https://git.io/vWdr2
-	 */
-	public function action_print_skip_link_focus_fix() {
-		// If the AMP plugin is active, return early.
-		if ( buddyx()->is_amp() ) {
-			return;
-		}
-
-		// Print the minified script.
-		?>
-		<script>
-		/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
-		</script>
-		<?php
-	}
-
-	/**
 	 * Filters the HTML attributes applied to a menu item's anchor element.
 	 *
 	 * Checks if the menu item is the current menu item and adds the aria "current" attribute.
 	 *
-	 * @param array   $atts the HTML attributes applied to the menu item's `<a>` element
-	 * @param \WP_Post $item the current menu item
+	 * @param array    $atts the HTML attributes applied to the menu item's `<a>` element.
+	 * @param \WP_Post $item the current menu item.
 	 *
 	 * @return array Modified HTML attributes
 	 */

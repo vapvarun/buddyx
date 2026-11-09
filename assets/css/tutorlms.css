@@ -14,6 +14,33 @@
     margin: 2rem auto;
 }
 
+/* Tutor's greys (#73767d, #757c8e) miss AA on the light and the dark surface;
+ * the theme's muted token passes on both. html:root beats Tutor's :root. */
+html:root {
+	--tutor-text-subdued: var(--bx-color-fg-muted);
+	--tutor-color-muted: var(--bx-color-fg-muted);
+	--tutor-color-hints: var(--bx-color-fg-muted);
+}
+
+/* The same grey, hard-coded in Tutor's older sheet (wishlist, share, meta). */
+html body .tutor-color-muted,
+html body .tutor-btn-ghost,
+html body .tutor-iconic-btn {
+	color: var(--bx-color-fg-muted);
+}
+
+/* Tutor paints its tooltip with the body text colour; the label takes the
+ * page background so it reads in both modes. */
+html body .tooltip-wrap .tooltip-txt {
+	color: var(--bx-color-bg);
+}
+
+/* Stat numbers stay readable; the coloured icon beside each one keeps Tutor's
+ * colour (cyan and amber numbers measured 2.7:1 and 1.8:1 on white). */
+html body .tutor-stat-card .tutor-stat-card-value {
+	color: var(--tutor-text-primary);
+}
+
 /*--------------------------------------------------------------
 # Dark Mode
 --------------------------------------------------------------*/

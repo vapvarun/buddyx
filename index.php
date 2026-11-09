@@ -37,13 +37,19 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 
 ?>
 
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && $default_sidebar == 'left' && ! is_cart() && $default_sidebar == 'left' && ! is_checkout() && $default_sidebar == 'left' && ! is_account_page() && $default_sidebar == 'left' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
-			<aside id="secondary" class="left-sidebar widget-area">
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'left' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
+			<aside id="secondary-left" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_left_sidebar(); ?>
 				</div>
@@ -51,9 +57,9 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 		<?php endif; ?>
 		<?php
 	} else {
-		if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) :
+		if ( 'left' === $default_sidebar || 'both' === $default_sidebar ) :
 			?>
-		<aside id="secondary" class="left-sidebar widget-area">
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
@@ -67,7 +73,7 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 		if ( have_posts() ) {
 
 			$classes = isset( $classes ) ? $classes : get_body_class();
-			if ( in_array( 'blog', $classes ) || in_array( 'archive', $classes ) || in_array( 'search', $classes ) ) {
+			if ( in_array( 'blog', $classes, true ) || in_array( 'archive', $classes, true ) || in_array( 'search', $classes, true ) ) {
 
 				$args = array(
 					'post_layout' => $post_layout,
@@ -101,13 +107,16 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 		 * @see inc/compatibility/wbcom-search/search-federation.php
 		 */
 		if ( is_search() ) {
+			/**
+			 * Fires on the search results page, after the normal results loop.
+			 */
 			do_action( 'buddyx_search_after_results' );
 		}
 		?>
 
 	</main><!-- #primary -->
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && $default_sidebar == 'right' && ! is_cart() && $default_sidebar == 'right' && ! is_checkout() && $default_sidebar == 'right' && ! is_account_page() && $default_sidebar == 'right' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'right' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -115,7 +124,7 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 			</aside>
 		<?php endif; ?>
 		<?php } else { ?>
-			<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
+			<?php if ( 'right' === $default_sidebar || 'both' === $default_sidebar ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -124,6 +133,9 @@ if ( ! in_array( $post_layout, $allowed_layouts, true ) ) {
 		<?php endif; ?>
 	<?php } ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

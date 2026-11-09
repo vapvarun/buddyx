@@ -20,9 +20,14 @@ namespace BuddyX\Buddyx\Customizer_Framework\Controls;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Background
+ */
 class Background extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-background';

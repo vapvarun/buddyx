@@ -163,6 +163,16 @@ button.mfp-arrow {
 #dokan-store-listing-filter-wrap {
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-border-radius);
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+/* Empty store list ("No vendor found!") is a bare .dokan-error paragraph that
+   Dokan paints white; follow the colour mode. */
+.seller-listing-content > .dokan-error {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+    border: 1px solid var(--global-border-color);
 }
 
 #dokan-seller-listing-wrap.list-view {
@@ -177,6 +187,15 @@ button.mfp-arrow {
 
 .buddyx-dokan #dokan-store-listing-filter-wrap .right .item select {
     padding: 6px 20px;
+    background-color: var(--bx-color-input-bg);
+    border-color: var(--bx-color-input-border);
+    color: var(--bx-color-input-fg);
+}
+
+/* Dokan paints the store card footer light; follow the theme surface. */
+#dokan-seller-listing-wrap ul.dokan-seller-wrap li .store-footer {
+    background-color: var(--bx-color-bg-muted);
+    border-color: var(--bx-color-border);
 }
 
 #dokan-seller-listing-wrap .dokan-single-seller .store-wrapper .store-header .store-banner img {
@@ -325,6 +344,16 @@ button.mfp-arrow {
 .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li {
     margin: 5px;
     margin-left: 0;
+}
+
+/* Dokan colours store tabs #666, too faint on the dark tab bar. */
+.buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a {
+    color: var(--bx-color-fg);
+}
+
+.buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a:hover,
+.buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a:focus {
+    color: var(--bx-color-accent);
 }
 
 .dokan-store-tabs ul li.dokan-share-btn-wrap .dokan-share-btn {
@@ -573,7 +602,7 @@ a.dokan-btn-theme.active,
 }
 
 .dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a {
-    color: #fff !important;
+    color: #fff !important; /* fixed: text on Dokan's own dark dashboard sidebar */
 }
 
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active ul.navigation-submenu {

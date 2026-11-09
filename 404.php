@@ -14,7 +14,12 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 
 ?>
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/**
+	 * Fires before the main content area, inside the page wrapper.
+	 */
+	do_action( 'buddyx_before_content' );
+	?>
 
 	<main id="primary" class="site-main">
 		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) { ?>
@@ -22,6 +27,11 @@ buddyx()->print_styles( 'buddyx-content' );
 		<?php } ?>
 	</main><!-- #primary -->
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/**
+	 * Fires after the main content area, inside the page wrapper.
+	 */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

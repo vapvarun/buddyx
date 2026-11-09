@@ -1,9 +1,20 @@
 <?php
+/**
+ * Default values for BuddyX theme options.
+ *
+ * @package buddyx
+ */
 
+/**
+ * Get the default value for a BuddyX theme option.
+ *
+ * @param string $key Option key. Empty string returns no value.
+ * @return mixed Default value for the key, or an empty string when the key is unknown.
+ */
 function buddyx_defaults( $key = '' ) {
 	$defaults = array();
 
-	// site layout
+	// site layout.
 	$defaults['site-layout'] = 'wide';
 
 	// site loader — disabled by default for better perceived performance.
@@ -12,13 +23,13 @@ function buddyx_defaults( $key = '' ) {
 	// Customizer → General → Site Loader.
 	$defaults['site-loader'] = '0';
 
-	// site search
+	// site search.
 	$defaults['site-search'] = '1';
 
-	// site cart
+	// site cart.
 	$defaults['site-cart'] = '1';
 
-	// site sidebar
+	// site sidebar.
 	$defaults['site-sticky-header']                = '1';
 	$defaults['sidebar-option']                    = 'right';
 	$defaults['buddypress-sidebar-option']         = 'both';
@@ -27,37 +38,37 @@ function buddyx_defaults( $key = '' ) {
 	$defaults['bbpress-sidebar-option']            = 'right';
 	$defaults['woocommerce-sidebar-option']        = 'right';
 
-	// sticky sidebar
+	// sticky sidebar.
 	$defaults['sticky-sidebar'] = '1';
 
-	// site breadcrumbs
+	// site breadcrumbs.
 	$defaults['site-breadcrumbs'] = 'on';
 
-	// blog layout option
+	// blog layout option.
 	$defaults['blog-layout-option'] = 'default-layout';
 
-	// blog image position
+	// blog image position.
 	$defaults['blog-image-position'] = 'thumb-left';
 
-	// blog grid columns
+	// blog grid columns.
 	$defaults['blog-grid-columns'] = 'one-column';
 
-	// single post blog layout option
+	// single post blog layout option.
 	$defaults['single-post-sidebar-option'] = 'none';
 
-	// blog masonry view
+	// blog masonry view.
 	$defaults['blog-masonry-view'] = 'without-masonry';
 
-	// post per view
+	// post per view.
 	$defaults['post-per-row'] = 'buddyx-masonry-2';
 
-	// single post content width
+	// single post content width.
 	$defaults['single-post-content-width'] = 'small';
 
-	// single post title layout
+	// single post title layout.
 	$defaults['single-post-title-layout'] = 'buddyx-section-title-above';
 
-	// buddypress avatar style
+	// buddypress avatar style.
 	$defaults['buddypress-avatar-style'] = 'on';
 
 	if ( ! empty( $key ) && array_key_exists( $key, $defaults ) ) {

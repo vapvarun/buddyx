@@ -39,15 +39,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	const BBPRESS_RIGHT_SIDEBAR_SLUG     = 'bbpress-sidebar-right';
 	const WOOCOMMERCE_LEFT_SIDEBAR_SLUG  = 'woocommerce-sidebar-left';
 	const WOOCOMMERCE_RIGHT_SIDEBAR_SLUG = 'woocommerce-sidebar-right';
-	const FLUENTCART_LEFT_SIDEBAR_SLUG  = 'fluentcart-sidebar-left';
-	const FLUENTCART_RIGHT_SIDEBAR_SLUG = 'fluentcart-sidebar-right';
+	const FLUENTCART_LEFT_SIDEBAR_SLUG   = 'fluentcart-sidebar-left';
+	const FLUENTCART_RIGHT_SIDEBAR_SLUG  = 'fluentcart-sidebar-right';
 
 	/**
 	 * Gets the unique identifier for the theme component.
 	 *
 	 * @return string Component slug.
 	 */
-	public function get_slug() : string {
+	public function get_slug(): string {
 		return 'sidebars';
 	}
 
@@ -66,7 +66,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
 	 *               adding support for further arguments in the future.
 	 */
-	public function template_tags() : array {
+	public function template_tags(): array {
 		return array(
 			'is_left_sidebar_active'                     => array( $this, 'is_left_sidebar_active' ),
 			'display_left_sidebar'                       => array( $this, 'display_left_sidebar' ),
@@ -94,10 +94,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'display_woocommerce_right_sidebar'          => array( $this, 'display_woocommerce_right_sidebar' ),
 			'is_woocommerce_right_sidebar_active'        => array( $this, 'is_woocommerce_right_sidebar_active' ),
 
-			'display_fluentcart_left_sidebar'           => array( $this, 'display_fluentcart_left_sidebar' ),
-			'is_fluentcart_left_sidebar_active'         => array( $this, 'is_fluentcart_left_sidebar_active' ),
-			'display_fluentcart_right_sidebar'          => array( $this, 'display_fluentcart_right_sidebar' ),
-			'is_fluentcart_right_sidebar_active'        => array( $this, 'is_fluentcart_right_sidebar_active' ),
+			'display_fluentcart_left_sidebar'            => array( $this, 'display_fluentcart_left_sidebar' ),
+			'is_fluentcart_left_sidebar_active'          => array( $this, 'is_fluentcart_left_sidebar_active' ),
+			'display_fluentcart_right_sidebar'           => array( $this, 'display_fluentcart_right_sidebar' ),
+			'is_fluentcart_right_sidebar_active'         => array( $this, 'is_fluentcart_right_sidebar_active' ),
 		);
 	}
 
@@ -105,256 +105,67 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Registers the sidebars.
 	 */
 	public function action_register_sidebars() {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Right Sidebar', 'buddyx' ),
-				'id'            => static::RIGHT_SIDEBAR_SLUG,
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Left Sidebar', 'buddyx' ),
-				'id'            => static::LEFT_SIDEBAR_SLUG,
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
+		$areas = array(
+			static::RIGHT_SIDEBAR_SLUG => esc_html__( 'Right Sidebar', 'buddyx' ),
+			static::LEFT_SIDEBAR_SLUG  => esc_html__( 'Left Sidebar', 'buddyx' ),
 		);
 
 		if ( function_exists( 'bp_is_active' ) ) {
-			if ( ! class_exists( 'Youzify' ) ) {
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Community Left Sidebar', 'buddyx' ),
-						'id'            => static::BUDDYPRESS_LEFT_SIDEBAR_SLUG,
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Activity Directory Right Sidebar', 'buddyx' ),
-						'id'            => static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG,
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Members Directory Right Sidebar', 'buddyx' ),
-						'id'            => static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG,
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Groups Directory Right Sidebar', 'buddyx' ),
-						'id'            => static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG,
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Members Single Profile Sidebar', 'buddyx' ),
-						'id'            => 'single_member',
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Members Single User Activity', 'buddyx' ),
-						'id'            => 'single_member_activity',
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Groups Single Group Sidebar', 'buddyx' ),
-						'id'            => 'single_group',
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-
-				register_sidebar(
-					array(
-						'name'          => esc_html__( 'Groups Single Group Activity', 'buddyx' ),
-						'id'            => 'single_group_activity',
-						'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-						'before_widget' => '<section id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</section>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
-				);
-			}
+			$areas += array(
+				static::BUDDYPRESS_LEFT_SIDEBAR_SLUG  => esc_html__( 'Community Left Sidebar', 'buddyx' ),
+				static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG => esc_html__( 'Activity Directory Right Sidebar', 'buddyx' ),
+				static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG => esc_html__( 'Members Directory Right Sidebar', 'buddyx' ),
+				static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG => esc_html__( 'Groups Directory Right Sidebar', 'buddyx' ),
+				'single_member'                       => esc_html__( 'Members Single Profile Sidebar', 'buddyx' ),
+				'single_member_activity'              => esc_html__( 'Members Single User Activity', 'buddyx' ),
+				'single_group'                        => esc_html__( 'Groups Single Group Sidebar', 'buddyx' ),
+				'single_group_activity'               => esc_html__( 'Groups Single Group Activity', 'buddyx' ),
+			);
 		}
 
 		if ( function_exists( 'is_bbpress' ) ) {
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'bbPress Left Sidebar', 'buddyx' ),
-					'id'            => static::BBPRESS_LEFT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
-			);
-
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'bbPress Right Sidebar', 'buddyx' ),
-					'id'            => static::BBPRESS_RIGHT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
+			$areas += array(
+				static::BBPRESS_LEFT_SIDEBAR_SLUG  => esc_html__( 'bbPress Left Sidebar', 'buddyx' ),
+				static::BBPRESS_RIGHT_SIDEBAR_SLUG => esc_html__( 'bbPress Right Sidebar', 'buddyx' ),
 			);
 		}
 
 		if ( class_exists( 'WooCommerce' ) ) {
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'WooCommerce Left Sidebar', 'buddyx' ),
-					'id'            => static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
-			);
-
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'WooCommerce Right Sidebar', 'buddyx' ),
-					'id'            => static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
+			$areas += array(
+				static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG  => esc_html__( 'WooCommerce Left Sidebar', 'buddyx' ),
+				static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG => esc_html__( 'WooCommerce Right Sidebar', 'buddyx' ),
 			);
 		}
 
-		// FluentCart.
 		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'Single Product Left Sidebar', 'buddyx' ),
-					'id'            => static::FLUENTCART_LEFT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
-			);
-
-			register_sidebar(
-				array(
-					'name'          => esc_html__( 'Single Product Right Sidebar', 'buddyx' ),
-					'id'            => static::FLUENTCART_RIGHT_SIDEBAR_SLUG,
-					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),	
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
-				)
+			$areas += array(
+				static::FLUENTCART_LEFT_SIDEBAR_SLUG  => esc_html__( 'Single Product Left Sidebar', 'buddyx' ),
+				static::FLUENTCART_RIGHT_SIDEBAR_SLUG => esc_html__( 'Single Product Right Sidebar', 'buddyx' ),
 			);
 		}
 
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer 1', 'buddyx' ),
-				'id'            => 'footer-1',
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
+		// Footer columns use h3 titles; every other area uses h2.
+		$areas += array(
+			'footer-1' => esc_html__( 'Footer 1', 'buddyx' ),
+			'footer-2' => esc_html__( 'Footer 2', 'buddyx' ),
+			'footer-3' => esc_html__( 'Footer 3', 'buddyx' ),
+			'footer-4' => esc_html__( 'Footer 4', 'buddyx' ),
 		);
 
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer 2', 'buddyx' ),
-				'id'            => 'footer-2',
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer 3', 'buddyx' ),
-				'id'            => 'footer-3',
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
-
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer 4', 'buddyx' ),
-				'id'            => 'footer-4',
-				'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
+		foreach ( $areas as $id => $name ) {
+			$heading = 0 === strpos( $id, 'footer-' ) ? 'h3' : 'h2';
+			register_sidebar(
+				array(
+					'name'          => $name,
+					'id'            => $id,
+					'description'   => esc_html__( 'Add widgets here.', 'buddyx' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<' . $heading . ' class="widget-title">',
+					'after_title'   => '</' . $heading . '>',
+				)
+			);
+		}
 	}
 
 	/**
@@ -363,12 +174,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $classes Classes for the body element.
 	 * @return array Filtered body classes.
 	 */
-	public function filter_body_classes( array $classes ) : array {
+	public function filter_body_classes( array $classes ): array {
 		// Cache template check once to avoid 30+ repeated global declarations and in_array checks.
 		global $template;
-		$excluded_templates    = array( 'front-page.php', '404.php', '500.php', 'offline.php' );
-		$template_name         = $template ? basename( $template ) : '';
-		$is_excluded_template  = in_array( $template_name, $excluded_templates, true );
+		$excluded_templates   = array( 'front-page.php', '404.php', '500.php', 'offline.php' );
+		$template_name        = $template ? basename( $template ) : '';
+		$is_excluded_template = in_array( $template_name, $excluded_templates, true );
 
 		// Early return if on excluded template - no sidebar classes needed.
 		if ( $is_excluded_template ) {
@@ -382,16 +193,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'page-templates/page-right-sidebar.php' => 'right',
 			'page-templates/page-both-sidebar.php'  => 'both',
 		);
-		$assigned_page_template = is_singular() ? get_page_template_slug() : '';
-		$default_sidebar        = isset( $page_template_sidebar_map[ $assigned_page_template ] )
+		$assigned_page_template    = is_singular() ? get_page_template_slug() : '';
+		$default_sidebar           = isset( $page_template_sidebar_map[ $assigned_page_template ] )
 			? $page_template_sidebar_map[ $assigned_page_template ]
 			: get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 
-		if ( $this->is_left_sidebar_active() && $default_sidebar == 'left' ) {
+		if ( $this->is_left_sidebar_active() && 'left' === $default_sidebar ) {
 			$classes[] = 'has-sidebar-left';
-		} elseif ( $this->is_right_sidebar_active() && $default_sidebar == 'right' ) {
+		} elseif ( $this->is_right_sidebar_active() && 'right' === $default_sidebar ) {
 			$classes[] = 'has-sidebar-right';
-		} elseif ( $this->is_right_sidebar_active() && $default_sidebar == 'both' ) {
+		} elseif ( $this->is_right_sidebar_active() && 'both' === $default_sidebar ) {
 			$classes[] = 'has-sidebar-both';
 		}
 
@@ -403,52 +214,52 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option', buddyx_defaults( 'buddypress-groups-sidebar-option' ) );
 
 				// Cache sidebar active states to avoid repeated method calls.
-				$bp_left_active           = $this->is_buddypress_left_sidebar_active();
-				$bp_right_active          = $this->is_buddypress_right_sidebar_active();
-				$bp_members_right_active  = $this->is_buddypress_members_right_sidebar_active();
-				$bp_groups_right_active   = $this->is_buddypress_groups_right_sidebar_active();
+				$bp_left_active          = $this->is_buddypress_left_sidebar_active();
+				$bp_right_active         = $this->is_buddypress_right_sidebar_active();
+				$bp_members_right_active = $this->is_buddypress_members_right_sidebar_active();
+				$bp_groups_right_active  = $this->is_buddypress_groups_right_sidebar_active();
 
 				// Activity sidebar classes.
 				if ( bp_is_current_component( 'activity' ) && ! bp_is_user() ) {
-					if ( $bp_left_active && $buddypress_sidebar == 'left' ) {
+					if ( $bp_left_active && 'left' === $buddypress_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-left';
-					} elseif ( $bp_right_active && $buddypress_sidebar == 'right' ) {
+					} elseif ( $bp_right_active && 'right' === $buddypress_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-right';
-					} elseif ( $bp_right_active && $buddypress_sidebar == 'both' && ! $bp_left_active ) {
+					} elseif ( $bp_right_active && 'both' === $buddypress_sidebar && ! $bp_left_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-					} elseif ( $bp_left_active && $buddypress_sidebar == 'both' && ! $bp_right_active ) {
+					} elseif ( $bp_left_active && 'both' === $buddypress_sidebar && ! $bp_right_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-					} elseif ( ( $bp_right_active || $bp_left_active ) && $buddypress_sidebar == 'both' ) {
+					} elseif ( ( $bp_right_active || $bp_left_active ) && 'both' === $buddypress_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
 
 				// Members sidebar classes.
 				if ( bp_is_current_component( 'members' ) && ! bp_is_user() ) {
-					if ( $bp_left_active && $buddypress_members_sidebar == 'left' ) {
+					if ( $bp_left_active && 'left' === $buddypress_members_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-left';
-					} elseif ( $bp_members_right_active && $buddypress_members_sidebar == 'right' ) {
+					} elseif ( $bp_members_right_active && 'right' === $buddypress_members_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-right';
-					} elseif ( $bp_members_right_active && $buddypress_members_sidebar == 'both' && ! $bp_left_active ) {
+					} elseif ( $bp_members_right_active && 'both' === $buddypress_members_sidebar && ! $bp_left_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-					} elseif ( $bp_left_active && $buddypress_members_sidebar == 'both' && ! $bp_members_right_active ) {
+					} elseif ( $bp_left_active && 'both' === $buddypress_members_sidebar && ! $bp_members_right_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-					} elseif ( ( $bp_members_right_active || $bp_left_active ) && $buddypress_members_sidebar == 'both' ) {
+					} elseif ( ( $bp_members_right_active || $bp_left_active ) && 'both' === $buddypress_members_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
 
 				// Groups sidebar classes.
 				if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() ) {
-					if ( $bp_left_active && $buddypress_groups_sidebar == 'left' ) {
+					if ( $bp_left_active && 'left' === $buddypress_groups_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-left';
-					} elseif ( $bp_groups_right_active && $buddypress_groups_sidebar == 'right' ) {
+					} elseif ( $bp_groups_right_active && 'right' === $buddypress_groups_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-right';
-					} elseif ( $bp_groups_right_active && $buddypress_groups_sidebar == 'both' && ! $bp_left_active ) {
+					} elseif ( $bp_groups_right_active && 'both' === $buddypress_groups_sidebar && ! $bp_left_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-left';
-					} elseif ( $bp_left_active && $buddypress_groups_sidebar == 'both' && ! $bp_groups_right_active ) {
+					} elseif ( $bp_left_active && 'both' === $buddypress_groups_sidebar && ! $bp_groups_right_active ) {
 						$classes[] = 'has-buddypress-sidebar-both has-no-buddypress-sidebar-right';
-					} elseif ( ( $bp_groups_right_active || $bp_left_active ) && $buddypress_groups_sidebar == 'both' ) {
+					} elseif ( ( $bp_groups_right_active || $bp_left_active ) && 'both' === $buddypress_groups_sidebar ) {
 						$classes[] = 'has-buddypress-sidebar-both';
 					}
 				}
@@ -459,7 +270,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'BuddyPress' ) ) {
 			if ( function_exists( 'bp_docs_is_docs_component' ) && bp_docs_is_docs_component() && ! bp_is_user() ) {
 				$buddypress_sidebar = get_theme_mod( 'buddypress_sidebar_option', buddyx_defaults( 'buddypress-sidebar-option' ) );
-				if ( $this->is_buddypress_right_sidebar_active() && ( $buddypress_sidebar == 'right' || $buddypress_sidebar == 'both' ) ) {
+				if ( $this->is_buddypress_right_sidebar_active() && ( 'right' === $buddypress_sidebar || 'both' === $buddypress_sidebar ) ) {
 					$classes[] = 'has-docs-sidebar-right';
 				}
 			}
@@ -469,11 +280,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( function_exists( 'is_bbpress' ) && is_bbpress() ) {
 			$bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bbpress-sidebar-option' ) );
 
-			if ( $this->is_bbpress_left_sidebar_active() && $bbpress_sidebar == 'left' ) {
+			if ( $this->is_bbpress_left_sidebar_active() && 'left' === $bbpress_sidebar ) {
 				$classes[] = 'has-bbpress-sidebar-left';
-			} elseif ( $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'right' ) {
+			} elseif ( $this->is_bbpress_right_sidebar_active() && 'right' === $bbpress_sidebar ) {
 				$classes[] = 'has-bbpress-sidebar-right';
-			} elseif ( $this->is_bbpress_right_sidebar_active() && $bbpress_sidebar == 'both' ) {
+			} elseif ( $this->is_bbpress_right_sidebar_active() && 'both' === $bbpress_sidebar ) {
 				$classes[] = 'has-bbpress-sidebar-both';
 			}
 		}
@@ -482,11 +293,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 			$woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defaults( 'woocommerce-sidebar-option' ) );
 
-			if ( $this->is_woocommerce_left_sidebar_active() && $woocommerce_sidebar == 'left' ) {
+			if ( $this->is_woocommerce_left_sidebar_active() && 'left' === $woocommerce_sidebar ) {
 				$classes[] = 'has-woocommerce-sidebar-left';
-			} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'right' ) {
+			} elseif ( $this->is_woocommerce_right_sidebar_active() && 'right' === $woocommerce_sidebar ) {
 				$classes[] = 'has-woocommerce-sidebar-right';
-			} elseif ( $this->is_woocommerce_right_sidebar_active() && $woocommerce_sidebar == 'both' ) {
+			} elseif ( $this->is_woocommerce_right_sidebar_active() && 'both' === $woocommerce_sidebar ) {
 				$classes[] = 'has-woocommerce-sidebar-both';
 			}
 		}
@@ -495,19 +306,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
 			$fluentcart_sidebar = get_theme_mod( 'fluentcart_product_sidebar', 'none' );
 
-			if ( $this->is_fluentcart_left_sidebar_active() && $fluentcart_sidebar == 'left' ) {
+			if ( $this->is_fluentcart_left_sidebar_active() && 'left' === $fluentcart_sidebar ) {
 				$classes[] = 'has-fluentcart-sidebar-left';
-			} elseif ( $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'right' ) {
+			} elseif ( $this->is_fluentcart_right_sidebar_active() && 'right' === $fluentcart_sidebar ) {
 				$classes[] = 'has-fluentcart-sidebar-right';
-			} elseif ( $this->is_fluentcart_right_sidebar_active() && $fluentcart_sidebar == 'both' ) {
+			} elseif ( $this->is_fluentcart_right_sidebar_active() && 'both' === $fluentcart_sidebar ) {
 				$classes[] = 'has-fluentcart-sidebar-both';
-			}
-		}
-
-		// Youzify.
-		if ( class_exists( 'Youzify' ) ) {
-			if ( bp_current_component() ) {
-				$classes[] = 'youzify-active';
 			}
 		}
 
@@ -564,7 +368,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the left sidebar is active, false otherwise.
 	 */
-	public function is_left_sidebar_active() : bool {
+	public function is_left_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::LEFT_SIDEBAR_SLUG );
 	}
 
@@ -580,7 +384,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the right sidebar is active, false otherwise.
 	 */
-	public function is_right_sidebar_active() : bool {
+	public function is_right_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::RIGHT_SIDEBAR_SLUG );
 	}
 
@@ -592,11 +396,107 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
+	 * Whether a BuddyPress directory sidebar has anything to show: widgets the owner added,
+	 * or the built-in defaults (turn those off with the `buddyx_buddypress_sidebar_default_widgets` filter).
+	 *
+	 * @param string $slug Sidebar id.
+	 * @return bool
+	 */
+	private function bp_directory_sidebar_has_content( string $slug ): bool {
+		return is_active_sidebar( $slug ) || (bool) apply_filters( 'buddyx_buddypress_sidebar_default_widgets', true, $slug );
+	}
+
+	/**
+	 * Prints a BuddyPress directory sidebar: the owner's widgets, else sensible default widgets.
+	 *
+	 * @param string $slug Sidebar id.
+	 */
+	private function display_bp_directory_sidebar( string $slug ) {
+		if ( is_active_sidebar( $slug ) ) {
+			dynamic_sidebar( $slug );
+			return;
+		}
+		if ( ! apply_filters( 'buddyx_buddypress_sidebar_default_widgets', true, $slug ) ) {
+			return;
+		}
+
+		// BuddyPress 14 ships these as blocks, not classic widgets.
+		$blocks = array(
+			static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG         => array(
+				array(
+					'bp/dynamic-members',
+					array(
+						'title'         => __( 'Members', 'buddyx' ),
+						'maxMembers'    => 5,
+						'memberDefault' => 'active',
+					),
+				),
+				array(
+					'bp/dynamic-groups',
+					array(
+						'title'        => __( 'Groups', 'buddyx' ),
+						'maxGroups'    => 5,
+						'groupDefault' => 'active',
+					),
+				),
+			),
+			static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG => array(
+				array(
+					'bp/online-members',
+					array(
+						'title'      => __( 'Who\'s Online', 'buddyx' ),
+						'maxMembers' => 15,
+					),
+				),
+				array(
+					'bp/active-members',
+					array(
+						'title'      => __( 'Recently Active Members', 'buddyx' ),
+						'maxMembers' => 15,
+					),
+				),
+			),
+			static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG  => array(
+				array(
+					'bp/dynamic-groups',
+					array(
+						'title'        => __( 'Popular Groups', 'buddyx' ),
+						'maxGroups'    => 5,
+						'groupDefault' => 'popular',
+					),
+				),
+				array(
+					'bp/dynamic-groups',
+					array(
+						'title'        => __( 'Newest Groups', 'buddyx' ),
+						'maxGroups'    => 5,
+						'groupDefault' => 'newest',
+					),
+				),
+			),
+		);
+
+		foreach ( $blocks[ $slug ] ?? array() as list( $name, $attrs ) ) {
+			if ( \WP_Block_Type_Registry::get_instance()->is_registered( $name ) ) {
+				echo render_block( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block output is escaped by the block.
+					array(
+						'blockName'    => $name,
+						'attrs'        => $attrs,
+						'innerBlocks'  => array(),
+						'innerHTML'    => '',
+						'innerContent' => array(),
+					)
+				);
+			}
+		}
+	}
+
+	/**
 	 * Checks whether the buddypress left sidebar is active.
 	 *
 	 * @return bool True if the buddypress left sidebar is active, false otherwise.
 	 */
-	public function is_buddypress_left_sidebar_active() : bool {
+	public function is_buddypress_left_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::BUDDYPRESS_LEFT_SIDEBAR_SLUG );
 	}
 
@@ -612,15 +512,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the buddypress right sidebar is active, false otherwise.
 	 */
-	public function is_buddypress_right_sidebar_active() : bool {
-		return (bool) is_active_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+	public function is_buddypress_right_sidebar_active(): bool {
+		return $this->bp_directory_sidebar_has_content( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
 	 * Displays the buddypress right sidebar.
 	 */
 	public function display_buddypress_right_sidebar() {
-		dynamic_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
+		$this->display_bp_directory_sidebar( static::BUDDYPRESS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
@@ -628,15 +528,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the buddypress members right sidebar is active, false otherwise.
 	 */
-	public function is_buddypress_members_right_sidebar_active() : bool {
-		return (bool) is_active_sidebar( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
+	public function is_buddypress_members_right_sidebar_active(): bool {
+		return $this->bp_directory_sidebar_has_content( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
 	 * Displays the buddypress members right sidebar.
 	 */
 	public function display_buddypress_members_right_sidebar() {
-		dynamic_sidebar( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
+		$this->display_bp_directory_sidebar( static::BUDDYPRESS_MEMBERS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
@@ -644,15 +544,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the buddypress groups right sidebar is active, false otherwise.
 	 */
-	public function is_buddypress_groups_right_sidebar_active() : bool {
-		return (bool) is_active_sidebar( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
+	public function is_buddypress_groups_right_sidebar_active(): bool {
+		return $this->bp_directory_sidebar_has_content( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
 	 * Displays the buddypress groups right sidebar.
 	 */
 	public function display_buddypress_groups_right_sidebar() {
-		dynamic_sidebar( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
+		$this->display_bp_directory_sidebar( static::BUDDYPRESS_GROUPS_RIGHT_SIDEBAR_SLUG );
 	}
 
 	/**
@@ -660,7 +560,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the bbpress left sidebar is active, false otherwise.
 	 */
-	public function is_bbpress_left_sidebar_active() : bool {
+	public function is_bbpress_left_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::BBPRESS_LEFT_SIDEBAR_SLUG );
 	}
 
@@ -676,7 +576,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the buddypress right sidebar is active, false otherwise.
 	 */
-	public function is_bbpress_right_sidebar_active() : bool {
+	public function is_bbpress_right_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::BBPRESS_RIGHT_SIDEBAR_SLUG );
 	}
 
@@ -692,7 +592,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the woocommerce left sidebar is active, false otherwise.
 	 */
-	public function is_woocommerce_left_sidebar_active() : bool {
+	public function is_woocommerce_left_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::WOOCOMMERCE_LEFT_SIDEBAR_SLUG );
 	}
 
@@ -708,7 +608,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the woocommerce right sidebar is active, false otherwise.
 	 */
-	public function is_woocommerce_right_sidebar_active() : bool {
+	public function is_woocommerce_right_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::WOOCOMMERCE_RIGHT_SIDEBAR_SLUG );
 	}
 
@@ -724,7 +624,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the FluentCart left sidebar is active, false otherwise.
 	 */
-	public function is_fluentcart_left_sidebar_active() : bool {
+	public function is_fluentcart_left_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::FLUENTCART_LEFT_SIDEBAR_SLUG );
 	}
 
@@ -740,7 +640,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the FluentCart right sidebar is active, false otherwise.
 	 */
-	public function is_fluentcart_right_sidebar_active() : bool {
+	public function is_fluentcart_right_sidebar_active(): bool {
 		return (bool) is_active_sidebar( static::FLUENTCART_RIGHT_SIDEBAR_SLUG );
 	}
 

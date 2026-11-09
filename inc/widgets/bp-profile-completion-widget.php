@@ -1,7 +1,10 @@
 <?php
 /**
  * Buddyx Profile Completion Widget.
+ *
+ * @package buddyx
  */
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -12,7 +15,10 @@ defined( 'ABSPATH' ) || exit;
  */
 class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
-	function __construct() {
+	/**
+	 * Register the widget with WordPress.
+	 */
+	public function __construct() {
 
 		/* Set up optional widget args. */
 		$widget_ops = array(
@@ -30,8 +36,11 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 	/**
 	 * Displays the widget.
+	 *
+	 * @param array $args     Widget display arguments (before_widget, before_title, etc.).
+	 * @param array $instance Saved widget settings.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		/*
 		 * do not do anything if user isn't logged in OR IF user is viewing other members profile.
 		 */
@@ -56,19 +65,19 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			return;
 		}
 
-		// Hide the widget if "Hide widget once progress hits 100%" selected and progress is 100%
+		// Hide the widget if "Hide widget once progress hits 100%" selected and progress is 100%.
 		if ( 100 === (int) $user_progress['completion_percentage'] && ! empty( $instance['profile_hide_widget'] ) ) {
 			return;
 		}
 
 		/* Widget Template */
 
-		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget wrapper markup from register_sidebar().
 
-		// Widget Title
-		echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// Widget Title.
+		echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget wrapper markup from register_sidebar(); the title is escaped.
 
-		// Widget Content
+		// Widget Content.
 
 		/* translators: %s: profile completion percentage (e.g. "80%") */
 		$progress_label = sprintf( esc_html__( '%s Complete', 'buddyx' ), $user_progress['completion_percentage'] . '%' );
@@ -82,11 +91,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 							<?php
 							$current_user = wp_get_current_user();
 							if ( ( $current_user instanceof WP_User ) ) {
-								if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
-									$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( get_current_user_id() ) : '#';
-								} else {
-									$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
-								}
+								$user_link = buddyx_member_url( get_current_user_id() );
 								echo '<a class="wb-bp-user-link" href="' . esc_url( $user_link ) . '">';
 								?>
 								<?php
@@ -139,18 +144,18 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			</div>
 		</div>
 		<?php
-		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget wrapper markup from register_sidebar().
 	}
 
 	/**
 	 * Function returns user progress data by checking if data already exists in transient first. IF NO then follow checking the progress logic.
 	 *
-	 * @param type $profile_groups
-	 * @param type $profile_phototype
+	 * @param array $profile_groups    Profile field group IDs selected in the widget.
+	 * @param array $profile_phototype Photo types selected in the widget (profile_photo, cover_photo).
 	 *
-	 * @return type
+	 * @return array
 	 */
-	function get_user_profile_progress_data( $profile_groups, $profile_phototype ) {
+	public function get_user_profile_progress_data( $profile_groups, $profile_phototype ) {
 
 		$user_progress_formmatted = array();
 		$user_progress_arr        = $this->get_user_profile_progress( $profile_groups, $profile_phototype );
@@ -162,12 +167,12 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 	/**
 	 * Function returns logged in user progress based on options selected in the widget form.
 	 *
-	 * @param type $group_ids
-	 * @param type $photo_types
+	 * @param array $group_ids   Profile field group IDs selected in the widget.
+	 * @param array $photo_types Photo types selected in the widget (profile_photo, cover_photo).
 	 *
-	 * @return int
+	 * @return array
 	 */
-	function get_user_profile_progress( $group_ids, $photo_types ) {
+	public function get_user_profile_progress( $group_ids, $photo_types ) {
 
 		/* User Progress specific VARS. */
 		$user_id                = get_current_user_id();
@@ -181,7 +186,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		 * Profile Photo
 		 */
 		$is_profile_photo_disabled = bp_disable_avatar_uploads();
-		if ( ! $is_profile_photo_disabled && in_array( 'profile_photo', $photo_types ) ) {
+		if ( ! $is_profile_photo_disabled && in_array( 'profile_photo', $photo_types, true ) ) {
 
 			++$grand_total_fields;
 
@@ -201,7 +206,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		 * Cover Photo
 		 */
 		$is_cover_photo_disabled = bp_disable_cover_image_uploads();
-		if ( ! $is_cover_photo_disabled && in_array( 'cover_photo', $photo_types ) ) {
+		if ( ! $is_cover_photo_disabled && in_array( 'cover_photo', $photo_types, true ) ) {
 
 			++$grand_total_fields;
 
@@ -240,9 +245,9 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 			/*
 			 * Consider only selected Groups ids from the widget form settings, skip all others.
+			 * IDs are compared as integers: saved settings may hold numeric strings from older versions.
 			 */
-
-			if ( ! in_array( $group_id, $group_ids ) ) {
+			if ( ! in_array( (int) $group_id, array_map( 'intval', $group_ids ), true ) ) {
 				continue;
 			}
 
@@ -254,12 +259,10 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			$group_total_fields     = 0;
 			$group_completed_fields = 0;
 			foreach ( $single_group_details->fields as $group_single_field ) {
-
 				/*
 				 * If current group is repeater then only consider first set of fields.
 				 */
 				if ( $is_group_repeater ) {
-
 					/*
 					 * If field not a "clone number 1" then stop. That means proceed with the first set of fields and restrict others.
 					 */
@@ -312,11 +315,11 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 	/**
 	 * Function formats user progress to pass on to templates.
 	 *
-	 * @param type $user_progress_arr
+	 * @param array $user_progress_arr Raw progress data from get_user_profile_progress().
 	 *
-	 * @return int
+	 * @return array
 	 */
-	function get_user_profile_progress_formatted( $user_progress_arr ) {
+	public function get_user_profile_progress_formatted( $user_progress_arr ) {
 
 		/* Groups */
 
@@ -337,7 +340,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		);
 
 		if ( $user_progress_arr['total_fields'] > 0 ) {
-			$profile_completion_percentage             = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
+			$profile_completion_percentage                   = round( ( $user_progress_arr['completed_fields'] * 100 ) / $user_progress_arr['total_fields'] );
 			$user_prgress_formatted['completion_percentage'] = $profile_completion_percentage;
 		}
 
@@ -358,7 +361,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 				'completed'          => $group_details['group_completed_fields'],
 			);
 
-			$listing_number ++;
+			++$listing_number;
 		}
 
 		/* Profile Photo */
@@ -377,7 +380,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 				'completed'          => ( $is_profile_uploaded ) ? 1 : 0,
 			);
 
-			$listing_number ++;
+			++$listing_number;
 		}
 
 		/* Cover Photo */
@@ -396,7 +399,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 				'completed'          => ( $is_cover_uploaded ) ? 1 : 0,
 			);
 
-			$listing_number ++;
+			++$listing_number;
 		}
 
 		/**
@@ -412,7 +415,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 	 * @param array $old_instance Previously saved values.
 	 * @return array Sanitized settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 
 		$instance['title'] = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
@@ -438,8 +441,10 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 
 	/**
 	 * Widget settings form.
+	 *
+	 * @param array $instance Current widget settings.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 
 		$instance = wp_parse_args(
 			(array) $instance,
@@ -488,7 +493,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 			<ul>
 				<?php
 				foreach ( $profile_groups as $single_group_details ) :
-					$is_checked = ( ! empty( $instance['profile_groups_enabled'] ) && in_array( $single_group_details->id, $instance['profile_groups_enabled'] ) );
+					$is_checked = ( ! empty( $instance['profile_groups_enabled'] ) && in_array( (int) $single_group_details->id, array_map( 'intval', $instance['profile_groups_enabled'] ), true ) );
 					?>
 					<li>
 						<label>
@@ -508,7 +513,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 					<?php foreach ( $photos_enabled_arr as $photos_value => $photos_label ) : ?>
 						<li>
 							<label>
-								<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_photos_enabled' ) ); ?>[]" value="<?php echo esc_attr( $photos_value ); ?>" <?php checked( ( ! empty( $instance['profile_photos_enabled'] ) && in_array( $photos_value, $instance['profile_photos_enabled'] ) ) ); ?>/>
+								<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_photos_enabled' ) ); ?>[]" value="<?php echo esc_attr( $photos_value ); ?>" <?php checked( ( ! empty( $instance['profile_photos_enabled'] ) && in_array( $photos_value, $instance['profile_photos_enabled'], true ) ) ); ?>/>
 								<?php echo esc_html( $photos_label ); ?>
 							</label>
 						</li>
@@ -519,7 +524,7 @@ class BP_Buddyx_Profile_Completion_Widget extends WP_Widget {
 		<?php endif; ?>
 		<p>
 			<label>
-				<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_hide_widget' ) ); ?>" value="hide_widget" <?php checked( ( ! empty( $instance['profile_hide_widget'] ) && 'hide_widget' == $instance['profile_hide_widget'] ) ); ?>/>
+				<input class="widefat" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'profile_hide_widget' ) ); ?>" value="hide_widget" <?php checked( ( ! empty( $instance['profile_hide_widget'] ) && 'hide_widget' === $instance['profile_hide_widget'] ) ); ?>/>
 				<?php esc_html_e( 'Hide widget once progress hits 100%', 'buddyx' ); ?>
 			</label>
 		</p>

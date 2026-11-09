@@ -9,7 +9,10 @@ namespace BuddyX\Buddyx;
 
 ?>
 
-<?php do_action( 'buddyx_entry_before' ); ?>
+<?php
+/** This action is documented in template-parts/content/entry-attachment.php */
+do_action( 'buddyx_entry_before' );
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
 	<div class="entry-content-wrapper">
@@ -45,4 +48,5 @@ if ( is_singular( get_post_type() ) ) {
 	}
 }
 
+/** This action is documented in template-parts/content/entry-attachment.php */
 do_action( 'buddyx_entry_after' );

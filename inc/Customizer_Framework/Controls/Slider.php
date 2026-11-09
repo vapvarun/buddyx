@@ -18,6 +18,8 @@ defined( 'ABSPATH' ) || exit;
 class Slider extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-slider';
@@ -26,8 +28,8 @@ class Slider extends \WP_Customize_Control {
 	 * Render the control content.
 	 */
 	public function render_content() {
-		$min  = $this->choices['min']  ?? 0;
-		$max  = $this->choices['max']  ?? 100;
+		$min  = $this->choices['min'] ?? 0;
+		$max  = $this->choices['max'] ?? 100;
 		$step = $this->choices['step'] ?? 1;
 		$unit = $this->choices['unit'] ?? 'px';
 		?>

@@ -20,6 +20,8 @@ defined( 'ABSPATH' ) || exit;
 class Custom_HTML extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-custom-html';
@@ -42,7 +44,7 @@ class Custom_HTML extends \WP_Customize_Control {
 
 		// Lucide-style inline SVG attribute set, reused for the icon family.
 		// Strict — covers only what the cluster-head icons emit.
-		$svg_attrs = array(
+		$svg_attrs   = array(
 			'xmlns'             => true,
 			'width'             => true,
 			'height'            => true,
@@ -90,17 +92,42 @@ class Custom_HTML extends \WP_Customize_Control {
 					'class'  => true,
 					'style'  => true,
 				),
-				'p'        => array( 'class' => true, 'style' => true ),
+				'p'        => array(
+					'class' => true,
+					'style' => true,
+				),
 				'strong'   => array(),
 				'em'       => array(),
 				'br'       => array(),
-				'hr'       => array( 'class' => true, 'style' => true ),
-				'span'     => array( 'class' => true, 'style' => true ),
-				'div'      => array( 'class' => true, 'style' => true, 'data-cluster' => true ),
-				'h1'       => array( 'class' => true, 'style' => true ),
-				'h2'       => array( 'class' => true, 'style' => true ),
-				'h3'       => array( 'class' => true, 'style' => true ),
-				'h4'       => array( 'class' => true, 'style' => true ),
+				'hr'       => array(
+					'class' => true,
+					'style' => true,
+				),
+				'span'     => array(
+					'class' => true,
+					'style' => true,
+				),
+				'div'      => array(
+					'class'        => true,
+					'style'        => true,
+					'data-cluster' => true,
+				),
+				'h1'       => array(
+					'class' => true,
+					'style' => true,
+				),
+				'h2'       => array(
+					'class' => true,
+					'style' => true,
+				),
+				'h3'       => array(
+					'class' => true,
+					'style' => true,
+				),
+				'h4'       => array(
+					'class' => true,
+					'style' => true,
+				),
 				'input'    => array(
 					'type'        => true,
 					'value'       => true,
@@ -131,7 +158,11 @@ class Custom_HTML extends \WP_Customize_Control {
 				'polyline' => $shape_attrs,
 				'polygon'  => $shape_attrs,
 				'rect'     => $shape_attrs,
-				'g'        => array( 'class' => true, 'fill' => true, 'stroke' => true ),
+				'g'        => array(
+					'class'  => true,
+					'fill'   => true,
+					'stroke' => true,
+				),
 			)
 		);
 	}

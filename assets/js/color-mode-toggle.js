@@ -2,7 +2,7 @@
  * Visitor color-mode toggle — light ↔ dark toggle.
  *
  * Pairs with the bootstrap script in inc/Tokens/Component.php which sets
- * <html data-bx-mode> from localStorage in <head> (FOUC-safe). This module
+ * <html data-bx-mode> in <head> (FOUC-safe; color-mode-bootstrap.js). This module
  * just handles the click cycle, syncs the button state, and writes back
  * to localStorage.
  *
@@ -26,27 +26,31 @@
 		window.buddyxColorModeLabels || {}
 	);
 
-	/** Read mode from localStorage; fall back to current <html> attribute. */
+	// Short visible text for the mobile-menu button; the long sentence stays in aria-label.
+	const SHORT_LABELS = Object.assign(
+		{ light: 'Light mode', dark: 'Dark mode' },
+		window.buddyxColorModeShortLabels || {}
+	);
+
+	/** The mode the bootstrap applied (it already weighed storage, stamp and owner default). */
 	function readPersisted() {
-		try {
-			const v = window.localStorage.getItem(STORAGE_KEY);
-			if (v && ORDER.indexOf(v) !== -1) {
-				return v;
-			}
-		} catch {
-			/* private mode */
-		}
 		const attr = document.documentElement.getAttribute('data-bx-mode');
 		return ORDER.indexOf(attr) !== -1 ? attr : 'light';
 	}
 
 	/**
-	 * Write mode to localStorage (best-effort; never throws).
-	 * @param {string} mode One of light|dark|auto.
+	 * Write mode to localStorage with the default it was chosen against, so the
+	 * bootstrap can drop it if the owner later changes the default (best-effort).
+	 * @param {string} mode One of light|dark.
 	 */
 	function writePersisted(mode) {
 		try {
 			window.localStorage.setItem(STORAGE_KEY, mode);
+			window.localStorage.setItem(
+				'bx-color-mode-against',
+				document.documentElement.getAttribute('data-bx-default') ||
+					'light'
+			);
 		} catch {
 			/* private mode — accept ephemeral state */
 		}
@@ -68,6 +72,7 @@
 				mode === 'dark' ? 'true' : 'false'
 			);
 			btn.setAttribute('aria-label', LABELS[mode]);
+			btn.setAttribute('data-label', SHORT_LABELS[mode]);
 			const sr = btn.querySelector('.screen-reader-text');
 			if (sr) {
 				sr.textContent = LABELS[mode];
@@ -112,7 +117,14 @@
 	 */
 	function onPageShow(e) {
 		if (e.persisted) {
-			applyMode(readPersisted());
+			// The visitor may have toggled on a later page; storage holds that choice.
+			let stored = null;
+			try {
+				stored = window.localStorage.getItem(STORAGE_KEY);
+			} catch {
+				/* private mode */
+			}
+			applyMode(ORDER.indexOf(stored) !== -1 ? stored : readPersisted());
 		}
 	}
 

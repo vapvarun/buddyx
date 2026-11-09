@@ -9,7 +9,12 @@ namespace BuddyX\Buddyx;
 
 ?>
 <section class="error">
-	<?php get_template_part( 'template-parts/content/page_header' ); ?>
+	<?php
+	// The sub-header already prints this view's H1; repeat it only where the sub-header is absent.
+	if ( is_front_page() || ! has_action( 'buddyx_sub_header', 'buddyx_sub_header' ) ) {
+		get_template_part( 'template-parts/content/page_header' );
+	}
+	?>
 
 	<div class="page-content">
 		<?php

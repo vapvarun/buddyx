@@ -11,10 +11,11 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Sub Header
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_sub_header_bg',
-				'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+				'label'    => esc_html__( 'Customize Background', 'buddyx' ),
 				'section'  => 'site_sub_header_section',
 				'default'  => 'off',
 				'choices'  => array(
@@ -24,18 +25,19 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'background',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'background',
 			array(
-				'settings'        => 'sub_header_background_setting',
-				'label'           => esc_html__( 'Background Control', 'buddyx' ),
-				'section'         => 'site_sub_header_section',
+				'settings'          => 'sub_header_background_setting',
+				'label'             => esc_html__( 'Background Control', 'buddyx' ),
+				'section'           => 'site_sub_header_section',
 				// No default background-color — when the customer hasn't enabled
 				// `site_sub_header_bg`, the sub-header should inherit its color
 				// from the token-driven _header.css rule so it adapts to dark mode.
 				// A hardcoded rgba default would emit as inline CSS and clash on
 				// dark backgrounds (visible flat-gray strip). Customer can still
 				// enable + pick their own background color in the customizer.
-				'default'         => array(
+				'default'           => array(
 					'background-color'      => '',
 					'background-image'      => '',
 					'background-repeat'     => 'repeat',
@@ -43,14 +45,14 @@ defined( 'ABSPATH' ) || exit;
 					'background-size'       => 'cover',
 					'background-attachment' => 'scroll',
 				),
-				'transport'       => 'auto',
-				'sanitize_callback' => function( $value ) {
+				'transport'         => 'auto',
+				'sanitize_callback' => function ( $value ) {
 					if ( isset( $value['background-color'] ) && is_string( $value['background-color'] ) ) {
 						$value['background-color'] = preg_replace( '/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0\s*\)/', 'rgba($1,$2,$3,0.01)', $value['background-color'] );
 					}
 					return $value;
 				},
-				'output'          => array(
+				'output'            => array(
 					array(
 						'element' => '.site-sub-header',
 					),
@@ -58,10 +60,10 @@ defined( 'ABSPATH' ) || exit;
 				// Saved background CSS must stop rendering when the customer
 				// flips 'Customize Background?' back off - active_callback only
 				// hides the control, it does not suppress emission.
-				'output_condition' => static function () {
+				'output_condition'  => static function () {
 					return buddyx_is_truthy( get_theme_mod( 'site_sub_header_bg', 'off' ) );
 				},
-				'active_callback' => array(
+				'active_callback'   => array(
 					array(
 						'setting'  => 'site_sub_header_bg',
 						'operator' => '==',
@@ -71,7 +73,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'typography',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'typography',
 			array(
 				'settings' => 'site_sub_header_typography',
 				'label'    => esc_html__( 'Content Typography', 'buddyx' ),
@@ -82,7 +85,6 @@ defined( 'ABSPATH' ) || exit;
 					'font-size'       => '',
 					'line-height'     => '',
 					'letter-spacing'  => '',
-					// 'color'           => '#111111',
 					'text-transform'  => 'none',
 					'text-decoration' => '',
 				),
@@ -100,10 +102,11 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_breadcrumbs',
-				'label'    => esc_html__( 'Site Breadcrumbs?', 'buddyx' ),
+				'label'    => esc_html__( 'Site Breadcrumbs', 'buddyx' ),
 				'section'  => 'site_sub_header_section',
 				'default'  => 'on',
 				'choices'  => array(

@@ -90,6 +90,9 @@ class Component {
 
 	/**
 	 * Register a panel to be added on customize_register.
+	 *
+	 * @param string $id   Panel ID.
+	 * @param array  $args Panel args passed to add_panel().
 	 */
 	public static function register_panel( string $id, array $args ): void {
 		self::$panels[ $id ] = $args;
@@ -97,6 +100,9 @@ class Component {
 
 	/**
 	 * Register a section to be added on customize_register.
+	 *
+	 * @param string $id   Section ID.
+	 * @param array  $args Section args passed to add_section().
 	 */
 	public static function register_section( string $id, array $args ): void {
 		self::$sections[ $id ] = $args;
@@ -122,10 +128,10 @@ class Component {
 	}
 
 	/**
-	 * customize_register callback. Iterates accumulated panels/sections/fields
+	 * Customize_register callback. Iterates accumulated panels/sections/fields
 	 * and registers each with the customizer manager.
 	 *
-	 * @param \WP_Customize_Manager $wp_customize
+	 * @param \WP_Customize_Manager $wp_customize Customizer manager instance.
 	 */
 	public static function register( \WP_Customize_Manager $wp_customize ): void {
 		foreach ( self::$panels as $id => $args ) {
@@ -142,6 +148,8 @@ class Component {
 
 	/**
 	 * Get a config value by key.
+	 *
+	 * @param string $key Config key.
 	 */
 	public static function get_config( string $key ): string {
 		return self::$config[ $key ] ?? '';
@@ -250,19 +258,6 @@ class Component {
 	protected static array $variation_setting_targets = array(
 		'accent'     => array(
 			'site_primary_color',
-			'site_links_color',
-			'site_buttons_background_color',
-			'site_buttons_border_color',
-			'menu_hover_color',
-			'menu_active_color',
-			'site_title_hover_color',
-		),
-		'accent-2'   => array(
-			'site_links_focus_hover_color',
-			'site_buttons_background_hover_color',
-			'site_buttons_border_hover_color',
-			'site_footer_links_hover_color',
-			'site_copyright_links_hover_color',
 		),
 		'base'       => array(
 			'body_background_color',
@@ -297,6 +292,29 @@ class Component {
 	);
 
 	/**
+	 * Brand-derived settings a variation clears when picked.
+	 *
+	 * A variation seeds the Theme Color and the surfaces only. These fields stay
+	 * empty so they follow the Theme Color (links take the variation's accent by
+	 * reference), and a Theme Color picked later recolours them too.
+	 *
+	 * @var string[]
+	 */
+	protected static array $variation_follow_settings = array(
+		'site_links_color',
+		'site_links_focus_hover_color',
+		'site_buttons_background_color',
+		'site_buttons_background_hover_color',
+		'site_buttons_border_color',
+		'site_buttons_border_hover_color',
+		'menu_hover_color',
+		'menu_active_color',
+		'site_title_hover_color',
+		'site_footer_links_hover_color',
+		'site_copyright_links_hover_color',
+	);
+
+	/**
 	 * Public accessor for the variation -> per-control colour defaults map.
 	 * Consumed by Tokens\Component::purge_preset_equal_saves() to decide
 	 * whether a saved colour is a real personalisation or just the preset's
@@ -322,10 +340,11 @@ class Component {
 			return array();
 		}
 
-		$out = array();
-		foreach ( glob( $style_dir . '/*.json' ) ?: array() as $file ) {
+		$out   = array();
+		$files = glob( $style_dir . '/*.json' );
+		foreach ( $files ? $files : array() as $file ) {
 			$slug = basename( $file, '.json' );
-			$data = json_decode( (string) @file_get_contents( $file ), true );
+			$data = json_decode( (string) @file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents, WordPress.PHP.NoSilencedErrors.Discouraged -- Reads a bundled local theme style JSON file; a read failure is handled by the is_array() check below.
 			if ( ! is_array( $data ) ) {
 				continue;
 			}
@@ -352,7 +371,7 @@ class Component {
 			}
 
 			if ( array() !== $defaults ) {
-				$out[ $slug ] = $defaults;
+				$out[ $slug ] = $defaults + array_fill_keys( self::$variation_follow_settings, '' );
 			}
 		}
 		return $out;
@@ -383,9 +402,9 @@ class Component {
 				'rules' => array_map(
 					static function ( $r ) {
 						return array(
-							'element'  => $r['element']  ?? '',
+							'element'  => $r['element'] ?? '',
 							'property' => $r['property'] ?? '',
-							'units'    => $r['units']    ?? '',
+							'units'    => $r['units'] ?? '',
 							// Mirrors Output_Builder's 'exclude' so the live-preview
 							// JS drops the same sub-keys (e.g. 'color') the PHP side
 							// does - otherwise dragging a color picker with dark mode
@@ -414,15 +433,15 @@ class Component {
 		if ( '' === $css ) {
 			return;
 		}
-		// Defense in depth: the builder already strips angle brackets from each
-		// value, but strip again on the assembled payload so no concatenation
-		// path can emit a tag that escapes the <style> element. CSS itself never
-		// needs `<`/`>`, so this is lossless for valid declarations.
-		$css = str_replace( array( '<', '>' ), '', $css );
+		// Defense in depth: the builder already cleans each value, but strip `<`
+		// again on the assembled payload so no concatenation path can emit a tag
+		// that closes the <style> element. Keep `>`: it is the CSS child
+		// combinator, used in output selectors (ul#primary-menu>li).
+		$css = str_replace( '<', '', $css );
 		printf(
 			"<style id=\"%s-css\">%s</style>\n",
 			esc_attr( self::get_config( 'config_id' ) ),
-			$css // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Generated CSS; angle brackets stripped above, esc_html would corrupt selectors.
+			$css // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Generated CSS; `<` stripped above, esc_html would corrupt selectors.
 		);
 	}
 }

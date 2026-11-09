@@ -9,7 +9,12 @@ namespace BuddyX\Buddyx;
 
 ?>
 
-<?php do_action( 'buddyx_entry_before' ); ?>
+<?php
+/**
+ * Fires before an entry <article>.
+ */
+do_action( 'buddyx_entry_before' );
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
 	<?php get_template_part( 'template-parts/content/entry_header', get_post_type() ); ?>
@@ -48,7 +53,7 @@ if ( is_singular( get_post_type() ) ) {
 		}
 
 		if ( '' !== $attachment_navigation && '0' !== $attachment_navigation ) {
-			echo _navigation_markup( $attachment_navigation, $class = 'post-navigation', __( 'Post navigation', 'buddyx' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo _navigation_markup( $attachment_navigation, $class = 'post-navigation', __( 'Post navigation', 'buddyx' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Core _navigation_markup() escapes its parts.
 		}
 	}
 
@@ -58,4 +63,7 @@ if ( is_singular( get_post_type() ) ) {
 	}
 }
 
+/**
+ * Fires after an entry <article>.
+ */
 do_action( 'buddyx_entry_after' );

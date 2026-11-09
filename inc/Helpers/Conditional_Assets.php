@@ -235,3 +235,122 @@ if ( ! function_exists( 'buddyx_needs_dokan_assets' ) ) {
 		return (bool) apply_filters( 'buddyx_needs_dokan_assets', false );
 	}
 }
+
+if ( ! function_exists( 'buddyx_widget_areas_contain' ) ) {
+	/**
+	 * Whether any active widget area holds a classic widget whose ID starts
+	 * with $widget_prefix, or a block widget whose content holds $block_marker.
+	 * Areas named in $own_areas render only on the plugin's own pages, which
+	 * the caller's page check already covers, so they are skipped.
+	 *
+	 * @param string   $widget_prefix Classic widget id_base prefix, e.g. 'bp_'.
+	 * @param string   $block_marker  Block comment marker, e.g. '<!-- wp:bp/'.
+	 * @param string[] $own_areas     Widget area ID prefixes to skip.
+	 * @return bool
+	 */
+	function buddyx_widget_areas_contain( string $widget_prefix, string $block_marker, array $own_areas = array() ): bool {
+		static $block_widgets = null;
+		foreach ( wp_get_sidebars_widgets() as $sidebar => $widget_ids ) {
+			if ( 'wp_inactive_widgets' === $sidebar || ! is_array( $widget_ids ) ) {
+				continue;
+			}
+			foreach ( $own_areas as $own_area ) {
+				if ( str_starts_with( $sidebar, $own_area ) ) {
+					continue 2;
+				}
+			}
+			foreach ( $widget_ids as $widget_id ) {
+				if ( str_starts_with( $widget_id, $widget_prefix ) ) {
+					return true;
+				}
+				if ( str_starts_with( $widget_id, 'block-' ) ) {
+					$block_widgets = $block_widgets ?? (array) get_option( 'widget_block', array() );
+					$content       = $block_widgets[ (int) substr( $widget_id, 6 ) ]['content'] ?? '';
+					if ( false !== strpos( (string) $content, $block_marker ) ) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+}
+
+if ( ! function_exists( 'buddyx_needs_buddypress_assets' ) ) {
+	/**
+	 * Whether the current request needs the BuddyPress integration CSS
+	 * (buddyx-buddypress): BuddyPress pages, BuddyPress blocks in the content,
+	 * and BuddyPress widgets (classic or block) in an active widget area.
+	 *
+	 * @return bool
+	 */
+	function buddyx_needs_buddypress_assets(): bool {
+		if ( ! function_exists( 'buddypress' ) ) {
+			return false;
+		}
+		if ( function_exists( 'is_buddypress' ) && is_buddypress() ) {
+			return true;
+		}
+
+		$post = get_post();
+		if ( $post instanceof WP_Post && false !== strpos( $post->post_content, '<!-- wp:bp/' ) ) {
+			return true;
+		}
+
+		if ( buddyx_widget_areas_contain( 'bp_', '<!-- wp:bp/', array( 'buddypress-', 'single_member', 'single_group' ) ) ) {
+			return true;
+		}
+
+		/**
+		 * Filters whether the current request needs the BuddyPress CSS, for
+		 * plugins that print BuddyPress markup outside BuddyPress pages.
+		 *
+		 * @param bool $needs_assets
+		 */
+		return (bool) apply_filters( 'buddyx_needs_buddypress_assets', false );
+	}
+}
+
+if ( ! function_exists( 'buddyx_needs_woocommerce_assets' ) ) {
+	/**
+	 * Whether the current request needs the WooCommerce integration CSS
+	 * (buddyx-woocommerce): shop, product, cart, checkout and account pages,
+	 * vendor stores, WooCommerce blocks or shortcodes in the content, and
+	 * WooCommerce widgets (classic or block) in an active widget area.
+	 *
+	 * @return bool
+	 */
+	function buddyx_needs_woocommerce_assets(): bool {
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return false;
+		}
+		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+			return true;
+		}
+		if ( ( function_exists( 'buddyx_needs_dokan_assets' ) && buddyx_needs_dokan_assets() )
+			|| ( is_callable( array( 'WCV_Vendors', 'is_vendor_page' ) ) && call_user_func( array( 'WCV_Vendors', 'is_vendor_page' ) ) )
+			|| ( function_exists( 'mvx_is_store_page' ) && mvx_is_store_page() ) ) {
+			return true;
+		}
+
+		$post = get_post();
+		if ( $post instanceof WP_Post ) {
+			if ( false !== strpos( $post->post_content, '<!-- wp:woocommerce/' )
+				|| preg_match( '/\[(woocommerce_|products?\b|product_|add_to_cart|recent_products|featured_products|sale_products|best_selling_products|top_rated_products|related_products|shop_messages)/', $post->post_content ) ) {
+				return true;
+			}
+		}
+
+		if ( buddyx_widget_areas_contain( 'woocommerce_', '<!-- wp:woocommerce/', array( 'woocommerce-' ) ) ) {
+			return true;
+		}
+
+		/**
+		 * Filters whether the current request needs the WooCommerce CSS, for
+		 * plugins that print WooCommerce markup outside WooCommerce pages.
+		 *
+		 * @param bool $needs_assets
+		 */
+		return (bool) apply_filters( 'buddyx_needs_woocommerce_assets', false );
+	}
+}

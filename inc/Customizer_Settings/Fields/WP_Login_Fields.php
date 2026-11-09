@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  WP Login Logo
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'enable_custom_login',
 				'label'    => esc_html__( 'Customize Your Logo Section', 'buddyx' ),
@@ -24,10 +25,11 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings'        => 'enable_custom_login_logo',
-				'label'           => esc_html__( 'Disable Logo?', 'buddyx' ),
+				'label'           => esc_html__( 'Hide Logo', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'default'         => '',
 				'choices'         => array(
@@ -44,7 +46,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'image',
 			array(
 				'settings'        => 'custom_login_logo_image',
 				'label'           => esc_attr__( 'Custom Logo', 'buddyx' ),
@@ -67,7 +70,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'        => 'custom_login_logo_image_width',
 				'label'           => esc_attr__( 'Logo Width', 'buddyx' ),
@@ -91,7 +95,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'        => 'custom_login_logo_image_height',
 				'label'           => esc_attr__( 'Logo Height', 'buddyx' ),
@@ -115,7 +120,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'        => 'custom_login_logo_space',
 				'label'           => esc_attr__( 'Logo Space Bottom', 'buddyx' ),
@@ -139,7 +145,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'url',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'url',
 			array(
 				'settings'        => 'custom_login_logo_url',
 				'label'           => esc_attr__( 'Logo URL', 'buddyx' ),
@@ -162,7 +169,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'text',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'text',
 			array(
 				'settings'        => 'custom_login_logo_title',
 				'label'           => esc_attr__( 'Logo Title', 'buddyx' ),
@@ -185,7 +193,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'text',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'text',
 			array(
 				'settings'        => 'custom_login_page_title',
 				'label'           => esc_attr__( 'Login Page Title', 'buddyx' ),

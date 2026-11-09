@@ -9,7 +9,7 @@
  * @package buddyx
  */
 
-// Prevent direct access
+// Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -42,7 +42,7 @@ function buddyx_load_core() {
 
 	$base_path = get_template_directory();
 
-	// Load essential core files
+	// Load essential core files.
 	$core_files = array(
 		'/inc/wordpress-shims.php',
 		'/inc/functions.php',
@@ -70,10 +70,12 @@ function buddyx_load_core() {
 
 	// Boot the Customizer_Framework. Idempotent — safe on second call.
 	if ( class_exists( '\\BuddyX\\Buddyx\\Customizer_Framework\\Component' ) ) {
-		\BuddyX\Buddyx\Customizer_Framework\Component::boot( array(
-			'config_id'  => 'buddyx_customizer',
-			'assets_url' => get_template_directory_uri(),
-		) );
+		\BuddyX\Buddyx\Customizer_Framework\Component::boot(
+			array(
+				'config_id'  => 'buddyx_customizer',
+				'assets_url' => get_template_directory_uri(),
+			)
+		);
 	}
 
 	$core_loaded = true;
@@ -97,7 +99,7 @@ function buddyx_load_plugin_support() {
 
 	$base_path = get_template_directory();
 
-	// BuddyPress compatibility
+	// BuddyPress compatibility.
 	if ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) {
 		$buddypress_file = $base_path . '/inc/compatibility/buddypress/buddypress-functions.php';
 		if ( file_exists( $buddypress_file ) ) {
@@ -105,7 +107,7 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
-	// BuddyNext compatibility (mutually exclusive with BuddyPress)
+	// BuddyNext compatibility (mutually exclusive with BuddyPress).
 	if ( defined( 'BUDDYNEXT_VERSION' ) && ! ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) ) {
 		$buddynext_file = $base_path . '/inc/compatibility/buddynext/buddynext-functions.php';
 		if ( file_exists( $buddynext_file ) ) {
@@ -113,7 +115,7 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
-	// rtMedia compatibility
+	// rtMedia compatibility.
 	if ( class_exists( 'RTMedia' ) || function_exists( 'rtmedia_init' ) ) {
 		$rtmedia_file = $base_path . '/inc/compatibility/rtmedia/rtmedia-functions.php';
 		if ( file_exists( $rtmedia_file ) ) {
@@ -121,7 +123,7 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
-	// WooCommerce compatibility
+	// WooCommerce compatibility.
 	if ( class_exists( 'WooCommerce' ) || function_exists( 'WC' ) ) {
 		$woocommerce_file = $base_path . '/inc/compatibility/woocommerce/woocommerce-functions.php';
 		if ( file_exists( $woocommerce_file ) ) {
@@ -129,7 +131,15 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
-	// SureCart compatibility
+	// LearnDash compatibility.
+	if ( defined( 'LEARNDASH_VERSION' ) ) {
+		$learndash_file = $base_path . '/inc/compatibility/learndash/learndash-functions.php';
+		if ( file_exists( $learndash_file ) ) {
+			require_once $learndash_file;
+		}
+	}
+
+	// SureCart compatibility.
 	if ( defined( 'SURECART_PLUGIN_FILE' ) ) {
 		$surecart_file = $base_path . '/inc/compatibility/surecart/surecart-functions.php';
 		if ( file_exists( $surecart_file ) ) {
@@ -137,7 +147,7 @@ function buddyx_load_plugin_support() {
 		}
 	}
 
-	// FluentCart compatibility
+	// FluentCart compatibility.
 	if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
 		$fluentcart_file = $base_path . '/inc/compatibility/fluentcart/fluentcart-functions.php';
 		if ( file_exists( $fluentcart_file ) ) {
@@ -204,19 +214,19 @@ function buddyx_load_contextual() {
  * @return bool True if class was loaded, false otherwise.
  */
 function _buddyx_autoload( $class_name ) {
-	// Quick namespace validation - fail fast for non-theme classes
+	// Quick namespace validation - fail fast for non-theme classes.
 	if ( 0 !== strpos( $class_name, 'BuddyX\\' ) ) {
 		return false;
 	}
 
-	// Cache results to avoid repeated file system operations
+	// Cache results to avoid repeated file system operations.
 	static $loaded_classes = array();
 
 	if ( isset( $loaded_classes[ $class_name ] ) ) {
 		return $loaded_classes[ $class_name ];
 	}
 
-	// Process BuddyX namespace classes
+	// Process BuddyX namespace classes.
 	$namespace_prefix = 'BuddyX\Buddyx\\';
 	if ( 0 === strpos( $class_name, $namespace_prefix ) ) {
 		$relative_class = substr( $class_name, strlen( $namespace_prefix ) );
@@ -229,7 +239,7 @@ function _buddyx_autoload( $class_name ) {
 		}
 	}
 
-	// Cache negative results to avoid repeated failed attempts
+	// Cache negative results to avoid repeated failed attempts.
 	$loaded_classes[ $class_name ] = false;
 	return false;
 }
@@ -246,14 +256,14 @@ function _buddyx_autoload( $class_name ) {
 function buddyx_register_autoloader() {
 	$template_dir = get_template_directory();
 
-	// Prefer Composer autoloader if available
+	// Prefer Composer autoloader if available.
 	if ( file_exists( $template_dir . '/vendor/autoload.php' ) ) {
 		require_once $template_dir . '/vendor/autoload.php';
 		return;
 	}
 
-	// Check if custom autoloader is already registered
-	$current_functions  = spl_autoload_functions() ?: array();
+	// Check if custom autoloader is already registered.
+	$current_functions  = spl_autoload_functions();
 	$already_registered = false;
 
 	foreach ( $current_functions as $function ) {
@@ -285,12 +295,12 @@ function buddyx_initialize() {
 		return;
 	}
 
-	// Load components in dependency order
+	// Load components in dependency order.
 	buddyx_load_core();
 	buddyx_load_contextual();
 	buddyx_load_plugin_support();
 
-	// Initialize main theme class if available
+	// Initialize main theme class if available.
 	if ( function_exists( 'BuddyX\Buddyx\buddyx' ) ) {
 		call_user_func( 'BuddyX\Buddyx\buddyx' );
 	}
@@ -346,7 +356,7 @@ function buddyx_setup_theme_defaults() {
  * @return void
  */
 function buddyx_cleanup_unused_assets() {
-	// Remove WooCommerce assets if plugin is not active
+	// Remove WooCommerce assets if plugin is not active.
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		wp_dequeue_style( 'buddyx-woocommerce' );
 		wp_deregister_style( 'buddyx-woocommerce' );
@@ -367,7 +377,7 @@ function buddyx_cleanup_unused_assets() {
  * @return void
  */
 function buddyx_add_conditional_theme_support() {
-	// WooCommerce theme support
+	// WooCommerce theme support.
 	if ( class_exists( 'WooCommerce' ) ) {
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
@@ -375,7 +385,7 @@ function buddyx_add_conditional_theme_support() {
 		add_theme_support( 'wc-product-gallery-slider' );
 	}
 
-	// BuddyPress theme support
+	// BuddyPress theme support.
 	if ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) {
 		add_theme_support( 'buddypress-use-nouveau' );
 	}
@@ -392,7 +402,7 @@ function buddyx_add_conditional_theme_support() {
  */
 function buddyx_woocommerce_optimizations() {
 	if ( class_exists( 'WooCommerce' ) ) {
-		// Remove default WooCommerce breadcrumbs (theme provides its own)
+		// Remove default WooCommerce breadcrumbs (theme provides its own).
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 	}
 }
@@ -448,12 +458,12 @@ function buddyx_compatibility_check() {
 	$min_wp_version  = BUDDYX_MINIMUM_WP_VERSION;
 	$min_php_version = BUDDYX_MINIMUM_PHP_VERSION;
 
-	// Check WordPress version
+	// Check WordPress version.
 	if ( version_compare( $wp_version, $min_wp_version, '<' ) ) {
 		return false;
 	}
 
-	// Check PHP version
+	// Check PHP version.
 	if ( version_compare( $php_version, $min_php_version, '<' ) ) {
 		return false;
 	}
@@ -504,22 +514,22 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 	$bp_pages = get_option( 'bp-pages' );
 
 	/* Register page id and BuddyBoss saved register page equal then bp_is_directory set false */
-	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && get_the_ID() != 0 && $bp_pages['register'] == get_the_ID() ) {
+	if ( isset( $bp_pages['register'] ) && '' !== $bp_pages['register'] && 0 !== (int) get_the_ID() && (int) get_the_ID() === (int) $bp_pages['register'] ) {
 		$bp_is_directory = false;
 	}
 
 	/* Register page id and buddypress saved register page equal then bp_is_directory set false */
-	if ( isset( $bp_pages['register'] ) && $bp_pages['register'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['register'] == $wp_query->queried_object_id ) {
+	if ( isset( $bp_pages['register'] ) && '' !== $bp_pages['register'] && 0 !== (int) $wp_query->queried_object_id && (int) $bp_pages['register'] === (int) $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}
 
 	/* Activate page id and BuddyBoss saved activate page equal then bp_is_directory set false */
-	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && get_the_ID() != 0 && $bp_pages['activate'] == get_the_ID() ) {
+	if ( isset( $bp_pages['activate'] ) && '' !== $bp_pages['activate'] && 0 !== (int) get_the_ID() && (int) get_the_ID() === (int) $bp_pages['activate'] ) {
 		$bp_is_directory = false;
 	}
 
 	/* Activate page id and buddypress saved activate page equal then bp_is_directory set false */
-	if ( isset( $bp_pages['activate'] ) && $bp_pages['activate'] != '' && $wp_query->queried_object_id != 0 && $bp_pages['activate'] == $wp_query->queried_object_id ) {
+	if ( isset( $bp_pages['activate'] ) && '' !== $bp_pages['activate'] && 0 !== (int) $wp_query->queried_object_id && (int) $bp_pages['activate'] === (int) $wp_query->queried_object_id ) {
 		$bp_is_directory = false;
 	}
 
@@ -530,9 +540,9 @@ function buddyx_page_templates_directory_only( $bp_is_directory ) {
 // THEME INITIALIZATION
 // =============================================================================
 
-// Check system compatibility before proceeding
+// Check system compatibility before proceeding.
 if ( ! buddyx_compatibility_check() ) {
-	// Load backward compatibility file for unsupported environments
+	// Load backward compatibility file for unsupported environments.
 	$back_compat_file = get_template_directory() . '/inc/back-compat.php';
 	if ( file_exists( $back_compat_file ) ) {
 		require_once $back_compat_file;
@@ -540,13 +550,13 @@ if ( ! buddyx_compatibility_check() ) {
 	return;
 }
 
-// Register autoloader
+// Register autoloader.
 buddyx_register_autoloader();
 
-// Load external dependencies
+// Load external dependencies.
 buddyx_load_external_dependencies();
 
-// Hook theme initialization into WordPress
+// Hook theme initialization into WordPress.
 add_action( 'after_setup_theme', 'buddyx_initialize', 1 );
 add_action( 'after_setup_theme', 'buddyx_add_conditional_theme_support', 15 );
 if ( class_exists( 'BuddyPress' ) ) {

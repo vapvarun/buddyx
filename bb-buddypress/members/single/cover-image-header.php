@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 3.0.0
+ *
+ * @package buddyx
  */
 
 $bp_displayed_user_id     = bp_displayed_user_id();
@@ -258,7 +260,7 @@ if ( ! bp_is_user_messages() && ! bp_is_user_settings() && ! bp_is_user_notifica
 
 	<?php
 	add_filter( 'bp_get_add_follow_button', 'bb_bp_get_add_follow_button' );
-	
+
 endif;
 ?>
 
@@ -277,7 +279,7 @@ endif;
 					<div class="bb-remove-connection-content bb-action-popup-content">
 						<p>
 							<?php
-							echo sprintf(
+							printf(
 								/* translators: %s: The member name with HTML tags. */
 								esc_html__( 'Are you sure you want to remove %s from your connections?', 'buddyx' ),
 								'<span class="bb-user-name"></span>'

@@ -300,3 +300,84 @@ body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropd
     width: 100%;
     margin-bottom: 10px;
 }
+/* bbPress paints permalinks, admin links and the author IP in fixed greys, unreadable on dark reply headers. */
+.bbp-forum-header a.bbp-forum-permalink,
+.bbp-reply-header a.bbp-reply-permalink,
+.bbp-topic-header a.bbp-topic-permalink,
+span.bbp-admin-links,
+span.bbp-admin-links a,
+#bbpress-forums .bbp-author-ip {
+    color: var(--bx-color-fg-muted);
+}
+
+span.bbp-admin-links a:hover,
+span.bbp-admin-links a:focus {
+    color: var(--bx-color-accent);
+}
+
+/* bbPress gives post code a fixed #f9f9f9 box with a #ddd border through an ID
+ * selector, so it stayed a white chip with invisible text in dark mode. Same
+ * selector, theme surfaces: it follows light and dark mode. */
+#bbpress-forums div.bbp-reply-content code,
+#bbpress-forums div.bbp-reply-content pre,
+#bbpress-forums div.bbp-topic-content code,
+#bbpress-forums div.bbp-topic-content pre {
+    background-color: var(--bx-color-bg-muted, #f9f9f9);
+    border-color: var(--bx-color-border, #ddd);
+}
+
+/* QA round 3: a select inside a 38px field with 10px padding left a 16px box for a 24px
+   line, so "Normal", "Open" and the forum name were cut in half. */
+#bbpress-forums fieldset.bbp-form select {
+    padding-block: 6px;
+}
+
+/* The editor's link dialog is WordPress's own light panel; theme text on it and the dark
+   fields made the labels unreadable in dark mode. It follows the theme surfaces. */
+html #wp-link-wrap,
+html #wp-link-wrap #link-modal-title,
+html #wp-link-wrap #link-selector,
+html #wp-link-wrap .query-results li {
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
+}
+
+html #wp-link-wrap #link-modal-title,
+html #wp-link-wrap .query-results,
+html #wp-link-wrap .query-results li {
+    border-color: var(--bx-color-border);
+}
+
+html #wp-link-wrap .submitbox {
+    background-color: var(--bx-color-bg-muted);
+    border-top-color: var(--bx-color-border);
+}
+
+html #wp-link-wrap .query-results li:hover,
+html #wp-link-wrap .query-results li.unselectable {
+    background-color: var(--bx-color-bg-muted);
+}
+
+html #wp-link-wrap .query-results li .item-info {
+    color: var(--bx-color-fg-muted);
+}
+
+html #wp-link-wrap .query-notice,
+html #wp-link-wrap .query-notice .query-notice-default,
+html #wp-link-wrap .query-notice .query-notice-hint {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
+}
+
+/* bbPress sizes the Forum select to its content on the edit screen; every other field is full width. */
+#bbpress-forums fieldset.bbp-form select#bbp_forum_id {
+    width: 100%;
+    max-width: none;
+}
+
+/* bbPress paints the current page chip light grey with the page text colour on it: 4.3:1 in light mode and 1.05:1 in dark. Fill it with the accent, as the other pagination in the theme does. */
+#bbpress-forums .bbp-pagination-links span.current {
+    background-color: var(--bx-color-accent);
+    border-color: var(--bx-color-accent);
+    color: var(--bx-color-accent-inverse);
+}

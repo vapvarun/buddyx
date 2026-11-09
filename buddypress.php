@@ -24,9 +24,15 @@ $buddypress_members_sidebar = get_theme_mod( 'buddypress_members_sidebar_option'
 $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option', buddyx_defaults( 'buddypress-groups-sidebar-option' ) );
 
 ?>
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
 	<main id="primary" class="site-main">
 
@@ -55,7 +61,10 @@ $buddypress_groups_sidebar  = get_theme_mod( 'buddypress_groups_sidebar_option',
 
 	<?php endif; ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 
 <?php
 get_footer();

@@ -18,6 +18,8 @@ defined( 'ABSPATH' ) || exit;
 class Dimension extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-dimension';

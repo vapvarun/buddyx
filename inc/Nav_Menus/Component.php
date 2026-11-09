@@ -92,10 +92,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *   is only being added for page menus if JS is enabled.
 	 *   Create a ticket to add to core?
 	 *
-	 * @param string  $item_output The menu item's starting HTML output.
+	 * @param string   $item_output The menu item's starting HTML output.
 	 * @param \WP_Post $item        Menu item data object.
-	 * @param int     $depth       Depth of menu item. Used for padding.
-	 * @param object  $args        An object of wp_nav_menu() arguments.
+	 * @param int      $depth       Depth of menu item. Used for padding.
+	 * @param object   $args        An object of wp_nav_menu() arguments.
 	 * @return string Modified nav menu HTML.
 	 */
 	public function filter_primary_nav_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
@@ -106,7 +106,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Add the dropdown for items that have children.
-		if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes, true ) ) {
 			return $item_output . '<span class="dropdown"><i class="dropdown-symbol"></i></span>';
 		}
 

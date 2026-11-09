@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Blog Layout
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
 				'settings' => 'blog_layout_option',
 				'label'    => esc_html__( 'Blog Layout', 'buddyx' ),
@@ -27,7 +28,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio',
 			array(
 				'settings'        => 'blog_image_position',
 				'label'           => esc_html__( 'Image position', 'buddyx' ),
@@ -48,7 +50,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio',
 			array(
 				'settings'        => 'blog_grid_columns',
 				'label'           => esc_html__( 'Grid Columns', 'buddyx' ),
@@ -69,7 +72,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio',
 			array(
 				'settings'        => 'blog_masonry_view',
 				'label'           => esc_html__( 'View', 'buddyx' ),
@@ -90,7 +94,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'select',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'select',
 			array(
 				'settings'        => 'post_per_row',
 				'label'           => esc_html__( 'Post Per Row', 'buddyx' ),
@@ -111,7 +116,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'blog_show_tags',
 				'label'    => esc_html__( 'Show Tags', 'buddyx' ),
@@ -126,7 +132,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio',
 			array(
 				'settings'        => 'blog_show_tags_style',
 				'label'           => esc_html__( 'Tags Style', 'buddyx' ),
@@ -148,7 +155,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'blog_edit_link',
 				'label'    => esc_html__( 'Show Edit Link', 'buddyx' ),
@@ -163,7 +171,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'custom',
 			array(
 				'settings' => 'custom-skin-divider1',
 				'section'  => 'site_blog_section',
@@ -171,7 +180,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
 				'settings' => 'single_post_content_width',
 				'label'    => esc_html__( 'Single Post Content Width', 'buddyx' ),
@@ -185,7 +195,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
 				'settings' => 'single_post_title_layout',
 				'label'    => esc_html__( 'Single Post Title Layout', 'buddyx' ),
@@ -201,7 +212,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'color',
 			array(
 				'settings'        => 'buddyx_section_title_over_overlay',
 				'label'           => esc_attr__( 'Image Overlay Color', 'buddyx' ),

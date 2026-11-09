@@ -15,6 +15,9 @@ if ( ! function_exists( 'buddyx_wp_body_open' ) ) {
 	 * @return void
 	 */
 	function buddyx_wp_body_open() {
+		/**
+		 * Fires right after the opening <body> tag, also on WordPress versions without wp_body_open().
+		 */
 		do_action( 'buddyx_wp_body_open' );
 	}
 }

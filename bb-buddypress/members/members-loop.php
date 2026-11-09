@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 3.0.0
+ *
+ * @package buddyx
  */
 
 bp_nouveau_before_loop(); ?>
@@ -125,7 +127,10 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 			?>
 			">
 
-				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+				<?php
+				/** This action is documented in bb-buddypress/groups/single/members-loop.php */
+				do_action( 'buddyx_before_member_avatar_member_directory' );
+				?>
 
 				<div class="item-avatar">
 					<?php
@@ -280,7 +285,7 @@ endif;
 					<div class="bb-remove-connection-content bb-action-popup-content">
 						<p>
 							<?php
-							echo sprintf(
+							printf(
 								/* translators: %s: The member name with HTML tags */
 								esc_html__( 'Are you sure you want to remove %s from your connections?', 'buddyx' ),
 								'<span class="bb-user-name"></span>'

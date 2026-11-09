@@ -195,7 +195,7 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 										bb_activity_topics_manager_instance()->bb_get_activity_topic_url(
 											array(
 												'activity_id' => bp_get_activity_id(),
-												'html'        => true,
+												'html' => true,
 											)
 										)
 									);
@@ -234,8 +234,8 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 						$activity_date_recorded = bp_get_activity_date_recorded();
 						printf(
 							'<span class="time-since" data-livestamp="%1$s">%2$s</span>',
-							bp_core_get_iso8601_date( $activity_date_recorded ),
-							bp_core_time_since( $activity_date_recorded )
+							esc_attr( bp_core_get_iso8601_date( $activity_date_recorded ) ),
+							esc_html( bp_core_time_since( $activity_date_recorded ) )
 						);
 						?>
 					</a>
@@ -341,7 +341,7 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s post', 'buddyx' ), bp_core_g
 			if ( bp_activity_get_comment_count() ) {
 				bp_activity_comments();
 			} else {
-				// Always output an empty <ul> when there are no comments to ensure proper DOM structure for comment submission
+				// Always output an empty <ul> when there are no comments to ensure proper DOM structure for comment submission.
 				$activity_id = bp_get_activity_id();
 				echo '<ul data-activity_id="' . esc_attr( $activity_id ) . '" data-parent_comment_id="' . esc_attr( $activity_id ) . '"></ul>';
 			}

@@ -75,20 +75,20 @@ class BuddyX_SureCart_Support {
 	private function init_hooks() {
 		// Single product page modifications.
 		add_action( 'wp', array( $this, 'buddyx_surecart_single_page_setup' ) );
-		
+
 		// Override sidebar settings for SureCart post types.
 		add_filter( 'theme_mod_sidebar_option', array( $this, 'buddyx_surecart_override_sidebar_option' ) );
 		add_filter( 'theme_mod_single_post_sidebar_option', array( $this, 'buddyx_surecart_override_sidebar_option' ) );
-		
+
 		// Page template assignment hooks - only fire when options change.
 		add_action( 'update_option_surecart_shop_page_id', array( $this, 'buddyx_surecart_assign_page_template' ), 10, 2 );
 		add_action( 'update_option_surecart_checkout_page_id', array( $this, 'buddyx_surecart_assign_page_template' ), 10, 2 );
 		add_action( 'update_option_surecart_cart_page_id', array( $this, 'buddyx_surecart_assign_page_template' ), 10, 2 );
 		add_action( 'update_option_surecart_dashboard_page_id', array( $this, 'buddyx_surecart_assign_page_template' ), 10, 2 );
-		
+
 		// Theme activation - run once.
 		add_action( 'after_switch_theme', array( $this, 'buddyx_surecart_set_theme_defaults' ) );
-		
+
 		// Customizer and cart setup - only if needed.
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'init', array( $this, 'buddyx_surecart_add_customizer_option' ), 20 );
@@ -111,10 +111,10 @@ class BuddyX_SureCart_Support {
 
 		// Add inline CSS to hide duplicate elements.
 		add_action( 'wp_head', array( $this, 'buddyx_surecart_add_single_page_styles' ), 999 );
-		
+
 		// Remove all actions from buddyx_sub_header hook.
 		$this->buddyx_surecart_remove_sub_header_actions();
-		
+
 		// Prevent entry header from being loaded.
 		add_filter( 'get_post_type', array( $this, 'buddyx_surecart_prevent_entry_header' ), 10, 2 );
 	}
@@ -143,7 +143,7 @@ class BuddyX_SureCart_Support {
 	 * @param int|null $post_id   The post ID.
 	 * @return string Modified post type.
 	 */
-	public function buddyx_surecart_prevent_entry_header( $post_type, $post_id = null ) {
+	public function buddyx_surecart_prevent_entry_header( $post_type, $post_id = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Signature required by the filter.
 		// Only modify when checking for entry header template part.
 		if ( doing_action( 'get_template_part_template-parts/content/entry-header' ) ) {
 			return 'sc_product'; // Return actual type to prevent 'post' match.
@@ -232,17 +232,17 @@ class BuddyX_SureCart_Support {
 	public function buddyx_surecart_assign_page_template( $old_value, $new_value ) {
 		// Validate and sanitize the new value.
 		$new_value = absint( $new_value );
-		
+
 		// Only process if we have a valid new page ID.
 		if ( ! $new_value || $new_value === $old_value ) {
 			return;
 		}
-		
+
 		// Verify the page exists.
 		if ( ! get_post( $new_value ) ) {
 			return;
 		}
-		
+
 		// Set full width template, keeping any template the administrator already chose.
 		$this->buddyx_surecart_maybe_set_full_width_template( $new_value );
 	}
@@ -280,7 +280,7 @@ class BuddyX_SureCart_Support {
 		if ( get_option( 'buddyx_surecart_defaults_set', false ) ) {
 			return;
 		}
-		
+
 		// Get SureCart page IDs.
 		$page_ids = array(
 			absint( get_option( 'surecart_shop_page_id', 0 ) ),
@@ -288,14 +288,14 @@ class BuddyX_SureCart_Support {
 			absint( get_option( 'surecart_cart_page_id', 0 ) ),
 			absint( get_option( 'surecart_dashboard_page_id', 0 ) ),
 		);
-		
+
 		// Set template for each existing page.
 		foreach ( array_filter( $page_ids ) as $page_id ) {
 			if ( get_post( $page_id ) ) {
 				$this->buddyx_surecart_maybe_set_full_width_template( $page_id );
 			}
 		}
-		
+
 		// Mark defaults as set.
 		update_option( 'buddyx_surecart_defaults_set', true );
 	}
@@ -308,7 +308,8 @@ class BuddyX_SureCart_Support {
 	 * @return void
 	 */
 	public function buddyx_surecart_add_customizer_option() {
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings'    => 'site_header_enable_cart',
 				'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
@@ -340,6 +341,7 @@ class BuddyX_SureCart_Support {
 		add_action( 'wp_footer', array( $this, 'buddyx_surecart_add_cart_styles' ) );
 	}
 
+	// phpcs:disable Squiz.Commenting.FunctionComment.InvalidReturnVoid -- The return statements belong to the nested function declarations, not this method.
 	/**
 	 * Create compatibility functions for cart display.
 	 *
@@ -348,6 +350,7 @@ class BuddyX_SureCart_Support {
 	 * @return void
 	 */
 	private function buddyx_surecart_create_compatibility_functions() {
+		// phpcs:enable Squiz.Commenting.FunctionComment.InvalidReturnVoid
 		// Create dummy is_woocommerce function if it doesn't exist.
 		if ( ! function_exists( 'is_woocommerce' ) ) {
 			/**
@@ -379,7 +382,7 @@ class BuddyX_SureCart_Support {
 				<div class="menu-icons-wrapper cart-widget-wrapper">
 					<div class="cart">
 						<a href="#" class="cart-icon-wrap" aria-label="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
-							<?php echo do_blocks( '<!-- wp:surecart/cart-menu-icon {"cart_icon":"shopping-cart","cart_menu_always_shown":true} /-->' ); ?>
+							<?php echo do_blocks( '<!-- wp:surecart/cart-menu-icon {"cart_icon":"shopping-cart","cart_menu_always_shown":true} /-->' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Rendered SureCart block markup (SVG + custom elements) that kses would strip; built from a hardcoded block string. ?>
 						</a>
 					</div>
 				</div>
@@ -410,7 +413,7 @@ class BuddyX_SureCart_Support {
  * @since 1.0.0
  * @return BuddyX_SureCart_Support Main instance.
  */
-function buddyx_surecart() {
+function buddyx_surecart() { // phpcs:ignore Universal.Files.SeparateFunctionsFromOO.Mixed -- Global accessor for the class instance; kept beside the class it boots.
 	return BuddyX_SureCart_Support::instance();
 }
 

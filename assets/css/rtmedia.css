@@ -241,7 +241,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
     border-radius: 100px;
     font-size: 11px;
     font-weight: 600;
-    color: #fff;
+    color: var(--bx-color-fg-muted);
     letter-spacing: -.26px;
     line-height: 16px;
     border: 0;
@@ -256,7 +256,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 .buddypress-wrap .rtm-bp-navs ul li.selected a>span,
 .buddypress-wrap .rtm-bp-navs ul li.selected a:hover>span {
     background: var(--color-theme-primary);
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
 }
 
 .buddypress-wrap .rtm-gallery-media-title-container .rtm-media-options {
@@ -452,7 +452,7 @@ body.bp-nouveau .activity-update-form .rtmedia-plupload-container {
 }
 
 .media .rtmedia-list.rtmedia-list-media>li.rtmedia-list-item .rtmedia-gallery-item-actions .rtm-delete-media:hover {
-    color: #f00;
+    color: var(--bx-color-error);
 }
 
 .media .rtm-tabs li.active a {
@@ -527,22 +527,25 @@ body:not(.buddyx-mediapress) .mfp-arrow::after {
 
 body:not(.buddyx-mediapress) .mfp-arrow-left::after,
 body:not(.buddyx-mediapress) .mfp-arrow-right::after {
-    font-family: "Font Awesome 6 Free";
     font-size: 24px;
-    font-weight: 900;
-    color: #fff;
-    border-left: 0;
+    color: #fff; /* fixed: arrow on the dark lightbox overlay */
+    width: 0.625em;
+    height: 1em;
+    border: 0;
+    /* Where the glyph sat: 10px margin + 13px top border + the line's half-leading. */
+    margin-top: calc(23px + (1lh - 1em) / 2);
     margin-left: 13px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-mask) center / contain no-repeat;
+    mask: var(--bx-icon-mask) center / contain no-repeat;
 }
 
 body:not(.buddyx-mediapress) .mfp-arrow-left::after {
-    content: '\f104';
+    --bx-icon-mask: var(--bx-icon-angle-left);
 }
 
 body:not(.buddyx-mediapress) .mfp-arrow-right::after {
-    content: '\f105';
+    --bx-icon-mask: var(--bx-icon-angle-right);
 }
 
 body:not(.buddyx-mediapress) .mfp-arrow-left::before {

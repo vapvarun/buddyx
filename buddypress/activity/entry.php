@@ -7,6 +7,8 @@
  *
  * @since 3.0.0
  * @version 14.0.0
+ *
+ * @package buddyx
  */
 
 bp_nouveau_activity_hook( 'before', 'entry' ); ?> 

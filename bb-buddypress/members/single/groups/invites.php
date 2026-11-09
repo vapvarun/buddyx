@@ -4,7 +4,10 @@
  *
  * @since 3.0.0
  * @version 3.1.0
+ *
+ * @package buddyx
  */
+
 ?>
 
 <h2 class="screen-heading group-invites-screen"><?php esc_html_e( 'Group Invites', 'buddyx' ); ?></h2>
@@ -13,7 +16,8 @@
 
 <?php
 $bp_displayed_user_id = bp_displayed_user_id();
-if ( bp_has_groups( 'type=invites&user_id=' . $bp_displayed_user_id ) ) : ?>
+if ( bp_has_groups( 'type=invites&user_id=' . $bp_displayed_user_id ) ) :
+	?>
 
 	<ul id="group-list" class="invites item-list bp-list" data-bp-list="groups_invites">
 
@@ -42,15 +46,16 @@ if ( bp_has_groups( 'type=invites&user_id=' . $bp_displayed_user_id ) ) : ?>
 									<span class="small">
 									<?php
 									printf(
-										__( 'Invited by %1$s &middot; %2$s.', 'buddyx' ),
+										/* translators: 1: link to the inviting member's profile, 2: time since the invitation was sent. */
+										esc_html__( 'Invited by %1$s &middot; %2$s.', 'buddyx' ),
 										sprintf(
 											'<a href="%s">%s</a>',
-											$inviter['url'],
-											$inviter['name']
+											esc_url( $inviter['url'] ),
+											esc_html( $inviter['name'] )
 										),
 										sprintf(
 											'<span class="last-activity">%s</span>',
-											bp_core_time_since( $inviter['date_modified'] )
+											esc_html( bp_core_time_since( $inviter['date_modified'] ) )
 										)
 									);
 									?>
@@ -59,7 +64,7 @@ if ( bp_has_groups( 'type=invites&user_id=' . $bp_displayed_user_id ) ) : ?>
 							</p>
 
 							<p class="desc">
-								<?php echo bp_groups_get_invite_messsage_for_user( $bp_displayed_user_id, $bp_get_group_id ); ?>
+								<?php echo wp_kses_post( bp_groups_get_invite_messsage_for_user( $bp_displayed_user_id, $bp_get_group_id ) ); ?>
 							</p>
 
 							<?php bp_nouveau_group_hook( '', 'invites_item' ); ?>

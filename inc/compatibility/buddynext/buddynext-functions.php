@@ -40,6 +40,11 @@ if ( ! function_exists( 'buddyx_use_buddynext_search' ) ) {
 			return false;
 		}
 
+		/**
+		 * Filters whether the header search icon opens BuddyNext community search.
+		 *
+		 * @param bool $search Search.
+		 */
 		return (bool) apply_filters( 'buddyx_use_buddynext_header_search', true );
 	}
 }
@@ -103,7 +108,7 @@ if ( ! function_exists( 'buddyx_buddynext_filter_user_menu_links' ) ) {
 	 * @param int   $user_id Member ID (unused; the menu is global).
 	 * @return array Filtered links.
 	 */
-	function buddyx_buddynext_filter_user_menu_links( $links, $user_id ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found -- signature required by the filter.
+	function buddyx_buddynext_filter_user_menu_links( $links, $user_id ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Signature required by the filter.
 		$menu = buddyx_buddynext_user_profile_menu_items();
 
 		return ! empty( $menu ) ? $menu : $links;

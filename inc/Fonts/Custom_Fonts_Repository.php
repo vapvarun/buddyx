@@ -16,6 +16,9 @@ namespace BuddyX\Buddyx\Fonts;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Read-only lookup of font families uploaded through the core Font Library.
+ */
 class Custom_Fonts_Repository {
 
 	/**

@@ -18,7 +18,7 @@ $taxonomies = wp_list_filter(
 <div class="entry-taxonomies">
 	<?php
 	// Show terms for all taxonomies associated with the post.
-	foreach ( $taxonomies as $taxonomy ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+	foreach ( $taxonomies as $taxonomy ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Template parts run inside load_template(), so this is a local variable.
 
 		/* translators: separator between taxonomy terms */
 		$separator = _x( ', ', 'list item separator', 'buddyx' );
@@ -37,8 +37,8 @@ $taxonomies = wp_list_filter(
 				$placeholder_text = __( 'Tagged %s', 'buddyx' );
 				break;
 			default:
-				$class            = str_replace( '_', '-', $taxonomy->name ) . '-links term-links';
-				$list             = get_the_term_list( $post->ID, $taxonomy->name, '', esc_html( $separator ), '' );
+				$class = str_replace( '_', '-', $taxonomy->name ) . '-links term-links';
+				$list  = get_the_term_list( $post->ID, $taxonomy->name, '', esc_html( $separator ), '' );
 				// Keep a trailing %s so printf() below can substitute the term links.
 				$placeholder_text = str_replace(
 					'%',
@@ -59,7 +59,7 @@ $taxonomies = wp_list_filter(
 			<?php
 			printf(
 				esc_html( $placeholder_text ),
-				$list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Core term-list functions return escaped links.
 			);
 			?>
 		</span>

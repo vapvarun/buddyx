@@ -389,12 +389,13 @@ window.wp.customize<string>('header_textcolor', function (value) {
 	value.bind(function (to) {
 		if ('blank' === to) {
 			setStyle('.site-title, .site-description', {
-				clipPath: 'inset(1px)',
+				// Same hiding rule the live page prints (Custom_Header); clip-path inset(1px) hid nothing.
+				clip: 'rect(1px, 1px, 1px, 1px)',
 				position: 'absolute',
 			});
 		} else {
 			setStyle('.site-title, .site-description', {
-				clipPath: 'none',
+				clip: 'auto',
 				position: 'relative',
 			});
 			setStyle('.site-title a, .site-description', {

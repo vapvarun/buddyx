@@ -25,6 +25,8 @@ defined( 'ABSPATH' ) || exit;
 class Typography extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-typography';

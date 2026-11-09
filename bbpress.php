@@ -22,12 +22,18 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bbpress-sidebar-option' ) );
 
 ?>
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
-	<?php if ( $bbpress_sidebar == 'left' || $bbpress_sidebar == 'both' ) : ?>
-		<aside id="secondary" class="left-sidebar widget-area">
+	<?php if ( 'left' === $bbpress_sidebar || 'both' === $bbpress_sidebar ) : ?>
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_bbpress_left_sidebar(); ?>
 			</div>
@@ -51,7 +57,7 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 		
 	</main><!-- #primary -->
 	
-	<?php if ( $bbpress_sidebar == 'right' || $bbpress_sidebar == 'both' ) : ?>
+	<?php if ( 'right' === $bbpress_sidebar || 'both' === $bbpress_sidebar ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_bbpress_right_sidebar(); ?>
@@ -59,6 +65,9 @@ $bbpress_sidebar = get_theme_mod( 'bbpress_sidebar_option', buddyx_defaults( 'bb
 		</aside>
 	<?php endif; ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

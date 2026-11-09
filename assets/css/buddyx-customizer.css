@@ -25,12 +25,12 @@
     text-align: center;
     border-radius: 6px !important;
     padding: 10px;
-    background: #dde0e2;
+    background: #dde0e2; /* fixed: Customizer controls run in wp-admin, no theme tokens there */
     transition: background .20s ease, box-shadow .20s ease;
 }
 
 .customize-control-kirki-radio-image .image label img {
-    border: 2px solid #868894;
+    border: 2px solid #868894; /* fixed: Customizer controls run in wp-admin, no theme tokens there */
     border-radius: 8px;
     transition: all 0.3s;
     box-shadow: none !important;

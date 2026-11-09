@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Layout
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
 				'settings' => 'site_layout',
 				'label'    => esc_html__( 'Site Layout', 'buddyx' ),
@@ -29,7 +30,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Container Width
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'    => 'site_container_width',
 				'label'       => esc_html__( 'Max Content Layout Width', 'buddyx' ),
@@ -58,7 +60,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'    => 'site_global_border_radius',
 				'label'       => esc_html__( 'Global Border Radius', 'buddyx' ),
@@ -70,7 +73,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'    => 'site_button_border_radius',
 				'label'       => esc_html__( 'Buttons Border Radius', 'buddyx' ),
@@ -82,7 +86,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dimension',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dimension',
 			array(
 				'settings'    => 'site_form_border_radius',
 				'label'       => esc_html__( 'Form Border Radius', 'buddyx' ),
@@ -97,10 +102,11 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Loader
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings'    => 'site_loader',
-				'label'       => esc_html__( 'Show site loader?', 'buddyx' ),
+				'label'       => esc_html__( 'Show site loader', 'buddyx' ),
 				'description' => esc_html__( 'Display a loading animation while the page is loading. Off by default — modern pages load fast enough that an extra animation usually adds perceived delay rather than helping.', 'buddyx' ),
 				'section'     => 'site_loader',
 				'default'     => 0,
@@ -112,21 +118,22 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Loader animation type — visual choice between 5 presets.
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
-				'settings' => 'site_loader_type',
-				'label'    => esc_html__( 'Loader animation', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => 'dots',
-				'priority' => 10,
-				'choices'  => array(
+				'settings'        => 'site_loader_type',
+				'label'           => esc_html__( 'Loader animation', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => 'dots',
+				'priority'        => 10,
+				'choices'         => array(
 					'dots'    => get_template_directory_uri() . '/assets/images/loader-dots.svg',
 					'spinner' => get_template_directory_uri() . '/assets/images/loader-spinner.svg',
 					'pulse'   => get_template_directory_uri() . '/assets/images/loader-pulse.svg',
 					'bars'    => get_template_directory_uri() . '/assets/images/loader-bars.svg',
 					'logo'    => get_template_directory_uri() . '/assets/images/loader-logo.svg',
 				),
-				'transport' => 'refresh',
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_loader',
@@ -139,16 +146,18 @@ defined( 'ABSPATH' ) || exit;
 
 		// Background color — moved here from Site Skin (5.1.0). Same setting ID
 		// preserves customer data; old Skin location removed.
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'color',
 			array(
-				'settings' => 'site_loader_bg',
-				'label'    => esc_html__( 'Background color', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => '#c92a2b',
-				'choices'  => array( 'alpha' => true ),
-				'priority' => 10,
-				'transport' => 'postMessage',
-				'output'    => array(
+				'settings'        => 'site_loader_bg',
+				'label'           => esc_html__( 'Background color', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => '',
+				'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
+				'choices'         => array( 'alpha' => true ),
+				'priority'        => 10,
+				'transport'       => 'postMessage',
+				'output'          => array(
 					array(
 						'element'  => '.site-loader',
 						'property' => 'background-color',
@@ -165,17 +174,18 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Loader element color (the dots/spinner/bars/text glyphs).
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'color',
 			array(
-				'settings' => 'site_loader_color',
-				'label'    => esc_html__( 'Element color', 'buddyx' ),
-				'description' => esc_html__( 'Color of the spinner, dots, or text. Ignored when using a logo.', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => '#ffffff',
-				'choices'  => array( 'alpha' => false ),
-				'priority' => 10,
-				'transport' => 'postMessage',
-				'output'    => array(
+				'settings'        => 'site_loader_color',
+				'label'           => esc_html__( 'Element color', 'buddyx' ),
+				'description'     => esc_html__( 'Color of the spinner, dots, or text. Ignored when using a logo.', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => '#ffffff',
+				'choices'         => array( 'alpha' => false ),
+				'priority'        => 10,
+				'transport'       => 'postMessage',
+				'output'          => array(
 					array(
 						'element'  => '.site-loader',
 						'property' => '--bx-loader-color',
@@ -192,15 +202,16 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Optional accessible loader text — also used as aria-label.
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'text',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'text',
 			array(
-				'settings' => 'site_loader_text',
-				'label'    => esc_html__( 'Loader text', 'buddyx' ),
-				'description' => esc_html__( 'Used for the screen-reader announcement (aria-label). Visible on the screen for the "Logo" loader.', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => esc_html__( 'Loading', 'buddyx' ),
-				'priority' => 10,
-				'transport' => 'refresh',
+				'settings'        => 'site_loader_text',
+				'label'           => esc_html__( 'Loader text', 'buddyx' ),
+				'description'     => esc_html__( 'Used for the screen-reader announcement (aria-label). Visible on the screen for the "Logo" loader.', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => esc_html__( 'Loading', 'buddyx' ),
+				'priority'        => 10,
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_loader',
@@ -212,15 +223,16 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Custom logo image (only shown when type=logo).
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'image',
 			array(
-				'settings' => 'site_loader_logo',
-				'label'    => esc_html__( 'Custom logo image', 'buddyx' ),
-				'description' => esc_html__( 'Upload an image to use as the loader. Falls back to the site logo when empty.', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => '',
-				'priority' => 10,
-				'transport' => 'refresh',
+				'settings'        => 'site_loader_logo',
+				'label'           => esc_html__( 'Custom logo image', 'buddyx' ),
+				'description'     => esc_html__( 'Upload an image to use as the loader. Falls back to the site logo when empty.', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => '',
+				'priority'        => 10,
+				'transport'       => 'refresh',
 				'active_callback' => array(
 					array(
 						'setting'  => 'site_loader',
@@ -237,21 +249,22 @@ defined( 'ABSPATH' ) || exit;
 		);
 
 		// Animation duration in seconds.
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'slider',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'slider',
 			array(
-				'settings' => 'site_loader_speed',
-				'label'    => esc_html__( 'Animation speed (seconds)', 'buddyx' ),
-				'section'  => 'site_loader',
-				'default'  => '1.5',
-				'priority' => 10,
-				'transport' => 'postMessage',
-				'choices'  => array(
+				'settings'        => 'site_loader_speed',
+				'label'           => esc_html__( 'Animation speed (seconds)', 'buddyx' ),
+				'section'         => 'site_loader',
+				'default'         => '1.5',
+				'priority'        => 10,
+				'transport'       => 'postMessage',
+				'choices'         => array(
 					'min'  => 0.5,
 					'max'  => 3.0,
 					'step' => 0.1,
 					'unit' => 's',
 				),
-				'output'    => array(
+				'output'          => array(
 					array(
 						'element'  => '.site-loader',
 						'property' => '--bx-loader-speed',
@@ -270,7 +283,8 @@ defined( 'ABSPATH' ) || exit;
 		/*
 		 *  Page Mapping
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_login_page',
 				'label'       => esc_attr__( 'Login Page', 'buddyx' ),
@@ -282,7 +296,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_registration_page',
 				'label'       => esc_attr__( 'Registration Page', 'buddyx' ),
@@ -294,7 +309,8 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'dropdown-pages',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_404_page',
 				'label'       => esc_attr__( '404', 'buddyx' ),

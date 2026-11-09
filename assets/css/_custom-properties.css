@@ -14,8 +14,8 @@
     --content-width: 100%;
     --dropdown-symbol-width: 0.7em;
     /* Custom editor colors */
-    --color-theme-primary: #c92a2b;
-    --color-theme-loader: #c92a2b;
+    --color-theme-primary: var(--bx-color-accent);
+    --color-theme-loader: var(--bx-color-loader-bg);
     --color-theme-secondary: #41848f;
     --color-theme-red: #c0392b;
     --color-theme-green: #27ae60;
@@ -27,7 +27,7 @@
     --color-custom-daylight: #97c0b7;
     --color-custom-sun: #eee9d1;
     --color-site-title: #111;
-    --color-site-title-hover: #ee4036;
+    --color-site-title-hover: var(--bx-color-site-title-hover);
     --color-site-tagline: #757575;
     --color-theme-body: #f7f7f9;
     --color-layout-boxed: #fff;
@@ -35,13 +35,12 @@
     --global-body-lightcolor: #fafafa;
     --color-header-bg: #fff;
     --color-menu: #111;
-    --color-menu-hover: #ee4036;
-    --color-menu-active: #ee4036;
+    --color-menu-hover: var(--bx-color-menu-hover);
+    --color-menu-active: var(--bx-color-menu-active);
     --color-subheader-title: #111;
     --color-link: #111;
-    --color-link-hover: #c92a2b;
-    --color-link-active: #c92a2b;
-    --color-h1: #111;
+    --color-link-hover: var(--bx-color-link-hover);
+        --color-h1: #111;
     --color-h2: #111;
     --color-h3: #111;
     --color-h4: #111;
@@ -51,23 +50,23 @@
        Phase 4d: forwards to --bx-color-border so legacy refs inherit
        the dark-mode value automatically (no per-rule changes needed). */
     --global-border-color: var(--bx-color-border, #e8e8e8);
-    --button-text-color: #fff;
-    --button-text-hover-color: #fff;
-    --button-background-color: #c92a2b;
-    --button-background-hover-color: #b82526;
-    --button-border-color: #c92a2b;
-    --button-border-hover-color: #b82526;
+    --button-text-color: var(--bx-color-button-fg);
+    --button-text-hover-color: var(--bx-color-button-fg-hover);
+    --button-background-color: var(--bx-color-button-bg);
+    --button-background-hover-color: var(--bx-color-button-bg-hover);
+    --button-border-color: var(--bx-color-button-border);
+    --button-border-hover-color: var(--bx-color-button-border-hover);
     --color-quote-border: #2e2c42;
     --color-quote-citation: #475569;
 
     --color-footer-title: #111;
     --color-footer-content: #505050;
     --color-footer-link: #111;
-    --color-footer-link-hover: #c92a2b;
+    --color-footer-link-hover: var(--bx-color-footer-link-hover);
     --color-copyright-bg: #fff;
     --color-copyright-content: #505050;
     --color-copyright-link: #111;
-    --color-copyright-link-hover: #c92a2b;
+    --color-copyright-link-hover: var(--bx-color-copyright-link-hover);
     /* Custom editor font sizes */
     --font-size-small: calc(16 / var(--global-font-size) * 1rem);
     --font-size-regular: calc(var(--global-font-size) / 16 * 1rem);

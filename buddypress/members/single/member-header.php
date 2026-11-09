@@ -4,15 +4,18 @@
  *
  * @since 3.0.0
  * @version 3.0.0
+ *
+ * @package buddyx
  */
+
 ?>
 
 <div class="item-header-cover-image-wrapper hide-header-cover-image">
 	<div id="item-header-cover-image">
 		<div id="item-header-avatar">
 			<?php if ( bp_is_my_profile() && ! bp_disable_avatar_uploads() ) { ?>
-				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
-					<i class="fa fa-camera"></i>
+				<a href="<?php bp_members_component_link( 'profile', 'change-avatar' ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Profile Photo', 'buddyx' ); ?>">
+					<?php echo buddyx_get_icon( 'camera' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?>
 				</a>
 			<?php } ?>
 			<?php bp_displayed_user_avatar( 'type=full' ); ?>
@@ -20,10 +23,9 @@
 
 		<div id="item-header-content">
 
+			<h1 class="user-displayname"><?php echo esc_html( bp_get_displayed_user_fullname() ); ?></h1>
 			<?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
-				<h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
-			<?php else : ?>
-				<h2 class="user-displayname"><?php echo esc_html( bp_get_displayed_user_fullname() ); ?></h2>
+				<p class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></p>
 			<?php endif; ?>
 
 			<?php bp_nouveau_member_hook( 'before', 'header_meta' ); ?>

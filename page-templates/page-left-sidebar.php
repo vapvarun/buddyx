@@ -15,11 +15,17 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>	
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
-		<aside id="secondary" class="left-sidebar widget-area">
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
@@ -33,7 +39,6 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 					get_template_part( 'template-parts/content/entry', 'page' );
 				}
-				
 			} else {
 				get_template_part( 'template-parts/content/error' );
 			}
@@ -41,6 +46,9 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 		</main><!-- #primary -->
 	</div><!-- .container -->
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

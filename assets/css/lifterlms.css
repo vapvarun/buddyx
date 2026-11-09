@@ -224,8 +224,24 @@ a.llms-button-secondary:focus,
     padding: 0 15px;
 }
 
+/* LifterLMS colours catalog titles #010101 and meta #444; follow the theme text. */
+body .llms-loop-item-content .llms-loop-title {
+    color: var(--bx-color-h2);
+}
+
+body .llms-loop-item-content .llms-meta,
+body .llms-loop-item-content .llms-author {
+    color: var(--bx-color-fg-muted);
+}
+
 .llms-loop-item-content .llms-loop-title:hover {
     color: var(--color-theme-primary);
+}
+
+/* The card link inside the title is near-black from LifterLMS; take the title colour. */
+body .llms-loop-item-content .llms-loop-link,
+body .llms-loop-item-content .llms-loop-link:visited {
+    color: inherit;
 }
 
 .llms-loop-item-content .llms-author {
@@ -299,8 +315,8 @@ body .llms-syllabus-wrapper .llms-section-title {
     text-align: left;
     font-size: 1.1em;
     padding: 10px 15px;
-    background: var(--color-theme-primary);
-    color: #fff;
+    background: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
     font-weight: 600;
     line-height: 1.75;
     border-radius: 4px;

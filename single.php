@@ -14,7 +14,7 @@ get_header();
 buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
-if ( get_post_type() == 'post' ) {
+if ( 'post' === get_post_type() ) {
 	$default_sidebar = get_theme_mod( 'single_post_sidebar_option', buddyx_defaults( 'single-post-sidebar-option' ) );
 } else {
 	$default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
@@ -23,15 +23,15 @@ if ( get_post_type() == 'post' ) {
 $single_post_content_width = '';
 $classes                   = '';
 
-if ( get_post_type() == 'post' ) {
+if ( 'post' === get_post_type() ) {
 	$single_post_content_width = get_theme_mod( 'single_post_content_width', buddyx_defaults( 'single-post-content-width' ) );
 
-	// Sidebar Classes
-	if ( $default_sidebar == 'left' ) {
+	// Sidebar Classes.
+	if ( 'left' === $default_sidebar ) {
 		$classes = 'has-single-post-left-sidebar';
-	} elseif ( $default_sidebar == 'right' ) {
+	} elseif ( 'right' === $default_sidebar ) {
 		$classes = 'has-single-post-right-sidebar';
-	} elseif ( $default_sidebar == 'both' ) {
+	} elseif ( 'both' === $default_sidebar ) {
 		$classes = 'has-single-post-both-sidebar';
 	} else {
 		$classes = 'has-single-post-no-sidebar';
@@ -41,18 +41,24 @@ if ( get_post_type() == 'post' ) {
 ?>
 <div class="single-post-main-wrapper buddyx-content--<?php echo esc_attr( $single_post_content_width ); ?> <?php echo esc_attr( $classes ); ?>">
 
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 
 	<?php
-	if ( get_post_type() == 'post' ) {
+	if ( 'post' === get_post_type() ) {
 		get_template_part( 'template-parts/content/entry-header', get_post_type() );
 	}
 	?>
 
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
-	<?php if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
-		<aside id="secondary" class="left-sidebar widget-area">
+	<?php if ( 'left' === $default_sidebar || 'both' === $default_sidebar ) : ?>
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
@@ -72,7 +78,7 @@ if ( get_post_type() == 'post' ) {
 
 	</main><!-- #primary -->
 
-	<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
+	<?php if ( 'right' === $default_sidebar || 'both' === $default_sidebar ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_right_sidebar(); ?>
@@ -80,7 +86,10 @@ if ( get_post_type() == 'post' ) {
 		</aside>
 	<?php endif; ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 </div>
 <?php
 get_footer();

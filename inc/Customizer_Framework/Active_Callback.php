@@ -38,9 +38,9 @@ class Active_Callback {
 	public static function compile( array $conditions ): callable {
 		return static function () use ( $conditions ) {
 			foreach ( $conditions as $cond ) {
-				$setting  = $cond['setting']  ?? '';
+				$setting  = $cond['setting'] ?? '';
 				$operator = $cond['operator'] ?? '==';
-				$expected = $cond['value']    ?? null;
+				$expected = $cond['value'] ?? null;
 
 				if ( '' === $setting ) {
 					continue;
@@ -89,7 +89,8 @@ class Active_Callback {
 						}
 						break;
 					case 'in':
-						if ( ! in_array( $actual, (array) $expected, false ) ) {
+						// Loose match is intentional: theme mods may be stored as int or string ('1' vs 1).
+						if ( ! in_array( $actual, (array) $expected, false ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.FoundNonStrictFalse -- Kirki 'in' semantics compare stored theme_mod values loosely.
 							return false;
 						}
 						break;
@@ -133,6 +134,6 @@ class Active_Callback {
 		if ( ( $a_truthy || $a_falsy ) && ( $b_truthy || $b_falsy ) ) {
 			return $a_truthy === $b_truthy;
 		}
-		return $a == $b; // phpcs:ignore Universal.Operators.StrictComparisons
+		return $a == $b; // phpcs:ignore Universal.Operators.StrictComparisons -- Loose on purpose: saved values mix '1', 1 and true.
 	}
 }

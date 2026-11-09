@@ -23,13 +23,19 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 
 ?>
 
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && $default_sidebar == 'left' && ! is_cart() && $default_sidebar == 'left' && ! is_checkout() && $default_sidebar == 'left' && ! is_account_page() && $default_sidebar == 'left' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
-			<aside id="secondary" class="left-sidebar widget-area">
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'left' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
+			<aside id="secondary-left" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_left_sidebar(); ?>
 				</div>
@@ -37,9 +43,9 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 		<?php endif; ?>
 		<?php
 	} else {
-		if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) :
+		if ( 'left' === $default_sidebar || 'both' === $default_sidebar ) :
 			?>
-		<aside id="secondary" class="left-sidebar widget-area">
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
@@ -71,7 +77,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 
 	</main><!-- #primary -->
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && $default_sidebar == 'right' && ! is_cart() && $default_sidebar == 'right' && ! is_checkout() && $default_sidebar == 'right' && ! is_account_page() && $default_sidebar == 'right' || ! is_woocommerce() && $default_sidebar == 'both' && ! is_cart() && $default_sidebar == 'both' && ! is_checkout() && $default_sidebar == 'both' && ! is_account_page() && $default_sidebar == 'both' ) : ?>
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'right' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -79,7 +85,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 			</aside>
 		<?php endif; ?>
 		<?php } else { ?>
-			<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
+			<?php if ( 'right' === $default_sidebar || 'both' === $default_sidebar ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>
@@ -88,6 +94,9 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 		<?php endif; ?>
 	<?php } ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

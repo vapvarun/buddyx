@@ -18,6 +18,8 @@ defined( 'ABSPATH' ) || exit;
 class Upload extends \WP_Customize_Upload_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-upload';
@@ -25,9 +27,9 @@ class Upload extends \WP_Customize_Upload_Control {
 	/**
 	 * Constructor — bridges Kirki args to core's upload control args.
 	 *
-	 * @param \WP_Customize_Manager $manager
-	 * @param string                $id
-	 * @param array                 $args
+	 * @param \WP_Customize_Manager $manager Customizer manager instance.
+	 * @param string                $id      Control ID.
+	 * @param array                 $args    Control arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		// Kirki passes mime types via choices.mime_types; core expects mime_type at top level.

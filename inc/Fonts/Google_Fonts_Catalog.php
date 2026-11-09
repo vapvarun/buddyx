@@ -39,7 +39,7 @@ class Google_Fonts_Catalog {
 			self::$catalog = array();
 			return self::$catalog;
 		}
-		$data          = json_decode( (string) file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$data          = json_decode( (string) file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reads a bundled theme file, not a remote URL.
 		self::$catalog = is_array( $data ) ? $data : array();
 		return self::$catalog;
 	}

@@ -1,0 +1,24 @@
+/*--------------------------------------------------------------
+# WPForms
+Loaded only on pages that render a form (wpforms_frontend_css).
+WPForms styles its modern markup from --wpforms-* variables; point them at the
+theme tokens so forms match the site in light and dark mode. A form styled with
+a WPForms theme in the block editor sets its own variables on the form and wins.
+--------------------------------------------------------------*/
+
+html:root {
+    --wpforms-label-color: var(--bx-color-h2);
+    --wpforms-label-sublabel-color: var(--bx-color-fg-muted);
+    --wpforms-label-error-color: var(--bx-color-error);
+    --wpforms-field-background-color: var(--bx-color-input-bg);
+    --wpforms-field-border-color: var(--bx-color-input-border);
+    --wpforms-field-border-color-spare: var(--bx-color-input-border);
+    --wpforms-field-text-color: var(--bx-color-input-fg);
+    --wpforms-field-menu-color: var(--bx-color-bg-elevated);
+    --wpforms-field-border-radius: var(--bx-radius-form, 6px);
+    --wpforms-button-background-color: var(--bx-color-button-bg);
+    --wpforms-button-border-color: var(--bx-color-button-border);
+    --wpforms-button-text-color: var(--bx-color-button-fg);
+    --wpforms-button-border-radius: var(--bx-radius-button, 6px);
+    --wpforms-page-break-color: var(--bx-color-accent);
+}

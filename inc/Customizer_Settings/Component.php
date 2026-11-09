@@ -10,10 +10,10 @@
 
 namespace BuddyX\Buddyx\Customizer_Settings;
 
+use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_filter;
 use function apply_filters;
-use BuddyX\Buddyx\Component_Interface;
 
 /**
  * Class for registering Customizer settings.
@@ -35,7 +35,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		// Customizer_Framework runs unconditionally (replaces Kirki).
 		add_action( 'init', array( $this, 'add_panels_and_sections' ) );
-		add_filter( 'init', array( $this, 'add_fields' ) );
+		add_action( 'init', array( $this, 'add_fields' ) );
 		add_filter( 'body_class', array( $this, 'site_width_body_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_header_classes' ) );
 		add_filter( 'body_class', array( $this, 'site_sticky_sidebar_body_classes' ) );
@@ -49,6 +49,9 @@ class Component implements Component_Interface {
 
 	/**
 	 * Site layout body class.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
 	 */
 	public function site_width_body_classes( array $classes ): array {
 		$classes[] = 'layout-' . get_theme_mod( 'site_layout', buddyx_defaults( 'site-layout' ) );
@@ -75,6 +78,9 @@ class Component implements Component_Interface {
 
 	/**
 	 * Site sticky sidebar body class.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
 	 */
 	public function site_sticky_sidebar_body_classes( array $classes ): array {
 		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' strings.
@@ -91,6 +97,9 @@ class Component implements Component_Interface {
 	 * Flags a body whose Lesson Content header colours were set in Customize >
 	 * LearnDash Styles > Global Styles, so the dark-mode on-accent text rule in
 	 * dark-mode.css leaves the customised colours alone.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
 	 */
 	public function site_learndash_customizer_body_classes( array $classes ): array {
 		$header_settings = array(
@@ -110,6 +119,9 @@ class Component implements Component_Interface {
 
 	/**
 	 * BuddyPress body class.
+	 *
+	 * @param array $classes Classes for the body element.
+	 * @return array Filtered body classes.
 	 */
 	public function site_buddypress_body_classes( array $classes ): array {
 		// `buddyx_is_truthy()` correctly handles pre-5.1.0 'on'/'off' strings.
@@ -286,12 +298,11 @@ class Component implements Component_Interface {
 			)
 		);
 
-		// BuddyPress Option. The panel, section and fields share ONE gate:
-		// BuddyPress active AND Youzify absent (Youzify replaces the avatar
-		// styling this section controls). Registering the section without
-		// its parent panel makes WordPress silently drop it, orphaning
+		// BuddyPress Option. The panel, section and fields share ONE gate
+		// (BuddyPress active). Registering the section without its parent
+		// panel makes WordPress silently drop it, orphaning
 		// buddypress_avatar_style with nowhere to render.
-		if ( class_exists( 'BuddyPress' ) && ! class_exists( 'Youzify' ) ) {
+		if ( class_exists( 'BuddyPress' ) ) {
 			\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 				'site_buddypress_panel',
 				array(
@@ -373,9 +384,8 @@ class Component implements Component_Interface {
 		require_once $fields_dir . 'Site_Performance.php';
 
 		// BuddyPress fields - same gate as the Community panel/section above
-		// (BuddyPress active AND Youzify absent) so the avatar toggle never
-		// registers against a section WordPress dropped.
-		if ( class_exists( 'BuddyPress' ) && ! class_exists( 'Youzify' ) ) {
+		// so the avatar toggle never registers against a section WordPress dropped.
+		if ( class_exists( 'BuddyPress' ) ) {
 			require_once $fields_dir . 'BuddyPress_Fields.php';
 		}
 	}

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Breadcrumb trail and HTML attribute helpers for the BuddyX theme.
+ *
+ * @package buddyx
+ */
 
 /**
  * Build list of attributes into a string and apply contextual filter on string.
@@ -32,6 +37,14 @@ function buddyx_attr( $context, $attributes = array(), $args = array() ) {
 		}
 	}
 
+	/**
+	 * Filters the final attribute string for a context.
+	 *
+	 * @param string $output     HTML output.
+	 * @param mixed  $attributes Attributes.
+	 * @param string $context    Context name.
+	 * @param array  $args       Arguments.
+	 */
 	$output = apply_filters( "buddyx_attr_{$context}_output", $output, $attributes, $context, $args );
 
 	return trim( $output );
@@ -49,7 +62,6 @@ function buddyx_attr( $context, $attributes = array(), $args = array() ) {
  * @param array  $args       Optional. Custom data to pass to filter.
  * @return array Merged and filtered attributes.
  */
-
 function buddyx_parse_attr( $context, $attributes = array(), $args = array() ) {
 
 	$defaults = array(
@@ -59,6 +71,13 @@ function buddyx_parse_attr( $context, $attributes = array(), $args = array() ) {
 	$attributes = wp_parse_args( $attributes, $defaults );
 
 	// Contextual filter.
+	/**
+	 * Filters the attribute array for a dynamic context, for example breadcrumb.
+	 *
+	 * @param mixed  $attributes Attributes.
+	 * @param string $context    Context name.
+	 * @param array  $args       Arguments.
+	 */
 	return apply_filters( "buddyx_attr_{$context}", $attributes, $context, $args );
 }
 
@@ -72,7 +91,7 @@ function buddyx_parse_attr( $context, $attributes = array(), $args = array() ) {
  * @param  boolean $echo  Whether to echo or not.
  * @return string Selected Breadcrumb.
  */
-function buddyx_get_breadcrumb( $echo = true ) {
+function buddyx_get_breadcrumb( $echo = true ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.echoFound -- Public template function; renaming could break child themes passing it as a named argument.
 
 	$defaults = array(
 		'before'      => '<div class="buddyx-breadcrumbs">',
@@ -81,8 +100,19 @@ function buddyx_get_breadcrumb( $echo = true ) {
 		'echo'        => $echo,
 	);
 
+	/**
+	 * Filters the full breadcrumb args array before the trail is built.
+	 *
+	 * @param array $defaults Defaults.
+	 */
 	$args = apply_filters( 'buddyx_breadcrumb_trail_args', $defaults );
 
+	/**
+	 * Filters the breadcrumb trail object, so a custom object can replace it.
+	 *
+	 * @param mixed $object Object.
+	 * @param array $args   Arguments.
+	 */
 	$breadcrumb = apply_filters( 'buddyx_breadcrumb_trail_object', null, $args );
 
 	if ( ! is_object( $breadcrumb ) ) {
@@ -92,6 +122,7 @@ function buddyx_get_breadcrumb( $echo = true ) {
 	return $breadcrumb->trail();
 }
 
+// phpcs:disable Universal.Files.SeparateFunctionsFromOO.Mixed -- Public template helpers have always shipped in this file; child themes rely on its load order.
 /**
  * Creates a breadcrumbs menu for the site based on the current page that's being viewed by the user.
  *
@@ -99,6 +130,7 @@ function buddyx_get_breadcrumb( $echo = true ) {
  * @access public
  */
 class BuddyX_Breadcrumbs {
+	// phpcs:enable Universal.Files.SeparateFunctionsFromOO.Mixed
 
 	/**
 	 * Array of items belonging to the current breadcrumb trail.
@@ -157,6 +189,8 @@ class BuddyX_Breadcrumbs {
 	 * @since  1.0.0
 	 * @access public
 	 * @param  array $args  {
+	 *     Optional. Breadcrumb trail arguments.
+	 *
 	 *     @type string    $container      Container HTML element. nav|div
 	 *     @type string    $before         String to output before breadcrumb menu.
 	 *     @type string    $after          String to output after breadcrumb menu.
@@ -193,6 +227,7 @@ class BuddyX_Breadcrumbs {
 		);
 
 		// Parse the arguments with the deaults.
+		/** This filter is documented in inc/class-buddyx-breadcrumbs.php */
 		$this->args = apply_filters( 'buddyx_breadcrumb_trail_args', wp_parse_args( $args, $defaults ) );
 
 		// Set the labels and post taxonomy properties.
@@ -328,13 +363,19 @@ class BuddyX_Breadcrumbs {
 		}
 
 		// Allow developers to filter the breadcrumb trail HTML.
+		/**
+		 * Filters the final breadcrumb HTML string.
+		 *
+		 * @param string $breadcrumb Breadcrumb HTML.
+		 * @param array  $args       Trail arguments.
+		 */
 		$breadcrumb = apply_filters( 'buddyx_breadcrumb_trail', $breadcrumb, $this->args );
 
 		if ( false === $this->args['echo'] ) {
 			return $breadcrumb;
 		}
 
-		echo $breadcrumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $breadcrumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trail markup is built from escaped parts above; the buddyx_breadcrumb_trail filter returns developer markup.
 	}
 
 	/* ====== Protected Methods ====== */
@@ -375,6 +416,11 @@ class BuddyX_Breadcrumbs {
 			'bp_register'         => esc_html__( 'Register', 'buddyx' ),
 		);
 
+		/**
+		 * Filters the label strings (Home, 404, Search, Pagination, etc.).
+		 *
+		 * @param array $labels Labels.
+		 */
 		$this->labels = apply_filters( 'buddyx_breadcrumb_trail_labels', wp_parse_args( $this->args['labels'], $defaults ) );
 	}
 
@@ -395,6 +441,11 @@ class BuddyX_Breadcrumbs {
 			$defaults['post'] = 'category';
 		}
 
+		/**
+		 * Filters which taxonomy supplies the ancestor crumbs for a post type.
+		 *
+		 * @param mixed $taxonomy Taxonomy.
+		 */
 		$this->post_taxonomy = apply_filters( 'buddyx_breadcrumb_trail_post_taxonomy', wp_parse_args( $this->args['post_taxonomy'], $defaults ) );
 	}
 
@@ -411,10 +462,8 @@ class BuddyX_Breadcrumbs {
 		// If viewing the front page.
 		if ( is_front_page() ) {
 			$this->add_front_page_items();
-		}
-
-		// If not viewing the front page.
-		else {
+		} else {
+			// If not viewing the front page.
 
 			// Add the network and site home links.
 			$this->add_network_home_link();
@@ -423,20 +472,14 @@ class BuddyX_Breadcrumbs {
 			// If viewing the home/blog page.
 			if ( is_home() ) {
 				$this->add_blog_items();
-			}
-
-			// If viewing the register page.
-			elseif ( class_exists( 'BuddyPress' ) && bp_is_register_page() ) {
+			} elseif ( class_exists( 'BuddyPress' ) && bp_is_register_page() ) {
+				// If viewing the register page.
 				$this->add_register_items();
-			}
-
-			// If viewing a single post.
-			elseif ( is_singular() ) {
+			} elseif ( is_singular() ) {
+				// If viewing a single post.
 				$this->add_singular_items();
-			}
-
-			// If viewing an archive page.
-			elseif ( is_archive() ) {
+			} elseif ( is_archive() ) {
+				// If viewing an archive page.
 
 				if ( is_post_type_archive() ) {
 					$this->add_post_type_archive_items();
@@ -471,15 +514,11 @@ class BuddyX_Breadcrumbs {
 				} else {
 					$this->add_default_archive_items();
 				}
-			}
-
-			// If viewing a search results page.
-			elseif ( is_search() ) {
+			} elseif ( is_search() ) {
+				// If viewing a search results page.
 				$this->add_search_items();
-			}
-
-			// If viewing the 404 page.
-			elseif ( is_404() ) {
+			} elseif ( is_404() ) {
+				// If viewing the 404 page.
 				$this->add_404_items();
 			}
 		}
@@ -488,6 +527,12 @@ class BuddyX_Breadcrumbs {
 		$this->add_paged_items();
 
 		// Allow developers to overwrite the items for the breadcrumb trail.
+		/**
+		 * Filters the assembled array of trail items before markup.
+		 *
+		 * @param array $items Trail items.
+		 * @param array $args  Trail arguments.
+		 */
 		$this->items = array_unique( apply_filters( 'buddyx_breadcrumb_trail_items', $this->items, $this->args ) );
 	}
 
@@ -518,15 +563,11 @@ class BuddyX_Breadcrumbs {
 		// If viewing a paged singular post.
 		if ( is_singular() && 1 < get_query_var( 'page' ) && true === $this->args['show_title'] ) {
 			$this->items[] = sprintf( $this->labels['paged'], number_format_i18n( absint( get_query_var( 'page' ) ) ) );
-		}
-
-		// If viewing a singular post with paged comments.
-		elseif ( is_singular() && get_option( 'page_comments' ) && 1 < get_query_var( 'cpage' ) ) {
+		} elseif ( is_singular() && get_option( 'page_comments' ) && 1 < get_query_var( 'cpage' ) ) {
+			// If viewing a singular post with paged comments.
 			$this->items[] = sprintf( $this->labels['paged_comments'], number_format_i18n( absint( get_query_var( 'cpage' ) ) ) );
-		}
-
-		// If viewing a paged archive-type page.
-		elseif ( is_paged() && true === $this->args['show_title'] ) {
+		} elseif ( is_paged() && true === $this->args['show_title'] ) {
+			// If viewing a paged archive-type page.
 			$this->items[] = sprintf( $this->labels['paged'], number_format_i18n( absint( get_query_var( 'paged' ) ) ) );
 		}
 	}
@@ -579,10 +620,8 @@ class BuddyX_Breadcrumbs {
 			// If on a paged view, add the site home link.
 			if ( is_paged() ) {
 				$this->add_site_home_link();
-			}
-
-			// If on the main front page, add the network home title.
-			elseif ( true === $this->args['show_title'] ) {
+			} elseif ( true === $this->args['show_title'] ) {
+				// If on the main front page, add the network home title.
 				$this->items[] = is_multisite() && true === $this->args['network'] ? esc_html( get_bloginfo( 'name' ) ) : $this->labels['home'];
 			}
 		}
@@ -634,10 +673,8 @@ class BuddyX_Breadcrumbs {
 		// If the post has a parent, follow the parent trail.
 		if ( 0 < $post->post_parent ) {
 			$this->add_post_parents( $post->post_parent );
-		}
-
-		// If the post doesn't have a parent, get its hierarchy based off the post type.
-		else {
+		} else {
+			// If the post doesn't have a parent, get its hierarchy based off the post type.
 			$this->add_post_hierarchy( $post_id );
 		}
 
@@ -647,7 +684,8 @@ class BuddyX_Breadcrumbs {
 		}
 
 		// End with the post title.
-		if ( $post_title = single_post_title( '', false ) ) {
+		$post_title = single_post_title( '', false );
+		if ( $post_title ) {
 
 			if ( ( 1 < get_query_var( 'page' ) || is_paged() ) || ( get_option( 'page_comments' ) && 1 < absint( get_query_var( 'cpage' ) ) ) ) {
 				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), esc_html( $post_title ) );
@@ -745,7 +783,7 @@ class BuddyX_Breadcrumbs {
 				}
 
 				// If the post type is not 'post'.
-			} else {
+			} elseif ( get_post_type_object( $taxonomy->object_type[0] ) ) {
 				$post_type_object = get_post_type_object( $taxonomy->object_type[0] );
 
 				$label = ! empty( $post_type_object->labels->archive_title ) ? $post_type_object->labels->archive_title : $post_type_object->labels->name;
@@ -782,6 +820,9 @@ class BuddyX_Breadcrumbs {
 
 		// Get the post type object.
 		$post_type_object = get_post_type_object( get_query_var( 'post_type' ) );
+		if ( ! $post_type_object ) {
+			return;
+		}
 
 		if ( false !== $post_type_object->rewrite ) {
 
@@ -946,7 +987,19 @@ class BuddyX_Breadcrumbs {
 
 		// Add the week item.
 		if ( is_paged() ) {
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() ) ), $week );
+			$this->items[] = sprintf(
+				'<a href="%s">%s</a>',
+				esc_url(
+					add_query_arg(
+						array(
+							'm' => get_the_time( 'Y' ),
+							'w' => get_the_time( 'W' ),
+						),
+						home_url()
+					)
+				),
+				$week
+			);
 
 		} elseif ( true === $this->args['show_title'] ) {
 			$this->items[] = $week;
@@ -1073,7 +1126,7 @@ class BuddyX_Breadcrumbs {
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param  int $post_id
+	 * @param  int $post_id ID of the post whose parents to add.
 	 * @return void
 	 */
 	protected function add_post_parents( $post_id ) {
@@ -1085,7 +1138,7 @@ class BuddyX_Breadcrumbs {
 			$post = get_post( $post_id );
 
 			// If we hit a page that's set as the front page, bail.
-			if ( 'page' == $post->post_type && 'page' == get_option( 'show_on_front' ) && $post_id == get_option( 'page_on_front' ) ) {
+			if ( 'page' === $post->post_type && 'page' === get_option( 'show_on_front' ) && (int) get_option( 'page_on_front' ) === (int) $post_id ) {
 				break;
 			}
 
@@ -1119,7 +1172,7 @@ class BuddyX_Breadcrumbs {
 	 *
 	 * @since  1.0.0
 	 * @access protected
-	 * @param  int $post_id
+	 * @param  int $post_id ID of the post whose hierarchy to add.
 	 * @return void
 	 */
 	protected function add_post_hierarchy( $post_id ) {
@@ -1127,6 +1180,11 @@ class BuddyX_Breadcrumbs {
 		// Get the post type.
 		$post_type        = get_post_type( $post_id );
 		$post_type_object = get_post_type_object( $post_type );
+
+		// The post's type is no longer registered (its plugin was deactivated): no hierarchy to add.
+		if ( ! $post_type_object ) {
+			return;
+		}
 
 		// If this is the 'post' post type, get the rewrite front items and map the rewrite tags.
 		if ( 'post' === $post_type ) {
@@ -1136,10 +1194,8 @@ class BuddyX_Breadcrumbs {
 
 			// Map the rewrite tags.
 			$this->map_rewrite_tags( $post_id, get_option( 'permalink_structure' ) );
-		}
-
-		// If the post type has rewrite rules.
-		elseif ( false !== $post_type_object->rewrite ) {
+		} elseif ( false !== $post_type_object->rewrite ) {
+			// If the post type has rewrite rules.
 
 			// If 'with_front' is true, add $wp_rewrite->front to the trail.
 			if ( $post_type_object->rewrite['with_front'] ) {
@@ -1177,7 +1233,7 @@ class BuddyX_Breadcrumbs {
 	 * @since  1.0.0
 	 * @access protected
 	 * @param  int $slug  The post type archive slug to search for.
-	 * @return void
+	 * @return array
 	 */
 	protected function get_post_types_by_slug( $slug ) {
 
@@ -1245,7 +1301,7 @@ class BuddyX_Breadcrumbs {
 	 * @param  string $path The path (slug) to search for posts by.
 	 * @return void
 	 */
-	function add_path_parents( $path ) {
+	public function add_path_parents( $path ) {
 
 		// Trim '/' off $path in case we just got a simple '/' instead of a real path.
 		$path = trim( $path, '/' );
@@ -1302,7 +1358,7 @@ class BuddyX_Breadcrumbs {
 	 * @param  string $taxonomy Name of the taxonomy for the given term.
 	 * @return void
 	 */
-	function add_term_parents( $term_id, $taxonomy ) {
+	public function add_term_parents( $term_id, $taxonomy ) {
 
 		// Set up some default arrays.
 		$parents = array();
@@ -1336,8 +1392,7 @@ class BuddyX_Breadcrumbs {
 	 * @access protected
 	 * @param  int    $post_id ID of the post whose parents we want.
 	 * @param  string $path    Path of a potential parent page.
-	 * @param  array  $args    Mixed arguments for the menu.
-	 * @return array
+	 * @return void
 	 */
 	protected function map_rewrite_tags( $post_id, $path ) {
 
@@ -1359,27 +1414,19 @@ class BuddyX_Breadcrumbs {
 				$tag = trim( $match, '/' );
 
 				// If using the %year% tag, add a link to the yearly archive.
-				if ( '%year%' == $tag ) {
+				if ( '%year%' === $tag ) {
 					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'buddyx' ) ) ) );
-				}
-
-				// If using the %monthnum% tag, add a link to the monthly archive.
-				elseif ( '%monthnum%' == $tag ) {
+				} elseif ( '%monthnum%' === $tag ) {
+					// If using the %monthnum% tag, add a link to the monthly archive.
 					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'buddyx' ) ) ) );
-				}
-
-				// If using the %day% tag, add a link to the daily archive.
-				elseif ( '%day%' == $tag ) {
+				} elseif ( '%day%' === $tag ) {
+					// If using the %day% tag, add a link to the daily archive.
 					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'buddyx' ) ) ) );
-				}
-
-				// If using the %author% tag, add a link to the post author archive.
-				elseif ( '%author%' == $tag ) {
+				} elseif ( '%author%' === $tag ) {
+					// If using the %author% tag, add a link to the post author archive.
 					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $post->post_author ) ), esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) );
-				}
-
-				// If using the %category% tag, add a link to the first category archive to match permalinks.
-				elseif ( taxonomy_exists( trim( $tag, '%' ) ) ) {
+				} elseif ( taxonomy_exists( trim( $tag, '%' ) ) ) {
+					// If using the %category% tag, add a link to the first category archive to match permalinks.
 
 					// Force override terms in this post type.
 					$this->post_taxonomy[ $post->post_type ] = false;

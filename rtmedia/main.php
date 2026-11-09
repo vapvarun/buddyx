@@ -58,7 +58,7 @@ if ( ! $rt_ajax_request ) {
 				}
 
 				$bp_nav_style = get_theme_mod( 'buddypress_single_member_nav_style', 'iconic' );
-				if ( $bp_nav_style == 'iconic' ) {
+				if ( 'iconic' === $bp_nav_style ) {
 					$memclass = 'buddyx-nav-iconic';
 				} else {
 					$memclass = '';
@@ -141,7 +141,7 @@ if ( ! $rt_ajax_request ) {
 						}
 
 						$bp_nav_style = get_theme_mod( 'buddypress_single_group_nav_style', 'iconic' );
-						if ( $bp_nav_style == 'iconic' ) {
+						if ( 'iconic' === $bp_nav_style ) {
 							$grpclass = 'buddyx-nav-iconic';
 						} else {
 							$grpclass = '';

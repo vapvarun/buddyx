@@ -14,12 +14,17 @@ namespace BuddyX\Buddyx;
 ?>
 	<?php
 	$classes = get_body_class();
-	if ( ! in_array( 'page-template-full-width', $classes ) ) {
+	if ( ! in_array( 'page-template-full-width', $classes, true ) ) {
 		?>
 		</div><!-- .container -->
 	<?php } ?>
 
-	<?php do_action( 'buddyx_footer_before' ); ?>
+	<?php
+	/**
+	 * Fires before the <footer> element.
+	 */
+	do_action( 'buddyx_footer_before' );
+	?>
 
 	<footer id="colophon" class="site-footer">
 		<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) : ?>
@@ -46,15 +51,30 @@ namespace BuddyX\Buddyx;
 		<?php endif; ?>
 	</footer><!-- #colophon -->
 
-	<?php do_action( 'buddyx_footer_after' ); ?>
+	<?php
+	/**
+	 * Fires after the <footer> element.
+	 */
+	do_action( 'buddyx_footer_after' );
+	?>
 
-<?php do_action( 'buddyx_page_bottom' ); ?>
+<?php
+/**
+ * Fires at the bottom of #page, before wp_footer().
+ */
+do_action( 'buddyx_page_bottom' );
+?>
 
 </div><!-- #page -->
 
 <div class="mobile-menu-close"></div>
 
-<?php do_action( 'buddyx_body_bottom' ); ?>
+<?php
+/**
+ * Fires after wp_footer(), before </body>.
+ */
+do_action( 'buddyx_body_bottom' );
+?>
 
 <?php wp_footer(); ?>
 

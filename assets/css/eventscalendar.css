@@ -12,6 +12,50 @@
 # Global
 --------------------------------------------------------------*/
 
+/* The Events Calendar reads its colours from --tec-color-* variables. Point the
+   base ones at the theme tokens once: Theme Color, dark mode and style variations
+   then reach every calendar view without per-class overrides. html:root outranks
+   the plugin's own :root block whatever the stylesheet order. */
+html:root {
+    --tec-color-text-primary: var(--bx-color-h2);
+    --tec-color-text-primary-light: var(--bx-color-fg);
+    --tec-color-text-secondary: var(--bx-color-fg-muted);
+    --tec-color-text-disabled: var(--bx-color-fg-subtle);
+    --tec-color-icon-primary: var(--bx-color-fg-muted);
+    --tec-color-icon-primary-alt: var(--bx-color-fg-muted);
+    --tec-color-icon-secondary: var(--bx-color-fg-subtle);
+    --tec-color-icon-active: var(--bx-color-h2);
+    --tec-color-icon-disabled: var(--bx-color-border-strong);
+    --tec-color-icon-focus: var(--bx-color-accent);
+    --tec-color-event-icon: var(--bx-color-h2);
+    --tec-color-event-icon-hover: var(--bx-color-accent);
+    --tec-color-accent-primary: var(--bx-color-accent);
+    --tec-color-accent-primary-hover: var(--bx-color-accent-hover);
+    --tec-color-accent-primary-active: var(--bx-color-accent-active);
+    --tec-color-accent-primary-background: var(--bx-color-accent-bg);
+    --tec-color-accent-secondary: var(--bx-color-h2);
+    --tec-color-accent-secondary-hover: var(--bx-color-fg);
+    --tec-color-accent-secondary-active: var(--bx-color-h2);
+    --tec-color-accent-secondary-background: var(--bx-color-bg-muted);
+    --tec-color-link-accent-hover: var(--bx-color-accent-hover);
+    --tec-color-border-default: var(--bx-color-border);
+    --tec-color-border-secondary: var(--bx-color-divider);
+    --tec-color-border-tertiary: var(--bx-color-border-strong);
+    --tec-color-border-hover: var(--bx-color-fg-muted);
+    --tec-color-border-active: var(--bx-color-h2);
+    --tec-color-background: var(--bx-color-bg-elevated);
+    --tec-color-background-transparent: var(--bx-color-bg-elevated);
+    --tec-color-background-secondary: var(--bx-color-bg-muted);
+    --tec-color-background-secondary-hover: var(--bx-color-bg-subtle);
+    --tec-color-background-messages: var(--bx-color-accent-bg);
+    --tec-color-background-primary-multiday: var(--bx-color-accent-bg-strong);
+    --tec-color-background-primary-multiday-hover: var(--bx-color-accent-border);
+    --tec-color-accent-primary-week-event: var(--bx-color-accent-bg);
+    --tec-color-accent-primary-week-event-hover: var(--bx-color-accent-bg-strong);
+    --tec-color-accent-primary-week-event-featured: var(--bx-color-accent-bg);
+    --tec-color-accent-primary-week-event-featured-hover: var(--bx-color-accent-bg-strong);
+}
+
 .tribe-events .tribe-events-calendar-list__event-date-tag-weekday,
 .tribe-common .tribe-common-form-control-checkbox__label,
 .tribe-common .tribe-common-form-control-radio__label,
@@ -212,7 +256,9 @@ header.my-events-header a.tribe-button:focus {
 
 .tribe-common .tribe-common-c-btn-border,
 .tribe-common a.tribe-common-c-btn-border {
-    color: var(--button-background-color);
+    /* Outline button: the label is brand-coloured text, so it uses the readable
+       text shade (the button fill stays the deeper brand in dark mode). */
+    color: var(--bx-color-button-bg-text, var(--button-background-color));
     border: 1px solid var(--button-border-color);
 }
 
@@ -704,7 +750,7 @@ header.my-events-header .tribe-button {
 }
 
 .widget .tribe-events .tribe-events-calendar-month__day-cell--selected .tribe-events-calendar-month__day-date {
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
 }
 
 .widget .tribe-common.tribe-events.tribe-events-widget.tribe-events-view--shortcode.tribe-events-widget-events-week .tribe-events-c-top-bar__nav-list-date,

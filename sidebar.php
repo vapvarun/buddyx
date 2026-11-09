@@ -17,7 +17,10 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>
 
-<?php do_action( 'buddyx_sidebar_before' ); ?>
+<?php
+/** This action is documented in sidebar-buddypress.php */
+do_action( 'buddyx_sidebar_before' );
+?>
 
 <aside id="secondary" class="primary-sidebar widget-area">
 	<div class="sticky-sidebar">
@@ -36,4 +39,7 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 	</div>
 </aside><!-- #secondary -->
 
-<?php do_action( 'buddyx_sidebar_after' ); ?>
+<?php
+/** This action is documented in sidebar-buddypress.php */
+do_action( 'buddyx_sidebar_after' );
+?>

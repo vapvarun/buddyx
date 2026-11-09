@@ -4,7 +4,10 @@
  *
  * @since 3.0.0
  * @version 3.2.0
+ *
+ * @package buddyx
  */
+
 ?>
 
 <?php if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) ) : ?>
@@ -26,7 +29,10 @@
 
 				<div class="list-wrap">
 
-					<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+					<?php
+					/** This action is documented in bb-buddypress/groups/single/members-loop.php */
+					do_action( 'buddyx_before_member_avatar_member_directory' );
+					?>
 
 					<div class="item-avatar">
 						<a href="<?php bp_group_member_domain(); ?>">

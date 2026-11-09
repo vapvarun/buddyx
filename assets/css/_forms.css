@@ -52,10 +52,10 @@ button.button {
 
 .customize-partial-edit-shortcut button,
 .widget .customize-partial-edit-shortcut button {
-    color: #fff !important;
+    color: #fff !important; /* fixed: WP Customizer edit-shortcut chrome */
     font-size: 18px !important;
     border-radius: 50% !important;
-    border: 2px solid #fff !important;
+    border: 2px solid #fff !important; /* fixed: WP Customizer edit-shortcut chrome */
     padding: 3px !important;
 }
 /* stylelint-enable */
@@ -74,11 +74,11 @@ button:active,
 button:focus,
 input:where([type="button"], [type="reset"], [type="submit"]):active,
 input:where([type="button"], [type="reset"], [type="submit"]):focus {
-    border-color: #aaa #bbb #bbb;
+    border-color: var(--bx-color-border-strong);
 }
 
 button:focus-visible {
-    outline: 2px solid #000;
+    outline: 2px solid var(--bx-color-fg);
 }
 
 input[type="text"],
@@ -124,7 +124,7 @@ textarea:focus {
 }
 
 a.menu-close:focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid var(--bx-color-fg-inverse);
 }
 
 table {
@@ -158,8 +158,16 @@ select {
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
-    padding: 0 12px;
+    padding: 0 40px 0 12px;
     color: inherit;
+    appearance: none;
+    background-image: url(../images/arrow-down.svg);
+    background-repeat: no-repeat;
+    background-position: var(--bx-select-arrow-x, right) 1rem center;
+}
+
+:root[data-bx-mode="dark"] select {
+    background-image: url(../images/arrow-down-white.svg);
 }
 
 /* The native option popup does not inherit the dark select surface; without

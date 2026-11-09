@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 class Radio_Buttonset extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-radio-buttonset';

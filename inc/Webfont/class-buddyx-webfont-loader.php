@@ -409,7 +409,7 @@ class Buddyx_WebFont_Loader {
 
 		foreach ( $local_font as $key => $local_font ) {
 			if ( $local_font ) {
-				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $this->font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $this->font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Every value in the tag is escaped.
 			}
 		}
 	}
@@ -556,6 +556,12 @@ class Buddyx_WebFont_Loader {
 		// rendered in the customizer preview (always remote) but never reached
 		// the front end. See buddyx_get_webfont_url().
 		$hash = substr( md5( (string) $this->remote_url . get_site_url() . WP_CONTENT_DIR ), 0, 12 );
+		/**
+		 * Filters the filename used when caching Google Fonts locally.
+		 *
+		 * @param string $name       File name.
+		 * @param string $remote_url Remote stylesheet URL.
+		 */
 		return apply_filters( 'buddyx_local_font_file_name', 'buddyx-local-fonts-' . $hash, $this->remote_url );
 	}
 
@@ -568,6 +574,11 @@ class Buddyx_WebFont_Loader {
 	 * @return void
 	 */
 	public function set_font_format( $format = 'woff2' ) {
+		/**
+		 * Filters the font format for locally cached fonts (default woff2).
+		 *
+		 * @param string $format Format.
+		 */
 		$this->font_format = apply_filters( 'buddyx_local_google_fonts_format', $format );
 	}
 
@@ -591,6 +602,11 @@ class Buddyx_WebFont_Loader {
 	 */
 	public function get_base_path() {
 		if ( ! $this->base_path ) {
+			/**
+			 * Filters the filesystem path for cached local fonts.
+			 *
+			 * @param string $base_path Base path.
+			 */
 			$this->base_path = apply_filters( 'buddyx_local_fonts_base_path', $this->get_filesystem()->wp_content_dir() . '/uploads/' );
 		}
 		return $this->base_path;
@@ -605,7 +621,12 @@ class Buddyx_WebFont_Loader {
 	 */
 	public function get_base_url() {
 		if ( ! $this->base_url ) {
-			$this->base_url = apply_filters( 'buddyx_local_fonts_base_url', content_url() .'/uploads' );
+			/**
+			 * Filters the URL for cached local fonts.
+			 *
+			 * @param string $url Url.
+			 */
+			$this->base_url = apply_filters( 'buddyx_local_fonts_base_url', content_url() . '/uploads' );
 		}
 		return $this->base_url;
 	}
@@ -619,6 +640,11 @@ class Buddyx_WebFont_Loader {
 	 */
 	public function get_subfolder_name() {
 		if ( ! $this->subfolder_name ) {
+			/**
+			 * Filters the directory name (under wp-content/uploads/) for cached fonts.
+			 *
+			 * @param string $name Name.
+			 */
 			$this->subfolder_name = apply_filters( 'buddyx_local_fonts_directory_name', 'buddyx-local-fonts' );
 		}
 		return $this->subfolder_name;
@@ -654,7 +680,7 @@ class Buddyx_WebFont_Loader {
 	public function schedule_cleanup() {
 		if ( ! is_multisite() || ( is_multisite() && is_main_site() ) ) {
 			if ( ! wp_next_scheduled( 'buddyx_delete_fonts_folder' ) && ! wp_installing() ) {
-				wp_schedule_event( time(), self::CLEANUP_FREQUENCY, 'buddyx_delete_fonts_folder' );  // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.cron_functionality_wp_schedule_event
+				wp_schedule_event( time(), self::CLEANUP_FREQUENCY, 'buddyx_delete_fonts_folder' );  // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.cron_functionality_wp_schedule_event -- Clears the local Google Fonts cache; scheduled once, on the main site.
 			}
 		}
 	}
@@ -704,7 +730,7 @@ class Buddyx_WebFont_Loader {
  * @return object
  * @since 4.3.9
  */
-function buddyx_webfont_loader_instance( $font_url = '' ) {
+function buddyx_webfont_loader_instance( $font_url = '' ) { // phpcs:ignore Universal.Files.SeparateFunctionsFromOO.Mixed -- Public helper functions shipped with the loader class since 4.3.9; child themes call them.
 	return new Buddyx_WebFont_Loader( $font_url );
 }
 
@@ -727,10 +753,11 @@ function buddyx_load_preload_local_fonts( $url, $format = 'woff2' ) {
 	$buddyx_local_font_files = get_site_option( 'buddyx_local_font_files', false );
 
 	if ( is_array( $buddyx_local_font_files ) && isset( $buddyx_local_font_files['key'], $buddyx_local_font_files['files'] ) && $buddyx_local_font_files['key'] === $cache_key && is_array( $buddyx_local_font_files['files'] ) ) {
+		/** This filter is documented in inc/Webfont/class-buddyx-webfont-loader.php */
 		$font_format = apply_filters( 'buddyx_local_google_fonts_format', $format );
 		foreach ( $buddyx_local_font_files['files'] as $local_font ) {
 			if ( $local_font ) {
-				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Every value in the tag is escaped.
 			}
 		}
 		return;
@@ -814,14 +841,14 @@ function buddyx_regenerate_fonts_folder() {
 
 	wp_send_json_error( 'no_font_loader' );
 }
-add_action( 'wp_ajax_buddyx_regenerate_fonts_folder','buddyx_regenerate_fonts_folder' );
+add_action( 'wp_ajax_buddyx_regenerate_fonts_folder', 'buddyx_regenerate_fonts_folder' );
 
 
 
 /**
  *  Delete the cached partial configs.
  */
-function buddyx_delete_cached_partials() {	
+function buddyx_delete_cached_partials() {
 
 	// Delete previously stored local fonts data, if exists.
 	if ( get_option( 'buddyx_font_url' ) ) {
@@ -829,4 +856,4 @@ function buddyx_delete_cached_partials() {
 		$local_webfont_loader->buddyx_delete_fonts_folder();
 	}
 }
-add_action( 'customize_save_after', 'buddyx_delete_cached_partials'  );
+add_action( 'customize_save_after', 'buddyx_delete_cached_partials' );

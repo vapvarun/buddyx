@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 7.0.0
+ *
+ * @package buddyx
  */
 
 remove_filter( 'bp_get_add_follow_button', 'bb_bp_get_add_follow_button' );
@@ -189,7 +191,7 @@ if ( $bp_is_my_profile ) {
 							),
 						)
 					);
-				?>
+					?>
 			</div><!-- .member-header-actions-wrap -->
 
 		</div><!-- #item-header-content -->
@@ -213,7 +215,7 @@ if ( $bp_is_my_profile ) {
 					<div class="bb-remove-connection-content bb-action-popup-content">
 						<p>
 							<?php
-							echo sprintf(
+							printf(
 								/* translators: %s: The member name with HTML tags. */
 								esc_html__( 'Are you sure you want to remove %s from your connections?', 'buddyx' ),
 								'<span class="bb-user-name"></span>'

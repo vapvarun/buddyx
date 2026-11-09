@@ -60,36 +60,111 @@ class Component implements Component_Interface {
 	public function action_add_image_sizes() {
 
 		// Add 'buddyx-featured' size dynamically.
-		$featured_width  = apply_filters( 'buddyx_featured_width', 900 );
+		/**
+		 * Filters the single-post featured image width.
+		 *
+		 * @param int $width Width.
+		 */
+		$featured_width = apply_filters( 'buddyx_featured_width', 900 );
+		/**
+		 * Filters the single-post featured image height.
+		 *
+		 * @param int $height Height.
+		 */
 		$featured_height = apply_filters( 'buddyx_featured_height', 515 );
-		$featured_crop   = apply_filters( 'buddyx_featured_crop', true );
+		/**
+		 * Filters the single-post featured image crop setting.
+		 *
+		 * @param bool $crop Crop.
+		 */
+		$featured_crop = apply_filters( 'buddyx_featured_crop', true );
 		add_image_size( 'buddyx-featured', $featured_width, $featured_height, $featured_crop );
 
 		add_image_size(
 			'buddyx-large',
+			/**
+			 * Filters the large card image width.
+			 *
+			 * @param int $width Width.
+			 */
 			apply_filters( 'buddyx_large_width', 1024 ),
+			/**
+			 * Filters the large card image height.
+			 *
+			 * @param int $height Height.
+			 */
 			apply_filters( 'buddyx_large_height', 508 ),
+			/**
+			 * Filters the large card image crop setting.
+			 *
+			 * @param bool $crop Crop.
+			 */
 			apply_filters( 'buddyx_large_crop', false )
 		);
 
 		add_image_size(
 			'buddyx-list',
+			/**
+			 * Filters the list layout image width.
+			 *
+			 * @param int $width Width.
+			 */
 			apply_filters( 'buddyx_list_width', 300 ),
+			/**
+			 * Filters the list layout image height.
+			 *
+			 * @param int $height Height.
+			 */
 			apply_filters( 'buddyx_list_height', 250 ),
+			/**
+			 * Filters the list layout image crop setting.
+			 *
+			 * @param bool $crop Crop.
+			 */
 			apply_filters( 'buddyx_list_crop', true )
 		);
 
 		add_image_size(
 			'buddyx-col-two',
+			/**
+			 * Filters the 2-column grid image width.
+			 *
+			 * @param int $width Width.
+			 */
 			apply_filters( 'buddyx_col_two_width', 450 ),
+			/**
+			 * Filters the 2-column grid image height.
+			 *
+			 * @param int $height Height.
+			 */
 			apply_filters( 'buddyx_col_two_height', 300 ),
+			/**
+			 * Filters the 2-column grid image crop setting.
+			 *
+			 * @param bool $crop Crop.
+			 */
 			apply_filters( 'buddyx_col_two_crop', true )
 		);
 
 		add_image_size(
 			'buddyx-col-three',
+			/**
+			 * Filters the 3-column grid image width.
+			 *
+			 * @param int $width Width.
+			 */
 			apply_filters( 'buddyx_col_three_width', 350 ),
+			/**
+			 * Filters the 3-column grid image height.
+			 *
+			 * @param int $height Height.
+			 */
 			apply_filters( 'buddyx_col_three_height', 250 ),
+			/**
+			 * Filters the 3-column grid image crop setting.
+			 *
+			 * @param bool $crop Crop.
+			 */
 			apply_filters( 'buddyx_col_three_crop', true )
 		);
 	}

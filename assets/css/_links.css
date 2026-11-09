@@ -20,3 +20,10 @@ a:active {
     outline: 0;
     text-decoration: none;
 }
+/* A link inside running text needs a cue besides colour (WCAG 1.4.1). In dark mode the default link colour equals the body
+   text until the owner sets a dark link colour. Classed links are buttons, chips and menu items, so only plain links in
+   prose are underlined. */
+:is(.entry-content, .comment-content, .entry-summary) :is(p, li, dd, td, blockquote, figcaption) a:not([class]) {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}

@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  BuddyPress General Settings
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings'    => 'buddypress_avatar_style',
 				'label'       => esc_html__( 'Avatar Style', 'buddyx' ),

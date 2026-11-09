@@ -162,10 +162,6 @@ class Theme {
 			new Welcome\Component(),
 		);
 
-		if ( defined( 'JETPACK__VERSION' ) ) {
-			$components[] = new Jetpack\Component();
-		}
-
 		$components[] = new Tokens\Component();
 		$components[] = new Color_Mode_Toggle\Component();
 		$components[] = new Starter_Content\Component();

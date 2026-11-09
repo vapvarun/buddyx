@@ -76,6 +76,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_action( 'init', array( $this, 'buddyx_register_fonts' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 		add_action( 'wp_head', array( $this, 'print_custom_fonts' ), 50 );
+		add_filter( 'wp_preload_resources', array( $this, 'preload_body_font' ) );
 	}
 
 	/**
@@ -202,9 +203,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				if ( buddyx_is_truthy( get_theme_mod( 'site_preload_local_font' ) ) ) {
 					buddyx_load_preload_local_fonts( $google_fonts_url );
 				}
-				wp_enqueue_style( 'buddyx-fonts', buddyx_get_webfont_url( $google_fonts_url ), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+				wp_enqueue_style( 'buddyx-fonts', buddyx_get_webfont_url( $google_fonts_url ), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Font CSS URL; a ver arg would only split the browser cache.
 			} else {
-				wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+				wp_enqueue_style( 'buddyx-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Google Fonts URL; a ver arg is meaningless for the remote stylesheet.
 			}
 		}
 	}
@@ -257,36 +258,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->google_fonts;
 		}
 
-		// Self-hosted theme.json families + bare CSS generics — never fetched.
-		$skip = array(
-			'',
-			'inter',
-			'newsreader',
-			'system',
-			'system-ui',
-			'sans-serif',
-			'serif',
-			'monospace',
-			'cursive',
-			'fantasy',
-		);
-
-		$custom_names = self::custom_font_names();
-
 		$collected = array();
 		foreach ( self::$typography_settings as $setting_id ) {
 			$value = get_theme_mod( $setting_id );
 			if ( ! is_array( $value ) || empty( $value['font-family'] ) ) {
 				continue;
 			}
-			$family = trim( (string) $value['font-family'] );
-			if ( in_array( strtolower( $family ), $skip, true ) ) {
-				continue;
-			}
-			// Skip families uploaded via WordPress's Font Library — those are
-			// self-hosted (see get_custom_fonts_in_use()) and Google doesn't
-			// host them; requesting them from fonts.googleapis.com would just 404.
-			if ( isset( $custom_names[ strtolower( $family ) ] ) ) {
+			$family = self::google_family( (string) $value['font-family'] );
+			if ( '' === $family ) {
 				continue;
 			}
 			$variant = '';
@@ -311,6 +290,28 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$this->google_fonts = (array) apply_filters( 'buddyx_google_fonts', $collected );
 
 		return $this->google_fonts;
+	}
+
+	/**
+	 * The Google family a saved font-family value asks for, or '' when Google
+	 * must not be asked: self-hosted theme fonts, fonts uploaded through the
+	 * Font Library, system and web-safe fonts, CSS generics, and any value that
+	 * is not a plain family name (letters, digits, spaces, hyphens).
+	 *
+	 * @param string $stack Saved CSS font-family value, e.g. `"DM Sans", sans-serif`.
+	 * @return string Google family name, or ''.
+	 */
+	protected static function google_family( string $stack ): string {
+		$family = trim( trim( explode( ',', $stack )[0] ), '"\' ' );
+		if ( ! preg_match( '/^[A-Za-z0-9][A-Za-z0-9 -]*$/', $family ) ) {
+			return '';
+		}
+		$not_google = array( 'inter', 'newsreader', 'system', 'system-ui', 'sans-serif', 'serif', 'monospace', 'cursive', 'fantasy', 'ui-sans-serif', 'ui-serif', 'ui-monospace', 'arial', 'helvetica', 'helvetica neue', 'georgia', 'times', 'times new roman', 'verdana', 'tahoma', 'trebuchet ms', 'courier', 'courier new', 'palatino', 'garamond', 'impact', 'segoe ui' );
+		$key        = strtolower( $family );
+		if ( in_array( $key, $not_google, true ) || isset( self::custom_font_names()[ $key ] ) ) {
+			return '';
+		}
+		return $family;
 	}
 
 	/**
@@ -434,6 +435,32 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return;
 		}
 		wp_print_font_faces( $fonts );
+	}
+
+	/**
+	 * Preloads the self-hosted Inter file when body text is set in Inter (the
+	 * theme default), so the first paint does not wait for the stylesheet to
+	 * discover the font. The Customizer body font wins over the active style.
+	 *
+	 * @param array $resources Resources to preload, from wp_preload_resources.
+	 * @return array
+	 */
+	public function preload_body_font( array $resources ): array {
+		$body   = get_theme_mod( 'typography_option' );
+		$global = wp_get_global_styles( array( 'typography', 'fontFamily' ) ); // Returns all styles when the path is unset.
+		$family = is_array( $body ) && ! empty( $body['font-family'] )
+			? (string) $body['font-family']
+			: ( is_string( $global ) ? $global : '' );
+		if ( '' !== $family && ! preg_match( '/^\W*inter\b|font-family[-|]{1,2}inter\b/i', $family ) ) {
+			return $resources;
+		}
+		$resources[] = array(
+			'href'        => get_theme_file_uri( 'assets/fonts/inter/Inter-Variable.woff2' ),
+			'as'          => 'font',
+			'type'        => 'font/woff2',
+			'crossorigin' => 'anonymous',
+		);
+		return $resources;
 	}
 
 	/**

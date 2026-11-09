@@ -813,7 +813,11 @@
 			if ( ! $picker.length ) {
 				$picker = ctl.container.find( 'input[type="text"]' ).first();
 			}
-			if ( $picker.length && $picker.data( 'a8c-iris' ) ) {
+			if ( $picker.length && '' === newColor ) {
+				// Cleared: empty input and swatch, so the field shows it follows the Theme Color.
+				$picker.val( '' );
+				ctl.container.find( '.wp-color-result' ).css( 'background-color', '' );
+			} else if ( $picker.length && $picker.data( 'a8c-iris' ) ) {
 				$picker.wpColorPicker( 'color', newColor );
 			}
 		}

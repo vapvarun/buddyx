@@ -203,23 +203,16 @@ input:where([type="button"], [type="submit"]):hover {
 	color: var(--bx-color-copyright-link-hover, var(--bx-color-link-hover, #c92a2b));
 }
 
-/* ----- Active menu state — accessible distinguisher -----
- * Per-WCAG 1.4.3 AA, body text needs a 4.5:1 contrast ratio. The default
- * accent #c92a2b only has 3.87:1 against white — fails. Rather than
- * darken the brand accent globally (would break customer expectations),
- * keep the active state TEXT in the standard menu fg (high contrast) and
- * use the brand accent as a "you are here" bottom-border emphasis. The
- * earlier text-decoration underline read as dated on nav items; a 2px
- * accent bottom-border (drawn with an inset box-shadow so it adds no
- * layout shift vs. inactive items) is the modern equivalent. Bold weight
- * keeps a non-color cue intact, so WCAG 1.4.1 (Use of Color) still holds. */
+/* ----- Active menu state -----
+ * The current item uses the Customizer Menu Active color (accent by
+ * default, 5.4:1 on white) and bold weight, the same as BuddyX Pro. Bold is
+ * the non-color cue for WCAG 1.4.1. No underline bar: owner decision, 5.2.0. */
 .main-navigation ul li.current-menu-item > a,
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li.current-menu-ancestor > a {
-	color: var(--bx-color-menu-fg, var(--bx-color-fg, #1a1a1a));
+	color: var(--bx-color-menu-active, var(--bx-color-accent, #c92a2b));
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: inset 0 -2px 0 0 var(--bx-color-menu-active, var(--bx-color-accent, #c92a2b));
 }
 
 /* ----- Inputs / forms ----- */

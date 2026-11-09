@@ -1,0 +1,62 @@
+/*--------------------------------------------------------------
+# Sensei LMS
+Loaded only when Sensei is active. Learning Mode resolves its colours from
+Sensei's own settings first, then the WordPress preset colours. Setting the
+presets on the Learning Mode body makes it follow the theme and dark mode,
+while colours the owner picks for Learning Mode (Customizer) still win.
+--------------------------------------------------------------*/
+
+body.sensei-course-theme {
+    --wp--preset--color--background: var(--bx-color-bg);
+    --wp--preset--color--text: var(--bx-color-fg);
+    --wp--preset--color--primary: var(--bx-color-accent);
+    --sensei-lesson-meta-color: var(--bx-color-fg-muted);
+    --sensei-locked-lesson-color: var(--bx-color-fg-muted);
+    --sensei-module-lesson-color: var(--bx-color-fg);
+    --sensei-pagination-color: var(--bx-color-fg);
+}
+
+/* Sensei draws its notices ("Please sign in", locked lesson) inverted from the
+   foreground/background presets. Show them as a theme surface card instead. */
+body.sensei-course-theme .sensei-lms-notice {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
+}
+
+/* Outside Learning Mode, Sensei's shared parts (the Contact Teacher dialog and
+   its button) read these variables, which nothing sets, so the dialog was a
+   white panel with white text in dark mode. Set on :root from the theme tokens:
+   they follow light and dark mode, and Learning Mode colours the owner picks
+   (set closer to the content) still win. */
+:root {
+    --sensei-background-color: var(--bx-color-bg-elevated);
+    --sensei-text-color: var(--bx-color-fg);
+    --sensei-primary-color: var(--bx-color-button-bg);
+    --sensei-primary-contrast-color: var(--bx-color-button-fg);
+}
+
+[data-sensei-modal] [data-sensei-modal-content] {
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+/* Course list grid: equal-height cards with the action button on one line at the bottom. */
+.wp-block-sensei-lms-course-list--is-grid-view .wp-block-post-template.is-flex-container > li.course {
+	display: flex;
+}
+
+.wp-block-sensei-lms-course-list--is-grid-view .wp-block-post-template.is-flex-container > li.course > .wp-block-group {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+.wp-block-sensei-lms-course-list--is-grid-view .wp-block-sensei-lms-course-actions {
+	margin-block-start: auto;
+	padding-block-start: var(--bx-space-3, 12px);
+}
+
+/* Locked lessons in the learning-mode sidebar: Sensei dims the whole row to 70% on top of the muted text colour, which lands at 2.8:1 in light mode. The muted colour already marks the lesson as locked. */
+.sensei-lms-course-navigation-lesson.status-locked {
+    opacity: 1;
+}

@@ -59,21 +59,12 @@
     margin: 0;
 }
 
-.avatar {
-    aspect-ratio: 1;
-    object-fit: cover;
-}
-
 body.buddypress article.page>.entry-header .entry-title {
     color: var(--color-h1);
 }
 
 .buddypress .entry-meta {
     display: none;
-}
-
-body.bp-nouveau .entry-content {
-    margin-top: 0;
 }
 
 .buddypress .entry-footer {
@@ -106,7 +97,7 @@ body .buddypress-wrap .subnav-filters .last select {
     min-height: 34px;
     background-image: url(../images/arrow-down.svg);
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: var(--bx-select-arrow-x, right) 10px center;
     border: 0;
 }
 
@@ -137,7 +128,6 @@ body .buddypress-wrap .subnav-filters .last select {
     color: inherit;
 }
 
-select,
 .buddypress-wrap .select-wrap select,
 body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
 .buddypress-wrap #notification-select,
@@ -145,8 +135,8 @@ body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
     -webkit-appearance: none;
     background-image: url(../images/arrow-down.svg);
     background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 40px;
+    background-position: var(--bx-select-arrow-x, right) 1rem center;
+    padding-inline-end: 40px;
 }
 
 .buddypress-wrap input[type="email"]:focus,
@@ -583,18 +573,18 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 }
 
 .bp-pagination-links span.page-numbers:not(.dots) {
-    color: var(--bx-color-accent-inverse, #fff);
-    background-color: var(--color-theme-primary);
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
 }
 
 .bp-navs ul li .count,
 .buddypress-wrap .bp-navs li.dynamic a .count {
-    background: var(--color-theme-primary);
+    background: var(--bx-color-accent-fill, var(--color-theme-primary));
     box-shadow: none;
     border-radius: 100px;
     font-size: 11px;
     font-weight: 600;
-    color: var(--bx-color-accent-inverse, #fff);
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
     letter-spacing: -0.26px;
     line-height: 16px;
     border: 0;
@@ -615,7 +605,8 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 .buddypress-wrap .bp-navs li.selected a .count,
 .buddypress_object_nav .bp-navs li.current a .count,
 .buddypress_object_nav .bp-navs li.selected a .count {
-    background-color: var(--color-theme-primary);
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
 }
 
 
@@ -623,7 +614,8 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 .buddypress_object_nav .bp-navs li.dynamic a .count,
 .buddypress_object_nav .bp-navs li.dynamic.current a .count,
 .buddypress_object_nav .bp-navs li.dynamic.selected a .count {
-    background-color: var(--color-theme-primary);
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
 }
 
 
@@ -634,7 +626,8 @@ body.media .buddypress-wrap.bp-dir-hori-nav ul.subnav {
 .buddypress-wrap .rtm-bp-navs ul li.selected a>span,
 .users-header .bp-member-type,
 .single-headers .group-status .group-type {
-    background-color: var(--color-theme-primary);
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
 }
 
 .buddypress #buddypress.bp-dir-hori-nav .create-button a,
@@ -1514,27 +1507,31 @@ input#rt_media_comment_submit {
 }
 
 li.load-more a.loading::after {
-    content: "\f110";
-    font-family: "Font Awesome 6 Free";
+    content: "";
     font-size: 18px;
-    font-weight: 900;
-    line-height: 1;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
     margin-left: 10px;
-    text-align: center;
     display: inline-block;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-spinner) center / contain no-repeat;
+    mask: var(--bx-icon-spinner) center / contain no-repeat;
     -webkit-animation: spin 1s infinite linear;
     animation: spin 1s infinite linear;
 }
 
 .buddypress .buddypress-wrap .generic-button .loading:not(.bp-tooltip)::after {
-    content: "\f110";
-    font-family: "Font Awesome 6 Free";
+    content: "";
     font-size: 18px;
-    font-weight: 900;
-    line-height: 1;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
     margin-left: 10px;
-    text-align: center;
     display: inline-block;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-spinner) center / contain no-repeat;
+    mask: var(--bx-icon-spinner) center / contain no-repeat;
     -webkit-animation: spin 1s infinite linear;
     animation: spin 1s infinite linear;
 }
@@ -1591,13 +1588,16 @@ li.load-more a.loading::after {
 .bp-member-activity-preview,
 .bp-group-activity-preview {
     padding: 15px;
+
+    /* A pointer to the member or group, not the page itself: keep it compact so a feed of friendships and joins stays scannable. */
+    max-width: 480px;
 }
 
 .bp-member-avatar-content img.profile-photo,
 .bp-member-avatar-content img.group-photo,
 .bp-group-avatar-content img.profile-photo,
 .bp-group-avatar-content img.group-photo {
-    border: 5px solid #fff;
+    border: 5px solid var(--bx-color-bg-elevated);
     background: rgba(255, 255, 255, 0.8);
     height: 80px;
     width: 80px;
@@ -1633,8 +1633,8 @@ li.load-more a.loading::after {
 }
 
 .member-status {
-    background: #00E652;
-    border: 2px solid #fff;
+    background: var(--bx-color-presence-online);
+    border: 2px solid var(--bx-color-bg-elevated);
     border-radius: 100%;
     position: absolute;
     width: 12px;
@@ -1644,7 +1644,7 @@ li.load-more a.loading::after {
 }
 
 .member-status.offline {
-    background-color: #edbb34;
+    background-color: var(--bx-color-presence-offline);
     opacity: 0;
     visibility: hidden;
 }
@@ -1834,7 +1834,7 @@ li.load-more a.loading::after {
 .buddypress-wrap .grid.bp-list>li .item-avatar img.avatar {
     max-width: 126px;
     width: 100%;
-    border: 5px solid #fff;
+    border: 5px solid var(--bx-color-bg-elevated);
     box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
 }
 
@@ -1884,7 +1884,7 @@ li.load-more a.loading::after {
 }
 
 .buddypress-wrap .grid.bp-list>li .list-wrap .item-avatar img.avatar {
-    border: 5px solid #fff;
+    border: 5px solid var(--bx-color-bg-elevated);
 }
 
 .buddyx-mem-cover-wrapper,
@@ -1901,9 +1901,10 @@ li.load-more a.loading::after {
     overflow: hidden;
     padding-top: 52.56%;
     display: block;
-    /* fallback for old browsers */
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #FFF, #FFEFBA);
+    /* Default cover when the member or group has none: the same Theme Color
+       tint as the single header cover, in light and dark. */
+    background-color: var(--bx-color-bg-muted, #f5f5f5);
+    background-image: linear-gradient(135deg, var(--bx-color-accent-bg-strong, rgba(0, 0, 0, 0.08)), var(--bx-color-accent-bg, transparent) 55%, transparent);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -2188,6 +2189,19 @@ body.buddypress.group-create #page #primary .entry-header {
     border-radius: 0;
 }
 
+/* Default cover when the member or group has none: a soft Theme Color
+   tint instead of BuddyPress's flat #c5c5c5. It sits on the container
+   because BuddyPress prints the cover photo inline on #header-cover-image
+   with a more specific selector; an uploaded cover still covers it. */
+#cover-image-container {
+    background-color: var(--bx-color-bg-muted, #f5f5f5);
+    background-image: linear-gradient(135deg, var(--bx-color-accent-bg-strong, rgba(0, 0, 0, 0.08)), var(--bx-color-accent-bg, transparent) 55%, transparent);
+}
+
+#buddypress #header-cover-image {
+    background-color: transparent;
+}
+
 .users-header #cover-image-container,
 .users-header #buddypress #header-cover-image,
 .groups-header #cover-image-container,
@@ -2291,9 +2305,25 @@ body.buddypress.group-create #page #primary .entry-header {
     margin: 0;
 }
 
+/* Wrap the avatar and its online dot so the dot stays on the photo when the header centres it (mobile). */
+#item-header-avatar .avatar-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+/* The RSS link floats beside a taller search box: centre both in one row. */
+.buddypress-wrap .subnav-search:has(> .feed) {
+    display: flex;
+    align-items: center;
+}
+
+.buddypress-wrap .subnav-search > .feed {
+    float: none;
+}
+
 #buddypress #item-header-cover-image #item-header-avatar img.avatar {
     box-shadow: 0 2px 5px 0 rgba(18, 43, 70, .12), 0 0 0 1px var(--bx-color-border, #E7E9EC);
-    border: 5px solid #fff;
+    border: 5px solid var(--bx-color-bg-elevated);
     max-width: 150px;
 }
 
@@ -2305,13 +2335,27 @@ body.buddypress.group-create #page #primary .entry-header {
     width: auto;
 }
 
-body.bp-nouveau.media #buddypress #item-header-cover-image .user-nicename,
+body.bp-nouveau.media #buddypress #item-header-cover-image .user-displayname,
+#buddypress div#item-header-cover-image h1 a,
+#buddypress div#item-header-cover-image h1,
 #buddypress div#item-header-cover-image h2 a,
 #buddypress div#item-header-cover-image h2 {
     color: var(--bx-color-fg, #111);
     text-rendering: inherit;
     text-shadow: none;
     margin: 0 0 15px;
+    font-size: 200%;
+}
+
+/* The member's name is the page H1; the @handle sits under it as a secondary line. */
+#buddypress #item-header .user-nicename {
+    margin: -10px 0 10px;
+    color: var(--bx-color-fg-muted);
+    font-size: 100%;
+}
+
+#buddypress #item-header h1.bp-group-title,
+#buddypress #item-header h1.user-displayname {
     font-size: 200%;
 }
 
@@ -2369,7 +2413,6 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul div
 .buddypress-wrap .profile.edit .editfield {
     background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
-    border-radius: var(--global-border-radius) !important;
 }
 
 .buddypress-wrap .profile.edit .editfield fieldset {
@@ -3404,7 +3447,7 @@ button#bp-delete-avatar {
     height: 6px;
     background-color: var(--bx-color-presence-online, #4caf50);
     border-radius: 12px !important;
-    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55);
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #5856d6, #ff2d55); /* fixed: decorative progress gradient, same in both modes */
 }
 
 .wb-bp-profile-completion-wrap .wb-bp-detailed-progress-container {
@@ -3436,7 +3479,7 @@ button#bp-delete-avatar {
     height: 25px;
     text-align: center;
     float: right;
-    color: #fff;
+    color: var(--bx-color-fg-inverse);
     background: var(--bx-color-presence-online, #4caf50);
     border: 2px solid var(--bx-color-presence-online, #4caf50);
     border-radius: 30px;
@@ -3473,8 +3516,8 @@ button#bp-delete-avatar {
     left: 8px;
     height: 10px;
     width: 6px;
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-bottom: 2px solid var(--bx-color-fg-inverse);
+    border-right: 2px solid var(--bx-color-fg-inverse);
     transform: rotate(45deg);
 }
 
@@ -3515,9 +3558,9 @@ button#bp-delete-avatar {
     background: rgba(0, 0, 0, 0.9);
 }
 
-#item-header a.link-change-cover-image>i,
-#item-header a.position-change-cover-image>i,
-#item-header a.link-change-profile-image>i {
+#item-header a.link-change-cover-image>.bx-icon,
+#item-header a.position-change-cover-image>.bx-icon,
+#item-header a.link-change-profile-image>.bx-icon {
     font-size: 16px;
 }
 
@@ -3573,7 +3616,7 @@ button#bp-delete-avatar {
     border: 0;
     border-radius: 4px !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .22);
-    color: #fff;
+    color: #fff; /* fixed: text on the fixed dark navy tooltip */
     content: attr(data-bp-tooltip);
     line-height: 1.3;
     padding: 7px 15px;
@@ -4267,10 +4310,6 @@ body.hide-overflow .site-footer {
 .buddypress.widget .showGamipressData img {
     height: 14px !important;
     width: 14px !important;
-}
-
-.buddypress.widget .showGamipressData .far {
-    font-size: 12px;
 }
 
 
@@ -5159,21 +5198,35 @@ button.ges-change:hover {
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before,
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    display: inline-block;
+    height: 1em;
+    /* Keep the line as tall as the 18px glyph line was: half-leading above and
+       below, with the glyph still on the text baseline. */
+    margin-block: calc((1lh - 1em) / 2);
+    vertical-align: calc(-0.125em - (1lh - 1em) / 2);
     font-size: 18px;
+    background-color: currentcolor;
 }
 
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addPhotos::before {
-    content: "\f030";
+    content: "";
+    width: 1em;
+    -webkit-mask: var(--bx-icon-camera) center / contain no-repeat;
+    mask: var(--bx-icon-camera) center / contain no-repeat;
 }
 
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addVideos::before {
-    content: "\f03d";
+    content: "";
+    width: 1.125em;
+    -webkit-mask: var(--bx-icon-video) center / contain no-repeat;
+    mask: var(--bx-icon-video) center / contain no-repeat;
 }
 
 .bpfb_actions_container:not(.bpfb-theme-round):not(.bpfb-theme-new) #bpfb_addLinks::before {
-    content: "\f0c1";
+    content: "";
+    width: 1.25em;
+    -webkit-mask: var(--bx-icon-link) center / contain no-repeat;
+    mask: var(--bx-icon-link) center / contain no-repeat;
 }
 
 ul#bpfb_tmp_photo_list {
@@ -5913,4 +5966,414 @@ they follow dark mode.
 
 .buddypress-wrap .subnav-filters .user-messages-bulk-actions .select-wrap:hover {
     outline-color: var(--bx-color-border-strong, #d6d6d6);
+}
+
+/* Pagination text: BuddyPress paints it a grey at 4.25:1 on the page; use the AA muted token. */
+.buddypress-wrap .bp-pagination {
+    color: var(--bx-color-fg-muted, #6a6a6a);
+}
+
+/* Profile and group tabs on phones: equal-width tiles, two per row, instead of ragged text-width rows. */
+@media screen and (max-width: 46.8em) {
+    #buddypress.buddypress-wrap #object-nav.bp-navs ul.bp-priority-object-nav-nav-items {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #buddypress.buddypress-wrap #object-nav.bp-navs ul.bp-priority-object-nav-nav-items > li {
+        display: block;
+        width: auto;
+    }
+
+    #buddypress.buddypress-wrap #object-nav.bp-navs ul.bp-priority-object-nav-nav-items > li > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 44px;
+    }
+}
+
+/* Member and group cards: equal height per row, action button on one line at the card bottom. */
+.buddypress-wrap .bp-list.grid > li.item-entry {
+    display: flex;
+}
+
+.buddypress-wrap .bp-list.grid > li.item-entry > .list-wrap {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.buddypress-wrap .bp-list.grid > li.item-entry > .list-wrap > .item {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.buddypress-wrap .bp-list.grid > li.item-entry > .list-wrap > .item > .item-block {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.buddypress-wrap .bp-list.grid > li.item-entry > .list-wrap > .item > .action,
+.buddypress-wrap .bp-list.grid > li.item-entry .item-block > .member-action-wrapper {
+    margin-block: auto 0;
+}
+
+/* Member and group preview cards in the activity stream: one compact row (avatar, name, action) instead of a tall centred card. */
+.activity-list .activity-item .activity-inner :is(.bp-member-activity-preview, .bp-group-activity-preview) {
+    border: 1px solid var(--bx-color-border);
+    border-radius: var(--global-border-radius, 8px);
+    margin: 0 16px 16px;
+    max-width: none;
+    padding: 12px 16px;
+}
+
+.activity-list .activity-item .activity-inner .bp-member-preview-cover {
+    display: none;
+}
+
+.activity-list .activity-item .activity-inner :is(.bp-member-short-description, .bp-group-short-description) {
+    align-items: center;
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    padding: 0;
+    text-align: start;
+}
+
+.activity-list .activity-item .activity-inner :is(.bp-member-avatar-content, .bp-group-avatar-content) {
+    grid-row: 1 / span 2;
+    height: auto;
+    margin: 0;
+    width: 56px;
+}
+
+.activity-list .activity-item .activity-inner :is(.bp-member-avatar-content, .bp-group-avatar-content) img {
+    border: 0;
+    border-radius: 50%;
+    height: 56px;
+    margin: 0;
+    max-width: none;
+    object-fit: cover;
+    width: 100%;
+}
+
+.activity-list .activity-item .activity-inner .bp-member-short-description-title {
+    align-self: end;
+    margin: 0;
+    padding: 0;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.activity-list .activity-item .activity-inner .bp-group-short-description-title {
+    margin: 0;
+    padding: 0;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.activity-list .activity-item .activity-inner .bp-member-nickname {
+    align-self: start;
+    margin: 0;
+    padding: 0;
+    color: var(--bx-color-fg-muted);
+    font-size: 0.875rem;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.activity-list .activity-item .activity-inner :is(.bp-member-short-description, .bp-group-short-description) .bp-profile-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    margin: 0;
+    text-align: end;
+}
+
+.activity-list .activity-item .activity-inner :is(.bp-member-short-description, .bp-group-short-description) .bp-profile-button .button {
+    font-size: 0.875rem;
+    padding: 6px 14px;
+}
+
+@media (max-width: 480px) {
+    .activity-list .activity-item .activity-inner :is(.bp-member-short-description, .bp-group-short-description) {
+        grid-template-columns: 56px minmax(0, 1fr);
+    }
+
+    .activity-list .activity-item .activity-inner :is(.bp-member-short-description, .bp-group-short-description) .bp-profile-button {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        margin-top: 12px;
+        text-align: start;
+    }
+}
+
+/* Directory cards: compact avatar and clamped names (members and groups). The size is one variable so child themes can restore the old 126px. */
+.buddypress-wrap .grid.bp-list>li {
+    --bx-dir-avatar: 96px;
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .item-avatar img.avatar {
+    max-width: var(--bx-dir-avatar);
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .buddyx-mem-cover-wrapper+.item-avatar,
+.buddypress-wrap .grid.bp-list>li .list-wrap .buddyx-grp-cover-wrapper+.item-avatar {
+    margin-top: calc(var(--bx-dir-avatar) / -2);
+}
+
+.buddypress-wrap .grid.bp-list>li .list-wrap .list-title a {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.buddypress-wrap .grid.bp-list>li {
+    --bx-dir-cover-ratio: 38%;
+}
+
+.buddypress-wrap .grid.bp-list>li .buddyx-mem-cover-img,
+.buddypress-wrap .grid.bp-list>li .buddyx-grp-cover-img {
+    padding-top: var(--bx-dir-cover-ratio);
+}
+
+/*
+ * Profile fields, view and edit. CSS only and scoped to BuddyPress's own field
+ * classes (field_type_*, .input-options, .field-visibility-settings*), so BuddyPress
+ * template updates and child-theme overrides keep working. Same block in BuddyX and BuddyX Pro.
+ */
+
+/* View: each field group is a card. */
+.buddypress-wrap .profile.public .bp-widget {
+    background: var(--bx-color-bg-elevated);
+    border: 1px solid var(--bx-color-border);
+    border-radius: var(--global-border-radius, 4px);
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.25rem .5rem;
+}
+
+.buddypress-wrap .profile.public .bp-widget > :is(h2, h3, h4) {
+    font-size: 1.0625rem;
+    margin: 0 0 .5rem;
+}
+
+.buddypress-wrap .profile.public table.profile-fields {
+    border: 0;
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%;
+}
+
+.buddypress-wrap .profile.public table.profile-fields tr,
+.buddypress-wrap .profile.public table.profile-fields tr.alt td {
+    background: transparent;
+}
+
+.buddypress-wrap .profile.public table.profile-fields td {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--bx-color-divider, var(--bx-color-border));
+    overflow-wrap: anywhere;
+    padding: .75rem 0;
+    vertical-align: top;
+}
+
+.buddypress-wrap .profile.public table.profile-fields tr:first-child td {
+    border-top: 0;
+}
+
+.buddypress-wrap .profile.public table.profile-fields td.label {
+    color: var(--bx-color-fg-muted);
+    font-size: .875rem;
+    font-weight: 500;
+    padding-inline-end: 1rem;
+    width: 30%;
+}
+
+.buddypress-wrap .profile.public table.profile-fields td.data p {
+    margin: 0 0 .5rem;
+}
+
+.buddypress-wrap .profile.public table.profile-fields td.data p:last-child {
+    margin-bottom: 0;
+}
+
+/* Choice values are rendered by BuddyPress as links separated by commas; show them as chips. Only when they are links, so plain text is never hidden. */
+.buddypress-wrap .profile.public table.profile-fields tr:is(.field_type_checkbox, .field_type_multiselectbox, .field_type_radio, .field_type_selectbox) td.data p:has(> a) {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0;
+    gap: .375rem;
+}
+
+.buddypress-wrap .profile.public table.profile-fields tr:is(.field_type_checkbox, .field_type_multiselectbox, .field_type_radio, .field_type_selectbox) td.data p:has(> a) > a {
+    background: var(--bx-color-bg-muted);
+    border: 1px solid var(--bx-color-border);
+    border-radius: 999px;
+    color: var(--bx-color-fg);
+    font-size: .875rem;
+    line-height: 1.6;
+    padding: .125rem .75rem;
+    text-decoration: none;
+}
+
+.buddypress-wrap .profile.public table.profile-fields tr:is(.field_type_checkbox, .field_type_multiselectbox, .field_type_radio, .field_type_selectbox) td.data p:has(> a) > a:is(:hover, :focus-visible) {
+    border-color: var(--bx-color-accent);
+    color: var(--bx-color-accent);
+}
+
+@media screen and (max-width: 640px) {
+    .buddypress-wrap .profile.public table.profile-fields,
+    .buddypress-wrap .profile.public table.profile-fields tbody,
+    .buddypress-wrap .profile.public table.profile-fields tr,
+    .buddypress-wrap .profile.public table.profile-fields td {
+        display: block;
+        width: 100%;
+    }
+
+    .buddypress-wrap .profile.public table.profile-fields tr {
+        border-top: 1px solid var(--bx-color-divider, var(--bx-color-border));
+        padding: .75rem 0;
+    }
+
+    .buddypress-wrap .profile.public table.profile-fields tr:first-child {
+        border-top: 0;
+    }
+
+    .buddypress-wrap .profile.public table.profile-fields td {
+        border: 0;
+        padding: 0;
+    }
+
+    .buddypress-wrap .profile.public table.profile-fields td.label {
+        padding-bottom: .25rem;
+        width: 100%;
+    }
+}
+
+/* Edit: one container, one order (label, hint, control, visibility), compact option lists. */
+.buddypress-wrap .profile.edit .editfield {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--bx-color-divider, var(--bx-color-border));
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.buddypress-wrap .profile.edit .editfield fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.buddypress-wrap .profile.edit .editfield > label,
+.buddypress-wrap .profile.edit .editfield legend {
+    font-size: .9375rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.buddypress-wrap .profile.edit .editfield > .description,
+.buddypress-wrap .profile.edit .editfield fieldset > .description {
+    color: var(--bx-color-fg-muted);
+    font-size: .875rem;
+    margin: 0;
+    order: 1;
+}
+
+.buddypress-wrap .profile.edit .editfield > :is(input, textarea, select, .input-options, .datebox-selects),
+.buddypress-wrap .profile.edit .editfield fieldset > :is(input, textarea, select, .input-options, .datebox-selects) {
+    order: 2;
+}
+
+.buddypress-wrap .profile.edit .editfield > :is(.field-visibility-settings-notoggle, .field-visibility-settings-toggle, .field-visibility-settings) {
+    order: 3;
+}
+
+.buddypress-wrap .profile.edit .editfield .input-options {
+    display: grid;
+    gap: .5rem 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+}
+
+.buddypress-wrap .profile.edit .editfield .input-options label.option-label {
+    align-items: center;
+    display: flex;
+    font-weight: 400;
+    gap: .5rem;
+    margin: 0;
+}
+
+.buddypress-wrap .profile.edit .editfield .input-options :is(input[type="radio"], input[type="checkbox"]) {
+    accent-color: var(--bx-color-accent);
+    block-size: 1.125rem;
+    flex: none;
+    inline-size: 1.125rem;
+    margin: 0;
+}
+
+.buddypress-wrap .profile.edit .editfield select[multiple] {
+    min-block-size: 9rem;
+}
+
+.buddypress-wrap .profile.edit .field-visibility-settings-header,
+.buddypress-wrap .profile.edit .field-visibility-settings-notoggle {
+    color: var(--bx-color-fg-muted);
+    font-size: .8125rem;
+    margin: 0;
+}
+
+/* Visibility "Change" is a quiet text link, still a real button for keyboard and screen readers. */
+#buddypress.buddypress-wrap .profile.edit .standard-form .field-visibility-settings-header button.visibility-toggle-link {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: var(--bx-color-accent);
+    display: inline;
+    font-size: .8125rem;
+    font-weight: 600;
+    margin: 0 0 0 .375rem;
+    min-block-size: 1.5rem;
+    padding: 0;
+    text-decoration: underline;
+}
+
+/* Dark mode: BuddyPress paints form descriptions (group forum settings, extended profile hints) with its own light grey strip and grey text. */
+:root[data-bx-mode="dark"] .buddypress-wrap .standard-form .description {
+    background-color: var(--global-body-lightcolor);
+}
+
+:root[data-bx-mode="dark"] .buddypress-wrap .standard-form p.description {
+    color: var(--global-font-color);
+}
+
+/* Dark mode: bbPress paints a #eaeaea bar beside forum topic and reply excerpts in the activity stream. */
+:root[data-bx-mode="dark"] .activity-list :is(li.bbp_topic_create, li.bbp_reply_create) .activity-content .activity-inner {
+    border-left-color: var(--bx-color-border);
+}
+
+/* Dark mode: the BuddyPress selects above paint their own arrow, so swap in the white one. */
+:root[data-bx-mode="dark"] body .buddypress-wrap .subnav-filters .component-filters select,
+:root[data-bx-mode="dark"] body .buddypress-wrap .subnav-filters .last select,
+:root[data-bx-mode="dark"] .buddypress-wrap .select-wrap select,
+:root[data-bx-mode="dark"] body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
+:root[data-bx-mode="dark"] .buddypress-wrap #notification-select,
+:root[data-bx-mode="dark"] .buddypress-wrap .standard-form select {
+    background-image: url(../images/arrow-down-white.svg);
+}
+
+/* Manage Members pager: Prev and Next are sibling buttons with no container rule, so keep a gap between them. */
+.group-members-paginate-button + .group-members-paginate-button {
+    margin-inline-start: 8px;
 }

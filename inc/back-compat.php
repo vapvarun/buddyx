@@ -88,7 +88,7 @@ add_action( 'load-customize.php', 'buddyx_customize' );
  * Prevents the Theme Preview from being loaded when requirements are not met.
  */
 function buddyx_preview() {
-	// @phpcs:ignore
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check that blocks the theme preview.
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( esc_html( buddyx_get_insufficient_requirements_message() ) );
 	}

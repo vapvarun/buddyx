@@ -222,7 +222,8 @@
 .woocommerce span.onsale {
     top: 2px;
     left: 2px;
-    background-color: var(--color-theme-primary);
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
 }
 
 .woocommerce ul.products li.product .onsale {
@@ -327,6 +328,11 @@
 .woocommerce div.product form.cart .button,
 .woocommerce-page div.product form.cart .button {
     margin: 0 12px 12px 0;
+}
+
+/* WooCommerce colours inactive tabs #515151, unreadable on the dark page. */
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: var(--bx-color-fg-muted);
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
@@ -686,8 +692,8 @@ form.woocommerce-cart-form {
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
 .select2-container--default .select2-results__option--highlighted[data-selected] {
-    background-color: var(--bx-color-accent, #1e85be);
-    color: var(--bx-color-accent-inverse, #fff);
+    background-color: var(--bx-color-accent-fill, var(--bx-color-accent, #1e85be));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"],
@@ -837,7 +843,7 @@ form.woocommerce-cart-form {
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a::after {
-    background: var(--color-theme-primary);
+    background: var(--bx-color-accent-fill, var(--color-theme-primary));
 }
 
 .widget_product_search input[type="search"] {
@@ -947,4 +953,54 @@ button.fancybox-button {
     gap: 30px;
     margin: 0 0 30px;
     padding: 0;
+}
+
+/* WooCommerce colours stock status #7ad03a / #e2401c, under 4.5:1 on the
+ * page. Mix the status colour with the text colour so it stays green or red,
+ * reads at AA, and follows dark mode. */
+.woocommerce div.product p.stock.in-stock,
+.woocommerce div.product .stock.in-stock {
+    color: color-mix(in srgb, var(--bx-color-success) 55%, var(--bx-color-fg));
+}
+
+.woocommerce div.product p.stock.out-of-stock,
+.woocommerce div.product .stock.out-of-stock {
+    color: color-mix(in srgb, var(--bx-color-error) 75%, var(--bx-color-fg));
+}
+
+/* Product cards: add-to-cart button on one line at the card bottom, whatever the title length. */
+.woocommerce ul.products li.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce ul.products li.product > .woocommerce-LoopProduct-link {
+    margin-block-end: 1em;
+}
+
+.woocommerce ul.products li.product > .button {
+    margin-block-start: auto;
+}
+
+/* QA round 3: the checkout payment box keeps WooCommerce's light fill with theme text on
+   top in dark mode, and the shop sort select border was close to invisible on the dark page. */
+html .woocommerce-checkout #payment div.payment_box {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
+}
+
+html .woocommerce-checkout #payment div.payment_box::before {
+    border-bottom-color: var(--bx-color-bg-muted);
+}
+
+html .woocommerce .woocommerce-ordering select,
+html .woocommerce-page .woocommerce-ordering select {
+    border: 1px solid var(--bx-color-input-border);
+    background-color: var(--bx-color-input-bg);
+    color: var(--bx-color-input-fg);
+}
+
+:root[data-bx-mode="dark"] .woocommerce .woocommerce-ordering select,
+:root[data-bx-mode="dark"] .woocommerce-page .woocommerce-ordering select {
+    border-color: color-mix(in srgb, var(--bx-color-fg) 45%, transparent);
 }

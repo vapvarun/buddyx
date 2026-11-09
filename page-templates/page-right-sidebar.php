@@ -15,9 +15,15 @@ buddyx()->print_styles( 'buddyx-content' );
 buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 ?>	
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 
 		<main id="primary" class="site-main">
 			<?php
@@ -28,19 +34,21 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 					get_template_part( 'template-parts/content/entry', 'page' );
 				}
-				
 			} else {
 				get_template_part( 'template-parts/content/error' );
 			}
 			?>
 		</main><!-- #primary -->
-        <aside id="secondary" class="primary-sidebar widget-area">
-            <div class="sticky-sidebar">
-                <?php buddyx()->display_right_sidebar(); ?>
-            </div>
-        </aside>
+		<aside id="secondary" class="primary-sidebar widget-area">
+			<div class="sticky-sidebar">
+				<?php buddyx()->display_right_sidebar(); ?>
+			</div>
+		</aside>
 	</div><!-- .container -->
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 <?php
 get_footer();

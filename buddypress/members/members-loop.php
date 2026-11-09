@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 6.0.0
+ *
+ * @package buddyx
  */
 
 bp_nouveau_before_loop(); ?>
@@ -26,7 +28,10 @@ bp_nouveau_before_loop(); ?>
 		<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php bp_member_user_id(); ?>" data-bp-item-component="members">
 			<div class="list-wrap">
 
-				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+				<?php
+				/** This action is documented in bb-buddypress/groups/single/members-loop.php */
+				do_action( 'buddyx_before_member_avatar_member_directory' );
+				?>
 
 				<div class="item-avatar">
 					<a href="<?php bp_member_permalink(); ?>">
@@ -54,9 +59,9 @@ bp_nouveau_before_loop(); ?>
 
 							<?php if ( bp_nouveau_member_has_extra_content() ) : ?>
 								<div class="item-extra-content">
-									<?php bp_nouveau_member_extra_content() ; ?>
+									<?php bp_nouveau_member_extra_content(); ?>
 								</div><!-- .item-extra-content -->
-							<?php endif ; ?>
+							<?php endif; ?>
 
 						</div><!-- .member-info-wrapper -->
 

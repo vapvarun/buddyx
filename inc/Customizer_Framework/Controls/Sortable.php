@@ -22,6 +22,8 @@ defined( 'ABSPATH' ) || exit;
 class Sortable extends \WP_Customize_Control {
 
 	/**
+	 * Control type slug.
+	 *
 	 * @var string
 	 */
 	public $type = 'buddyx-sortable';

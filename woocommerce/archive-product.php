@@ -35,6 +35,7 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 				<?php
 				$breadcrumbs = get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) );
 
+				/** This action is documented in inc/extra.php */
 				do_action( 'buddyx_before_breadcrumb' );
 
 				// `buddyx_is_truthy()` handles pre-5.1.0 'on'/'off' string values;
@@ -43,6 +44,7 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 					buddyx_the_breadcrumb();
 				}
 
+				/** This action is documented in inc/extra.php */
 				do_action( 'buddyx_after_breadcrumb' );
 				?>
 			<?php endif; ?>
@@ -62,13 +64,14 @@ $woocommerce_sidebar = get_theme_mod( 'woocommerce_sidebar_option', buddyx_defau
 
 <?php
 
+/** This action is documented in 404.php */
 do_action( 'buddyx_before_content' );
 
 if ( class_exists( 'WooCommerce' ) ) {
 	?>
 	<?php if ( is_woocommerce() ) { ?>
-		<?php if ( $woocommerce_sidebar == 'left' || $woocommerce_sidebar == 'both' ) : ?>
-			<aside id="secondary" class="woo-left-sidebar widget-area">
+		<?php if ( 'left' === $woocommerce_sidebar || 'both' === $woocommerce_sidebar ) : ?>
+			<aside id="secondary-left" class="woo-left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_woocommerce_left_sidebar(); ?>
 				</div>
@@ -141,11 +144,11 @@ do_action( 'woocommerce_after_main_content' );
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-// do_action( 'woocommerce_sidebar' );
+// Not fired here: the theme renders its own WooCommerce sidebars below.
 ?>
 <?php if ( class_exists( 'WooCommerce' ) ) { ?>
 	<?php if ( is_woocommerce() ) { ?>
-		<?php if ( $woocommerce_sidebar == 'right' || $woocommerce_sidebar == 'both' ) : ?>
+		<?php if ( 'right' === $woocommerce_sidebar || 'both' === $woocommerce_sidebar ) : ?>
 			<aside id="secondary" class="woo-primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_woocommerce_right_sidebar(); ?>
@@ -156,6 +159,7 @@ do_action( 'woocommerce_after_main_content' );
 	<?php
 }
 
+/** This action is documented in 404.php */
 do_action( 'buddyx_after_content' );
 
 get_footer( 'shop' );

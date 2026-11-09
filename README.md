@@ -1,53 +1,192 @@
-# BuddyX
+# BuddyX: WordPress Community Theme
 
-BuddyX is a free WordPress theme that helps you build beautiful, professional websites without writing code or buying a page builder. Drop in ready-made layouts for your home page, about page, services, pricing, testimonials, and FAQs (27 designer-made sections you can mix and match), then edit the words and images in the regular WordPress editor. No Elementor licence, no Divi subscription, nothing extra to buy.
+[![License: GPL](https://img.shields.io/github/license/vapvarun/buddyx)](/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/vapvarun/buddyx?include_prereleases)](https://github.com/vapvarun/buddyx/releases)
+[![WordPress](https://img.shields.io/badge/WordPress-6.5%2B-blue)](https://wordpress.org)
 
-BuddyX also pairs tightly with BuddyPress and the wider community stack below, so the same theme powers a marketing site or a full social community.
+## Your Community-Focused WordPress Theme
 
-- **Download:** https://wordpress.org/themes/buddyx/
-- **Product page:** https://wbcomdesigns.com/downloads/buddyx-theme/
-- **Changelog:** https://wbcomdesigns.com/release-notes/buddyx-theme/
-- **Latest release:** see [Releases](https://github.com/vapvarun/buddyx/releases)
+BuddyX is a powerful, flexible WordPress theme designed specifically for building online communities. Built with BuddyPress in mind, BuddyX provides everything you need to create engaging social platforms, membership sites, and collaborative online spaces.
 
-## Requirements
+Creating a theme with BuddyX means adopting modern web development practices and core principles built on:
 
-- WordPress 6.5 or later
-- PHP 8.1 or later
+- **Accessibility First** - WCAG compliant and screen reader friendly
+- **Mobile-First Design** - Responsive across all devices
+- **Progressive Enhancement** - Works for everyone, regardless of browser capabilities
+- **Performance Optimized** - Fast loading and efficient
+- **BuddyPress Ready** - Perfect for community features
+- **WooCommerce Compatible** - E-commerce ready
+- **Developer Friendly** - Clean code, well-documented
 
-## Highlights
+## Try BuddyX in your browser
 
-- 27 block patterns for common page sections, edited in the native block editor
-- Native light and dark mode with a visitor toggle
-- Style presets and a typography-first customizer built on design tokens
-- Two bundled fonts for fast, GDPR-friendly loading (no Google Fonts cookies)
-- BuddyPress, bbPress, and WooCommerce ready, with dark-mode compatibility
-- Built on WP Rig for a fast, standards-based foundation
+[![Try in WordPress Playground](https://img.shields.io/badge/Try%20in-WordPress%20Playground-1E40AF?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/wbcomdesigns/buddyx/master/_playground/blueprint.json)
 
-## The BuddyX community stack
+Launches a disposable WordPress site in your browser with the latest WordPress.org release of **BuddyX** and **BuddyPress** active, plus the theme's built-in **sample content** published automatically - 7 pattern-driven pages (Home, About, Services, Pricing, Journal, FAQ, Contact), a primary navigation menu, and a static front page. Nothing is installed on your machine and the site is discarded when you close the tab.
 
-BuddyX is built by [Wbcom Designs](https://wbcomdesigns.com/), the team behind Reign and the BuddyPress Community Bundle. Two community plugins pair with the theme when you want to run a real community, not just a marketing site.
+The Playground setup lives in [`_playground/blueprint.json`](_playground/blueprint.json) and pulls BuddyX from the WordPress.org theme directory, so it always reflects the current approved release. Sample content is created by the theme's own [`Starter_Content`](inc/Starter_Content/Component.php) component (BuddyX 5.1.0 or later). Run it locally with:
 
-### BuddyNext: a complete community platform in one free plugin
+```bash
+npx @wp-playground/cli@latest run-blueprint --blueprint=_playground/blueprint.json
+```
 
-Standing up a community usually means BuddyPress plus a dozen add-ons to patch the gaps. BuddyNext is a complete community platform in one free plugin: activity feed, spaces, member profiles, direct messaging, a member directory, and a full moderation suite. It stays fast at any size and is yours to run forever.
+## Key Features
 
-**BuddyNext Pro** adds the application and monetization layer: membership plans with on-site checkout and content protection, gateway-agnostic payments, email automation, and AI-assisted moderation review. Requires BuddyNext Free.
+### 🎨 **Design System**
+- Modern, clean interface that works out of the box
+- Multiple header layouts and navigation options
+- Customizable color schemes and typography
+- Widget-ready sidebars and footer areas
+- Built-in block patterns and templates
 
-- **Site:** https://buddynext.com/
-- **Download:** https://wbcomdesigns.com/downloads/buddynext/
+### 👥 **Community Features**
+- Full BuddyPress integration support
+- Member profiles and activity streams
+- Groups and forums compatibility
+- Social networking features ready
 
-### Jetonomy: forums, Q&A, and ideas boards that stay fast at any size
+### 🛒 **E-commerce Ready**
+- WooCommerce compatibility
+- Product display and shopping cart layouts
+- Custom checkout and product page designs
 
-Standard WordPress forums slow down once the community passes a few thousand topics. Jetonomy stores forum data in its own database tables, so search, threading, and feeds stay fast past 100,000 topics. Six trust levels let your community moderate itself across forums, Q&A spaces, and ideas boards.
+### 🚀 **Performance**
+- Optimized asset loading
+- Lazy loading for images
+- Minified CSS and JavaScript
+- AMP support for mobile performance
 
-**Jetonomy Pro** ships 14 modular extensions for engagement (reactions, polls, badges) and operations (analytics, webhooks, push): enable only what your community needs and skip the rest.
+### 🔧 **Developer Tools**
+- Modern build system with ESBuild
+- Component-based architecture
+- 27 bundled block patterns, editable in the native block editor
+- WP CLI commands for development
+- Comprehensive testing suite
 
-- **Site:** https://jetonomy.org/
-- **Download:** https://wbcomdesigns.com/downloads/jetonomy/
+## Quick Start
 
-## More from Wbcom Designs
+### Requirements
+- WordPress 6.5 or higher (tested up to 7.1)
+- PHP 8.1 or higher
+- Node.js 20.13.1 or higher (for development)
+- npm 10.5.2 or higher (for development)
 
-Every plugin below is self-hosted on your own WordPress site, with a free core and an optional Pro layer. No per-seat pricing, no per-ticket cut, no platform fee.
+### Installation
+
+1. **Download the latest release** from [Releases](https://github.com/vapvarun/buddyx/releases/latest), or install BuddyX straight from **Appearance > Themes > Add New** inside WordPress. Release assets are versioned, e.g. `buddyx-5.1.9.zip`.
+
+2. **Install via WordPress admin:**
+   - Navigate to Appearance > Themes > Add New > Upload Theme
+   - Upload the downloaded zip
+   - Activate the theme
+
+3. **Or install manually:**
+   ```bash
+   cd wp-content/themes/
+   unzip buddyx-5.1.9.zip
+   # Activate in WordPress admin
+   ```
+
+### Development Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/vapvarun/buddyx.git
+   cd buddyx
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. **Start development:**
+   ```bash
+   npm run dev
+   ```
+
+## Development Commands
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Build CSS or JS on their own
+npm run build:css
+npm run build:js
+
+# Run linting (JS and CSS)
+npm run lint
+
+# Run the Jest unit tests
+npm run test:js
+
+# Run the Playwright end-to-end tests
+npm run test:e2e
+
+# Package a release zip (runs the browser-smoke release gate first)
+npm run dist
+```
+
+`npm run bundle` builds the same zip but skips the release gate, so use `npm run dist` for anything customer-facing.
+
+## Configuration
+
+BuddyX can be configured through:
+
+- **WordPress Customizer** - Real-time visual customization
+- **Build configuration** - `config/config.default.json`, overridden per machine by an untracked `config/config.json`
+
+### config/config.default.json:
+
+```json
+{
+  "theme": {
+    "slug": "buddyx",
+    "name": "BuddyX",
+    "author": "wbcomdesigns,vapvarun",
+    "version": "5.1.9"
+  },
+  "dev": {
+    "browserSync": { }
+  }
+}
+```
+
+## Customization
+
+### Child Themes
+
+Use a child theme to customize BuddyX safely:
+
+- Download the child theme: https://github.com/wbcomdesigns/buddyx-child/releases/latest
+- More on child themes: https://developer.wordpress.org/themes/advanced-topics/child-themes/
+
+### CSS Variables
+Override theme styles using CSS custom properties:
+
+```css
+:root {
+  --buddyx-primary-color: #your-color;
+  --buddyx-font-family: 'Your Font', sans-serif;
+}
+```
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Mobile browsers (iOS Safari, Android Chrome)
+
+## The Wbcom Designs stack
+
+BuddyX is built by [Wbcom Designs](https://wbcomdesigns.com/). Every plugin below is self-hosted on your own WordPress site, with a free core and an optional Pro layer. No per-seat pricing, no per-ticket cut, no platform fee.
 
 | Product | What it does | Links |
 |---|---|---|
@@ -58,31 +197,41 @@ Every plugin below is self-hosted on your own WordPress site, with a free core a
 | **Listora** | A directory that scales past 100,000 listings: faceted search, frontend submission, business claims, anti-spam, and Gutenberg blocks. | [Site](https://listora.org/) · [Download](https://wbcomdesigns.com/downloads/listora/) |
 | **WP Career Board** | A job board with live search, employer and candidate dashboards, applications, company profiles, and a Pro ATS hiring pipeline. | [Site](https://wpcareerboard.com/) · [Download](https://wbcomdesigns.com/downloads/wp-career-board/) |
 
-### Want more from the theme itself?
+### BuddyX Pro
 
-**BuddyX Pro** builds on this theme with dark-mode colour controls (47 `dark_*` customizer keys against free's toggle alone), a login modal and login-page designer, scroll-to-top, a side panel, a topbar, marketplace support (Dokan, WCFM, MultiVendorX), dedicated LMS layout controls, AMP and PWA, and 301 customizer settings against free's 130.
+**BuddyX Pro** builds on this theme with dark-mode colour controls (47 `dark_*` customizer keys against free's toggle alone), a login modal and login-page designer, scroll-to-top, a side panel, a topbar, marketplace support (Dokan, WCFM, MultiVendorX), dedicated LMS layout controls, AMP and PWA, and 301 customizer settings against free's 130. Released in lockstep with this theme at matching versions.
 
 - **Product page:** https://wbcomdesigns.com/downloads/buddyx-pro-theme/
 - **Changelog:** https://wbcomdesigns.com/release-notes/buddyx-pro-theme/
 
-## Installation
+## Contributing
 
-1. Download the latest `buddyx.zip` from [Releases](https://github.com/vapvarun/buddyx/releases), or install BuddyX from **Appearance → Themes → Add New** inside WordPress.
-2. Activate the theme.
-3. Open **Appearance → Customize** to pick a style preset, set colors and typography, and toggle dark mode.
+We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
 
-### Child theme
-
-To customize safely, use a child theme:
-
-- Download the child theme from https://github.com/vapvarun/buddyx-child-theme
-- More on child themes: https://developer.wordpress.org/themes/advanced-topics/child-themes/
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests: `npm run test:js`
+5. Submit a pull request
 
 ## Support
 
-- **Documentation:** https://docs.wbcomdesigns.com/docs/buddyx/
-- **Support:** https://wordpress.org/support/theme/buddyx/
+- **Documentation**: [buddyxtheme.com/docs](https://buddyxtheme.com/docs/)
+- **Issues**: [GitHub Issues](https://github.com/vapvarun/buddyx/issues)
+- **Support forum**: [wordpress.org/support/theme/buddyx](https://wordpress.org/support/theme/buddyx/)
+- **Updates**: Follow [@vapvarun](https://github.com/vapvarun)
+
+## Credits
+
+- **Lead Developers**: [wbcomdesigns](https://github.com/wbcomdesigns), [vapvarun](https://github.com/vapvarun)
+- **Contributors**: [All Contributors](https://github.com/vapvarun/buddyx/graphs/contributors)
+- **Inspiration**: Based on modern WordPress development best practices
 
 ## License
 
-BuddyX is licensed under the GNU General Public License v3.0 (or later). See [LICENSE](LICENSE) for details. BuddyX is based on [WP Rig](https://github.com/wprig/wprig), also released under GPL v3.0 (or later).
+BuddyX is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+
+---
+
+*Note: Originally based on BuddyX architecture but completely reimagined for community and BuddyPress integration.*

@@ -32,7 +32,7 @@ textarea {
 
 .wp-block-quote {
     border-left: 0;
-    border-right: 4px solid #000;
+    border-right: 4px solid var(--color-quote-border);
     padding-left: 0;
     padding-right: 1em;
 }
@@ -261,8 +261,8 @@ select#pa_size {
     }
 }
 
-.buddypress-icons-wrapper .btn-login span,
-.buddypress-icons-wrapper .btn-register span {
+.buddypress-icons-wrapper .btn-login .bx-icon,
+.buddypress-icons-wrapper .btn-register .bx-icon {
     margin-right: 0;
     margin-left: 6px;
 }
@@ -543,4 +543,8 @@ a.prev.page-numbers {
 .woocommerce span.onsale {
     right: 2px;
     left: auto;
+}
+/* Select arrows are painted with a physical background-position; mirror them to the start side. */
+:root {
+    --bx-select-arrow-x: left;
 }

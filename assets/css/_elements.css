@@ -95,6 +95,17 @@ img {
 }
 /* stylelint-enable */
 
+/* Avatars stay square whatever size the source image is (header, comments, BuddyPress). */
+.avatar {
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+
+/* With BuddyPress active, content starts flush under the page header. */
+body.bp-nouveau .entry-content {
+	margin-top: 0;
+}
+
 /* Extra wide images within figure tags don't overflow the content area. */
 figure {
 	margin: 0.5em 0;

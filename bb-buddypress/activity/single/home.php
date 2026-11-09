@@ -3,6 +3,8 @@
  * BuddyPress - Home
  *
  * @version 3.0.0
+ *
+ * @package buddyx
  */
 
 $is_send_ajax_request = bb_is_send_ajax_request();

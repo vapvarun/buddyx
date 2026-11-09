@@ -7,7 +7,10 @@
 
 namespace BuddyX\Buddyx\Custom_Logo;
 
+require_once dirname( __DIR__ ) . '/Shared/Color_Math.php';
+
 use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Shared\Color_Math;
 use function add_action;
 use function add_filter;
 use function add_theme_support;
@@ -35,6 +38,12 @@ use function preg_match;
  * @link https://codex.wordpress.org/Theme_Logo
  */
 class Component implements Component_Interface {
+	use Color_Math;
+
+	/**
+	 * Dark-mode accent the Color_Math trait falls back to; the trait requires the using class to define it.
+	 */
+	const DEFAULT_DARK_ACCENT = '#ff6b6b';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -153,6 +162,12 @@ class Component implements Component_Interface {
 			return false;
 		}
 
+		/**
+		 * Filters whether a given style variation is a dark scheme.
+		 *
+		 * @param mixed  $scheme         Scheme.
+		 * @param string $variation_slug Variation slug.
+		 */
 		$override = apply_filters( 'buddyx_variation_is_dark_scheme', null, $variation_slug );
 		if ( null !== $override ) {
 			return (bool) $override;
@@ -195,7 +210,7 @@ class Component implements Component_Interface {
 			return null;
 		}
 
-		$data = json_decode( (string) file_get_contents( $path ), true );
+		$data = json_decode( (string) file_get_contents( $path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reads a bundled local theme style JSON file, not a remote URL.
 		return is_array( $data ) ? $data : null;
 	}
 
@@ -206,28 +221,7 @@ class Component implements Component_Interface {
 	 * @return bool
 	 */
 	protected function hex_is_dark( string $hex ): bool {
-		$hex = ltrim( trim( $hex ), '#' );
-		if ( 3 === strlen( $hex ) ) {
-			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
-		}
-		if ( ! preg_match( '/^[a-f0-9]{6}$/i', $hex ) ) {
-			return false;
-		}
-
-		$channels = array(
-			hexdec( substr( $hex, 0, 2 ) ) / 255,
-			hexdec( substr( $hex, 2, 2 ) ) / 255,
-			hexdec( substr( $hex, 4, 2 ) ) / 255,
-		);
-
-		$linear = array_map(
-			static function ( float $channel ): float {
-				return ( $channel <= 0.03928 ) ? $channel / 12.92 : pow( ( $channel + 0.055 ) / 1.055, 2.4 );
-			},
-			$channels
-		);
-
-		$luminance = ( 0.2126 * $linear[0] ) + ( 0.7152 * $linear[1] ) + ( 0.0722 * $linear[2] );
-		return $luminance < 0.5;
+		$rgb = self::color_to_rgb( '#' . ltrim( trim( $hex ), '#' ) );
+		return null !== $rgb && self::rgb_luminance( $rgb ) < 0.5;
 	}
 }

@@ -72,7 +72,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 								<td class="product-remove">
 									<?php
-										echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce's own cart.php markup; the link is built from escaped values.
 											'woocommerce_cart_item_remove_link',
 											sprintf(
 												'<a role="button" href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
@@ -105,9 +105,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 								if ( ! $product_permalink ) {
-									echo $thumbnail; // PHPCS: XSS ok.
+									echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Product image HTML from WooCommerce, escaped upstream as in the core cart template.
 								} else {
-									printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+									printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Product image HTML from WooCommerce, escaped upstream as in the core cart template.
 								}
 								?>
 								</td>
@@ -127,8 +127,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 								do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
-								// Meta data.
-								echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // PHPCS: XSS ok.
+								// Meta data. WooCommerce 9 accepts $product_name; the woocommerce-stubs package lags behind.
+								/* @phpstan-ignore-next-line arguments.count */
+								echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce escapes item data inside its cart-item-data template.
 
 								// Backorder notification.
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
@@ -139,7 +140,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 								<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'buddyx' ); ?>">
 									<?php
-										echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+										echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Price HTML from wc_price(), escaped by WooCommerce.
 									?>
 								</td>
 
@@ -165,13 +166,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 									false
 								);
 
-								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Quantity input HTML from woocommerce_quantity_input(); wp_kses_post() would strip the input.
 								?>
 								</td>
 
 								<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'buddyx' ); ?>">
 									<?php
-										echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+										echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Price HTML from wc_price(), escaped by WooCommerce.
 									?>
 								</td>
 							</tr>

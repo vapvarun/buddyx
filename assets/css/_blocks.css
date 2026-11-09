@@ -689,6 +689,11 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 	border-collapse: collapse;
 }
 
+/* Core paints the table #40464d; follow the body text so it reads in dark mode. An author-set text colour still wins. */
+.wp-block-calendar table:where(:not(.has-text-color)) {
+	color: inherit;
+}
+
 .entry-content .wp-block-calendar th,
 .entry-content .wp-block-calendar td {
 	padding: 0.5em;
@@ -748,9 +753,9 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 }
 
 .entry-content .wp-block-tag-cloud a:hover {
-	background-color: var(--color-theme-primary);
+	background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
 	border-color: var(--color-theme-primary);
-	color: var(--button-text-hover-color);
+	color: var(--bx-color-accent-fill-inverse, var(--button-text-hover-color));
 }
 
 /*--------------------------------------------------------------
@@ -1057,9 +1062,9 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 
 .wp-block-query-pagination-numbers .page-numbers.current,
 .wp-block-query-pagination-numbers .page-numbers:hover {
-	background-color: var(--color-theme-primary);
+	background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
 	border-color: var(--color-theme-primary);
-	color: var(--button-text-hover-color);
+	color: var(--bx-color-accent-fill-inverse, var(--button-text-hover-color));
 }
 
 /*--------------------------------------------------------------
@@ -1283,10 +1288,11 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 	padding-bottom: 0;
 }
 
+/* Core sizes grid items for a 1.25em gap (calc(33.3333% - 0.83333em)); any other gap makes the last column wrap. */
 .wp-block-post-template.is-flex-container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.5em;
+	gap: 1.25em;
 }
 
 .wp-block-post-template.is-flex-container > li {

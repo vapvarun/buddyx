@@ -77,7 +77,7 @@ class Output_Builder {
 				if ( empty( $value[ $choice ] ) ) {
 					return '';
 				}
-				$rendered = str_replace( array( '<', '>' ), '', (string) $value[ $choice ] );
+				$rendered = self::css_value( $value[ $choice ] );
 				return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
 			}
 			// 'exclude' drops sub-keys (e.g. 'color') that another system already
@@ -105,14 +105,9 @@ class Output_Builder {
 
 		$prefix = $rule['prefix'] ?? '';
 		$suffix = $rule['suffix'] ?? '';
-		$units  = $rule['units']  ?? '';
+		$units  = $rule['units'] ?? '';
 
-		$rendered = $prefix . $value . $suffix . $units;
-		// Stored theme_mod values are concatenated into an inline <style> block.
-		// A CSS property value never legitimately contains angle brackets, so
-		// strip them defensively to ensure a value can't break out of the
-		// element (e.g. a saved "</style>..." payload).
-		$rendered = str_replace( array( '<', '>' ), '', (string) $rendered );
+		$rendered = self::css_value( $prefix . $value . $suffix . $units );
 		return sprintf( '%s{%s:%s;}', $element, $property, $rendered );
 	}
 
@@ -120,6 +115,8 @@ class Output_Builder {
 	 * Build typography CSS declarations from a structured value array.
 	 * Accepts both modern keys ('font-weight', 'font-size', etc.) and Kirki
 	 * legacy 'variant' (mapped to font-weight, with 'regular' → 400, 'bold' → 700).
+	 *
+	 * @param array $value Typography value array.
 	 */
 	protected static function typography_declarations( array $value ): string {
 		$decls = '';
@@ -130,7 +127,7 @@ class Output_Builder {
 			$weight  = $variant;
 			$style   = '';
 			if ( str_contains( $variant, 'italic' ) ) {
-				$style = 'italic';
+				$style  = 'italic';
 				$weight = trim( str_replace( 'italic', '', $variant ) );
 			}
 			if ( 'regular' === $weight || '' === $weight ) {
@@ -158,7 +155,7 @@ class Output_Builder {
 		);
 		foreach ( $key_map as $k => $css_prop ) {
 			if ( ! empty( $value[ $k ] ) ) {
-				$decls .= sprintf( '%s:%s;', $css_prop, $value[ $k ] );
+				$decls .= sprintf( '%s:%s;', $css_prop, self::css_value( $value[ $k ] ) );
 			}
 		}
 		return $decls;
@@ -167,6 +164,8 @@ class Output_Builder {
 	/**
 	 * Build background CSS declarations from a structured value array.
 	 * background-image is wrapped in url(...); other keys passed through.
+	 *
+	 * @param array $value Background value array.
 	 */
 	protected static function background_declarations( array $value ): string {
 		$decls = '';
@@ -182,17 +181,32 @@ class Output_Builder {
 			if ( empty( $value[ $k ] ) ) {
 				continue;
 			}
-			$v = (string) $value[ $k ];
-			if ( 'background-image' === $k ) {
-				$v = sprintf( "url('%s')", esc_url( $v ) );
-			}
+			$v      = (string) $value[ $k ];
+			$v      = 'background-image' === $k ? sprintf( "url('%s')", esc_url( $v ) ) : self::css_value( $v );
 			$decls .= sprintf( '%s:%s;', $k, $v );
 		}
 		return $decls;
 	}
 
 	/**
+	 * Clean a stored value for use as one CSS declaration value.
+	 *
+	 * Values are concatenated into an inline <style> block. Characters that can
+	 * never appear inside a single declaration value are removed, so a stray or
+	 * pasted ';', '}' or '</style>' cannot end the declaration, rule or element
+	 * and break the rest of the theme's CSS. Quotes and commas (font stacks) stay.
+	 *
+	 * @param mixed $value Stored value.
+	 * @return string
+	 */
+	protected static function css_value( $value ): string {
+		return trim( (string) preg_replace( '/[<>{};\x00-\x1F\x7F]/', '', (string) $value ) );
+	}
+
+	/**
 	 * Default CSS property for types that have an obvious one when the rule omits 'property'.
+	 *
+	 * @param string $type Field type.
 	 */
 	protected static function default_property( string $type ): string {
 		switch ( $type ) {

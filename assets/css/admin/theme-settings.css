@@ -1389,6 +1389,17 @@ table.buddyx-features-table {
     padding: 12px 20px;
 }
 
+/* Feature names on the left, the BuddyX / Pro marks centred under their headings. */
+.buddyx-features-table th,
+.buddyx-features-table td {
+    text-align: center;
+}
+
+.buddyx-features-table th:first-child,
+.buddyx-features-table td:first-child {
+    text-align: start;
+}
+
 .buddyx-features-table tbody tr td {
     font-weight: 500;
     font-size: 14px;

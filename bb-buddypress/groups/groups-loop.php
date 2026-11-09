@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 3.1.0
+ *
+ * @package buddyx
  */
 
 add_filter( 'bp_get_group_description_excerpt', 'bb_get_group_description_excerpt_view_more', 99, 2 );
@@ -52,6 +54,9 @@ $group_cover_height = function_exists( 'bb_get_group_cover_image_height' ) ? bb_
 
 				<?php
 				if ( bb_platform_group_element_enable( 'cover-images' ) ) {
+					/**
+					 * Fires before a group avatar in the groups directory.
+					 */
 					do_action( 'buddyx_before_group_avatar_group_directory' );
 				}
 				?>

@@ -28,7 +28,10 @@
 
 namespace BuddyX\Buddyx\Tokens;
 
+require_once dirname( __DIR__ ) . '/Shared/Color_Math.php';
+
 use BuddyX\Buddyx\Component_Interface;
+use BuddyX\Shared\Color_Math;
 use function add_action;
 
 defined( 'ABSPATH' ) || exit;
@@ -37,6 +40,19 @@ defined( 'ABSPATH' ) || exit;
  * Tokens
  */
 class Component implements Component_Interface {
+
+	use Color_Math;
+
+	/**
+	 * Theme default brand colour (light mode).
+	 */
+	const DEFAULT_ACCENT = '#c92a2b';
+
+	/**
+	 * Theme default brand colour in dark mode, used until the owner picks a Primary.
+	 */
+	const DEFAULT_DARK_ACCENT = '#ff6b6b';
+
 
 	/**
 	 * Token map: theme_mod_key => array(
@@ -264,32 +280,32 @@ class Component implements Component_Interface {
 		// field defaults so the no-preset, no-save look matches 5.0.x. The
 		// style-variation overlay (Phase 7) and customer saves both layer on
 		// top of these and remain authoritative.
-		'--bx-color-bg'                 => '#f7f7f9',
-		'--bx-color-bg-page'            => '#f7f7f9',
-		'--bx-color-bg-elevated'        => '#ffffff',
-		'--bx-color-bg-muted'           => '#fafafa',
-		'--bx-color-fg'                 => '#505050',
-		'--bx-color-header-bg'          => '#ffffff',
-		'--bx-color-site-title'         => '#111111',
-		'--bx-color-site-title-hover'   => '#c92a2b',
-		'--bx-color-site-tagline'       => '#757575',
-		'--bx-color-menu-fg'            => '#111111',
-		'--bx-color-menu-hover'         => '#c92a2b',
-		'--bx-color-menu-active'        => '#c92a2b',
-		'--bx-color-subheader-fg'       => '#111111',
-		'--bx-color-h1'                 => '#111111',
-		'--bx-color-h2'                 => '#111111',
-		'--bx-color-h3'                 => '#111111',
-		'--bx-color-h4'                 => '#111111',
-		'--bx-color-h5'                 => '#111111',
-		'--bx-color-h6'                 => '#111111',
-		'--bx-color-accent'             => '#c92a2b',
-		'--bx-color-link'               => '#111111',
-		'--bx-color-link-hover'         => '#c92a2b',
-		'--bx-color-button-bg'          => '#c92a2b',
-		'--bx-color-button-bg-hover'    => '#b82526',
-		'--bx-color-button-fg'          => '#ffffff',
-		'--bx-color-button-fg-hover'    => '#ffffff',
+		'--bx-color-bg'                   => '#f7f7f9',
+		'--bx-color-bg-page'              => '#f7f7f9',
+		'--bx-color-bg-elevated'          => '#ffffff',
+		'--bx-color-bg-muted'             => '#fafafa',
+		'--bx-color-fg'                   => '#505050',
+		'--bx-color-header-bg'            => '#ffffff',
+		'--bx-color-site-title'           => '#111111',
+		'--bx-color-site-title-hover'     => 'var(--bx-color-accent)',
+		'--bx-color-site-tagline'         => '#757575',
+		'--bx-color-menu-fg'              => '#111111',
+		'--bx-color-menu-hover'           => 'var(--bx-color-accent)',
+		'--bx-color-menu-active'          => 'var(--bx-color-accent)',
+		'--bx-color-subheader-fg'         => '#111111',
+		'--bx-color-h1'                   => '#111111',
+		'--bx-color-h2'                   => '#111111',
+		'--bx-color-h3'                   => '#111111',
+		'--bx-color-h4'                   => '#111111',
+		'--bx-color-h5'                   => '#111111',
+		'--bx-color-h6'                   => '#111111',
+		'--bx-color-accent'               => self::DEFAULT_ACCENT,
+		'--bx-color-link'                 => '#111111',
+		'--bx-color-link-hover'           => 'var(--bx-color-accent)',
+		'--bx-color-button-bg'            => 'var(--bx-color-accent)',
+		'--bx-color-button-bg-hover'      => 'var(--bx-color-accent-hover)',
+		'--bx-color-button-fg'            => '#ffffff',
+		'--bx-color-button-fg-hover'      => '#ffffff',
 		// Border mirrors the button background so a solid button stays solid.
 		// `--bx-color-button-border` is not in $derive_for, so absent an explicit
 		// `site_buttons_border_color`, only this default emits — hardcoding a hex
@@ -297,99 +313,99 @@ class Component implements Component_Interface {
 		// repainted --bx-color-button-bg (red outline on a blue button).
 		// Referencing the bg token makes the border follow the brand; a customer
 		// who sets a distinct border color still wins (simple-token loop emits it
-		// after this). No-save resolves to #c92a2b, matching the 5.0.x look.
-		'--bx-color-button-border'      => 'var(--bx-color-button-bg, #c92a2b)',
-		'--bx-color-button-border-hover' => 'var(--bx-color-button-bg-hover, #b82526)',
-		'--bx-color-loader-bg'          => '#c92a2b',
-		'--bx-color-footer-title'       => '#111111',
-		'--bx-color-footer-fg'          => '#505050',
-		'--bx-color-footer-link'        => '#111111',
-		'--bx-color-footer-link-hover'  => '#c92a2b',
-		'--bx-color-copyright-bg'       => '#ffffff',
-		'--bx-color-copyright-border'   => '#e8e8e8',
-		'--bx-color-copyright-fg'       => '#505050',
-		'--bx-color-copyright-link'     => '#111111',
-		'--bx-color-copyright-link-hover' => '#c92a2b',
+		// after this).
+		'--bx-color-button-border'        => 'var(--bx-color-button-bg)',
+		'--bx-color-button-border-hover'  => 'var(--bx-color-button-bg-hover)',
+		'--bx-color-loader-bg'            => 'var(--bx-color-accent)',
+		'--bx-color-footer-title'         => '#111111',
+		'--bx-color-footer-fg'            => '#505050',
+		'--bx-color-footer-link'          => '#111111',
+		'--bx-color-footer-link-hover'    => 'var(--bx-color-accent)',
+		'--bx-color-copyright-bg'         => '#ffffff',
+		'--bx-color-copyright-border'     => '#e8e8e8',
+		'--bx-color-copyright-fg'         => '#505050',
+		'--bx-color-copyright-link'       => '#111111',
+		'--bx-color-copyright-link-hover' => 'var(--bx-color-accent)',
 
 		// Foreground (text) extras.
-		'--bx-color-fg-muted'           => '#6a6a6a',                // Mid-tone text (5:1 on #fff for WCAG AA; #757575 was 4.48:1).
-		'--bx-color-fg-subtle'          => '#9ca3af',                // Subtle / placeholder text.
-		'--bx-color-fg-inverse'         => '#ffffff',                // Text on color (light mode default).
+		'--bx-color-fg-muted'             => '#6a6a6a',                // Mid-tone text (5:1 on #fff for WCAG AA; #757575 was 4.48:1).
+		'--bx-color-fg-subtle'            => '#9ca3af',                // Subtle / placeholder text.
+		'--bx-color-fg-inverse'           => '#ffffff',                // Text on color (light mode default).
 
 		// Surface extras.
-		'--bx-color-bg-overlay'         => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay.
-		'--bx-color-bg-subtle'          => '#f7f7f9',                // Very-light surface tint.
+		'--bx-color-bg-overlay'           => 'rgba(0, 0, 0, 0.5)',     // Modal / mobile-menu overlay.
+		'--bx-color-bg-subtle'            => '#f7f7f9',                // Very-light surface tint.
 
 		// Brand / accent extras.
-		'--bx-color-accent-secondary'   => '#3a7882',           // Variation slot (cool teal).
-		'--bx-color-accent-tertiary'    => '#f4d35e',           // Variation slot (warm yellow).
+		'--bx-color-accent-secondary'     => '#3a7882',           // Variation slot (cool teal).
+		'--bx-color-accent-tertiary'      => '#f4d35e',           // Variation slot (warm yellow).
 
 		// Structural.
-		'--bx-color-border'             => '#e8e8e8',              // Generic border.
-		'--bx-color-border-strong'      => '#d4d4d4',              // Stronger border / hr.
-		'--bx-color-divider'            => '#f0f0f0',              // Subtle divider.
-		'--bx-color-shadow'             => 'rgba(0, 0, 0, 0.08)',  // Card / popover shadow base.
-		'--bx-color-shadow-strong'      => 'rgba(0, 0, 0, 0.16)',  // Modal / floating panel shadow.
+		'--bx-color-border'               => '#e8e8e8',              // Generic border.
+		'--bx-color-border-strong'        => '#d4d4d4',              // Stronger border / hr.
+		'--bx-color-divider'              => '#f0f0f0',              // Subtle divider.
+		'--bx-color-shadow'               => 'rgba(0, 0, 0, 0.08)',  // Card / popover shadow base.
+		'--bx-color-shadow-strong'        => 'rgba(0, 0, 0, 0.16)',  // Modal / floating panel shadow.
 
 		// State (semantic — replaces hardcoded #4caf50, #c0392b, #f1c40f, etc.).
-		'--bx-color-success'            => '#16a34a',
-		'--bx-color-success-bg'         => '#dcfce7',
-		'--bx-color-warning'            => '#eab308',
-		'--bx-color-warning-bg'         => '#fef9c3',
-		'--bx-color-error'              => '#dc2626',
-		'--bx-color-error-bg'           => '#fee2e2',
-		'--bx-color-info'               => '#0284c7',
-		'--bx-color-info-bg'            => '#dbeafe',
+		'--bx-color-success'              => '#16a34a',
+		'--bx-color-success-bg'           => '#dcfce7',
+		'--bx-color-warning'              => '#eab308',
+		'--bx-color-warning-bg'           => '#fef9c3',
+		'--bx-color-error'                => '#b91c1c', // 6:1 on the #f7f7f9 page (#dc2626 was 4.48:1).
+		'--bx-color-error-bg'             => '#fee2e2',
+		'--bx-color-info'                 => '#0284c7',
+		'--bx-color-info-bg'              => '#dbeafe',
 
-		// Community / presence (BP / Youzify) — keeps legacy Material green for parity with master.
-		'--bx-color-presence-online'    => '#4caf50',
-		'--bx-color-presence-away'      => '#eab308',
-		'--bx-color-presence-busy'      => '#dc2626',
-		'--bx-color-presence-offline'   => '#9ca3af',
-		'--bx-color-bp-friend'          => '#0284c7',
-		'--bx-color-bp-favorite'        => '#dc2626',
+		// Community / presence (BuddyPress) — keeps legacy Material green for parity with master.
+		'--bx-color-presence-online'      => '#4caf50',
+		'--bx-color-presence-away'        => '#eab308',
+		'--bx-color-presence-busy'        => '#dc2626',
+		'--bx-color-presence-offline'     => '#9ca3af',
+		'--bx-color-bp-friend'            => '#0284c7',
+		'--bx-color-bp-favorite'          => '#dc2626',
 
 		// Forms.
-		'--bx-color-input-bg'           => '#ffffff',
-		'--bx-color-input-border'       => '#d4d4d4',
-		'--bx-color-input-focus-border' => '#c92a2b',         // Same as accent default.
-		'--bx-color-input-fg'           => '#1a1a1a',
-		'--bx-color-input-placeholder'  => '#9ca3af',
+		'--bx-color-input-bg'             => '#ffffff',
+		'--bx-color-input-border'         => '#d4d4d4',
+		'--bx-color-input-focus-border'   => 'var(--bx-color-accent)',
+		'--bx-color-input-fg'             => '#1a1a1a',
+		'--bx-color-input-placeholder'    => '#9ca3af',
 
 		// Header / Sub-header / Footer extras.
-		'--bx-color-menu-bg'            => 'transparent',
-		'--bx-color-subheader-bg'       => '#f3f4f6', // Slightly lighter than body for visual band; was rgba(255,255,255,0.5) in 5.0.x — same visual intent.
-		'--bx-color-footer-bg'          => '#fafafa',
+		'--bx-color-menu-bg'              => 'transparent',
+		'--bx-color-subheader-bg'         => '#f3f4f6', // Slightly lighter than body for visual band; was rgba(255,255,255,0.5) in 5.0.x — same visual intent.
+		'--bx-color-footer-bg'            => '#fafafa',
 
 		// Dimension — radius extras.
-		'--bx-radius-card'              => '12px',
-		'--bx-radius-pill'              => '999px',
+		'--bx-radius-card'                => '12px',
+		'--bx-radius-pill'                => '999px',
 
 		// Dimension — spacing.
-		'--bx-space-section'            => 'clamp(40px, 8vw, 80px)',     // Vertical rhythm between sections.
-		'--bx-space-card'               => '24px',                       // Card / panel padding.
-		'--bx-space-inline'             => '8px',                        // Inline gap (icon + text, etc.).
-		'--bx-space-stack'              => '12px',                       // Vertical gap between siblings.
+		'--bx-space-section'              => 'clamp(40px, 8vw, 80px)',     // Vertical rhythm between sections.
+		'--bx-space-card'                 => '24px',                       // Card / panel padding.
+		'--bx-space-inline'               => '8px',                        // Inline gap (icon + text, etc.).
+		'--bx-space-stack'                => '12px',                       // Vertical gap between siblings.
 
 		// Effect — shadow ladder.
-		'--bx-shadow-card-sm'           => '0 1px 2px 0 var(--bx-color-shadow)',
-		'--bx-shadow-card-md'           => '0 4px 12px -2px var(--bx-color-shadow)',
-		'--bx-shadow-card-lg'           => '0 12px 32px -4px var(--bx-color-shadow-strong)',
+		'--bx-shadow-card-sm'             => '0 1px 2px 0 var(--bx-color-shadow)',
+		'--bx-shadow-card-md'             => '0 4px 12px -2px var(--bx-color-shadow)',
+		'--bx-shadow-card-lg'             => '0 12px 32px -4px var(--bx-color-shadow-strong)',
 
 		// Effect — motion.
-		'--bx-duration-fast'            => '120ms',
-		'--bx-duration-base'            => '200ms',
-		'--bx-duration-slow'            => '400ms',
-		'--bx-easing-base'              => 'cubic-bezier(0.4, 0, 0.2, 1)',
-		'--bx-easing-bounce'            => 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+		'--bx-duration-fast'              => '120ms',
+		'--bx-duration-base'              => '200ms',
+		'--bx-duration-slow'              => '400ms',
+		'--bx-easing-base'                => 'cubic-bezier(0.4, 0, 0.2, 1)',
+		'--bx-easing-bounce'              => 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 
 		// Z-index ladder.
-		'--bx-z-base'                   => '1',
-		'--bx-z-dropdown'               => '100',
-		'--bx-z-sticky-header'          => '999',
-		'--bx-z-overlay'                => '9999',
-		'--bx-z-loader'                 => '999991',
-		'--bx-z-toast'                  => '999999',
+		'--bx-z-base'                     => '1',
+		'--bx-z-dropdown'                 => '100',
+		'--bx-z-sticky-header'            => '999',
+		'--bx-z-overlay'                  => '9999',
+		'--bx-z-loader'                   => '999991',
+		'--bx-z-toast'                    => '999999',
 	);
 
 	/**
@@ -411,50 +427,50 @@ class Component implements Component_Interface {
 	 * @var array<string, string> legacy alias => canonical bx token
 	 */
 	protected static array $legacy_aliases = array(
-		// Structural
-		'--global-border-color'       => '--bx-color-border',
-		'--global-border-radius'      => '--bx-radius-global',
+		// Structural.
+		'--global-border-color'        => '--bx-color-border',
+		'--global-border-radius'       => '--bx-radius-global',
 		'--global-border-radius-inner' => '--bx-radius-global',
-		// Type
-		'--global-title-color'        => '--bx-color-h1',
-		'--color-h1'                  => '--bx-color-h1',
-		'--color-h2'                  => '--bx-color-h2',
-		'--color-h3'                  => '--bx-color-h3',
-		'--color-h4'                  => '--bx-color-h4',
-		'--color-h5'                  => '--bx-color-h5',
-		'--color-h6'                  => '--bx-color-h6',
-		// Surface
-		'--color-theme-grey'          => '--bx-color-bg-muted',
-		'--color-block-bg-subtle'     => '--bx-color-bg-muted',
-		'--color-secondary-bg'        => '--bx-color-bg-muted',
-		// Body / meta text
-		'--color-body-text'           => '--bx-color-fg',
-		'--color-meta'                => '--bx-color-fg-muted',
-		'--color-neutral'             => '--bx-color-fg-muted',
-		// HR / divider
-		'--color-hr'                  => '--bx-color-divider',
-		// Quote
-		'--color-quote-border'        => '--bx-color-accent',
-		'--color-quote-citation'      => '--bx-color-fg-muted',
-		// Menu / panel (not already in alias map of simple_color_tokens)
-		'--color-menu'                => '--bx-color-menu-fg',
-		'--color-menu-hover'          => '--bx-color-menu-hover',
-		'--color-menu-active'         => '--bx-color-menu-active',
-		'--color-panel-bg'            => '--bx-color-bg-elevated',
-		'--color-panel-bg-hover'      => '--bx-color-bg-muted',
-		'--color-panel-bg-active'     => '--bx-color-bg-muted',
-		'--color-panel-menu'          => '--bx-color-menu-fg',
-		'--color-panel-menu-hover'    => '--bx-color-menu-hover',
-		'--color-panel-menu-active'   => '--bx-color-menu-active',
-		// Footer / copyright (catches references that bypass simple_color_tokens)
-		'--color-footer-bg'           => '--bx-color-footer-bg',
-		'--color-footer-content'      => '--bx-color-footer-fg',
-		'--color-footer-link'         => '--bx-color-footer-link',
-		'--color-footer-link-hover'   => '--bx-color-footer-link-hover',
-		'--color-footer-title'        => '--bx-color-footer-title',
-		'--color-copyright-bg'        => '--bx-color-copyright-bg',
-		'--color-copyright-content'   => '--bx-color-copyright-fg',
-		'--color-copyright-link'      => '--bx-color-copyright-link',
+		// Type.
+		'--global-title-color'         => '--bx-color-h1',
+		'--color-h1'                   => '--bx-color-h1',
+		'--color-h2'                   => '--bx-color-h2',
+		'--color-h3'                   => '--bx-color-h3',
+		'--color-h4'                   => '--bx-color-h4',
+		'--color-h5'                   => '--bx-color-h5',
+		'--color-h6'                   => '--bx-color-h6',
+		// Surface.
+		'--color-theme-grey'           => '--bx-color-fg-muted', // A text grey since 5.0 (see _custom-properties.css); never a surface.
+		'--color-block-bg-subtle'      => '--bx-color-bg-muted',
+		'--color-secondary-bg'         => '--bx-color-bg-muted',
+		// Body / meta text.
+		'--color-body-text'            => '--bx-color-fg',
+		'--color-meta'                 => '--bx-color-fg-muted',
+		'--color-neutral'              => '--bx-color-fg-muted',
+		// HR / divider.
+		'--color-hr'                   => '--bx-color-divider',
+		// Quote.
+		'--color-quote-border'         => '--bx-color-accent',
+		'--color-quote-citation'       => '--bx-color-fg-muted',
+		// Menu / panel (not already in alias map of simple_color_tokens).
+		'--color-menu'                 => '--bx-color-menu-fg',
+		'--color-menu-hover'           => '--bx-color-menu-hover',
+		'--color-menu-active'          => '--bx-color-menu-active',
+		'--color-panel-bg'             => '--bx-color-bg-elevated',
+		'--color-panel-bg-hover'       => '--bx-color-bg-muted',
+		'--color-panel-bg-active'      => '--bx-color-bg-muted',
+		'--color-panel-menu'           => '--bx-color-menu-fg',
+		'--color-panel-menu-hover'     => '--bx-color-menu-hover',
+		'--color-panel-menu-active'    => '--bx-color-menu-active',
+		// Footer / copyright (catches references that bypass simple_color_tokens).
+		'--color-footer-bg'            => '--bx-color-footer-bg',
+		'--color-footer-content'       => '--bx-color-footer-fg',
+		'--color-footer-link'          => '--bx-color-footer-link',
+		'--color-footer-link-hover'    => '--bx-color-footer-link-hover',
+		'--color-footer-title'         => '--bx-color-footer-title',
+		'--color-copyright-bg'         => '--bx-color-copyright-bg',
+		'--color-copyright-content'    => '--bx-color-copyright-fg',
+		'--color-copyright-link'       => '--bx-color-copyright-link',
 		'--color-copyright-link-hover' => '--bx-color-copyright-link-hover',
 	);
 
@@ -470,15 +486,12 @@ class Component implements Component_Interface {
 	 * @var array<string, string>
 	 */
 	protected static array $dark_defaults = array(
-		// Brand / accent — slightly brighter red for dark-bg contrast.
-		'--bx-color-accent'               => '#ff6b6b',
-		'--bx-color-accent-inverse'       => '#0a0a0a',
-		'--bx-color-button-bg'            => '#ff6b6b',
-		'--bx-color-button-bg-hover'      => '#ff8989',
-		'--bx-color-button-fg'            => '#0a0a0a',
-		'--bx-color-button-fg-hover'      => '#0a0a0a',
-		'--bx-color-button-border'        => '#ff6b6b',
-		'--bx-color-button-border-hover'  => '#ff8989',
+		// Brand / accent: the colours come from dark_brand_tokens(), derived from
+		// the owner's Primary (and Buttons colour), so these only point at them.
+		'--bx-color-button-fg'            => 'var(--bx-color-button-bg-inverse)',
+		'--bx-color-button-fg-hover'      => 'var(--bx-color-button-bg-inverse)',
+		'--bx-color-button-border'        => 'var(--bx-color-button-bg)',
+		'--bx-color-button-border-hover'  => 'var(--bx-color-button-bg-hover)',
 
 		// Surfaces — near-black with gentle elevation.
 		'--bx-color-bg'                   => '#0a0a0a',
@@ -489,18 +502,18 @@ class Component implements Component_Interface {
 		// Text + links.
 		'--bx-color-fg'                   => '#f5f5f5',
 		'--bx-color-link'                 => '#f5f5f5',
-		'--bx-color-link-hover'           => '#ff6b6b',
+		'--bx-color-link-hover'           => 'var(--bx-color-accent)',
 
 		// Header.
 		'--bx-color-header-bg'            => '#0a0a0a',
 		'--bx-color-site-title'           => '#f5f5f5',
-		'--bx-color-site-title-hover'     => '#ff6b6b',
+		'--bx-color-site-title-hover'     => 'var(--bx-color-accent)',
 		'--bx-color-site-tagline'         => '#a0a0a0',
 
 		// Menu.
 		'--bx-color-menu-fg'              => '#e5e5e5',
-		'--bx-color-menu-hover'           => '#ff6b6b',
-		'--bx-color-menu-active'          => '#ff6b6b',
+		'--bx-color-menu-hover'           => 'var(--bx-color-accent)',
+		'--bx-color-menu-active'          => 'var(--bx-color-accent)',
 		'--bx-color-subheader-fg'         => '#f5f5f5',
 
 		// Loader.
@@ -518,14 +531,14 @@ class Component implements Component_Interface {
 		'--bx-color-footer-title'         => '#f5f5f5',
 		'--bx-color-footer-fg'            => '#a0a0a0',
 		'--bx-color-footer-link'          => '#e5e5e5',
-		'--bx-color-footer-link-hover'    => '#ff6b6b',
+		'--bx-color-footer-link-hover'    => 'var(--bx-color-accent)',
 
 		// Copyright.
 		'--bx-color-copyright-bg'         => '#0a0a0a',
 		'--bx-color-copyright-border'     => '#2a2a2a',
 		'--bx-color-copyright-fg'         => '#a0a0a0',
 		'--bx-color-copyright-link'       => '#e5e5e5',
-		'--bx-color-copyright-link-hover' => '#ff6b6b',
+		'--bx-color-copyright-link-hover' => 'var(--bx-color-accent)',
 
 		// Framework-supplied derived tokens (Phase 4 cleanup).
 		'--bx-color-fg-muted'             => '#a0a0a0',
@@ -568,7 +581,7 @@ class Component implements Component_Interface {
 		// Forms (dark).
 		'--bx-color-input-bg'             => '#161616',
 		'--bx-color-input-border'         => '#3a3a3a',
-		'--bx-color-input-focus-border'   => '#ff6b6b',
+		'--bx-color-input-focus-border'   => 'var(--bx-color-accent)',
 		'--bx-color-input-fg'             => '#f5f5f5',
 		'--bx-color-input-placeholder'    => '#6b7280',
 
@@ -590,7 +603,7 @@ class Component implements Component_Interface {
 		'--wp--preset--color--surface-1'  => '#1a1310',
 		'--wp--preset--color--surface-2'  => '#101a1c',
 		'--wp--preset--color--surface-3'  => '#0f1419',
-		'--wp--preset--color--primary'    => '#ff6b6b',
+		'--wp--preset--color--primary'    => 'var(--bx-color-accent)',
 
 		// Brand / accent slugs missing pre-5.1.0. theme.json declares
 		// these (settings.color.palette) and patterns use accent
@@ -624,6 +637,8 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'emit_tokens' ), 20 );
+		add_action( 'customize_register', array( $this, 'register_live_preview' ), 1000 );
+		add_action( 'customize_preview_init', array( $this, 'keep_live_tokens_applied' ) );
 		add_action( 'wp_head', array( $this, 'emit_mode_script' ), 1 );
 		add_action( 'send_headers', array( $this, 'reissue_legacy_mode_cookie' ) );
 		// Hooked after init priority 10 so customizer fields are registered
@@ -798,7 +813,7 @@ class Component implements Component_Interface {
 		}
 		set_theme_mod( '_buddyx_alpha_color_purged', 1 );
 		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
-			error_log( sprintf( '[BuddyX 5.1.0] alpha-color pollution purge removed %d theme_mods', $purged ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( sprintf( '[BuddyX 5.1.0] alpha-color pollution purge removed %d theme_mods', $purged ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- One-time migration note, only when WP_DEBUG_LOG is on.
 		}
 	}
 
@@ -930,60 +945,7 @@ class Component implements Component_Interface {
 		set_theme_mod( '_buddyx_preset_equal_purged', 1 );
 	}
 
-	/**
-	 * Compare two color strings (hex, rgb(), rgba()) by canonical RGB tuple.
-	 *
-	 * @param string $a Color value (hex, rgb(), rgba()).
-	 * @param string $b Color value (hex, rgb(), rgba()).
-	 * @return bool True when the colors resolve to the same RGB triplet AND
-	 *              alpha within float-equality tolerance.
-	 */
-	protected static function colors_canonically_equal( string $a, string $b ): bool {
-		$rgb_a = self::color_to_rgba_tuple( $a );
-		$rgb_b = self::color_to_rgba_tuple( $b );
-		if ( null === $rgb_a || null === $rgb_b ) {
-			return false;
-		}
-		return $rgb_a[0] === $rgb_b[0]
-			&& $rgb_a[1] === $rgb_b[1]
-			&& $rgb_a[2] === $rgb_b[2]
-			&& abs( $rgb_a[3] - $rgb_b[3] ) < 0.01;
-	}
 
-	/**
-	 * Parse a color string into [R, G, B, A] integers (0-255) + float alpha.
-	 *
-	 * @param string $color Color value.
-	 * @return array{0:int,1:int,2:int,3:float}|null
-	 */
-	protected static function color_to_rgba_tuple( string $color ): ?array {
-		$color = trim( $color );
-		if ( preg_match( '/^#([0-9a-f]{6})$/i', $color, $m ) ) {
-			return array(
-				(int) hexdec( substr( $m[1], 0, 2 ) ),
-				(int) hexdec( substr( $m[1], 2, 2 ) ),
-				(int) hexdec( substr( $m[1], 4, 2 ) ),
-				1.0,
-			);
-		}
-		if ( preg_match( '/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i', $color, $m ) ) {
-			return array(
-				(int) hexdec( $m[1] . $m[1] ),
-				(int) hexdec( $m[2] . $m[2] ),
-				(int) hexdec( $m[3] . $m[3] ),
-				1.0,
-			);
-		}
-		if ( preg_match( '/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/i', $color, $m ) ) {
-			return array(
-				(int) $m[1],
-				(int) $m[2],
-				(int) $m[3],
-				isset( $m[4] ) ? (float) $m[4] : 1.0,
-			);
-		}
-		return null;
-	}
 
 	/**
 	 * Build the CSS variable block and attach it as inline style on the
@@ -992,9 +954,66 @@ class Component implements Component_Interface {
 	public function emit_tokens() {
 		$css = $this->build_token_css();
 		if ( '' !== $css ) {
-			\wp_add_inline_style( 'buddyx-global', $css );
+			// Its own <style id="buddyx-tokens-inline-css">, right after the global
+			// stylesheet, so the Customizer can re-render it alone (live preview).
+			\wp_register_style( 'buddyx-tokens', false, array( 'buddyx-global' ), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- No file: holds the inline token CSS only.
+			\wp_enqueue_style( 'buddyx-tokens' );
+			\wp_add_inline_style( 'buddyx-tokens', $css );
 		}
 	}
+
+	/**
+	 * Live preview for every colour the token engine paints.
+	 *
+	 * Instead of reloading the whole preview, the Customizer re-renders just the
+	 * token <style> block from build_token_css(), so the preview shows exactly what
+	 * Publish will (hovers, fills, labels and dark mode included), in one request.
+	 *
+	 * @param \WP_Customize_Manager $wp_customize Customizer manager.
+	 * @return void
+	 */
+	public function register_live_preview( $wp_customize ) {
+		$live = array();
+		foreach ( array_keys( self::$simple_color_tokens ) as $id ) {
+			$setting = $wp_customize->get_setting( $id );
+			if ( $setting && 'refresh' === $setting->transport ) {
+				$setting->transport = 'postMessage';
+				$live[]             = $id;
+			}
+		}
+		if ( array() === $live ) {
+			return;
+		}
+		$wp_customize->selective_refresh->add_partial(
+			'buddyx_tokens',
+			array(
+				'selector'            => '#buddyx-tokens-inline-css',
+				'container_inclusive' => true,
+				'settings'            => $live,
+				'fallback_refresh'    => true,
+				'render_callback'     => function () {
+					return '<style id="buddyx-tokens-inline-css">' . $this->build_token_css() . '</style>';
+				},
+			)
+		);
+	}
+	/**
+	 * Keep the live-preview token block applied in the Customizer preview.
+	 *
+	 * Selective refresh adds a title ("Shift-click to edit") to every partial
+	 * container. On a <style> element a title makes it a named alternate style
+	 * sheet, which browsers may not apply, so the re-rendered tokens were ignored.
+	 * The preview removes the title whenever the token block renders.
+	 *
+	 * @return void
+	 */
+	public function keep_live_tokens_applied() {
+		wp_add_inline_script(
+			'customize-selective-refresh',
+			'(function(api){function strip(){var el=document.getElementById("buddyx-tokens-inline-css");if(el){el.removeAttribute("title");}}api.bind("preview-ready",function(){strip();api.selectiveRefresh.bind("partial-content-rendered",function(p){if(p.partial&&p.partial.id==="buddyx_tokens"){strip();}});});})(wp.customize);'
+		);
+	}
+
 
 	/**
 	 * Collect theme_mods for token generation, preview-aware.
@@ -1049,8 +1068,8 @@ class Component implements Component_Interface {
 		// Style variation overlay (Phase 7). Route to the correct cascade
 		// layer based on the variation's own luminance:
 		//
-		//   Light / default variation -> :root { … }     (becomes the light default)
-		//   Dark variation            -> [data-bx-mode="dark"] { … } (becomes the dark default)
+		// Light / default variation -> :root { … }     (becomes the light default)
+		// Dark variation            -> [data-bx-mode="dark"] { … } (becomes the dark default)
 		//
 		// Why: prior to this routing, the variation overlay always painted
 		// into :root, which meant a Dark variation locked the site to dark
@@ -1081,9 +1100,11 @@ class Component implements Component_Interface {
 		$variation_is_dark        = false;
 		$dark_variation_token_set = array();
 		if ( '' !== $variation_slug ) {
-			$variation_decls = self::resolve_style_variation_tokens( $variation_slug, $variation_covered );
-			if ( '' !== $variation_decls ) {
-				$variation_is_dark = (bool) self::active_variation_is_dark_scheme();
+			$variation_is_dark = (bool) self::active_variation_is_dark_scheme();
+			$variation_decls   = self::resolve_style_variation_tokens( $variation_slug, $variation_covered, $variation_is_dark );
+			if ( '' === $variation_decls ) {
+				$variation_is_dark = false;
+			} else {
 				if ( ! $variation_is_dark ) {
 					// Light / default / unknown-luminance variation paints into
 					// :root as before; this is the light default. Same behavior
@@ -1116,9 +1137,9 @@ class Component implements Component_Interface {
 		// Customer saves routed to the dark cascade when the dark variation is active.
 		$dark_customer_decls = '';
 		if ( ! $enabled ) {
-			$decls       .= self::legacy_alias_declarations() . self::auto_button_text_decls( $mods );
-			$light_block  = ':root{' . $decls . '}';
-			$dark_block   = $this->build_dark_block( $variation_is_dark ? $variation_decls : '' );
+			$decls      .= self::legacy_alias_declarations() . self::auto_button_text_decls( $mods );
+			$light_block = ':root{' . $decls . '}';
+			$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls : '', self::dark_brand_tokens( '', '' ) );
 			return $light_block . $dark_block;
 		}
 
@@ -1130,10 +1151,14 @@ class Component implements Component_Interface {
 		// Map: customer_field => array( token, default_color ).
 		// Default colors mirror _bx-tokens.css so derivation always produces
 		// the same variants whether or not customer has saved a value.
+		$primary    = self::saved_brand_color( $mods, 'site_primary_color' );
+		$button     = self::saved_brand_color( $mods, 'site_buttons_background_color' );
 		$derive_for = array(
-			'site_primary_color'             => array( '--bx-color-accent', '#c92a2b' ),
-			'site_buttons_background_color'  => array( '--bx-color-button-bg', '#c92a2b' ),
-			'site_links_color'               => array( '--bx-color-link', '#111111' ),
+			'site_primary_color'             => array( '--bx-color-accent', '' !== $primary ? $primary : self::DEFAULT_ACCENT ),
+			// An unsaved Buttons colour follows Primary, so one brand pick recolours every button.
+			'site_buttons_background_color'  => array( '--bx-color-button-bg', '' !== $primary ? $primary : self::DEFAULT_ACCENT ),
+			// No site_links_color row: its derived -hover would overwrite the
+			// --bx-color-link-hover role token (brand colour) with a shade of the link colour.
 			'body_background_color'          => array( '--bx-color-bg', '#f7f7f9' ),
 			'box_background_color'           => array( '--bx-color-bg-elevated', '#ffffff' ),
 			'site_header_bg_color'           => array( '--bx-color-header-bg', '#ffffff' ),
@@ -1154,6 +1179,12 @@ class Component implements Component_Interface {
 				}
 			}
 			$color = '' !== $value ? self::normalize_color( $value ) : '';
+			// A variation paints its accent into the buttons. Once the owner picks a
+			// Theme Color, buttons they have not set follow it instead, so one brand
+			// pick recolours every button (the variation only seeds the brand).
+			if ( '' === $color && 'site_buttons_background_color' === $mod_key && '' !== $primary && in_array( $cfg['token'], $variation_covered, true ) ) {
+				$color = $primary;
+			}
 			// When the dark variation is active, customer-saved values for tokens
 			// the variation covers must go into the dark cascade — not :root. This
 			// prevents a dark-preset color (e.g. site_header_bg_color = #0F0F0F)
@@ -1183,7 +1214,7 @@ class Component implements Component_Interface {
 				$token = $derive_for[ $mod_key ][0];
 				if ( '' !== $color ) {
 					if ( $in_dark_variation ) {
-						$dark_customer_decls .= self::derive_color_variants( $token, $color );
+						$dark_customer_decls .= self::derive_color_variants( $token, $color, true );
 					} else {
 						$decls .= self::derive_color_variants( $token, $color );
 					}
@@ -1242,10 +1273,89 @@ class Component implements Component_Interface {
 		$light_block = ':root{' . $decls . '}';
 		// Customer decls for dark-variation-covered tokens layer after $variation_decls
 		// so the customer's explicit save wins over the variation's palette default.
-		$dark_block  = $this->build_dark_block( $variation_is_dark ? $variation_decls . $dark_customer_decls : '' );
+		// A light style variation is a brand choice too: dark mode derives from its accent
+		// unless the owner saved their own Theme Color.
+		$dark_base = $primary;
+		if ( '' === $dark_base && ! $variation_is_dark && preg_match( '/--bx-color-accent:(#[0-9a-fA-F]{3,8});/', $variation_decls, $m ) ) {
+			$dark_base = $m[1];
+		}
+		$dark_block = $this->build_dark_block( $variation_is_dark ? $variation_decls . $dark_customer_decls : '', self::dark_brand_tokens( $dark_base, $button ) );
 
 		return $light_block . $dark_block;
 	}
+
+	/**
+	 * The light-mode brand colour: the owner's Theme Color, or the theme default.
+	 *
+	 * For plugins whose own design puts white text on a single brand colour in both
+	 * modes (LearnPress), so the darker light-mode shade is the one that keeps it readable.
+	 * ponytail: ignores a style variation's accent; read the variation palette if that matters.
+	 *
+	 * @return string Hex colour.
+	 */
+	public static function light_accent(): string {
+		$primary = self::saved_brand_color( (array) \get_theme_mods(), 'site_primary_color' );
+		return '' !== $primary ? $primary : self::DEFAULT_ACCENT;
+	}
+
+	/**
+	 * The owner's saved brand colour for a field, or '' when unsaved.
+	 *
+	 * A save equal to the field's default counts as unsaved, the same rule
+	 * the simple-token loop applies.
+	 *
+	 * @param array<string,mixed> $mods    Customizer theme mods.
+	 * @param string              $mod_key Field id.
+	 * @return string Normalized colour or ''.
+	 */
+	protected static function saved_brand_color( array $mods, string $mod_key ): string {
+		$value = $mods[ $mod_key ] ?? '';
+		if ( ! is_string( $value ) || '' === $value ) {
+			return '';
+		}
+		foreach ( array( self::DEFAULT_ACCENT, self::$alpha_color_field_defaults_5_1_0[ $mod_key ] ?? '' ) as $default ) {
+			if ( '' !== $default && self::colors_canonically_equal( $value, $default ) ) {
+				return '';
+			}
+		}
+		return self::normalize_color( $value );
+	}
+
+	/**
+	 * Dark-mode brand tokens derived from the owner's light colours.
+	 *
+	 * The owner picks the brand once. Dark mode lightens the accent (links,
+	 * labels) until it reads at 4.5:1 on the dark surfaces, so a green site stays
+	 * green in dark mode. Buttons keep their light-mode fill, so a button and its
+	 * label look the same in both modes; only a fill too dark to stand out on the
+	 * dark cards (under 3:1) is lifted, just enough. Labels follow the contrast pick.
+	 *
+	 * @param string $primary Saved Primary colour, or '' for the theme default.
+	 * @param string $button  Saved Buttons colour, or '' to follow Primary.
+	 * @return array<string,string> token => value.
+	 */
+	protected static function dark_brand_tokens( string $primary, string $button ): array {
+		$brand  = '' !== $primary ? $primary : self::DEFAULT_ACCENT;
+		$accent = '' !== $primary ? self::readable_on_dark( $primary ) : self::DEFAULT_DARK_ACCENT;
+		$tokens = array(
+			'--bx-color-accent'    => $accent,
+			'--bx-color-button-bg' => self::derived_shade( '' !== $button ? $button : $brand, 'fill', true ),
+		);
+		foreach ( $tokens as $token => $color ) {
+			foreach ( explode( ';', rtrim( self::derive_color_variants( $token, $color, true ), ';' ) ) as $decl ) {
+				list( $name, $value ) = array_pad( explode( ':', $decl, 2 ), 2, '' );
+				if ( '' !== $value ) {
+					$tokens[ $name ] = $value;
+				}
+			}
+		}
+		// Badges, counts and pills fill with the light brand colour too, not the
+		// lighter text shade derived above.
+		$tokens['--bx-color-accent-fill']         = self::derived_shade( $brand, 'fill', true );
+		$tokens['--bx-color-accent-fill-inverse'] = self::derived_shade( $brand, 'fill-inverse', true );
+		return $tokens;
+	}
+
 
 	/**
 	 * Build the `--legacy: var(--bx-token);` declaration string from
@@ -1277,8 +1387,9 @@ class Component implements Component_Interface {
 	 *                            build_token_css() to route a dark style
 	 *                            variation's palette into the dark cascade
 	 *                            instead of stamping it onto :root.
+	 * @param array  $brand       Dark brand tokens from dark_brand_tokens().
 	 */
-	protected function build_dark_block( string $extra_decls = '' ): string {
+	protected function build_dark_block( string $extra_decls = '', array $brand = array() ): string {
 		$alias_lookup = array(); // token => array of aliases.
 		foreach ( self::$simple_color_tokens as $cfg ) {
 			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
@@ -1287,7 +1398,7 @@ class Component implements Component_Interface {
 			$alias_lookup[ $cfg['token'] ] = $cfg['aliases'];
 		}
 		$dark_decls = '';
-		foreach ( self::$dark_defaults as $token => $value ) {
+		foreach ( array_merge( self::$dark_defaults, $brand ) as $token => $value ) {
 			$dark_decls .= $token . ':' . $value . ';';
 			foreach ( ( $alias_lookup[ $token ] ?? array() ) as $alias ) {
 				$dark_decls .= $alias . ':' . $value . ';';
@@ -1346,34 +1457,47 @@ class Component implements Component_Interface {
 		if ( true === self::active_variation_is_dark_scheme() ) {
 			$default = 'dark';
 		}
-		?>
-		<script id="buddyx-color-mode-bootstrap">
-		(function(){
-			// Assigned before the try: localStorage access throws when storage is
-			// blocked, and the catch needs siteDefault to already hold a value.
-			var siteDefault = <?php echo \wp_json_encode( $default ); ?>;
-			// One-time migration of the legacy focus-mode cookie (see
-			// reissue_legacy_mode_cookie()): a saved choice wins, an old "dark"
-			// only seeds an empty one. Expired either way.
-			var legacy = /(?:^|;\s*)bxtheme=([a-z]*)/.exec(document.cookie);
-			if (legacy) {
-				document.cookie = 'bxtheme=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-			}
-			try {
-				var saved = localStorage.getItem('bx-color-mode');
-				if (!saved && legacy && legacy[1] === 'dark') {
-					saved = 'dark';
-					localStorage.setItem('bx-color-mode', saved);
-				}
-				var mode = saved || siteDefault;
-				if (mode !== 'light' && mode !== 'dark') mode = siteDefault;
-				document.documentElement.setAttribute('data-bx-mode', mode);
-			} catch (e) {
-				document.documentElement.setAttribute('data-bx-mode', siteDefault);
-			}
-		})();
-		</script>
-		<?php
+
+		/**
+		 * Filters whether the owner default mode is forced for every visitor.
+		 *
+		 * True by default when the visitor toggle is hidden: a stored choice would
+		 * otherwise stick with no control left to change it. Return false to keep
+		 * honouring stored choices without a visible toggle.
+		 *
+		 * @since 5.2.0
+		 *
+		 * @param bool $force Whether stored visitor choices are ignored.
+		 */
+		$force = (bool) \apply_filters( 'buddyx_force_default_color_mode', ! \buddyx_is_truthy( \get_theme_mod( 'site_color_mode_toggle_show', 'on' ) ) );
+
+		self::print_mode_bootstrap(
+			array(
+				'def'    => $default,
+				'force'  => $force,
+				'legacy' => '',
+			)
+		);
+	}
+
+	/**
+	 * Print the color-mode bootstrap inline: config, then the shared script.
+	 *
+	 * Inlined (not enqueued) because it must run before the first paint.
+	 *
+	 * @param array $config Keys def (light|dark), force (bool), legacy (light|dark|'').
+	 * @return void
+	 */
+	public static function print_mode_bootstrap( array $config ): void {
+		$file = \get_theme_file_path( 'assets/js/color-mode-bootstrap.min.js' );
+		if ( ! is_readable( $file ) ) {
+			return;
+		}
+		$script = (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Bundled theme file, read locally.
+		\wp_print_inline_script_tag(
+			'var buddyxColorModeConfig = ' . \wp_json_encode( $config ) . ";\n" . $script,
+			array( 'id' => 'buddyx-color-mode-bootstrap' )
+		);
 	}
 
 	/**
@@ -1397,6 +1521,7 @@ class Component implements Component_Interface {
 		if ( '' === $variation_slug ) {
 			return null;
 		}
+		/** This filter is documented in inc/Custom_Logo/Component.php */
 		$override = \apply_filters( 'buddyx_variation_is_dark_scheme', null, $variation_slug );
 		if ( null !== $override ) {
 			return (bool) $override;
@@ -1430,23 +1555,8 @@ class Component implements Component_Interface {
 	 * @return bool True when relative luminance is below 0.5.
 	 */
 	protected static function hex_is_dark( string $hex ): bool {
-		$hex = ltrim( trim( $hex ), '#' );
-		if ( 3 === strlen( $hex ) ) {
-			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
-		}
-		if ( 6 !== strlen( $hex ) || ! ctype_xdigit( $hex ) ) {
-			return false;
-		}
-		$channel = static function ( float $c ): float {
-			return $c <= 0.03928 ? $c / 12.92 : pow( ( $c + 0.055 ) / 1.055, 2.4 );
-		};
-
-		$red   = hexdec( substr( $hex, 0, 2 ) ) / 255;
-		$green = hexdec( substr( $hex, 2, 2 ) ) / 255;
-		$blue  = hexdec( substr( $hex, 4, 2 ) ) / 255;
-		$lum   = 0.2126 * $channel( $red ) + 0.7152 * $channel( $green ) + 0.0722 * $channel( $blue );
-
-		return $lum < 0.5;
+		$rgb = self::color_to_rgb( '#' . ltrim( trim( $hex ), '#' ) );
+		return null !== $rgb && self::rgb_luminance( $rgb ) < 0.5;
 	}
 
 	/**
@@ -1598,8 +1708,7 @@ class Component implements Component_Interface {
 			return null;
 		}
 		// Local theme file, not a remote URL — wp_remote_get() would be wrong.
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$json = file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$json = file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reads a bundled theme file.
 		if ( false === $json ) {
 			return null;
 		}
@@ -1631,10 +1740,11 @@ class Component implements Component_Interface {
 	 *                                    overlay painted (so the downstream
 	 *                                    derive_for fallback skips them).
 	 *                                    Use a throwaway array if not needed.
+	 * @param bool               $on_dark True when the declarations go into the dark-mode block.
 	 * @return string CSS declarations (no selector wrapper) or empty if the
 	 *                variation file doesn't exist or has no palette.
 	 */
-	protected static function resolve_style_variation_tokens( string $slug, array &$covered = array() ): string {
+	protected static function resolve_style_variation_tokens( string $slug, array &$covered = array(), bool $on_dark = false ): string {
 		$data = self::load_variation_data( $slug );
 		if ( null === $data ) {
 			return '';
@@ -1674,7 +1784,10 @@ class Component implements Component_Interface {
 			// tokens — accent → accent + button-bg + link, contrast → fg +
 			// h1..h6 + site-title + menu-fg + tagline + subheader-fg, etc.
 			foreach ( self::$variation_palette_targets[ $pal_slug ] ?? array() as $bx_token ) {
-				$decls    .= self::emit_variation_token( $bx_token, $normalized );
+				// Links take the accent by reference, so a Theme Color the owner picks
+				// after the variation recolours them too.
+				$value     = ( 'accent' === $pal_slug && '--bx-color-link' === $bx_token ) ? 'var(--bx-color-accent)' : $normalized;
+				$decls    .= self::emit_variation_token( $bx_token, $value, $on_dark );
 				$covered[] = $bx_token;
 			}
 		}
@@ -1691,9 +1804,10 @@ class Component implements Component_Interface {
 	 *
 	 * @param string $token --bx-* base token name.
 	 * @param string $color Normalized CSS color.
+	 * @param bool   $on_dark True when the declarations go into the dark-mode block.
 	 * @return string CSS declarations.
 	 */
-	protected static function emit_variation_token( string $token, string $color ): string {
+	protected static function emit_variation_token( string $token, string $color, bool $on_dark = false ): string {
 		$decls = $token . ':' . $color . ';';
 		foreach ( array( self::$simple_color_tokens, self::$typography_color_tokens ) as $map ) {
 			foreach ( $map as $cfg ) {
@@ -1706,7 +1820,7 @@ class Component implements Component_Interface {
 			}
 		}
 		if ( in_array( $token, self::$derive_bases, true ) ) {
-			$decls .= self::derive_color_variants( $token, $color );
+			$decls .= self::derive_color_variants( $token, $color, $on_dark );
 		}
 		return $decls;
 	}
@@ -1855,124 +1969,11 @@ class Component implements Component_Interface {
 		return $converted;
 	}
 
-	/**
-	 * Parse a hex/rgb/rgba color string into [r, g, b] integer channels (0-255).
-	 *
-	 * Returns null if the input doesn't match a recognized color format.
-	 *
-	 * Supported inputs:
-	 *   - #rgb / #rgba / #rrggbb / #rrggbbaa  (alpha channel ignored for derivation)
-	 *   - rgb(r, g, b) / rgba(r, g, b, a)
-	 *
-	 * @param string $color Customer-saved color string.
-	 * @return array<int,int>|null [R, G, B] each 0-255, or null on parse failure.
-	 */
-	protected static function color_to_rgb( string $color ): ?array {
-		$color = trim( $color );
-		// Hex.
-		if ( preg_match( '/^#([A-Fa-f0-9]{3,8})$/', $color, $m ) ) {
-			$hex = $m[1];
-			$len = strlen( $hex );
-			if ( 3 === $len || 4 === $len ) {
-				$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
-			} elseif ( 8 === $len ) {
-				$hex = substr( $hex, 0, 6 );
-			} elseif ( 6 !== $len ) {
-				return null;
-			}
-			return array(
-				hexdec( substr( $hex, 0, 2 ) ),
-				hexdec( substr( $hex, 2, 2 ) ),
-				hexdec( substr( $hex, 4, 2 ) ),
-			);
-		}
-		// rgb() / rgba().
-		if ( preg_match( '/^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/', $color, $m ) ) {
-			return array(
-				min( 255, max( 0, (int) $m[1] ) ),
-				min( 255, max( 0, (int) $m[2] ) ),
-				min( 255, max( 0, (int) $m[3] ) ),
-			);
-		}
-		return null;
-	}
 
-	/**
-	 * WCAG relative-luminance of an [r, g, b] color (0 = black, 1 = white).
-	 *
-	 * @param array<int,int> $rgb [R, G, B] integer channels.
-	 * @return float Luminance value 0.0 - 1.0.
-	 */
-	protected static function rgb_luminance( array $rgb ): float {
-		$linearize = static function ( $c ) {
-			$c = $c / 255;
-			return $c <= 0.03928 ? $c / 12.92 : pow( ( $c + 0.055 ) / 1.055, 2.4 );
-		};
-		return 0.2126 * $linearize( $rgb[0] ) + 0.7152 * $linearize( $rgb[1] ) + 0.0722 * $linearize( $rgb[2] );
-	}
 
-	/**
-	 * Lighten or darken an RGB color by `$amount` (0.0 - 1.0).
-	 *
-	 * If `$luminance_aware` is true (default), the direction is chosen
-	 * automatically: light colors darken, dark colors lighten. This produces
-	 * a "more pressed" hover feel regardless of the base color's hue.
-	 *
-	 * @param array<int,int> $rgb              Base color [R, G, B].
-	 * @param float          $amount           Shift amount, 0.0 - 1.0.
-	 * @param bool           $luminance_aware  Auto direction (default true).
-	 * @return array<int,int> Shifted [R, G, B].
-	 */
-	protected static function rgb_shift( array $rgb, float $amount, bool $luminance_aware = true ): array {
-		if ( $luminance_aware ) {
-			$direction = self::rgb_luminance( $rgb ) > 0.5 ? -1 : 1;
-			$amount    = abs( $amount ) * $direction;
-		}
-		return array_map(
-			static function ( $c ) use ( $amount ) {
-				if ( $amount > 0 ) {
-					return (int) round( $c + ( 255 - $c ) * $amount );
-				}
-				return (int) round( $c * ( 1 + $amount ) );
-			},
-			$rgb
-		);
-	}
 
-	/**
-	 * Format an RGB array as a `#rrggbb` hex string.
-	 *
-	 * @param array<int,int> $rgb [R, G, B] integer channels.
-	 * @return string Lowercase 6-char hex with leading `#`.
-	 */
-	protected static function rgb_to_hex( array $rgb ): string {
-		return sprintf( '#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2] );
-	}
 
-	/**
-	 * Format an RGB array as a comma-separated channel string for use as
-	 * `rgba(var(--token-rgb), 0.X)` in CSS.
-	 *
-	 * @param array<int,int> $rgb [R, G, B] integer channels.
-	 * @return string E.g. "171, 193, 35".
-	 */
-	protected static function rgb_to_csv( array $rgb ): string {
-		return implode( ', ', $rgb );
-	}
 
-	/**
-	 * Pick `#0a0a0a` or `#ffffff` based on which would have ≥4.5:1 contrast
-	 * against the given color. Used for text-on-color labels (`-inverse`).
-	 *
-	 * @param array<int,int> $rgb [R, G, B] integer channels.
-	 * @return string Either `#0a0a0a` or `#ffffff`.
-	 */
-	protected static function contrast_pick( array $rgb ): string {
-		$lum      = self::rgb_luminance( $rgb ) + 0.05;
-		$vs_white = 1.05 / $lum;
-		$vs_dark  = $lum / ( self::rgb_luminance( array( 10, 10, 10 ) ) + 0.05 );
-		return $vs_white >= $vs_dark ? '#ffffff' : '#0a0a0a';
-	}
 
 	/**
 	 * Declarations that make the button label follow the button fill.
@@ -1987,7 +1988,7 @@ class Component implements Component_Interface {
 	 * @return string CSS declarations.
 	 */
 	protected static function auto_button_text_decls( array $mods ): string {
-		$default_bg = self::color_to_rgb( '#c92a2b' );
+		$default_bg = self::color_to_rgb( self::DEFAULT_ACCENT );
 		$fallback   = null !== $default_bg ? self::contrast_pick( $default_bg ) : '#ffffff';
 		$decls      = '';
 		foreach ( array(
@@ -2003,42 +2004,6 @@ class Component implements Component_Interface {
 		return $decls;
 	}
 
-	/**
-	 * Build the full set of derived variants for a customer-driven base color.
-	 *
-	 * For a base token like `--bx-color-accent`, emits:
-	 *   --bx-color-accent-rgb        171, 193, 35
-	 *   --bx-color-accent-hover      shifted 10% (luminance-aware)
-	 *   --bx-color-accent-active     shifted 20%
-	 *   --bx-color-accent-focus      shifted 5%
-	 *   --bx-color-accent-bg         rgba(171,193,35,0.08)
-	 *   --bx-color-accent-bg-strong  rgba(171,193,35,0.16)
-	 *   --bx-color-accent-border     rgba(171,193,35,0.24)
-	 *   --bx-color-accent-disabled   shifted 50% (luminance-aware) — washed out
-	 *   --bx-color-accent-inverse    contrast-pick #fff or #0a0a0a
-	 *
-	 * @param string $base_token_name e.g. `--bx-color-accent`.
-	 * @param string $color           Resolved color value (hex or rgba string).
-	 * @return string Concatenated CSS declarations (or empty if color unparseable).
-	 */
-	protected static function derive_color_variants( string $base_token_name, string $color ): string {
-		$rgb = self::color_to_rgb( $color );
-		if ( null === $rgb ) {
-			return '';
-		}
-		$csv    = self::rgb_to_csv( $rgb );
-		$decls  = '';
-		$decls .= $base_token_name . '-rgb:' . $csv . ';';
-		$decls .= $base_token_name . '-hover:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.10 ) ) . ';';
-		$decls .= $base_token_name . '-active:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.20 ) ) . ';';
-		$decls .= $base_token_name . '-focus:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.05 ) ) . ';';
-		$decls .= $base_token_name . '-bg:rgba(' . $csv . ', 0.08);';
-		$decls .= $base_token_name . '-bg-strong:rgba(' . $csv . ', 0.16);';
-		$decls .= $base_token_name . '-border:rgba(' . $csv . ', 0.24);';
-		$decls .= $base_token_name . '-disabled:' . self::rgb_to_hex( self::rgb_shift( $rgb, 0.40 ) ) . ';';
-		$decls .= $base_token_name . '-inverse:' . self::contrast_pick( $rgb ) . ';';
-		return $decls;
-	}
 
 	/**
 	 * Normalize a color value (hex or rgb/rgba string) to a safe CSS string.

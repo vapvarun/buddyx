@@ -8,6 +8,7 @@
 --------------------------------------------------------------*/
 
 .nav--toggle-small .menu-toggle {
+    flex: 0 0 auto;
     display: block;
     margin: 0;
     padding: 10px !important;
@@ -35,7 +36,7 @@
     outline-offset: 3px;
 }
 
-.nav--toggle-small .menu-toggle .fa {
+.nav--toggle-small .menu-toggle .bx-icon {
     font-size: 24px;
 }
 
@@ -85,8 +86,10 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     background: rgba(0, 0, 0, .02);
 }
 
+.main-navigation .bx-mobile-only,
+.moible-icons,
 .main-navigation .buddyx-mobile-menu,
-.moible-icons {
+.buddypress-icons-wrapper.buddyx-mobile-icon {
     display: none;
 }
 
@@ -95,14 +98,28 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         flex: 1;
     }
 
+    .main-navigation .bx-mobile-only,
+    .moible-icons {
+        display: block;
+    }
+
+    /* Child themes holding the 5.1.9 navigation.php print a desktop menu and a second icon set. */
     .main-navigation .primary-menu-container.buddyx-desktop-menu,
-    .desktop-icons {
+    .buddyx-mobile-icon ~ .buddypress-icons-wrapper {
         display: none;
     }
 
-    .main-navigation .buddyx-mobile-menu,
-    .moible-icons {
+    .main-navigation .buddyx-mobile-menu {
         display: block;
+    }
+
+    .buddypress-icons-wrapper.buddyx-mobile-icon {
+        display: flex;
+    }
+
+    /* One header for every size: the icons sit before the menu button on phones. */
+    .main-navigation .menu-toggle {
+        order: 1;
     }
 
     .nav--toggle-small.nav--toggled-on .menu,
@@ -167,10 +184,11 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         transition: transform .3s ease;
     }
 
-    .mobile-menu-heading {
+    /* Beats the generic .bx-mobile-only display: block above, so the heading stays one row. */
+    .main-navigation .mobile-menu-heading {
         margin-bottom: 20px;
         padding: 28px 20px;
-        background-color: #000;
+        background-color: #000; /* fixed: the mobile menu heading is a dark bar in both modes */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -186,12 +204,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         text-transform: uppercase;
         vertical-align: middle;
         display: inline-block;
-        color: #fff;
+        color: #fff; /* fixed: on the always-dark heading bar */
     }
 
     .mobile-menu-heading .menu-close {
         width: auto;
-        color: #fff;
+        color: #fff; /* fixed: on the always-dark heading bar */
         text-transform: uppercase;
         text-decoration: none;
         font-size: 12px;
@@ -209,7 +227,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
 	/* Show clear focus for keyboard users */
 	.mobile-menu-heading .menu-close:focus-visible {
-		outline: 2px solid #fff;
+		outline: 2px solid #fff; /* fixed: on the always-dark heading bar */
 		outline-offset: 3px;
 	}
 
@@ -223,7 +241,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         width: 15px;
         height: 2px;
         display: inline-block;
-        background-color: #fff;
+        background-color: #fff; /* fixed: on the always-dark heading bar */
         -webkit-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
         -moz-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
         -o-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
@@ -243,7 +261,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         transform: rotate(-45deg);
     }
 
-    .buddyx-mobile-menu .dropdown-toggle {
+    .main-navigation .primary-menu-container .dropdown-toggle {
         display: block;
         position: absolute;
         top: 0;
@@ -259,12 +277,17 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         border-radius: 3px;
     }
 
-    .buddyx-mobile-menu .dropdown-toggle::after {
-        content: "\f107";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
+    .main-navigation .primary-menu-container .dropdown-toggle::after {
+        content: "";
+        display: inline-block;
+        width: 0.875em;
+        height: 1em;
+        vertical-align: -0.125em;
         font-size: 18px;
         border: 0;
+        background-color: currentcolor;
+        -webkit-mask: var(--bx-icon-angle-down) center / contain no-repeat;
+        mask: var(--bx-icon-angle-down) center / contain no-repeat;
     }
 
     .main-navigation ul.menu ul li {
@@ -281,12 +304,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         display: block;
     }
 
-    .main-navigation .buddyx-mobile-menu ul.menu li a {
+    .main-navigation .primary-menu-container ul.menu li a {
         padding: .5em 1em;
         border-radius: 6px;
     }
 
-    .main-navigation .buddyx-mobile-menu ul.menu li a:hover {
+    .main-navigation .primary-menu-container ul.menu li a:hover {
         background: rgba(0, 0, 0, .02);
     }
 
@@ -352,7 +375,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         top: 50%;
         width: 60%;
         height: 60%;
-        border: solid #000;
+        border: solid var(--bx-color-menu-fg);
         border-width: 0 2px 2px 0;
         transform: translateY(-50%) rotate(45deg);
     }
@@ -391,7 +414,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         height: 0;
         top: 0;
         right: 28px;
-        border: 7px solid #000;
+        border: 7px solid transparent;
         border-color: var(--color-header-bg) var(--color-header-bg) transparent transparent;
         -webkit-transform-origin: 0 0;
         -ms-transform-origin: 0 0;
@@ -474,19 +497,20 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     .nav--toggle-sub li.menu-item-has-children::after,
     .nav--toggle-sub li.menu-item--has-toggle::after {
-        content: "\f107";
-        font-family: 'Font Awesome 6 Free';
+        content: "";
         display: inline-block;
         width: 12px;
         height: 20px;
-        line-height: 20px;
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
         margin: auto;
         font-size: inherit;
-        font-weight: 900;
+        /* The Font Awesome font drew angle-down 1/16em above its SVG path; keep that spot. */
+        background-color: currentcolor;
+        -webkit-mask: var(--bx-icon-angle-down) 50% calc(50% - 0.0625em) / auto 1em no-repeat;
+        mask: var(--bx-icon-angle-down) 50% calc(50% - 0.0625em) / auto 1em no-repeat;
     }
 
     .nav--toggle-sub li.menu-item-has-children .sub-menu li::after,
@@ -523,8 +547,83 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         display: block;
         transition: none;
     }
+
+    /* Escape dismisses an open dropdown while focus or the pointer stays on it (navigation.js). */
+    .nav--toggle-sub li.bx-submenu-dismissed>ul {
+        display: none;
+    }
 }
 
+
+/*--------------------------------------------------------------
+## "More" menu: the desktop menu stays on one row; items that do not fit move
+## into a More dropdown (navigation.js, buddyx_initMenuMore). Without JS the
+## menu wraps as before.
+--------------------------------------------------------------*/
+@media (min-width: 768px) {
+    /* The nav takes the rest of the header row, so the menu measures real room, not its own items. */
+    .site-header .main-navigation {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .main-navigation .primary-menu-container {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    /* With JS the menu stays on one row (the script moves extras into More);
+       until it has fitted the menu, clip instead of wrapping so the header never
+       jumps. Without JS the menu wraps as before. */
+    html:not(.no-js) .main-navigation #primary-menu {
+        flex-wrap: nowrap;
+        min-width: 0;
+    }
+
+    /* Items keep their width and labels never wrap, so the row height is the
+       same before and after the script runs; extras go into More instead. */
+    html:not(.no-js) .main-navigation #primary-menu > li {
+        flex-shrink: 0;
+    }
+
+    html:not(.no-js) .main-navigation #primary-menu > li > a {
+        white-space: nowrap;
+    }
+
+    /* Hidden until fitted so visitors never see the unfitted row swap to More.
+       The delayed reveal shows the menu anyway if the script never runs. */
+    html:not(.no-js) .main-navigation #primary-menu:not(.bx-menu-fitted) {
+        overflow: hidden;
+        visibility: hidden;
+        animation: bx-menu-reveal 0s 2s forwards;
+    }
+
+    @keyframes bx-menu-reveal {
+        to {
+            visibility: visible;
+        }
+    }
+
+    .main-navigation .bx-menu-more__button {
+        padding: 1.5em 0.5em;
+        border: 0;
+        background: none;
+        color: var(--color-menu);
+        font: inherit;
+        cursor: pointer;
+    }
+
+    .main-navigation .bx-menu-more__button:hover,
+    .main-navigation .bx-menu-more__button[aria-expanded="true"] {
+        color: var(--color-menu-hover);
+    }
+
+    /* The current page sits inside More: mark More like any active ancestor. */
+    .main-navigation .bx-menu-more.current-menu-ancestor > .bx-menu-more__button {
+        color: var(--bx-color-menu-active, var(--bx-color-accent));
+        font-weight: 600;
+    }
+}
 
 /*--------------------------------------------------------------
 ## Main navigation menu
@@ -744,16 +843,18 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .menu-icons-wrapper #searchform::before {
-    content: "\f002";
+    content: "";
     position: absolute;
-    font-family: 'Font Awesome 6 Free';
     font-size: 14px;
-    font-weight: 900;
     right: 15px;
     top: 0;
     bottom: 0;
     margin: auto;
+    width: 1em;
     height: 22px;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-magnifying-glass) center / auto 1em no-repeat;
+    mask: var(--bx-icon-magnifying-glass) center / auto 1em no-repeat;
 }
 
 .menu-icons-wrapper #searchform::before {
@@ -771,7 +872,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     font-size: 9px;
     font-weight: 700;
     background: var(--color-theme-primary);
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     border-radius: 50%;
     position: absolute;
     top: -5px;
@@ -808,10 +909,6 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     float: right;
     flex: 0 0 auto;
     margin-left: 15px;
-}
-
-.buddypress-icons-wrapper.buddyx-mobile-icon {
-    display: none;
 }
 
 .buddypress-icons-wrapper a {
@@ -936,7 +1033,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     height: 0;
     top: 0;
     right: 28px;
-    border: 7px solid #000;
+    border: 7px solid transparent;
     border-color: var(--color-header-bg) var(--color-header-bg) transparent transparent;
     -webkit-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
@@ -973,20 +1070,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     padding: .8em .5em;
 }
 
-.buddypress-icons-wrapper .btn-login span,
-.buddypress-icons-wrapper .btn-register span {
+.buddypress-icons-wrapper .btn-login .bx-icon,
+.buddypress-icons-wrapper .btn-register .bx-icon {
     margin-right: 6px;
 }
 
 @media (max-width: 767px) {
-    .buddypress-icons-wrapper {
-        display: none;
-    }
-
-    .buddypress-icons-wrapper.buddyx-mobile-icon {
-        display: flex;
-    }
-
     .buddypress-icons-wrapper .btn-login,
     .buddypress-icons-wrapper .btn-register {
         font-size: 12px;
@@ -1005,7 +1094,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         right: 24px;
     }
 
-    .buddyx-mobile-icon .user-link-wrap .user-link {
+    .buddypress-icons-wrapper .user-link-wrap .user-link {
         pointer-events: none;
     }
 }

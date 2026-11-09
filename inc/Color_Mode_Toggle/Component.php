@@ -167,12 +167,15 @@ class Component implements Component_Interface {
 
 		$labels = $this->get_labels();
 		$label  = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];
+
+		$short_labels = $this->get_short_labels();
 		?>
 		<div class="bx-color-mode-toggle <?php echo esc_attr( $wrapper ); ?>">
 			<button type="button"
 				class="bx-color-mode-toggle__btn"
 				data-mode="<?php echo esc_attr( $mode ); ?>"
 				aria-label="<?php echo esc_attr( $label ); ?>"
+				data-label="<?php echo esc_attr( $short_labels[ $mode ] ?? '' ); ?>"
 				aria-pressed="<?php echo 'dark' === $mode ? 'true' : 'false'; ?>">
 				<svg class="bx-icon bx-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
 				<svg class="bx-icon bx-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -195,6 +198,18 @@ class Component implements Component_Interface {
 	}
 
 	/**
+	 * Short visible labels for the mobile-menu button. The full sentence stays in aria-label.
+	 *
+	 * @return array<string, string> Label per mode.
+	 */
+	protected function get_short_labels(): array {
+		return array(
+			'light' => __( 'Light mode', 'buddyx' ),
+			'dark'  => __( 'Dark mode', 'buddyx' ),
+		);
+	}
+
+	/**
 	 * Enqueue toggle JS only when toggle is enabled.
 	 */
 	public function enqueue_assets(): void {
@@ -210,5 +225,6 @@ class Component implements Component_Interface {
 		wp_enqueue_script( 'buddyx-color-mode-toggle', $src, array(), $ver, true );
 		// The script rewrites the button label on every mode change, so it needs the translations.
 		wp_localize_script( 'buddyx-color-mode-toggle', 'buddyxColorModeLabels', $this->get_labels() );
+		wp_localize_script( 'buddyx-color-mode-toggle', 'buddyxColorModeShortLabels', $this->get_short_labels() );
 	}
 }

@@ -18,6 +18,41 @@ use RuntimeException;
  *
  * Its instance can be accessed through `buddyx()`. For example, if there is a template tag called `posted_on`, it can
  * be accessed via `buddyx()->posted_on()`.
+ *
+ * The tags below are registered by the theme components' template_tags() methods and dispatched through __call().
+ * They are listed here so IDEs and static analysis know them; keep the list in sync when a component adds a tag.
+ *
+ * @method void display_bbpress_left_sidebar()
+ * @method void display_bbpress_right_sidebar()
+ * @method void display_buddypress_groups_right_sidebar()
+ * @method void display_buddypress_left_sidebar()
+ * @method void display_buddypress_members_right_sidebar()
+ * @method void display_buddypress_right_sidebar()
+ * @method void display_fluentcart_left_sidebar()
+ * @method void display_fluentcart_right_sidebar()
+ * @method void display_left_sidebar()
+ * @method void display_primary_nav_menu( array $args = array() )
+ * @method void display_right_sidebar()
+ * @method void display_woocommerce_left_sidebar()
+ * @method void display_woocommerce_right_sidebar()
+ * @method bool is_amp()
+ * @method bool is_bbpress_left_sidebar_active()
+ * @method bool is_bbpress_right_sidebar_active()
+ * @method bool is_buddypress_groups_right_sidebar_active()
+ * @method bool is_buddypress_left_sidebar_active()
+ * @method bool is_buddypress_members_right_sidebar_active()
+ * @method bool is_buddypress_right_sidebar_active()
+ * @method bool is_fluentcart_left_sidebar_active()
+ * @method bool is_fluentcart_right_sidebar_active()
+ * @method bool is_left_sidebar_active()
+ * @method bool is_primary_nav_menu_active()
+ * @method bool is_right_sidebar_active()
+ * @method bool is_woocommerce_left_sidebar_active()
+ * @method bool is_woocommerce_right_sidebar_active()
+ * @method void print_scripts( string ...$handles )
+ * @method void print_styles( string ...$handles )
+ * @method void the_comments( array $args = array() )
+ * @method bool using_amp_live_list_comments()
  */
 class Template_Tags {
 

@@ -18,6 +18,7 @@
 # Imports
 --------------------------------------------------------------*/
 @import "_custom-properties.css";
+@import "_icons.css";
 @import "_bx-tokens.css";
 @import "_blocks-style.css";
 @import "_reset.css";
@@ -94,19 +95,27 @@ body.elementor-editor-active .site-wrapper {
 }
 
 .nav-previous a::before {
-    content: "\f104";
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    content: "";
     display: inline-block;
+    width: 0.625em;
+    height: 1em;
+    vertical-align: -0.125em;
     margin-right: 10px;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-angle-left) center / contain no-repeat;
+    mask: var(--bx-icon-angle-left) center / contain no-repeat;
 }
 
 .nav-next a::after {
-    content: "\f105";
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    content: "";
     display: inline-block;
+    width: 0.625em;
+    height: 1em;
+    vertical-align: -0.125em;
     margin-left: 10px;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-angle-right) center / contain no-repeat;
+    mask: var(--bx-icon-angle-right) center / contain no-repeat;
 }
 
 @media (--content-query) {
@@ -178,7 +187,7 @@ body.elementor-editor-active .site-wrapper {
 
 .pagination a:hover,
 .pagination a:active {
-    border-color: #00a0d2;
+    border-color: var(--bx-color-accent);
 }
 
 .pagination .prev,
@@ -247,6 +256,28 @@ were hidden (via .neverending) before. */
 
 .site-wrapper #item-header {
     margin-top: -1rem;
+}
+
+/* Sticky footer. Templates that bring their own wrapper (The Events Calendar, other plugins) have no
+   .site-wrapper, so the min-height rules below never applied and a short page left blank space under
+   the footer. #page now fills the viewport (less the admin bar) and the footer takes the spare room.
+   Children keep their block width: width is set at zero specificity so any .container width still wins. */
+#page {
+    display: flex;
+    flex-direction: column;
+    /* stylelint-disable-next-line declaration-block-no-duplicate-properties -- 100vh is the fallback for browsers without dvh. */
+    min-height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+    min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
+}
+
+:where(#page) > :where(:not(.skip-link)) {
+    width: 100%;
+}
+
+/* order keeps the footer last when a sibling (#primary on narrow screens) sets its own order. */
+#page > .site-footer {
+    order: 999;
+    margin-top: auto;
 }
 
 @media (min-width: 768px) {
@@ -662,4 +693,9 @@ were hidden (via .neverending) before. */
 [data-bx-mode="dark"] .mce-menu .mce-menu-item.mce-selected {
     background-color: var(--bx-color-bg-muted) !important;
     border-color: var(--bx-color-border-strong) !important;
+}
+
+/* WooCommerce draws cart remove links and required asterisks from --wc-red (#a00), which is 2.3:1 on the dark surface. This lives here, not in the WooCommerce sheet, because the mini cart also shows on pages where that sheet is not loaded. */
+:root[data-bx-mode="dark"] {
+    --wc-red: var(--bx-color-error);
 }

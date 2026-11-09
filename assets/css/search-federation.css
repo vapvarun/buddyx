@@ -122,8 +122,8 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
-	color: var(--button-text-color, #fff);
-	background: var(--bx-color-accent, var(--color-theme-primary, #ee4036));
+	color: var(--bx-color-accent-fill-inverse, var(--button-text-color, #fff));
+	background: var(--bx-color-accent-fill, var(--bx-color-accent, var(--color-theme-primary, #ee4036)));
 	border-radius: 999px;
 }
 

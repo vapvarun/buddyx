@@ -37,13 +37,16 @@
 }
 
 .bx-color-mode-toggle__btn:focus-visible {
-    box-shadow: 0 0 0 2px var(--bx-color-accent, currentColor);
+    box-shadow: 0 0 0 2px var(--bx-color-accent-focus, currentColor);
 }
 
 /* Default: hide all 3 icons, then unhide based on data-mode. Reserves layout
  * space at all times so CLS stays 0. */
 .bx-color-mode-toggle__btn .bx-icon {
     display: none;
+    /* Keep the 20px size from the markup, not the 1em glyph size in _icons.css. */
+    height: auto;
+    vertical-align: baseline;
     pointer-events: none;
 }
 
@@ -67,7 +70,7 @@
 }
 
 .bx-color-mode-toggle-mobile .bx-color-mode-toggle__btn::after {
-    content: attr(aria-label);
+    content: attr(data-label);
     font-size: 14px;
     font-weight: 500;
     color: inherit;

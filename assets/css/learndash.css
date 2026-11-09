@@ -10,6 +10,11 @@
 # Widgets
 --------------------------------------------------------------*/
 
+/* LearnDash-only theme icon. Font Awesome Free 6.6.0 paths (CC BY 4.0); see _icons.css. */
+:root {
+	--bx-icon-star-regular: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.7 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z'/%3E%3C/svg%3E");
+}
+
 
 /*--------------------------------------------------------------
 # Base
@@ -217,7 +222,7 @@ p:empty {
     border-radius: 4px;
     background-color: var(--color-theme-primary);
     box-shadow: none;
-    color: #fff;
+    color: var(--bx-color-accent-inverse, #fff);
     text-decoration: none;
     font-family: inherit;
     font-size: 1em;
@@ -527,7 +532,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
     border-radius: var(--global-border-radius);
 }
 
-.sfwd-courses .entry-meta,
+.sfwd-courses .entry-meta:not(.course-meta),
 .single-groups .entry-meta,
 .sfwd-courses .entry-footer,
 .single-groups .entry-footer {
@@ -543,8 +548,14 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 }
 
 .learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-tab .ld-icon.star-blank::before {
-    content: '\f005';
-    font-family: "Font Awesome 6 Free";
+    content: "";
+    display: inline-block;
+    width: 1.125em;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-star-regular) center / contain no-repeat;
+    mask: var(--bx-icon-star-regular) center / contain no-repeat;
 }
 
 .learndash-wrapper .ld-tabs .ld-tabs-navigation::after,
@@ -739,4 +750,472 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 
 .widget .lm-tab-course-info .certificate {
     width: 100%;
+}
+/* LearnDash paints the lesson and topic status strips #f0f3f6 and topic rows #333; follow
+   the theme surfaces and text so lessons and topics read in dark mode. "html" outranks
+   LearnDash's own selectors, which load later. */
+html .learndash-wrapper .ld-lesson-status,
+html .learndash-wrapper .ld-topic-status,
+html .learndash-wrapper .ld-breadcrumbs {
+    background-color: var(--bx-color-bg-muted);
+}
+
+/* LearnDash paints the progress track #fff, a bright bar in dark mode and no track at all on a white card. */
+html .learndash-wrapper:not(.learndash-wrapper--modern) .ld-progress .ld-progress-bar {
+    background-color: var(--global-border-color);
+}
+
+html .learndash-wrapper .ld-table-list a.ld-table-list-item-preview {
+    color: var(--bx-color-fg);
+}
+
+/* LearnDash prints its brand-coloured text with !important from one colour
+   (the Theme Color unless the owner picked LearnDash colours). In dark mode that
+   text uses the lighter dark accent so it stays readable on dark surfaces. */
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-breadcrumbs a,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-primary-color,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-primary-color-hover:hover,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-secondary-color,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-lesson-item.ld-is-current-lesson .ld-lesson-title,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-button.ld-button-transparent,
+html[data-bx-mode="dark"] body.bx-ld-theme-colors .learndash-wrapper .ld-button.ld-button-reverse {
+    color: var(--bx-color-accent) !important;
+}
+
+/* Quiz answers in dark mode. LearnDash paints answered rows (picked, correct, incorrect, missed) and the explanation box with light backgrounds while the theme keeps the text light, so after Check the answers nearly vanish. Dark surfaces with success and error tints keep them at 9:1 or better. */
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label {
+    background: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerCorrect label {
+    background: var(--bx-color-success-bg);
+    border-color: var(--bx-color-success);
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerIncorrect label {
+    background: var(--bx-color-error-bg);
+    border-color: var(--bx-color-error);
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerCorrectIncomplete label {
+    background: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-success);
+    color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_response,
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_response p,
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_response span {
+    background: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border);
+    color: var(--bx-color-fg);
+}
+
+/* The result screen prints "Your time:" and the time in LearnDash's grey (#617175), 3.9:1 on the dark page. */
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_quiz_time,
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_quiz_time span {
+    color: var(--bx-color-fg-muted);
+}
+
+/* Design Upgrade for LearnDash colours the quiz through its own --lqc-* variables on :root, so give them dark values here. */
+:root[data-bx-mode="dark"] {
+    --lqc-color-lightgrey: var(--bx-color-bg-elevated);
+    --lqc-message-bg-color: var(--bx-color-bg-elevated);
+    --lqc-color-primary-light: var(--bx-color-bg-subtle);
+    --lqc-color-correct-light: var(--bx-color-success-bg);
+    --lqc-color-incorrect-light: var(--bx-color-error-bg);
+    --lqc-review-box-bg: var(--bx-color-bg-elevated);
+    --lqc-timer-container-bg: var(--bx-color-bg-elevated);
+}
+
+/* Quiz Check mode. LearnDash centres the answer explanation under left-aligned text, and puts its status icon inline
+   only on answered rows, then pads the radio on some of them, so radios land at different x positions. Selectors start with body because LearnDash loads later. Reserve one
+   icon column on every row, take the icon out of the flow, and start-align the explanation. */
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_response {
+	text-align: start;
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item) label {
+	position: relative;
+	padding-inline-start: calc(1em + 30px);
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item).wpProQuiz_answerCorrect label::before,
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item).wpProQuiz_answerIncorrect label::before {
+	position: absolute;
+	inset-inline-start: 1em;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item).wpProQuiz_answerCorrect label input,
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item).wpProQuiz_answerCorrectIncomplete label input,
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item).wpProQuiz_answerIncorrect label input {
+	margin-inline-start: 0;
+}
+
+/*--------------------------------------------------------------
+# Course catalogue: meta line, image cap, Start / Continue
+--------------------------------------------------------------*/
+
+.course-meta .entry-meta__content {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .25em 1em;
+}
+
+.course-meta .course-category {
+	font-weight: 500;
+}
+
+.course-meta .course-price {
+	font-weight: 600;
+	color: var(--bx-color-fg);
+	unicode-bidi: isolate; /* keep the currency symbol and amount in LearnDash's order on RTL sites */
+}
+
+.course-meta .course-rating {
+	letter-spacing: 1px;
+	color: var(--bx-color-fg);
+}
+
+.course-meta .course-rating small {
+	letter-spacing: 0;
+	margin-inline-start: 4px;
+}
+
+/* A course image keeps one shape on the catalogue and the single course, whatever size was uploaded. */
+.post-type-archive-sfwd-courses .post-thumbnail img,
+.tax-ld_course_category .post-thumbnail img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.single-sfwd-courses .post-thumbnail img {
+	width: 100%;
+	max-height: 360px;
+	object-fit: cover;
+}
+
+.course-resume {
+	margin: 0 0 1.5em;
+}
+
+@media (max-width: 640px) {
+	.single-sfwd-courses .post-thumbnail img {
+		max-height: 220px;
+	}
+
+	.course-resume .ld-button {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+/* LearnDash paints the status box labels, the tabs and the "Every 1 month" text #617175 and the Log In link #235af3, 3.3 to 3.6:1 on dark surfaces. The doubled class outranks LearnDash's own selectors, which load later. */
+html[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .ld-course-status .ld-course-status-label,
+html[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .ld-course-status .ld-text,
+html[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .ld-course-status .ld-course-status-content .ld-text.ld-recurring-duration,
+html[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .ld-tabs .ld-tab:not(.ld-active) .ld-text {
+	color: var(--bx-color-fg-muted);
+}
+
+html[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .ld-course-status .ld-course-status-action .ld-login-text {
+	color: var(--bx-color-accent);
+}
+
+/* Catalogue category links and the member progress bar on a course card. */
+.course-filter ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	margin: 0 0 1.5em;
+	padding: 0;
+	list-style: none;
+}
+
+.course-filter a {
+	display: inline-block;
+	padding: .35em .9em;
+	border: 1px solid var(--bx-color-border);
+	border-radius: 999px;
+	color: var(--bx-color-fg);
+	text-decoration: none;
+	font-size: .875em;
+}
+
+.course-filter a[aria-current="page"] {
+	border-color: var(--bx-color-accent);
+	box-shadow: inset 0 0 0 1px var(--bx-color-accent);
+	font-weight: 600;
+}
+
+.course-progress {
+	display: flex;
+	align-items: center;
+	gap: .75em;
+	margin: .5em 0;
+	font-size: .875em;
+}
+
+.course-progress__bar {
+	flex: 1;
+	width: auto;
+	height: 6px;
+	border: 0;
+	border-radius: 999px;
+	background: var(--bx-color-border);
+	overflow: hidden;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.course-progress__bar::-webkit-progress-bar {
+	background: var(--bx-color-border);
+}
+
+.course-progress__bar::-webkit-progress-value {
+	background: var(--bx-color-accent);
+}
+
+.course-progress__bar::-moz-progress-bar {
+	background: var(--bx-color-accent);
+}
+
+@media (max-width: 640px) {
+	.course-filter ul {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+}
+
+/*--------------------------------------------------------------
+# Dark mode: login modal, quiz points and Modern layout
+--------------------------------------------------------------*/
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-modal,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal .ld-login-modal-login,
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_points.wpProQuiz_points--message {
+	background: var(--color-theme-white-box);
+	color: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal input[type="text"],
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal input[type="password"],
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal input[type="email"],
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields input,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields select {
+	background: var(--color-theme-white-box);
+	border-color: var(--global-border-color);
+	color: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-text,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal .ld-login-modal-form label,
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-modal .ld-modal-closer {
+	color: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .ld-login-modal .ld-forgot-password-link {
+	color: var(--color-link);
+}
+
+/* Modern layout: LearnDash's muted greys are chosen for a white page (2.1:1 on the dark surface), so lift them to the body text colour. */
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern {
+	--ld-color-primitives-grey-800: var(--global-font-color);
+	--ld-color-primitives-grey-700: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-accordion__item-title,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-enrollment__pricing-label,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-enrollment__pricing-price,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-enrollment__status-description,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-enrollment__status-label,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-tab-bar__tab,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-accordion__expand-button,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-details {
+	color: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-tab-bar__tab[aria-selected="true"],
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-tab-bar__tab[aria-selected="true"] .ld-tab-bar__tab-title {
+	color: color-mix(in srgb, var(--ld-color-brand-primary) 50%, var(--global-font-color));
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-accordion__section,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-enrollment,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper--modern .ld-details {
+	border-color: var(--global-border-color);
+}
+
+/*--------------------------------------------------------------
+# Quiz: every question type
+LearnDash lays the radio or checkbox inline at the start of the answer
+text and prints the Correct / Incorrect badge over the row's top end, so
+wrapped text, images and lists slide under the input and long answers run
+under the badge. Hints, sort and matrix rows, text fields and the category
+score keep light surfaces in dark mode. Checked with a quiz holding every
+question type (plan/qa/docker/seed/46-learndash-quiz-types.php).
+--------------------------------------------------------------*/
+
+/* Choice rows (single and multiple choice only): input and status icon sit in the start padding, level with the first
+   line, so wrapped lines, images and lists start in one text column beside the input. A long unbroken word wraps
+   instead of widening the quiz. Assessment ratings are inline labels and keep LearnDash's own layout. */
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList:is([data-type="single"], [data-type="multiple"]) .wpProQuiz_questionListItem label:has(> input:is([type="radio"], [type="checkbox"])) {
+	padding-inline-start: calc(1em + 64px);
+	overflow-wrap: anywhere;
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList:is([data-type="single"], [data-type="multiple"]) .wpProQuiz_questionListItem label > input:is([type="radio"], [type="checkbox"]) {
+	position: absolute;
+	inset-inline-start: calc(1em + 30px);
+	top: calc(16px + 0.8rem);
+	margin: 0;
+	transform: translateY(-50%);
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList:is([data-type="single"], [data-type="multiple"]) .wpProQuiz_questionListItem.wpProQuiz_answerCorrect label:has(> input:is([type="radio"], [type="checkbox"]))::before,
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList:is([data-type="single"], [data-type="multiple"]) .wpProQuiz_questionListItem.wpProQuiz_answerIncorrect label:has(> input:is([type="radio"], [type="checkbox"]))::before {
+	top: calc(16px + 0.8rem);
+}
+
+/* Assessment ratings are LearnDash's plain inline options (padding and border 0). Undo the answer-row padding and the
+   dark row surface the general quiz label rules give them, so each radio sits right beside its word. */
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList[data-type="assessment_answer"] .wpProQuiz_questionListItem label {
+	gap: 6px;
+	padding-inline: 0 16px;
+	background-color: transparent;
+}
+
+/* Reserve the badge's room at the row end so answer text never runs under it. */
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:is(.wpProQuiz_answerCorrect, .wpProQuiz_answerIncorrect, .wpProQuiz_answerCorrectIncomplete) label:has(> .ld-quiz-question-item__status) {
+	padding-inline-end: calc(14px + 8.5em);
+}
+
+/* On a phone that room is too costly: the badge drops under the answer, in the text column. */
+@media (max-width: 767px) {
+	body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:is(.wpProQuiz_answerCorrect, .wpProQuiz_answerIncorrect, .wpProQuiz_answerCorrectIncomplete) label:has(> .ld-quiz-question-item__status) {
+		padding-inline-end: 16px;
+	}
+
+	body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:not(.ld-sortable__item) label > .ld-quiz-question-item__status {
+		position: static;
+		margin-top: 6px;
+		text-align: start;
+	}
+}
+
+/* An answer that ends in a list or paragraph keeps its bottom margin, leaving a blank band in the row. */
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label > :is(ul, ol, p):last-of-type {
+	margin-bottom: 0;
+}
+
+/* Free-text answers: LearnDash prints style="width: 300px", wider than a phone row in Focus Mode. Each question is a
+   fieldset, and a fieldset is never narrower than its content by default, so it must be allowed to shrink too. */
+body .learndash-wrapper .wpProQuiz_content fieldset.wpProQuiz_question {
+	min-width: 0;
+}
+
+body .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionInput[type="text"] {
+	max-width: 100%;
+}
+
+/* Sort rows are buttons, which centre their text, so a wrapped answer was centred while short ones read from the start. */
+body .learndash-wrapper .wpProQuiz_content .ld-sortable__item .ld-sortable__item-text {
+	text-align: start;
+	overflow-wrap: anywhere;
+}
+
+/* "View Answers: Student | Correct" toggle on reviewed sort and matrix questions. LearnDash dims the inactive button to
+   50% opacity (white on half-transparent red, unreadable) and renders both 19px tall. Its own inline colour CSS forces
+   the red background, so both stay red at full strength and the active one is marked with a ring instead. */
+body .learndash-wrapper .wpProQuiz_content li.wpProQuiz_listItem div.wpProQuiz_questionList_containers input.wpProQuiz_button2 {
+	display: inline-block;
+	width: auto;
+	min-width: 0;
+	min-height: 32px;
+	padding: 4px 14px;
+	margin-block: 4px;
+	margin-inline: 0 6px;
+	opacity: 1;
+}
+
+body .learndash-wrapper .wpProQuiz_content li.wpProQuiz_listItem div.wpProQuiz_questionList_containers input.wpProQuiz_button2.wpProQuiz_questionList_containers_view_active {
+	box-shadow: 0 0 0 2px var(--color-theme-body), 0 0 0 4px var(--button-background-color);
+}
+
+/* Dark mode for the parts the answer-row rules above do not reach. */
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content :is(.ld-sortable__item, .ld-sortable__item-text, .ld-sortable__item-status-container) {
+	color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .ld-sortable__item {
+	background-color: var(--bx-color-bg-elevated);
+	border-color: var(--bx-color-border);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .ld-sortable__item.ld-sortable__item--correct {
+	background-color: var(--bx-color-success-bg);
+	border-color: var(--bx-color-success);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .ld-sortable__item.ld-sortable__item--incorrect {
+	background-color: var(--bx-color-error-bg);
+	border-color: var(--bx-color-error);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content :is(.wpProQuiz_sortStringItem, .wpProQuiz_tipp > div, .wpProQuiz_catOverview li, .wpProQuiz_catOverview span) {
+	background-color: var(--bx-color-bg-elevated);
+	border-color: var(--bx-color-border);
+	color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_tipp .wpProQuiz_header {
+	color: var(--global-title-color);
+}
+
+/* The doubled class beats LearnDash's white field on a failed result (.ld-quiz-result-failed [data-type] ... input). */
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .wpProQuiz_content :is(input[type="text"], textarea) {
+	background-color: var(--bx-color-bg-elevated);
+	border-color: var(--bx-color-border);
+	color: var(--bx-color-fg);
+}
+
+/* The correct and incorrect marks are LearnDash's green and red glyphs, near-invisible on the dark tinted rows. The row
+   colour and the glyph shape carry the meaning, so the glyph takes the text colour. */
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem:is(.wpProQuiz_answerCorrect, .wpProQuiz_answerIncorrect) label::before,
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .ld-sortable__item:is(.ld-sortable__item--correct, .ld-sortable__item--incorrect) .ld-sortable__item-handle::before {
+	color: var(--bx-color-fg);
+}
+
+/* After Check and in the review LearnDash tints the Matrix Sort cells and the Cloze blanks with light green and pink,
+   which left the dark-mode text at 1.04:1. Swap the light tints for the dark success and error surfaces. */
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerCorrect > table td,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem .wpProQuiz_cloze.wpProQuiz_answerCorrect input {
+	background-color: var(--bx-color-success-bg);
+	color: var(--bx-color-fg);
+}
+
+:root[data-bx-mode="dark"] .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerIncorrect > table td,
+:root[data-bx-mode="dark"] .learndash-wrapper.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem .wpProQuiz_cloze.wpProQuiz_answerIncorrect input {
+	background-color: var(--bx-color-error-bg);
+	color: var(--bx-color-fg);
+}
+
+/* The correct answer shown beside a Cloze blank uses LearnDash's grey: 4.3:1 on the light page, 3.9:1 on the dark one. */
+body .learndash-wrapper.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionList .wpProQuiz_questionListItem .wpProQuiz_cloze .ld-quiz__cloze-results--correct-answer {
+	color: var(--bx-color-fg-muted);
+}
+
+/* Prose links inside LearnDash content (course, lesson and quiz text). LearnDash removes every underline with a
+   five-class selector, so the global prose-link underline in _links.css needs this stronger copy here. */
+body .learndash-wrapper.learndash-wrapper :is(.ld-tab-content, .wpProQuiz_text, .wpProQuiz_question_text) :is(p, li, dd, td, blockquote, figcaption) a:not([class]):not(.button) {
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }

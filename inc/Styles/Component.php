@@ -66,12 +66,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
-		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_event_calendar_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_dokan_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_ideapush_style' ), 99 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_learndash_style' ), 99 );
+		add_action( 'wpforms_frontend_css', array( $this, 'buddyx_enqueue_wpforms_style' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_edd_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_enqueue_sensei_style' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'buddyx_elementor_kit_defaults' ), 99 );
 		add_filter( 'style_loader_tag', array( $this, 'add_preload_for_critical_css' ), 10, 4 );
 	}
 
@@ -94,11 +97,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Stylesheets that are global are enqueued. All other stylesheets are only registered, to be enqueued later.
 	 */
 	public function action_enqueue_styles() {
+		if ( has_filter( 'buddyx_preloading_styles_enabled' ) ) {
+			_deprecated_hook( 'buddyx_preloading_styles_enabled', '5.2.0', '', esc_html__( 'Template stylesheets are always printed by the templates that use them, with or without AMP, so this filter no longer changes anything. Use the buddyx_css_files filter to change a stylesheet.', 'buddyx' ) );
+		}
 
 		$css_uri = get_theme_file_uri( '/assets/css/' );
 		$css_dir = get_theme_file_path( '/assets/css/' );
-
-		$preloading_styles_enabled = $this->preloading_styles_enabled();
 
 		$css_files = $this->get_css_files();
 		foreach ( $css_files as $handle => $data ) {
@@ -124,10 +128,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$global_style         = $data['global'];
 			$preloading_available = is_callable( $data['preload_callback'] ) && call_user_func( $data['preload_callback'] );
 
-			if ( $global_style || ! $preloading_styles_enabled || $preloading_available ) {
-				// Enqueue global styles always; when preloading is disabled, enqueue every
-				// non-global template stylesheet too (otherwise registered-only sheets such as
-				// buddyx-content would never load); otherwise enqueue only preload-eligible sheets.
+			if ( $global_style || $preloading_available ) {
+				// Enqueue global styles and the sheets this request needs. Registered-only
+				// template sheets (buddyx-content, -sidebar, -widgets) are printed by the
+				// templates via print_styles(), with preloading on or off (AMP); enqueueing
+				// every template sheet when preloading is off loaded rules meant for other
+				// templates and broke the header.
 				wp_enqueue_style( $handle, $src, $data['deps'], $version, $data['media'] );
 			} else {
 				wp_register_style( $handle, $src, $data['deps'], $version, $data['media'] );
@@ -136,8 +142,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_style_add_data( $handle, 'precache', true );
 		}
 
-		// Enqueue BuddyPress CSS (only when BuddyPress is active and Youzify is not).
-		if ( ( function_exists( 'buddypress' ) || class_exists( 'BuddyPress' ) ) && ! class_exists( 'Youzify' ) ) {
+		// BuddyPress CSS on requests that show BuddyPress content.
+		if ( buddyx_needs_buddypress_assets() ) {
 			wp_enqueue_style( 'buddyx-buddypress', $css_uri . 'buddypress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddypress.min.css' ) );
 		}
 
@@ -169,6 +175,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue TutorLMS dark-mode compatibility CSS (only when active).
 		if ( function_exists( 'tutor' ) ) {
 			wp_enqueue_style( 'buddyx-tutorlms', $css_uri . 'tutorlms.min.css', array( 'buddyx-tokens-applied' ), buddyx()->get_asset_version( $css_dir . 'tutorlms.min.css' ) );
+
+			// Tutor uses its blue until the owner picks a brand colour in Tutor > Settings;
+			// follow the Theme Color until then (light and dark). A picked colour is kept.
+			if ( function_exists( 'tutor_utils' ) && class_exists( 'Tutor\\Options_V2' ) && 0 === strcasecmp( (string) tutor_utils()->get_brand_color(), \Tutor\Options_V2::DEFAULT_BRAND_COLOR ) ) {
+				wp_add_inline_style( 'buddyx-tutorlms', 'html:root{--tutor-color-primary:var(--bx-color-accent);--tutor-color-primary-rgb:var(--bx-color-accent-rgb);--tutor-color-primary-hover:var(--bx-color-accent-hover);--tutor-color-primary-hover-rgb:var(--bx-color-accent-rgb);--tutor-text-brand:var(--bx-color-accent-text);--tutor-icon-brand:var(--bx-color-accent-text);--tutor-border-brand:var(--bx-color-accent);--tutor-actions-brand-primary:var(--bx-color-accent);--tutor-button-primary:var(--bx-color-accent);--tutor-button-primary-hover:var(--bx-color-accent-hover);--tutor-button-primary-focused:var(--bx-color-accent-hover);}html body .tutor-btn-primary{--tutor-text-primary-inverse:var(--bx-color-accent-inverse);}html body .tutor-btn-primary,html body .tutor-avatar .tutor-avatar-text{color:var(--bx-color-accent-inverse);}' );
+			}
 		}
 
 		// Enqueue Platform CSS.
@@ -177,7 +189,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Enqueue bbPress CSS.
-		if ( function_exists( 'buddyx_needs_bbpress_assets' ) && buddyx_needs_bbpress_assets() ) {
+		if ( buddyx_needs_bbpress_assets() ) {
 			wp_enqueue_style( 'buddyx-bbpress', $css_uri . 'bbpress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'bbpress.min.css' ) );
 		}
 
@@ -189,6 +201,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue LearnPress CSS.
 		if ( class_exists( 'LearnPress' ) ) {
 			wp_enqueue_style( 'buddyx-learnpress', $css_uri . 'learnpress.min.css', array(), buddyx()->get_asset_version( $css_dir . 'learnpress.min.css' ) );
+
+			// LearnPress paints buttons and tabs amber until the owner picks a primary
+			// colour in LearnPress > Settings; use the Theme Color until then. LearnPress
+			// puts white text on that colour everywhere, so it keeps the light-mode shade
+			// in dark mode too. Its secondary colour is a dark header under white text and stays.
+			if ( '' === (string) \LP_Settings::get_option( 'primary_color', '' ) ) {
+				wp_add_inline_style( 'buddyx-learnpress', 'html:root{--lp-primary-color:' . \BuddyX\Buddyx\Tokens\Component::light_accent() . ';}' );
+			}
 		}
 
 		// Enqueue LifterLMS CSS.
@@ -196,14 +216,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'buddyx-lifterlms', $css_uri . 'lifterlms.min.css', array(), buddyx()->get_asset_version( $css_dir . 'lifterlms.min.css' ) );
 		}
 
-		// Enqueue WooCommerce CSS.
-		if ( class_exists( 'WooCommerce' ) ) {
+		// WooCommerce CSS on requests that show WooCommerce content.
+		if ( buddyx_needs_woocommerce_assets() ) {
 			wp_enqueue_style( 'buddyx-woocommerce', $css_uri . 'woocommerce.min.css', array(), buddyx()->get_asset_version( $css_dir . 'woocommerce.min.css' ) );
-		}
-
-		// Enqueue Youzify CSS.
-		if ( class_exists( 'Youzify' ) ) {
-			wp_enqueue_style( 'buddyx-youzify', $css_uri . 'buddyx-youzify.min.css', array(), buddyx()->get_asset_version( $css_dir . 'buddyx-youzify.min.css' ) );
 		}
 
 		// Enqueue WP_Job_Manager CSS.
@@ -227,7 +242,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		// Enqueue Dark Mode CSS (it only styles LearnDash focus mode, so only on LearnDash screens).
-		if ( function_exists( 'buddyx_needs_learndash_assets' ) && buddyx_needs_learndash_assets() ) {
+		if ( buddyx_needs_learndash_assets() ) {
 			wp_enqueue_style( 'buddyx-dark-mode', $css_uri . 'dark-mode.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dark-mode.min.css' ) );
 		}
 
@@ -239,50 +254,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue FluentCart CSS.
 		if ( defined( 'FLUENTCART_PLUGIN_FILE_PATH' ) ) {
 			wp_enqueue_style( 'buddyx-fluentcart', $css_uri . 'fluentcart.min.css', array(), buddyx()->get_asset_version( $css_dir . 'fluentcart.min.css' ) );
-		}
-	}
-
-	/**
-	 * Preloads in-body stylesheets depending on what templates are being used.
-	 *
-	 * Only stylesheets that have a 'preload_callback' provided will be considered. If that callback evaluates to true
-	 * for the current request, the stylesheet will be preloaded.
-	 *
-	 * Preloading is disabled when AMP is active, as AMP injects the stylesheets inline.
-	 *
-	 * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
-	 */
-	public function action_preload_styles() {
-
-		// If preloading styles is disabled, return early.
-		if ( ! $this->preloading_styles_enabled() ) {
-			return;
-		}
-
-		$wp_styles = wp_styles();
-
-		$css_files = $this->get_css_files();
-		foreach ( $css_files as $handle => $data ) {
-
-			// Skip if stylesheet not registered.
-			if ( ! isset( $wp_styles->registered[ $handle ] ) ) {
-				continue;
-			}
-
-			// Skip if no preload callback provided.
-			if ( ! is_callable( $data['preload_callback'] ) ) {
-				continue;
-			}
-
-			// Skip if preloading is not necessary for this request.
-			if ( ! call_user_func( $data['preload_callback'] ) ) {
-				continue;
-			}
-
-			$preload_uri = $wp_styles->registered[ $handle ]->src . '?ver=' . $wp_styles->registered[ $handle ]->ver;
-
-			echo '<link rel="preload" id="' . esc_attr( $handle ) . '-preload" href="' . esc_url( $preload_uri ) . '" as="style" onload="this.rel=\'stylesheet\'">';
-			echo "\n";
 		}
 	}
 
@@ -303,9 +274,97 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue EventsCalendar CSS.
-		if ( function_exists( 'buddyx_needs_event_calendar_assets' ) && buddyx_needs_event_calendar_assets() ) {
+		if ( buddyx_needs_event_calendar_assets() ) {
 			wp_enqueue_style( 'buddyx-eventscalendar', $css_uri . 'eventscalendar.min.css', array(), buddyx()->get_asset_version( $css_dir . 'eventscalendar.min.css' ) );
 		}
+	}
+
+	/**
+	 * Elementor's default kit (Roboto, #6EC1E4 headings, #7A7A7A text, green
+	 * buttons) looks like another site pasted in. While the active kit still has
+	 * Elementor's default system colours or fonts, point them at the theme so
+	 * Elementor pages match in light and dark mode. A kit the owner customised, and
+	 * any style set on a widget, is kept.
+	 */
+	public function buddyx_elementor_kit_defaults() {
+		if ( ! did_action( 'elementor/loaded' ) || ! class_exists( 'Elementor\\Plugin' ) ) {
+			return;
+		}
+		$kit = \Elementor\Plugin::$instance->kits_manager->get_active_kit_for_frontend();
+		if ( ! $kit ) {
+			return;
+		}
+		$is_default = static function ( $items, $field, $defaults ) {
+			foreach ( (array) $items as $item ) {
+				$id = $item['_id'] ?? '';
+				if ( isset( $defaults[ $id ] ) && 0 !== strcasecmp( (string) ( $item[ $field ] ?? '' ), $defaults[ $id ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		};
+		$css        = '';
+		if ( $is_default(
+			$kit->get_settings( 'system_colors' ),
+			'color',
+			array(
+				'primary'   => '#6EC1E4',
+				'secondary' => '#54595F',
+				'text'      => '#7A7A7A',
+				'accent'    => '#61CE70',
+			)
+		) ) {
+			$css .= '--e-global-color-primary:var(--bx-color-h2);--e-global-color-secondary:var(--bx-color-fg-muted);--e-global-color-text:var(--bx-color-fg);--e-global-color-accent:var(--bx-color-button-bg);';
+		}
+		if ( $is_default(
+			$kit->get_settings( 'system_typography' ),
+			'typography_font_family',
+			array(
+				'primary'   => 'Roboto',
+				'secondary' => 'Roboto Slab',
+				'text'      => 'Roboto',
+				'accent'    => 'Roboto',
+			)
+		) ) {
+			foreach ( array( 'primary', 'secondary', 'text', 'accent' ) as $slot ) {
+				$css .= '--e-global-typography-' . $slot . '-font-family:var(--global-font-family);';
+			}
+		}
+		if ( '' === $css ) {
+			return;
+		}
+		wp_add_inline_style( 'buddyx-global', 'body[class*="elementor-kit-"]{' . $css . '}body[class*="elementor-kit-"] .elementor-widget-button .elementor-button{color:var(--bx-color-button-fg);border-radius:var(--bx-radius-button,6px);}' );
+	}
+
+	/**
+	 * Enqueue the Sensei LMS Learning Mode token map when Sensei is active.
+	 */
+	public function buddyx_enqueue_sensei_style() {
+		if ( ! function_exists( 'Sensei' ) ) {
+			return;
+		}
+		$css_dir = get_theme_file_path( '/assets/css/' );
+		wp_enqueue_style( 'buddyx-sensei', get_theme_file_uri( '/assets/css/sensei.min.css' ), array(), buddyx()->get_asset_version( $css_dir . 'sensei.min.css' ) );
+	}
+
+	/**
+	 * Enqueue the Easy Digital Downloads button styles when EDD is active.
+	 */
+	public function buddyx_enqueue_edd_style() {
+		if ( ! function_exists( 'EDD' ) ) {
+			return;
+		}
+		$css_dir = get_theme_file_path( '/assets/css/' );
+		wp_enqueue_style( 'buddyx-edd', get_theme_file_uri( '/assets/css/edd.min.css' ), array(), buddyx()->get_asset_version( $css_dir . 'edd.min.css' ) );
+	}
+
+	/**
+	 * Enqueue the WPForms token map. Fires only when WPForms loads its own CSS,
+	 * i.e. on pages that render a form.
+	 */
+	public function buddyx_enqueue_wpforms_style() {
+		$css_dir = get_theme_file_path( '/assets/css/' );
+		wp_enqueue_style( 'buddyx-wpforms', get_theme_file_uri( '/assets/css/wpforms.min.css' ), array(), buddyx()->get_asset_version( $css_dir . 'wpforms.min.css' ) );
 	}
 
 	/**
@@ -315,7 +374,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_uri = get_theme_file_uri( '/assets/css/' );
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
-		if ( function_exists( 'buddyx_needs_ideapush_assets' ) && buddyx_needs_ideapush_assets() ) {
+		if ( buddyx_needs_ideapush_assets() ) {
 			wp_enqueue_style( 'buddyx-ideapush', $css_uri . 'ideapush.min.css', array(), buddyx()->get_asset_version( $css_dir . 'ideapush.min.css' ) );
 		}
 	}
@@ -328,7 +387,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue Dokan CSS.
-		if ( function_exists( 'buddyx_needs_dokan_assets' ) && buddyx_needs_dokan_assets() ) {
+		if ( buddyx_needs_dokan_assets() ) {
 			wp_enqueue_style( 'buddyx-dokan', $css_uri . 'dokan.min.css', array(), buddyx()->get_asset_version( $css_dir . 'dokan.min.css' ) );
 		}
 	}
@@ -341,7 +400,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
 		// Enqueue Learndash CSS.
-		if ( function_exists( 'buddyx_needs_learndash_assets' ) && buddyx_needs_learndash_assets() ) {
+		if ( buddyx_needs_learndash_assets() ) {
 			wp_enqueue_style( 'buddyx-learndash', $css_uri . 'learndash.min.css', array(), buddyx()->get_asset_version( $css_dir . 'learndash.min.css' ) );
 		}
 	}
@@ -360,11 +419,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function print_styles( string ...$handles ) {
 
-		// If preloading styles is disabled (and thus they have already been enqueued), return early.
-		if ( ! $this->preloading_styles_enabled() ) {
-			return;
-		}
-
+		// Runs with preloading on or off (AMP turns it off). wp_print_styles() skips
+		// any handle already printed, so a stylesheet enqueued in <head> is not
+		// printed twice, and one that was only registered still loads here.
 		$css_files = $this->get_css_files();
 		$handles   = array_filter(
 			$handles,
@@ -383,26 +440,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		wp_print_styles( $handles );
-	}
-
-	/**
-	 * Determines whether to preload stylesheets and inject their link tags directly within the page content.
-	 *
-	 * Using this technique generally improves performance, however may not be preferred under certain circumstances.
-	 * {@see 'buddyx_preloading_styles_enabled'} filter can be used to tweak the return value.
-	 *
-	 * @return bool True if preloading stylesheets and injecting them is enabled, false otherwise.
-	 */
-	protected function preloading_styles_enabled(): bool {
-
-		$preloading_styles_enabled = ! buddyx()->is_amp();
-
-		/**
-		 * Filters whether to preload stylesheets and inject their link tags within the page content.
-		 *
-		 * @param bool $preloading_styles_enabled Whether preloading stylesheets and injecting them is enabled.
-		 */
-		return apply_filters( 'buddyx_preloading_styles_enabled', $preloading_styles_enabled );
 	}
 
 	/**
@@ -463,7 +500,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			),
 			'buddyx-load-fontawesome' => array(
 				'file'   => 'fontawesome.min.css',
-				'global' => true,
+				/**
+				 * Filters whether the theme loads Font Awesome.
+				 *
+				 * The theme's own icons do not need it; plugins that print Font Awesome
+				 * icons do. When false the stylesheet is only registered, so a plugin can
+				 * still enqueue the 'buddyx-load-fontawesome' handle itself.
+				 *
+				 * @param bool $load Default the Customizer setting (Site Performance > Load Font Awesome), on by default.
+				 */
+				'global' => (bool) apply_filters( 'buddyx_load_fontawesome', buddyx_is_truthy( get_theme_mod( 'site_load_fontawesome', 'on' ) ) ),
 			),
 		);
 
@@ -512,26 +558,25 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Modified link tag.
 	 */
 	public function add_preload_for_critical_css( $html, $handle, $href, $media ) {
-		// Define non-critical styles that should be loaded with media="print" and onload
+		// Define non-critical styles that should be loaded with media="print" and onload.
 		$non_critical_styles = array(
 			'buddyx-slick',
 			'buddyx-eventscalendar',
 			'buddyx-dokan',
-			'buddyx-youzify',
 			'buddyx-wpjobmanager',
 			'multivendorx',
 		);
 
-		// Load non-critical styles with print media and switch to all on load
+		// Load non-critical styles with print media and switch to all on load.
 		if ( in_array( $handle, $non_critical_styles, true ) ) {
 			$html = sprintf(
-				'<link rel="stylesheet" id="%s-css" href="%s" media="print" onload="this.media=\'all\'" />',
+				'<link rel="stylesheet" id="%s-css" href="%s" media="print" onload="this.media=\'all\'" />', // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet -- Rewrites the tag of an already-enqueued style inside the style_loader_tag filter.
 				esc_attr( $handle ),
 				esc_url( $href )
 			);
-			// Add noscript fallback
+			// Add noscript fallback.
 			$html .= sprintf(
-				'<noscript><link rel="stylesheet" id="%s-css-noscript" href="%s" media="%s" /></noscript>',
+				'<noscript><link rel="stylesheet" id="%s-css-noscript" href="%s" media="%s" /></noscript>', // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet -- Rewrites the tag of an already-enqueued style inside the style_loader_tag filter.
 				esc_attr( $handle ),
 				esc_url( $href ),
 				esc_attr( $media )

@@ -172,37 +172,30 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$js_files = array(
-			'buddyx-isotope-pkgd'  => array(
+			'buddyx-isotope-pkgd' => array(
 				'file'    => 'isotope.pkgd.min.js',
 				'global'  => false,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
 				'loading' => 'defer',
 			),
-			'buddyx-sticky-kit'    => array(
-				'file'    => 'sticky-kit.min.js',
-				'global'  => true,
-				'footer'  => true,
-				'deps'    => array( 'jquery' ),
-				'loading' => 'defer',
-			),
-			'buddyx-slick'         => array(
+			'buddyx-slick' => array(
 				'file'    => 'slick.min.js',
 				'global'  => false,
 				'footer'  => true,
 				'deps'    => array( 'jquery' ),
 				'loading' => 'defer',
 			),
-			'buddyx-custom'        => array(
+			'buddyx-custom' => array(
 				'file'     => 'custom.min.js',
 				'global'   => true,
 				'footer'   => true,
-				'deps'     => array( 'jquery' ),
+				'deps'     => array(),
 				'loading'  => null,
 			),
 		);
 
-		// Conditionally add GamiPress script
+		// Conditionally add GamiPress script.
 		if ( class_exists( 'GamiPress' ) ) {
 			$js_files['buddyx-gamipress'] = array(
 				'file'    => 'gamipress.min.js',
@@ -213,13 +206,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			);
 		}
 
-		// Conditionally add BuddyPress script
+		// Conditionally add BuddyPress script.
 		if ( class_exists( 'BuddyPress' ) ) {
 			$js_files['buddyx-buddypress'] = array(
 				'file'    => 'buddyx-buddypress.min.js',
 				'global'  => true,
 				'footer'  => true,
-				'deps'    => array( 'jquery' ),
+				'deps'    => array(),
 				'loading' => null,
 			);
 		}

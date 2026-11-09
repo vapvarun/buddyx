@@ -9,8 +9,11 @@ namespace BuddyX\Buddyx;
 
 $allowed_post_formats = array( 'image', 'video', 'gallery', 'quote', 'link', 'audio' );
 
-$post_format = get_post_format() ?: 'standard';
-$item_format = $post_format === 'standard' ? 'image' : $post_format;
+$post_format = get_post_format();
+if ( ! $post_format ) {
+	$post_format = 'standard';
+}
+$item_format = 'standard' === $post_format ? 'image' : $post_format;
 
 if ( in_array( $post_format, $allowed_post_formats, true ) ) {
 	get_template_part( 'template-parts/post-format/entry', $item_format );

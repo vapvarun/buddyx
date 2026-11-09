@@ -600,7 +600,7 @@ class Component implements Component_Interface {
 									),
 								);
 								foreach ( $buddyx_pro_highlights as $buddyx_pro_highlight ) :
-								?>
+									?>
 								<div class="buddyx-highlight-card">
 									<span class="buddyx-family-card-logo">
 										<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $buddyx_pro_highlight['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Curated inline icon markup, not user input. ?></svg>
@@ -608,7 +608,7 @@ class Component implements Component_Interface {
 									<h4 class="buddyx-family-card-name"><?php echo esc_html( $buddyx_pro_highlight['title'] ); ?></h4>
 									<p class="buddyx-family-card-desc"><?php echo esc_html( $buddyx_pro_highlight['desc'] ); ?></p>
 								</div>
-								<?php
+									<?php
 								endforeach;
 								?>
 								</div>
@@ -624,9 +624,9 @@ class Component implements Component_Interface {
 										<table class="buddyx-features-table">
 											<thead>
 												<tr>
-													<th style="text-align: left"><h3><?php esc_html_e( 'Features', 'buddyx' ); ?></h3></th>
-													<th style="text-align: center"><h3><?php esc_html_e( 'BuddyX', 'buddyx' ); ?></h3></th>
-													<th style="text-align: center"><h3><?php esc_html_e( 'BuddyX Pro', 'buddyx' ); ?></h3></th>
+													<th><h3><?php esc_html_e( 'Features', 'buddyx' ); ?></h3></th>
+													<th><h3><?php esc_html_e( 'BuddyX', 'buddyx' ); ?></h3></th>
+													<th><h3><?php esc_html_e( 'BuddyX Pro', 'buddyx' ); ?></h3></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -637,58 +637,58 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Layout', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Content Layout Width', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Sidebar Width', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Global Border Radius', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Buttons Border Radius', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Form Border Radius', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Page Mapping', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Sign-in Popup | Register Form Fields', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Scroll Top', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Loader', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Loading Text', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Typography', 'buddyx' ); ?></td>
@@ -697,48 +697,48 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Title Settings', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Headings', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Menu', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Body', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Google Fonts', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Font Size (PX/EM)', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Text Transform', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Line Height', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></span></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Letter Spacing', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Header', 'buddyx' ); ?></td>
@@ -747,63 +747,63 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Top Bar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Sticky Header', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Header Layout', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Header Menu Position', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Menu Effects', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'More Menu', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Search Style', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Login/Register Button Style', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></span></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></span></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Background Color', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Search', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Site Cart', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'BuddyPress Components', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
@@ -812,8 +812,8 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Sub Header', 'buddyx' ); ?></td>
@@ -822,18 +822,18 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Customize Background', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Content Typography', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Breadcrumbs', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Skin Colors', 'buddyx' ); ?></td>
@@ -842,53 +842,53 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Dark Mode', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Custom Colors', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Body Background Color', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Theme Color', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Link Color', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Primary Header', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Button Background Color / Hover', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Button Text Color / Hover', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Button Border Color / Hover', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Blog', 'buddyx' ); ?></td>
@@ -897,28 +897,28 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'List Layout', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Grid Layout', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Masonry Layout', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Blog Layout Style', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Post Per Row', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Sidebar', 'buddyx' ); ?></td>
@@ -927,48 +927,48 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'No Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Left Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Right Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Both Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'BuddyPress Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'WooCommerce Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'bbPress Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'LearnDash Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Sticky Sidebar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'WP Login', 'buddyx' ); ?></td>
@@ -977,28 +977,28 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Customize Your Logo Section', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Choose WP Login Theme', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Customize Login Form', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Customize Forget Form', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Customize Button', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Footer', 'buddyx' ); ?></td>
@@ -1007,13 +1007,13 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Footer Section', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Copyright Section', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
@@ -1023,62 +1023,62 @@ class Component implements Component_Interface {
 												<tr>
 													<td><?php esc_html_e( 'Activity Control', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'BuddyPress Activity Share', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Activity Reaction', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Activity Load More', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Members Multiple Directory Layout', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Members Default Cover Background', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Groups Multiple Directory View', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Group Default Cover Background', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Member Multiple Header Layout', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Member Primary Navigation Layout', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Group Multiple Header Layout', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Group Primary Navigation Style', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 
 												<tr>
@@ -1088,23 +1088,23 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Product Listing Style', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Shop Products Per Page', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Display Filter Button', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Sale Badge Style', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-close"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-close"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td class="buddyx-main-feature"><?php esc_html_e( 'Integrations', 'buddyx' ); ?></td>
@@ -1113,68 +1113,68 @@ class Component implements Component_Interface {
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'BuddyBoss Platform', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'WooCommerce', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'LearnDash', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'LearnPress', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'LifterLMS', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'TutorLMS', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'bbPress', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Dokan', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'WC Vendors', 'buddyx' ); ?></td>
 													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'GamiPress', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'Paid Memberships', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 												<tr>
 													<td><?php esc_html_e( 'The Event Calendar', 'buddyx' ); ?></td>
-													<td style="text-align: center"><span class="icon-check"></td>
-													<td style="text-align: center"><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
+													<td><span class="icon-check"></td>
 												</tr>
 											</tbody>
 										</table>

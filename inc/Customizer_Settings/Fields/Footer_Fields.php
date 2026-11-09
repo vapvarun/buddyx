@@ -11,10 +11,11 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Footer Section
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_footer_bg',
-				'label'    => esc_html__( 'Customize Background ?', 'buddyx' ),
+				'label'    => esc_html__( 'Customize Background', 'buddyx' ),
 				'section'  => 'site_footer_section',
 				'default'  => 'off',
 				'choices'  => array(
@@ -24,12 +25,13 @@ defined( 'ABSPATH' ) || exit;
 			)
 		);
 
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'background',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'background',
 			array(
-				'settings'        => 'background_setting',
-				'label'           => esc_html__( 'Background Control', 'buddyx' ),
-				'section'         => 'site_footer_section',
-				'default'         => array(
+				'settings'          => 'background_setting',
+				'label'             => esc_html__( 'Background Control', 'buddyx' ),
+				'section'           => 'site_footer_section',
+				'default'           => array(
 					'background-color'      => '',
 					'background-image'      => '',
 					'background-repeat'     => 'repeat',
@@ -37,14 +39,14 @@ defined( 'ABSPATH' ) || exit;
 					'background-size'       => 'cover',
 					'background-attachment' => 'scroll',
 				),
-				'transport'       => 'auto',
-				'sanitize_callback' => function( $value ) {
+				'transport'         => 'auto',
+				'sanitize_callback' => function ( $value ) {
 					if ( isset( $value['background-color'] ) && is_string( $value['background-color'] ) ) {
 						$value['background-color'] = preg_replace( '/rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0\s*\)/', 'rgba($1,$2,$3,0.01)', $value['background-color'] );
 					}
 					return $value;
 				},
-				'output'          => array(
+				'output'            => array(
 					array(
 						'element' => '.site-footer-wrapper',
 					),
@@ -52,10 +54,10 @@ defined( 'ABSPATH' ) || exit;
 				// Saved background CSS must stop rendering when the customer
 				// flips 'Customize Background?' back off - active_callback only
 				// hides the control, it does not suppress emission.
-				'output_condition' => static function () {
+				'output_condition'  => static function () {
 					return buddyx_is_truthy( get_theme_mod( 'site_footer_bg', 'off' ) );
 				},
-				'active_callback' => array(
+				'active_callback'   => array(
 					array(
 						'setting'  => 'site_footer_bg',
 						'operator' => '==',
@@ -68,7 +70,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Copyright
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'textarea',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'textarea',
 			array(
 				'settings' => 'site_copyright_text',
 				'label'    => esc_html__( 'Add Content', 'buddyx' ),
@@ -87,7 +90,8 @@ defined( 'ABSPATH' ) || exit;
 		 * off here instead of editing template-parts/footer/info.php directly,
 		 * which gets overwritten on every theme update.
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings'    => 'site_copyright_privacy_link',
 				'label'       => esc_html__( 'Show Privacy Policy Link', 'buddyx' ),

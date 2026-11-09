@@ -20,12 +20,20 @@ $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layou
 
 ?>
 
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/**
+	 * Fires where the sub-header (page title and breadcrumb) is printed.
+	 */
+	do_action( 'buddyx_sub_header' );
+	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 	
-	<?php if ( $default_sidebar == 'left' || $default_sidebar == 'both' ) : ?>
-		<aside id="secondary" class="left-sidebar widget-area">
+	<?php if ( 'left' === $default_sidebar || 'both' === $default_sidebar ) : ?>
+		<aside id="secondary-left" class="left-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_left_sidebar(); ?>
 			</div>
@@ -38,7 +46,12 @@ $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layou
 		if ( have_posts() ) {
 
 			$classes = get_body_class();
-			if ( in_array( 'blog', $classes ) || in_array( 'archive', $classes ) || in_array( 'search', $classes ) ) {
+			if ( in_array( 'blog', $classes, true ) || in_array( 'archive', $classes, true ) || in_array( 'search', $classes, true ) ) {
+
+				/**
+				 * Fires above the archive posts, outside the grid / masonry wrapper.
+				 */
+				do_action( 'buddyx_before_archive_loop' );
 
 				$args = array(
 					'post_layout' => $post_layout,
@@ -64,7 +77,7 @@ $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layou
 
 	</main><!-- #primary -->
 	
-	<?php if ( $default_sidebar == 'right' || $default_sidebar == 'both' ) : ?>
+	<?php if ( 'right' === $default_sidebar || 'both' === $default_sidebar ) : ?>
 		<aside id="secondary" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php buddyx()->display_right_sidebar(); ?>
@@ -72,7 +85,10 @@ $post_layout = get_theme_mod( 'blog_layout_option', buddyx_defaults( 'blog-layou
 		</aside>
 	<?php endif; ?>
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 	
 <?php
 get_footer();

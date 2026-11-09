@@ -133,7 +133,7 @@ class BuddyX_FluentCart_Support {
 	 * @param int|null $post_id   The post ID.
 	 * @return string Modified post type.
 	 */
-	public function buddyx_fluentcart_prevent_entry_header( $post_type, $post_id = null ) {
+	public function buddyx_fluentcart_prevent_entry_header( $post_type, $post_id = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Signature required by the filter.
 		// Only modify when checking for entry header template part.
 		if ( doing_action( 'get_template_part_template-parts/content/entry-header' ) ) {
 			return 'fluent-products'; // Return actual type to prevent 'post' match.
@@ -173,6 +173,7 @@ class BuddyX_FluentCart_Support {
 		}
 
 		// Render the theme's sub-header.
+		/** This action is documented in archive.php */
 		do_action( 'buddyx_sub_header' );
 	}
 
@@ -213,7 +214,8 @@ class BuddyX_FluentCart_Support {
 		// We yield to SureCart to preserve historical customer data — Kirki
 		// versions of the theme had SureCart's declaration win the race.
 		if ( ! defined( 'SURECART_PLUGIN_FILE' ) ) {
-			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+			\BuddyX\Buddyx\Customizer_Framework\Field::add(
+				'switch',
 				array(
 					'settings'    => 'site_header_enable_cart',
 					'label'       => esc_html__( 'Enable Cart Icon?', 'buddyx' ),
@@ -231,7 +233,8 @@ class BuddyX_FluentCart_Support {
 		}
 
 		// Add product sidebar option.
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'radio_image',
 			array(
 				'settings'    => 'fluentcart_product_sidebar',
 				'label'       => esc_html__( 'Single Product Sidebar', 'buddyx' ),
@@ -266,6 +269,7 @@ class BuddyX_FluentCart_Support {
 		add_action( 'wp_footer', array( $this, 'buddyx_fluentcart_add_cart_scripts' ) );
 	}
 
+	// phpcs:disable Squiz.Commenting.FunctionComment.InvalidReturnVoid -- The return statements belong to the nested function declarations, not this method.
 	/**
 	 * Create compatibility functions for cart display.
 	 *
@@ -274,6 +278,7 @@ class BuddyX_FluentCart_Support {
 	 * @return void
 	 */
 	private function buddyx_fluentcart_create_compatibility_functions() {
+		// phpcs:enable Squiz.Commenting.FunctionComment.InvalidReturnVoid
 		// Create dummy is_woocommerce function if it doesn't exist.
 		if ( ! function_exists( 'is_woocommerce' ) ) {
 			/**
@@ -315,7 +320,7 @@ class BuddyX_FluentCart_Support {
 				<div class="menu-icons-wrapper cart-widget-wrapper">
 					<div class="cart">
 						<a href="#" class="cart-icon-wrap fcart-cart-toggle-button" data-fluent-cart-cart-toggle-button aria-label="<?php esc_attr_e( 'View Shopping Cart', 'buddyx' ); ?>">
-							<span class="fa fa-shopping-cart"></span>
+							<?php echo buddyx_get_icon( 'shopping-cart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?>
 							<?php if ( $item_count > 0 ) : ?>
 								<sup class="count fc-cart-count"><?php echo esc_html( $item_count ); ?></sup>
 							<?php endif; ?>
@@ -408,7 +413,7 @@ class BuddyX_FluentCart_Support {
 	public function buddyx_fluentcart_body_classes( $classes ) {
 		// Check if we're on FluentCart checkout page.
 		$checkout_page_id = get_option( 'fluent_cart_checkout_page_id', 0 );
-		$receipt_page_id = get_option( 'fluent_cart_receipt_page_id', 0 );
+		$receipt_page_id  = get_option( 'fluent_cart_receipt_page_id', 0 );
 
 		if ( is_page( $checkout_page_id ) ) {
 			$classes[] = 'fluent-cart-checkout';
@@ -429,15 +434,15 @@ class BuddyX_FluentCart_Support {
 	 * Disable FluentCart floating button on checkout/receipt pages.
 	 *
 	 * @since 1.0.0
-	 * @param bool $enabled Whether floating button is enabled.
+	 * @param bool  $enabled Whether floating button is enabled.
 	 * @param array $args Additional arguments.
 	 * @return bool
 	 */
-	public function buddyx_fluentcart_disable_floating_button( $enabled, $args ) {
+	public function buddyx_fluentcart_disable_floating_button( $enabled, $args ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Signature required by the filter.
 		$post_id = get_queried_object_id();
 		$content = get_post_field( 'post_content', $post_id );
 
-		$shortcodes = [ 'fluent_cart_cart', 'fluent_cart_receipt' ];
+		$shortcodes = array( 'fluent_cart_cart', 'fluent_cart_receipt' );
 
 		foreach ( $shortcodes as $shortcode ) {
 			if ( has_shortcode( $content, $shortcode ) ) {
@@ -447,7 +452,6 @@ class BuddyX_FluentCart_Support {
 
 		return $enabled;
 	}
-
 }
 
 /**
@@ -456,7 +460,7 @@ class BuddyX_FluentCart_Support {
  * @since 1.0.0
  * @return BuddyX_FluentCart_Support Main instance.
  */
-function buddyx_fluentcart() {
+function buddyx_fluentcart() { // phpcs:ignore Universal.Files.SeparateFunctionsFromOO.Mixed -- Global accessor for the class instance; kept beside the class it boots.
 	return BuddyX_FluentCart_Support::instance();
 }
 

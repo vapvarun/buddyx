@@ -146,6 +146,25 @@ body.buddyx-dark-style-variation .custom-logo--dark {
     color: var(--color-site-tagline);
 }
 
+/* Phones: a text title plus tagline filled about 200px of the screen and pushed
+   the menu toggle off it. Drop the tagline and let the title shrink. */
+@media (max-width: 480px) {
+    .site-branding {
+        min-width: 0;
+        padding-inline-end: 8px;
+    }
+
+    .site-title {
+        margin-bottom: 0;
+        font-size: clamp(20px, 6vw, 26px);
+        line-height: 1.2;
+    }
+
+    .site-description {
+        display: none;
+    }
+}
+
 nav div.wp-block-navigation__responsive-dialog {
 
 	@media (--narrow-menu-query) {
@@ -254,7 +273,7 @@ nav div.wp-block-navigation__responsive-dialog {
 
 .buddyx-breadcrumbs a,
 #breadcrumbs a {
-    color: var(--color-theme-primary);
+    color: var(--bx-color-accent-text, var(--color-theme-primary));
 }
 
 .buddyx-breadcrumbs a:hover,

@@ -34,10 +34,13 @@ namespace BuddyX\Buddyx;
 			if ( $buddyx_description || is_customize_preview() ) :
 				?>
 				<p class="site-description">
-					<?php echo esc_html( $buddyx_description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo esc_html( $buddyx_description ); ?>
 				</p>
 			<?php endif; ?>
 
+		<?php } elseif ( is_front_page() && is_home() ) { ?>
+			<?php // The title is switched off, so keep one page heading for screen readers and search engines. ?>
+			<h1 class="screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
 		<?php } // End of the display_header_text check. ?>
 	</div>
 

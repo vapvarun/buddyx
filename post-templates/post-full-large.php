@@ -20,15 +20,21 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 	
 <div class="single-post-main-wrapper buddyx-content--large">
 
-	<?php do_action( 'buddyx_sub_header' ); ?>
+	<?php
+	/** This action is documented in archive.php */
+	do_action( 'buddyx_sub_header' );
+	?>
 
 	<?php
-	if ( get_post_type() == 'post' ) {
+	if ( 'post' === get_post_type() ) {
 		get_template_part( 'template-parts/content/entry-header', get_post_type() );
 	}
 	?>
 	
-	<?php do_action( 'buddyx_before_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_before_content' );
+	?>
 	
 	<main id="primary" class="site-main">
 		
@@ -43,7 +49,10 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 	</main><!-- #primary -->
 
-	<?php do_action( 'buddyx_after_content' ); ?>
+	<?php
+	/** This action is documented in 404.php */
+	do_action( 'buddyx_after_content' );
+	?>
 
 </div>
 <?php

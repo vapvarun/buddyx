@@ -68,7 +68,6 @@
     display: block;
     margin: 0;
     padding-left: 53px;
-    min-height: 38px;
     font-weight: 700;
 }
 
@@ -96,10 +95,57 @@
     margin-right: 0;
 }
 
+/* Co-authors: up to three overlapping avatars, then "+N", in the avatar slot.
+ * Doubled .entry-meta outranks rtl.css's single-avatar rules. */
+.entry-meta .bx-byline-avatars {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    display: flex;
+}
+
+.entry-meta.entry-meta .posted-by .bx-byline-avatars img,
+.entry-meta .bx-byline-avatars__more {
+    position: static;
+    margin: 0;
+    box-shadow: 0 0 0 2px var(--bx-color-bg-elevated, #fff);
+}
+
+.entry-meta.entry-meta .posted-by .bx-byline-avatars > :not(:first-child) {
+    margin-inline-start: -14px;
+}
+
+.entry-meta .bx-byline-avatars__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--bx-color-bg-muted, #fafafa);
+    color: var(--bx-color-fg, #111);
+    font-size: 12px;
+}
+
+/* Name and date lines start 15px after the last avatar; each extra avatar adds 24px. */
+.entry-meta.entry-meta .posted-by--avatars-2,
+.entry-meta.entry-meta .posted-by--avatars-2 ~ .posted-on {
+    padding-inline: 77px 0;
+}
+
+.entry-meta.entry-meta .posted-by--avatars-3,
+.entry-meta.entry-meta .posted-by--avatars-3 ~ .posted-on {
+    padding-inline: 101px 0;
+}
+
+.entry-meta.entry-meta .posted-by--avatars-4,
+.entry-meta.entry-meta .posted-by--avatars-4 ~ .posted-on {
+    padding-inline: 125px 0;
+}
+
 .entry-meta .posted-on {
     display: block;
     padding-left: 53px;
-	margin-top: -18px;
 }
 
 .entry-edit-link {
@@ -123,13 +169,11 @@
 }
 
 .post-meta-category a {
-    /* Use the body link token which is high-contrast by default
-     * (#111 against white = 21:1) AND respects customer-customized
-     * link color. The brand-accent gradient on category badges in
-     * master 5.0.x had only 3.45:1 contrast (failed WCAG AA). Bold
-     * weight + uppercase + underline still make these "pop" without
-     * relying on color alone (WCAG 1.4.1 — Use of Color). */
-    color: var(--bx-color-link, var(--color-link, #111));
+    /* Brand colour as text: --bx-color-accent-text is the Theme Color shifted
+     * to 4.5:1 on the current mode's surface, so a pale brand stays readable
+     * (the 5.0.x brand badge failed at 3.45:1). Bold + uppercase keep the label
+     * distinct without relying on colour alone (WCAG 1.4.1). */
+    color: var(--bx-color-accent-text, var(--bx-color-link, var(--color-link, #111)));
     font-size: 13px;
 }
 
@@ -137,30 +181,34 @@
 .entry-meta .entry-comments-link a::before,
 .entry-meta .entry-edit-link a::before,
 .entry-meta .entry-featured::before {
+    content: "";
     margin-right: 4px;
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 900;
     display: inline-block;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-mask) center / contain no-repeat;
+    mask: var(--bx-icon-mask) center / contain no-repeat;
 }
 
 .entry-meta .entry-cat-links::before {
-    content: "\f115";
+    --bx-icon-mask: var(--bx-icon-folder-open);
+    width: 1.125em;
 }
 
 .entry-meta .entry-edit-link a::before {
-    content: "\f040";
+    --bx-icon-mask: var(--bx-icon-pencil);
+    width: 1em;
 }
 
 .entry-meta .entry-comments-link a::before {
-    content: "\f0e5";
+    --bx-icon-mask: var(--bx-icon-comment);
+    width: 1em;
 }
 
 .entry-meta .entry-featured::before {
-    content: "\f041";
+    --bx-icon-mask: var(--bx-icon-location-pin);
+    width: 0.75em;
 }
 
 
@@ -545,39 +593,52 @@ article .entry-header {
     position: absolute;
     left: 8px;
     top: 8px;
-    font-family: "Font Awesome 6 Free";
     font-size: 30px;
-    font-weight: 900;
-    line-height: normal;
+    height: 1em;
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-mask) center / contain no-repeat;
+    mask: var(--bx-icon-mask) center / contain no-repeat;
     z-index: 1;
 }
 
 .buddyx-article--grid .buddyx-article.format-image::before {
-    content: "\f03e";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-image);
+    width: 1em;
 }
 
 .buddyx-article--grid .buddyx-article.format-audio::before {
-    content: "\f144";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-circle-play);
+    width: 1em;
 }
 
 .buddyx-article--grid .buddyx-article.format-video::before {
-    content: "\f03d";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-video);
+    width: 1.125em;
 }
 
 .buddyx-article--grid .buddyx-article.format-gallery::before {
-    content: "\f03e";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-image);
+    width: 1em;
 }
 
 .buddyx-article--grid .buddyx-article.format-quote::before {
-    content: "\f10d";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-quote-left);
+    width: 0.875em;
 }
 
 .buddyx-article--grid .buddyx-article.format-link::before {
-    content: "\f0c1";
+    content: "";
+    --bx-icon-mask: var(--bx-icon-link);
+    width: 1.25em;
 }
 
 .buddyx-article--grid .buddyx-article.has-post-thumbnail::before {
-    color: #fff;
+    color: #fff; /* fixed: icon over the post thumbnail */
     z-index: 2;
 }
 
@@ -645,7 +706,7 @@ article .entry-header {
 .buddyx-article--grid .has-post-thumbnail.buddyx-article a,
 .buddyx-article--grid .has-post-thumbnail.buddyx-article .entry-content,
 .buddyx-article--grid .has-post-thumbnail.buddyx-article .entry-meta {
-    color: #fff;
+    color: #fff; /* fixed: text over the post thumbnail overlay */
 }
 
 .buddyx-article-grid-content>* {
@@ -687,6 +748,12 @@ article .entry-header {
     position: relative;
     text-align: left;
     flex: 1;
+}
+
+/* Room for the 38px avatar; the date follows the names in normal flow, so it
+ * moves down when a long byline (several co-authors) wraps instead of overlapping. */
+.entry-meta__content:has(> .posted-by) {
+    min-height: 38px;
 }
 
 
@@ -815,7 +882,7 @@ article .entry-header {
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
-    background-color: #2f4f4f;
+    background-color: #2f4f4f; /* fixed: decorative quote-card backdrop under white text */
     background-size: cover;
 }
 
@@ -826,7 +893,7 @@ article .entry-header {
 .buddyx-quote-block::after {
     content: "";
     display: block;
-    background-image: linear-gradient(226deg, #96CE4E 0%, #0ACD7E 100%);
+    background-image: linear-gradient(226deg, #96CE4E 0%, #0ACD7E 100%); /* fixed: decorative quote-card gradient */
 }
 
 .buddyx-quote-block .wp-block-quote {
@@ -837,17 +904,22 @@ article .entry-header {
 }
 
 .buddyx-quote-block .wp-block-quote::before {
-    content: "\f10d";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 20px;
+    content: "";
+    color: #fff; /* fixed: on the decorative quote card */
     display: block;
+    width: 0.875em;
+    /* The glyph is 1em tall (font-size comes from the .wp-block-quote::before
+       rule in _typography.css); keep the 50px box + 20px gap it used to take. */
+    height: 1em;
+    margin-bottom: calc(70px - 1em);
+    background-color: currentcolor;
+    -webkit-mask: var(--bx-icon-quote-left) left top / contain no-repeat;
+    mask: var(--bx-icon-quote-left) left top / contain no-repeat;
 }
 
 .buddyx-quote-block p,
 .buddyx-quote-block cite {
-    color: #fff;
+    color: #fff; /* fixed: on the decorative quote card */
 }
 
 .buddyx-quote-block p {
@@ -877,7 +949,7 @@ article .entry-header {
 ## Link
 --------------------------------------------------------------*/
 
-.buddyx-link-block.buddyx-post-thumbnail a i {
+.buddyx-link-block.buddyx-post-thumbnail a .bx-icon {
     margin-right: 5px;
 }
 
@@ -891,7 +963,7 @@ article .entry-header {
 
 .buddyx-article--list .has-post-thumbnail a.buddyx-link-format {
     position: absolute;
-    color: #fff;
+    color: #fff; /* fixed: icon over the post thumbnail */
 }
 
 .buddyx-article--default .has-post-thumbnail .buddyx-link-block .post-thumbnail,
@@ -948,6 +1020,7 @@ article .entry-header {
 .buddyx-post-section .gallery .slick-next i,
 .buddyx-post-section .gallery .slick-prev i {
     display: block;
+    margin-inline: auto;
 }
 
 .archive-buddyx-gallery-post .gallery .slick-prev,
@@ -1024,7 +1097,7 @@ article .entry-header {
     margin-top: -32px;
     margin-left: -36px;
     border: 6px solid rgba(255, 255, 255, .45);
-    color: #fff;
+    color: #fff; /* fixed: play icon over the video thumbnail */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1114,8 +1187,8 @@ article .entry-header {
 }
 
 .post-meta-tags.badge .post-meta-tag__item>a {
-    background-color: var(--color-theme-primary);
-    color: var(--bx-color-accent-inverse, #fff);
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
     display: inline-block;
     padding: 4px 8px;
     font-size: 13px;
@@ -1137,6 +1210,15 @@ article .entry-header {
 @media (min-width: 768px) {
     .buddyx-content--small {
         max-width: var(--container-md);
+    }
+
+    /* With a single-post sidebar the narrow wrapper would split into a
+       ~450px prose column plus the sidebar; widen it so the prose keeps a
+       readable measure. */
+    .buddyx-content--small.has-single-post-right-sidebar,
+    .buddyx-content--small.has-single-post-left-sidebar,
+    .buddyx-content--small.has-single-post-both-sidebar {
+        max-width: var(--container-xl);
     }
 
     .single-post .site-wrapper,
@@ -1232,8 +1314,10 @@ article .entry-header {
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image h1.entry-title,
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .entry-meta,
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .entry-meta__content a,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .buddyx-breadcrumbs,
+.buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .buddyx-breadcrumbs a,
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .post-edit-link {
-    color: #fff;
+    color: #fff; /* fixed: title text over the featured image */
 }
 
 .buddyx-section-title-over.has-featured-image .entry-header--default {

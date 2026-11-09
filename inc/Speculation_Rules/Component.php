@@ -124,7 +124,7 @@ class Component implements Component_Interface {
 
 		printf(
 			'<script type="speculationrules">%s</script>',
-			wp_json_encode( $rules ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — JSON is safe in <script> with type="speculationrules".
+			wp_json_encode( $rules ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON is safe in <script> with type="speculationrules".
 		);
 	}
 }

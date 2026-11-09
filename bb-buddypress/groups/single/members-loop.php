@@ -4,7 +4,10 @@
  *
  * @since 3.0.0
  * @version 3.2.0
+ *
+ * @package buddyx
  */
+
 ?>
 
 <?php
@@ -81,7 +84,12 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) . '&type=group
 		<li <?php bp_member_class( array( 'item-entry' ) ); ?> data-bp-item-id="<?php echo esc_attr( $group_member_id ); ?>" data-bp-item-component="members">
 			<div class="list-wrap <?php echo esc_attr( $footer_buttons_class ); ?> <?php echo esc_attr( $follow_class ); ?> <?php echo $member_loop_has_content ? esc_attr( ' has_hook_content' ) : esc_attr( '' ); ?> <?php echo ! empty( $profile_actions['secondary'] ) ? esc_attr( 'secondary-buttons' ) : esc_attr( 'no-secondary-buttons' ); ?> <?php echo ! empty( $primary_action_btn ) ? esc_attr( 'primary-button' ) : esc_attr( 'no-primary-buttons' ); ?>">
 
-				<?php do_action( 'buddyx_before_member_avatar_member_directory' ); ?>
+				<?php
+				/**
+				 * Fires before a member avatar in the members directory.
+				 */
+				do_action( 'buddyx_before_member_avatar_member_directory' );
+				?>
 
 				<div class="item-avatar">
 					<a href="<?php bp_group_member_domain(); ?>" class="<?php echo esc_attr( $moderation_class ); ?>">
@@ -252,7 +260,7 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) . '&type=group
 					<div class="bb-remove-connection-content bb-action-popup-content">
 						<p>
 							<?php
-							echo sprintf(
+							printf(
 								/* translators: %s: The member name with HTML tags */
 								esc_html__( 'Are you sure you want to remove %s from your connections?', 'buddyx' ),
 								'<span class="bb-user-name"></span>'

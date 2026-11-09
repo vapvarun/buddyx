@@ -166,13 +166,13 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 				width: 84px;
 				height: 84px;
 				<?php
-				if ( isset( $custom_login_logo_image_width ) && ! empty( $custom_login_logo_image_width ) ) {
+				if ( ! empty( $custom_login_logo_image_width ) ) {
 					echo 'width:' . esc_attr( $custom_login_logo_image_width ) . ';';
 				}
-				if ( isset( $custom_login_logo_image_height ) && ! empty( $custom_login_logo_image_height ) ) {
+				if ( ! empty( $custom_login_logo_image_height ) ) {
 					echo 'height:' . esc_attr( $custom_login_logo_image_height ) . ';';
 				}
-				if ( isset( $custom_login_logo_space ) && ! empty( $custom_login_logo_space ) ) {
+				if ( ! empty( $custom_login_logo_space ) ) {
 					echo 'margin-bottom:' . esc_attr( $custom_login_logo_space ) . ';';
 				}
 				?>

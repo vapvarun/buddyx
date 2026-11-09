@@ -4,6 +4,8 @@
  *
  * @since   1.0.0
  * @version 3.0.0
+ *
+ * @package buddyx
  */
 
 $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
@@ -21,7 +23,7 @@ $bp_nouveau_appearance = bp_get_option( 'bp_nouveau_appearance' );
 	<?php
 	if ( ( ! isset( $bp_nouveau_appearance['user_nav_display'] ) || ! $bp_nouveau_appearance['user_nav_display'] ) && is_active_sidebar( 'single_member_activity' ) && bp_is_user_activity() ) {
 		?>
-		<aside id="secondary" class="primary-sidebar widget-area">
+		<aside id="secondary-left" class="primary-sidebar widget-area">
 			<div class="sticky-sidebar">
 				<?php dynamic_sidebar( 'single_member_activity' ); ?>
 			</div>

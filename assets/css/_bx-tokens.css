@@ -39,27 +39,27 @@
 
     /* Color — Links */
     --bx-color-link: #111;
-    --bx-color-link-hover: #c92a2b;
+    --bx-color-link-hover: var(--bx-color-accent);
 
     /* Color — Buttons */
-    --bx-color-button-bg: #c92a2b;
-    --bx-color-button-bg-hover: #b82526;
+    --bx-color-button-bg: var(--bx-color-accent);
+    --bx-color-button-bg-hover: var(--bx-color-accent-hover, #b82526);
     --bx-color-button-fg: #fff;
     --bx-color-button-fg-hover: #fff;
-    --bx-color-button-border: #c92a2b;
-    --bx-color-button-border-hover: #b82526;
+    --bx-color-button-border: var(--bx-color-button-bg);
+    --bx-color-button-border-hover: var(--bx-color-button-bg-hover);
 
     /* Color — Header / branding */
     --bx-color-header-bg: #fff;
     --bx-color-site-title: #111;
-    --bx-color-site-title-hover: #ee4036;
+    --bx-color-site-title-hover: var(--bx-color-accent);
     --bx-color-site-tagline: #757575;
 
     /* Color — Navigation */
     --bx-color-menu-bg: transparent;
     --bx-color-menu-fg: #111;
-    --bx-color-menu-hover: #ee4036;
-    --bx-color-menu-active: #ee4036;
+    --bx-color-menu-hover: var(--bx-color-accent);
+    --bx-color-menu-active: var(--bx-color-accent);
     --bx-color-subheader-bg: #fafafa;
     --bx-color-subheader-fg: #111;
 
@@ -76,17 +76,17 @@
     --bx-color-footer-title: #111;
     --bx-color-footer-fg: #505050;
     --bx-color-footer-link: #111;
-    --bx-color-footer-link-hover: #c92a2b;
+    --bx-color-footer-link-hover: var(--bx-color-accent);
 
     /* Color — Copyright */
     --bx-color-copyright-bg: #fff;
     --bx-color-copyright-border: #e8e8e8;
     --bx-color-copyright-fg: #505050;
     --bx-color-copyright-link: #111;
-    --bx-color-copyright-link-hover: #c92a2b;
+    --bx-color-copyright-link-hover: var(--bx-color-accent);
 
     /* Color — Loader */
-    --bx-color-loader-bg: #c92a2b;
+    --bx-color-loader-bg: var(--bx-color-accent);
     --bx-loader-color: #fff;
     --bx-loader-speed: 1.5s;
 
@@ -107,7 +107,7 @@
     --bx-color-info: #0284c7;
     --bx-color-info-bg: #dbeafe;
 
-    /* Color — Community / presence (BP / Youzify) */
+    /* Color — Community / presence (BuddyPress) */
     --bx-color-presence-online: #4caf50;
     --bx-color-presence-away: #eab308;
     --bx-color-presence-busy: #dc2626;
@@ -118,7 +118,7 @@
     /* Color — Forms */
     --bx-color-input-bg: #fff;
     --bx-color-input-border: #d4d4d4;
-    --bx-color-input-focus-border: #c92a2b;
+    --bx-color-input-focus-border: var(--bx-color-accent);
     --bx-color-input-fg: #1a1a1a;
     --bx-color-input-placeholder: #9ca3af;
 

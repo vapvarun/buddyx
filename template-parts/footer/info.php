@@ -9,11 +9,16 @@ namespace BuddyX\Buddyx;
 
 ?>
 
-<?php do_action( 'buddyx_copyright_before' ); ?>
+<?php
+/**
+ * Fires before the copyright row.
+ */
+do_action( 'buddyx_copyright_before' );
+?>
 
 <div class="site-info">
 	<div class="container">
-		<?php echo buddyx_footer_custom_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php echo buddyx_footer_custom_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buddyx_footer_custom_text() returns wp_kses_post() markup. ?>
 	</div>
 
 	<?php
@@ -23,4 +28,9 @@ namespace BuddyX\Buddyx;
 	?>
 </div><!-- .site-info -->
 
-<?php do_action( 'buddyx_copyright_after' ); ?>
+<?php
+/**
+ * Fires after the copyright row.
+ */
+do_action( 'buddyx_copyright_after' );
+?>

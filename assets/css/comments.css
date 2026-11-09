@@ -338,7 +338,7 @@
 }
 
 .comment-form .required {
-    color: #d54e21;
+    color: var(--bx-color-error, #b91c1c);
 }
 
 .comment-form .form-submit {

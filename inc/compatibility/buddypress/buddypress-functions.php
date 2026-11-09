@@ -13,17 +13,23 @@ defined( 'ABSPATH' ) || exit;
  */
 if ( ! function_exists( 'buddyx_bp_get_template_stack' ) ) {
 
+	/**
+	 * Swap the theme's buddypress/ template folder for bb-buddypress/ on BuddyBoss Platform.
+	 *
+	 * @param array $stack Template stack paths.
+	 * @return array Filtered template stack.
+	 */
 	function buddyx_bp_get_template_stack( $stack ) {
 		if ( function_exists( 'bp_get_theme_package_id' ) ) {
 			$theme_package_id = bp_get_theme_package_id();
 		}
 		if ( 'nouveau' === $theme_package_id ) {
 			if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-				$index = array_search( get_stylesheet_directory() . '/buddypress', $stack );
+				$index = array_search( get_stylesheet_directory() . '/buddypress', $stack, true );
 				if ( false !== $index ) {
 					$stack[ $index ] = get_stylesheet_directory() . '/bb-buddypress';
 				}
-				$index = array_search( get_template_directory() . '/buddypress', $stack );
+				$index = array_search( get_template_directory() . '/buddypress', $stack, true );
 				if ( false !== $index ) {
 					$stack[ $index ] = get_template_directory() . '/bb-buddypress';
 				}
@@ -119,6 +125,12 @@ if ( ! function_exists( 'buddyx_is_user_online' ) ) {
  */
 if ( ! function_exists( 'buddyx_user_status' ) ) {
 
+	/**
+	 * Print the online status dot for a member.
+	 *
+	 * @param int $user_id Member ID.
+	 * @return void
+	 */
 	function buddyx_user_status( $user_id ) {
 		if ( buddyx_is_user_online( $user_id ) ) {
 			echo '<span class="member-status online"></span>';
@@ -135,6 +147,11 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
 		add_action( 'buddyx_before_member_avatar_member_directory', 'buddyx_render_member_cover_image', 10 );
 	}
 
+	/**
+	 * Print the member cover image on the members directory card.
+	 *
+	 * @return void
+	 */
 	function buddyx_render_member_cover_image() {
 		$cover_img_url = bp_attachments_get_attachment(
 			'url',
@@ -161,6 +178,11 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
 		add_action( 'buddyx_before_group_avatar_group_directory', 'buddyx_render_group_cover_image', 10 );
 	}
 
+	/**
+	 * Print the group cover image on the groups directory card.
+	 *
+	 * @return void
+	 */
 	function buddyx_render_group_cover_image() {
 		$cover_img_url = bp_attachments_get_attachment(
 			'url',
@@ -183,134 +205,71 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
  * Output badges on profile
  */
 if ( ! function_exists( 'buddyx_profile_achievements' ) ) {
+	/**
+	 * Print the BadgeOS badges the displayed member has earned.
+	 *
+	 * @return void
+	 */
 	function buddyx_profile_achievements() {
-		if ( class_exists( 'BadgeOS' ) ) {
-			global $blog_id, $post;
-			$type       = 'all';
-			$limit      = apply_filters( 'buddyx_user_badges_limit', 10 );
-			$offset     = 0;
-			$count      = 0;
-			$filter     = 'completed';
-			$search     = false;
-			$orderby    = 'menu_order';
-			$order      = 'ASC';
-			$wpms       = false;
-			$include    = array();
-			$exclude    = array();
-			$meta_key   = '';
-			$meta_value = '';
-			$old_post   = $post;
-			$user_id    = bp_displayed_user_id();
-			// Convert $type to properly support multiple achievement types.
-			if ( 'all' == $type ) {
-				$type = badgeos_get_achievement_types_slugs();
-				// Drop steps from our list of "all" achievements.
-				$step_key = array_search( 'step', $type );
-				if ( $step_key ) {
-					unset( $type[ $step_key ] );
-				}
-			} else {
-				$type = explode( ',', $type );
-			}
-			// Build $include array.
-			if ( ! is_array( $include ) ) {
-				$include = explode( ',', $include );
-			}
-			// Build $exclude array.
-			if ( ! is_array( $exclude ) ) {
-				$exclude = explode( ',', $exclude );
-			}
-			// The thumbnail is plugin-generated <img> markup. Escape it with the post allowlist,
-			// extended so responsive-image attributes are not stripped.
-			$thumbnail_kses        = wp_kses_allowed_html( 'post' );
-			$thumbnail_kses['img'] = array_merge(
-				isset( $thumbnail_kses['img'] ) ? $thumbnail_kses['img'] : array(),
-				array(
-					'srcset'        => true,
-					'sizes'         => true,
-					'loading'       => true,
-					'decoding'      => true,
-					'fetchpriority' => true,
-				)
-			);
-			// Initialize our output and counters.
-			$achievements      = '';
-			$achievement_count = 0;
-			$query_count       = 0;
-			// Grab our hidden badges (used to filter the query).
-			$hidden = badgeos_get_hidden_achievement_ids( $type );
-			// If we're polling all sites, grab an array of site IDs
-			if ( $wpms && $wpms != 'false' ) {
-				$sites = badgeos_get_network_site_ids();
-			} else {
-				// Otherwise, use only the current site.
-				$sites = array( $blog_id );
-			}
-			// Loop through each site (default is current site only).
-			foreach ( $sites as $site_blog_id ) {
-				// If we're not polling the current site, switch to the site we're polling.
-				if ( $blog_id != $site_blog_id ) {
-					switch_to_blog( $site_blog_id );
-				}
-				// Grab our earned badges (used to filter the query)
-				$earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $type );
-				// Query Achievements.
-				$args = array(
-					'post_type'              => $type,
-					'orderby'                => $orderby,
-					'order'                  => $order,
-					'posts_per_page'         => $limit,
-					'offset'                 => $offset,
-					'post_status'            => 'publish',
-					'post__not_in'           => array_diff( $hidden, $earned_ids ),
-					'no_found_rows'          => true,
-					'update_post_term_cache' => false,
-				);
-				// Filter - query completed or non completed achievements.
-				if ( $filter == 'completed' ) {
-					$args['post__in'] = array_merge( array( 0 ), $earned_ids );
-				} elseif ( $filter == 'not-completed' ) {
-					$args['post__not_in'] = array_merge( $hidden, $earned_ids );
-				}
-				if ( '' !== $meta_key && '' !== $meta_value ) {
-					$args['meta_key']   = $meta_key;
-					$args['meta_value'] = $meta_value;
-				}
-				// Include certain achievements.
-				if ( ! empty( $include ) ) {
-					$args['post__not_in'] = array_diff( $args['post__not_in'], $include );
-					$args['post__in']     = array_merge( array( 0 ), array_diff( $include, $args['post__in'] ) );
-				}
-				// Exclude certain achievements.
-				if ( ! empty( $exclude ) ) {
-					$args['post__not_in'] = array_merge( $args['post__not_in'], $exclude );
-				}
-				// Search
-				if ( $search ) {
-					$args['s'] = $search;
-				}
-				// Loop Achievements.
-				$achievement_posts = new WP_Query( $args );
-				$query_count      += $achievement_posts->found_posts;
-				while ( $achievement_posts->have_posts() ) :
-					$achievement_posts->the_post();
-					// Inside the loop the current post ID is always available; skip anything unexpected.
-					$achievement_id = get_the_ID();
-					if ( ! is_numeric( $achievement_id ) ) {
-						continue;
-					}
-					$achievements .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
-					$achievements .= '<a href="' . esc_url( get_permalink( $achievement_id ) ) . '">' . wp_kses( badgeos_get_achievement_post_thumbnail( $achievement_id ), $thumbnail_kses ) . '</a>';
-					$achievements .= '</div>';
-					++$achievement_count;
-				endwhile;
-				wp_reset_postdata();
-				$post = $old_post;
-			}
-			echo '<div class="ps-badgeos__list-wrapper">';
-			echo '<div class="ps-badgeos__list-title">' . esc_html( _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) ) . '</div>';
-			echo '<div class="ps-badgeos__list">' . $achievements . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Each part is escaped when built above.
-			echo '</div>';
+		if ( ! class_exists( 'BadgeOS' ) ) {
+			return;
 		}
+
+		$user_id = bp_displayed_user_id();
+
+		// Every achievement type except steps, which are parts of a badge rather than badges.
+		$types      = array_values( array_diff( badgeos_get_achievement_types_slugs(), array( 'step' ) ) );
+		$hidden     = badgeos_get_hidden_achievement_ids( $types );
+		$earned_ids = badgeos_get_user_earned_achievement_ids( $user_id, $types );
+
+		$achievement_posts = new WP_Query(
+			array(
+				'post_type'              => $types,
+				'orderby'                => 'menu_order',
+				'order'                  => 'ASC',
+				/**
+				 * Filters the maximum number of badges shown for a member.
+				 *
+				 * @param int $limit Limit.
+				 */
+				'posts_per_page'         => apply_filters( 'buddyx_user_badges_limit', 10 ),
+				'post_status'            => 'publish',
+				'post__in'               => array_merge( array( 0 ), $earned_ids ),
+				'post__not_in'           => array_diff( $hidden, $earned_ids ),
+				'no_found_rows'          => true,
+				'update_post_term_cache' => false,
+			)
+		);
+
+		// The thumbnail is plugin-generated <img> markup. Escape it with the post allowlist,
+		// extended so responsive-image attributes are not stripped.
+		$thumbnail_kses        = wp_kses_allowed_html( 'post' );
+		$thumbnail_kses['img'] = array_merge(
+			isset( $thumbnail_kses['img'] ) ? $thumbnail_kses['img'] : array(),
+			array(
+				'srcset'        => true,
+				'sizes'         => true,
+				'loading'       => true,
+				'decoding'      => true,
+				'fetchpriority' => true,
+			)
+		);
+
+		$achievements      = '';
+		$achievement_count = 0;
+		while ( $achievement_posts->have_posts() ) :
+			$achievement_posts->the_post();
+			$achievement_id = get_the_ID();
+			$achievements  .= '<div class="ps-badgeos__item ps-badgeos__item--focus" >';
+			$achievements  .= '<a href="' . esc_url( get_permalink( $achievement_id ) ) . '">' . wp_kses( badgeos_get_achievement_post_thumbnail( $achievement_id ), $thumbnail_kses ) . '</a>';
+			$achievements  .= '</div>';
+			++$achievement_count;
+		endwhile;
+		wp_reset_postdata();
+
+		echo '<div class="ps-badgeos__list-wrapper">';
+		echo '<div class="ps-badgeos__list-title">' . esc_html( _n( 'Recently earned badge', 'Recently earned badges', $achievement_count, 'buddyx' ) ) . '</div>';
+		echo '<div class="ps-badgeos__list">' . $achievements . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Each part is escaped when built above.
+		echo '</div>';
 	}
 }

@@ -45,8 +45,8 @@ ul.job_listings li.job_listing a {
 ul.job_listings li.job_listing a:hover {
     background-color: var(--bx-color-bg-elevated, #fff);
     box-shadow: 0 3px 24px 0 rgba(18, 43, 70, 0.08);
-    border-left-color: #fff;
-    border-right-color: #fff;
+    border-left-color: var(--bx-color-bg-elevated);
+    border-right-color: var(--bx-color-bg-elevated);
     border-radius: 3px;
     position: relative;
     z-index: 1;
@@ -97,33 +97,33 @@ ul.job_listings li.job_listing ul.meta li.job-type {
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.full-time {
-    background-color: #e4f6dd;
-    color: #48bf1e;
+    background-color: var(--bx-color-success-bg);
+    color: var(--bx-color-success);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.internship {
-    background-color: #e6ddfb;
-    color: #6033cc;
+    background-color: var(--bx-color-bg-subtle);
+    color: var(--bx-color-accent-secondary);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.freelance {
-    background-color: #DCF2FD;
-    color: #39c;
+    background-color: var(--bx-color-info-bg);
+    color: var(--bx-color-info);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.full-time {
-    background-color: #E4F6DD;
-    color: #48BF1E;
+    background-color: var(--bx-color-success-bg);
+    color: var(--bx-color-success);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.part-time {
-    background-color: #fff6ef;
-    color: #f08d3c;
+    background-color: var(--bx-color-warning-bg);
+    color: var(--bx-color-warning);
 }
 
 ul.job_listings li.job_listing ul.meta li.job-type.temporary {
-    background-color: #FFE2E0;
-    color: #d93674;
+    background-color: var(--bx-color-error-bg);
+    color: var(--bx-color-error);
 }
 
 ul.job_listings li.job_listing ul.meta li.date {

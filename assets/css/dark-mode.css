@@ -35,7 +35,7 @@
 }
 
 :root[data-bx-mode="dark"] .bx-color-mode-toggle-focus {
-    color: #fff;
+    color: var(--bx-color-fg);
 }
 
 /* Sit flat on the focus header, not on the dark button surface. */
@@ -170,7 +170,7 @@
 :root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link,
 :root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar .lms-course-members-list .lms-count {
     background-color: rgb(255, 255, 255, 0.1) !important;
-    color: #fff !important;
+    color: var(--bx-color-fg) !important;
 }
 
 :root[data-bx-mode="dark"] .ld-in-focus-mode .learndash-wrapper .ld-focus.ld-focus .ld-focus-sidebar a.course-entry-link:hover {
@@ -261,13 +261,15 @@
  * badges are excluded (they keep LearnDash's own coloured background and white
  * text). The Lesson Content header is also skipped once its colours are set in
  * Customize > LearnDash Styles > Global Styles (body.bx-ld-custom-header), so a
- * customised background / text colour is never overridden. */
-:root[data-bx-mode="dark"] .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header),
-:root[data-bx-mode="dark"] .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header) *,
-:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-navigation-heading,
-:root[data-bx-mode="dark"] .learndash-wrapper .ld-course-navigation-heading *,
-:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header) .learndash-wrapper .ld-table-list-header.ld-primary-background,
-:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header) .learndash-wrapper .ld-table-list-header.ld-primary-background * {
+ * customised background / text colour is never overridden. Skipped where LearnDash
+ * runs on the Theme Color (body.bx-ld-theme-colors): its background keeps the
+ * light-mode shade there and LearnDash's own white text reads on it. */
+:root[data-bx-mode="dark"] body:not(.bx-ld-theme-colors) .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header),
+:root[data-bx-mode="dark"] body:not(.bx-ld-theme-colors) .learndash-wrapper .ld-primary-background:not(.ld-status):not(.ld-table-list-header) *,
+:root[data-bx-mode="dark"] body:not(.bx-ld-theme-colors) .learndash-wrapper .ld-course-navigation-heading,
+:root[data-bx-mode="dark"] body:not(.bx-ld-theme-colors) .learndash-wrapper .ld-course-navigation-heading *,
+:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header):not(.bx-ld-theme-colors) .learndash-wrapper .ld-table-list-header.ld-primary-background,
+:root[data-bx-mode="dark"] body:not(.bx-ld-custom-header):not(.bx-ld-theme-colors) .learndash-wrapper .ld-table-list-header.ld-primary-background * {
     color: var(--bx-color-button-fg, #0a0a0a) !important;
 }
 

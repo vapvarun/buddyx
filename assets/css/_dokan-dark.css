@@ -406,10 +406,12 @@ React layout, only section 1 needs re-checking.
     color: var(--bx-color-fg);
 }
 
-/* native form controls Dokan renders with a white ground */
-[data-bx-mode="dark"] .dokan-dashboard .dokan-form-control,
-[data-bx-mode="dark"] .dokan-dashboard select.dokan-form-control,
-[data-bx-mode="dark"] .dokan-dashboard textarea.dokan-form-control,
+/* Native form controls Dokan renders with a white ground. Not scoped to the
+ * dashboard: the public store page uses the same controls (store contact form,
+ * product sort select and search). */
+[data-bx-mode="dark"] .dokan-form-control,
+[data-bx-mode="dark"] .dokan-store-products-filter-area .orderby-search,
+[data-bx-mode="dark"] .dokan-store-products-filter-area .product-name-search,
 [data-bx-mode="dark"] .dokan-dashboard .dokan-w8 input[type="text"],
 [data-bx-mode="dark"] .dokan-dashboard .dokan-product-meta input {
     background-color: var(--bx-color-input-bg);
@@ -1323,6 +1325,29 @@ React layout, only section 1 needs re-checking.
 [data-bx-mode="dark"] #dokan-analytics-app .woocommerce-chart svg > rect,
 [data-bx-mode="dark"] #dokan-analytics-app .d3-chart__viewport > rect {
     fill: transparent !important;
+}
+
+/*--------------------------------------------------------------
+# Store header (every Header Template layout)
+----------------------------------------------------------------
+Dokan paints the header frame #eee, the info panel #fff and the
+store name and the address / phone / rating line #444. In dark mode that left a white
+block in a dark page, the theme's light store name on Dokan's white
+panel (layout3 at 390), and #444 meta on the dark surface (layout3 at
+1440). Follow the theme surface and text tokens instead. Light mode
+keeps Dokan's own look.
+--------------------------------------------------------------*/
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame,
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper {
+    background-color: var(--bx-color-bg-elevated);
+}
+
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .store-name.store-name,
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info,
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li,
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info a,
+:root[data-bx-mode="dark"] .dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info i {
+    color: var(--bx-color-fg);
 }
 
 /* stylelint-enable no-descending-specificity */

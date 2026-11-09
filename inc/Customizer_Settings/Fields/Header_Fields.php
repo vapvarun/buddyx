@@ -11,10 +11,11 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 * Site Header
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_sticky_header',
-				'label'    => esc_html__( 'Enable Sticky Header ?', 'buddyx' ),
+				'label'    => esc_html__( 'Enable Sticky Header', 'buddyx' ),
 				'section'  => 'site_header_section',
 				'default'  => '1',
 				'choices'  => array(
@@ -27,7 +28,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Search
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_search',
 				'label'    => esc_html__( 'Enable Search Icon', 'buddyx' ),
@@ -44,7 +46,8 @@ defined( 'ABSPATH' ) || exit;
 		 *  Site Cart
 		 */
 		if ( function_exists( 'is_woocommerce' ) ) :
-			\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+			\BuddyX\Buddyx\Customizer_Framework\Field::add(
+				'switch',
 				array(
 					'settings' => 'site_cart',
 					'label'    => esc_html__( 'Enable Cart Icon', 'buddyx' ),
@@ -61,7 +64,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Login
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_login_link',
 				'label'    => esc_html__( 'Enable Login Link', 'buddyx' ),
@@ -77,7 +81,8 @@ defined( 'ABSPATH' ) || exit;
 		/**
 		 *  Site Register
 		 */
-		\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+		\BuddyX\Buddyx\Customizer_Framework\Field::add(
+			'switch',
 			array(
 				'settings' => 'site_register_link',
 				'label'    => esc_html__( 'Enable Register Link', 'buddyx' ),

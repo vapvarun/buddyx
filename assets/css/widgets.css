@@ -235,19 +235,19 @@ ol.wp-block-latest-comments {
     border-radius: var(--form-border-radius);
 }
 
-.widget #searchform input.text_input {
+.widget .search-form input.text_input {
     padding-left: 10px;
     width: 100%;
     padding-right: 65px;
 }
 
-.widget #searchform {
+.widget .search-form {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.widget #searchform input[type="submit"] {
+.widget .search-form input[type="submit"] {
     position: absolute;
     right: 3px;
     border-radius: 3px;

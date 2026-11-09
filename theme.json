@@ -253,34 +253,11 @@
 					"fontFace": [
 						{
 							"fontFamily": "Inter",
-							"fontWeight": "400",
+							"fontWeight": "100 900",
 							"fontStyle": "normal",
+							"fontDisplay": "swap",
 							"src": [
-								"file:./assets/fonts/inter/Inter-Regular.woff2"
-							]
-						},
-						{
-							"fontFamily": "Inter",
-							"fontWeight": "500",
-							"fontStyle": "normal",
-							"src": [
-								"file:./assets/fonts/inter/Inter-Medium.woff2"
-							]
-						},
-						{
-							"fontFamily": "Inter",
-							"fontWeight": "600",
-							"fontStyle": "normal",
-							"src": [
-								"file:./assets/fonts/inter/Inter-SemiBold.woff2"
-							]
-						},
-						{
-							"fontFamily": "Inter",
-							"fontWeight": "700",
-							"fontStyle": "normal",
-							"src": [
-								"file:./assets/fonts/inter/Inter-Bold.woff2"
+								"file:./assets/fonts/inter/Inter-Variable.woff2"
 							]
 						}
 					]

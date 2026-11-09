@@ -22,9 +22,14 @@ defined( 'ABSPATH' ) || exit;
  */
 function buddyx_custom_rtmedia_filter( $html, $media ) {
 	// Check if the filter is enabled.
+	/**
+	 * Filters whether the rtMedia bridge, buddyx_custom_rtmedia_filter(), is active.
+	 *
+	 * @param bool $enabled Enabled.
+	 */
 	if ( apply_filters( 'buddyx_rtmedia_filter_enabled', true ) ) {
 		// Check if the media type is 'photo'.
-		if ( $media->media_type === 'photo' ) {
+		if ( 'photo' === $media->media_type ) {
 			// Check if we are on the activity component page or group activity page.
 			if ( bp_is_activity_component() || ( function_exists( 'bp_is_group' ) && bp_is_group() ) ) {
 				// Retrieve the URL for the custom image size.

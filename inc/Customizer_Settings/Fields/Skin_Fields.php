@@ -19,9 +19,12 @@ if ( ! function_exists( 'buddyx_skin_cluster_icon' ) ) {
 	/**
 	 * Inline Lucide-style SVG (24x24, stroke 2, currentColor) for a cluster head.
 	 * SVG markup is whitelisted in Custom_HTML's wp_kses allowed_html.
+	 *
+	 * @param string $name Cluster icon key.
+	 * @return string SVG markup.
 	 */
 	function buddyx_skin_cluster_icon( $name ) {
-		$open = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
+		$open  = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 		$close = '</svg>';
 		switch ( $name ) {
 			case 'moon':
@@ -98,13 +101,16 @@ $buddyx_skin_master_gate = array(
 	),
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 1 — Mode & Master  (priority 5–7)
  * Always visible; the master toggle lives here so its head must render
  * even when `site_custom_colors` is off.
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings' => 'custom-mode-divider',
 		'label'    => '',
@@ -123,7 +129,8 @@ $buddyx_skin_master_gate = array(
 // is supplied by inc/Tokens/Component.php with WCAG AA defaults; an
 // inline <head> bootstrap script applies the visitor's choice to
 // <html data-bx-mode="..."> before render to prevent FOUC.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_buttonset',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'radio_buttonset',
 	array(
 		'settings'    => 'site_color_mode',
 		'label'       => esc_html__( 'Color mode', 'buddyx' ),
@@ -149,7 +156,8 @@ $buddyx_skin_master_gate = array(
 // light → dark → auto. Choice persists via localStorage so it survives
 // page navigations and tab reloads. Works for guests AND logged-in
 // members — no auth dependency.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'switch',
 	array(
 		'settings'    => 'site_color_mode_toggle_show',
 		'label'       => esc_html__( 'Show color-mode toggle', 'buddyx' ),
@@ -168,7 +176,8 @@ $buddyx_skin_master_gate = array(
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_buttonset',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'radio_buttonset',
 	array(
 		'settings'        => 'site_color_mode_toggle_position',
 		'label'           => esc_html__( 'Toggle position', 'buddyx' ),
@@ -203,12 +212,13 @@ $buddyx_skin_master_gate = array(
 // Rendered as a swatch grid (radio_image with [image, label] choices) so
 // the customer sees each variation's palette before picking, instead of
 // guessing from a slug name.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'radio_image',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'radio_image',
 	array(
 		'settings'    => 'site_style_variation',
 		'label'       => esc_html__( 'Style preset', 'buddyx' ),
 		'description' => esc_html__( 'Pick a ready-made starting look.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Each card previews the preset\'s palette. Any colors you change below still take priority over the preset.', 'buddyx' ),
+		'tooltip'     => esc_html__( 'Picking a preset replaces the colors below with its palette. Its brand colors (buttons, links, hovers) follow the Theme Color, so changing the Theme Color later updates them too. Colors you change after picking a preset stay as you set them.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => '',
 		'priority'    => 7,
@@ -260,10 +270,11 @@ function buddyx_get_style_variation_swatch_choices() {
 	return $choices;
 }
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'switch',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'switch',
 	array(
 		'settings' => 'site_custom_colors',
-		'label'    => esc_html__( 'Set Custom Colors?', 'buddyx' ),
+		'label'    => esc_html__( 'Set Custom Colors', 'buddyx' ),
 		'section'  => 'site_skin_section',
 		'default'  => 'on',
 		'priority' => 7,
@@ -279,13 +290,16 @@ function buddyx_get_style_variation_swatch_choices() {
 // Setting ID `site_loader_bg` preserved — customers see their saved
 // value carry over to the new location with no manual action.
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 2 — Brand  (priority 10–11)
  * The single most-used color (theme/accent) gets prominence as its
  * own cluster, extracted from the older lump-Body group.
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-brand-divider',
 		'label'           => '',
@@ -301,7 +315,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_primary_color',
 		'label'           => esc_html__( 'Theme Color', 'buddyx' ),
@@ -313,14 +328,17 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 3 — Header  (priority 20–31)
  * 8 fields across 3 sub-clusters (Header surface / Site title / Menu).
  * Subheader title color relocated from old Body cluster — it belongs
  * with the rest of the header-area colors.
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-header-divider',
 		'label'           => '',
@@ -337,7 +355,8 @@ function buddyx_get_style_variation_swatch_choices() {
 );
 
 // Sub-cluster: Header surface.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-header-surface-divider',
 		'label'           => '',
@@ -348,7 +367,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_header_bg_color',
 		'label'           => esc_html__( 'Header Background Color', 'buddyx' ),
@@ -361,7 +381,8 @@ function buddyx_get_style_variation_swatch_choices() {
 );
 
 // Sub-cluster: Site title.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-header-title-divider',
 		'label'           => '',
@@ -372,7 +393,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_title_typography_option[color]',
 		'label'           => esc_html__( 'Site Title Color', 'buddyx' ),
@@ -384,19 +406,22 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_title_hover_color',
 		'label'           => esc_html__( 'Site Title Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 25,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_tagline_typography_option[color]',
 		'label'           => esc_html__( 'Site Tagline Color', 'buddyx' ),
@@ -409,7 +434,8 @@ function buddyx_get_style_variation_swatch_choices() {
 );
 
 // Sub-cluster: Menu.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-header-menu-divider',
 		'label'           => '',
@@ -420,7 +446,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'menu_typography_option[color]',
 		'label'           => esc_html__( 'Menu Color', 'buddyx' ),
@@ -432,24 +459,28 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'menu_hover_color',
 		'label'           => esc_html__( 'Menu Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 29,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'menu_active_color',
 		'label'           => esc_html__( 'Menu Active Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 30,
 		'active_callback' => $buddyx_skin_master_gate,
@@ -458,7 +489,8 @@ function buddyx_get_style_variation_swatch_choices() {
 
 // Subheader title color — relocated from old Body cluster (Phase 3 UX).
 // Setting ID `site_sub_header_typography[color]` is unchanged.
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_sub_header_typography[color]',
 		'label'           => esc_html__( 'Subheader Title Color', 'buddyx' ),
@@ -470,15 +502,18 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 4 — Surfaces  (priority 35–39)
  * Background colors that paint big areas of the page.
  * The 'custom-body-divider' setting ID is preserved for backward
  * compatibility (it was always a Custom_HTML control with no stored
  * value, so the rename only affects label/markup).
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-body-divider',
 		'label'           => '',
@@ -494,7 +529,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'body_background_color',
 		'label'           => esc_html__( 'Body Background Color', 'buddyx' ),
@@ -506,7 +542,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'content_background_color',
 		'label'           => esc_html__( 'Content Background Color', 'buddyx' ),
@@ -529,7 +566,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'box_background_color',
 		'label'           => esc_html__( 'Box Background Color', 'buddyx' ),
@@ -541,10 +579,12 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'secondary_background_color',
 		'label'           => esc_html__( 'Secondary Background Color', 'buddyx' ),
+		'description'     => esc_html__( 'A subtle background for secondary areas: forum and form panels, code blocks, editor toolbars and selected list items.', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#fafafa',
 		'choices'         => array( 'alpha' => true ),
@@ -553,11 +593,14 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 5 — Text & Links  (priority 45–48)
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-textlinks-divider',
 		'label'           => '',
@@ -573,7 +616,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'typography_option[color]',
 		'label'           => esc_html__( 'Body Text Color', 'buddyx' ),
@@ -585,7 +629,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_links_color',
 		'label'           => esc_html__( 'Link Color', 'buddyx' ),
@@ -597,23 +642,28 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_links_focus_hover_color',
 		'label'           => esc_html__( 'Link Hover', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 48,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 6 — Headings  (priority 50–56)
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-headings-divider',
 		'label'           => '',
@@ -629,7 +679,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h1_typography_option[color]',
 		'label'           => esc_html__( 'H1 Color', 'buddyx' ),
@@ -641,7 +692,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h2_typography_option[color]',
 		'label'           => esc_html__( 'H2 Color', 'buddyx' ),
@@ -653,7 +705,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h3_typography_option[color]',
 		'label'           => esc_html__( 'H3 Color', 'buddyx' ),
@@ -665,7 +718,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h4_typography_option[color]',
 		'label'           => esc_html__( 'H4 Color', 'buddyx' ),
@@ -677,7 +731,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h5_typography_option[color]',
 		'label'           => esc_html__( 'H5 Color', 'buddyx' ),
@@ -689,7 +744,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'h6_typography_option[color]',
 		'label'           => esc_html__( 'H6 Color', 'buddyx' ),
@@ -701,11 +757,14 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 7 — Buttons  (priority 60–66)
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-button-divider',
 		'label'           => '',
@@ -721,83 +780,98 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_background_color',
 		'label'           => esc_html__( 'Button Background Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 61,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_background_hover_color',
 		'label'           => esc_html__( 'Button Background Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#b82526',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the button color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 62,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_text_color',
 		'label'           => esc_html__( 'Button Text Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#ffffff',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to pick a readable colour automatically.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 63,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_text_hover_color',
 		'label'           => esc_html__( 'Button Text Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#ffffff',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to pick a readable colour automatically.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 64,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_border_color',
 		'label'           => esc_html__( 'Button Border Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the button color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 65,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_buttons_border_hover_color',
 		'label'           => esc_html__( 'Button Border Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#b82526',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the button color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 66,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 8 — Footer  (priority 70–74)
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-footer-divider',
 		'label'           => '',
@@ -813,7 +887,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_footer_title_color',
 		'label'           => esc_html__( 'Footer Title Color', 'buddyx' ),
@@ -825,7 +900,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_footer_content_color',
 		'label'           => esc_html__( 'Footer Content Color', 'buddyx' ),
@@ -837,7 +913,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_footer_links_color',
 		'label'           => esc_html__( 'Footer Link Color', 'buddyx' ),
@@ -849,26 +926,31 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_footer_links_hover_color',
 		'label'           => esc_html__( 'Footer Link Hover', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 74,
 		'active_callback' => $buddyx_skin_master_gate,
 	)
 );
 
-/* =====================================================================
+/*
+=====================================================================
  * Cluster 9 — Copyright  (priority 80–85)
  * Setting ID `custom-coyright-divider` (sic — original misspelling) is
  * preserved for backward-compatibility; it stores no value so the typo
  * is harmless and renaming would risk doubling the field.
- * ===================================================================== */
+ * =====================================================================
+ */
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'custom',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'custom',
 	array(
 		'settings'        => 'custom-coyright-divider',
 		'label'           => '',
@@ -884,7 +966,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_copyright_background_color',
 		'label'           => esc_html__( 'Copyright Background Color', 'buddyx' ),
@@ -896,7 +979,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_copyright_border_color',
 		'label'           => esc_html__( 'Copyright Border Color', 'buddyx' ),
@@ -905,16 +989,11 @@ function buddyx_get_style_variation_swatch_choices() {
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 82,
 		'active_callback' => $buddyx_skin_master_gate,
-		'output'          => array(
-			array(
-				'element'  => '.site-info',
-				'property' => 'border-color',
-			),
-		),
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_copyright_content_color',
 		'label'           => esc_html__( 'Copyright Content Color', 'buddyx' ),
@@ -926,7 +1005,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_copyright_links_color',
 		'label'           => esc_html__( 'Copyright Link Color', 'buddyx' ),
@@ -938,12 +1018,14 @@ function buddyx_get_style_variation_swatch_choices() {
 	)
 );
 
-\BuddyX\Buddyx\Customizer_Framework\Field::add( 'color',
+\BuddyX\Buddyx\Customizer_Framework\Field::add(
+	'color',
 	array(
 		'settings'        => 'site_copyright_links_hover_color',
 		'label'           => esc_html__( 'Copyright Link Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
-		'default'         => '#c92a2b',
+		'default'         => '',
+		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 85,
 		'active_callback' => $buddyx_skin_master_gate,

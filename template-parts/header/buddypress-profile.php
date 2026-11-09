@@ -57,7 +57,7 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 		?>
 		<div class="bp-msg">
 			<a class="bp-icon-wrap" href="<?php echo esc_url( $user_data['messages_url'] ); ?>" title="<?php esc_attr_e( 'Messages', 'buddyx' ); ?>">
-				<span class="fa fa-envelope"></span>
+				<?php echo buddyx_get_icon( 'envelope' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?>
 				<?php if ( $user_data['messages_count'] > 0 ) : ?>
 					<sup class="count"><?php echo esc_html( $user_data['messages_count'] > 9 ? '9+' : $user_data['messages_count'] ); ?></sup>
 				<?php endif; ?>
@@ -75,7 +75,7 @@ if ( class_exists( 'BuddyPress' ) && $current_user_id ) {
 		?>
 		<div class="user-notifications">
 			<a class="bp-icon-wrap" href="<?php echo esc_url( $user_data['notifications_url'] ); ?>" title="<?php esc_attr_e( 'Notifications', 'buddyx' ); ?>">
-				<span class="fa fa-bell"></span>
+				<?php echo buddyx_get_icon( 'bell' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?>
 				<?php if ( $user_data['notifications_count'] > 0 ) : ?>
 					<sup class="count"><?php echo esc_html( $user_data['notifications_count'] > 9 ? '9+' : $user_data['notifications_count'] ); ?></sup>
 				<?php endif; ?>
@@ -127,11 +127,7 @@ if ( is_user_logged_in() ) {
 		// and avatar in the header was a link that went nowhere on every non-BP
 		// site. The mobile header (template-parts/header/navigation.php) has always
 		// used this fallback; this keeps desktop consistent with it.
-		if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
-			$user_link = function_exists( 'bp_members_get_user_url' ) ? bp_members_get_user_url( $current_user_id ) : get_author_posts_url( $current_user_id );
-		} else {
-			$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( $current_user_id ) : get_author_posts_url( $current_user_id );
-		}
+		$user_link = buddyx_member_url( $current_user_id );
 
 		// Get avatar once and store in variable to avoid multiple function calls.
 		$user_avatar = get_avatar( $loggedin_user->user_email, 100 );
@@ -171,7 +167,7 @@ if ( is_user_logged_in() ) {
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>">
-				<span class="fa fa-user"></span><?php esc_html_e( 'Log in', 'buddyx' ); ?>
+				<?php echo buddyx_get_icon( 'user' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><?php esc_html_e( 'Log in', 'buddyx' ); ?>
 			</a>
 		</div>
 		<?php
@@ -186,7 +182,7 @@ if ( is_user_logged_in() ) {
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>">
-				<span class="fa fa-sign-in"></span><?php esc_html_e( 'Register', 'buddyx' ); ?>
+				<?php echo buddyx_get_icon( 'sign-in' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><?php esc_html_e( 'Register', 'buddyx' ); ?>
 			</a>
 		</div>
 		<?php

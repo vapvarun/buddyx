@@ -4,6 +4,8 @@
  *
  * @since 3.0.0
  * @version 7.0.0
+ *
+ * @package buddyx
  */
 
 if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
@@ -20,8 +22,8 @@ $group_avatar = trailingslashit( $admin_link . 'group-avatar' );
 		<?php if ( ! bp_disable_group_avatar_uploads() ) : ?>
 			<div id="item-header-avatar">
 				<?php if ( bp_is_item_admin() ) { ?>
-					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
-						<i class="fa fa-camera"></i>
+					<a href="<?php echo esc_url( $group_avatar ); ?>" class="link-change-profile-image bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>" aria-label="<?php esc_attr_e( 'Change Group Photo', 'buddyx' ); ?>">
+						<?php echo buddyx_get_icon( 'camera' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?>
 					</a>
 				<?php } ?>
 				<?php bp_group_avatar(); ?>
@@ -31,7 +33,7 @@ $group_avatar = trailingslashit( $admin_link . 'group-avatar' );
 	<?php if ( ! bp_nouveau_groups_front_page_description() ) : ?>
 		<div id="item-header-content">
 
-			<h2 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h2> 
+			<h1 class="bp-group-title"><?php echo esc_html( bp_get_group_name() ); ?></h1> 
 			<?php if ( bp_nouveau_group_has_meta( 'status' ) ) : ?>
 				<p class="highlight group-status"><strong><?php echo esc_html( bp_nouveau_the_group_meta( array( 'keys' => 'status' ) ) ); ?></strong></p>
 			<?php endif; ?>
@@ -68,7 +70,7 @@ $group_avatar = trailingslashit( $admin_link . 'group-avatar' );
 			<?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
 				<div class="item-meta">
 
-					<?php echo bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); ?>
 
 				</div><!-- .item-meta -->
 			<?php endif; ?>

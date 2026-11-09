@@ -194,7 +194,8 @@ acronym {
 
 mark,
 ins {
-    background: #fff9c0;
+    background: var(--bx-color-warning-bg);
+    color: var(--bx-color-fg);
     text-decoration: none;
 }
 

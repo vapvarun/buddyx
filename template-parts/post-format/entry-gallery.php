@@ -8,7 +8,7 @@
 namespace BuddyX\Buddyx;
 
 $post_gallery = get_post_meta( get_the_ID(), '_buddyx_image_gallery', true );
-if ( $post_gallery != '' ) {
+if ( '' !== $post_gallery ) {
 	buddyx()->print_styles( 'buddyx-slick' );
 	buddyx()->print_scripts( 'buddyx-slick' );
 	$post_gallery_class = ( is_single() ) ? 'single-buddyx-gallery-post' : 'archive-buddyx-gallery-post';

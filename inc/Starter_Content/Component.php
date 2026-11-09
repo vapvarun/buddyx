@@ -64,6 +64,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize(): void {
 		add_action( 'admin_notices', array( $this, 'maybe_render_notice' ) );
+		add_action( 'admin_notices', array( $this, 'render_result_notice' ) );
 		add_action( 'admin_post_buddyx_setup_demo', array( $this, 'handle_setup' ) );
 		add_action( 'admin_post_buddyx_dismiss_demo', array( $this, 'handle_dismiss' ) );
 	}
@@ -251,13 +252,51 @@ class Component implements Component_Interface {
 		?>
 		<div class="notice notice-info is-dismissible buddyx-demo-notice">
 			<h3 style="margin-bottom:6px;"><?php \esc_html_e( 'Want to start with a BuddyX demo site?', 'buddyx' ); ?></h3>
-			<p style="margin:0 0 12px;"><?php \esc_html_e( 'Creates 7 demo pages (Home, About, Services, Pricing, Journal, FAQ, Contact) using the theme\'s built-in patterns, plus a primary navigation menu and sidebar widgets. You can edit or delete any of it afterward.', 'buddyx' ); ?></p>
+			<p style="margin:0 0 12px;"><?php \esc_html_e( 'Creates 7 demo pages (Home, About, Services, Pricing, Journal, FAQ, Contact) using the theme\'s built-in patterns. You can edit or delete any of it afterward.', 'buddyx' ); ?>
+				<?php if ( $this->is_community_site() ) : ?>
+					<?php \esc_html_e( 'A community plugin is active, so your current menu and home page stay as they are.', 'buddyx' ); ?>
+				<?php else : ?>
+					<?php \esc_html_e( 'It also sets the first one as your home page and adds a primary navigation menu.', 'buddyx' ); ?>
+				<?php endif; ?></p>
 			<p style="margin:0 0 12px;">
 				<a href="<?php echo \esc_url( $setup_url ); ?>" class="button button-primary"><?php \esc_html_e( 'Set up demo site', 'buddyx' ); ?></a>
 				<a href="<?php echo \esc_url( $dismiss_url ); ?>" class="button button-secondary"><?php \esc_html_e( 'No thanks', 'buddyx' ); ?></a>
 			</p>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Whether a community plugin owns the site's home page and menu.
+	 *
+	 * @return bool
+	 */
+	protected function is_community_site(): bool {
+		/**
+		 * Filters whether the demo import should leave the menu and home page alone.
+		 *
+		 * @param bool $is_community True when BuddyPress or BuddyNext is active.
+		 */
+		return (bool) \apply_filters( 'buddyx_demo_is_community_site', \function_exists( 'buddypress' ) || \defined( 'BUDDYNEXT_VERSION' ) );
+	}
+
+	/**
+	 * Show what the demo import did, once, on the page list it redirects to.
+	 */
+	public function render_result_notice(): void {
+		$result = \get_transient( 'buddyx_demo_setup_result' );
+		if ( ! \is_array( $result ) || ! \current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		\delete_transient( 'buddyx_demo_setup_result' );
+		$count = count( $result['created'] ?? array() );
+		echo '<div class="notice notice-success is-dismissible"><p>' . \esc_html(
+			sprintf(
+				/* translators: %d: number of demo pages created. */
+				\_n( 'Demo site ready: %d page created.', 'Demo site ready: %d pages created.', $count, 'buddyx' ),
+				$count
+			)
+		) . '</p></div>';
 	}
 
 	/**
@@ -268,6 +307,12 @@ class Component implements Component_Interface {
 			\wp_die( \esc_html__( 'You do not have permission to do this.', 'buddyx' ), '', array( 'response' => 403 ) );
 		}
 		\check_admin_referer( 'buddyx_setup_demo' );
+
+		// A second run would repeat the import, so only the first click does anything.
+		if ( 'done' === \get_option( self::FLAG_OPTION, '' ) ) {
+			\wp_safe_redirect( \admin_url( 'edit.php?post_type=page' ) );
+			exit;
+		}
 
 		$result = $this->create_demo_content();
 
@@ -334,19 +379,22 @@ class Component implements Component_Interface {
 			}
 		}
 
+		// A community site already has its own home page and menu (Activity, Members, Spaces ...); leave them alone.
+		$community = $this->is_community_site();
+
 		// Set static front + posts page if pages exist.
-		if ( ! empty( $page_ids['home'] ) ) {
+		if ( ! $community && ! empty( $page_ids['home'] ) ) {
 			\update_option( 'show_on_front', 'page' );
 			\update_option( 'page_on_front', $page_ids['home'] );
 		}
-		if ( ! empty( $page_ids['blog'] ) ) {
+		if ( ! $community && ! empty( $page_ids['blog'] ) ) {
 			\update_option( 'page_for_posts', $page_ids['blog'] );
 		}
 
 		// Create primary nav menu.
 		$menu_name = __( 'Primary Menu', 'buddyx' );
 		$menu      = \wp_get_nav_menu_object( $menu_name );
-		if ( ! $menu ) {
+		if ( ! $community && ! $menu ) {
 			$menu_id = \wp_create_nav_menu( $menu_name );
 			if ( ! \is_wp_error( $menu_id ) ) {
 				foreach ( array( 'home', 'about', 'services', 'pricing', 'blog', 'faq', 'contact' ) as $slug ) {
