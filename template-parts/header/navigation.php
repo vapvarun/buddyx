@@ -69,7 +69,7 @@ $nav_class = 'main-navigation nav--toggle-sub nav--toggle-small';
 			?>
 			<div class="buddyx-mobile-user bx-mobile-only">
 				<div class="user-wrap">
-					<a href="<?php echo esc_url( $user_link ); ?>"><?php echo wp_kses_post( $user_avatar ); ?></a>
+					<a href="<?php echo esc_url( $user_link ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: member display name. */ __( 'View profile: %s', 'buddyx' ), $mobile_user->display_name ) ); ?>"><?php echo wp_kses_post( $user_avatar ); ?></a>
 					<div>
 						<a href="<?php echo esc_url( $user_link ); ?>"><span class="user-name"><?php echo esc_html( $mobile_user->display_name ); ?></span></a>
 						<?php

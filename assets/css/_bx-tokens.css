@@ -118,9 +118,22 @@
     /* Color — Forms */
     --bx-color-input-bg: #fff;
     --bx-color-input-border: #d4d4d4;
+    --bx-color-control-border: var(--bx-color-input-border);
     --bx-color-input-focus-border: var(--bx-color-accent);
     --bx-color-input-fg: #1a1a1a;
     --bx-color-input-placeholder: #9ca3af;
+
+    /* Color — Fixed: these never flip in dark mode (text and icons over photos,
+       always-dark bars, decorative cards). Not Customizer-driven. */
+    --bx-color-static-white: #fff;
+    --bx-color-static-black: #000;
+    --bx-color-quote-card-bg: #2f4f4f;
+    --bx-gradient-quote-card: linear-gradient(226deg, #96ce4e 0%, #0acd7e 100%);
+    /* The retired "tertiary" palette slug; saved content may still use has-tertiary-*. */
+    --bx-color-legacy-tertiary: #f6f6f6;
+
+    /* Color — Hover tint on transparent icon buttons (dark value below). */
+    --bx-color-hover-tint: rgba(0, 0, 0, 0.04);
 
     /* Dimension — Radius */
     --bx-radius-global: 8px;
@@ -154,4 +167,9 @@
     --bx-z-overlay: 9999;
     --bx-z-loader: 999991;
     --bx-z-toast: 999999;
+}
+
+/* CSS-only tokens the PHP dark block does not emit. */
+:root[data-bx-mode="dark"] {
+    --bx-color-hover-tint: rgba(255, 255, 255, 0.08);
 }

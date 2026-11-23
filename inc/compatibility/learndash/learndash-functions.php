@@ -11,6 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'buddyx_ld_is_modern' ) ) {
+	/**
+	 * Whether LearnDash renders a view with its Modern design (LearnDash > Settings > Design).
+	 * Lessons and topics follow the course setting; groups have their own.
+	 *
+	 * @param string $view View slug: course, lesson, topic or group.
+	 * @return bool
+	 */
+	function buddyx_ld_is_modern( $view = 'course' ) {
+		return class_exists( \LearnDash\Core\Themes\LD30\Modern\Features::class )
+			&& \LearnDash\Core\Themes\LD30\Modern\Features::enabled_for_view( (string) $view );
+	}
+}
+
 if ( ! function_exists( 'buddyx_ld_get_course_category_term' ) ) {
 	/**
 	 * First course category for a course, or null when LearnDash has the taxonomy off or the course has none.
@@ -151,8 +165,9 @@ if ( ! function_exists( 'buddyx_ld_render_course_meta' ) ) {
 			$items['lessons'] = '<span class="course-lessons">' . esc_html( sprintf( _n( '%d lesson', '%d lessons', $lessons, 'buddyx' ), $lessons ) ) . '</span>';
 		}
 
-		// A member who already has access does not need the price.
-		if ( ! sfwd_lms_has_access( $course_id, get_current_user_id() ) ) {
+		// A member who already has access does not need the price. On a single course in LearnDash
+		// Modern, LearnDash's own enrolment panel shows it, so the header would repeat it.
+		if ( ! sfwd_lms_has_access( $course_id, get_current_user_id() ) && ( $card || ! buddyx_ld_is_modern() ) ) {
 			$price = buddyx_ld_course_price_label( $course_id );
 			if ( $price ) {
 				$items['price'] = '<span class="course-price">' . esc_html( $price ) . '</span>';
@@ -277,9 +292,58 @@ if ( ! function_exists( 'buddyx_ld_render_single_course_start' ) ) {
 		if ( 100 === $percent ) {
 			return;
 		}
-		/* translators: %d: course progress percent. */
-		$label = 0 === $percent ? __( 'Start course', 'buddyx' ) : sprintf( __( 'Continue, %d%%', 'buddyx' ), $percent );
+		if ( 0 === $percent ) {
+			$label = __( 'Start course', 'buddyx' );
+		} elseif ( buddyx_ld_is_modern() ) {
+			// Modern prints its own progress box next to the button.
+			$label = __( 'Continue', 'buddyx' );
+		} else {
+			/* translators: %d: course progress percent. */
+			$label = sprintf( __( 'Continue, %d%%', 'buddyx' ), $percent );
+		}
 		echo '<div class="course-resume">' . do_shortcode( '[ld_course_resume course_id="' . (int) $course_id . '" user_id="' . (int) $user_id . '" label="' . esc_attr( $label ) . '"]' ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Shortcode output is LearnDash's own escaped markup.
 	}
 }
 add_action( 'buddyx_entry_content_before', 'buddyx_ld_render_single_course_start' );
+
+if ( ! function_exists( 'buddyx_ld_topic_has_theme_trail' ) ) {
+	/**
+	 * Whether this request is a topic page whose title bar already printed the theme
+	 * trail (Home > Courses > Course > Lesson > Topic). Focus mode has no theme title
+	 * bar, so LearnDash keeps its own trail there.
+	 *
+	 * @return bool
+	 */
+	function buddyx_ld_topic_has_theme_trail() {
+		return is_singular( 'sfwd-topic' )
+			&& did_action( 'buddyx_after_breadcrumb' )
+			&& buddyx_is_truthy( get_theme_mod( 'site_breadcrumbs', buddyx_defaults( 'site-breadcrumbs' ) ) );
+	}
+}
+
+if ( ! function_exists( 'buddyx_ld_topic_breadcrumb_keys' ) ) {
+	/**
+	 * One trail on topic pages, Classic design: drop LearnDash's segments when the
+	 * theme trail is shown; its status badge stays.
+	 *
+	 * @param array $keys Breadcrumb keys LearnDash prints.
+	 * @return array
+	 */
+	function buddyx_ld_topic_breadcrumb_keys( $keys ) {
+		return buddyx_ld_topic_has_theme_trail() ? array() : $keys;
+	}
+}
+add_filter( 'learndash_breadcrumbs_keys', 'buddyx_ld_topic_breadcrumb_keys' );
+
+if ( ! function_exists( 'buddyx_ld_topic_modern_breadcrumbs' ) ) {
+	/**
+	 * One trail on topic pages, Modern design: an empty list makes LearnDash skip its trail.
+	 *
+	 * @param array $breadcrumbs Breadcrumbs.
+	 * @return array
+	 */
+	function buddyx_ld_topic_modern_breadcrumbs( $breadcrumbs ) {
+		return buddyx_ld_topic_has_theme_trail() ? array() : $breadcrumbs;
+	}
+}
+add_filter( 'learndash_template_views_topic_breadcrumbs', 'buddyx_ld_topic_modern_breadcrumbs' );

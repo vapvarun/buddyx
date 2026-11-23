@@ -52,10 +52,10 @@ button.button {
 
 .customize-partial-edit-shortcut button,
 .widget .customize-partial-edit-shortcut button {
-    color: #fff !important; /* fixed: WP Customizer edit-shortcut chrome */
+    color: var(--bx-color-static-white) !important; /* WP Customizer edit-shortcut chrome */
     font-size: 18px !important;
     border-radius: 50% !important;
-    border: 2px solid #fff !important; /* fixed: WP Customizer edit-shortcut chrome */
+    border: 2px solid var(--bx-color-static-white) !important; /* WP Customizer edit-shortcut chrome */
     padding: 3px !important;
 }
 /* stylelint-enable */
@@ -97,7 +97,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    color: var(--bx-color-fg-muted, #666);
+    color: var(--bx-color-fg-muted);
     border: 1px solid var(--global-border-color);
     border-radius: var(--form-border-radius);
     padding: 10px;
@@ -120,7 +120,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-    color: var(--bx-color-fg, #111);
+    color: var(--bx-color-fg);
 }
 
 a.menu-close:focus-visible {
@@ -154,27 +154,35 @@ select {
     min-height: 35px;
     outline: none;
     vertical-align: middle;
-    background-color: var(--bx-color-bg-elevated, #fff);
+    background-color: var(--bx-color-bg-elevated);
     border: 1px solid var(--global-border-color);
     border-radius: 3px;
     box-shadow: none;
     padding: 0 40px 0 12px;
     color: inherit;
     appearance: none;
-    background-image: url(../images/arrow-down.svg);
+    background-image: var(--bx-select-arrow);
     background-repeat: no-repeat;
     background-position: var(--bx-select-arrow-x, right) 1rem center;
 }
 
-:root[data-bx-mode="dark"] select {
-    background-image: url(../images/arrow-down-white.svg);
+/* Dark mode swaps the arrow through a token rather than a ":root[data-bx-mode] select" rule.
+   That rule out-ranked plugin selects that switch the theme arrow off (Dokan's
+   .dokan-form-control { background-image: none }), so a large white arrow appeared over their
+   text in dark mode only. */
+:root {
+    --bx-select-arrow: url(../images/arrow-down.svg);
+}
+
+:root[data-bx-mode="dark"] {
+    --bx-select-arrow: url(../images/arrow-down-white.svg);
 }
 
 /* The native option popup does not inherit the dark select surface; without
  * an explicit background the inherited light text lands on a white list. */
 select option {
-    background-color: var(--bx-color-bg-elevated, #fff);
-    color: var(--bx-color-fg, #111);
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
 }
 
 @supports (-webkit-touch-callout: none) {

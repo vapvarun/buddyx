@@ -79,7 +79,7 @@
 
 #bbpress-forums li.bbp-header,
 #bbpress-forums fieldset.bbp-form {
-    background-color: var(--bx-color-bg-muted, #f9fbff);
+    background-color: var(--bx-color-bg-muted);
 }
 
 #bbpress-forums div.odd,
@@ -91,12 +91,7 @@
 .widgetable .bbp-logged-in,
 #bbpress-forums li.bbp-header,
 #bbpress-forums fieldset.bbp-form {
-    background-color: var(--bx-color-bg-muted, #f9fbff);
-}
-
-#bbpress-forums li.bbp-header,
-#bbpress-forums li.bbp-footer {
-    padding: 20px 35px !important;
+    background-color: var(--bx-color-bg-muted);
 }
 
 div.bbp-forum-header,
@@ -112,15 +107,7 @@ a#bbp-cancel-reply-to-link {
 
 #bbpress-forums li.bbp-body ul.forum,
 #bbpress-forums li.bbp-body ul.topic {
-    padding: 25px 35px !important;
     line-height: 1;
-}
-
-#bbpress-forums div.odd,
-#bbpress-forums ul.odd,
-#bbpress-forums div.even,
-#bbpress-forums ul.even {
-    background: var(--bx-color-bg-elevated, #fff) !important;
 }
 
 .mc4wp-form input,
@@ -231,13 +218,6 @@ a.bbp-topic-permalink {
     border-radius: var(--global-border-radius);
 }
 
-.bbp-reply-form fieldset.bbp-form {
-    background: transparent !important;
-    border: 0!important;
-    margin: 0!important;
-    padding: 0!important;
-}
-
 body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropdown {
     top: 34px;
 }
@@ -252,6 +232,26 @@ body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropd
     width: 100%;
     padding: 10px;
     min-height: 38px;
+}
+
+/* Phone tap targets (40px floor): form fields, submit buttons and page numbers.
+ * After the base field rule above so the phone size wins. */
+@media only screen and (max-width: 767px) {
+    #bbpress-forums fieldset.bbp-form input[type="password"],
+    #bbpress-forums fieldset.bbp-form input[type="text"],
+    #bbpress-forums fieldset.bbp-form select,
+    #bbpress-forums button.button {
+        min-height: 40px;
+    }
+
+    #bbpress-forums .bbp-pagination-links a,
+    #bbpress-forums .bbp-pagination-links span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -273,7 +273,7 @@ body .select2-container .select2-dropdown.bb-tag-list-dropdown.bb-tag-list-dropd
 .widget.widget_display_views li+li,
 .widget.widget_display_forums li+li,
 .widget.widget_display_topics li+li {
-    border-top: 1px solid var(--bx-color-border, #e3e3e3);
+    border-top: 1px solid var(--bx-color-border);
 }
 
 .widget.widget_display_replies li,
@@ -322,8 +322,8 @@ span.bbp-admin-links a:focus {
 #bbpress-forums div.bbp-reply-content pre,
 #bbpress-forums div.bbp-topic-content code,
 #bbpress-forums div.bbp-topic-content pre {
-    background-color: var(--bx-color-bg-muted, #f9f9f9);
-    border-color: var(--bx-color-border, #ddd);
+    background-color: var(--bx-color-bg-muted);
+    border-color: var(--bx-color-border);
 }
 
 /* QA round 3: a select inside a 38px field with 10px padding left a 16px box for a 24px
@@ -381,3 +381,70 @@ html #wp-link-wrap .query-notice .query-notice-hint {
     border-color: var(--bx-color-accent);
     color: var(--bx-color-accent-inverse);
 }
+
+/* Notices: bbPress paints them in fixed pastel yellow, blue and red, which stay
+ * bright on the dark page. Map them onto the shared status tokens; :root lifts
+ * these over bbPress's equal-specificity rules without !important. */
+:root div.bbp-template-notice,
+:root div.indicator-hint,
+:root div.bbp-template-notice.important {
+    background-color: var(--bx-color-warning-bg);
+    border-color: var(--bx-color-warning);
+    color: var(--bx-color-fg);
+}
+
+:root div.bbp-template-notice.info {
+    background-color: var(--bx-color-info-bg);
+    border-color: var(--bx-color-info);
+}
+
+:root div.bbp-template-notice.error,
+:root div.bbp-template-notice.warning {
+    background-color: var(--bx-color-error-bg);
+    border-color: var(--bx-color-error);
+}
+
+:root div.bbp-template-notice a,
+:root div.bbp-template-notice.error a,
+:root div.bbp-template-notice.warning a {
+    color: var(--bx-color-fg);
+    text-decoration: underline;
+}
+
+/* Profile tabs: bbPress fills the current tab with a fixed #eee and fades it,
+ * which leaves the light dark-mode text almost invisible. The accent edge keeps
+ * the current tab visible where the muted fill is close to the page. */
+:root #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a {
+    background-color: var(--bx-color-bg-muted);
+    border-inline-start: 3px solid var(--bx-color-accent);
+    color: var(--bx-color-fg);
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* These beat bbPress's own ID selectors on forum rows, headers and the reply form. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important */
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer {
+    padding: 20px 35px !important;
+}
+
+#bbpress-forums li.bbp-body ul.forum,
+#bbpress-forums li.bbp-body ul.topic {
+    padding: 25px 35px !important;
+}
+
+#bbpress-forums div.odd,
+#bbpress-forums ul.odd,
+#bbpress-forums div.even,
+#bbpress-forums ul.even {
+    background: var(--bx-color-bg-elevated) !important;
+}
+
+.bbp-reply-form fieldset.bbp-form {
+    background: transparent !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* stylelint-enable declaration-no-important */

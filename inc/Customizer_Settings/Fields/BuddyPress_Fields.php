@@ -15,8 +15,8 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings'    => 'buddypress_avatar_style',
-				'label'       => esc_html__( 'Avatar Style', 'buddyx' ),
-				'description' => esc_html__( 'Set the round style for member and group avatars.', 'buddyx' ),
+				'label'       => esc_html__( 'Round Avatars', 'buddyx' ),
+				'description' => esc_html__( 'Shows member and group profile photos as circles. Turn off for square photos.', 'buddyx' ),
 				'section'     => 'site_buddypress_general_section',
 				'default'     => 'on',
 				'choices'     => array(

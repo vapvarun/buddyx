@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * URL of a page mapped in Customizer > Page Mapping, or $fallback.
+ * URL of a page mapped in Customizer > Special Pages, or $fallback.
  *
  * Only a published mapped page counts, so a draft, trashed or deleted
  * mapping never produces a dead link.

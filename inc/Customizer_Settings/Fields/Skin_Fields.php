@@ -118,8 +118,8 @@ $buddyx_skin_master_gate = array(
 		'priority' => 5,
 		'default'  => buddyx_skin_cluster_head(
 			'mode',
-			esc_html__( 'Mode & Master', 'buddyx' ),
-			esc_html__( 'Color mode and the master switch for custom colors', 'buddyx' ),
+			esc_html__( 'Color Mode and Presets', 'buddyx' ),
+			esc_html__( 'Light or dark look, a starting preset, and the switch for your own colors', 'buddyx' ),
 			buddyx_skin_cluster_icon( 'moon' )
 		),
 	)
@@ -133,9 +133,8 @@ $buddyx_skin_master_gate = array(
 	'radio_buttonset',
 	array(
 		'settings'    => 'site_color_mode',
-		'label'       => esc_html__( 'Color mode', 'buddyx' ),
-		'description' => esc_html__( 'Default look for new visitors.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Light or Dark keeps the site on one look for everyone.', 'buddyx' ),
+		'label'       => esc_html__( 'Color Mode', 'buddyx' ),
+		'description' => esc_html__( 'The look visitors see first. With the Light/Dark toggle hidden, everyone sees this look.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'light',
 		'priority'    => 6,
@@ -160,11 +159,10 @@ $buddyx_skin_master_gate = array(
 	'switch',
 	array(
 		'settings'    => 'site_color_mode_toggle_show',
-		'label'       => esc_html__( 'Show color-mode toggle', 'buddyx' ),
-		'description' => esc_html__( 'Let visitors switch the look.', 'buddyx' ),
+		'label'       => esc_html__( 'Show Light/Dark Toggle', 'buddyx' ),
 		// "or match their device" (Auto) was retired in 5.1.4 - only Light and Dark
-		// are offered now, so the tooltip no longer promises a mode that is gone.
-		'tooltip'     => esc_html__( 'Adds a sun and moon button so visitors can pick Light or Dark. Turn off to keep the look you set above.', 'buddyx' ),
+		// are offered now, so the text no longer promises a mode that is gone.
+		'description' => esc_html__( 'Adds a sun and moon button so visitors can pick Light or Dark. Turn off to keep the look you set above.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => 'on',
 		'priority'    => 6,
@@ -180,15 +178,14 @@ $buddyx_skin_master_gate = array(
 	'radio_buttonset',
 	array(
 		'settings'        => 'site_color_mode_toggle_position',
-		'label'           => esc_html__( 'Toggle position', 'buddyx' ),
-		'description'     => esc_html__( 'Where the button appears.', 'buddyx' ),
-		'tooltip'         => esc_html__( 'Header places it next to the menu icons. Mobile shows it only in the mobile menu. Both shows it in each.', 'buddyx' ),
+		'label'           => esc_html__( 'Toggle Position', 'buddyx' ),
+		'description'     => esc_html__( 'Header puts the button next to the header icons. Mobile Menu shows it only inside the mobile menu. Both shows it in each.', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => 'both',
 		'priority'        => 6,
 		'choices'         => array(
 			'header'      => esc_html__( 'Header', 'buddyx' ),
-			'mobile_only' => esc_html__( 'Mobile', 'buddyx' ),
+			'mobile_only' => esc_html__( 'Mobile Menu', 'buddyx' ),
 			'both'        => esc_html__( 'Both', 'buddyx' ),
 		),
 		'transport'       => 'refresh',
@@ -216,9 +213,8 @@ $buddyx_skin_master_gate = array(
 	'radio_image',
 	array(
 		'settings'    => 'site_style_variation',
-		'label'       => esc_html__( 'Style preset', 'buddyx' ),
-		'description' => esc_html__( 'Pick a ready-made starting look.', 'buddyx' ),
-		'tooltip'     => esc_html__( 'Picking a preset replaces the colors below with its palette. Its brand colors (buttons, links, hovers) follow the Theme Color, so changing the Theme Color later updates them too. Colors you change after picking a preset stay as you set them.', 'buddyx' ),
+		'label'       => esc_html__( 'Style Preset', 'buddyx' ),
+		'description' => esc_html__( 'Pick a ready-made starting look. It replaces the colors below with its palette, and its buttons and links follow the Theme Color. Colors you change after picking a preset stay as you set them.', 'buddyx' ),
 		'section'     => 'site_skin_section',
 		'default'     => '',
 		'priority'    => 7,
@@ -273,12 +269,13 @@ function buddyx_get_style_variation_swatch_choices() {
 \BuddyX\Buddyx\Customizer_Framework\Field::add(
 	'switch',
 	array(
-		'settings' => 'site_custom_colors',
-		'label'    => esc_html__( 'Set Custom Colors', 'buddyx' ),
-		'section'  => 'site_skin_section',
-		'default'  => 'on',
-		'priority' => 7,
-		'choices'  => array(
+		'settings'    => 'site_custom_colors',
+		'label'       => esc_html__( 'Use Custom Colors', 'buddyx' ),
+		'description' => esc_html__( 'Turn off to ignore the colors below and use the preset or theme colors.', 'buddyx' ),
+		'section'     => 'site_skin_section',
+		'default'     => 'on',
+		'priority'    => 7,
+		'choices'     => array(
 			'on'  => esc_html__( 'Yes', 'buddyx' ),
 			'off' => esc_html__( 'No', 'buddyx' ),
 		),
@@ -309,7 +306,7 @@ function buddyx_get_style_variation_swatch_choices() {
 		'default'         => buddyx_skin_cluster_head(
 			'brand',
 			esc_html__( 'Brand', 'buddyx' ),
-			esc_html__( 'Primary accent used across links, buttons, and highlights', 'buddyx' ),
+			esc_html__( 'Main accent color for links, buttons and highlights', 'buddyx' ),
 			buddyx_skin_cluster_icon( 'flame' )
 		),
 	)
@@ -363,7 +360,7 @@ function buddyx_get_style_variation_swatch_choices() {
 		'section'         => 'site_skin_section',
 		'priority'        => 21,
 		'active_callback' => $buddyx_skin_master_gate,
-		'default'         => buddyx_skin_subcluster_head( esc_html__( 'Header surface', 'buddyx' ) ),
+		'default'         => buddyx_skin_subcluster_head( esc_html__( 'Header background', 'buddyx' ) ),
 	)
 );
 
@@ -493,7 +490,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'site_sub_header_typography[color]',
-		'label'           => esc_html__( 'Subheader Title Color', 'buddyx' ),
+		'label'           => esc_html__( 'Sub Header Title Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#111111',
 		'priority'        => 31,
@@ -533,7 +530,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'body_background_color',
-		'label'           => esc_html__( 'Body Background Color', 'buddyx' ),
+		'label'           => esc_html__( 'Page Background Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#f7f7f9',
 		'choices'         => array( 'alpha' => true ),
@@ -546,8 +543,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'content_background_color',
-		'label'           => esc_html__( 'Content Background Color', 'buddyx' ),
-		'description'     => esc_html__( 'Note: This setting will only be used if the box layout is selected.', 'buddyx' ),
+		'label'           => esc_html__( 'Boxed Layout Background Color', 'buddyx' ),
+		'description'     => esc_html__( 'Background inside the centered box. Used only with the Boxed site layout.', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#f7f7f9',
 		'choices'         => array( 'alpha' => true ),
@@ -570,7 +567,8 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'box_background_color',
-		'label'           => esc_html__( 'Box Background Color', 'buddyx' ),
+		'label'           => esc_html__( 'Card Background Color', 'buddyx' ),
+		'description'     => esc_html__( 'Background of posts, widgets and other content cards.', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#ffffff',
 		'choices'         => array( 'alpha' => true ),
@@ -646,7 +644,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'site_links_focus_hover_color',
-		'label'           => esc_html__( 'Link Hover', 'buddyx' ),
+		'label'           => esc_html__( 'Link Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '',
 		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
@@ -673,7 +671,7 @@ function buddyx_get_style_variation_swatch_choices() {
 		'default'         => buddyx_skin_cluster_head(
 			'headings',
 			esc_html__( 'Headings', 'buddyx' ),
-			esc_html__( 'H1 through H6 — section titles across posts, pages, and widgets', 'buddyx' ),
+			esc_html__( 'H1 through H6: section titles across posts, pages and widgets', 'buddyx' ),
 			buddyx_skin_cluster_icon( 'heading' )
 		),
 	)
@@ -815,7 +813,7 @@ function buddyx_get_style_variation_swatch_choices() {
 		'label'           => esc_html__( 'Button Text Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '',
-		'description'     => esc_html__( 'Leave empty to pick a readable colour automatically.', 'buddyx' ),
+		'description'     => esc_html__( 'Leave empty to pick a readable color automatically.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 63,
 		'active_callback' => $buddyx_skin_master_gate,
@@ -829,7 +827,7 @@ function buddyx_get_style_variation_swatch_choices() {
 		'label'           => esc_html__( 'Button Text Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '',
-		'description'     => esc_html__( 'Leave empty to pick a readable colour automatically.', 'buddyx' ),
+		'description'     => esc_html__( 'Leave empty to pick a readable color automatically.', 'buddyx' ),
 		'choices'         => array( 'alpha' => true ),
 		'priority'        => 64,
 		'active_callback' => $buddyx_skin_master_gate,
@@ -904,7 +902,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'site_footer_content_color',
-		'label'           => esc_html__( 'Footer Content Color', 'buddyx' ),
+		'label'           => esc_html__( 'Footer Text Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#505050',
 		'choices'         => array( 'alpha' => true ),
@@ -930,7 +928,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'site_footer_links_hover_color',
-		'label'           => esc_html__( 'Footer Link Hover', 'buddyx' ),
+		'label'           => esc_html__( 'Footer Link Hover Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '',
 		'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
@@ -996,7 +994,7 @@ function buddyx_get_style_variation_swatch_choices() {
 	'color',
 	array(
 		'settings'        => 'site_copyright_content_color',
-		'label'           => esc_html__( 'Copyright Content Color', 'buddyx' ),
+		'label'           => esc_html__( 'Copyright Text Color', 'buddyx' ),
 		'section'         => 'site_skin_section',
 		'default'         => '#505050',
 		'choices'         => array( 'alpha' => true ),

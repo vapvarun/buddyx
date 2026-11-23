@@ -26,33 +26,6 @@
     display: none;
 }
 
-.llms-button-secondary,
-a.llms-button-secondary,
-.llms-button-primary,
-.llms-button-action {
-    font-family: inherit;
-    font-size: initial;
-    color: var(--button-text-color);
-    background-color: var(--button-background-color);
-    border-radius: 3px !important;
-    padding: 10px 20px;
-    font-weight: 700;
-    font-style: normal;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 1.3;
-    border: 1px solid var(--button-border-color);
-    outline: 0;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition: all linear .2s;
-    transition: all linear .2s;
-}
-
 .llms-button-secondary:hover,
 a.llms-button-secondary:hover,
 .llms-button-primary:hover,
@@ -82,10 +55,6 @@ a.llms-button-secondary:focus,
 #page .llms-table tfoot select {
     height: 35px;
     margin: 10px 0;
-}
-
-.llms-notice {
-    padding: 10px !important;
 }
 
 .entry-content .llms-access-plan-description ul,
@@ -118,7 +87,7 @@ a.llms-button-secondary:focus,
 .llms-student-dashboard .llms-sd-item>a {
     margin: 0;
     padding: 10px 20px;
-    background: var(--bx-color-bg-muted, #f1f1f1);
+    background: var(--bx-color-bg-muted);
     width: 100%;
     text-align: center;
     border: 1px solid var(--global-border-color);
@@ -126,12 +95,12 @@ a.llms-button-secondary:focus,
 }
 
 .llms-student-dashboard .llms-sd-item>a:hover {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
     border: 1px solid var(--color-theme-primary);
 }
 
 .llms-student-dashboard .llms-sd-item.current>a {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
     border: 1px solid var(--color-theme-primary);
 }
 
@@ -446,7 +415,7 @@ body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
 }
 
 .llms-checkout-col {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
 }
 
 .llms-checkout-section {
@@ -474,23 +443,128 @@ body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
     justify-content: center;
 }
 
+.llms-pagination ul li .page-numbers.current {
+    color: var(--color-theme-primary);
+}
+/*--------------------------------------------------------------
+# Dark mode and theme colours for LifterLMS
+--------------------------------------------------------------*/
+/* LifterLMS reads its accent from these variables (declared in :where(:root), so this wins), so the avatar ring,
+   primary buttons and links follow the Theme Color in light and dark. Same as BuddyX Pro. */
+:root {
+    --llms-color-primary: var(--button-background-color);
+    --llms-color-on-primary: var(--button-text-color);
+    --llms-color-primary-hover: var(--button-background-hover-color, var(--button-background-color));
+}
+
+.llms-lesson-preview .llms-lesson-title {
+    color: inherit;
+}
+
+/* LifterLMS paints these surfaces with fixed light colours and its own button and notice styles; the dark-mode light values are LifterLMS defaults, so they keep the mode selector. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important, selector-disallowed-list */
+.llms-button-secondary,
+a.llms-button-secondary,
+.llms-button-primary,
+.llms-button-action {
+    font-family: inherit;
+    font-size: initial;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border-radius: 3px !important;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.3;
+    border: 1px solid var(--button-border-color);
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all linear .2s;
+    transition: all linear .2s;
+}
+
+.llms-notice {
+    padding: 10px !important;
+}
+
 .llms-pagination ul li .page-numbers {
     display: inline-block;
     margin-bottom: 0.5em;
-    margin-right: 1em;
+    margin-inline-end: 1em;
     min-width: 1.75em;
     line-height: 1.5;
     text-align: center;
-    background: var(--bx-color-bg-elevated, #fff) !important;
+    background: var(--bx-color-bg-elevated) !important;
     font-weight: 400;
     border-radius: .28571429rem;
     text-transform: none;
     text-shadow: none!important;
-    box-shadow: inset 0 0 0 1px var(--bx-color-border, #e8e8e8);
+    box-shadow: inset 0 0 0 1px var(--bx-color-border);
     padding: 10px 15px;
     text-decoration: none;
 }
 
-.llms-pagination ul li .page-numbers.current {
-    color: var(--color-theme-primary);
+:root[data-bx-mode="dark"] .llms-notification {
+    background: var(--color-theme-white-box);
 }
+
+/* LifterLMS sets #010101 on the notification, its title and footer links, which vanish on the dark card above. */
+:root[data-bx-mode="dark"] .llms-notification,
+:root[data-bx-mode="dark"] .llms-notification .llms-notification-title,
+:root[data-bx-mode="dark"] .llms-notification .llms-notification-footer a {
+    color: var(--global-font-color);
+}
+
+/* Quiz "1 / 2" counter: LifterLMS #6a6a6a is 3.35:1 on the dark quiz card. */
+:root[data-bx-mode="dark"] .llms-quiz-ui .llms-quiz-counter {
+    color: var(--bx-color-fg-muted);
+}
+
+:root[data-bx-mode="dark"] .llms-notification .llms-notification-footer {
+    border-color: var(--global-border-color);
+}
+
+:root[data-bx-mode="dark"] .llms-table tbody tr:nth-child(odd) td,
+:root[data-bx-mode="dark"] .llms-table tbody tr:nth-child(odd) th,
+:root[data-bx-mode="dark"] .llms-table tfoot tr,
+:root[data-bx-mode="dark"] .llms-sd-notification-center .llms-notification-list-item:hover .llms-notification,
+:root[data-bx-mode="dark"] .llms-instructor-info .llms-instructors .llms-author {
+    background: var(--global-body-lightcolor);
+}
+
+:root[data-bx-mode="dark"] .llms-instructor-info .llms-instructors .llms-author {
+    color: var(--global-font-color);
+}
+
+/* Locked lesson rows: LifterLMS paints them #efefef with #666 text, which stays light in dark mode. */
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-locked,
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-locked:hover {
+    background: var(--global-body-lightcolor);
+    color: var(--bx-color-fg-muted);
+}
+
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-locked .llms-lesson-link {
+    color: var(--bx-color-fg-muted);
+}
+
+/* Open lesson rows and the previous/next lesson cards: LifterLMS paints them #fefefe with #010101 text and a #eaeaea hover, which stay light in dark mode. Transparent lets the row sit on its card, as #fefefe does in light mode. */
+:root[data-bx-mode="dark"] .llms-lesson-preview section {
+    background: transparent;
+}
+
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-link,
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-link:visited {
+    color: var(--global-font-color);
+}
+
+:root[data-bx-mode="dark"] .llms-lesson-preview .llms-lesson-link:hover {
+    background: var(--global-body-lightcolor);
+}
+/* stylelint-enable declaration-no-important, selector-disallowed-list */

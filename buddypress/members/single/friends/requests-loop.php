@@ -2,8 +2,8 @@
 /**
  * BuddyPress - Members Friends Requests Loop
  *
- * @since 5.2.0
- * @version 5.2.0
+ * @since 5.3.0
+ * @version 5.3.0
  *
  * @package buddyx
  */

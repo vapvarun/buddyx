@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Custom_Header;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_theme_support;

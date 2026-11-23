@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Nav_Menus;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use WP_Post;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;

@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Custom_Logo;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 require_once dirname( __DIR__ ) . '/Shared/Color_Math.php';
 
 use BuddyX\Buddyx\Component_Interface;

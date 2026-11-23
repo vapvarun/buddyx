@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 /**
  * Provides access to all available template tags of the theme.
  *

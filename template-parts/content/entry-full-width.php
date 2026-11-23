@@ -16,7 +16,7 @@ namespace BuddyX\Buddyx;
 do_action( 'buddyx_entry_content_before' );
 ?>
 
-<div class="entry-content">
+<div class="entry-content<?php echo has_blocks() ? ' bx-blocks' : ''; ?>">
 	<?php
 	if ( has_post_thumbnail() && ! post_password_required() && is_singular() ) {
 

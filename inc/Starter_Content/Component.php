@@ -236,6 +236,12 @@ class Component implements Component_Interface {
 		if ( ! \current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		// A first-run offer, not a banner for every admin screen: Dashboard and Themes only.
+		// Getting Started has its own single next step, so the offer does not repeat there.
+		$screen = \function_exists( 'get_current_screen' ) ? \get_current_screen() : null;
+		if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'themes' ), true ) ) {
+			return;
+		}
 		$state = \get_option( self::FLAG_OPTION, '' );
 		if ( in_array( $state, array( 'done', 'dismissed' ), true ) ) {
 			return;
@@ -253,17 +259,43 @@ class Component implements Component_Interface {
 		<div class="notice notice-info is-dismissible buddyx-demo-notice">
 			<h3 style="margin-bottom:6px;"><?php \esc_html_e( 'Want to start with a BuddyX demo site?', 'buddyx' ); ?></h3>
 			<p style="margin:0 0 12px;"><?php \esc_html_e( 'Creates 7 demo pages (Home, About, Services, Pricing, Journal, FAQ, Contact) using the theme\'s built-in patterns. You can edit or delete any of it afterward.', 'buddyx' ); ?>
-				<?php if ( $this->is_community_site() ) : ?>
-					<?php \esc_html_e( 'A community plugin is active, so your current menu and home page stay as they are.', 'buddyx' ); ?>
+				<?php if ( $this->is_community_site() || $this->is_established_site() ) : ?>
+					<?php \esc_html_e( 'Your site already has a home page or menu, so only the missing demo pages are added: your home page, menu, sidebar and settings stay as they are.', 'buddyx' ); ?>
 				<?php else : ?>
-					<?php \esc_html_e( 'It also sets the first one as your home page and adds a primary navigation menu.', 'buddyx' ); ?>
+					<?php \esc_html_e( 'It also sets the first one as your home page, adds a primary navigation menu and turns the sidebar off for pages.', 'buddyx' ); ?>
 				<?php endif; ?></p>
 			<p style="margin:0 0 12px;">
 				<a href="<?php echo \esc_url( $setup_url ); ?>" class="button button-primary"><?php \esc_html_e( 'Set up demo site', 'buddyx' ); ?></a>
+				<a href="<?php echo \esc_url( \admin_url( 'themes.php?page=buddyx-welcome' ) ); ?>" class="button button-secondary"><?php \esc_html_e( 'Getting Started', 'buddyx' ); ?></a>
 				<a href="<?php echo \esc_url( $dismiss_url ); ?>" class="button button-secondary"><?php \esc_html_e( 'No thanks', 'buddyx' ); ?></a>
 			</p>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Whether the site already has its own home page, menu or a body of pages,
+	 * in which case the demo import only adds pages and changes no setting.
+	 *
+	 * @return bool
+	 */
+	protected function is_established_site(): bool {
+		$front = (int) \get_option( 'page_on_front' );
+		if ( 'page' === \get_option( 'show_on_front' ) && $front && \get_post( $front ) ) {
+			return true;
+		}
+		$locations = (array) \get_theme_mod( 'nav_menu_locations', array() );
+		if ( ! empty( $locations['primary'] ) ) {
+			return true;
+		}
+		$pages = \wp_count_posts( 'page' );
+		$count = isset( $pages->publish ) ? (int) $pages->publish : 0;
+		/**
+		 * Filters whether the demo import treats the site as already set up.
+		 *
+		 * @param bool $established True when the site has a static home page, a primary menu or more than 3 published pages.
+		 */
+		return (bool) \apply_filters( 'buddyx_demo_is_established_site', $count > 3 );
 	}
 
 	/**
@@ -380,7 +412,7 @@ class Component implements Component_Interface {
 		}
 
 		// A community site already has its own home page and menu (Activity, Members, Spaces ...); leave them alone.
-		$community = $this->is_community_site();
+		$community = $this->is_community_site() || $this->is_established_site();
 
 		// Set static front + posts page if pages exist.
 		if ( ! $community && ! empty( $page_ids['home'] ) ) {
@@ -421,7 +453,7 @@ class Component implements Component_Interface {
 		}
 
 		// Seed theme_mods that surface the new 5.1.0 features.
-		foreach ( $this->theme_mods() as $mod => $val ) {
+		foreach ( $community ? array() : $this->theme_mods() as $mod => $val ) {
 			if ( ! \get_theme_mod( $mod ) ) {
 				\set_theme_mod( $mod, $val );
 			}

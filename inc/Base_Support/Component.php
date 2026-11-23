@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Base_Support;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 require_once __DIR__ . '/block-styles.php';
 
 use BuddyX\Buddyx\Component_Interface;

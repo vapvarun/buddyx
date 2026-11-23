@@ -85,6 +85,18 @@ body:not(.single):not(.archive) .entry-content {
 	margin-top: 0;
 }
 
+/* Page Full Screen + block content: keep blocks at the theme.json content width like core
+ * does, and let wide/full blocks break out. Builder pages (no blocks) keep the full canvas. */
+.page-template-full-width .entry-content.bx-blocks > :where(:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.featured-media)) {
+	max-width: min(var(--wp--style--global--content-size), 100% - 30px);
+	margin-inline: auto;
+}
+
+.page-template-full-width .entry-content.bx-blocks > .alignwide {
+	max-width: min(var(--wp--style--global--wide-size), 100% - 30px);
+	margin-inline: auto;
+}
+
 /* Full-bleed blocks (alignfull) butt up against the header, footer,
  * and each other with no body-BG gap. Default 1.5em block top/bottom
  * margin (from .entry-content .wp-block-group rule in content.css)
@@ -127,7 +139,8 @@ body:not(.single):not(.archive) .entry-content {
 	align-items: center;
 }
 
-.wp-block-cover__inner-container > * {
+/* Constrained covers take their width from core's layout (and the owner's Content width); other covers keep the theme width. */
+.wp-block-cover__inner-container:not(.is-layout-constrained) > * {
 	max-width: var(--content-width);
 	margin-left: auto;
 	margin-right: auto;
@@ -363,17 +376,22 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 --------------------------------------------------------------*/
 
 .wp-block-code {
-	font-family: "Courier New", Courier, monospace !important;
+	font-family: "Courier New", Courier, monospace;
 	font-size: 0.9rem;
 	line-height: 1.7;
-	padding: 1.5em 2em !important;
+	padding: 1.5em 2em;
 	background-color: var(--color-code-bg);
 	color: var(--color-code-text);
-	border: none !important;
-	border-radius: var(--global-border-radius) !important;
+	border-radius: var(--global-border-radius);
 	overflow-x: auto;
 	margin: 2em 0;
 	tab-size: 4;
+}
+
+/* Borderless by default; a border set on the block in the editor still shows.
+ * Specificity stays 0,1,0 so it beats core's `.wp-block-code { border: 1px solid #ccc }` only by load order. */
+.wp-block-code:where(:not(.has-border-color):not([style*="-width"])) {
+	border: none;
 }
 
 .wp-block-code code {
@@ -434,6 +452,11 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 .entry-content .wp-block-group.has-background {
 	padding: 1.5em 2em;
 	border-radius: var(--global-border-radius);
+}
+
+/* A full-bleed Group meets the screen edge, so it keeps square corners. */
+.entry-content .wp-block-group.has-background.alignfull {
+	border-radius: 0;
 }
 
 .entry-content .wp-block-group > *:last-child {
@@ -928,13 +951,14 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 	margin: 0;
 }
 
-.wp-block-site-title a {
+/* Theme colours only while the block has no text or link colour of its own. */
+.wp-block-site-title:where(:not(.has-link-color):not(.has-text-color)) a {
 	color: var(--color-site-title);
 	text-decoration: none;
 	font-weight: 700;
 }
 
-.wp-block-site-title a:hover {
+.wp-block-site-title:where(:not(.has-link-color)) a:hover {
 	color: var(--color-site-title-hover);
 }
 

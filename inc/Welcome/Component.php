@@ -7,16 +7,68 @@
 
 namespace BuddyX\Buddyx\Welcome;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
+use function remove_all_actions;
 
 
 /**
  * Class Component
  *
+ * Appearance > Getting Started: five tabs (Start, Step by step, Our products,
+ * Free vs Pro, Help and links). Start holds the next step, the goal cards, the
+ * Customizer tiles and a collapsed help block. Step by step is a checklist
+ * that ticks itself from the site's own settings. BuddyX is on WordPress.org,
+ * so nothing here installs a plugin: every action is a link the owner chooses.
+ *
  * @package BuddyX\Buddyx\Welcome
  */
 class Component implements Component_Interface {
+
+	/**
+	 * Every external address the screen links to, kept in one place.
+	 *
+	 * @var array<string, string>
+	 */
+	private const URLS = array(
+		'docs'           => 'https://buddyxtheme.com/docs/',
+		'films'          => 'https://www.youtube.com/playlist?list=PLB3Tp-smkUiA',
+		'film_community' => 'https://youtu.be/Q1MPFOxc388',
+		'film_live'      => 'https://youtu.be/WijuvjG6WiE',
+		'support'        => 'https://wbcomdesigns.com/support/',
+		'contact'        => 'https://wbcomdesigns.com/contact/',
+		'wbcom'          => 'https://wbcomdesigns.com/',
+		'downloads'      => 'https://wbcomdesigns.com/downloads/',
+		'release_notes'  => 'https://wbcomdesigns.com/release-notes/',
+		'pro'            => 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/',
+		'compare'        => 'https://buddyxtheme.com/free-vs-pro/',
+		'group'          => 'https://www.facebook.com/groups/191523257634994',
+		'review'         => 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post',
+		'child_theme'    => 'https://github.com/wbcomdesigns/buddyx-child/releases/download/v1.0.0/buddyx-child.zip',
+		'essential'      => 'https://github.com/vapvarun/wbcom-essential/releases/latest',
+		'demo_installer' => 'https://github.com/buddynext/wbcom-demo-installer/releases/latest',
+	);
+
+	/**
+	 * The setup films in the BuddyX Starter playlist: id => title. Order is the
+	 * order shown; the first one is the film for this theme.
+	 *
+	 * @var array<string, string>
+	 */
+	private const FILMS = array(
+		'Q1MPFOxc388' => 'Set up a complete community site in 5 minutes',
+		'WijuvjG6WiE' => 'Take your demo site live and keep your setup',
+		'vxM1m22RxJ8' => 'Build an online community with forums and media',
+		'csWX1FwJ3XY' => 'Build an online course site with quizzes',
+		'IQkm4nDu4IM' => 'Build an events site with RSVPs',
+		'I_lc8uBm8Q8' => 'Build a job board site',
+		'6vXdtmoZ-uc' => 'Build a business directory with reviews',
+		'WmfIJOV8Tgc' => 'Build a freelance services marketplace',
+		'jLANmm3uAGI' => 'Build an all-in-one community site on Reign',
+		'W2rs9rpKEYk' => 'Build an all-in-one community site on BuddyX Pro',
+	);
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -32,18 +84,13 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu_page' ) );
-
-		// Redirect admin after theme switch.
-		add_action( 'after_switch_theme', array( $this, 'redirect_admin' ) );
-
-		add_action( 'admin_init', array( $this, 'hide_welcome_page_notices' ) );
 	}
 
 	/**
 	 *  Add welcome page at admin
 	 */
 	public function add_admin_menu_page() {
-		add_submenu_page(
+		$hook = add_submenu_page(
 			'themes.php',
 			__( 'Getting Started', 'buddyx' ),
 			__( 'Getting Started', 'buddyx' ),
@@ -51,32 +98,40 @@ class Component implements Component_Interface {
 			'buddyx-welcome',
 			array( &$this, 'submenu_page_callback' )
 		);
+
+		if ( $hook ) {
+			add_action( 'load-' . $hook, array( $this, 'hide_admin_notices' ) );
+		}
 	}
 
 	/**
-	 * Redirect Admin
+	 * Other plugins' admin notices stay off this screen so the first run reads clean.
+	 */
+	public function hide_admin_notices() {
+		remove_all_actions( 'admin_notices' );
+		remove_all_actions( 'all_admin_notices' );
+		remove_all_actions( 'user_admin_notices' );
+	}
+
+	/**
+	 * One external address from URLS.
 	 *
-	 * @since 4.5.9
-	 * @access public
-	 * @return void
+	 * @param string $key  Key of URLS.
+	 * @param string $path Optional path appended to the base (docs pages).
+	 * @return string
 	 */
-	public function redirect_admin() {
-		if ( current_user_can( 'edit_theme_options' ) ) {
-			header( 'Location:' . admin_url() . 'admin.php?page=buddyx-welcome' );
-		}
+	private function url( $key, $path = '' ) {
+		return self::URLS[ $key ] . $path;
 	}
 
 	/**
-	 * Hide admin notices.
+	 * A Customizer address that comes back to this screen.
+	 *
+	 * @param string $focus Query part, for example 'autofocus[section]=site_layout', or ''.
+	 * @return string
 	 */
-	public function hide_welcome_page_notices() {
-		$wbcom_pages_array  = array( 'buddyx-welcome' );
-		$wbcom_setting_page = filter_input( INPUT_GET, 'page' ) ? filter_input( INPUT_GET, 'page' ) : '';
-
-		if ( in_array( $wbcom_setting_page, $wbcom_pages_array, true ) ) {
-			remove_all_actions( 'admin_notices' );
-			remove_all_actions( 'all_admin_notices' );
-		}
+	private function customize_url( $focus ) {
+		return admin_url( 'customize.php?' . ( $focus ? $focus . '&' : '' ) . 'return=' . rawurlencode( admin_url( 'themes.php?page=buddyx-welcome' ) ) );
 	}
 
 	/**
@@ -85,10 +140,9 @@ class Component implements Component_Interface {
 	 * DETECTION ONLY. BuddyX ships on WordPress.org, so it holds no plugin
 	 * catalog, no EDD item ids and no distribution licence keys, and it cannot
 	 * install anything from a third-party server. All this does is notice
-	 * whether the plugin is already running, so an active product shows a pill
-	 * instead of a link.
+	 * whether the plugin is already running.
 	 *
-	 * @param array $product Product row from the family plugins list.
+	 * @param array $product Product row from family_plugins().
 	 * @return string 'active' | 'not_installed'.
 	 */
 	private function family_status( $product ) {
@@ -132,1279 +186,1122 @@ class Component implements Component_Interface {
 	}
 
 	/**
-	 * Renders the Getting Started welcome page in the admin.
+	 * Where a plugin stands on this site, read live from the plugins folder.
+	 *
+	 * Read-only: BuddyX is on WordPress.org, so it never downloads or installs
+	 * a plugin. The owner installs each one; this only reports the result.
+	 *
+	 * @param string $slug Plugin folder name, for example 'wbcom-essential'.
+	 * @return array{state:string,file:string} state is 'active', 'installed' or 'missing'.
+	 */
+	private function plugin_state( $slug ) {
+		static $plugins = null;
+
+		if ( null === $plugins ) {
+			if ( ! function_exists( 'get_plugins' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+			$plugins = get_plugins();
+		}
+
+		foreach ( array_keys( $plugins ) as $file ) {
+			if ( str_starts_with( $file, $slug . '/' ) ) {
+				return array(
+					'state' => is_plugin_active( $file ) ? 'active' : 'installed',
+					'file'  => $file,
+				);
+			}
+		}
+
+		return array(
+			'state' => 'missing',
+			'file'  => '',
+		);
+	}
+
+	/**
+	 * The Wbcom plugins in the family, ours first on every tab.
+	 *
+	 * 'open' is the plugin's own admin screen, used once it is active.
+	 *
+	 * @return array<string, array<string, string>> Keyed by plugin folder.
+	 */
+	private function family_plugins() {
+		return array(
+			'buddynext'        => array(
+				'slug' => 'buddynext',
+				'name' => __( 'BuddyNext', 'buddyx' ),
+				'desc' => __( 'Community engine: profiles, activity feeds, Spaces and messaging.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'buddynext/' ),
+				'open' => admin_url( 'admin.php?page=buddynext' ),
+			),
+			'jetonomy'         => array(
+				'slug' => 'jetonomy',
+				'name' => __( 'Jetonomy', 'buddyx' ),
+				'desc' => __( 'Forums, threaded Q&A, an ideas roadmap and polls.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'jetonomy/' ),
+				'open' => '',
+			),
+			'wb-gamification'  => array(
+				'slug' => 'wb-gamification',
+				'name' => __( 'WB Gamification', 'buddyx' ),
+				'desc' => __( 'Points, badges, levels and leaderboards for any activity.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'wordpress-gamification-plugin/' ),
+				'open' => '',
+			),
+			'wpmediaverse'     => array(
+				'slug' => 'wpmediaverse',
+				'name' => __( 'MediaVerse', 'buddyx' ),
+				'desc' => __( 'Media albums and galleries for your members.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'mediaverse/' ),
+				'open' => '',
+			),
+			'learnomy'         => array(
+				'slug' => 'learnomy',
+				'name' => __( 'Learnomy', 'buddyx' ),
+				'desc' => __( 'A full LMS: courses, lessons, quizzes, certificates and paid enrollments.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'learnomy/' ),
+				'open' => admin_url( 'admin.php?page=learnomy' ),
+			),
+			'eventonomy'       => array(
+				'slug' => 'eventonomy',
+				'name' => __( 'Eventonomy', 'buddyx' ),
+				'desc' => __( 'Events with RSVPs, paid ticketing, venues and QR check-in.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'eventonomy/' ),
+				'open' => '',
+			),
+			'wp-career-board'  => array(
+				'slug' => 'wp-career-board',
+				'name' => __( 'WP Career Board', 'buddyx' ),
+				'desc' => __( 'A job board: listings, company profiles, resumes and applications.', 'buddyx' ),
+				'href' => 'https://wpcareerboard.com/',
+				'open' => '',
+			),
+			'wp-sell-services' => array(
+				'slug' => 'wp-sell-services',
+				'name' => __( 'WP Sell Services', 'buddyx' ),
+				'desc' => __( 'A freelance services marketplace: storefronts, orders and payouts.', 'buddyx' ),
+				'href' => 'https://wpsellservices.com/',
+				'open' => admin_url( 'admin.php?page=wp-sell-services' ),
+			),
+			'wb-listora'       => array(
+				'slug' => 'wb-listora',
+				'name' => __( 'Listora', 'buddyx' ),
+				'desc' => __( 'A directory: member listings, claims, reviews and monetization.', 'buddyx' ),
+				'href' => $this->url( 'downloads', 'listora/' ),
+				'open' => '',
+			),
+		);
+	}
+
+	/**
+	 * The free Wbcom helpers that are not on WordPress.org.
+	 *
+	 * @return array<string, array<string, string>> Keyed by plugin folder.
+	 */
+	private function helper_plugins() {
+		return array(
+			'wbcom-essential'      => array(
+				'slug' => 'wbcom-essential',
+				'name' => __( 'Wbcom Essential', 'buddyx' ),
+				'desc' => __( 'Ready-made blocks and patterns that use your BuddyX colors.', 'buddyx' ),
+				'href' => $this->url( 'essential' ),
+				'open' => admin_url( 'post-new.php?post_type=page' ),
+			),
+			'wbcom-demo-installer' => array(
+				'slug' => 'wbcom-demo-installer',
+				'name' => __( 'Wbcom Demo Installer', 'buddyx' ),
+				'desc' => __( 'Builds a full demo site with sample members in one click.', 'buddyx' ),
+				'href' => $this->url( 'demo_installer' ),
+				'open' => admin_url( 'themes.php?page=wbcom-demo' ),
+			),
+		);
+	}
+
+	/**
+	 * The next action for one plugin, from its live state.
+	 *
+	 * Missing: the plugin's page in a new tab, where the owner downloads it,
+	 * plus the core Upload Plugin screen. Installed: the core activate link
+	 * with its nonce. Active: the plugin's own screen. A user who may not
+	 * install or activate gets a note instead of a link.
+	 *
+	 * @param array  $plugin     Row from family_plugins() or helper_plugins().
+	 * @param string $open_label Link text once the plugin is active.
+	 * @return array{state:string,link:?array{url:string,label:string,new_tab:bool},upload:string,note:string}
+	 */
+	private function plugin_action( $plugin, $open_label = '' ) {
+		$status = $this->plugin_state( $plugin['slug'] );
+		$state  = 'active' === $this->family_status( $plugin ) ? 'active' : $status['state'];
+		$admin  = is_multisite() ? __( 'your network administrator', 'buddyx' ) : __( 'a site administrator', 'buddyx' );
+		$action = array(
+			'state'  => $state,
+			'link'   => null,
+			'upload' => '',
+			'note'   => '',
+		);
+
+		if ( 'active' === $state && $plugin['open'] ) {
+			$action['link'] = array(
+				'url'     => $plugin['open'],
+				/* translators: %s: plugin name. */
+				'label'   => $open_label ? $open_label : sprintf( __( 'Open %s', 'buddyx' ), $plugin['name'] ),
+				'new_tab' => false,
+			);
+		} elseif ( 'active' === $state ) {
+			$action['link'] = array(
+				'url'     => $plugin['href'],
+				'label'   => __( 'View plugin', 'buddyx' ),
+				'new_tab' => true,
+			);
+		} elseif ( 'installed' === $state ) {
+			if ( current_user_can( 'activate_plugin', $status['file'] ) ) {
+				$action['link'] = array(
+					'url'     => wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=' . rawurlencode( $status['file'] ) ), 'activate-plugin_' . $status['file'] ),
+					/* translators: %s: plugin name. */
+					'label'   => sprintf( __( 'Activate %s', 'buddyx' ), $plugin['name'] ),
+					'new_tab' => false,
+				);
+			} else {
+				/* translators: %s: who can do it, for example "a site administrator". */
+				$action['note'] = sprintf( __( 'Ask %s to activate it.', 'buddyx' ), $admin );
+			}
+		} elseif ( current_user_can( 'install_plugins' ) ) {
+			$action['link']   = array(
+				'url'     => $plugin['href'],
+				/* translators: %s: plugin name. */
+				'label'   => sprintf( __( 'Install %s', 'buddyx' ), $plugin['name'] ),
+				'new_tab' => true,
+			);
+			$action['upload'] = network_admin_url( 'plugin-install.php?tab=upload' );
+		} else {
+			/* translators: %s: who can do it, for example "a site administrator". */
+			$action['note'] = sprintf( __( 'Ask %s to install it.', 'buddyx' ), $admin );
+		}
+
+		return $action;
+	}
+
+	/**
+	 * Where the demo site stands: the Demo Installer's state, then its build.
+	 *
+	 * @return string 'missing' | 'installed' | 'idle' | 'building' | 'built' | 'finished'.
+	 */
+	private function demo_stage() {
+		$state = $this->plugin_state( 'wbcom-demo-installer' )['state'];
+		if ( 'active' !== $state ) {
+			return $state;
+		}
+		$status = function_exists( 'wbcom_demo_status' ) ? (array) wbcom_demo_status() : array();
+		$stage  = isset( $status['status'] ) ? (string) $status['status'] : 'idle';
+		$map    = array(
+			'building'  => 'building',
+			'built'     => 'built',
+			'finishing' => 'built',
+			'finished'  => 'finished',
+		);
+
+		return isset( $map[ $stage ] ) ? $map[ $stage ] : 'idle';
+	}
+
+	/**
+	 * The BuddyX vs BuddyX Pro feature table: area => list of
+	 * [feature, what Free has]. 'yes' = in both, 'no' = Pro only,
+	 * 'limited' = Free has a basic version, Pro the full control.
+	 *
+	 * @return array<string, array<int, array{0:string,1:string}>>
+	 */
+	private function features() {
+		return array(
+			__( 'Layout', 'buddyx' )       => array(
+				array( __( 'Site Layout', 'buddyx' ), 'yes' ),
+				array( __( 'Content Layout Width', 'buddyx' ), 'yes' ),
+				array( __( 'Sidebar Width', 'buddyx' ), 'no' ),
+				array( __( 'Global Border Radius', 'buddyx' ), 'yes' ),
+				array( __( 'Buttons Border Radius', 'buddyx' ), 'yes' ),
+				array( __( 'Form Border Radius', 'buddyx' ), 'yes' ),
+				array( __( 'Page Mapping', 'buddyx' ), 'yes' ),
+				array( __( 'Sign-in Popup and Register Form Fields', 'buddyx' ), 'no' ),
+				array( __( 'Scroll Top', 'buddyx' ), 'no' ),
+				array( __( 'Site Loader', 'buddyx' ), 'yes' ),
+				array( __( 'Loading Text', 'buddyx' ), 'yes' ),
+			),
+			__( 'Typography', 'buddyx' )   => array(
+				array( __( 'Site Title Settings', 'buddyx' ), 'yes' ),
+				array( __( 'Headings', 'buddyx' ), 'yes' ),
+				array( __( 'Menu', 'buddyx' ), 'yes' ),
+				array( __( 'Body', 'buddyx' ), 'yes' ),
+				array( __( 'Google Fonts', 'buddyx' ), 'yes' ),
+				array( __( 'Font Size (PX/EM)', 'buddyx' ), 'yes' ),
+				array( __( 'Text Transform', 'buddyx' ), 'yes' ),
+				array( __( 'Line Height', 'buddyx' ), 'yes' ),
+				array( __( 'Letter Spacing', 'buddyx' ), 'yes' ),
+			),
+			__( 'Header', 'buddyx' )       => array(
+				array( __( 'Top Bar', 'buddyx' ), 'no' ),
+				array( __( 'Sticky Header', 'buddyx' ), 'yes' ),
+				array( __( 'Header Layout', 'buddyx' ), 'no' ),
+				array( __( 'Header Menu Position', 'buddyx' ), 'no' ),
+				array( __( 'Menu Effects', 'buddyx' ), 'no' ),
+				array( __( 'More Menu', 'buddyx' ), 'no' ),
+				array( __( 'Site Search Style', 'buddyx' ), 'no' ),
+				array( __( 'Login/Register Button Style', 'buddyx' ), 'no' ),
+				array( __( 'Background Color', 'buddyx' ), 'yes' ),
+				array( __( 'Site Search', 'buddyx' ), 'yes' ),
+				array( __( 'Site Cart', 'buddyx' ), 'yes' ),
+				array( __( 'BuddyPress Components', 'buddyx' ), 'no' ),
+			),
+			__( 'Side Panel', 'buddyx' )   => array(
+				array( __( 'Side Panel', 'buddyx' ), 'no' ),
+				array( __( 'Side Panel Colors', 'buddyx' ), 'no' ),
+			),
+			__( 'Sub Header', 'buddyx' )   => array(
+				array( __( 'Customize Background', 'buddyx' ), 'yes' ),
+				array( __( 'Content Typography', 'buddyx' ), 'yes' ),
+				array( __( 'Breadcrumbs', 'buddyx' ), 'yes' ),
+			),
+			__( 'Skin Colors', 'buddyx' )  => array(
+				array( __( 'Dark Mode', 'buddyx' ), 'yes' ),
+				array( __( 'Custom Colors', 'buddyx' ), 'yes' ),
+				array( __( 'Body Background Color', 'buddyx' ), 'yes' ),
+				array( __( 'Theme Color', 'buddyx' ), 'yes' ),
+				array( __( 'Link Color', 'buddyx' ), 'yes' ),
+				array( __( 'Primary Header', 'buddyx' ), 'yes' ),
+				array( __( 'Button Background Color / Hover', 'buddyx' ), 'yes' ),
+				array( __( 'Button Text Color / Hover', 'buddyx' ), 'yes' ),
+				array( __( 'Button Border Color / Hover', 'buddyx' ), 'yes' ),
+			),
+			__( 'Site Blog', 'buddyx' )    => array(
+				array( __( 'List Layout', 'buddyx' ), 'yes' ),
+				array( __( 'Grid Layout', 'buddyx' ), 'yes' ),
+				array( __( 'Masonry Layout', 'buddyx' ), 'yes' ),
+				array( __( 'Blog Layout Style', 'buddyx' ), 'no' ),
+				array( __( 'Post Per Row', 'buddyx' ), 'yes' ),
+			),
+			__( 'Site Sidebar', 'buddyx' ) => array(
+				array( __( 'No Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'Left Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'Right Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'Both Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'BuddyPress Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'WooCommerce Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'bbPress Sidebar', 'buddyx' ), 'yes' ),
+				array( __( 'LearnDash Sidebar', 'buddyx' ), 'no' ),
+				array( __( 'Sticky Sidebar', 'buddyx' ), 'yes' ),
+			),
+			__( 'WP Login', 'buddyx' )     => array(
+				array( __( 'Customize Your Logo Section', 'buddyx' ), 'yes' ),
+				array( __( 'Choose WP Login Theme', 'buddyx' ), 'no' ),
+				array( __( 'Customize Login Form', 'buddyx' ), 'no' ),
+				array( __( 'Customize Forgot Form', 'buddyx' ), 'no' ),
+				array( __( 'Customize Button', 'buddyx' ), 'no' ),
+			),
+			__( 'Site Footer', 'buddyx' )  => array(
+				array( __( 'Footer Section', 'buddyx' ), 'yes' ),
+				array( __( 'Copyright Section', 'buddyx' ), 'yes' ),
+			),
+			__( 'BuddyPress', 'buddyx' )   => array(
+				array( __( 'Activity Control', 'buddyx' ), 'limited' ),
+				array( __( 'Activity Share', 'buddyx' ), 'no' ),
+				array( __( 'Activity Reaction', 'buddyx' ), 'no' ),
+				array( __( 'Activity Load More', 'buddyx' ), 'limited' ),
+				array( __( 'Members Multiple Directory Layout', 'buddyx' ), 'limited' ),
+				array( __( 'Members Default Cover Background', 'buddyx' ), 'limited' ),
+				array( __( 'Groups Multiple Directory View', 'buddyx' ), 'limited' ),
+				array( __( 'Group Default Cover Background', 'buddyx' ), 'limited' ),
+				array( __( 'Member Multiple Header Layout', 'buddyx' ), 'limited' ),
+				array( __( 'Member Primary Navigation Layout', 'buddyx' ), 'limited' ),
+				array( __( 'Group Multiple Header Layout', 'buddyx' ), 'limited' ),
+				array( __( 'Group Primary Navigation Style', 'buddyx' ), 'limited' ),
+			),
+			__( 'WooCommerce', 'buddyx' )  => array(
+				array( __( 'Product Listing Style', 'buddyx' ), 'no' ),
+				array( __( 'Shop Products Per Page', 'buddyx' ), 'no' ),
+				array( __( 'Display Filter Button', 'buddyx' ), 'no' ),
+				array( __( 'Sale Badge Style', 'buddyx' ), 'no' ),
+			),
+			__( 'Integrations', 'buddyx' ) => array(
+				array( __( 'BuddyPress', 'buddyx' ), 'yes' ),
+				array( __( 'BuddyBoss Platform', 'buddyx' ), 'yes' ),
+				array( __( 'WooCommerce', 'buddyx' ), 'limited' ),
+				array( __( 'LearnDash', 'buddyx' ), 'limited' ),
+				array( __( 'LearnPress', 'buddyx' ), 'limited' ),
+				array( __( 'LifterLMS', 'buddyx' ), 'limited' ),
+				array( __( 'Tutor LMS', 'buddyx' ), 'limited' ),
+				array( __( 'bbPress', 'buddyx' ), 'limited' ),
+				array( __( 'Dokan', 'buddyx' ), 'limited' ),
+				array( __( 'WC Vendors', 'buddyx' ), 'limited' ),
+				array( __( 'GamiPress', 'buddyx' ), 'yes' ),
+				array( __( 'Paid Memberships', 'buddyx' ), 'yes' ),
+				array( __( 'The Event Calendar', 'buddyx' ), 'yes' ),
+			),
+		);
+	}
+
+	/**
+	 * Print one link. New-tab links say so to screen readers.
+	 *
+	 * @param string $url     Address.
+	 * @param string $label   Visible text.
+	 * @param bool   $new_tab Open in a new tab.
+	 * @param string $context Hidden text that names the row, for screen readers.
+	 * @param string $css     Optional class.
+	 * @return void
+	 */
+	private function link( $url, $label, $new_tab = true, $context = '', $css = '' ) {
+		printf(
+			'<a%1$s href="%2$s"%3$s>%4$s%5$s%6$s</a>',
+			$css ? ' class="' . esc_attr( $css ) . '"' : '',
+			esc_url( $url ),
+			$new_tab ? ' target="_blank" rel="noopener"' : '',
+			esc_html( $label ),
+			$context ? '<span class="screen-reader-text">: ' . esc_html( $context ) . '</span>' : '',
+			$new_tab ? '<span class="screen-reader-text"> ' . esc_html__( '(opens in a new tab)', 'buddyx' ) . '</span>' : ''
+		);
+	}
+
+	/**
+	 * A link that opens another tab of this screen, then moves focus there.
+	 *
+	 * @param string $tab    Tab key, for example 'guide'.
+	 * @param string $target Element id to focus inside that tab.
+	 * @param string $label  Visible text.
+	 * @param string $css    Optional class.
+	 * @return void
+	 */
+	private function tab_link( $tab, $target, $label, $css = '' ) {
+		printf(
+			'<a%1$s href="#%2$s" data-buddyx-tab="%3$s">%4$s</a>',
+			$css ? ' class="' . esc_attr( $css ) . '"' : '',
+			esc_attr( $target ),
+			esc_attr( $tab ),
+			esc_html( $label )
+		);
+	}
+
+	/**
+	 * The primary button, the upload link or the note for a plugin_action().
+	 *
+	 * @param array  $action  Result of plugin_action().
+	 * @param string $context Hidden text that names the row, for screen readers.
+	 * @param string $css     Class for the main link.
+	 * @param bool   $hint    Print the upload hint under a missing plugin.
+	 * @return void
+	 */
+	private function render_action( $action, $context, $css, $hint = true ) {
+		if ( $action['link'] ) {
+			$this->link( $action['link']['url'], $action['link']['label'], $action['link']['new_tab'], '', $css );
+		}
+		if ( $action['upload'] && $hint ) {
+			echo '<span class="buddyx-gs-hint">';
+			esc_html_e( 'Download it, then add it at', 'buddyx' );
+			echo ' ';
+			$this->link( $action['upload'], __( 'Upload Plugin', 'buddyx' ), false, $context );
+			echo '. ';
+			esc_html_e( 'Nothing installs until you click.', 'buddyx' );
+			echo '</span>';
+		}
+		if ( $action['note'] ) {
+			echo '<span class="buddyx-gs-hint">' . esc_html( $action['note'] ) . '</span>';
+		}
+	}
+
+	/**
+	 * The setup films: one player and the list of every film in the Starter
+	 * playlist. Each title is a plain YouTube link, so it works without script;
+	 * the script plays it in place after a click and loads nothing before.
+	 *
+	 * @param string $featured Video id shown in the player.
+	 * @return void
+	 */
+	private function render_films( $featured ) {
+		if ( ! isset( self::FILMS[ $featured ] ) ) {
+			$featured = (string) key( self::FILMS );
+		}
+		?>
+		<div class="buddyx-gs-films" data-gs-films>
+			<div class="buddyx-gs-video" data-gs-player>
+				<?php $this->film_face( $featured, 'buddyx-gs-video-play', true ); ?>
+			</div>
+			<ul class="buddyx-gs-film-list" aria-label="<?php esc_attr_e( 'Setup films', 'buddyx' ); ?>">
+				<?php foreach ( self::FILMS as $id => $title ) : ?>
+					<li<?php echo $id === $featured ? ' class="is-current"' : ''; ?>>
+						<?php $this->film_face( $id, 'buddyx-gs-film-link', false ); ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	/**
+	 * One film as a link with its preview image.
+	 *
+	 * @param string $id        YouTube video id.
+	 * @param string $css_class Class attribute.
+	 * @param bool   $big       Whether this is the large player face.
+	 * @return void
+	 */
+	private function film_face( $id, $css_class, $big ) {
+		?>
+		<a class="<?php echo esc_attr( $css_class ); ?>" href="<?php echo esc_url( 'https://youtu.be/' . $id ); ?>" data-video-id="<?php echo esc_attr( $id ); ?>" data-video-title="<?php echo esc_attr( self::FILMS[ $id ] ); ?>" target="_blank" rel="noopener noreferrer">
+			<span class="buddyx-gs-film-thumb">
+				<img src="<?php echo esc_url( 'https://i.ytimg.com/vi/' . $id . '/' . ( $big ? 'hqdefault' : 'mqdefault' ) . '.jpg' ); ?>" alt="" loading="lazy" decoding="async">
+				<span class="buddyx-gs-video-icon" aria-hidden="true"></span>
+			</span>
+			<span class="buddyx-gs-film-title"><?php echo esc_html( self::FILMS[ $id ] ); ?></span>
+		</a>
+		<?php
+	}
+
+	/**
+	 * Start tab: the next step, the goal cards, the Customizer tiles and a
+	 * collapsed list of help and plugin links.
+	 *
+	 * @return void
+	 */
+	private function render_start() {
+		$stage   = $this->demo_stage();
+		$helpers = $this->helper_plugins();
+		$family  = $this->family_plugins();
+		$demo    = $this->plugin_action( $helpers['wbcom-demo-installer'] );
+		$demo_ui = admin_url( 'themes.php?page=wbcom-demo' );
+
+		// Three stages; each is 'done', 'current' or ''.
+		$progress = array(
+			'build' => in_array( $stage, array( 'built', 'finished' ), true ) ? 'done' : 'current',
+			'make'  => in_array( $stage, array( 'built', 'finished' ), true ) ? 'current' : '',
+			'live'  => 'finished' === $stage ? 'done' : '',
+		);
+
+		$next = array(
+			'title'  => __( 'Start from a demo, or pick your goal below.', 'buddyx' ),
+			'text'   => __( 'A demo gives you ready pages and sample content in minutes. You can remove it later.', 'buddyx' ),
+			'link'   => null,
+			'action' => null,
+			'film'   => 'Q1MPFOxc388',
+		);
+		if ( 'finished' === $stage ) {
+			$next['title'] = __( 'Your site is live. The pages are yours.', 'buddyx' );
+			$next['text']  = __( 'Edit anything. The samples are gone and your setup stayed. Make it yours with the tiles below.', 'buddyx' );
+			$next['link']  = array( $this->customize_url( 'autofocus[control]=custom_logo' ), __( 'Open the Customizer', 'buddyx' ) );
+		} elseif ( 'built' === $stage ) {
+			$next['title'] = __( 'Your demo site is built. Take it live.', 'buddyx' );
+			$next['text']  = __( 'Keep the pages, menus and settings you like and remove the sample members and content. Nothing is deleted until you confirm.', 'buddyx' );
+			$next['link']  = array( $demo_ui, __( 'Take your site live', 'buddyx' ) );
+			$next['film']  = 'WijuvjG6WiE';
+		} elseif ( 'building' === $stage ) {
+			$next['title'] = __( 'Your demo site is being built.', 'buddyx' );
+			$next['text']  = __( 'You can leave this page. The build keeps going, and this step moves on when it is done.', 'buddyx' );
+			$next['link']  = array( $demo_ui, __( 'Watch the build', 'buddyx' ) );
+		} elseif ( 'idle' === $stage ) {
+			$next['link'] = array( $demo_ui, __( 'Set up a demo site', 'buddyx' ) );
+			$next['film'] = 'Q1MPFOxc388';
+		} else {
+			// The Demo Installer is missing or not active: download or activate it first.
+			$next['text']   = __( 'The free Wbcom Demo Installer gives you ready pages and sample content in minutes. You can remove it later.', 'buddyx' );
+			$next['action'] = $demo;
+			$next['film']   = 'Q1MPFOxc388';
+			if ( $demo['link'] && 'missing' === $stage ) {
+				$next['action']['link']['label'] = __( 'Get the Demo Installer', 'buddyx' );
+			}
+		}
+
+		$stages = array(
+			'build' => __( 'Build', 'buddyx' ),
+			'make'  => __( 'Make it yours', 'buddyx' ),
+			'live'  => __( 'Go live', 'buddyx' ),
+		);
+		$marks  = array(
+			'done'    => __( '(done)', 'buddyx' ),
+			'current' => __( '(you are here)', 'buddyx' ),
+			''        => '',
+		);
+
+		$goals       = array(
+			array(
+				'name'   => __( 'Blog or business', 'buddyx' ),
+				'text'   => __( 'A portfolio or a company site.', 'buddyx' ),
+				'plugin' => $helpers['wbcom-essential'],
+				'open'   => __( 'Build a page', 'buddyx' ),
+			),
+			array(
+				'name'   => __( 'Community', 'buddyx' ),
+				'text'   => __( 'Members, profiles, activity and groups.', 'buddyx' ),
+				'plugin' => $family['buddynext'],
+				'open'   => __( 'Set up community', 'buddyx' ),
+			),
+			array(
+				'name'   => __( 'Courses', 'buddyx' ),
+				'text'   => __( 'Teach online with lessons and quizzes.', 'buddyx' ),
+				'plugin' => $family['learnomy'],
+				'open'   => __( 'Set up courses', 'buddyx' ),
+			),
+			array(
+				'name'   => __( 'Services marketplace', 'buddyx' ),
+				'text'   => __( 'Vendors sell services and take orders.', 'buddyx' ),
+				'plugin' => $family['wp-sell-services'],
+				'open'   => __( 'Set up services', 'buddyx' ),
+			),
+		);
+		$state_names = array(
+			'active'    => __( 'Active', 'buddyx' ),
+			'installed' => __( 'Installed, not active', 'buddyx' ),
+			'missing'   => __( 'Not installed', 'buddyx' ),
+		);
+
+		$tiles = array(
+			array( 'autofocus[control]=custom_logo', __( 'Upload Logo', 'buddyx' ) ),
+			array( 'autofocus[section]=site_skin_section', __( 'Set Colors', 'buddyx' ) ),
+			array( 'autofocus[section]=site_layout', __( 'Site Layout', 'buddyx' ) ),
+			array( 'autofocus[panel]=typography_panel', __( 'Set Typography', 'buddyx' ) ),
+			array( 'autofocus[section]=site_header_section', __( 'Header Settings', 'buddyx' ) ),
+			array( 'autofocus[section]=site_blog_section', __( 'Site Blog', 'buddyx' ) ),
+		);
+
+		$more = array(
+			array( $this->url( 'docs' ), __( 'Documentation', 'buddyx' ) ),
+			array( $this->url( 'films' ), __( 'Watch the setup films', 'buddyx' ) ),
+			array( $this->url( 'support' ), __( 'Support', 'buddyx' ) ),
+			array( $this->url( 'contact' ), __( 'Give us feedback', 'buddyx' ) ),
+			array( $family['buddynext']['href'], $family['buddynext']['name'] ),
+			array( $family['jetonomy']['href'], $family['jetonomy']['name'] ),
+			array( $family['learnomy']['href'], $family['learnomy']['name'] ),
+			array( $this->url( 'downloads' ), __( 'See all Wbcom plugins', 'buddyx' ) ),
+			array( $this->url( 'child_theme' ), __( 'Download the child theme', 'buddyx' ) ),
+			array( $this->url( 'pro' ), __( 'Get BuddyX Pro', 'buddyx' ) ),
+		);
+		?>
+		<section class="buddyx-gs-next" aria-labelledby="buddyx-gs-next-title">
+			<div class="buddyx-gs-next-head">
+				<ol class="buddyx-gs-stages">
+					<?php foreach ( $stages as $key => $label ) : ?>
+						<li class="buddyx-gs-stage<?php echo $progress[ $key ] ? ' is-' . esc_attr( $progress[ $key ] ) : ''; ?>"<?php echo 'current' === $progress[ $key ] ? ' aria-current="step"' : ''; ?>>
+							<?php echo esc_html( $label ); ?>
+							<?php if ( $marks[ $progress[ $key ] ] ) : ?>
+								<span class="screen-reader-text"><?php echo esc_html( $marks[ $progress[ $key ] ] ); ?></span>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ol>
+				<span class="buddyx-gs-next-label"><?php esc_html_e( 'Your next step', 'buddyx' ); ?></span>
+			</div>
+			<div class="buddyx-gs-next-body">
+				<div class="buddyx-gs-next-text">
+					<h2 id="buddyx-gs-next-title"><?php echo esc_html( $next['title'] ); ?></h2>
+					<p><?php echo esc_html( $next['text'] ); ?></p>
+				</div>
+				<div class="buddyx-gs-next-actions">
+					<?php
+					if ( $next['link'] ) {
+						$this->link( $next['link'][0], $next['link'][1], false, '', 'buddyx-gs-button' );
+					}
+					if ( $next['action'] ) {
+						$this->render_action( $next['action'], $helpers['wbcom-demo-installer']['name'], 'buddyx-gs-button' );
+					}
+					?>
+				</div>
+			</div>
+			<?php
+			$this->render_films( $next['film'] );
+			?>
+		</section>
+
+		<section class="buddyx-gs-section" aria-labelledby="buddyx-gs-goals">
+			<h2 id="buddyx-gs-goals" class="buddyx-gs-section-title" tabindex="-1"><?php esc_html_e( 'What are you building?', 'buddyx' ); ?></h2>
+			<p class="buddyx-gs-section-text"><?php esc_html_e( 'Our plugins are shown first. Other supported plugins, such as BuddyPress or WooCommerce, work too and stay your choice.', 'buddyx' ); ?></p>
+			<ul class="buddyx-gs-goals">
+				<?php
+				foreach ( $goals as $goal ) :
+					$action = $this->plugin_action( $goal['plugin'], $goal['open'] );
+					?>
+					<li class="buddyx-gs-card">
+						<h3 class="buddyx-gs-card-title"><?php echo esc_html( $goal['name'] ); ?></h3>
+						<p class="buddyx-gs-card-text"><?php echo esc_html( $goal['text'] ); ?></p>
+						<p class="buddyx-gs-card-state is-<?php echo esc_attr( $action['state'] ); ?>">
+							<?php
+							/* translators: 1: plugin name, 2: its state, for example "Active" or "Not installed". */
+							echo esc_html( sprintf( __( '%1$s: %2$s', 'buddyx' ), $goal['plugin']['name'], $state_names[ $action['state'] ] ) );
+							?>
+						</p>
+						<?php $this->render_action( $action, $goal['plugin']['name'], 'buddyx-gs-button buddyx-gs-button--outline' ); ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
+
+		<section class="buddyx-gs-section" aria-labelledby="buddyx-gs-tiles">
+			<h2 id="buddyx-gs-tiles" class="buddyx-gs-section-title"><?php esc_html_e( 'Then make it yours', 'buddyx' ); ?></h2>
+			<ul class="buddyx-gs-tiles">
+				<?php foreach ( $tiles as $tile ) : ?>
+					<li><?php $this->link( $this->customize_url( $tile[0] ), $tile[1], false, '', 'buddyx-gs-tile' ); ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
+
+		<details class="buddyx-gs-more">
+			<summary><?php esc_html_e( 'More help and plugins', 'buddyx' ); ?></summary>
+			<ul class="buddyx-gs-more-list">
+				<?php foreach ( $more as $item ) : ?>
+					<li><?php $this->link( $item[0], $item[1] ); ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</details>
+		<?php
+	}
+
+	/**
+	 * Step by step tab: seven steps that tick themselves from the site's own
+	 * settings, a progress bar and a help panel for the chosen step.
+	 *
+	 * @return void
+	 */
+	private function render_guide() {
+		$stage    = $this->demo_stage();
+		$family   = $this->family_plugins();
+		$demo_ui  = admin_url( 'themes.php?page=wbcom-demo' );
+		$goal_set = function_exists( 'buddypress' ) || class_exists( 'WooCommerce' );
+		foreach ( $family as $product ) {
+			$goal_set = $goal_set || 'active' === $this->family_status( $product );
+		}
+
+		$steps = array(
+			array(
+				'title' => __( 'Add your logo', 'buddyx' ),
+				'sub'   => __( 'Upload a logo and site icon', 'buddyx' ),
+				'time'  => __( '2 min', 'buddyx' ),
+				'done'  => has_custom_logo(),
+				'what'  => __( 'Shows your brand in the header, the login screen and browser tabs.', 'buddyx' ),
+				'how'   => array(
+					__( 'Open the Customizer, then Site Identity.', 'buddyx' ),
+					__( 'Upload a logo (SVG or PNG, at least 200px wide).', 'buddyx' ),
+					__( 'Upload a square site icon, then Publish.', 'buddyx' ),
+				),
+				'cta'   => array( $this->customize_url( 'autofocus[control]=custom_logo' ), __( 'Open Site Identity', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/recipes/customize-brand/' ),
+			),
+			array(
+				'title' => __( 'Choose your home page', 'buddyx' ),
+				'sub'   => __( 'Latest posts or a page you built', 'buddyx' ),
+				'time'  => __( '1 min', 'buddyx' ),
+				'done'  => 'page' === get_option( 'show_on_front' ) && get_option( 'page_on_front' ),
+				'what'  => __( 'Decides what visitors see first when they open your address.', 'buddyx' ),
+				'how'   => array(
+					__( 'Go to Settings, then Reading.', 'buddyx' ),
+					__( 'Pick Your latest posts or A static page.', 'buddyx' ),
+					__( 'Choose the page and save.', 'buddyx' ),
+				),
+				'cta'   => array( admin_url( 'options-reading.php' ), __( 'Open Reading settings', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/recipes/build-your-homepage/' ),
+			),
+			array(
+				'title' => __( 'Pick your colors', 'buddyx' ),
+				'sub'   => __( 'Brand color and dark mode', 'buddyx' ),
+				'time'  => __( '3 min', 'buddyx' ),
+				'done'  => false !== get_theme_mod( 'site_primary_color', false ) || false !== get_theme_mod( 'site_style_variation', false ),
+				'what'  => __( 'Sets buttons, links and accents everywhere on the site, and the dark mode colors your visitors can switch to.', 'buddyx' ),
+				'how'   => array(
+					__( 'Open the Customizer, then Colors and Dark Mode.', 'buddyx' ),
+					__( 'Choose a style or your own brand color.', 'buddyx' ),
+					__( 'Check the preview in light and dark, then Publish.', 'buddyx' ),
+				),
+				'cta'   => array( $this->customize_url( 'autofocus[section]=site_skin_section' ), __( 'Open Colors and Dark Mode', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/skin-colors/' ),
+			),
+			array(
+				'title' => __( 'Set up your menu', 'buddyx' ),
+				'sub'   => __( 'Header and mobile menu', 'buddyx' ),
+				'time'  => __( '3 min', 'buddyx' ),
+				'done'  => has_nav_menu( 'primary' ),
+				'what'  => __( 'Gives visitors the main ways around your site, on desktop and phones.', 'buddyx' ),
+				'how'   => array(
+					__( 'Go to Appearance, then Menus.', 'buddyx' ),
+					__( 'Create a menu and add your key pages.', 'buddyx' ),
+					__( 'Assign it to Primary and save.', 'buddyx' ),
+				),
+				'cta'   => array( admin_url( 'nav-menus.php' ), __( 'Open Menus', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/customizing/header/' ),
+			),
+			array(
+				'title' => __( 'Choose your layout', 'buddyx' ),
+				'sub'   => __( 'Width, sidebar and header', 'buddyx' ),
+				'time'  => __( '3 min', 'buddyx' ),
+				'done'  => false !== get_theme_mod( 'site_layout', false ) || false !== get_theme_mod( 'site_container_width', false ),
+				'what'  => __( 'Controls page width, sidebar position and header options.', 'buddyx' ),
+				'how'   => array(
+					__( 'Open the Customizer, then Layout.', 'buddyx' ),
+					__( 'Pick the site layout and container width.', 'buddyx' ),
+					__( 'Set the sidebar side under Sidebar, then Publish.', 'buddyx' ),
+				),
+				'cta'   => array( $this->customize_url( 'autofocus[section]=site_layout' ), __( 'Open Layout', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/customizing/layout/' ),
+			),
+			array(
+				'title' => __( 'Add a plugin for your goal', 'buddyx' ),
+				'sub'   => __( 'Community, courses or services', 'buddyx' ),
+				'time'  => __( '5 min', 'buddyx' ),
+				'done'  => $goal_set,
+				'what'  => __( 'BuddyX styles the plugin you add, so it looks like part of your theme. Our own plugin is always listed first.', 'buddyx' ),
+				'how'   => array(
+					__( 'Pick what you are building: Community (BuddyNext), Courses (Learnomy), Services (WP Sell Services) or Jobs (WP Career Board).', 'buddyx' ),
+					__( 'Get the Wbcom plugin shown first. Other supported plugins, such as BuddyPress or WooCommerce, work too. Nothing installs until you click.', 'buddyx' ),
+					__( 'Follow its short setup checklist.', 'buddyx' ),
+				),
+				'tab'   => array( 'start', 'buddyx-gs-goals', __( 'Choose your goal', 'buddyx' ) ),
+				'guide' => $this->url( 'docs', 'free/getting-started/choose-what-to-build/' ),
+				'film'  => array( $this->url( 'film_community' ), __( 'Watch: Set up a community site in 5 minutes (3:46)', 'buddyx' ) ),
+			),
+			array(
+				'title' => __( 'Take your site live', 'buddyx' ),
+				'sub'   => __( 'Remove sample content, if you built a demo', 'buddyx' ),
+				'time'  => __( '2 min', 'buddyx' ),
+				'done'  => 'finished' === $stage,
+				'what'  => __( 'Keeps the pages and settings you like and removes the demo members and sample posts.', 'buddyx' ),
+				'how'   => array(
+					__( 'Review what the demo created.', 'buddyx' ),
+					__( 'Choose Take your site live.', 'buddyx' ),
+					__( 'Confirm. Nothing is deleted before you confirm.', 'buddyx' ),
+				),
+				'cta'   => in_array( $stage, array( 'idle', 'building', 'built', 'finished' ), true ) ? array( $demo_ui, __( 'Take your site live', 'buddyx' ) ) : null,
+				'guide' => $this->url( 'docs', 'free/getting-started/demo-installer/' ),
+				'film'  => array( $this->url( 'film_live' ), __( 'Watch: Take your demo site live (2:38)', 'buddyx' ) ),
+			),
+		);
+
+		$done     = count( array_filter( wp_list_pluck( $steps, 'done' ) ) );
+		$total    = count( $steps );
+		$selected = 0;
+		foreach ( $steps as $i => $step ) {
+			if ( ! $step['done'] ) {
+				$selected = $i;
+				break;
+			}
+		}
+
+		$demo_names = array(
+			'missing'   => __( 'Not started', 'buddyx' ),
+			'installed' => __( 'Not started', 'buddyx' ),
+			'idle'      => __( 'Not started', 'buddyx' ),
+			'building'  => __( 'Being built', 'buddyx' ),
+			'built'     => __( 'Built, not live yet', 'buddyx' ),
+			'finished'  => __( 'Live', 'buddyx' ),
+		);
+		$community  = __( 'None yet', 'buddyx' );
+		if ( 'active' === $this->family_status( $family['buddynext'] ) ) {
+			$community = __( 'BuddyNext active', 'buddyx' );
+		} elseif ( function_exists( 'buddypress' ) ) {
+			$community = __( 'BuddyPress active', 'buddyx' );
+		}
+		$basics = array(
+			/* translators: %s: theme version number. */
+			__( 'Theme', 'buddyx' )            => sprintf( __( 'BuddyX %s', 'buddyx' ), wp_get_theme( get_template() )->get( 'Version' ) ),
+			__( 'Demo site', 'buddyx' )        => $demo_names[ $stage ],
+			__( 'Community plugin', 'buddyx' ) => $community,
+		);
+		?>
+		<div class="buddyx-gs-guide-head">
+			<div class="buddyx-gs-guide-intro">
+				<h2 class="buddyx-gs-section-title"><?php esc_html_e( 'Your site, step by step', 'buddyx' ); ?></h2>
+				<p class="buddyx-gs-section-text"><?php esc_html_e( 'Each step ticks itself when it is done. Pick any step to see what it does, how to do it and the guide.', 'buddyx' ); ?></p>
+			</div>
+			<div class="buddyx-gs-progress">
+				<label for="buddyx-gs-progress-bar">
+					<?php
+					/* translators: 1: steps done, 2: total steps. */
+					echo esc_html( sprintf( __( '%1$s of %2$s steps done', 'buddyx' ), number_format_i18n( $done ), number_format_i18n( $total ) ) );
+					?>
+				</label>
+				<progress id="buddyx-gs-progress-bar" max="<?php echo absint( $total ); ?>" value="<?php echo absint( $done ); ?>"></progress>
+			</div>
+		</div>
+
+		<dl class="buddyx-gs-basics">
+			<?php foreach ( $basics as $key => $value ) : ?>
+				<div>
+					<dt><?php echo esc_html( $key ); ?></dt>
+					<dd><?php echo esc_html( $value ); ?></dd>
+				</div>
+			<?php endforeach; ?>
+			<div>
+				<dt><?php esc_html_e( 'Need help?', 'buddyx' ); ?></dt>
+				<dd><?php $this->tab_link( 'links', 'buddyx-panel-links', __( 'Docs, films, support', 'buddyx' ) ); ?></dd>
+			</div>
+		</dl>
+
+		<div class="buddyx-gs-guide">
+			<ol class="buddyx-gs-checklist">
+				<?php foreach ( $steps as $i => $step ) : ?>
+					<li>
+						<button type="button" class="buddyx-gs-check<?php echo $step['done'] ? ' is-done' : ''; ?>" aria-controls="buddyx-gs-help-<?php echo absint( $i ); ?>" aria-pressed="<?php echo $selected === $i ? 'true' : 'false'; ?>">
+							<span class="buddyx-gs-check-mark" aria-hidden="true"><?php echo $step['done'] ? '&#10003;' : esc_html( number_format_i18n( $i + 1 ) ); ?></span>
+							<span class="buddyx-gs-check-body">
+								<span class="buddyx-gs-check-title"><?php echo esc_html( $step['title'] ); ?></span>
+								<span class="buddyx-gs-check-sub"><?php echo esc_html( $step['sub'] ); ?></span>
+							</span>
+							<span class="buddyx-gs-check-time"><?php echo esc_html( $step['time'] ); ?></span>
+							<?php if ( $step['done'] ) : ?>
+								<span class="screen-reader-text"><?php esc_html_e( '(done)', 'buddyx' ); ?></span>
+							<?php endif; ?>
+						</button>
+					</li>
+				<?php endforeach; ?>
+			</ol>
+
+			<?php foreach ( $steps as $i => $step ) : ?>
+				<section class="buddyx-gs-help" id="buddyx-gs-help-<?php echo absint( $i ); ?>" aria-labelledby="buddyx-gs-help-title-<?php echo absint( $i ); ?>"<?php echo $selected === $i ? '' : ' hidden'; ?>>
+					<p class="buddyx-gs-help-label"><?php esc_html_e( 'Help for this step', 'buddyx' ); ?></p>
+					<h3 id="buddyx-gs-help-title-<?php echo absint( $i ); ?>" class="buddyx-gs-help-title"><?php echo esc_html( $step['title'] ); ?></h3>
+					<h4 class="buddyx-gs-label"><?php esc_html_e( 'What it does', 'buddyx' ); ?></h4>
+					<p class="buddyx-gs-help-text"><?php echo esc_html( $step['what'] ); ?></p>
+					<h4 class="buddyx-gs-label"><?php esc_html_e( 'How to do it', 'buddyx' ); ?></h4>
+					<ol class="buddyx-gs-help-steps">
+						<?php foreach ( $step['how'] as $how ) : ?>
+							<li><?php echo esc_html( $how ); ?></li>
+						<?php endforeach; ?>
+					</ol>
+					<p class="buddyx-gs-help-actions">
+						<?php
+						if ( ! empty( $step['cta'] ) ) {
+							$this->link( $step['cta'][0], $step['cta'][1], false, '', 'buddyx-gs-button' );
+						}
+						if ( ! empty( $step['tab'] ) ) {
+							$this->tab_link( $step['tab'][0], $step['tab'][1], $step['tab'][2], 'buddyx-gs-button' );
+						}
+						$this->link( $step['guide'], __( 'Read the guide', 'buddyx' ), true, $step['title'], 'buddyx-gs-button buddyx-gs-button--outline' );
+						if ( ! empty( $step['film'] ) ) {
+							$this->link( $step['film'][0], $step['film'][1], true, '', 'buddyx-gs-button buddyx-gs-button--outline' );
+						}
+						?>
+					</p>
+					<p class="buddyx-gs-help-foot">
+						<?php
+						esc_html_e( 'Stuck?', 'buddyx' );
+						echo ' ';
+						$this->link( $this->url( 'support' ), __( 'Ask support', 'buddyx' ) );
+						echo ' ';
+						esc_html_e( 'or', 'buddyx' );
+						echo ' ';
+						$this->link( $this->url( 'docs' ), __( 'search the docs', 'buddyx' ) );
+						echo '.';
+						?>
+					</p>
+				</section>
+			<?php endforeach; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Our products tab: the family with live state and a named next action,
+	 * then the free helpers.
+	 *
+	 * @return void
+	 */
+	private function render_products() {
+		$state_names = array(
+			'active'    => __( 'Active', 'buddyx' ),
+			'installed' => __( 'Installed, not active', 'buddyx' ),
+			'missing'   => __( 'Not installed', 'buddyx' ),
+		);
+		$groups      = array(
+			__( 'Plugins for your site', 'buddyx' )   => $this->family_plugins(),
+			__( 'Free helpers from Wbcom', 'buddyx' ) => $this->helper_plugins(),
+		);
+		?>
+		<p class="buddyx-gs-intro"><?php esc_html_e( 'One family of plugins built to work together and styled by BuddyX. Install only what your site needs. Plugin pages open in a new tab.', 'buddyx' ); ?></p>
+		<?php foreach ( $groups as $group => $plugins ) : ?>
+			<h2 class="buddyx-gs-label"><?php echo esc_html( $group ); ?></h2>
+			<ul class="buddyx-gs-list">
+				<?php
+				foreach ( $plugins as $plugin ) :
+					$action = $this->plugin_action( $plugin );
+					?>
+					<li class="buddyx-gs-item">
+						<strong class="buddyx-gs-item-name"><?php echo esc_html( $plugin['name'] ); ?></strong>
+						<span class="buddyx-gs-item-text"><?php echo esc_html( $plugin['desc'] ); ?></span>
+						<span class="buddyx-gs-card-state is-<?php echo esc_attr( $action['state'] ); ?>"><?php echo esc_html( $state_names[ $action['state'] ] ); ?></span>
+						<span class="buddyx-gs-item-action">
+							<?php $this->render_action( $action, $plugin['name'], 'buddyx-gs-button buddyx-gs-button--outline', false ); ?>
+						</span>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endforeach; ?>
+		<p class="buddyx-gs-foot">
+			<?php
+			esc_html_e( 'BuddyX never downloads or installs a plugin for you. Install opens the plugin page, where you download it; then add the file at', 'buddyx' );
+			echo ' ';
+			$this->link( network_admin_url( 'plugin-install.php?tab=upload' ), __( 'Upload Plugin', 'buddyx' ), false );
+			echo '.';
+			?>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Free vs Pro tab: the Pro-only rows of features(), grouped by area.
+	 *
+	 * @return void
+	 */
+	private function render_compare() {
+		$total = 0;
+		$areas = array();
+		foreach ( $this->features() as $area => $rows ) {
+			$total += count( $rows );
+			$pro    = array();
+			foreach ( $rows as $row ) {
+				if ( 'yes' !== $row[1] ) {
+					$pro[] = $row[0];
+				}
+			}
+			if ( $pro ) {
+				$areas[ $area ] = $pro;
+			}
+		}
+		uasort(
+			$areas,
+			static function ( $a, $b ) {
+				return count( $b ) <=> count( $a );
+			}
+		);
+		$pro_total = array_sum( array_map( 'count', $areas ) );
+		?>
+		<p class="buddyx-gs-intro">
+			<?php
+			echo esc_html(
+				sprintf(
+					/* translators: %s: number of settings only BuddyX Pro has. */
+					__( 'BuddyX covers the essentials: layout, typography, colors, dark mode, blog and sidebar settings are in both. Pro adds %s more settings, listed by area.', 'buddyx' ),
+					number_format_i18n( $pro_total )
+				)
+			);
+			?>
+		</p>
+		<ul class="buddyx-gs-list">
+			<?php foreach ( $areas as $area => $names ) : ?>
+				<li class="buddyx-gs-item buddyx-gs-item--area">
+					<strong class="buddyx-gs-item-name">
+						<?php echo esc_html( $area ); ?>
+						<span class="buddyx-gs-item-count"><?php echo esc_html( number_format_i18n( count( $names ) ) ); ?></span>
+					</strong>
+					<span class="buddyx-gs-item-text"><?php echo esc_html( implode( wp_get_list_item_separator(), $names ) ); ?></span>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+		<div class="buddyx-gs-callout">
+			<p class="buddyx-gs-callout-text"><?php esc_html_e( 'The same theme with every control above, plus priority support.', 'buddyx' ); ?></p>
+			<?php $this->link( $this->url( 'pro' ), __( 'Get BuddyX Pro', 'buddyx' ), true, '', 'buddyx-gs-button' ); ?>
+		</div>
+		<p class="buddyx-gs-foot">
+			<?php esc_html_e( 'Already own Pro? Install it and use Migrate from BuddyX Free to carry your settings over.', 'buddyx' ); ?>
+			<?php
+			/* translators: %s: total number of features compared. */
+			$this->link( $this->url( 'compare' ), sprintf( __( 'See the full %s-feature comparison', 'buddyx' ), number_format_i18n( $total ) ) );
+			?>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Help and links tab: static link groups.
+	 *
+	 * @return void
+	 */
+	private function render_links() {
+		$groups = array(
+			__( 'Documentation', 'buddyx' )          => array(
+				array( $this->url( 'docs', 'free/getting-started/' ), __( 'Getting Started', 'buddyx' ) ),
+				array( $this->url( 'docs', 'free/customizing/' ), __( 'Customizing', 'buddyx' ) ),
+				array( $this->url( 'docs', 'free/skin-colors/' ), __( 'Skin and Colors', 'buddyx' ) ),
+				array( $this->url( 'docs', 'free/blocks-and-patterns/' ), __( 'Blocks and Patterns', 'buddyx' ) ),
+				array( $this->url( 'docs', 'buddypress/' ), __( 'BuddyPress', 'buddyx' ) ),
+				array( $this->url( 'docs', 'woocommerce/' ), __( 'WooCommerce', 'buddyx' ) ),
+				array( $this->url( 'docs', 'free/developer/' ), __( 'Developer', 'buddyx' ) ),
+				array( $this->url( 'docs', 'faq-support/' ), __( 'FAQ and Support', 'buddyx' ) ),
+			),
+			__( 'Learn', 'buddyx' )                  => array(
+				array( $this->url( 'film_community' ), __( 'Set up a community site in 5 minutes (3:46)', 'buddyx' ) ),
+				array( $this->url( 'film_live' ), __( 'Take your demo site live (2:38)', 'buddyx' ) ),
+				array( $this->url( 'films' ), __( 'All setup films (playlist)', 'buddyx' ) ),
+			),
+			__( 'Get help and give back', 'buddyx' ) => array(
+				array( $this->url( 'support' ), __( 'Contact support', 'buddyx' ) ),
+				array( $this->url( 'contact' ), __( 'Contact us', 'buddyx' ) ),
+				array( $this->url( 'group' ), __( 'Join the community group', 'buddyx' ) ),
+				array( $this->url( 'review' ), __( 'Leave a 5-star review', 'buddyx' ) ),
+			),
+			__( 'Downloads', 'buddyx' )              => array(
+				array( $this->url( 'child_theme' ), __( 'BuddyX child theme', 'buddyx' ) ),
+				array( $this->url( 'essential' ), __( 'Wbcom Essential', 'buddyx' ) ),
+				array( $this->url( 'demo_installer' ), __( 'Wbcom Demo Installer', 'buddyx' ) ),
+			),
+			__( 'Our site', 'buddyx' )               => array(
+				array( $this->url( 'wbcom' ), __( 'wbcomdesigns.com', 'buddyx' ) ),
+				array( $this->url( 'downloads' ), __( 'All Wbcom plugins and themes', 'buddyx' ) ),
+				array( $this->url( 'release_notes' ), __( 'Release notes', 'buddyx' ) ),
+			),
+		);
+		?>
+		<div class="buddyx-gs-groups">
+			<?php foreach ( $groups as $group => $links ) : ?>
+				<section class="buddyx-gs-group">
+					<h2 class="buddyx-gs-label"><?php echo esc_html( $group ); ?></h2>
+					<ul class="buddyx-gs-group-list">
+						<?php foreach ( $links as $group_link ) : ?>
+							<li><?php $this->link( $group_link[0], $group_link[1] ); ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</section>
+			<?php endforeach; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Renders the Getting Started page in the admin.
 	 *
 	 * @return void
 	 */
 	public function submenu_page_callback() {
+		$tabs = array(
+			'start'    => array( __( 'Start', 'buddyx' ), 'render_start' ),
+			'guide'    => array( __( 'Step by step', 'buddyx' ), 'render_guide' ),
+			'products' => array( __( 'Our products', 'buddyx' ), 'render_products' ),
+			'compare'  => array( __( 'Free vs Pro', 'buddyx' ), 'render_compare' ),
+			'links'    => array( __( 'Help and links', 'buddyx' ), 'render_links' ),
+		);
 		?>
-		<div class="buddyx-top-banner-wrapper">
-			<div class="buddyx-top-banner">
-				<span class="buddyx-banner-icon">
-					<svg width="26" height="26" xmlns="http://www.w3.org/2000/svg" class="buddyx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+		<div class="wrap buddyx-gs">
+			<div class="buddyx-gs-header">
+				<div class="buddyx-gs-header-text">
+					<h1 class="buddyx-gs-title"><?php esc_html_e( 'Welcome to BuddyX', 'buddyx' ); ?></h1>
+					<p><?php esc_html_e( 'Three steps to a finished site. Start with the one highlighted below.', 'buddyx' ); ?></p>
+				</div>
+				<span class="buddyx-gs-version">
+					<?php
+					/* translators: %s: theme version number. */
+					echo esc_html( sprintf( __( 'Version %s', 'buddyx' ), wp_get_theme( get_template() )->get( 'Version' ) ) );
+					?>
 				</span>
-				<div class="buddyx-banner-body">
-					<h1 class="buddyx-banner-title">
-						<?php esc_html_e( 'Welcome to BuddyX Theme', 'buddyx' ); ?>
-						<span class="buddyx-theme-version">
-							<?php esc_html_e( 'Version', 'buddyx' ); ?> <?php echo esc_html( wp_get_theme( get_template() )->get( 'Version' ) ); ?>
-						</span>
-					</h1>
-					<div class="buddyx-banner-description">
-						<p><?php esc_html_e( 'Thank you for choosing the BuddyX Theme! Below you will find information on how to set up the theme and start using it.', 'buddyx' ); ?></p>
+				<?php $this->link( $this->customize_url( '' ), __( 'Open Customizer', 'buddyx' ), false, '', 'buddyx-gs-button' ); ?>
+			</div>
+			<hr class="wp-header-end">
+			<div class="buddyx-dashboard-tabs">
+				<div class="tabs">
+					<div class="buddyx-gs-tabs" role="tablist" aria-label="<?php esc_attr_e( 'Getting Started sections', 'buddyx' ); ?>">
+						<?php foreach ( array_keys( $tabs ) as $i => $key ) : ?>
+							<button type="button" role="tab" id="buddyx-tab-<?php echo esc_attr( $key ); ?>" aria-controls="buddyx-panel-<?php echo esc_attr( $key ); ?>" aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>"><?php echo esc_html( $tabs[ $key ][0] ); ?></button>
+						<?php endforeach; ?>
 					</div>
-					<a class="buddyx-btn buddyx-btn-primary buddyx-banner-cta" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Open Customizer', 'buddyx' ); ?></a>
+					<?php foreach ( array_keys( $tabs ) as $i => $key ) : ?>
+						<div class="buddyx-gs-panel" role="tabpanel" tabindex="-1" id="buddyx-panel-<?php echo esc_attr( $key ); ?>" aria-labelledby="buddyx-tab-<?php echo esc_attr( $key ); ?>"<?php echo 0 === $i ? '' : ' hidden'; ?>>
+							<?php $this->{ $tabs[ $key ][1] }(); ?>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
-		<div class="wrap">
-			<div class="welcome-inner-wrap">
-				<div class="buddyx-dashboard-tabs">
-
-					<section class="content">
-						<div class="tabs">
-						<div role="tablist" aria-label="<?php esc_attr_e( 'Getting Started sections', 'buddyx' ); ?>">
-							<button role="tab" aria-selected="true" id="tab1"><?php esc_html_e( 'Dashboard', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab2"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></button>
-							<button role="tab" aria-selected="false" id="tab3"><?php esc_html_e( 'Community Addons', 'buddyx' ); ?></button>
-						</div>
-						<div role="tabpanel" aria-labelledby="<?php esc_attr_e( 'tab1', 'buddyx' ); ?>">
-							<div class="buddyx-tabs-content buddyx-dashboard-welcome-body">
-								<div class="buddyx-welcome-container">
-
-									<!-- Customizer Options -->
-									<div class="buddyx-welcome-column">
-									<h2 class="buddyx-tabs-title">
-										<?php esc_html_e( 'Customizer Settings', 'buddyx' ); ?>
-										<a class="section-header-link" target="_blank" href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Go to Customizer', 'buddyx' ); ?></a>
-									</h2>
-									<div class="buddyx-grid-box-wrap">
-										<?php
-										$buddyx_customizer_tiles = array(
-											array(
-												'icon' => '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
-												'name' => __( 'Upload Logo', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[control]=custom_logo&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ),
-											),
-											array(
-												'icon' => '<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>',
-												'name' => __( 'Set Colors', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[control]=body_background_color&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ),
-											),
-											array(
-												'icon' => '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
-												'name' => __( 'Site Layout', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[control]=site_layout&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ),
-											),
-											array(
-												'icon' => '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/>',
-												'name' => __( 'Set Typography', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[panel]=typography_panel&return=' . admin_url( 'admin.php?page=buddyx-options' ) ),
-											),
-											array(
-												'icon' => '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/>',
-												'name' => __( 'Header Layout', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[section]=site_header_section&return=' . admin_url( 'admin.php?page=buddyx-options' ) ),
-											),
-											array(
-												'icon' => '<rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/>',
-												'name' => __( 'Site Blog', 'buddyx' ),
-												'href' => admin_url( 'customize.php?autofocus[section]=site_blog_section&return=' . admin_url( 'admin.php?page=buddyx-welcome' ) ),
-											),
-										);
-
-										foreach ( $buddyx_customizer_tiles as $buddyx_customizer_tile ) :
-											?>
-											<a class="buddyx-box-item" href="<?php echo esc_url( $buddyx_customizer_tile['href'] ); ?>" target="_blank" rel="noopener">
-												<span class="buddyx-box-item-icon">
-													<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $buddyx_customizer_tile['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Icon markup curated inline above, not user input. ?></svg>
-												</span>
-												<h4 class="buddyx-box-item-name"><?php echo esc_html( $buddyx_customizer_tile['name'] ); ?></h4>
-												<span class="buddyx-box-item-chevron">
-													<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
-												</span>
-											</a>
-											<?php
-										endforeach;
-										?>
-									</div>
-									</div>
-
-									<!-- End Customizer Options -->
-
-									<!-- Documentation -->
-									<div class="buddyx-welcome-column">
-									<h2 class="buddyx-tabs-title">
-										<?php esc_html_e( 'Documentation', 'buddyx' ); ?>
-										<a class="section-header-link" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://buddyxtheme.com/docs/' ); ?>"><?php esc_html_e( 'Browse all documentation', 'buddyx' ); ?></a>
-									</h2>
-									<p class="buddyx-section-intro"><?php esc_html_e( 'Step-by-step guides for setting up, customizing, and extending your BuddyX site. Jump straight to a topic below.', 'buddyx' ); ?></p>
-									<div class="buddyx-grid-box-wrap">
-										<?php
-										$buddyx_docs_tiles = array(
-											array(
-												'icon' => '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
-												'name' => __( 'Getting Started', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/free/getting-started/',
-											),
-											array(
-												'icon' => '<line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/>',
-												'name' => __( 'Customizing', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/free/customizing/',
-											),
-											array(
-												'icon' => '<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>',
-												'name' => __( 'Skin & Colors', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/free/skin-colors/',
-											),
-											array(
-												'icon' => '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
-												'name' => __( 'Blocks & Patterns', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/free/blocks-and-patterns/',
-											),
-											array(
-												'icon' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
-												'name' => __( 'BuddyPress', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/buddypress/',
-											),
-											array(
-												'icon' => '<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>',
-												'name' => __( 'WooCommerce', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/woocommerce/',
-											),
-											array(
-												'icon' => '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
-												'name' => __( 'Developer', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/free/developer/',
-											),
-											array(
-												'icon' => '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/>',
-												'name' => __( 'FAQ & Support', 'buddyx' ),
-												'href' => 'https://buddyxtheme.com/docs/faq-support/',
-											),
-										);
-
-										foreach ( $buddyx_docs_tiles as $buddyx_docs_tile ) :
-											?>
-											<a class="buddyx-box-item" href="<?php echo esc_url( $buddyx_docs_tile['href'] ); ?>" target="_blank" rel="noopener">
-												<span class="buddyx-box-item-icon">
-													<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $buddyx_docs_tile['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Icon markup curated inline above, not user input. ?></svg>
-												</span>
-												<h4 class="buddyx-box-item-name"><?php echo esc_html( $buddyx_docs_tile['name'] ); ?></h4>
-												<span class="buddyx-box-item-chevron">
-													<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
-												</span>
-											</a>
-											<?php
-										endforeach;
-										?>
-									</div>
-									</div>
-									<!-- End Documentation -->
-
-									<!-- Wbcom Essential (free blocks + patterns companion) -->
-									<div class="buddyx-welcome-column buddyx-essential-hero">
-										<span class="buddyx-essential-icon">
-											<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
-										</span>
-										<div class="buddyx-essential-body">
-											<span class="buddyx-bundle-badge"><?php esc_html_e( 'Free companion plugin', 'buddyx' ); ?></span>
-											<h2 class="buddyx-tabs-title"><?php esc_html_e( 'Wbcom Essential', 'buddyx' ); ?></h2>
-											<p class="buddyx-bundle-tagline"><?php esc_html_e( 'Ready-to-use blocks and patterns that inherit your BuddyX colors automatically. Build landing pages and community layouts fast, no page builder required.', 'buddyx' ); ?></p>
-											<ul class="buddyx-essential-stats">
-												<li><strong>32</strong> <?php esc_html_e( 'Gutenberg blocks', 'buddyx' ); ?></li>
-												<li><strong>43</strong> <?php esc_html_e( 'Elementor widgets', 'buddyx' ); ?></li>
-												<li><strong>5</strong> <?php esc_html_e( 'BuddyPress blocks', 'buddyx' ); ?></li>
-												<li><?php esc_html_e( 'Blocks inherit your theme colors', 'buddyx' ); ?></li>
-											</ul>
-											<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/wbcom-essential/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme&utm_content=wbcom-essential' ); ?>"><?php esc_html_e( 'Get Wbcom Essential', 'buddyx' ); ?></a>
-										</div>
-									</div>
-
-									<!-- Wbcom Community Family (bundled plugins) -->
-									<div class="buddyx-welcome-column buddyx-family-section">
-										<h2 class="buddyx-tabs-title">
-											<?php esc_html_e( 'Part of the Wbcom Community Family', 'buddyx' ); ?>
-											<a class="section-header-link" target="_blank" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme&utm_content=explore-all' ); ?>"><?php esc_html_e( 'Explore all', 'buddyx' ); ?></a>
-										</h2>
-										<p class="buddyx-family-intro"><?php esc_html_e( 'Social, gamification, discussions, courses, messaging, listings, and jobs. Every plugin works on its own, and the family keeps growing.', 'buddyx' ); ?></p>
-										<div class="buddyx-family-grid">
-											<?php
-											$buddyx_family_plugins = array(
-												array(
-													'slug' => 'buddynext', // Flagship - dedicated site, not one-click installable.
-													'logo' => 'buddynext.svg',
-													'name' => __( 'BuddyNext', 'buddyx' ),
-													'desc' => __( 'A modern, faster alternative to BuddyPress and BuddyBoss - profiles, activity feeds, Spaces, and messaging.', 'buddyx' ),
-													'href' => 'https://buddynext.com/',
-													'demo' => 'https://buddyxtheme.com/demos/',
-												),
-												array(
-													'slug' => 'wb-gamification',
-													'logo' => 'wb-gamification.svg',
-													'name' => __( 'WB Gamification', 'buddyx' ),
-													'desc' => __( 'Points, badges, levels, and leaderboards for any activity on your site.', 'buddyx' ),
-													'href' => 'https://wbcomdesigns.com/downloads/wordpress-gamification-plugin/',
-												),
-												array(
-													'slug' => 'jetonomy',
-													'logo' => 'jetonomy.svg',
-													'name' => __( 'Jetonomy', 'buddyx' ),
-													'desc' => __( 'Structured discussions: forums, threaded Q&A, an ideas roadmap, and polls.', 'buddyx' ),
-													'href' => 'https://jetonomy.org/',
-												),
-												array(
-													'slug' => 'learnomy',
-													'logo' => 'learnomy.svg',
-													'name' => __( 'Learnomy', 'buddyx' ),
-													'desc' => __( 'A full LMS: courses, lessons, quizzes, certificates, and paid enrollments.', 'buddyx' ),
-													'href' => 'https://learnomy.app/',
-												),
-												array(
-													'slug' => 'wpmediaverse',
-													'logo' => 'wpmediaverse.svg',
-													'name' => __( 'MediaVerse', 'buddyx' ),
-													'desc' => __( 'Media albums and galleries for your members.', 'buddyx' ),
-													'href' => 'https://store.wbcomdesigns.com/wpmediaverse/',
-												),
-												array(
-													'slug' => 'eventonomy',
-													'logo' => 'eventonomy.svg',
-													'name' => __( 'Eventonomy', 'buddyx' ),
-													'desc' => __( 'An events platform: RSVPs, paid ticketing, venues, and QR check-in.', 'buddyx' ),
-													'href' => 'https://eventonomy.org/',
-												),
-												array(
-													'slug' => 'wp-career-board',
-													'logo' => 'wp-career-board.svg',
-													'name' => __( 'WP Career Board', 'buddyx' ),
-													'desc' => __( 'A job board: listings, company profiles, resumes, and applications.', 'buddyx' ),
-													'href' => 'https://wpcareerboard.com/',
-												),
-												array(
-													'slug' => 'wp-sell-services',
-													'logo' => 'wp-sell-services.svg',
-													'name' => __( 'WP Sell Services', 'buddyx' ),
-													'desc' => __( 'A freelance services marketplace: vendor storefronts, orders, and payouts.', 'buddyx' ),
-													'href' => 'https://wpsellservices.com/',
-												),
-												array(
-													'slug' => 'wb-listora',
-													'logo' => 'wb-listora.svg',
-													'name' => __( 'Listora', 'buddyx' ),
-													'desc' => __( 'A directory: member listings, claims, reviews, and monetization.', 'buddyx' ),
-													'href' => 'https://listora.org/',
-												),
-											);
-
-											/*
-											 * BuddyX is distributed on WordPress.org, so this screen may not
-											 * install anything. Themes hosted there cannot download plugin
-											 * packages from a third-party server, and they certainly cannot
-											 * ship a distribution licence key to authorize it. Every card here
-											 * is a LINK to the plugin's page - the owner installs it however
-											 * they choose. The one-click installer lives in BuddyX Pro, which
-											 * is self-hosted and may do this.
-											 */
-											foreach ( $buddyx_family_plugins as $buddyx_family_plugin ) :
-												$buddyx_family_plugin_status    = $this->family_status( $buddyx_family_plugin );
-												$buddyx_family_plugin_is_active = ( 'active' === $buddyx_family_plugin_status );
-												$buddyx_family_plugin_base_url  = $buddyx_family_plugin['href'];
-												// Minimal UTM so we can see which welcome-screen card drove the visit.
-												$buddyx_family_utm         = array(
-													'utm_source'   => 'buddyx',
-													'utm_medium'   => 'welcome',
-													'utm_campaign' => 'buddyx-theme',
-													'utm_content'  => sanitize_title( $buddyx_family_plugin['name'] ),
-												);
-												$buddyx_family_plugin_url  = add_query_arg( $buddyx_family_utm, $buddyx_family_plugin_base_url );
-												$buddyx_family_plugin_demo = ! empty( $buddyx_family_plugin['demo'] )
-													? add_query_arg(
-														array_merge(
-															$buddyx_family_utm,
-															array( 'utm_content' => sanitize_title( $buddyx_family_plugin['name'] ) . '-demo' )
-														),
-														$buddyx_family_plugin['demo']
-													)
-													: '';
-												?>
-												<div class="buddyx-family-card<?php echo $buddyx_family_plugin_is_active ? ' is-active' : ''; ?>">
-													<span class="buddyx-family-card-logo">
-														<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/companions/' . $buddyx_family_plugin['logo'] ); ?>" width="40" height="40" alt="" />
-													</span>
-													<div class="buddyx-family-card-body">
-														<div class="buddyx-family-card-head">
-															<h4 class="buddyx-family-card-name"><?php echo esc_html( $buddyx_family_plugin['name'] ); ?></h4>
-															<?php if ( $buddyx_family_plugin_is_active ) : ?>
-																<span class="buddyx-family-card-pill buddyx-family-card-pill--active"><?php esc_html_e( 'Active', 'buddyx' ); ?></span>
-															<?php endif; ?>
-														</div>
-														<p class="buddyx-family-card-desc"><?php echo esc_html( $buddyx_family_plugin['desc'] ); ?></p>
-														<?php if ( ! $buddyx_family_plugin_is_active ) : ?>
-															<div class="buddyx-family-card-links">
-																<a class="buddyx-family-card-link" target="_blank" rel="noopener" href="<?php echo esc_url( $buddyx_family_plugin_url ); ?>">
-																	<?php esc_html_e( 'View plugin', 'buddyx' ); ?>
-																	<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"></path></svg>
-																</a>
-																<?php if ( $buddyx_family_plugin_demo ) : ?>
-																	<a class="buddyx-family-card-link buddyx-family-card-link--demo" target="_blank" rel="noopener" href="<?php echo esc_url( $buddyx_family_plugin_demo ); ?>">
-																		<?php esc_html_e( 'Live demo', 'buddyx' ); ?>
-																		<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
-																	</a>
-																<?php endif; ?>
-															</div>
-														<?php endif; ?>
-													</div>
-												</div>
-												<?php
-											endforeach;
-											?>
-										</div>
-									</div>
-									<!-- End Wbcom Community Family -->
-
-									<div class="buddyx-pro-row">
-										<div class="buddyx-welcome-column buddyx-pro-section child-theme-section">
-											<span class="buddyx-box-item-icon">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-icon.png' ); ?>" alt="<?php esc_attr_e( 'BuddyX Child Theme', 'buddyx' ); ?>">
-											</span>
-											<div class="buddyx-pro-theme-info">
-												<h2 class="buddyx-tabs-title">
-													<?php esc_html_e( 'BuddyX Child Theme', 'buddyx' ); ?>
-												</h2>
-												<p><?php esc_html_e( 'A child theme helps preserve customizations when the parent theme is updated, ensuring design consistency and security.', 'buddyx' ); ?></p>
-												<a class="buddyx-box-item-link" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://github.com/wbcomdesigns/buddyx-child/releases/download/v1.0.0/buddyx-child.zip' ); ?>"><?php esc_html_e( 'Download Now', 'buddyx' ); ?></a>
-											</div>
-										</div>
-
-										<div class="buddyx-welcome-column buddyx-pro-section">
-											<span class="buddyx-box-item-icon">
-												<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-icon.png' ); ?>" alt="<?php esc_attr_e( 'BuddyX Pro', 'buddyx' ); ?>">
-											</span>
-											<div class="buddyx-pro-theme-info">
-												<h2 class="buddyx-tabs-title">
-													<?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?>
-												</h2>
-												<p><?php esc_html_e( '#1 WordPress Social Network and Community Theme Powered by BuddyPress or BuddyBoss Platform.', 'buddyx' ); ?></p>
-												<a class="buddyx-box-item-link" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/' ); ?>" target="_blank"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></a>
-											</div>
-										</div>
-									</div>
-
-							</div>
-
-							<!-- Welcome Page Sidebar -->
-							<div class="buddyx-theme-sidebar">
-								<div class="list-section-wrap-widgets">
-									<h3><?php esc_html_e( 'Resources & Support', 'buddyx' ); ?></h3>
-									<div class="buddyx-sidebar-list">
-										<?php
-										$buddyx_sidebar_links = array(
-											array(
-												'icon'   => '<path d="M20 22H4C3.44772 22 3 21.5523 3 21V3C3 2.44772 3.44772 2 4 2H20C20.5523 2 21 2.44772 21 3V21C21 21.5523 20.5523 22 20 22ZM19 20V4H5V20H19ZM7 6H11V10H7V6ZM7 12H17V14H7V12ZM7 16H17V18H7V16ZM13 7H17V9H13V7Z"></path>',
-												'name'   => __( 'Document', 'buddyx' ),
-												'teaser' => __( 'Full docs to help you set up the theme.', 'buddyx' ),
-												'href'   => 'https://buddyxtheme.com/docs/',
-											),
-											array(
-												'icon'   => '<path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>',
-												'name'   => __( 'Community', 'buddyx' ),
-												'teaser' => __( 'Share your site and get help in our Facebook group.', 'buddyx' ),
-												'href'   => 'https://www.facebook.com/groups/191523257634994',
-											),
-											array(
-												'icon'   => '<path d="M3 3.9934C3 3.44476 3.44495 3 3.9934 3H20.0066C20.5552 3 21 3.44495 21 3.9934V20.0066C21 20.5552 20.5551 21 20.0066 21H3.9934C3.44476 21 3 20.5551 3 20.0066V3.9934ZM5 5V19H19V5H5ZM10.6219 8.41459L15.5008 11.6672C15.6846 11.7897 15.7343 12.0381 15.6117 12.2219C15.5824 12.2658 15.5447 12.3035 15.5008 12.3328L10.6219 15.5854C10.4381 15.708 10.1897 15.6583 10.0672 15.4745C10.0234 15.4088 10 15.3316 10 15.2526V8.74741C10 8.52649 10.1791 8.34741 10.4 8.34741C10.479 8.34741 10.5562 8.37078 10.6219 8.41459Z"></path>',
-												'name'   => __( 'Videos', 'buddyx' ),
-												'teaser' => __( 'Bite-sized tutorials for every step of setup.', 'buddyx' ),
-												'href'   => 'https://www.youtube.com/playlist?list=PLlkJGdi68l-_vW61BtksEfeXVUNYeMnLd',
-											),
-											array(
-												'icon'   => '<path d="M6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455ZM5.76282 17H20V5H4V18.3851L5.76282 17ZM8 10H16V12H8V10Z"></path>',
-												'name'   => __( 'Support', 'buddyx' ),
-												'teaser' => __( 'Get in touch with our support team.', 'buddyx' ),
-												'href'   => 'https://wbcomdesigns.com/support',
-											),
-											array(
-												'icon'   => '<path d="M6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455ZM4 18.3851L5.76282 17H20V5H4V18.3851ZM11 13H13V15H11V13ZM11 7H13V12H11V7Z"></path>',
-												'name'   => __( 'Give us feedback', 'buddyx' ),
-												'teaser' => __( 'Leave a 5-star review if BuddyX helped you.', 'buddyx' ),
-												'href'   => 'https://wordpress.org/support/theme/buddyx/reviews/?rate=5#new-post',
-											),
-										);
-
-										foreach ( $buddyx_sidebar_links as $buddyx_sidebar_link ) :
-											?>
-											<a class="buddyx-sidebar-row" href="<?php echo esc_url( $buddyx_sidebar_link['href'] ); ?>" target="_blank" rel="noopener">
-												<span class="buddyx-sidebar-icon">
-													<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><?php echo $buddyx_sidebar_link['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Icon markup curated inline above, not user input. ?></svg>
-												</span>
-												<span class="buddyx-sidebar-row-text">
-													<strong><?php echo esc_html( $buddyx_sidebar_link['name'] ); ?></strong>
-													<span><?php echo esc_html( $buddyx_sidebar_link['teaser'] ); ?></span>
-												</span>
-												<span class="buddyx-sidebar-row-chevron">
-													<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
-												</span>
-											</a>
-											<?php
-										endforeach;
-										?>
-									</div>
-								</div>
-
-							</div>
-
-							</div><!-- .buddyx-dashboard-body -->
-						</div><!-- .tab1 -->
-
-						<div role="tabpanel" class="get-pro-buddyx-theme" aria-labelledby="<?php esc_attr_e( 'tab2', 'buddyx' ); ?>" hidden>
-							<div class="buddyx-tabs-content">
-
-							<div class="buddyx-bundle-hero">
-								<div class="buddyx-bundle-hero-icon">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buddyx-pro.png' ); ?>" alt="<?php esc_attr_e( 'BuddyX Pro Theme', 'buddyx' ); ?>">
-								</div>
-								<div class="buddyx-bundle-hero-body">
-									<span class="buddyx-bundle-badge"><?php esc_html_e( '#1 WordPress community theme', 'buddyx' ); ?></span>
-									<h2 class="buddyx-tabs-title"><?php esc_html_e( 'Get BuddyX Pro Theme', 'buddyx' ); ?></h2>
-									<p class="buddyx-bundle-tagline"><?php esc_html_e( 'The #1 WordPress social network and community theme, powered by BuddyPress or BuddyBoss Platform. Everything in BuddyX, plus the customizer settings, layouts, and integrations compared below.', 'buddyx' ); ?></p>
-									<a class="buddyx-btn buddyx-btn-primary" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddyx-pro-theme/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Get BuddyX Pro', 'buddyx' ); ?></a>
-								</div>
-							</div>
-
-							<div class="buddyx-welcome-column buddyx-pro-highlights-column">
-								<h2 class="buddyx-tabs-title"><?php esc_html_e( 'Why upgrade to BuddyX Pro', 'buddyx' ); ?></h2>
-								<p class="buddyx-family-intro"><?php esc_html_e( 'BuddyX covers the essentials. Pro adds the controls that make a community site feel finished.', 'buddyx' ); ?></p>
-								<div class="buddyx-pro-highlights">
-								<?php
-								$buddyx_pro_highlights = array(
-									array(
-										'icon'  => '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path>',
-										'title' => __( 'Advanced header builder', 'buddyx' ),
-										'desc'  => __( 'Top bar, sticky header, multiple header layouts, a mega More menu, and menu effects.', 'buddyx' ),
-									),
-									array(
-										'icon'  => '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" x2="3" y1="12" y2="12"></line>',
-										'title' => __( 'Branded login pages', 'buddyx' ),
-										'desc'  => __( 'Theme the WordPress login: custom login and forgot forms, buttons, and login skins.', 'buddyx' ),
-									),
-									array(
-										'icon'  => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
-										'title' => __( 'Full BuddyPress control', 'buddyx' ),
-										'desc'  => __( 'Activity share and reactions, plus complete member and group directory, header, and navigation layouts.', 'buddyx' ),
-									),
-									array(
-										'icon'  => '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path>',
-										'title' => __( 'WooCommerce shop styling', 'buddyx' ),
-										'desc'  => __( 'Product listing styles, products per page, a filter button, and sale-badge styles.', 'buddyx' ),
-									),
-								);
-								foreach ( $buddyx_pro_highlights as $buddyx_pro_highlight ) :
-									?>
-								<div class="buddyx-highlight-card">
-									<span class="buddyx-family-card-logo">
-										<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $buddyx_pro_highlight['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Curated inline icon markup, not user input. ?></svg>
-									</span>
-									<h4 class="buddyx-family-card-name"><?php echo esc_html( $buddyx_pro_highlight['title'] ); ?></h4>
-									<p class="buddyx-family-card-desc"><?php echo esc_html( $buddyx_pro_highlight['desc'] ); ?></p>
-								</div>
-									<?php
-								endforeach;
-								?>
-								</div>
-							</div>
-
-							<div class="buddyx-welcome-column buddyx-features-column">
-								<h2 class="buddyx-tabs-title"><?php esc_html_e( 'Compare Features Of BuddyX With BuddyX Pro', 'buddyx' ); ?></h2>
-								<p class="buddyx-family-intro"><?php esc_html_e( 'Take your time and compare every feature.', 'buddyx' ); ?></p>
-
-								<div class="buddyx-row features">
-									<div class="buddyx-features-table-wrap">
-										<div class="buddyx-features-table-inner">
-										<table class="buddyx-features-table">
-											<thead>
-												<tr>
-													<th><h3><?php esc_html_e( 'Features', 'buddyx' ); ?></h3></th>
-													<th><h3><?php esc_html_e( 'BuddyX', 'buddyx' ); ?></h3></th>
-													<th><h3><?php esc_html_e( 'BuddyX Pro', 'buddyx' ); ?></h3></th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Layout', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Layout', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Content Layout Width', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Sidebar Width', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Global Border Radius', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Buttons Border Radius', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Form Border Radius', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Page Mapping', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Sign-in Popup | Register Form Fields', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Scroll Top', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Loader', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Loading Text', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Typography', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Title Settings', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Headings', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Menu', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Body', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Google Fonts', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Font Size (PX/EM)', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Text Transform', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Line Height', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></span></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Letter Spacing', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Header', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Top Bar', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Sticky Header', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Header Layout', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Header Menu Position', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Menu Effects', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'More Menu', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Search Style', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Login/Register Button Style', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></span></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Background Color', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Search', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Site Cart', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'BuddyPress Components', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Sub Header', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Customize Background', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Content Typography', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Breadcrumbs', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Skin Colors', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Dark Mode', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Custom Colors', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Body Background Color', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Theme Color', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Link Color', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Primary Header', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Side Panel', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Button Background Color / Hover', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Button Text Color / Hover', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Button Border Color / Hover', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Blog', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'List Layout', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Grid Layout', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Masonry Layout', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Blog Layout Style', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Post Per Row', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Sidebar', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'No Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Left Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Right Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Both Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'BuddyPress Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'WooCommerce Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'bbPress Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'LearnDash Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Sticky Sidebar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'WP Login', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Customize Your Logo Section', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Choose WP Login Theme', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Customize Login Form', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Customize Forget Form', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Customize Button', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Site Footer', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Footer Section', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Copyright Section', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Activity Control', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'BuddyPress Activity Share', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Activity Reaction', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Activity Load More', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Members Multiple Directory Layout', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Members Default Cover Background', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Groups Multiple Directory View', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Group Default Cover Background', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Member Multiple Header Layout', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Member Primary Navigation Layout', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Group Multiple Header Layout', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Group Primary Navigation Style', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'WooCommerce', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Product Listing Style', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Shop Products Per Page', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Display Filter Button', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Sale Badge Style', 'buddyx' ); ?></td>
-													<td><span class="icon-close"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td class="buddyx-main-feature"><?php esc_html_e( 'Integrations', 'buddyx' ); ?></td>
-													<td class="buddyx-main-feature"></td>
-													<td class="buddyx-main-feature"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'BuddyPress', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'BuddyBoss Platform', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'WooCommerce', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'LearnDash', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'LearnPress', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'LifterLMS', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'TutorLMS', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'bbPress', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Dokan', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'WC Vendors', 'buddyx' ); ?></td>
-													<td class="bx-limited" style="text-align: center"><?php esc_html_e( 'Limited', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'GamiPress', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'Paid Memberships', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-												<tr>
-													<td><?php esc_html_e( 'The Event Calendar', 'buddyx' ); ?></td>
-													<td><span class="icon-check"></td>
-													<td><span class="icon-check"></td>
-												</tr>
-											</tbody>
-										</table>
-									</div><!-- .buddyx-features-table-inner -->
-								</div><!-- .buddyx-features-table-wrap -->
-							</div><!-- .features -->
-							</div><!-- .buddyx-features-column -->
-							</div><!-- .buddyx-tabs-content -->
-						</div><!-- .tab2 -->
-
-						<div role="tabpanel" class="bp-plugin-addons" aria-labelledby="<?php esc_attr_e( 'tab3', 'buddyx' ); ?>" hidden>
-							<div class="buddyx-tabs-content buddyx-addon-body">
-
-								<div class="buddyx-bundle-hero">
-									<div class="buddyx-bundle-hero-icon">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/recommended-plugins.png' ); ?>" alt="<?php esc_attr_e( 'BuddyPress Community Bundle', 'buddyx' ); ?>">
-									</div>
-									<div class="buddyx-bundle-hero-body">
-										<span class="buddyx-bundle-badge"><?php esc_html_e( '26 premium plugins - one bundle', 'buddyx' ); ?></span>
-										<h2 class="buddyx-tabs-title"><?php esc_html_e( 'BuddyPress Community Bundle', 'buddyx' ); ?></h2>
-										<p class="buddyx-bundle-tagline"><?php esc_html_e( 'Instead of buying add-ons one by one, get every premium BuddyPress plugin we make in a single bundle - moderation at scale, richer member profiles, better activity feeds, privacy controls and more. One purchase, all future updates.', 'buddyx' ); ?></p>
-										<a class="buddyx-btn buddyx-btn-primary" target="_blank" rel="noopener" href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-community-bundle/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>"><?php esc_html_e( 'Get the Community Bundle', 'buddyx' ); ?></a>
-									</div>
-								</div>
-
-								<div class="buddyx-bundle-highlights">
-									<h3 class="buddyx-bundle-highlights-title"><?php esc_html_e( "What's inside the bundle", 'buddyx' ); ?></h3>
-									<div class="buddyx-family-grid">
-									<?php
-									$buddyx_bundle_plugins = array(
-										array(
-											'name' => __( 'BuddyPress Moderation Pro', 'buddyx' ),
-											'slug' => 'buddypress-moderation-pro',
-											'desc' => __( 'Member-led reports, queues, automated warnings, and soft bans.', 'buddyx' ),
-											'icon' => '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Profanity', 'buddyx' ),
-											'slug' => 'buddypress-profanity',
-											'desc' => __( 'Auto-blurs flagged words and flags them for admin review.', 'buddyx' ),
-											'icon' => '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" x2="22" y1="2" y2="22"></line>',
-										),
-										array(
-											'name' => __( 'BuddyPress Auto Friends', 'buddyx' ),
-											'slug' => 'buddypress-auto-friends',
-											'desc' => __( 'New members auto-connect with role-matched community members.', 'buddyx' ),
-											'icon' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line>',
-										),
-										array(
-											'name' => __( 'BuddyPress Profile Pro', 'buddyx' ),
-											'slug' => 'buddypress-profile-pro',
-											'desc' => __( 'Custom fields rendered as profile tabs and groups.', 'buddyx' ),
-											'icon' => '<rect width="18" height="18" x="3" y="3" rx="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Business Profile', 'buddyx' ),
-											'slug' => 'buddypress-business-profile',
-											'desc' => __( 'Turn member profiles into business-card layouts with CTAs.', 'buddyx' ),
-											'icon' => '<rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Statistics', 'buddyx' ),
-											'slug' => 'buddypress-statistics',
-											'desc' => __( 'Posts, followers, engagement, and growth on every profile.', 'buddyx' ),
-											'icon' => '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline>',
-										),
-										array(
-											'name' => __( 'BuddyPress Member Blog Pro', 'buddyx' ),
-											'slug' => 'buddypress-member-blog-pro',
-											'desc' => __( 'Every member gets their own blog area inside the community.', 'buddyx' ),
-											'icon' => '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path>',
-										),
-										array(
-											'name' => __( 'Who Viewed My Profile', 'buddyx' ),
-											'slug' => 'who-viewed-my-profile-buddypress',
-											'desc' => __( 'Visitor list with timestamps to bring members back.', 'buddyx' ),
-											'icon' => '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle>',
-										),
-										array(
-											'name' => __( 'BuddyPress Hashtags', 'buddyx' ),
-											'slug' => 'buddypress-hashtags',
-											'desc' => __( 'Activity posts link to a trending tag page indexable by Google.', 'buddyx' ),
-											'icon' => '<line x1="4" x2="20" y1="9" y2="9"></line><line x1="4" x2="20" y1="15" y2="15"></line><line x1="10" x2="8" y1="3" y2="21"></line><line x1="16" x2="14" y1="3" y2="21"></line>',
-										),
-										array(
-											'name' => __( 'BuddyPress Schedule Activity', 'buddyx' ),
-											'slug' => 'buddypress-schedule-activity',
-											'desc' => __( 'Compose posts with a future publish date and time.', 'buddyx' ),
-											'icon' => '<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>',
-										),
-										array(
-											'name' => __( 'BuddyPress Edit Activity', 'buddyx' ),
-											'slug' => 'buddypress-edit-activity',
-											'desc' => __( 'Inline edit and delete for member posts after publishing.', 'buddyx' ),
-											'icon' => '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Newsfeed', 'buddyx' ),
-											'slug' => 'buddypress-newsfeed',
-											'desc' => __( 'Weekly email digest of the best activity each member missed.', 'buddyx' ),
-											'icon' => '<rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Quotes', 'buddyx' ),
-											'slug' => 'buddypress-quotes',
-											'desc' => __( 'Quote-block activity format with attribution and source link.', 'buddyx' ),
-											'icon' => '<path d="M17 6H3"></path><path d="M21 12H8"></path><path d="M21 18H8"></path><path d="M3 12v6"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Sticky Post', 'buddyx' ),
-											'slug' => 'buddypress-sticky-post',
-											'desc' => __( 'Pin announcements above the feed for every member.', 'buddyx' ),
-											'icon' => '<path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Status', 'buddyx' ),
-											'slug' => 'buddypress-status',
-											'desc' => __( 'Member status pills, like Slack presence for communities.', 'buddyx' ),
-											'icon' => '<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle>',
-										),
-										array(
-											'name' => __( 'BuddyPress Giphy', 'buddyx' ),
-											'slug' => 'buddypress-giphy',
-											'desc' => __( 'Embed GIFs in activity posts from the Giphy library.', 'buddyx' ),
-											'icon' => '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Anonymous Activity', 'buddyx' ),
-											'slug' => 'buddypress-anonymous-activity',
-											'desc' => __( 'Members post anonymously when surfacing sensitive topics.', 'buddyx' ),
-											'icon' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="17" x2="22" y1="8" y2="13"></line><line x1="22" x2="17" y1="8" y2="13"></line>',
-										),
-										array(
-											'name' => __( 'BuddyPress Friend and Follow Suggestion', 'buddyx' ),
-											'slug' => 'buddypress-friend-follow-suggestion',
-											'desc' => __( 'Sidebar widget suggesting members to connect with.', 'buddyx' ),
-											'icon' => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Check-ins Pro', 'buddyx' ),
-											'slug' => 'buddypress-check-ins-pro',
-											'desc' => __( 'Member check-ins with map view and activity stream.', 'buddyx' ),
-											'icon' => '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle>',
-										),
-										array(
-											'name' => __( 'BuddyPress Private Community Pro', 'buddyx' ),
-											'slug' => 'buddypress-private-community-pro',
-											'desc' => __( 'Site-wide or per-area members-only access control.', 'buddyx' ),
-											'icon' => '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path>',
-										),
-										array(
-											'name' => __( 'Advanced Username Manager', 'buddyx' ),
-											'slug' => 'advanced-username-manager',
-											'desc' => __( 'Bulk rename usernames and reserve sensitive words.', 'buddyx' ),
-											'icon' => '<circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path>',
-										),
-										array(
-											'name' => __( 'Restrict Email Domain for WordPress', 'buddyx' ),
-											'slug' => 'restrict-email-domain-wordpress',
-											'desc' => __( 'Limit signups to specific email domains.', 'buddyx' ),
-											'icon' => '<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="m16 19 2 2 4-4"></path>',
-										),
-										array(
-											'name' => __( 'BuddyPress Polls', 'buddyx' ),
-											'slug' => 'buddypress-polls',
-											'desc' => __( 'Inline polls in the activity feed with live vote counts.', 'buddyx' ),
-											'icon' => '<path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path>',
-										),
-										array(
-											'name' => __( 'WP Stories', 'buddyx' ),
-											'slug' => 'wp-stories',
-											'desc' => __( 'Instagram-style story rings above the feed for daily moments.', 'buddyx' ),
-											'icon' => '<circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon>',
-										),
-										array(
-											'name' => __( 'Shortcodes for BuddyPress Pro', 'buddyx' ),
-											'slug' => 'shortcodes-for-buddypress-pro',
-											'desc' => __( 'Surface members, groups, and activity on any page or builder.', 'buddyx' ),
-											'icon' => '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>',
-										),
-										array(
-											'name' => __( 'BuddyVendor', 'buddyx' ),
-											'slug' => 'buddyvendor',
-											'desc' => __( 'Member commerce: each profile gets a Shop tab with products.', 'buddyx' ),
-											'icon' => '<path d="M2 7h20"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="m2 7 3-5h14l3 5"></path><path d="M12 22V12"></path>',
-										),
-									);
-									foreach ( $buddyx_bundle_plugins as $buddyx_bundle_plugin ) :
-										$buddyx_bundle_plugin_url = add_query_arg(
-											array(
-												'utm_source'   => 'buddyx',
-												'utm_medium'   => 'welcome',
-												'utm_campaign' => 'buddyx-theme',
-												'utm_content'  => sanitize_title( $buddyx_bundle_plugin['name'] ),
-											),
-											'https://wbcomdesigns.com/downloads/' . $buddyx_bundle_plugin['slug'] . '/'
-										);
-										?>
-										<div class="buddyx-family-card">
-											<span class="buddyx-family-card-logo">
-												<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $buddyx_bundle_plugin['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Curated inline icon markup, not user input. ?></svg>
-											</span>
-											<div class="buddyx-family-card-body">
-												<div class="buddyx-family-card-head">
-													<h4 class="buddyx-family-card-name"><?php echo esc_html( $buddyx_bundle_plugin['name'] ); ?></h4>
-												</div>
-												<p class="buddyx-family-card-desc"><?php echo esc_html( $buddyx_bundle_plugin['desc'] ); ?></p>
-												<div class="buddyx-family-card-links">
-													<a class="buddyx-family-card-link" target="_blank" rel="noopener" href="<?php echo esc_url( $buddyx_bundle_plugin_url ); ?>">
-														<?php esc_html_e( 'View plugin', 'buddyx' ); ?>
-														<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"></path></svg>
-													</a>
-												</div>
-											</div>
-										</div>
-									<?php endforeach; ?>
-									</div>
-									<p class="buddyx-bundle-foot">
-										<?php esc_html_e( 'Every add-on above is included in the bundle and kept up to date.', 'buddyx' ); ?>
-										<a href="<?php echo esc_url( 'https://wbcomdesigns.com/downloads/buddypress-community-bundle/?utm_source=buddyx&utm_medium=welcome&utm_campaign=buddyx-theme' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'See everything in the bundle', 'buddyx' ); ?></a>
-									</p>
-								</div>
-							</div><!-- .buddyx-addon-body -->
-						</div><!-- .tab3 -->
-					</section>
-
-				</div><!-- .buddyx-dashboard-tabs -->
-			</div><!-- .welcome-inner-wrap -->
-		</div><!-- .wrap -->
-
 		<?php
 	}
 }

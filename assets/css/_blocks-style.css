@@ -49,6 +49,17 @@
     background-color: var(--button-background-hover-color);
     border-color: var(--button-border-hover-color);
 }
+
+/* Core's Outline style: no fill, border and text in the current colour, unless the block sets its own. */
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-background) {
+    background-color: transparent;
+    background-image: none;
+    border-color: currentcolor;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
+    color: currentcolor;
+}
 /* Block style variations — premium pattern library (Task 5) */
 .wp-block-button.is-style-outline-accent .wp-block-button__link {
 	background: transparent;

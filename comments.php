@@ -31,7 +31,8 @@ buddyx()->print_styles( 'buddyx-comments' );
 		?>
 		<h2 class="comments-title">
 			<?php
-			$comment_count = get_comments_number();
+			// get_comments_number() returns the stored count as a numeric string.
+			$comment_count = (int) get_comments_number();
 			if ( 1 === $comment_count ) {
 				printf(
 					/* translators: 1: title. */
@@ -49,7 +50,13 @@ buddyx()->print_styles( 'buddyx-comments' );
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
+		<?php
+		the_comments_navigation(
+			array(
+				'aria_label' => esc_html__( 'Comments navigation, above the list', 'buddyx' ),
+			)
+		);
+		?>
 
 		<?php buddyx()->the_comments(); ?>
 

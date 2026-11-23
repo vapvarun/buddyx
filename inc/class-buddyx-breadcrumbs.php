@@ -5,6 +5,8 @@
  * @package buddyx
  */
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 /**
  * Build list of attributes into a string and apply contextual filter on string.
  *
@@ -670,6 +672,12 @@ class BuddyX_Breadcrumbs {
 		$post    = get_queried_object();
 		$post_id = get_queried_object_id();
 
+		if ( $this->add_learndash_step_items( $post ) ) {
+			// LearnDash steps: the trail is Courses > Course > Lesson, added above.
+			$this->add_post_terms_and_title( $post, $post_id );
+			return;
+		}
+
 		// If the post has a parent, follow the parent trail.
 		if ( 0 < $post->post_parent ) {
 			$this->add_post_parents( $post->post_parent );
@@ -677,6 +685,18 @@ class BuddyX_Breadcrumbs {
 			// If the post doesn't have a parent, get its hierarchy based off the post type.
 			$this->add_post_hierarchy( $post_id );
 		}
+
+		$this->add_post_terms_and_title( $post, $post_id );
+	}
+
+	/**
+	 * Adds the taxonomy terms (if requested) and the post title to the trail.
+	 *
+	 * @param WP_Post $post    Queried post.
+	 * @param int     $post_id Queried post ID.
+	 * @return void
+	 */
+	protected function add_post_terms_and_title( $post, $post_id ) {
 
 		// Display terms for specific post type taxonomy if requested.
 		if ( ! empty( $this->post_taxonomy[ $post->post_type ] ) ) {
@@ -694,6 +714,40 @@ class BuddyX_Breadcrumbs {
 				$this->items[] = esc_html( $post_title );
 			}
 		}
+	}
+
+	/**
+	 * Adds Courses > Course (> Lesson) for LearnDash lessons, topics and quizzes.
+	 *
+	 * LearnDash nests steps under their course in the URL, but the steps themselves have no
+	 * archive or post parent, so the generic hierarchy dropped both the course and the archive.
+	 *
+	 * @param WP_Post $post Queried post.
+	 * @return bool True when the LearnDash trail was added.
+	 */
+	protected function add_learndash_step_items( $post ) {
+		if ( ! function_exists( 'learndash_get_course_id' ) || ! in_array( $post->post_type, array( 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz' ), true ) ) {
+			return false;
+		}
+
+		$course_id = (int) learndash_get_course_id( $post->ID );
+		if ( ! $course_id ) {
+			return false;
+		}
+
+		$archive = get_post_type_archive_link( 'sfwd-courses' );
+		if ( $archive ) {
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( $archive ), esc_html( get_post_type_object( 'sfwd-courses' )->labels->name ) );
+		}
+		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $course_id ) ), esc_html( get_the_title( $course_id ) ) );
+
+		// Topics (and quizzes inside a lesson) also show their lesson.
+		$lesson_id = 'sfwd-lessons' === $post->post_type ? 0 : (int) learndash_get_lesson_id( $post->ID, $course_id );
+		if ( $lesson_id && $lesson_id !== $post->ID ) {
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $lesson_id ) ), esc_html( get_the_title( $lesson_id ) ) );
+		}
+
+		return true;
 	}
 
 	/**
@@ -831,9 +885,11 @@ class BuddyX_Breadcrumbs {
 				$this->add_rewrite_front_items();
 			}
 
-			// If there's a rewrite slug, check for parents.
-			if ( ! empty( $post_type_object->rewrite['slug'] ) ) {
-				$this->add_path_parents( $post_type_object->rewrite['slug'] );
+			// Parents come from the slug without its last segment: the last segment is the archive itself
+			// (added below), so a page that shares the archive slug is not added a second time.
+			$slug = trim( (string) $post_type_object->rewrite['slug'], '/' );
+			if ( false !== strpos( $slug, '/' ) ) {
+				$this->add_path_parents( dirname( $slug ) );
 			}
 		}
 

@@ -7,6 +7,10 @@
 
 namespace BuddyX\Buddyx\Base_Support;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! function_exists( __NAMESPACE__ . '\\register_block_styles' ) ) {
 	/**
 	 * Register the block style variations used by the premium pattern library.

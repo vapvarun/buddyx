@@ -7,12 +7,15 @@
 
 namespace BuddyX\Buddyx\Comments;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function is_singular;
 use function comments_open;
+use function esc_html__;
 use function get_option;
 use function wp_enqueue_script;
 use function wp_list_comments;
@@ -115,6 +118,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		</ol><!-- .comment-list -->
 		<?php
 
-		the_comments_navigation();
+		the_comments_navigation(
+			array(
+				'aria_label' => esc_html__( 'Comments navigation, below the list', 'buddyx' ),
+			)
+		);
 	}
 }

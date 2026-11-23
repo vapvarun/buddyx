@@ -62,97 +62,29 @@
     text-overflow: ellipsis;
 }
 
+@media (max-width: 767px) {
 
-/* Archive and Categories widgets */
-
-.widget_categories li,
-.widget_archive li {
-    color: var(--global-font-color);
-    line-height: 1.3;
-    padding-bottom: .5em;
-    margin-bottom: 5px;
+    /* Archives and Categories dropdowns: a 40px tap target on phones. */
+    .widget select {
+        min-height: 40px;
+    }
 }
 
-/*
- * WCAG 1.4.1 (Use of Color): each category/archive item renders the link
- * beside its post-count text, where the link color contrast against the
- * surrounding text is below 3:1. Underline the link so it is distinguishable
- * without relying on color alone.
- */
-.widget_categories li>a,
-.widget_archive li>a {
-    text-decoration: underline;
-}
+
+/* Nested lists inside Pages, Categories and the nav menu */
 
 .widget_categories .children {
     padding-top: 0;
 }
 
-/* Pages and Menu widgets */
-
-.widget_pages .children,
-.widget_nav_menu .sub-menu {
-    padding-top: 0;
-    padding-bottom: 0.5em;
-}
-
-.widget_pages a,
-.widget_nav_menu a {
-    display: block;
-    padding: 0.6em 0;
-    text-decoration: none;
-    border-bottom: 1px solid var(--bx-color-border, var(--global-border-color));
-}
-
-.widget_pages a:hover,
-.widget_pages a:focus,
-.widget_nav_menu a:hover,
-.widget_nav_menu a:focus {
-    text-decoration: none;
-    border-bottom: 1px solid var(--bx-color-border, var(--global-border-color));
-}
-
-.widget_pages li,
-.widget_nav_menu li {
-    padding: 0;
-}
-
 .widget_pages li ul,
-.widget_nav_menu li ul {
-    margin-left: 1em;
-}
-
-
-/* Meta widget */
-
-.widget_meta li {
-    padding: 0;
-    line-height: 1.3;
-    padding-bottom: .5em;
-    margin-bottom: 5px;
-}
-
-/* Recent post */
-
-.widget_recent_entries li {
-    margin-bottom: 8px;
+.widget_nav_menu li ul,
+.widget_categories .children {
+    margin-inline-start: 1em;
 }
 
 ol.wp-block-latest-comments {
 	padding-left: 0;
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list li {
-    margin-bottom: 10px;
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list li:last-child {
-    margin-bottom: 0;
-}
-
-.wp-block-latest-comments__comment {
-    list-style: none;
-    margin-bottom: 1em;
 }
 
 ol.wp-block-latest-comments {
@@ -171,18 +103,6 @@ ol.wp-block-latest-comments {
 
 /* Recent comments */
 
-.widget_recent_comments li {
-    line-height: 1.3;
-    padding-bottom: 0.5em;
-    margin-bottom: 5px;
-}
-
-.widget_recent_comments a:hover,
-.widget_recent_comments a:focus {
-    padding-left: 0;
-}
-
-
 /* RSS widget */
 
 .widget_rss li {
@@ -198,7 +118,7 @@ ol.wp-block-latest-comments {
 
 .rss-date,
 .widget_rss cite {
-    color: var(--bx-color-fg-muted, #333);
+    color: var(--bx-color-fg-muted);
     font-size: 0.8em;
 }
 
@@ -211,10 +131,6 @@ ol.wp-block-latest-comments {
 
 
 /* Search widget */
-.widget_search .search-submit {
-    display: none;
-}
-
 .elementor-page .wp-block-search__inside-wrapper {
     display: flex;
     flex: auto;
@@ -233,26 +149,6 @@ ol.wp-block-latest-comments {
     padding: 0.5em 1em;
     border: 1px solid var(--bx-color-border, var(--global-border-color));
     border-radius: var(--form-border-radius);
-}
-
-.widget .search-form input.text_input {
-    padding-left: 10px;
-    width: 100%;
-    padding-right: 65px;
-}
-
-.widget .search-form {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.widget .search-form input[type="submit"] {
-    position: absolute;
-    right: 3px;
-    border-radius: 3px;
-    height: 38px;
-    line-height: 0;
 }
 
 
@@ -292,7 +188,7 @@ ol.wp-block-latest-comments {
 }
 
 .widget_calendar .pad {
-    background: var(--bx-color-divider, #eaeaea);
+    background: var(--bx-color-divider);
 }
 
 /* ld courses widget */
@@ -306,15 +202,128 @@ ol.wp-block-latest-comments {
     margin-bottom: 0;
 }
 
-/* stylelint-disable */
-.widget_calendar a {
-    font-weight: 900;
+/* Calendar: header and today are medium weight, only days with posts are bold */
+.widget_calendar th {
+    font-weight: 500;
+}
+
+.widget_calendar tbody a,
+.widget_calendar #today {
+    font-weight: 600;
     text-decoration: none;
 }
-/* stylelint-enable */
 
-/* Text widget */
-.textwidget {
-	font-size: 80%;
-	line-height: 1.3;
+.widget_calendar tfoot a {
+    font-weight: 400;
+    text-decoration: none;
 }
+
+/* Text widget: same size as every other widget body */
+.widget .textwidget {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* One row pattern for every list widget, classic and block. */
+:is(.widget_archive, .widget_categories, .widget_meta, .widget_nav_menu, .widget_pages, .widget_recent_comments, .widget_recent_entries, .widget_rss, .widget_product_categories, .wp-block-latest-posts__list, .wp-block-latest-comments, .wp-block-categories-list, .wp-block-archives-list) li {
+    margin: 0;
+    padding-block: 0.5rem;
+    border-block-end: 1px solid var(--bx-color-border, var(--global-border-color));
+    line-height: 1.4;
+}
+
+:is(.widget_archive, .widget_categories, .widget_meta, .widget_nav_menu, .widget_pages, .widget_recent_comments, .widget_recent_entries, .widget_rss, .widget_product_categories, .wp-block-latest-posts__list, .wp-block-latest-comments, .wp-block-categories-list, .wp-block-archives-list) li:last-child {
+    border-block-end: 0;
+}
+
+:is(.widget_archive, .widget_categories, .widget_meta, .widget_nav_menu, .widget_pages, .widget_recent_comments, .widget_recent_entries, .widget_rss, .widget_product_categories, .wp-block-latest-posts__list, .wp-block-latest-comments, .wp-block-categories-list, .wp-block-archives-list) a {
+    text-decoration: none;
+}
+
+:is(.widget_archive, .widget_categories, .widget_meta, .widget_nav_menu, .widget_pages, .widget_recent_comments, .widget_recent_entries, .widget_rss, .widget_product_categories, .wp-block-latest-posts__list, .wp-block-latest-comments, .wp-block-categories-list, .wp-block-archives-list) a:is(:hover, :focus-visible) {
+    text-decoration: underline;
+}
+
+@media (pointer: coarse) {
+    :is(.widget_archive, .widget_categories, .widget_meta, .widget_nav_menu, .widget_pages, .widget_recent_comments, .widget_recent_entries, .widget_rss, .widget_product_categories, .wp-block-latest-posts__list, .wp-block-latest-comments, .wp-block-categories-list, .wp-block-archives-list) li {
+        padding-block: 0.5625rem;
+    }
+}
+
+/* Block widget headings and search labels read like classic widget titles. */
+.widget-area .widget_block :is(.wp-block-heading:first-child, .wp-block-search__label) {
+    margin: -1rem -1rem 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--bx-color-border, var(--global-border-color));
+}
+
+/* Tag cloud as chips; the inline font size WordPress prints is reset at the end of this file. */
+.widget .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.widget .tagcloud a {
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--bx-color-border, var(--global-border-color));
+    border-radius: var(--bx-radius-pill);
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.widget .tagcloud a:is(:hover, :focus-visible) {
+    background: var(--bx-color-bg-muted);
+    text-decoration: none;
+}
+
+/* One search control: input and button on one row, classic, block and WooCommerce alike. */
+.widget :is(.search-form, .woocommerce-product-search, .wp-block-search__inside-wrapper) {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.widget :is(.search-form, .woocommerce-product-search, .wp-block-search__inside-wrapper) :is(input[type="search"], input[type="text"], .search-field) {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    block-size: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border-radius: var(--bx-radius-form);
+}
+
+.widget :is(.search-form, .woocommerce-product-search, .wp-block-search__inside-wrapper) :is(button, input[type="submit"]) {
+    position: static;
+    flex: 0 0 auto;
+    block-size: auto;
+    min-height: 2.5rem;
+    margin: 0;
+    padding-block: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    border-radius: var(--bx-radius-button);
+}
+
+/* Product names sit below the widget title in weight. */
+:is(.widget_products, .widget_top_rated_products, .widget_recent_reviews, .widget_recently_viewed_products, .widget_rated_products) .product-title {
+    font-weight: 500;
+}
+
+/* A Text or Custom HTML widget with no title and nothing to show prints no empty card. */
+.widget-area .widget:not(:has(.widget-title, .wp-block-heading, img, svg, iframe, li, form, table, canvas, video, audio, figure, input, button, select, a, p:not(:empty), .textwidget:not(:empty), .custom-html-widget:not(:empty))) {
+    display: none;
+}
+
+/* BuddyPress Members and Groups widgets print an empty list and fill it by AJAX; reserve the default five rows until it fills so the sidebar does not jump. */
+.widget-area .bp-dynamic-block-container .item-list:not(:has(> li)) {
+    min-block-size: 15.5rem;
+}
+
+/* WordPress prints the tag cloud size inline (8pt to 22pt), so only !important can set one readable size. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important */
+.widget .tagcloud a {
+    font-size: 0.8125rem !important;
+}
+/* stylelint-enable declaration-no-important */

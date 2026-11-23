@@ -63,7 +63,7 @@
 }
 
 .site-logo-wrapper>a {
-    margin-right: 15px;
+    margin-inline-end: 15px;
 }
 
 .site-branding img {
@@ -163,6 +163,36 @@ body.buddyx-dark-style-variation .custom-logo--dark {
     .site-description {
         display: none;
     }
+
+    /* Without this the title cannot shrink below its text and runs over the header icons. */
+    .site-branding-inner {
+        min-width: 0;
+    }
+
+    /* With a logo and a title side by side, the logo keeps a readable width and
+       the title is the part that gives way. */
+    .site-logo-wrapper {
+        flex: 0 1 auto;
+        min-width: 72px;
+        max-width: 100%;
+    }
+
+    .site-logo-wrapper > a {
+        margin-inline-end: 8px;
+    }
+
+    .site-branding .custom-logo-link img {
+        min-width: 72px;
+        max-width: 100%;
+        max-height: 40px;
+    }
+
+    .site-title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 nav div.wp-block-navigation__responsive-dialog {
@@ -189,7 +219,7 @@ nav div.wp-block-navigation__responsive-dialog {
     color: var(--bx-color-subheader-fg, var(--color-subheader-title));
     margin-bottom: 1rem;
     padding: 30px 0;
-    background: var(--bx-color-subheader-bg, #f3f4f6);
+    background: var(--bx-color-subheader-bg);
     /* Full-bleed band (matches site header + footer behavior) regardless of
      * boxed/full-width layout. The 100vw + negative margin trick spans
      * viewport width even when ancestor is constrained. */
@@ -274,6 +304,14 @@ nav div.wp-block-navigation__responsive-dialog {
 .buddyx-breadcrumbs a,
 #breadcrumbs a {
     color: var(--bx-color-accent-text, var(--color-theme-primary));
+}
+
+/* In dark mode the breadcrumb sits in the sub-header (#1c1c1c), a step above the page surface the base brand text
+   shade is tuned for. A darker brand colour then reads 4.3:1 there. Use the shade made for raised
+   greys; a brand colour that already passes (the default) is unchanged. */
+:root[data-bx-mode="dark"] .site-sub-header .buddyx-breadcrumbs a,
+:root[data-bx-mode="dark"] .site-sub-header #breadcrumbs a {
+    color: var(--bx-color-accent-text-raised, var(--bx-color-accent-text, var(--color-theme-primary)));
 }
 
 .buddyx-breadcrumbs a:hover,

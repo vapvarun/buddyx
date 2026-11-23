@@ -32,7 +32,7 @@
 .bx-color-mode-toggle__btn:hover,
 .bx-color-mode-toggle__btn:focus-visible {
     color: var(--bx-color-menu-hover, var(--color-menu-hover, currentColor));
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: var(--bx-color-hover-tint);
     outline: 0;
 }
 
@@ -79,12 +79,6 @@
 .bx-color-mode-toggle-mobile .bx-color-mode-toggle__btn .screen-reader-text {
     /* Already announced via aria-label + the visible text appended via ::after. */
     display: none;
-}
-
-/* Dark mode subtle adjustment: hover background flips. */
-:root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:hover,
-:root[data-bx-mode="dark"] .bx-color-mode-toggle__btn:focus-visible {
-    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* RTL: margin uses logical property already, nothing to mirror. */

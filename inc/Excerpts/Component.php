@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Excerpts;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use function BuddyX\Buddyx\buddyx;
 use function add_filter;

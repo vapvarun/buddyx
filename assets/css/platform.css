@@ -322,6 +322,47 @@ li#bp-activity-ajax-loader {
     box-shadow: 0 1px 0 0 var(--global-border-color);
 }
 
+/*
+ * BuddyBoss paints these feed surfaces with fixed light colours (#fafafa, #fff) and leaves the
+ * text to inherit the theme colour, so in dark mode the forum preview, the comment count and the
+ * tags field became light boxes with near-white text. They follow the theme tokens instead; the
+ * light-mode values are the same colours BuddyBoss used.
+ */
+.activity-list li:is(.bbp_topic_create, .bbp_reply_create) .activity-content .activity-inner .activity-discussion-title-wrap,
+.activity-list li:is(.bbp_topic_create, .bbp_reply_create) .bb-content-inr-wrap {
+    background-color: var(--bx-color-bg-muted);
+}
+
+.activity-list li:is(.bbp_topic_create, .bbp_reply_create, .blogs) .activity-content .activity-inner :is(.bb-post-title, .activity-discussion-title-wrap),
+.activity-list li:is(.bbp_topic_create, .bbp_reply_create, .blogs) .activity-content .activity-inner :is(.bb-post-title, .activity-discussion-title-wrap) a {
+    color: var(--bx-color-fg);
+}
+
+.activity-list li:is(.bbp_topic_create, .bbp_reply_create, .blogs) .activity-content .activity-inner :is(.bb-post-title, .activity-discussion-title-wrap) .bb-reply-lable,
+.buddypress-wrap .activity-comments .acomment-foot-actions .activity-time-since,
+.buddypress-wrap :is(.members-list, .friends-mutual-list) li .list-wrap .last-activity {
+    color: var(--bx-color-fg-muted);
+}
+
+.buddypress .buddypress-wrap .activity-state a {
+    background-color: transparent;
+    color: var(--bx-color-fg-muted);
+}
+
+.activity-list .activity-item .activity-state-reactions .reactions_item {
+    background-color: var(--bx-color-bg-elevated);
+}
+
+body .bb-select-container.select2-selection--multiple {
+    background-color: var(--bx-color-input-bg);
+}
+
+/* Comment bubbles and the reply box keep BuddyBoss's light grey in light mode; dark mode gets the inset surface. */
+[data-bx-mode="dark"] :is(.buddypress-wrap, .bb-media-model-wrapper) .activity-comments .acomment_inner .acomment-content_block,
+[data-bx-mode="dark"] form.ac-form .ac-reply-content {
+    background-color: var(--bx-color-bg-muted);
+}
+
 .bb-activity-placeholder {
     background: var(--color-theme-white-box);
     border: 1px solid var(--global-border-color);
@@ -1817,7 +1858,7 @@ body .select2-container .select2-dropdown.bb-compose-input {
     border: 1px solid var(--global-border-color);
 }
 
-.dark-mode body .select2-container .select2-dropdown.bb-compose-input {
+[data-bx-mode="dark"] body .select2-container .select2-dropdown.bb-compose-input {
     box-shadow: 0 2px 7px 1px rgba(255, 254, 254, 0.05), 0 6px 32px 0 var(--bx-color-shadow);
 }
 
@@ -1840,7 +1881,7 @@ body .select2-container .select2-dropdown {
     box-shadow: 0 2px 7px 1px var(--bx-color-shadow), 0 6px 32px 0 var(--bx-color-shadow);
 }
 
-.dark-mode body .select2-container .select2-dropdown {
+[data-bx-mode="dark"] body .select2-container .select2-dropdown {
     box-shadow: 0 2px 7px 1px rgba(255, 254, 254, 0.05), 0 6px 32px 0 var(--bx-color-shadow);
 }
 
@@ -1856,7 +1897,7 @@ body .select2-container .select2-dropdown {
     border: none;
 }
 
-.dark-mode .messages .ac_results {
+[data-bx-mode="dark"] .messages .ac_results {
     box-shadow: 0 2px 7px 1px rgba(255, 254, 254, 0.05), 0 6px 32px 0 var(--bx-color-shadow);
 }
 
@@ -3260,7 +3301,7 @@ label.bp-group-message-label {
 .widget_bp_core_whos_online_widget.buddypress.widget .avatar-block .item-avatar,
 .widget_bp_core_recently_active_widget.buddypress.widget .avatar-block .item-avatar {
     margin-bottom: 1em;
-    margin-right: 1em;
+    margin-inline-end: 1em;
 }
 
 /*--------------------------------------------------------------

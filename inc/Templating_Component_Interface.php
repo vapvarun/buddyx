@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 /**
  * Interface for a theme component that exposes template tags.
  */

@@ -65,19 +65,6 @@ html .course-summary-sidebar .course-sidebar-preview {
     color: var(--bx-color-fg);
 }
 
-/* --lp-primary-color keeps the light-mode brand shade so LearnPress's white text
-   on buttons and tabs stays readable in dark mode. Where LearnPress uses that colour
-   as persistent text on the page, dark mode switches to the lighter dark accent. */
-html[data-bx-mode="dark"] .learn-press-tabs__item.active a,
-html[data-bx-mode="dark"] .learn-press-filters li a.active,
-html[data-bx-mode="dark"] .learn-press-filters li span.active,
-html[data-bx-mode="dark"] .learn-press-filters li.active a,
-html[data-bx-mode="dark"] .learn-press-filters li.active span,
-html[data-bx-mode="dark"] .learn-press-nav-tabs li.active label,
-html[data-bx-mode="dark"] .learn-press-profile-course__tab .learn-press-course-builder-link {
-    color: var(--bx-color-accent);
-}
-
 #learn-press-profile .learn-press-filters > li > a {
     color: var(--bx-color-fg-muted);
 }
@@ -176,24 +163,11 @@ ul.learn-press-courses .course h3.course-title {
 }
 
 .lp-archive-courses .learn-press-courses[data-layout="list"] .course {
-    background: var(--bx-color-bg-elevated, #fff);
-}
-
-ul.learn-press-courses .course .course-info .course-price .origin-price,
-ul.learn-press-courses .course .course-info .course-price .price {
-    font-size: 13px !important;
-    margin-right: 5px !important;
-    text-transform: uppercase;
+    background: var(--bx-color-bg-elevated);
 }
 
 ul.learn-press-courses .course .course-info .course-price .price {
     color: var(--color-theme-primary);
-}
-
-ul.learn-press-courses .course .course-info .course-instructor a {
-    color: var(--bx-color-fg-muted, #999);
-    text-transform: capitalize;
-    font-size: 13px !important;
 }
 
 
@@ -217,11 +191,6 @@ ul.learn-press-courses .course .course-info .course-instructor a {
     padding: 0;
 }
 
-.single-lp_course .course-learning-summary .course-meta,
-.course-students {
-    display: none !important;
-}
-
 #learn-press-course-curriculum.course-curriculum ul.curriculum-sections.curriculum-sections {
     z-index: 99;
 }
@@ -236,11 +205,11 @@ ul.learn-press-courses .course .course-info .course-instructor a {
 
 .single-lp_course .learn-press-course-results-progress,
 .single-lp_course .course-learning-summary .course-remaining-time {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
     padding: 1em;
     margin: 10px 0 30px;
     border-radius: 5px;
-    border: 1px solid var(--bx-color-border, #e8e8e8);
+    border: 1px solid var(--bx-color-border);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
 }
 
@@ -279,32 +248,13 @@ ul.learn-press-courses .course .course-info .course-instructor a {
     border-color: var(--global-border-color);
 }
 
-#learn-press-course-tabs {
-    margin-bottom: 20px !important;
-}
-
 #learn-press-course-tabs ul.learn-press-nav-tabs li label {
     padding: 16px;
     color: var(--global-font-color);
 }
 
-ul.learn-press-nav-tabs .course-nav {
-    background: var(--bx-color-divider, #efefef);
-    margin-right: 0.5% !important;
-    text-align: center;
-    border: 1px solid var(--bx-color-border, #e8e8e8);
-    margin-bottom: -1px !important;
-    border-bottom: 0;
-}
-
-ul.learn-press-nav-tabs .course-nav a {
-    padding: 12px 30px 12px 45px !important;
-    width: 100%;
-    position: relative;
-}
-
 ul.learn-press-nav-tabs .course-nav.active {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
 }
 
 ul.learn-press-nav-tabs .course-nav a::after {
@@ -343,7 +293,7 @@ ul.learn-press-nav-tabs .course-nav a::after {
 }
 
 #learn-press-course-tabs .course-tab-panel {
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     border-radius: 0 0 8px 8px;
@@ -403,26 +353,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     ul.learn-press-nav-tabs .course-nav.course-nav {
         width: 100%;
     }
-}
-
-
-/*--------------------------------------------------------------
-# Course Author
---------------------------------------------------------------*/
-
-.course-author {
-    margin-bottom: 10px !important;
-}
-
-.course-author .author-wrapper {
-    padding: 1em;
-    border: 1px solid var(--bx-color-border, #eee);
-    overflow: hidden;
-    margin-bottom: 10px !important;
-}
-
-.learn-press-message {
-    margin-bottom: 0 !important;
 }
 
 
@@ -487,20 +417,7 @@ ul.learn-press-nav-tabs .course-nav a::after {
     background: var(--bx-color-warning);
 }
 
-@media only screen and (max-width: 959px) {
-    /* ul.learn-press-courses {
-        padding: 0 15px !important;
-    } */
-    .learn-press-search-course-form {
-        margin: 15px !important;
-    }
-}
-
 @media only screen and (max-width: 629px) {
-    ul.learn-press-nav-tabs .course-nav a {
-        padding: 12px 15px 12px 30px !important;
-        font-size: 13px;
-    }
     ul.learn-press-nav-tabs .course-nav a::after {
         left: 10px;
         top: 15px;
@@ -508,10 +425,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
 }
 
 @media only screen and (max-width: 449px) {
-    ul.learn-press-nav-tabs .course-nav a {
-        padding: 25px 10px 25px !important;
-        font-size: 0;
-    }
     ul.learn-press-nav-tabs .course-nav {
         width: 24.5%;
     }
@@ -572,7 +485,7 @@ ul.learn-press-nav-tabs .course-nav a::after {
 .widget .course-detail .course-lesson-number {
     font-size: 11px;
     letter-spacing: 0.3px;
-    color: var(--bx-color-fg-muted, #444);
+    color: var(--bx-color-fg-muted);
 }
 
 .widget .course-detail .course-description {
@@ -582,27 +495,7 @@ ul.learn-press-nav-tabs .course-nav a::after {
 
 .widget_lp-widget-course-info .lp-widget .lp-course-info-fields .lp-course-info .lp-label {
     background: var(--bx-color-accent-fill, var(--color-theme-primary));
-    color: var(--bx-color-accent-fill-inverse, #fff);
-}
-
-
-/*--------------------------------------------------------------
-# Course Progress
---------------------------------------------------------------*/
-
-.learn-press-course-results-progress .items-progress,
-.learn-press-course-results-progress .course-progress {
-    margin-bottom: 20px !important;
-    padding-right: 10px !important;
-}
-
-.learn-press-course-results-progress h4.lp-course-progress-heading {
-    font-size: 18px;
-    margin-bottom: 0 !important;
-}
-
-.lp-widget .course-remaining-time p {
-    margin-top: 0 !important;
+    color: var(--bx-color-accent-fill-inverse);
 }
 
 .learn-press-course-results-progress .learn-press-progress {
@@ -626,10 +519,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     cursor: pointer;
 }
 
-.learn-press-profile-course__tab__inner {
-    margin-left: 0 !important;
-}
-
 #learn-press-user-profile {
     position: relative;
     border: 1px solid var(--global-border-color);
@@ -637,17 +526,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     border-radius: var(--global-border-radius);
     margin-top: 1em;
     background: var(--color-theme-white-box);
-}
-
-#learn-press-user-profile #learn-press-profile-header {
-    height: auto !important;
-    overflow: hidden;
-    width: 100%;
-    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
-}
-
-#learn-press-user-profile #learn-press-profile-header .lp-profile-avatar {
-    position: unset !important;
 }
 
 #learn-press-user-profile #learn-press-profile-header .lp-profile-avatar img {
@@ -674,7 +552,7 @@ ul.learn-press-nav-tabs .course-nav a::after {
 
 #learn-press-user-profile #learn-press-profile-nav .tabs>li a {
     padding: 15px 20px 15px 48px;
-    border-top: 1px solid var(--bx-color-border, #eee);
+    border-top: 1px solid var(--bx-color-border);
     position: relative;
 }
 
@@ -687,14 +565,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     -webkit-mask: var(--bx-icon-mask) center / contain no-repeat;
     mask: var(--bx-icon-mask) center / contain no-repeat;
     top: 20px;
-}
-
-#learn-press-profile-nav .tabs>li ul li.active a {
-    color: unset !important;
-}
-
-.has-child .profile-tab-sections {
-    padding: 0 !important;
 }
 
 #learn-press-profile-nav .tabs>li.dashboard a::after {
@@ -769,18 +639,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     width: 1em;
 }
 
-#learn-press-profile-nav .tabs>li.active>a {
-    background: var(--bx-color-bg-elevated, #fff) !important;
-}
-
-.lp-sub-menu {
-    padding-left: 0 !important;
-}
-
-.lp-list-table thead tr th {
-    background: var(--color-theme-primary) !important;
-}
-
 @media (max-width: 500px) {
     #learn-press-profile .wrapper-profile-header .lp-profile-right {
         padding-right: 0;
@@ -793,30 +651,11 @@ ul.learn-press-nav-tabs .course-nav a::after {
         margin: 0;
         padding: 0 25px 25px;
     }
-    #learn-press-profile-nav {
-        width: 100% !important;
-        z-index: 99999 !important;
-        cursor: pointer;
-    }
     #learn-press-profile-nav::before {
         display: none;
     }
     #learn-press-profile-nav #profile-mobile-menu {
-        background: var(--bx-color-bg-muted, #F5F5F5);
-    }
-    #learn-press-profile-nav:hover #profile-mobile-menu {
-        background: var(--color-theme-primary) !important;
-    }
-    #learn-press-profile-nav .tabs>li.active ul,
-    #learn-press-profile-nav .tabs>li.active a,
-    #learn-press-profile-nav .tabs>li:hover ul,
-    #learn-press-profile-nav .tabs>li:hover a,
-    #learn-press-profile-nav .learn-press-tabs {
-        background: var(--bx-color-fg-muted, #b6b6b6) !important;
-        z-index: 99;
-    }
-    #learn-press-user-profile .learn-press-courses.profile-courses-list {
-        padding: 0 !important;
+        background: var(--bx-color-bg-muted);
     }
     #learn-press-user-profile #learn-press-profile-nav .tabs>li a {
         padding: 10px 20px 10px 48px;
@@ -824,26 +663,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
     #learn-press-user-profile #learn-press-profile-nav .tabs>li a:hover {
         opacity: 0.9;
     }
-    .lp-list-table th,
-    .lp-list-table td {
-        padding: 13px 5px !important;
-        font-size: 13px !important;
-        font-weight: 400;
-    }
-    .profile-recover-order input[name="order-key"] {
-        width: auto !important;
-        margin-bottom: 10px;
-    }
-}
-
-
-/*--------------------------------------------------------------
-# Profile Wishlist
---------------------------------------------------------------*/
-
-#learn-press-profile-tab-course-wishlist ul.learn-press-wishlist-courses.learn-press-courses .course {
-    text-align: center;
-    padding-bottom: 25px !important;
 }
 
 #learn-press-profile-tab-course-wishlist .course-title h3 {
@@ -863,30 +682,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
 --------------------------------------------------------------*/
 
 @media only screen and (max-width: 640px) {
-    body.course-item-popup #course-item-content-header .course-item-search {
-        display: none !important;
-    }
-    #course-item-content-header .course-title {
-        font-size: 15px !important;
-    }
-    #course-item-content-header,
-    #course-item-content-footer {
-        height: auto !important;
-    }
-    body.full-screen-content-item.course-item-popup.wpadminbar #learn-press-content-item,
-    body.full-screen-content-item.course-item-popup.wpadminbar #learn-press-course-curriculum {
-        top: 46px !important;
-    }
-    .course-item-lp_quiz .section-item-link {
-        display: block !important;
-    }
-    .course-item-lp_quiz .item-name {
-        padding-bottom: 0 !important;
-    }
-    .course-item-lp_quiz .course-item-meta {
-        padding-top: 0!important;
-        display: block !important;
-    }
     .full-screen-content-item .content-item-wrap {
         padding-top: 120px;
     }
@@ -896,23 +691,6 @@ ul.learn-press-nav-tabs .course-nav a::after {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-}
-
-
-/*--------------------------------------------------------------
-# Become Teacher
---------------------------------------------------------------*/
-
-.become-teacher-form.become-teacher-form {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    margin-bottom: 30px;
-    padding: 1em;
-    background: var(--color-theme-white-box);
-    border: 1px solid var(--global-border-color);
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-    border-radius: var(--global-border-radius) !important;
 }
 /* Contrast fixes: follow the active colour mode instead of LearnPress defaults.
    Crossed-out price (LearnPress sets opacity .6), the info notice and the
@@ -940,10 +718,6 @@ html:root {
     --bx-color-price-free: color-mix(in srgb, var(--bx-color-success) 70%, rgb(0 0 0));
 }
 
-:root[data-bx-mode="dark"] {
-    --bx-color-price-free: var(--bx-color-success);
-}
-
 body .learn-press-courses .course-price .free,
 body .lp-single-offline-course .course-price .free,
 body .lp-single-course .lp-single-course-main .course-price .free,
@@ -968,6 +742,25 @@ html .lp-archive-courses .course-summary-sidebar__inner > div ul li a {
 html:root {
     --lp-bg-color-lesson: var(--bx-color-bg);
     --lp-color-accent: var(--bx-color-fg-muted);
+}
+
+/* Quiz start screen: LearnPress paints the Questions / Duration / Passing grade values #222 and
+   the quiz description and result labels #666, fixed light-mode colours that read 1.24 to 1 on the dark lesson popup. */
+html .quiz-intro-item__content {
+    color: var(--bx-color-fg);
+}
+
+html .content-item-wrap .quiz-content,
+html .quiz-result .result-grade .result-require,
+html .quiz-result .result-statistic .result-statistic-field span {
+    color: var(--bx-color-fg-muted);
+}
+
+/* The fixed question pagination bar: LearnPress reads --lp-bg-color-lesson, then overrides it
+   with a second background: #fff in the same rule, so the bar stayed white with light page
+   numbers (1.09 to 1) in dark mode. */
+html .content-item-wrap .quiz-buttons.align-center .button-left.fixed {
+    background: var(--lp-bg-color-lesson);
 }
 
 /* :where() keeps this at the lowest specificity, so it only reaches buttons LearnPress leaves unstyled. */
@@ -1039,3 +832,269 @@ html .lp-profile-content table.lp-list-table {
 html .lp-profile-content table.lp-list-table :where(th, td) {
     padding-inline: 12px;
 }
+
+/* LearnPress paints these surfaces with fixed light colours and its own !important rules; the light values are LearnPress defaults, so they keep the mode selector and !important. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important, selector-disallowed-list */
+/* --lp-primary-color keeps the light-mode brand shade so LearnPress's white text
+   on buttons and tabs stays readable in dark mode. Where LearnPress uses that colour
+   as persistent text on the page, dark mode switches to the lighter dark accent. */
+html[data-bx-mode="dark"] .learn-press-tabs__item.active a,
+html[data-bx-mode="dark"] .learn-press-filters li a.active,
+html[data-bx-mode="dark"] .learn-press-filters li span.active,
+html[data-bx-mode="dark"] .learn-press-filters li.active a,
+html[data-bx-mode="dark"] .learn-press-filters li.active span,
+html[data-bx-mode="dark"] .learn-press-nav-tabs li.active label,
+html[data-bx-mode="dark"] .learn-press-profile-course__tab .learn-press-course-builder-link {
+    color: var(--bx-color-accent);
+}
+
+ul.learn-press-courses .course .course-info .course-price .origin-price,
+ul.learn-press-courses .course .course-info .course-price .price {
+    font-size: 13px !important;
+    margin-right: 5px !important;
+    text-transform: uppercase;
+}
+
+ul.learn-press-courses .course .course-info .course-instructor a {
+    color: var(--bx-color-fg-muted);
+    text-transform: capitalize;
+    font-size: 13px !important;
+}
+
+.single-lp_course .course-learning-summary .course-meta,
+.course-students {
+    display: none !important;
+}
+
+#learn-press-course-tabs {
+    margin-bottom: 20px !important;
+}
+
+ul.learn-press-nav-tabs .course-nav {
+    background: var(--bx-color-divider);
+    margin-right: 0.5% !important;
+    text-align: center;
+    border: 1px solid var(--bx-color-border);
+    margin-bottom: -1px !important;
+    border-bottom: 0;
+}
+
+ul.learn-press-nav-tabs .course-nav a {
+    padding: 12px 30px 12px 45px !important;
+    width: 100%;
+    position: relative;
+}
+
+/* --------------------------------------------------------------
+# Course Author
+-------------------------------------------------------------- */
+.course-author {
+    margin-bottom: 10px !important;
+}
+
+.course-author .author-wrapper {
+    padding: 1em;
+    border: 1px solid var(--bx-color-border);
+    overflow: hidden;
+    margin-bottom: 10px !important;
+}
+
+.learn-press-message {
+    margin-bottom: 0 !important;
+}
+
+/* ul.learn-press-courses {
+        padding: 0 15px !important;
+    } */
+@media only screen and (max-width: 959px) {
+    .learn-press-search-course-form {
+            margin: 15px !important;
+        }
+}
+
+@media only screen and (max-width: 629px) {
+    ul.learn-press-nav-tabs .course-nav a {
+            padding: 12px 15px 12px 30px !important;
+            font-size: 13px;
+        }
+}
+
+@media only screen and (max-width: 449px) {
+    ul.learn-press-nav-tabs .course-nav a {
+            padding: 25px 10px 25px !important;
+            font-size: 0;
+        }
+}
+
+/* --------------------------------------------------------------
+# Course Progress
+-------------------------------------------------------------- */
+.learn-press-course-results-progress .items-progress,
+.learn-press-course-results-progress .course-progress {
+    margin-bottom: 20px !important;
+    padding-right: 10px !important;
+}
+
+.learn-press-course-results-progress h4.lp-course-progress-heading {
+    font-size: 18px;
+    margin-bottom: 0 !important;
+}
+
+.lp-widget .course-remaining-time p {
+    margin-top: 0 !important;
+}
+
+.learn-press-profile-course__tab__inner {
+    margin-left: 0 !important;
+}
+
+#learn-press-user-profile #learn-press-profile-header {
+    height: auto !important;
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
+}
+
+#learn-press-user-profile #learn-press-profile-header .lp-profile-avatar {
+    position: unset !important;
+}
+
+#learn-press-profile-nav .tabs>li ul li.active a {
+    color: unset !important;
+}
+
+.has-child .profile-tab-sections {
+    padding: 0 !important;
+}
+
+#learn-press-profile-nav .tabs>li.active>a {
+    background: var(--bx-color-bg-elevated) !important;
+}
+
+.lp-sub-menu {
+    padding-left: 0 !important;
+}
+
+.lp-list-table thead tr th {
+    background: var(--color-theme-primary) !important;
+}
+
+@media only screen and (max-width: 480px) {
+    #learn-press-profile-nav {
+            width: 100% !important;
+            z-index: 99999 !important;
+            cursor: pointer;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    #learn-press-profile-nav:hover #profile-mobile-menu {
+            background: var(--color-theme-primary) !important;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    #learn-press-profile-nav .tabs>li.active ul,
+        #learn-press-profile-nav .tabs>li.active a,
+        #learn-press-profile-nav .tabs>li:hover ul,
+        #learn-press-profile-nav .tabs>li:hover a,
+        #learn-press-profile-nav .learn-press-tabs {
+            background: var(--bx-color-fg-muted) !important;
+            z-index: 99;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    #learn-press-user-profile .learn-press-courses.profile-courses-list {
+            padding: 0 !important;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    .lp-list-table th,
+        .lp-list-table td {
+            padding: 13px 5px !important;
+            font-size: 13px !important;
+            font-weight: 400;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    .profile-recover-order input[name="order-key"] {
+            width: auto !important;
+            margin-bottom: 10px;
+        }
+}
+
+/* --------------------------------------------------------------
+# Profile Wishlist
+-------------------------------------------------------------- */
+#learn-press-profile-tab-course-wishlist ul.learn-press-wishlist-courses.learn-press-courses .course {
+    text-align: center;
+    padding-bottom: 25px !important;
+}
+
+@media only screen and (max-width: 640px) {
+    body.course-item-popup #course-item-content-header .course-item-search {
+            display: none !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    #course-item-content-header .course-title {
+            font-size: 15px !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    #course-item-content-header,
+        #course-item-content-footer {
+            height: auto !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    body.full-screen-content-item.course-item-popup.wpadminbar #learn-press-content-item,
+        body.full-screen-content-item.course-item-popup.wpadminbar #learn-press-course-curriculum {
+            top: 46px !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    .course-item-lp_quiz .section-item-link {
+            display: block !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    .course-item-lp_quiz .item-name {
+            padding-bottom: 0 !important;
+        }
+}
+
+@media only screen and (max-width: 640px) {
+    .course-item-lp_quiz .course-item-meta {
+            padding-top: 0!important;
+            display: block !important;
+        }
+}
+
+/* --------------------------------------------------------------
+# Become Teacher
+-------------------------------------------------------------- */
+.become-teacher-form.become-teacher-form {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 1em;
+    background: var(--color-theme-white-box);
+    border: 1px solid var(--global-border-color);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    border-radius: var(--global-border-radius) !important;
+}
+
+:root[data-bx-mode="dark"] {
+    --bx-color-price-free: var(--bx-color-success);
+}
+/* stylelint-enable declaration-no-important, selector-disallowed-list */

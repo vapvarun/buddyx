@@ -7,11 +7,14 @@
 
 namespace BuddyX\Buddyx\Sidebars;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;
+use function esc_attr__;
 use function esc_html__;
 use function is_active_sidebar;
 use function dynamic_sidebar;
@@ -57,6 +60,23 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function initialize() {
 		add_action( 'widgets_init', array( $this, 'action_register_sidebars' ) );
 		add_filter( 'body_class', array( $this, 'filter_body_classes' ) );
+		add_filter( 'render_block_core/search', array( $this, 'filter_search_placeholder' ), 10, 2 );
+	}
+
+	/**
+	 * Give a search block that has no placeholder one, so the field says what it is for.
+	 *
+	 * An owner's own placeholder, set in the editor, is left alone.
+	 *
+	 * @param string $content Rendered block HTML.
+	 * @param array  $block   Parsed block.
+	 * @return string
+	 */
+	public function filter_search_placeholder( $content, $block ) {
+		if ( ! empty( $block['attrs']['placeholder'] ) ) {
+			return $content;
+		}
+		return preg_replace( '/(<input\b[^>]*?)\splaceholder=""/', '$1 placeholder="' . esc_attr__( 'Search…', 'buddyx' ) . '"', $content, 1 );
 	}
 
 	/**
@@ -197,6 +217,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$default_sidebar           = isset( $page_template_sidebar_map[ $assigned_page_template ] )
 			? $page_template_sidebar_map[ $assigned_page_template ]
 			: get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
+
+		// The Dokan vendor dashboard runs full width (page.php skips the sidebar there) unless a sidebar page template is assigned.
+		if ( ! isset( $page_template_sidebar_map[ $assigned_page_template ] ) && function_exists( 'dokan_is_seller_dashboard' ) && dokan_is_seller_dashboard() ) {
+			$default_sidebar = 'none';
+		}
 
 		if ( $this->is_left_sidebar_active() && 'left' === $default_sidebar ) {
 			$classes[] = 'has-sidebar-left';

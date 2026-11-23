@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use InvalidArgumentException;
 use BadMethodCallException;
 use RuntimeException;

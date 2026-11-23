@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-theme-loader, #c92a2b);
-    --bx-loader-color: #fff;
+    background: var(--color-theme-loader);
+    --bx-loader-color: var(--bx-color-static-white);
     --bx-loader-speed: 1.5s;
 }
 
@@ -192,7 +192,7 @@
 
 .elementor-editor-active .site-loader,
 .elementor-editor-preview .site-loader {
-    display: none !important;
+    display: none;
 }
 
 /* ----- Reduced motion: respect user preference ----- */

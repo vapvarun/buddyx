@@ -14,11 +14,12 @@ defined( 'ABSPATH' ) || exit;
 		\BuddyX\Buddyx\Customizer_Framework\Field::add(
 			'switch',
 			array(
-				'settings' => 'site_sticky_header',
-				'label'    => esc_html__( 'Enable Sticky Header', 'buddyx' ),
-				'section'  => 'site_header_section',
-				'default'  => '1',
-				'choices'  => array(
+				'settings'    => 'site_sticky_header',
+				'label'       => esc_html__( 'Sticky Header', 'buddyx' ),
+				'description' => esc_html__( 'Keeps the header at the top of the screen while visitors scroll.', 'buddyx' ),
+				'section'     => 'site_header_section',
+				'default'     => '1',
+				'choices'     => array(
 					'on'  => esc_html__( 'Yes', 'buddyx' ),
 					'off' => esc_html__( 'No', 'buddyx' ),
 				),
@@ -32,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings' => 'site_search',
-				'label'    => esc_html__( 'Enable Search Icon', 'buddyx' ),
+				'label'    => esc_html__( 'Show Search Icon', 'buddyx' ),
 				'section'  => 'site_header_section',
 				'default'  => '1',
 				'choices'  => array(
@@ -50,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 				'switch',
 				array(
 					'settings' => 'site_cart',
-					'label'    => esc_html__( 'Enable Cart Icon', 'buddyx' ),
+					'label'    => esc_html__( 'Show Cart Icon', 'buddyx' ),
 					'section'  => 'site_header_section',
 					'default'  => '1',
 					'choices'  => array(
@@ -67,11 +68,12 @@ defined( 'ABSPATH' ) || exit;
 		\BuddyX\Buddyx\Customizer_Framework\Field::add(
 			'switch',
 			array(
-				'settings' => 'site_login_link',
-				'label'    => esc_html__( 'Enable Login Link', 'buddyx' ),
-				'section'  => 'site_header_section',
-				'default'  => '1',
-				'choices'  => array(
+				'settings'    => 'site_login_link',
+				'label'       => esc_html__( 'Show Log In Link', 'buddyx' ),
+				'description' => esc_html__( 'Shown to logged-out visitors only.', 'buddyx' ),
+				'section'     => 'site_header_section',
+				'default'     => '1',
+				'choices'     => array(
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),
@@ -84,11 +86,12 @@ defined( 'ABSPATH' ) || exit;
 		\BuddyX\Buddyx\Customizer_Framework\Field::add(
 			'switch',
 			array(
-				'settings' => 'site_register_link',
-				'label'    => esc_html__( 'Enable Register Link', 'buddyx' ),
-				'section'  => 'site_header_section',
-				'default'  => '1',
-				'choices'  => array(
+				'settings'    => 'site_register_link',
+				'label'       => esc_html__( 'Show Register Link', 'buddyx' ),
+				'description' => esc_html__( 'Shown to logged-out visitors when registration is open on your site.', 'buddyx' ),
+				'section'     => 'site_header_section',
+				'default'     => '1',
+				'choices'     => array(
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),

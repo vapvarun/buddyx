@@ -58,18 +58,6 @@ classes are only repainted inside the dashboard. If Dokan restyles its
 React layout, only section 1 needs re-checking.
 --------------------------------------------------------------*/
 
-/* Native browser chrome (scrollbars, checkboxes, date/select inputs) keeps
- * rendering in the OS/browser's light appearance inside the dashboard
- * unless the page tells it the surface is dark - the theme has no
- * `color-scheme` declaration anywhere otherwise. Most visible as a light
- * scrollbar track on Windows/Linux (classic, drawn-in-page scrollbars);
- * far less noticeable on macOS, whose overlay scrollbars are thin and
- * transparent except while actively scrolling. */
-[data-bx-mode="dark"] #dokan-vendor-dashboard-layout-root,
-[data-bx-mode="dark"] .dokan-dashboard-content {
-    color-scheme: dark;
-}
-
 /* ---- 1. Dokan React layout chrome ----
  * Dokan ships its `.bg-white` / `.border-gray-*` utilities as
  * `:is(.pui-root, .dokan-layout) .bg-white { … !important }`, so these
@@ -316,6 +304,14 @@ React layout, only section 1 needs re-checking.
 
 [data-bx-mode="dark"] .dokan-dashboard .dokan-table-striped > tbody > tr:nth-of-type(odd) {
     background-color: var(--bx-color-bg-muted);
+}
+
+/* Below 768px Dokan stacks table rows into cards and paints each cell #fff, which left white
+   cards with light product names (1.09 to 1) in dark mode. Let the row surface show through. */
+@media (max-width: 767px) {
+    [data-bx-mode="dark"] .dokan-dashboard .dokan-table tbody tr td {
+        background-color: transparent;
+    }
 }
 
 [data-bx-mode="dark"] .dokan-dashboard .dokan-table-striped > tbody > tr:hover > td,

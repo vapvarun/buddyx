@@ -15,7 +15,7 @@
     font-family: var(--highlight-font-family);
     font-size: 80%;
     line-height: 0 !important;
-    color: var(--bx-color-menu-fg, #111);
+    color: var(--bx-color-menu-fg);
     text-transform: uppercase;
     border: 0;
     border-radius: 0;
@@ -32,7 +32,7 @@
 
 /* Show clear focus for keyboard users */
 .nav--toggle-small .menu-toggle:focus-visible {
-    outline: 2px solid var(--bx-color-menu-fg, #111);
+    outline: 2px solid var(--bx-color-menu-fg);
     outline-offset: 3px;
 }
 
@@ -188,7 +188,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     .main-navigation .mobile-menu-heading {
         margin-bottom: 20px;
         padding: 28px 20px;
-        background-color: #000; /* fixed: the mobile menu heading is a dark bar in both modes */
+        background-color: var(--bx-color-static-black); /* the mobile menu heading is a dark bar in both modes */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -204,12 +204,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         text-transform: uppercase;
         vertical-align: middle;
         display: inline-block;
-        color: #fff; /* fixed: on the always-dark heading bar */
+        color: var(--bx-color-static-white); /* on the always-dark heading bar */
     }
 
     .mobile-menu-heading .menu-close {
         width: auto;
-        color: #fff; /* fixed: on the always-dark heading bar */
+        color: var(--bx-color-static-white); /* on the always-dark heading bar */
         text-transform: uppercase;
         text-decoration: none;
         font-size: 12px;
@@ -227,7 +227,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
 	/* Show clear focus for keyboard users */
 	.mobile-menu-heading .menu-close:focus-visible {
-		outline: 2px solid #fff; /* fixed: on the always-dark heading bar */
+		outline: 2px solid var(--bx-color-static-white); /* on the always-dark heading bar */
 		outline-offset: 3px;
 	}
 
@@ -241,7 +241,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
         width: 15px;
         height: 2px;
         display: inline-block;
-        background-color: #fff; /* fixed: on the always-dark heading bar */
+        background-color: var(--bx-color-static-white); /* on the always-dark heading bar */
         -webkit-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
         -moz-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
         -o-transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, width 0.2s ease-in-out;
@@ -305,7 +305,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
 
     .main-navigation .primary-menu-container ul.menu li a {
-        padding: .5em 1em;
+        /* 8px floor keeps the row at the 40px tap target on a 15px menu font (.5em alone was 39px). */
+        padding: max(.5em, 8px) 1em;
         border-radius: 6px;
     }
 
@@ -330,7 +331,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     .buddyx-mobile-user .user-wrap .avatar {
         border-radius: 50%;
-        margin-right: 15px;
+        margin-inline-end: 15px;
         max-width: 52px;
     }
 
@@ -341,7 +342,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     .buddyx-mobile-user .my-account-link a {
         font-size: 13px;
-        color: var(--bx-color-fg-muted, #939597);
+        color: var(--bx-color-fg-muted);
         line-height: 1;
     }
 }
@@ -668,7 +669,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .main-navigation ul ul li {
-    padding-left: 1em;
+    padding-inline-start: 1em;
 }
 
 
@@ -686,11 +687,12 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     }
 
     .main-navigation ul li {
-        margin: 0 0 0 0.5em;
+        margin: 0;
+        margin-inline-start: 0.5em;
     }
 
     .main-navigation ul li:first-child {
-        margin-left: 0;
+        margin-inline-start: 0;
     }
 
     .main-navigation ul ul a {
@@ -699,8 +701,8 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     /* stylelint-disable */
     .main-navigation ul ul li {
-        padding-left: 0;
-        margin-left: 0;
+        padding-inline-start: 0;
+        margin-inline-start: 0;
     }
 
     .main-navigation ul ul.sub-menu li {
@@ -794,7 +796,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper #searchform {
     max-width: 340px;
     position: relative;
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
     margin: 0;
     padding: 5px 15px;
     padding-right: 45px;
@@ -816,11 +818,27 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 .menu-icons-wrapper #searchform input[type="search"],
 .cart-info::before,
 .cart-total::before {
-    color: var(--bx-color-fg-muted, #aaa);
+    color: var(--bx-color-fg-muted);
 }
 
 #searchform .search-icon {
     display: none;
+}
+
+/* Header search toggle: at least the 24px WCAG 2.2 target, 44px on touch. */
+.search > .search-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 1.5rem;
+    min-block-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+    .search > .search-icon {
+        min-inline-size: 2.75rem;
+        min-block-size: 2.75rem;
+    }
 }
 
 .menu-icons-wrapper #searchform input[type="submit"] {
@@ -839,7 +857,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .menu-icons-wrapper #searchform input[type="submit"]:focus {
-    border: 1px dotted var(--bx-color-fg-muted, #aaa);
+    border: 1px dotted var(--bx-color-fg-muted);
 }
 
 .menu-icons-wrapper #searchform::before {
@@ -858,7 +876,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 }
 
 .menu-icons-wrapper #searchform::before {
-    color: var(--bx-color-fg-muted, #c2c2c2);
+    color: var(--bx-color-fg-muted);
 }
 
 .menu-icons-wrapper .cart sup,
@@ -872,7 +890,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     font-size: 9px;
     font-weight: 700;
     background: var(--color-theme-primary);
-    color: var(--bx-color-accent-inverse, #fff);
+    color: var(--bx-color-accent-inverse, var(--bx-color-fg-inverse));
     border-radius: 50%;
     position: absolute;
     top: -5px;
@@ -972,7 +990,7 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
 .buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item .mute {
     font-size: 80%;
-    color: var(--bx-color-fg-muted, #757575);
+    color: var(--bx-color-fg-muted);
 }
 
 .buddypress-icons-wrapper #bp-notify .bp-dropdown-inner .dropdown-item p {
@@ -1075,6 +1093,33 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
     margin-right: 6px;
 }
 
+/* Phones: icon-only Log in and Register give the site title room; the label stays for screen readers. */
+@media (max-width: 480px) {
+    .buddypress-icons-wrapper .btn-login,
+    .buddypress-icons-wrapper .btn-register {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 0;
+    }
+
+    .buddypress-icons-wrapper .btn-login .bx-icon,
+    .buddypress-icons-wrapper .btn-register .bx-icon {
+        margin-inline-end: 0;
+    }
+
+    .buddypress-icons-wrapper .bx-btn-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+}
+
 @media (max-width: 767px) {
     .buddypress-icons-wrapper .btn-login,
     .buddypress-icons-wrapper .btn-register {
@@ -1096,6 +1141,32 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     .buddypress-icons-wrapper .user-link-wrap .user-link {
         pointer-events: none;
+    }
+}
+
+/* Phones: grow the tap area of the small header icons without moving them.
+   An empty ::before reaches into the side margins already around each icon,
+   so neighbouring tap areas meet but never overlap. */
+@media (max-width: 767px) {
+    .buddypress-icons-wrapper .bx-color-mode-toggle__btn::before,
+    .buddypress-icons-wrapper .bp-msg .bp-icon-wrap::before,
+    .buddypress-icons-wrapper .user-notifications .bp-icon-wrap::before {
+        content: "";
+        position: absolute;
+    }
+
+    /* 32px button -> 40px: the 2px end margin (to Log in or Messages) is the limit there. */
+    .buddypress-icons-wrapper .bx-color-mode-toggle__btn::before {
+        top: -4px;
+        right: -2px;
+        bottom: -4px;
+        left: -6px;
+    }
+
+    /* 15px icons -> 44px tall, filling the 10px margin on each side. */
+    .buddypress-icons-wrapper .bp-msg .bp-icon-wrap::before,
+    .buddypress-icons-wrapper .user-notifications .bp-icon-wrap::before {
+        inset: -10px;
     }
 }
 
@@ -1135,5 +1206,15 @@ body.admin-bar .site-header-wrapper.has-sticky-header {
 
     #bp-notify.bp-header-submenu::before {
         right: 63px
+    }
+}
+
+/* Touch devices: rows in the More dropdown meet the 40px tap target. */
+@media (pointer: coarse) {
+
+    .main-navigation .bx-menu-more .sub-menu > li > a {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
     }
 }

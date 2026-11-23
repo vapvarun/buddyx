@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Fonts;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use WP_Error;
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;

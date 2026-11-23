@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings' => 'site_footer_bg',
-				'label'    => esc_html__( 'Customize Background', 'buddyx' ),
+				'label'    => esc_html__( 'Use a Custom Background', 'buddyx' ),
 				'section'  => 'site_footer_section',
 				'default'  => 'off',
 				'choices'  => array(
@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 			'background',
 			array(
 				'settings'          => 'background_setting',
-				'label'             => esc_html__( 'Background Control', 'buddyx' ),
+				'label'             => esc_html__( 'Background Color and Image', 'buddyx' ),
 				'section'           => 'site_footer_section',
 				'default'           => array(
 					'background-color'      => '',
@@ -74,7 +74,7 @@ defined( 'ABSPATH' ) || exit;
 			'textarea',
 			array(
 				'settings' => 'site_copyright_text',
-				'label'    => esc_html__( 'Add Content', 'buddyx' ),
+				'label'    => esc_html__( 'Copyright Text', 'buddyx' ),
 				'section'  => 'site_copyright_section',
 				// Shared with the render site (inc/extra.php) so the Customizer default
 				// and what a fresh site actually prints cannot diverge.

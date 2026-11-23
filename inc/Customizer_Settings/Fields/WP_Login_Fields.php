@@ -14,11 +14,12 @@ defined( 'ABSPATH' ) || exit;
 		\BuddyX\Buddyx\Customizer_Framework\Field::add(
 			'switch',
 			array(
-				'settings' => 'enable_custom_login',
-				'label'    => esc_html__( 'Customize Your Logo Section', 'buddyx' ),
-				'section'  => 'site_wp_login_logo',
-				'default'  => '',
-				'choices'  => array(
+				'settings'    => 'enable_custom_login',
+				'label'       => esc_html__( 'Customize the Login Page', 'buddyx' ),
+				'description' => esc_html__( 'Change the logo and browser tab title on the WordPress login screen.', 'buddyx' ),
+				'section'     => 'site_wp_login_logo',
+				'default'     => '',
+				'choices'     => array(
 					'on'  => esc_html__( 'Yes', 'buddyx' ),
 					'off' => esc_html__( 'No', 'buddyx' ),
 				),
@@ -29,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings'        => 'enable_custom_login_logo',
-				'label'           => esc_html__( 'Hide Logo', 'buddyx' ),
+				'label'           => esc_html__( 'Hide the Login Logo', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'default'         => '',
 				'choices'         => array(
@@ -50,7 +51,8 @@ defined( 'ABSPATH' ) || exit;
 			'image',
 			array(
 				'settings'        => 'custom_login_logo_image',
-				'label'           => esc_attr__( 'Custom Logo', 'buddyx' ),
+				'label'           => esc_attr__( 'Login Logo', 'buddyx' ),
+				'description'     => esc_html__( 'Replaces the WordPress logo on the login screen.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
@@ -75,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'        => 'custom_login_logo_image_width',
 				'label'           => esc_attr__( 'Logo Width', 'buddyx' ),
-				'description'     => esc_html__( 'Select the logo width (px)', 'buddyx' ),
+				'description'     => esc_html__( 'Width of your login logo, in pixels.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '84px',
@@ -100,7 +102,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'        => 'custom_login_logo_image_height',
 				'label'           => esc_attr__( 'Logo Height', 'buddyx' ),
-				'description'     => esc_html__( 'Select the logo height (px)', 'buddyx' ),
+				'description'     => esc_html__( 'Height of your login logo, in pixels.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '84px',
@@ -124,8 +126,8 @@ defined( 'ABSPATH' ) || exit;
 			'dimension',
 			array(
 				'settings'        => 'custom_login_logo_space',
-				'label'           => esc_attr__( 'Logo Space Bottom', 'buddyx' ),
-				'description'     => esc_html__( 'Select the logo bottom spacing (px)', 'buddyx' ),
+				'label'           => esc_attr__( 'Space Below Logo', 'buddyx' ),
+				'description'     => esc_html__( 'Space between your login logo and the login form, in pixels.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '0px',
@@ -149,7 +151,8 @@ defined( 'ABSPATH' ) || exit;
 			'url',
 			array(
 				'settings'        => 'custom_login_logo_url',
-				'label'           => esc_attr__( 'Logo URL', 'buddyx' ),
+				'label'           => esc_attr__( 'Logo Link', 'buddyx' ),
+				'description'     => esc_html__( 'Where the login logo takes visitors when clicked. Leave empty to link to your homepage.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
@@ -173,7 +176,8 @@ defined( 'ABSPATH' ) || exit;
 			'text',
 			array(
 				'settings'        => 'custom_login_logo_title',
-				'label'           => esc_attr__( 'Logo Title', 'buddyx' ),
+				'label'           => esc_attr__( 'Logo Text', 'buddyx' ),
+				'description'     => esc_html__( 'Text read out by screen readers for the login logo link. Leave empty to use your site name.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',
@@ -198,7 +202,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'        => 'custom_login_page_title',
 				'label'           => esc_attr__( 'Login Page Title', 'buddyx' ),
-				'description'     => esc_attr__( 'Login page title that is shown on WordPress login page.', 'buddyx' ),
+				'description'     => esc_attr__( 'Text shown in the browser tab on the login page. Leave empty to use the standard title.', 'buddyx' ),
 				'section'         => 'site_wp_login_logo',
 				'priority'        => 10,
 				'default'         => '',

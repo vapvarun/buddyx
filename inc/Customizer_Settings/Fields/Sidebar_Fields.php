@@ -139,11 +139,12 @@ defined( 'ABSPATH' ) || exit;
 		\BuddyX\Buddyx\Customizer_Framework\Field::add(
 			'switch',
 			array(
-				'settings' => 'sticky_sidebar_option',
-				'label'    => esc_html__( 'Sticky Sidebar', 'buddyx' ),
-				'section'  => 'site_sidebar_layout',
-				'default'  => '1',
-				'choices'  => array(
+				'settings'    => 'sticky_sidebar_option',
+				'label'       => esc_html__( 'Sticky Sidebar', 'buddyx' ),
+				'description' => esc_html__( 'Keeps the sidebar in view while visitors scroll long pages.', 'buddyx' ),
+				'section'     => 'site_sidebar_layout',
+				'default'     => '1',
+				'choices'     => array(
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),

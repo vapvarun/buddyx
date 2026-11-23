@@ -8,6 +8,8 @@
  * @since 4.3.9
  */
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 /**
  * Download webfonts locally.
  */

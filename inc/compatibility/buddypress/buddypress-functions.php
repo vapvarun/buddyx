@@ -42,6 +42,28 @@ if ( ! function_exists( 'buddyx_bp_get_template_stack' ) ) {
 add_filter( 'bp_get_template_stack', 'buddyx_bp_get_template_stack', 10, 1 );
 
 /*
+ * An empty groups directory must not hold the loading reserve (assets/css/src/buddypress.css),
+ * or the stacked sidebar and footer jump when the empty notice replaces it.
+ */
+if ( ! function_exists( 'buddyx_bp_empty_directory_body_class' ) ) {
+
+	/**
+	 * Add bx-dir-empty to the body of a BuddyPress groups directory that has no groups.
+	 *
+	 * @param array $classes Body classes.
+	 * @return array Filtered body classes.
+	 */
+	function buddyx_bp_empty_directory_body_class( $classes ) {
+		if ( function_exists( 'bp_is_groups_directory' ) && bp_is_groups_directory() && function_exists( 'groups_get_total_group_count' ) && 0 === (int) groups_get_total_group_count() ) {
+			$classes[] = 'bx-dir-empty';
+		}
+		return $classes;
+	}
+}
+add_filter( 'body_class', 'buddyx_bp_empty_directory_body_class' );
+
+
+/*
  * Buddyx_bp_get_activity_css_first_class
  *
  */
@@ -138,6 +160,21 @@ if ( ! function_exists( 'buddyx_user_status' ) ) {
 	}
 }
 
+if ( ! function_exists( 'buddyx_directory_cover_loading_attr' ) ) {
+	/**
+	 * Loading attribute for a directory card cover. The first cover on the page is
+	 * the directory's largest paint (LCP), so it loads at once and first; the rest
+	 * stay lazy. Each directory page and AJAX reload is its own request, so the
+	 * count starts again there.
+	 *
+	 * @return string Attribute markup.
+	 */
+	function buddyx_directory_cover_loading_attr() {
+		static $count = 0;
+		return 0 === $count++ ? 'fetchpriority="high"' : 'loading="lazy"';
+	}
+}
+
 /*
  * showing member cover image on member directory page
  */
@@ -164,7 +201,7 @@ if ( ! function_exists( 'buddyx_render_member_cover_image' ) ) {
 		// Only render the <img> when a cover exists - an empty src is invalid
 		// HTML and makes browsers re-request the page URL as an image. The
 		// wrapper stays so the CSS gradient fallback still paints the card.
-		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" />' : '';
+		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" ' . buddyx_directory_cover_loading_attr() . ' />' : '';
 		echo '<div class="buddyx-mem-cover-wrapper"><div class="buddyx-mem-cover-img">' . $cover_img . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $cover_img is built from esc_url() above.
 	}
 
@@ -195,7 +232,7 @@ if ( ! function_exists( 'buddyx_render_group_cover_image' ) ) {
 		// Only render the <img> when a cover exists - an empty src is invalid
 		// HTML and makes browsers re-request the page URL as an image. The
 		// wrapper stays so the CSS gradient fallback still paints the card.
-		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" loading="lazy" />' : '';
+		$cover_img = $cover_img_url ? '<img src="' . esc_url( $cover_img_url ) . '" alt="" ' . buddyx_directory_cover_loading_attr() . ' />' : '';
 		echo '<div class="buddyx-grp-cover-wrapper"><div class="buddyx-grp-cover-img">' . $cover_img . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $cover_img is built from esc_url() above.
 	}
 

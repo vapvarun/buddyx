@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings' => 'site_sub_header_bg',
-				'label'    => esc_html__( 'Customize Background', 'buddyx' ),
+				'label'    => esc_html__( 'Use a Custom Background', 'buddyx' ),
 				'section'  => 'site_sub_header_section',
 				'default'  => 'off',
 				'choices'  => array(
@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 			'background',
 			array(
 				'settings'          => 'sub_header_background_setting',
-				'label'             => esc_html__( 'Background Control', 'buddyx' ),
+				'label'             => esc_html__( 'Background Color and Image', 'buddyx' ),
 				'section'           => 'site_sub_header_section',
 				// No default background-color — when the customer hasn't enabled
 				// `site_sub_header_bg`, the sub-header should inherit its color
@@ -77,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'site_sub_header_typography',
-				'label'    => esc_html__( 'Content Typography', 'buddyx' ),
+				'label'    => esc_html__( 'Title and Breadcrumb Font', 'buddyx' ),
 				'section'  => 'site_sub_header_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -106,7 +106,7 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings' => 'site_breadcrumbs',
-				'label'    => esc_html__( 'Site Breadcrumbs', 'buddyx' ),
+				'label'    => esc_html__( 'Show Breadcrumbs', 'buddyx' ),
 				'section'  => 'site_sub_header_section',
 				'default'  => 'on',
 				'choices'  => array(

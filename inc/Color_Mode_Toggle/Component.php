@@ -31,6 +31,13 @@ defined( 'ABSPATH' ) || exit;
 class Component implements Component_Interface {
 
 	/**
+	 * Whether the header or mobile-menu toggle printed on this request.
+	 *
+	 * @var bool
+	 */
+	protected $rendered_in_header = false;
+
+	/**
 	 * Slug.
 	 */
 	public function get_slug(): string {
@@ -115,11 +122,11 @@ class Component implements Component_Interface {
 	/**
 	 * Dokan seller-dashboard render hook.
 	 *
-	 * The Dokan dashboard uses `dokan-dashboard-fullwidth-template`, which
-	 * swaps out the BuddyX header entirely — so `buddyx_header_actions`
-	 * never fires and a vendor sitting in the dashboard has no way to
-	 * switch modes. Render a floating toggle (fixed, bottom-inline-end)
-	 * on those routes only. Reuses the same `.bx-color-mode-toggle__btn`
+	 * When the Dokan dashboard runs on `dokan-dashboard-fullwidth-template`,
+	 * the BuddyX header is swapped out, `buddyx_header_actions` never fires
+	 * and a vendor has no way to switch modes. Render a floating toggle
+	 * (fixed, bottom-inline-end) on those routes, only when no header or
+	 * mobile-menu toggle printed on the request. Reuses the same `.bx-color-mode-toggle__btn`
 	 * markup so color-mode-toggle.js binds to it via event delegation
 	 * with no extra JS. Styling lives in assets/css/src/dokan.css
 	 * (`.bx-color-mode-toggle-dokan`), which is already enqueued on
@@ -130,6 +137,11 @@ class Component implements Component_Interface {
 			return;
 		}
 		if ( ! function_exists( 'dokan_is_seller_dashboard' ) || ! dokan_is_seller_dashboard() ) {
+			return;
+		}
+		// Dokan Lite renders its dashboard inside the normal page template, header included;
+		// a second, floating toggle there duplicated the header one.
+		if ( $this->rendered_in_header ) {
 			return;
 		}
 		$this->render( 'dokan' );
@@ -164,6 +176,10 @@ class Component implements Component_Interface {
 			'header' => 'bx-color-mode-toggle-header',
 		);
 		$wrapper  = isset( $wrappers[ $context ] ) ? $wrappers[ $context ] : $wrappers['header'];
+
+		if ( 'header' === $context || 'mobile' === $context ) {
+			$this->rendered_in_header = true;
+		}
 
 		$labels = $this->get_labels();
 		$label  = isset( $labels[ $mode ] ) ? $labels[ $mode ] : $labels['light'];

@@ -10,6 +10,8 @@
 
 namespace BuddyX\Buddyx\Customizer_Settings;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use function add_action;
 use function add_filter;
@@ -149,7 +151,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_layout',
 			array(
-				'title'       => esc_html__( 'Site Layout', 'buddyx' ),
+				'title'       => esc_html__( 'Layout', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
@@ -160,7 +162,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_loader',
 			array(
-				'title'       => esc_html__( 'Site Loader', 'buddyx' ),
+				'title'       => esc_html__( 'Page Loader', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
@@ -171,7 +173,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'page_mapping',
 			array(
-				'title'       => esc_html__( 'Page Mapping', 'buddyx' ),
+				'title'       => esc_html__( 'Special Pages', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_layout_panel',
@@ -221,7 +223,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'body_typography_section',
 			array(
-				'title'       => esc_html__( 'Body', 'buddyx' ),
+				'title'       => esc_html__( 'Body Text', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'typography_panel',
@@ -232,7 +234,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_header_section',
 			array(
-				'title'       => esc_html__( 'Site Header', 'buddyx' ),
+				'title'       => esc_html__( 'Header', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 			)
@@ -242,7 +244,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_sub_header_section',
 			array(
-				'title'       => esc_html__( 'Site Sub Header', 'buddyx' ),
+				'title'       => esc_html__( 'Page Header', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 			)
@@ -252,7 +254,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_skin_section',
 			array(
-				'title'       => esc_html__( 'Site Skin', 'buddyx' ),
+				'title'       => esc_html__( 'Colors and Dark Mode', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 			)
@@ -262,7 +264,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_blog_section',
 			array(
-				'title'       => esc_html__( 'Site Blog', 'buddyx' ),
+				'title'       => esc_html__( 'Blog', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 			)
@@ -272,7 +274,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_sidebar_layout',
 			array(
-				'title'       => esc_html__( 'Site Sidebar', 'buddyx' ),
+				'title'       => esc_html__( 'Sidebar', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 			)
@@ -282,7 +284,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'site_wp_login',
 			array(
-				'title'       => esc_html__( 'WP Login', 'buddyx' ),
+				'title'       => esc_html__( 'Login Page', 'buddyx' ),
 				'priority'    => 31,
 				'description' => '',
 			)
@@ -306,7 +308,7 @@ class Component implements Component_Interface {
 			\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 				'site_buddypress_panel',
 				array(
-					'title'       => esc_html__( 'Community Settings', 'buddyx' ),
+					'title'       => esc_html__( 'Community', 'buddyx' ),
 					'priority'    => 31,
 					'description' => '',
 				)
@@ -315,7 +317,7 @@ class Component implements Component_Interface {
 			\BuddyX\Buddyx\Customizer_Framework\Section::add(
 				'site_buddypress_general_section',
 				array(
-					'title'       => esc_html__( 'General Setting', 'buddyx' ),
+					'title'       => esc_html__( 'General', 'buddyx' ),
 					'priority'    => 30,
 					'description' => '',
 					'panel'       => 'site_buddypress_panel',
@@ -327,7 +329,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Panel::add(
 			'site_footer_panel',
 			array(
-				'title'       => esc_html__( 'Site Footer', 'buddyx' ),
+				'title'       => esc_html__( 'Footer', 'buddyx' ),
 				'priority'    => 31,
 				'description' => '',
 			)
@@ -336,7 +338,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_footer_section',
 			array(
-				'title'       => esc_html__( 'Footer Section', 'buddyx' ),
+				'title'       => esc_html__( 'Footer Area', 'buddyx' ),
 				'priority'    => 30,
 				'description' => '',
 				'panel'       => 'site_footer_panel',
@@ -347,7 +349,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_copyright_section',
 			array(
-				'title'       => esc_html__( 'Copyright Section', 'buddyx' ),
+				'title'       => esc_html__( 'Copyright Bar', 'buddyx' ),
 				'priority'    => 31,
 				'description' => '',
 				'panel'       => 'site_footer_panel',
@@ -358,7 +360,7 @@ class Component implements Component_Interface {
 		\BuddyX\Buddyx\Customizer_Framework\Section::add(
 			'site_performance_section',
 			array(
-				'title'       => esc_html__( 'Site Performance', 'buddyx' ),
+				'title'       => esc_html__( 'Performance', 'buddyx' ),
 				'priority'    => 31,
 				'description' => '',
 			)

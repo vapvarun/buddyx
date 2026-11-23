@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Options;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use BuddyX\Buddyx\Templating_Component_Interface;
 use function add_action;

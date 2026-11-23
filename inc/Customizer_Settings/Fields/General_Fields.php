@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 				'section'  => 'site_layout',
 				'priority' => 10,
 				'default'  => 'wide',
-				'tooltip'  => esc_html__( 'You can select wide or box layout based on your preference.', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Wide fills the whole screen. Boxed keeps the site inside a centered box with the page background around it.', 'buddyx' ),
 				'choices'  => array(
 					'boxed' => get_template_directory_uri() . '/assets/images/boxed.png',
 					'wide'  => get_template_directory_uri() . '/assets/images/wide.png',
@@ -34,8 +34,8 @@ defined( 'ABSPATH' ) || exit;
 			'dimension',
 			array(
 				'settings'    => 'site_container_width',
-				'label'       => esc_html__( 'Max Content Layout Width', 'buddyx' ),
-				'description' => esc_html__( 'Select the maximum content width for your website (px)', 'buddyx' ),
+				'label'       => esc_html__( 'Content Width', 'buddyx' ),
+				'description' => esc_html__( 'The widest the content area grows on large screens, in pixels.', 'buddyx' ),
 				'section'     => 'site_layout',
 				'default'     => '1170px',
 				'priority'    => 10,
@@ -64,8 +64,8 @@ defined( 'ABSPATH' ) || exit;
 			'dimension',
 			array(
 				'settings'    => 'site_global_border_radius',
-				'label'       => esc_html__( 'Global Border Radius', 'buddyx' ),
-				'description' => esc_html__( 'Set the content, various elements border radius for your website (px)', 'buddyx' ),
+				'label'       => esc_html__( 'Corner Roundness', 'buddyx' ),
+				'description' => esc_html__( 'How rounded the corners of cards, boxes and other content blocks are, in pixels. Use 0 for square corners.', 'buddyx' ),
 				'section'     => 'site_layout',
 				'default'     => '8px',
 				'priority'    => 10,
@@ -77,8 +77,8 @@ defined( 'ABSPATH' ) || exit;
 			'dimension',
 			array(
 				'settings'    => 'site_button_border_radius',
-				'label'       => esc_html__( 'Buttons Border Radius', 'buddyx' ),
-				'description' => esc_html__( 'Set the buttons border radius for your website (px)', 'buddyx' ),
+				'label'       => esc_html__( 'Button Corner Roundness', 'buddyx' ),
+				'description' => esc_html__( 'How rounded button corners are, in pixels.', 'buddyx' ),
 				'section'     => 'site_layout',
 				'default'     => '6px',
 				'priority'    => 10,
@@ -90,8 +90,8 @@ defined( 'ABSPATH' ) || exit;
 			'dimension',
 			array(
 				'settings'    => 'site_form_border_radius',
-				'label'       => esc_html__( 'Form Border Radius', 'buddyx' ),
-				'description' => esc_html__( 'Set the form elements (except textarea) border radius for your website (px)', 'buddyx' ),
+				'label'       => esc_html__( 'Form Field Corner Roundness', 'buddyx' ),
+				'description' => esc_html__( 'How rounded the corners of form fields are, in pixels. Multi-line message boxes keep their own corners.', 'buddyx' ),
 				'section'     => 'site_layout',
 				'default'     => '6px',
 				'priority'    => 10,
@@ -106,8 +106,8 @@ defined( 'ABSPATH' ) || exit;
 			'switch',
 			array(
 				'settings'    => 'site_loader',
-				'label'       => esc_html__( 'Show site loader', 'buddyx' ),
-				'description' => esc_html__( 'Display a loading animation while the page is loading. Off by default — modern pages load fast enough that an extra animation usually adds perceived delay rather than helping.', 'buddyx' ),
+				'label'       => esc_html__( 'Show Site Loader', 'buddyx' ),
+				'description' => esc_html__( 'Shows a loading animation while each page loads. Off by default, because modern pages load fast and an extra animation can make the site feel slower.', 'buddyx' ),
 				'section'     => 'site_loader',
 				'default'     => 0,
 				'choices'     => array(
@@ -122,7 +122,7 @@ defined( 'ABSPATH' ) || exit;
 			'radio_image',
 			array(
 				'settings'        => 'site_loader_type',
-				'label'           => esc_html__( 'Loader animation', 'buddyx' ),
+				'label'           => esc_html__( 'Loader Animation', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => 'dots',
 				'priority'        => 10,
@@ -150,7 +150,7 @@ defined( 'ABSPATH' ) || exit;
 			'color',
 			array(
 				'settings'        => 'site_loader_bg',
-				'label'           => esc_html__( 'Background color', 'buddyx' ),
+				'label'           => esc_html__( 'Background Color', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => '',
 				'description'     => esc_html__( 'Leave empty to follow the Theme Color.', 'buddyx' ),
@@ -178,8 +178,8 @@ defined( 'ABSPATH' ) || exit;
 			'color',
 			array(
 				'settings'        => 'site_loader_color',
-				'label'           => esc_html__( 'Element color', 'buddyx' ),
-				'description'     => esc_html__( 'Color of the spinner, dots, or text. Ignored when using a logo.', 'buddyx' ),
+				'label'           => esc_html__( 'Animation Color', 'buddyx' ),
+				'description'     => esc_html__( 'Color of the dots, spinner, pulse, bars or text. Not used by the Logo loader.', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => '#ffffff',
 				'choices'         => array( 'alpha' => false ),
@@ -206,8 +206,8 @@ defined( 'ABSPATH' ) || exit;
 			'text',
 			array(
 				'settings'        => 'site_loader_text',
-				'label'           => esc_html__( 'Loader text', 'buddyx' ),
-				'description'     => esc_html__( 'Used for the screen-reader announcement (aria-label). Visible on the screen for the "Logo" loader.', 'buddyx' ),
+				'label'           => esc_html__( 'Loader Text', 'buddyx' ),
+				'description'     => esc_html__( 'Read out to screen reader users while the page loads. Also shown on screen under the Logo loader.', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => esc_html__( 'Loading', 'buddyx' ),
 				'priority'        => 10,
@@ -227,8 +227,8 @@ defined( 'ABSPATH' ) || exit;
 			'image',
 			array(
 				'settings'        => 'site_loader_logo',
-				'label'           => esc_html__( 'Custom logo image', 'buddyx' ),
-				'description'     => esc_html__( 'Upload an image to use as the loader. Falls back to the site logo when empty.', 'buddyx' ),
+				'label'           => esc_html__( 'Loader Logo', 'buddyx' ),
+				'description'     => esc_html__( 'Upload an image to use as the loader. Uses your site logo when empty.', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => '',
 				'priority'        => 10,
@@ -253,7 +253,7 @@ defined( 'ABSPATH' ) || exit;
 			'slider',
 			array(
 				'settings'        => 'site_loader_speed',
-				'label'           => esc_html__( 'Animation speed (seconds)', 'buddyx' ),
+				'label'           => esc_html__( 'Animation Speed (seconds)', 'buddyx' ),
 				'section'         => 'site_loader',
 				'default'         => '1.5',
 				'priority'        => 10,
@@ -288,7 +288,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'    => 'buddyx_login_page',
 				'label'       => esc_attr__( 'Login Page', 'buddyx' ),
-				'description' => esc_attr__( 'You can redirect user to custom login page.', 'buddyx' ),
+				'description' => esc_attr__( 'The page the header Log in link opens. Leave empty to use the standard WordPress login page.', 'buddyx' ),
 				'section'     => 'page_mapping',
 				'priority'    => 10,
 				'default'     => 0,
@@ -301,7 +301,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'    => 'buddyx_registration_page',
 				'label'       => esc_attr__( 'Registration Page', 'buddyx' ),
-				'description' => esc_attr__( 'You can redirect user to custom registration page.', 'buddyx' ),
+				'description' => esc_attr__( 'The page the header Register link opens. Leave empty to use the standard WordPress registration page.', 'buddyx' ),
 				'section'     => 'page_mapping',
 				'priority'    => 10,
 				'default'     => 0,
@@ -313,8 +313,8 @@ defined( 'ABSPATH' ) || exit;
 			'dropdown-pages',
 			array(
 				'settings'    => 'buddyx_404_page',
-				'label'       => esc_attr__( '404', 'buddyx' ),
-				'description' => esc_attr__( 'You can redirect user to custom 404 page.', 'buddyx' ),
+				'label'       => esc_attr__( 'Page Not Found (404)', 'buddyx' ),
+				'description' => esc_attr__( 'Visitors who open an address that does not exist see this page, and the response stays a 404 for search engines. Leave empty to show the theme 404 page.', 'buddyx' ),
 				'section'     => 'page_mapping',
 				'priority'    => 10,
 				'default'     => 0,

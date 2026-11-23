@@ -114,7 +114,20 @@
 			'--bx-sticky-header-height',
 			height + 'px'
 		);
+		syncStickySidebar(height);
 	};
+
+	// A sticky sidebar that fits the screen sticks under the header. A taller one sticks only once
+	// its end is on screen, so every widget is reachable by scrolling the page.
+	function syncStickySidebar(headerHeight) {
+		const base = (BUDDYX.adminBarOffset || 0) + headerHeight + 32;
+		$$('.sticky-sidebar').forEach((el) => {
+			el.style.setProperty(
+				'--bx-sidebar-top',
+				Math.min(base, window.innerHeight - el.offsetHeight - 24) + 'px'
+			);
+		});
+	}
 
 	// Pads .site by the sticky header's height so the content does not slide under it.
 	const setSitePadding = (isSticky) => {
@@ -213,13 +226,46 @@
 
 		on('.search-icon', 'click', function (e) {
 			e.preventDefault();
+			let opened = false;
 			containers().forEach((el) => {
-				el.style.display =
-					window.getComputedStyle(el).display === 'none'
-						? 'block'
-						: 'none';
+				opened = window.getComputedStyle(el).display === 'none';
+				el.style.display = opened ? 'block' : 'none';
 			});
+			this.setAttribute('aria-expanded', opened ? 'true' : 'false');
+			// Keyboard users land in the field they just opened.
+			const field = opened
+				? $$('.top-menu-search-container input[type="search"]').filter(
+						isVisible
+					)[0]
+				: null;
+			if (field) {
+				field.focus();
+			}
 		});
+
+		// Escape closes the search and hands focus back to its icon.
+		document.addEventListener('keydown', function (e) {
+			if ('Escape' !== e.key) {
+				return;
+			}
+			const open = containers().filter(
+				(el) => window.getComputedStyle(el).display !== 'none'
+			);
+			if (!open.length) {
+				return;
+			}
+			open.forEach((el) => (el.style.display = 'none'));
+			const icon = $$('.search-icon').filter(isVisible)[0];
+			if (icon) {
+				icon.setAttribute('aria-expanded', 'false');
+				icon.focus();
+			}
+		});
+
+		const markClosed = () =>
+			$$('.search-icon').forEach((el) =>
+				el.setAttribute('aria-expanded', 'false')
+			);
 
 		document.addEventListener('mouseup', function (e) {
 			$$('.top-menu-search-container').forEach((el) => {
@@ -227,6 +273,9 @@
 					el.style.display = 'none';
 				}
 			});
+			if (!e.target.closest('.search')) {
+				markClosed();
+			}
 		});
 
 		on(
@@ -234,6 +283,7 @@
 			'focusin',
 			function () {
 				containers().forEach((el) => (el.style.display = 'none'));
+				markClosed();
 			}
 		);
 	};

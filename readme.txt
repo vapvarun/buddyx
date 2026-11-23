@@ -4,7 +4,7 @@ Tags: blog, e-commerce, one-column, block-patterns, block-styles, style-variatio
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 5.2.0
+Stable tag: 5.3.0
 License: GNU General Public License v3.0 (or later)
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,6 +48,20 @@ WooCommerce, BuddyPress, BuddyBoss Platform, LearnDash, LearnPress, LifterLMS, T
 * [Documentation](https://buddyxtheme.com/docs/) - step-by-step guides
 * [Community support forum](https://wordpress.org/support/theme/buddyx/) - free help from the community and our team
 * [GitHub](https://github.com/vapvarun/buddyx) - report issues or contribute
+
+= What happens when you activate BuddyX =
+
+* Activating BuddyX does not redirect you, install plugins or create content.
+* Administrators see one notice on the Dashboard, the Themes screen and Appearance > Getting Started: "Want to start with a BuddyX demo site?". Choose Set up demo site to create 7 pages from the theme's own patterns, or No thanks to hide the notice for good. Nothing is created unless you click the button, and clicking it again does not create the pages twice.
+* If your site already has a home page or menu, or BuddyPress or BuddyNext is active, Set up demo site only adds the missing pages and leaves your home page, menu, sidebar and settings as they are.
+* Appearance > Getting Started has a "Set up your site" checklist by goal (blog or business, community, shop, courses). It shows whether each suggested plugin is active, installed or missing on your site, and tells you where to get it. BuddyX never downloads or installs a plugin for you: WordPress.org plugins open the Add Plugins screen, and Wbcom Essential and the Wbcom Demo Installer, which are free but not on WordPress.org, link to their public GitHub release with upload steps.
+
+= Privacy and external links =
+
+* BuddyX does not track you or your visitors and sends no data to Wbcom Designs. It sets no cookies: a light or dark choice saved in a cookie by an older BuddyX version is read once, moved to the browser and the cookie removed.
+* The Getting Started screen loads nothing from other sites: its images ship with the theme and videos are links, not embeds. Its links open only when you click them, in a new tab, without tracking parameters. They go to buddyxtheme.com (documentation), wbcomdesigns.com (products and support), github.com (Wbcom Essential, the Wbcom Demo Installer and the child theme), youtube.com (setup videos), wordpress.org (reviews and support), facebook.com (the BuddyX community group) and the sites of Wbcom plugins.
+* The two default fonts are bundled with the theme. If you choose a Google font in the Customizer, the font is loaded from Google's servers unless you turn on Customize > Performance > Load Google Fonts Locally, which downloads it to your site once and serves it from there.
+* Dark mode remembers each visitor's light or dark choice in their own browser (localStorage, key bx-color-mode). It is never sent to the server.
 
 == BuddyX Child Theme ==
 
@@ -113,6 +127,50 @@ Kirki Customizer Framework
 License URI: https://opensource.org/licenses/MIT
 
 == Changelog ==
+
+= 5.3.0 - November 2026 =
+
+Plainer settings, a rebuilt Getting Started screen, and fixes across RTL, dark mode, phones and shop plugins. Ships with BuddyX Pro 5.3.0.
+
+* New      - Getting Started is rebuilt: one next step, a plain six-step list, four tabs, the setup playlist beside the player, and a centered card that keeps other plugins' notices off the screen.
+* New      - Unknown addresses show the custom 404 page in place with a real 404 status instead of redirecting to the home page.
+* Improve  - Customizer sections use plain-language titles, and the docs follow.
+* Improve  - Getting Started suggests Wbcom Essential once and links the BuddyX setup playlist.
+* Improve  - The primary menu moves items into More when the header row is too narrow, and a long site title wraps so the menu and icons fit.
+* Improve  - Phone tap targets reach 40px on the colour toggle, header Messages and Notifications, sidebar dropdowns, and WooCommerce and BuddyPress screens.
+* Improve  - RTL sites mirror layout and integration spacing, post and comment navigation arrows, shop pagination arrows and the member @handle.
+* Improve  - BuddyPress system events show as a slim one-row card in the activity feed.
+* Improve  - Dokan vendor dashboard runs full width without the page sidebar.
+* Improve  - Dark mode covers more of LearnDash, LearnPress, LifterLMS, Sensei, WooCommerce, BuddyPress and BuddyBoss screens, including breadcrumb links on every page.
+* Fix      - Header search opens without moving focus, and Escape no longer closes it.
+* Fix      - Footer Copyright Border Color sets the line above the copyright bar again.
+* Fix      - Submit buttons no longer show grey text on the Theme Color on RTL sites.
+* Fix      - Dokan dashboard menu, phone product cards, sale prices and the orders filter are readable and no longer scroll sideways on phones.
+* Fix      - The Dokan vendor dashboard shows one colour-mode toggle.
+* Fix      - Dark mode no longer draws a large select arrow over plugin selects that turn it off.
+* Fix      - The phone site title stays on one line with an ellipsis instead of doubling the header height.
+* Fix      - Order-received overview, classic checkout errors and the cart coupon field no longer wrap raggedly or clip on phones.
+* Fix      - A LearnDash topic shows one breadcrumb trail when the theme title bar shows it.
+* Fix      - Comment pagination labels its two navigation regions apart.
+* Fix      - An empty groups directory no longer makes the sidebar jump, and the first directory card cover is not lazy-loaded.
+* Fix      - Classic, block and WooCommerce widget search share one 16px font size.
+* Dev      - Every stylesheet override partial is folded back into its component sheet, and the stylelint exemption is removed.
+* Dev      - Core, integration and RTL sheets use design tokens, and minified CSS is rebuilt.
+* Compat   - Aligned with BuddyX Pro 5.3.0. Install both updates together.
+
+= 5.2.1 - November 2026 =
+
+Block options, LearnDash Classic and Modern, and dark mode polish. Ships with BuddyX Pro 5.2.1.
+
+* Improve  - LearnDash Modern design: lesson and topic Previous, Next and Back links use the Theme Color, and the Modern course page, sidebar and brand colour follow the theme.
+* Improve  - Page Full Screen: block content now follows the theme content width, and wide and full alignments break out. Set a block to Full width to keep it edge to edge.
+* Improve  - Code blocks, images and featured images keep their own border colour and style from block settings.
+* Improve  - WP Job Manager buttons read their label colour from the theme button text colour.
+* Improve  - The LearnDash quiz start form and LifterLMS lessons are readable in dark mode.
+* Fix      - LearnDash progress bar and focus-mode links follow the colours set in the LearnDash Customizer instead of the theme red.
+* Fix      - The header profile link goes to the Jetonomy profile when Jetonomy is the community plugin.
+* Fix      - The Site Title link colour setting applies, and the single course meta line reads as page text.
+* Fix      - The mobile header profile avatar link has an accessible name for screen readers.
 
 = 5.2.0 - November 2026 =
 
@@ -219,7 +277,7 @@ Presentation release: one Theme Color for light and dark mode, tidier phone layo
 * Fix      - WooCommerce shop and archive pages now honor Breadcrumbs OFF, including legacy on/off values.
 * Fix      - FluentCart cart drawer now opens from the header cart icon. A selector typo previously left the toggle inert.
 * Fix      - Footer and Sub Header background toggles now stop the saved background from rendering when switched off. The saved color returns when re-enabled.
-* Fix      - Community Settings registration is consistent when Youzify runs alongside BuddyPress. The avatar toggle no longer registers against a dropped section.
+* Fix      - Community registration is consistent when Youzify runs alongside BuddyPress. The avatar toggle no longer registers against a dropped section.
 * Fix      - Derived background color variants now compute from the correct default #f7f7f9 on sites with nothing saved.
 * Dev      - New output_condition field arg lets the customizer framework gate CSS emission on an owning toggle at render time.
 * Dev      - Typography live preview gained color parity with the PHP output builder.
@@ -274,14 +332,14 @@ Presentation release: one Theme Color for light and dark mode, tidier phone layo
 
 = 5.1.0 - June 2026 =
 
-Customizer framework overhaul, Site Skin design tokens, and native dark mode. All existing customizer settings carry over unchanged - no database migration.
+Customizer framework overhaul, Colors and Dark Mode design tokens, and native dark mode. All existing customizer settings carry over unchanged - no database migration.
 
 * New      - Self-contained Customizer Framework replaces the bundled Kirki dependency: 12 custom controls plus 8 core-dispatched types, extensible via the `buddyx_customizer_field_type_map` filter.
-* New      - Site Skin design-token system: `--bx-color-*` tokens cover surfaces, brand, links, headings, header, menu, buttons, footer, and copyright, fed by your saved customizer values.
+* New      - Colors and Dark Mode design-token system: `--bx-color-*` tokens cover surfaces, brand, links, headings, header, menu, buttons, footer, and copyright, fed by your saved customizer values.
 * New      - Color mode setting with light, dark, and auto options; auto follows the visitor's OS preference and a head script applies the saved choice before any CSS loads to prevent flashes.
 * New      - Dark color token set with framework defaults that pass WCAG AA contrast against dark surfaces.
-* New      - Site Skin section reorganized into 9 visual clusters (Mode & Master, Brand, Header, Surfaces, Text & Links, Headings, Buttons, Footer, Copyright); all setting IDs unchanged.
-* New      - Site Loader with 5 animation styles and full reduced-motion support; ships off by default and can be enabled under General - Site Loader.
+* New      - Colors and Dark Mode section reorganized into 9 visual clusters (Mode & Master, Brand, Header, Surfaces, Text & Links, Headings, Buttons, Footer, Copyright); all setting IDs unchanged.
+* New      - Page Loader with 5 animation styles and full reduced-motion support; ships off by default and can be enabled under General - Page Loader.
 * New      - Typography controls expose font-style, text-align, and text-decoration in a redesigned paired layout.
 * New      - Searchable Google Fonts library picker returns to the typography controls.
 * New      - `buddyx_customizer_field_args` filter replaces `kirki_field_add_setting_args` for developers customizing field registration.

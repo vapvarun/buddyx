@@ -5,6 +5,8 @@
  * @package buddyx
  */
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 /**
  * Get the default value for a BuddyX theme option.
  *

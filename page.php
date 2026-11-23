@@ -21,6 +21,9 @@ buddyx()->print_styles( 'buddyx-sidebar', 'buddyx-widgets' );
 
 $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-option' ) );
 
+// The Dokan vendor dashboard has its own menu column, so it runs full width like the WooCommerce account pages.
+$is_dokan_dashboard = function_exists( 'dokan_is_seller_dashboard' ) && dokan_is_seller_dashboard();
+
 ?>
 
 	<?php
@@ -34,7 +37,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 	?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'left' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ! $is_dokan_dashboard && ( 'left' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
 			<aside id="secondary-left" class="left-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_left_sidebar(); ?>
@@ -77,7 +80,7 @@ $default_sidebar = get_theme_mod( 'sidebar_option', buddyx_defaults( 'sidebar-op
 
 	</main><!-- #primary -->
 	<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ( 'right' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
+		<?php if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() && ! $is_dokan_dashboard && ( 'right' === $default_sidebar || 'both' === $default_sidebar ) ) : ?>
 			<aside id="secondary" class="primary-sidebar widget-area">
 				<div class="sticky-sidebar">
 					<?php buddyx()->display_right_sidebar(); ?>

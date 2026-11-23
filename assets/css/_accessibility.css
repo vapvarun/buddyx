@@ -54,3 +54,16 @@
 	outline: 2px solid var(--bx-color-accent-focus, #2271b1) !important;
 	outline-offset: 2px !important;
 }
+
+/* Reduced motion: visitors who ask for less motion get no animation or smooth scrolling anywhere in the theme. */
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

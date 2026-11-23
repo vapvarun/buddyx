@@ -167,7 +167,7 @@ if ( is_user_logged_in() ) {
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $login_page_url ); ?>" class="btn-login" title="<?php esc_attr_e( 'Login', 'buddyx' ); ?>">
-				<?php echo buddyx_get_icon( 'user' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><?php esc_html_e( 'Log in', 'buddyx' ); ?>
+				<?php echo buddyx_get_icon( 'user' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><span class="bx-btn-label"><?php esc_html_e( 'Log in', 'buddyx' ); ?></span>
 			</a>
 		</div>
 		<?php
@@ -182,7 +182,7 @@ if ( is_user_logged_in() ) {
 		?>
 		<div class="bp-icon-wrap">
 			<a href="<?php echo esc_url( $registration_page_url ); ?>" class="btn-register" title="<?php esc_attr_e( 'Register', 'buddyx' ); ?>">
-				<?php echo buddyx_get_icon( 'sign-in' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><?php esc_html_e( 'Register', 'buddyx' ); ?>
+				<?php echo buddyx_get_icon( 'sign-in' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG from the theme icon map. ?><span class="bx-btn-label"><?php esc_html_e( 'Register', 'buddyx' ); ?></span>
 			</a>
 		</div>
 		<?php

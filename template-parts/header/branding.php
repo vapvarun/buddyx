@@ -10,9 +10,11 @@ namespace BuddyX\Buddyx;
 ?>
 <div class="site-branding">
 
-	<div class="site-logo-wrapper">
-		<?php the_custom_logo(); ?>
-	</div>
+	<?php if ( has_custom_logo() ) : ?>
+		<div class="site-logo-wrapper">
+			<?php the_custom_logo(); ?>
+		</div>
+	<?php endif; ?>
 
 	<div class="site-branding-inner">
 		<?php

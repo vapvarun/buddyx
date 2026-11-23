@@ -13,10 +13,11 @@
     --wbcom-link-hover-color: var(--bx-color-link-hover, #b82526);
 }
 
-/* On-accent text. The dark accent is a light coral, so the plugin's fixed white
- * label on accent-filled buttons falls below 3:1. Use the theme's on-accent
- * colour there; light mode keeps the plugin's white-on-dark-accent. */
-:root[data-bx-mode="dark"] body .gam-nudge__action,
-:root[data-bx-mode="dark"] body .wb-gam-btn--primary {
-    color: var(--bx-color-accent-inverse, #0a0a0a);
+/* On-accent text. The nudge button is painted with the theme accent, so its label comes from the
+ * theme's on-accent token in light and dark (the plugin derives its own label from the plugin
+ * accent, which gave black on the theme red in light mode: 3.85:1). Limit: a custom accent an owner
+ * sets inside WB Gamification itself still gets this theme label; revisit if that becomes common. */
+body .gam-nudge__action,
+body .wb-gam-btn--primary {
+    color: var(--bx-color-accent-inverse, #fff);
 }

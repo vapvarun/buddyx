@@ -60,3 +60,13 @@ body.sensei-course-theme .sensei-lms-notice {
 .sensei-lms-course-navigation-lesson.status-locked {
     opacity: 1;
 }
+
+/*
+ * Sensei paints the "Back to: course" bar with a fixed light grey (#fafafa) and #888 text. In dark
+ * mode the theme's near-white link then sat on near-white (1.04:1), and #888 on #fafafa is only 3.4:1
+ * in light mode. The bar follows the theme tokens instead.
+ */
+.sensei-breadcrumb {
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg-muted);
+}

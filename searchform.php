@@ -38,6 +38,6 @@ $buddyx_search_placeholder = apply_filters( 'buddyx_search_placeholder', $buddyx
 ?>
 <form id="<?php echo esc_attr( $buddyx_search_form_id ); ?>" role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">	
 	<span class="screen-reader-text"><?php esc_html_e( 'Search for:', 'buddyx' ); ?></span>
-	<input type="search" class="search-field-top" placeholder="<?php echo esc_attr( $buddyx_search_placeholder ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" />
+	<input type="search" class="search-field-top" aria-label="<?php esc_attr_e( 'Search for:', 'buddyx' ); ?>" placeholder="<?php echo esc_attr( $buddyx_search_placeholder ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" />
 	<input name="submit" type="submit" value="<?php esc_attr_e( 'Go', 'buddyx' ); ?>" />
 </form>

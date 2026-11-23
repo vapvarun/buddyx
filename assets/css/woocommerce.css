@@ -188,10 +188,18 @@
     font-weight: 500;
 }
 
+/* Sale prices are not highlighted: the global ins highlight stays off for every price, widgets included. */
+.price ins,
+ul.product_list_widget ins,
+ul.cart_list ins {
+    background: transparent;
+    text-decoration: none;
+}
+
 .woocommerce ul.products li.product .price del {
     font-size: 14px;
     margin-right: 4px;
-    color: var(--bx-color-fg-muted, #949494);
+    color: var(--bx-color-fg-muted);
     opacity: 1;
     font-weight: 400;
 }
@@ -246,20 +254,20 @@
     border: 0;
 }
 
-.woocommerce nav.woocommerce-pagination ul li a,
-.woocommerce nav.woocommerce-pagination ul li span {
+:root .woocommerce nav.woocommerce-pagination ul li a,
+:root .woocommerce nav.woocommerce-pagination ul li span {
     display: inline-block;
     margin-bottom: .5em;
-    margin-right: 1em;
+    margin-inline-end: 1em;
     min-width: 1.75em;
     line-height: 1.5;
     text-align: center;
-    background: var(--bx-color-bg-elevated, #fff) !important;
+    background: var(--bx-color-bg-elevated);
     font-weight: 400;
     border-radius: .28571429rem;
     text-transform: none;
-    text-shadow: none !important;
-    box-shadow: inset 0 0 0 1px var(--bx-color-border, #e8e8e8);
+    text-shadow: none;
+    box-shadow: inset 0 0 0 1px var(--bx-color-border);
     padding: 10px 15px;
     text-decoration: none;
 }
@@ -310,7 +318,7 @@
 .woocommerce div.product span.price del {
     font-size: 14px;
     margin-right: 4px;
-    color: var(--bx-color-fg-muted, #949494);
+    color: var(--bx-color-fg-muted);
     opacity: 1;
     font-weight: 400;
 }
@@ -327,7 +335,8 @@
 
 .woocommerce div.product form.cart .button,
 .woocommerce-page div.product form.cart .button {
-    margin: 0 12px 12px 0;
+    margin: 0 0 12px;
+    margin-inline-end: 12px;
 }
 
 /* WooCommerce colours inactive tabs #515151, unreadable on the dark page. */
@@ -339,12 +348,6 @@
     color: var(--color-theme-primary);
 }
 
-.pswp__ui--idle .pswp__button--arrow--left,
-.pswp__ui--idle .pswp__button--arrow--right,
-.pswp--has_mouse .pswp__button--arrow--left,
-.pswp--has_mouse .pswp__button--arrow--right {
-    border: 0 !important;
-}
 
 .woocommerce #content div.product .woocommerce-tabs,
 .woocommerce div.product .woocommerce-tabs,
@@ -459,8 +462,7 @@
 .woocommerce-info,
 .woocommerce-message {
     margin: 0 0 2em;
-    padding: 1em 2em 1em 3.5em !important;
-    background-color: var(--bx-color-bg-elevated, #fff);
+    padding: 1em 2em 1em 3.5em;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
 }
 
@@ -507,7 +509,7 @@
 .woocommerce table.cart td.actions .input-text,
 .woocommerce-page #content table.cart td.actions .input-text,
 .woocommerce-page table.cart td.actions .input-text {
-    width: 110px;
+    width: 140px;
     font-size: inherit;
 }
 
@@ -544,8 +546,8 @@ form.woocommerce-cart-form {
     box-shadow: none;
 }
 
-.woocommerce a.remove {
-	text-decoration: none !important;
+:root .woocommerce a.remove {
+	text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -572,7 +574,7 @@ form.woocommerce-cart-form {
 .woocommerce-page .woocommerce .woocommerce-order-downloads {
     position: relative;
     margin: 1rem 0 30px;
-    padding: 1em !important;
+    padding: 1em;
     border: 1px solid var(--global-border-color);
     -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
@@ -596,10 +598,10 @@ form.woocommerce-cart-form {
     padding: 0;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+:root .select2-container--default .select2-selection--single .select2-selection__arrow {
     position: absolute;
     z-index: 1;
-    top: 50% !important;
+    top: 50%;
     right: 1px;
     width: 20px;
     height: 26px;
@@ -614,8 +616,8 @@ form.woocommerce-cart-form {
 .wc-block-components-textarea,
 .wc-block-components-textarea:focus,
 .woocommerce-checkout textarea:focus {
-    background-color: var(--bx-color-bg-elevated, #fff);
-    color: var(--bx-color-fg, #111);
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
 }
 
 .wc-block-components-textarea:focus,
@@ -628,8 +630,8 @@ form.woocommerce-cart-form {
  * selects used a bright one. Use one visible token for every field. */
 .wc-block-components-form .wc-block-components-text-input input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
 .wc-block-components-textarea,
-.wc-blocks-components-select .wc-blocks-components-select__select {
-    border-color: var(--bx-color-border-strong, #d4d4d4);
+:root .wc-blocks-components-select .wc-blocks-components-select__select {
+    border-color: var(--bx-color-border-strong);
 }
 
 /* Checkout Blocks fields: WooCommerce sets the focused border to currentcolor,
@@ -643,30 +645,62 @@ form.woocommerce-cart-form {
 }
 
 /* Checkout Blocks country/state selects: WooCommerce paints the container
- * white, leaving the light dark-mode label and value unreadable. */
-.wc-blocks-components-select .wc-blocks-components-select__container {
-    background-color: var(--bx-color-bg-elevated, #fff);
-}
-
-.wc-blocks-components-select .wc-blocks-components-select__select,
-.wc-blocks-components-select .wc-blocks-components-select__label {
-    color: var(--bx-color-fg, #111);
-}
-
-.wc-blocks-components-select .wc-blocks-components-select__expand {
-    fill: var(--bx-color-fg, #111);
-}
-
-/* Checkout Blocks notice banners keep WooCommerce's light tint in dark mode. */
-:root[data-bx-mode="dark"] .wc-block-components-notice-banner {
+ * white and the value dark, leaving the light dark-mode label unreadable. Its
+ * rules have the same specificity and load after ours, so :root lifts ours. */
+:root .wc-blocks-components-select .wc-blocks-components-select__container {
     background-color: var(--bx-color-bg-elevated);
+}
+
+:root .wc-blocks-components-select .wc-blocks-components-select__select,
+:root .wc-blocks-components-select .wc-blocks-components-select__label {
     color: var(--bx-color-fg);
 }
 
-:root[data-bx-mode="dark"] .wc-block-components-notice-banner > .wc-block-components-notice-banner__content {
-    color: var(--bx-color-fg);
+/* WooCommerce draws its own chevron (__expand). The theme's dark select arrow
+ * (_forms.css) would otherwise tile across the whole field. */
+:root .wc-blocks-components-select .wc-blocks-components-select__select {
+    background-image: none;
 }
 
+:root .wc-blocks-components-select .wc-blocks-components-select__expand {
+    fill: var(--bx-color-fg);
+}
+
+/* Notices, classic and Checkout Blocks: one status family. Surface and border
+ * come from the status tokens, which already flip in dark mode, so no
+ * [data-bx-mode] selector is needed. :root lifts specificity above
+ * WooCommerce's single-class rules without !important. */
+:root .woocommerce-message,
+:root .wc-block-components-notice-banner.is-success {
+    background-color: var(--bx-color-success-bg);
+    border-color: var(--bx-color-success);
+}
+
+:root .woocommerce-info,
+:root .wc-block-components-notice-banner.is-info,
+:root .wc-block-components-notice-banner.is-default {
+    background-color: var(--bx-color-info-bg);
+    border-color: var(--bx-color-info);
+}
+
+:root .woocommerce-error,
+:root .wc-block-components-notice-banner.is-error {
+    background-color: var(--bx-color-error-bg);
+    border-color: var(--bx-color-error);
+}
+
+:root .wc-block-components-notice-banner.is-warning {
+    background-color: var(--bx-color-warning-bg);
+    border-color: var(--bx-color-warning);
+}
+
+:root .woocommerce-message,
+:root .woocommerce-info,
+:root .woocommerce-error,
+:root .wc-block-components-notice-banner,
+:root .wc-block-components-notice-banner > .wc-block-components-notice-banner__content {
+    color: var(--bx-color-fg);
+}
 
 /* Select2 country/state (classic checkout, My Account addresses and any other
  * WooCommerce form), the order-notes textarea and the info/error notices use
@@ -675,54 +709,52 @@ form.woocommerce-cart-form {
  * field left white shows light text on white in dark mode. */
 .select2-container.select2-container--default span.select2-selection--single,
 .select2-dropdown {
-    background-color: var(--bx-color-bg-elevated, #fff);
-    border-color: var(--bx-color-border-strong, #d4d4d4);
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border-strong);
+}
+
+/* "Select a country / region..." used WooCommerce's #444: 1.9:1 on the dark field. Same muted grey as the other placeholders. */
+.select2-container.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: var(--bx-color-fg-muted);
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 .select2-container--default .select2-results__option,
 .select2-container--default .select2-search--dropdown .select2-search__field {
-    color: var(--bx-color-fg, #111);
+    color: var(--bx-color-fg);
 }
 
 .select2-container--default .select2-search--dropdown .select2-search__field {
-    background-color: var(--bx-color-bg-elevated, #fff);
-    border-color: var(--bx-color-border-strong, #d4d4d4);
+    background-color: var(--bx-color-bg-elevated);
+    border-color: var(--bx-color-border-strong);
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
 .select2-container--default .select2-results__option--highlighted[data-selected] {
-    background-color: var(--bx-color-accent-fill, var(--bx-color-accent, #1e85be));
-    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
+    background-color: var(--bx-color-accent-fill, var(--bx-color-accent));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse));
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"],
 .select2-container--default .select2-results__option[data-selected="true"] {
-    background-color: var(--bx-color-bg-muted, #ddd);
-    color: var(--bx-color-fg, #111);
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
 }
 
-/* Select2 draws its own highlight; the global :focus-visible ring would stack
- * blue lines on top of it. */
-.select2-container--default .select2-results__option:focus-visible,
-.select2-container--default .select2-results__options:focus-visible,
-.select2-container--default .select2-search__field:focus-visible {
-    outline: 0 !important;
-}
 
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-top-color: var(--bx-color-fg, #111);
+    border-top-color: var(--bx-color-fg);
 }
 
 .woocommerce-checkout .woocommerce-input-wrapper input.input-text:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
 .woocommerce-checkout .woocommerce-input-wrapper textarea,
 .woocommerce-checkout #order_comments {
-    border-color: var(--bx-color-border-strong, #d4d4d4);
+    border-color: var(--bx-color-border-strong);
 }
 
 .woocommerce-checkout #order_comments {
-    background-color: var(--bx-color-bg-elevated, #fff);
-    color: var(--bx-color-fg, #111);
+    background-color: var(--bx-color-bg-elevated);
+    color: var(--bx-color-fg);
 }
 
 .woocommerce-checkout .woocommerce-input-wrapper input.input-text:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
@@ -730,12 +762,6 @@ form.woocommerce-cart-form {
 .select2-container.select2-container--default.select2-container--focus span.select2-selection--single,
 .select2-container.select2-container--default.select2-container--open span.select2-selection--single {
     border-color: var(--bx-color-accent, currentColor);
-}
-
-:root[data-bx-mode="dark"] .woocommerce-info,
-:root[data-bx-mode="dark"] .woocommerce-message,
-:root[data-bx-mode="dark"] .woocommerce-error {
-    color: var(--bx-color-fg);
 }
 
 
@@ -790,6 +816,20 @@ form.woocommerce-cart-form {
     list-style: none;
 }
 
+/* The reset above ties with the boxed-list rules and wins by source order, so
+ * the checkout error list and the order-received overview lose their padding. */
+.woocommerce .entry-content:not(.wc-tab) ul.woocommerce-error,
+.woocommerce-page .entry-content:not(.wc-tab) ul.woocommerce-error {
+    margin: 0 0 2em;
+    padding: 1em 2em 1em 3.5em;
+}
+
+.woocommerce .entry-content:not(.wc-tab) ul.order_details,
+.woocommerce-page .entry-content:not(.wc-tab) ul.order_details {
+    margin: 1rem 0 30px;
+    padding: 1em;
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation,
 .woocommerce-account .woocommerce-MyAccount-content {
     position: relative;
@@ -813,6 +853,16 @@ form.woocommerce-cart-form {
     }
 }
 
+/* Order-received overview: WooCommerce floats the four facts side by side with a dashed divider, which wraps raggedly on a phone. Stack them. */
+@media only screen and (max-width: 480px) {
+    .woocommerce-page .woocommerce ul.order_details li {
+        float: none;
+        margin: 0 0 .75em;
+        padding: 0;
+        border: 0;
+    }
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link a {
     display: block;
     position: relative;
@@ -829,7 +879,7 @@ form.woocommerce-cart-form {
     content: "";
     width: 10px;
     height: 2px;
-    background: var(--bx-color-fg, #111);
+    background: var(--bx-color-fg);
     display: block;
     position: absolute;
     top: 0;
@@ -863,34 +913,6 @@ form.woocommerce-cart-form {
 
 
 /*--------------------------------------------------------------
-## TP WooCommerce Product Gallery
---------------------------------------------------------------*/
-
-.lg-icon {
-    font-family: lg !important;
-}
-
-
-/*--------------------------------------------------------------
-## Advanced WooCommerce Product Gallery Slider
---------------------------------------------------------------*/
-
-button.fancybox-button {
-    background: rgba(30, 30, 30, 0.6) !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    cursor: pointer;
-    display: inline-block;
-    height: 44px;
-    margin: 0;
-    outline: none;
-    padding: 10px;
-    transition: color .2s;
-    vertical-align: top;
-    width: 44px;
-}
-
-/*--------------------------------------------------------------
 ## Infinite Loader for WooCommerce
 --------------------------------------------------------------*/
 .infinite-loader-active.woocommerce .products ul::after,
@@ -900,11 +922,6 @@ button.fancybox-button {
     content: none;
 }
 
-.infinite-loader-active.woocommerce .products li.product {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-}
 
 @media screen and (min-width: 600px) {
     .infinite-loader-active .products.columns-4 {
@@ -947,13 +964,6 @@ button.fancybox-button {
     }
 }
 
-.infinite-loader-active.woocommerce .products {
-    display: grid !important;
-    grid-template-columns: repeat(var(--products-column, 1), 1fr);
-    gap: 30px;
-    margin: 0 0 30px;
-    padding: 0;
-}
 
 /* WooCommerce colours stock status #7ad03a / #e2401c, under 4.5:1 on the
  * page. Mix the status colour with the text colour so it stays green or red,
@@ -995,12 +1005,88 @@ html .woocommerce-checkout #payment div.payment_box::before {
 
 html .woocommerce .woocommerce-ordering select,
 html .woocommerce-page .woocommerce-ordering select {
-    border: 1px solid var(--bx-color-input-border);
+    border: 1px solid var(--bx-color-control-border);
     background-color: var(--bx-color-input-bg);
     color: var(--bx-color-input-fg);
 }
 
-:root[data-bx-mode="dark"] .woocommerce .woocommerce-ordering select,
-:root[data-bx-mode="dark"] .woocommerce-page .woocommerce-ordering select {
-    border-color: color-mix(in srgb, var(--bx-color-fg) 45%, transparent);
+/* Cart and Checkout block field errors use WooCommerce's #cc1818: 3.5:1 on the dark page. The error token passes in both modes. */
+body .wc-block-components-validation-error,
+body .wc-block-components-form .wc-block-components-text-input.has-error label,
+body .wc-block-components-text-input.has-error label {
+    color: var(--bx-color-error);
 }
+
+/* Review form title sits under the "Reviews" heading: the global comment-reply size (2em, 900) outranked it and the product title. */
+.woocommerce #review_form #respond .comment-reply-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Phone tap targets (40px floor): sorting, quantity, form fields, buttons, address Edit links. */
+@media only screen and (max-width: 767px) {
+    .woocommerce .woocommerce-ordering select,
+    .woocommerce .quantity .qty,
+    .woocommerce form .input-text,
+    .woocommerce .button {
+        min-height: 40px;
+    }
+
+    .woocommerce-account .woocommerce-Address-title a.edit {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+    }
+}
+
+
+/* These beat gallery, lightbox, Select2 and infinite-scroll plugins that print their own !important or inline styles, or opt out of the site-wide !important focus ring. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important */
+.pswp__ui--idle .pswp__button--arrow--left,
+.pswp__ui--idle .pswp__button--arrow--right,
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+    border: 0 !important;
+}
+
+/* Select2 draws its own highlight; the global :focus-visible ring would stack
+ * blue lines on top of it. */
+.select2-container--default .select2-results__option:focus-visible,
+.select2-container--default .select2-results__options:focus-visible,
+.select2-container--default .select2-search__field:focus-visible {
+    outline: 0 !important;
+}
+
+.lg-icon {
+    font-family: lg !important;
+}
+
+button.fancybox-button {
+    background: rgba(30, 30, 30, 0.6) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    margin: 0;
+    outline: none;
+    padding: 10px;
+    transition: color .2s;
+    vertical-align: top;
+    width: 44px;
+}
+
+.infinite-loader-active.woocommerce .products li.product {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.infinite-loader-active.woocommerce .products {
+    display: grid !important;
+    grid-template-columns: repeat(var(--products-column, 1), 1fr);
+    gap: 30px;
+    margin: 0 0 30px;
+    padding: 0;
+}
+/* stylelint-enable declaration-no-important */

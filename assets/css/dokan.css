@@ -11,25 +11,10 @@
 # Theme Color Scheme
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-# Global
---------------------------------------------------------------*/
-
-.dokan-alert {
-    padding: 15px !important;
-}
-
 .dokan-dashboard-wrap fieldset {
     margin: 0;
     padding: 0;
     border: 0;
-}
-
-.dokan-message,
-.dokan-info,
-.dokan-error {
-    padding: 15px 15px 15px 50px !important;
 }
 
 .dokan-alert>p,
@@ -69,13 +54,6 @@
 
 .dokan-dashboard .dokan-product-listing .dokan-product-listing-area {
     padding: 0;
-}
-
-button.mfp-close,
-button.mfp-arrow {
-    background: transparent !important;
-    color: var(--bx-color-fg-muted, #333) !important;
-    border: 0 !important;
 }
 
 .dokan-dashboard .select2-container--open .select2-dropdown {
@@ -119,10 +97,6 @@ button.mfp-arrow {
     .dokan-dashboard.dokan-dashboard .dokan-dashboard-content article {
         overflow: unset;
         overflow-x: auto;
-    }
-
-    .dokan-product-listing select#filter-by-type.dokan-form-control {
-        max-width: 100% !important;
     }
 
     .dokan-dashboard.dokan-dashboard .dokan-product-listing .dokan-product-listing-area .dokan-product-search-form {
@@ -285,10 +259,6 @@ button.mfp-arrow {
 }
 
 @media (max-width: 1199px) {
-    .dokan-single-store .profile-frame .profile-info-box.profile-layout-default .dummy-image.profile-info-img {
-        height: 300px !important;
-        position: relative !important;
-    }
 
     .dokan-single-store .profile-frame .profile-info-box.profile-layout-default .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img {
         margin-top: -50px;
@@ -360,28 +330,11 @@ button.mfp-arrow {
     margin: 0;
 }
 
-.dokan-store-tabs .dokan-store-support-btn,
-.dokan-store-tabs .dokan-live-chat {
-    margin-top: 0;
-    top: 0 !important;
-}
-
-.dokan-store-tabs .dokan-live-chat>span {
-    top: 15px !important;
-}
-
-.dokan-live-chat>span {
-    top: 12px !important;
-}
-
 .buddyx-dokan .dokan-single-store .dokan-store-tabs ul li a {
     padding: 8px 15px;
 }
 
 @media (max-width: 480px) {
-    .dokan-store-tabs .dokan-right {
-        float: none !important;
-    }
 
     .buddyx-dokan .dokan-single-store .dokan-store-tabs ul {
         padding: 15px;
@@ -471,7 +424,7 @@ body.buddyx-dokan.woocommerce-account ul li.woocommerce-MyAccount-navigation-lin
     margin-bottom: 1rem;
     padding: 1rem;
     padding-bottom: .5em;
-    border-bottom: 1px solid var(--bx-color-border, #e8e8e8);
+    border-bottom: 1px solid var(--bx-color-border);
 }
 
 .store-cat-stack-dokan>ul>li {
@@ -598,11 +551,7 @@ a.dokan-btn-theme.active,
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover,
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active,
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.dokan-common-links a:hover {
-    background-color: var(--color-theme-primary);
-}
-
-.dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a {
-    color: #fff !important; /* fixed: text on Dokan's own dark dashboard sidebar */
+    background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
 }
 
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active ul.navigation-submenu {
@@ -614,11 +563,6 @@ a.dokan-btn-theme.active,
     border-color: var(--color-theme-primary);
 }
 
-.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover a,
-.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current a {
-    color: var(--color-theme-primary) !important;
-}
-
 
 /* Dark-mode overrides + the seller-dashboard color-mode toggle. Split
  * out to keep this file focused; the build (scripts/build-css.js
@@ -626,3 +570,94 @@ a.dokan-btn-theme.active,
  * rules it counters. */
 /* stylelint-disable-next-line no-invalid-position-at-import-rule */
 @import './_dokan-dark.css';
+
+/* Dokan prints its own !important layout and colour rules, so these keep !important and the dark-mode selector to stay ahead of them. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important */
+/* --------------------------------------------------------------
+# Global
+-------------------------------------------------------------- */
+.dokan-alert {
+    padding: 15px !important;
+}
+
+.dokan-message,
+.dokan-info,
+.dokan-error {
+    padding: 15px 15px 15px 50px !important;
+}
+
+button.mfp-close,
+button.mfp-arrow {
+    background: transparent !important;
+    color: var(--bx-color-fg-muted) !important;
+    border: 0 !important;
+}
+
+@media (max-width: 430px) {
+    .dokan-product-listing select#filter-by-type.dokan-form-control {
+            max-width: 100% !important;
+        }
+}
+
+@media (max-width: 1199px) {
+    .dokan-single-store .profile-frame .profile-info-box.profile-layout-default .dummy-image.profile-info-img {
+            height: 300px !important;
+            position: relative !important;
+        }
+}
+
+.dokan-store-tabs .dokan-store-support-btn,
+.dokan-store-tabs .dokan-live-chat {
+    margin-top: 0;
+    top: 0 !important;
+}
+
+.dokan-store-tabs .dokan-live-chat>span {
+    top: 15px !important;
+}
+
+.dokan-live-chat>span {
+    top: 12px !important;
+}
+
+@media (max-width: 480px) {
+    .dokan-store-tabs .dokan-right {
+            float: none !important;
+        }
+}
+
+.dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a {
+    color: var(--bx-color-static-white) !important; /* fixed: text on Dokan's own dark dashboard sidebar */
+}
+
+/* Active and hovered items sit on the Theme Color fill (above). In dark mode that fill is the
+   lighter accent, where fixed white read 2.78 to 1, so the label takes the fill's contrast pick. */
+.dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu > li.active > a,
+.dokan-dashboard.dokan-dashboard.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu > li:hover > a {
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-static-white)) !important;
+}
+
+/* Submenu links sit on Dokan's dark sidebar (#322067 by default), where Theme Color text read
+   2.5 to 1. The current item keeps white text and is marked by the Theme Color bar (::before above). */
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li:hover a,
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li ul.navigation-submenu li.current a {
+    color: var(--bx-color-static-white) !important;
+}
+/* stylelint-enable declaration-no-important */
+
+/* Sale prices are not highlighted (see woocommerce.css): Dokan's product table prints the price
+   without a .price wrapper, so the global ins highlight reached it. */
+.dokan-dashboard .dokan-table ins {
+    background: transparent;
+    text-decoration: none;
+}
+
+/*
+ * Dokan's orders filter sets width:100% !important on every .dokan-for field, which also hits
+ * select2's visually hidden copy of the select. That clipped 390px box widened the page by about
+ * 30px on a phone. Contain it inside its own form group instead of overriding Dokan's !important.
+ */
+.dokan-dashboard .dokan-order-filter-serach .dokan-form-group {
+    position: relative;
+    overflow-x: clip;
+}

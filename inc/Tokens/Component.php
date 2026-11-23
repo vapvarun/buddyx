@@ -368,6 +368,7 @@ class Component implements Component_Interface {
 		// Forms.
 		'--bx-color-input-bg'             => '#ffffff',
 		'--bx-color-input-border'         => '#d4d4d4',
+		'--bx-color-control-border'       => 'var(--bx-color-input-border)',
 		'--bx-color-input-focus-border'   => 'var(--bx-color-accent)',
 		'--bx-color-input-fg'             => '#1a1a1a',
 		'--bx-color-input-placeholder'    => '#9ca3af',
@@ -581,6 +582,7 @@ class Component implements Component_Interface {
 		// Forms (dark).
 		'--bx-color-input-bg'             => '#161616',
 		'--bx-color-input-border'         => '#3a3a3a',
+		'--bx-color-control-border'       => 'color-mix(in srgb, var(--bx-color-fg) 45%, transparent)',
 		'--bx-color-input-focus-border'   => 'var(--bx-color-accent)',
 		'--bx-color-input-fg'             => '#f5f5f5',
 		'--bx-color-input-placeholder'    => '#6b7280',
@@ -1353,6 +1355,12 @@ class Component implements Component_Interface {
 		// lighter text shade derived above.
 		$tokens['--bx-color-accent-fill']         = self::derived_shade( $brand, 'fill', true );
 		$tokens['--bx-color-accent-fill-inverse'] = self::derived_shade( $brand, 'fill-inverse', true );
+		// Brand text on the raised greys of LearnDash focus mode (header #272727, sidebar #1c1c1c,
+		// a 10% white pill on #121212 = #2a2a2a). An accent that already passes there is unchanged.
+		$accent_rgb = self::color_to_rgb( $accent );
+		if ( null !== $accent_rgb ) {
+			$tokens['--bx-color-accent-text-raised'] = self::rgb_to_hex( self::contrast_shift( $accent_rgb, array( 42, 42, 42 ), 4.5 ) );
+		}
 		return $tokens;
 	}
 
@@ -1417,7 +1425,7 @@ class Component implements Component_Interface {
 		}
 		// Explicit user choice only; the "auto"/system mode was retired in 5.1.4,
 		// so there is no prefers-color-scheme media block any more.
-		return ':root[data-bx-mode="dark"]{' . $dark_decls . '}';
+		return ':root[data-bx-mode="dark"]{color-scheme:dark;' . $dark_decls . '}';
 	}
 
 	/**

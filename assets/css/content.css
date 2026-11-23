@@ -67,7 +67,7 @@
 .entry-meta .posted-by {
     display: block;
     margin: 0;
-    padding-left: 53px;
+    padding-inline-start: 53px;
     font-weight: 700;
 }
 
@@ -108,7 +108,7 @@
 .entry-meta .bx-byline-avatars__more {
     position: static;
     margin: 0;
-    box-shadow: 0 0 0 2px var(--bx-color-bg-elevated, #fff);
+    box-shadow: 0 0 0 2px var(--bx-color-bg-elevated);
 }
 
 .entry-meta.entry-meta .posted-by .bx-byline-avatars > :not(:first-child) {
@@ -122,8 +122,8 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background-color: var(--bx-color-bg-muted, #fafafa);
-    color: var(--bx-color-fg, #111);
+    background-color: var(--bx-color-bg-muted);
+    color: var(--bx-color-fg);
     font-size: 12px;
 }
 
@@ -145,7 +145,7 @@
 
 .entry-meta .posted-on {
     display: block;
-    padding-left: 53px;
+    padding-inline-start: 53px;
 }
 
 .entry-edit-link {
@@ -173,7 +173,7 @@
      * to 4.5:1 on the current mode's surface, so a pale brand stays readable
      * (the 5.0.x brand badge failed at 3.45:1). Bold + uppercase keep the label
      * distinct without relying on colour alone (WCAG 1.4.1). */
-    color: var(--bx-color-accent-text, var(--bx-color-link, var(--color-link, #111)));
+    color: var(--bx-color-accent-text, var(--bx-color-link));
     font-size: 13px;
 }
 
@@ -312,14 +312,14 @@ article .entry-header {
 }
 
 .entry-footer span {
-    margin-right: 1em;
+    margin-inline-end: 1em;
 }
 
 .entry-footer {
     clear: both;
     margin-bottom: 0;
     padding: 1.5em 0 0;
-    border-top: 1px solid var(--bx-color-border, #e8e8e8);
+    border-top: 1px solid var(--bx-color-border);
 }
 
 @media (--content-query) {
@@ -355,7 +355,7 @@ article .entry-header {
 }
 
 .buddyx-article--default .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article .entry-content {
@@ -441,7 +441,7 @@ article .entry-header {
 }
 
 .buddyx-article--list .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article--list .buddyx-article .buddyx-post-thumbnail,
@@ -638,7 +638,7 @@ article .entry-header {
 }
 
 .buddyx-article--grid .buddyx-article.has-post-thumbnail::before {
-    color: #fff; /* fixed: icon over the post thumbnail */
+    color: var(--bx-color-static-white); /* icon over the post thumbnail */
     z-index: 2;
 }
 
@@ -666,7 +666,7 @@ article .entry-header {
     text-align: center;
     margin-bottom: 0;
     padding: 0;
-    background-color: var(--bx-color-divider, #ececec);
+    background-color: var(--bx-color-divider);
     border-radius: var(--global-border-radius);
 }
 
@@ -706,7 +706,7 @@ article .entry-header {
 .buddyx-article--grid .has-post-thumbnail.buddyx-article a,
 .buddyx-article--grid .has-post-thumbnail.buddyx-article .entry-content,
 .buddyx-article--grid .has-post-thumbnail.buddyx-article .entry-meta {
-    color: #fff; /* fixed: text over the post thumbnail overlay */
+    color: var(--bx-color-static-white); /* text over the post thumbnail overlay */
 }
 
 .buddyx-article-grid-content>* {
@@ -797,7 +797,7 @@ article .entry-header {
 }
 
 .buddyx-article--masonry .buddyx-article.sticky {
-    box-shadow: 0 0 1px 2px var(--bx-color-border, #eaeaea), 8px 8px 0 rgb(230, 230, 230, 0.5);
+    box-shadow: 0 0 1px 2px var(--bx-color-border), 8px 8px 0 rgb(230, 230, 230, 0.5);
 }
 
 .buddyx-article--masonry .buddyx-article>* {
@@ -882,7 +882,7 @@ article .entry-header {
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
-    background-color: #2f4f4f; /* fixed: decorative quote-card backdrop under white text */
+    background-color: var(--bx-color-quote-card-bg); /* decorative quote-card backdrop under white text */
     background-size: cover;
 }
 
@@ -893,7 +893,7 @@ article .entry-header {
 .buddyx-quote-block::after {
     content: "";
     display: block;
-    background-image: linear-gradient(226deg, #96CE4E 0%, #0ACD7E 100%); /* fixed: decorative quote-card gradient */
+    background-image: var(--bx-gradient-quote-card); /* decorative quote-card gradient */
 }
 
 .buddyx-quote-block .wp-block-quote {
@@ -905,7 +905,7 @@ article .entry-header {
 
 .buddyx-quote-block .wp-block-quote::before {
     content: "";
-    color: #fff; /* fixed: on the decorative quote card */
+    color: var(--bx-color-static-white); /* on the decorative quote card */
     display: block;
     width: 0.875em;
     /* The glyph is 1em tall (font-size comes from the .wp-block-quote::before
@@ -919,7 +919,7 @@ article .entry-header {
 
 .buddyx-quote-block p,
 .buddyx-quote-block cite {
-    color: #fff; /* fixed: on the decorative quote card */
+    color: var(--bx-color-static-white); /* on the decorative quote card */
 }
 
 .buddyx-quote-block p {
@@ -957,13 +957,13 @@ article .entry-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bx-color-divider, #e3e3e3);
+    background: var(--bx-color-divider);
     position: relative;
 }
 
 .buddyx-article--list .has-post-thumbnail a.buddyx-link-format {
     position: absolute;
-    color: #fff; /* fixed: icon over the post thumbnail */
+    color: var(--bx-color-static-white); /* icon over the post thumbnail */
 }
 
 .buddyx-article--default .has-post-thumbnail .buddyx-link-block .post-thumbnail,
@@ -997,11 +997,11 @@ article .entry-header {
 .archive-buddyx-gallery-post .gallery .slick-prev,
 .buddyx-post-section .gallery .slick-next,
 .buddyx-post-section .gallery .slick-prev {
-    background-color: var(--bx-color-bg-elevated, #fff);
+    background-color: var(--bx-color-bg-elevated);
     border: 0;
     border-radius: 50%;
     box-shadow: 0 0 5px var(--bx-color-shadow);
-    color: var(--bx-color-fg, #1a1a1a);
+    color: var(--bx-color-fg);
     font-size: 21px;
     height: 40px;
     line-height: 40px;
@@ -1035,7 +1035,7 @@ article .entry-header {
 
 .archive-buddyx-gallery-post .gallery .slick-disabled,
 .buddyx-post-section .gallery .slick-disabled {
-    color: var(--bx-color-fg-muted, #aaa);
+    color: var(--bx-color-fg-muted);
     cursor: default;
 }
 
@@ -1097,7 +1097,7 @@ article .entry-header {
     margin-top: -32px;
     margin-left: -36px;
     border: 6px solid rgba(255, 255, 255, .45);
-    color: #fff; /* fixed: play icon over the video thumbnail */
+    color: var(--bx-color-static-white); /* play icon over the video thumbnail */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1188,7 +1188,7 @@ article .entry-header {
 
 .post-meta-tags.badge .post-meta-tag__item>a {
     background-color: var(--bx-color-accent-fill, var(--color-theme-primary));
-    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, #fff));
+    color: var(--bx-color-accent-fill-inverse, var(--bx-color-accent-inverse, var(--bx-color-fg-inverse)));
     display: inline-block;
     padding: 4px 8px;
     font-size: 13px;
@@ -1317,7 +1317,7 @@ article .entry-header {
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .buddyx-breadcrumbs,
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .buddyx-breadcrumbs a,
 .buddyx-section-title-over:not(.quote):not(.video):not(.audio):not(.gallery).has-featured-image .post-edit-link {
-    color: #fff; /* fixed: title text over the featured image */
+    color: var(--bx-color-static-white); /* title text over the featured image */
 }
 
 .buddyx-section-title-over.has-featured-image .entry-header--default {
@@ -1417,7 +1417,7 @@ article .entry-header {
         width: 100vw;
         transform: translateX(-50%);
         max-width: 1600px;
-        background: var(--bx-color-bg-muted, #f5f5f5);
+        background: var(--bx-color-bg-muted);
     }
 
     .single-post-main-wrapper .buddyx-section-half.has-featured-image .entry-media-image {
@@ -1601,7 +1601,7 @@ body.single-ideas #comments .comment-reply-link:hover {
     border: 1px solid var(--global-border-color);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
     border-radius: var(--global-border-radius);
-    background: var(--bx-color-bg-elevated, #fff);
+    background: var(--bx-color-bg-elevated);
 }
 
 #wp-idea-stream ul.idea-list>li+li {
@@ -1816,29 +1816,29 @@ body.single-lcn_notes .content-wrapper {
 
 .has-base-color,
 .has-base-color a {
-    color: var(--wp--preset--color--base, #fff);
+    color: var(--wp--preset--color--base, var(--bx-color-static-white));
 }
 
 .has-base-background-color {
-    background-color: var(--wp--preset--color--base, #fff);
+    background-color: var(--wp--preset--color--base, var(--bx-color-static-white));
 }
 
 .has-contrast-color,
 .has-contrast-color a {
-    color: var(--wp--preset--color--contrast, #000);
+    color: var(--wp--preset--color--contrast, var(--bx-color-static-black));
 }
 
 .has-contrast-background-color {
-    background-color: var(--wp--preset--color--contrast, #000);
+    background-color: var(--wp--preset--color--contrast, var(--bx-color-static-black));
 }
 
 .has-tertiary-color,
 .has-tertiary-color a {
-    color: var(--wp--preset--color--tertiary, #f6f6f6);
+    color: var(--wp--preset--color--tertiary, var(--bx-color-legacy-tertiary));
 }
 
 .has-tertiary-background-color {
-    background-color: var(--wp--preset--color--tertiary, #f6f6f6);
+    background-color: var(--wp--preset--color--tertiary, var(--bx-color-legacy-tertiary));
 }
 
 /*--------------------------------------------------------------
@@ -1875,4 +1875,20 @@ body.single-lcn_notes .content-wrapper {
 
 .elementor hr.wp-block-separator {
     margin: 1.5em auto;
+}
+
+/* 404 and no-results: the search form is a row with the button level with the field, and room before what follows. */
+.error .search-form,
+.no-results .search-form {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    max-width: 32rem;
+    margin: 0 0 2rem;
+}
+
+.error .search-form input[type="search"],
+.no-results .search-form input[type="search"] {
+    flex: 1;
+    min-width: 0;
 }

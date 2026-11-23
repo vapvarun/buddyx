@@ -912,6 +912,8 @@
     width: device-width;
   }
 
+/* Responsive visibility utilities (Bootstrap 3 API): a utility class must win over any component display rule, so they keep !important. They stay last in the grid sheet. Kept unchanged, in source order and specificity, so live sites render exactly as before. */
+/* stylelint-disable declaration-no-important */
   .visible-xs {
     display: none !important;
   }
@@ -1173,3 +1175,4 @@
       display: none !important;
     }
   }
+/* stylelint-enable declaration-no-important */

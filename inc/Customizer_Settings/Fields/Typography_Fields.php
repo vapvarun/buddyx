@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'site_title_typography_option',
-				'label'    => esc_html__( 'Site Title Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Site Title', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.site-title a',
@@ -49,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'site_tagline_typography_option',
-				'label'    => esc_html__( 'Site Tagline Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Site Tagline', 'buddyx' ),
 				'section'  => 'site_title_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -63,7 +63,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.site-description',
@@ -82,7 +82,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h1_typography_option',
-				'label'    => esc_html__( 'H1 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 1 (H1)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -96,7 +96,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h1',
@@ -112,7 +112,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h2_typography_option',
-				'label'    => esc_html__( 'H2 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 2 (H2)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -126,7 +126,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h2',
@@ -142,7 +142,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h3_typography_option',
-				'label'    => esc_html__( 'H3 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 3 (H3)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -156,7 +156,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h3',
@@ -172,7 +172,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h4_typography_option',
-				'label'    => esc_html__( 'H4 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 4 (H4)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -186,7 +186,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h4',
@@ -202,7 +202,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h5_typography_option',
-				'label'    => esc_html__( 'H5 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 5 (H5)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -216,7 +216,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h5',
@@ -232,7 +232,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'h6_typography_option',
-				'label'    => esc_html__( 'H6 Tag Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Heading 6 (H6)', 'buddyx' ),
 				'section'  => 'headings_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -246,7 +246,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'h6',
@@ -265,7 +265,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'menu_typography_option',
-				'label'    => esc_html__( 'Menu Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Main Menu', 'buddyx' ),
 				'section'  => 'menu_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -279,7 +279,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.main-navigation a, .main-navigation ul li a, .nav--toggle-sub li.menu-item-has-children, .nav--toggle-small .menu-toggle',
@@ -295,7 +295,7 @@ defined( 'ABSPATH' ) || exit;
 			'typography',
 			array(
 				'settings' => 'sub_menu_typography_option',
-				'label'    => esc_html__( 'Sub Menu Settings', 'buddyx' ),
+				'label'    => esc_html__( 'Dropdown Menu', 'buddyx' ),
 				'section'  => 'menu_typography_section',
 				'default'  => array(
 					'font-family'     => '',
@@ -309,7 +309,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => '.main-navigation ul#primary-menu>li .sub-menu a',
@@ -339,7 +339,7 @@ defined( 'ABSPATH' ) || exit;
 					'text-decoration' => '',
 				),
 				'priority' => 10,
-				'tooltip'  => esc_html__( 'We recommend using font size in pixels (px)', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Tip: set font sizes in pixels (px).', 'buddyx' ),
 				'output'   => array(
 					array(
 						'element' => 'body:not(.block-editor-page):not(.wp-core-ui), input, optgroup, select, textarea',

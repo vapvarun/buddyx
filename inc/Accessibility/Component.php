@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Accessibility;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use WP_Post;
 

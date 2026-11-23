@@ -5,6 +5,10 @@
  * @package buddyx
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! function_exists( 'buddyx_is_truthy' ) ) {
 	/**
 	 * Boolean-equivalence helper for theme_mod values.
@@ -54,7 +58,7 @@ if ( ! function_exists( 'buddyx_get_icon' ) ) {
 	 * Inline SVG markup for one of the theme's own icons.
 	 *
 	 * The theme draws its icons itself so they never depend on Font Awesome,
-	 * which the site owner can turn off (Customizer > Site Performance). The
+	 * which the site owner can turn off (Customizer > Performance). The
 	 * paths are Font Awesome Free 6.6.0 (CC BY 4.0), so the icons look the same
 	 * as the font glyphs they replace. The width keeps the glyph's own advance
 	 * (viewBox width / 512), sized by font-size like the font was; the
@@ -187,6 +191,26 @@ if ( ! function_exists( 'buddyx_bbp_no_breadcrumb' ) ) {
 }
 add_filter( 'bbp_no_breadcrumb', 'buddyx_bbp_no_breadcrumb' );
 
+if ( ! function_exists( 'buddyx_bbp_rtl_default_styles' ) ) {
+	/**
+	 * On RTL sites bbPress loads its LTR sheet and then its full RTL copy on top,
+	 * so every side-specific rule is applied twice (reply text pushed in 130px from
+	 * both sides). Load only the RTL copy, under the bbp-default handle so styles
+	 * that depend on that handle keep working. LTR sites are not touched.
+	 *
+	 * @param array $styles bbPress default styles, keyed by handle.
+	 * @return array
+	 */
+	function buddyx_bbp_rtl_default_styles( $styles ) {
+		if ( is_rtl() && isset( $styles['bbp-default'], $styles['bbp-default-rtl'] ) ) {
+			$styles['bbp-default']['file'] = $styles['bbp-default-rtl']['file'];
+			unset( $styles['bbp-default-rtl'] );
+		}
+		return $styles;
+	}
+}
+add_filter( 'bbp_default_styles', 'buddyx_bbp_rtl_default_styles' );
+
 if ( ! function_exists( 'buddyx_edd_button_color_class' ) ) {
 	/**
 	 * Easy Digital Downloads buttons use the theme button until the owner picks an
@@ -266,10 +290,35 @@ if ( ! function_exists( 'buddyx_learndash_colors' ) ) {
 }
 add_filter( 'learndash_30_custom_colors', 'buddyx_learndash_colors' );
 
+if ( ! function_exists( 'buddyx_learndash_customizer_important' ) ) {
+	/**
+	 * Once a secondary colour is set, LearnDash prints its colour rules with !important, which beat
+	 * the LearnDash Customizer styles printed without it. Mark every Customizer style !important so
+	 * a colour the owner picks there still wins. LearnDash skips settings left at their default.
+	 *
+	 * @param array $config LearnDash Customizer config: panels > sections > controls > settings.
+	 * @return array
+	 */
+	function buddyx_learndash_customizer_important( $config ) {
+		foreach ( $config['panels'] ?? array() as $p => $panel ) {
+			foreach ( $panel['sections'] ?? array() as $s => $section ) {
+				foreach ( $section['controls'] ?? array() as $c => $control ) {
+					foreach ( array_keys( $control['settings'] ?? array() ) as $k ) {
+						$config['panels'][ $p ]['sections'][ $s ]['controls'][ $c ]['settings'][ $k ]['important'] = true;
+					}
+				}
+			}
+		}
+		return $config;
+	}
+}
+add_filter( 'learndash_customizer_config', 'buddyx_learndash_customizer_important' );
+
 if ( ! function_exists( 'buddyx_learndash_body_class' ) ) {
 	/**
-	 * Marks pages where LearnDash runs on the theme's colours, so dark mode can
-	 * lighten LearnDash's brand-coloured text without touching owner-picked colours.
+	 * Marks pages where LearnDash runs on the theme's colours (bx-ld-theme-colors), so the theme can
+	 * feed its brand to LearnDash and lighten it in dark mode without touching owner-picked colours,
+	 * and sites on LearnDash's Modern course design (bx-ld-modern).
 	 *
 	 * @param array $classes Body classes.
 	 * @return array
@@ -277,6 +326,9 @@ if ( ! function_exists( 'buddyx_learndash_body_class' ) ) {
 	function buddyx_learndash_body_class( $classes ) {
 		if ( buddyx_learndash_default_colors() ) {
 			$classes[] = 'bx-ld-theme-colors';
+		}
+		if ( function_exists( 'buddyx_ld_is_modern' ) && buddyx_ld_is_modern() ) {
+			$classes[] = 'bx-ld-modern';
 		}
 		return $classes;
 	}
@@ -286,19 +338,30 @@ add_filter( 'body_class', 'buddyx_learndash_body_class' );
 if ( ! function_exists( 'buddyx_member_url' ) ) {
 	/**
 	 * Profile URL of a member: the BuddyPress profile (BuddyPress 12+ API first, then
-	 * the older one BuddyBoss still uses), else the author archive.
+	 * the older one BuddyBoss still uses), else the Jetonomy profile, else the author archive.
 	 *
 	 * @param int $user_id User ID.
 	 * @return string
 	 */
 	function buddyx_member_url( $user_id ) {
 		if ( function_exists( 'bp_members_get_user_url' ) ) {
-			return bp_members_get_user_url( $user_id );
+			$url = bp_members_get_user_url( $user_id );
+		} elseif ( function_exists( 'bp_core_get_user_domain' ) ) {
+			$url = bp_core_get_user_domain( $user_id );
+		} elseif ( function_exists( '\Jetonomy\get_profile_url' ) && '' !== \Jetonomy\get_profile_url( (int) $user_id ) ) {
+			// Jetonomy-only community: the member's profile, not an author archive they never post to.
+			$url = \Jetonomy\get_profile_url( (int) $user_id );
+		} else {
+			$url = get_author_posts_url( $user_id );
 		}
-		if ( function_exists( 'bp_core_get_user_domain' ) ) {
-			return bp_core_get_user_domain( $user_id );
-		}
-		return get_author_posts_url( $user_id );
+
+		/**
+		 * Filters the member profile URL used by the header, menus and member lists.
+		 *
+		 * @param string $url     Profile URL.
+		 * @param int    $user_id User ID.
+		 */
+		return (string) apply_filters( 'buddyx_member_url', $url, (int) $user_id );
 	}
 }
 
@@ -566,9 +629,9 @@ if ( ! function_exists( 'buddyx_categorized_blog' ) ) {
  */
 if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 	/**
-	 * Redirects 404 error pages to a custom page set in the theme customizer.
-	 * This optimized version only runs necessary code when on a 404 page and
-	 * adds more efficient checks.
+	 * Shows a custom page set in the theme customizer on 404 error pages, with a real 404 status.
+	 * The URL stays the requested one and the response stays a 404, so search
+	 * engines do not index it as a soft 404.
 	 *
 	 * @return void
 	 */
@@ -582,8 +645,7 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 		// resolves to a 404 (e.g. rtMedia's activity upload POST to
 		// */upload/, or any plugin that posts to an unregistered BP
 		// sub-route) must fall through so a later template_redirect handler
-		// - or WordPress's own 404 response - can deal with it, instead of
-		// being 301'd to the custom 404 page and losing its body.
+		// - or WordPress's own 404 response - can deal with it.
 		$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) ) : 'GET';
 		if ( ! in_array( $request_method, array( 'GET', 'HEAD' ), true ) ) {
 			return;
@@ -595,18 +657,13 @@ if ( ! function_exists( 'buddyx_404_redirect' ) ) {
 			return;
 		}
 
-		// Get the custom 404 page ID - retrieve from theme mod only once.
-		$redirect_page_id = get_theme_mod( 'buddyx_404_page', 0 );
-
-		// Only proceed with redirection if a valid page ID exists.
-		if ( ! empty( $redirect_page_id ) && get_post_status( $redirect_page_id ) === 'publish' ) {
-			$redirect_url = get_permalink( $redirect_page_id );
-
-			// Only redirect if we got a valid URL.
-			if ( ! empty( $redirect_url ) ) {
-				wp_safe_redirect( $redirect_url, 301 );
-				exit;
-			}
+		// Show the chosen page in place of the 404 template, keeping the 404 status and the requested URL.
+		$page_id = (int) get_theme_mod( 'buddyx_404_page', 0 );
+		if ( $page_id && 'publish' === get_post_status( $page_id ) && 'page' === get_post_type( $page_id ) ) {
+			global $wp_query;
+			$wp_query->query( array( 'page_id' => $page_id ) );
+			status_header( 404 );
+			nocache_headers();
 		}
 	}
 

@@ -1,12 +1,7 @@
-/*--------------------------------------------------------------
-# Imports
---------------------------------------------------------------*/
-
-@import "_reset.css";
-@import "_typography.css";
-@import "_elements.css";
-@import "_links.css";
-@import "_grid.css";
+/* No base partials are imported here. global.min.css already carries _reset, _typography,
+   _elements, _links and _grid; re-emitting them in this sheet, which loads last, let those
+   base rules beat every later sheet on RTL sites only (for example the token button text,
+   so input[type=submit] read #505050 on the Theme Color). */
 
 /*--------------------------------------------------------------
 # Basic
@@ -58,11 +53,6 @@ textarea {
     }
 }
 
-.site-logo-wrapper > a {
-    margin-left: 15px;
-    margin-right: 0;
-}
-
 .user-link-wrap .bp-user {
     padding-left: 15px;
     padding-right: 0;
@@ -86,8 +76,8 @@ textarea {
 .buddypress-icons-wrapper .bp-msg sup,
 .buddypress-icons-wrapper .user-notifications sup,
 .menu-icons-wrapper .cart sup {
-    right: -9px;
-    left: auto;
+    right: auto;
+    left: -8px;
 }
 
 #user-profile-menu,
@@ -167,6 +157,56 @@ select#pa_size {
     left: auto;
 }
 
+/* Header dropdowns (profile, notifications) and the search popup: navigation.css
+ * anchors them to the right at every width, so the mirror is unscoped too. */
+.main-navigation .bp-header-submenu {
+    left: -8px;
+    right: auto;
+}
+
+.main-navigation .bp-header-submenu.bp-notify {
+    left: -25px;
+    right: auto;
+}
+
+.bp-header-submenu::before {
+    left: 28px;
+    right: auto;
+}
+
+.main-navigation #user-profile-menu {
+    left: 0;
+    right: auto;
+}
+
+.user-profile-menu::before {
+    left: 50px;
+    right: auto;
+}
+
+.menu-icons-wrapper .top-menu-search-container {
+    left: -10px;
+    right: auto;
+}
+
+@media (max-width: 480px) {
+    .menu-icons-wrapper .top-menu-search-container {
+        left: -80px;
+        right: auto;
+    }
+}
+
+@media (max-width: 440px) {
+    .buddypress-icons-wrapper #bp-notify {
+        left: -60px;
+        right: auto;
+    }
+    #bp-notify.bp-header-submenu::before {
+        left: 63px;
+        right: auto;
+    }
+}
+
 @media (min-width: 768px) {
     .nav--toggle-sub li.menu-item--has-toggle,
     .nav--toggle-sub li.menu-item-has-children {
@@ -206,10 +246,19 @@ select#pa_size {
         right: auto;
         left: 10px;
     }
+    /* Dropdowns hang from the start edge of their menu item, as in LTR from the end. */
+    .nav--toggle-sub ul ul {
+        left: 0;
+        right: auto;
+    }
     .menu-item--has-toggle>ul.sub-menu::before,
     .nav--toggle-sub ul.user-profile-menu .sub-menu::before {
-        right: 28px;
-        left: 0;
+        left: 28px;
+        right: auto;
+    }
+    .hideshow.menu-item--has-toggle>ul.sub-menu::before {
+        left: 24px;
+        right: auto;
     }
     .nav--toggle-sub ul.user-profile-menu .sub-menu::before,
     .sub-menu li.menu-item--has-toggle>ul.sub-menu::before {
@@ -217,22 +266,6 @@ select#pa_size {
         right: auto;
         left: 0;
         transform: rotate(-130deg);
-    }
-    .main-navigation .bp-header-submenu {
-        left: -8px;
-        right: auto;
-    }
-    .bp-header-submenu::before {
-        left: 28px;
-        right: auto;
-    }
-    .main-navigation #user-profile-menu {
-        left: 0;
-        right: auto;
-    }
-    .user-profile-menu::before {
-        left: 50px;
-        right: auto;
     }
     .nav--toggle-sub ul.user-profile-menu .sub-menu {
         top: 0;
@@ -248,8 +281,18 @@ select#pa_size {
         left: 0;
     }
     .user-profile-menu::before {
-        left: 10px;
+        left: 24px;
         right: auto;
+    }
+
+    /* The mobile drawer opens from the start edge, next to its toggle. */
+    .main-navigation .primary-menu-container {
+        right: auto;
+        left: 0;
+        transform: translate3d(-340px, 0, 0);
+    }
+    .mobile-menu-opened .main-navigation .primary-menu-container {
+        transform: none;
     }
 }
 
@@ -267,6 +310,14 @@ select#pa_size {
     margin-left: 6px;
 }
 
+/* Mirror of the colour-toggle tap area in _navigation.css. */
+@media (max-width: 767px) {
+    .buddypress-icons-wrapper .bx-color-mode-toggle__btn::before {
+        right: -6px;
+        left: -2px;
+    }
+}
+
 
 /*--------------------------------------------------------------
 # Blog
@@ -274,8 +325,6 @@ select#pa_size {
 
 .entry-meta .entry-meta__content {
     text-align: right;
-    margin-right: 0;
-    margin-left: 20px;
 }
 
 .entry-meta.entry-meta .posted-by img {
@@ -286,12 +335,6 @@ select#pa_size {
     left: auto;
     margin-right: 0;
     margin-left: 0;
-}
-
-.entry-meta .posted-by,
-.entry-meta .posted-on {
-    padding-right: 53px;
-    padding-left: 0;
 }
 
 .buddyx-article-list-thumbnail.buddyx-article-list-thumbnail {
@@ -321,6 +364,33 @@ select#pa_size {
     }
 }
 
+
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+
+/* comments.css is printed in the page body, after this sheet, so these rules carry
+ * the .rtl body class to win. Spacing there is logical and mirrors on its own. */
+.rtl .comment .avatar,
+.rtl .review .avatar {
+    left: auto;
+    right: -70px;
+}
+
+.rtl .reply,
+.rtl .comment-form .form-submit {
+    text-align: left;
+}
+
+.rtl #respond .comment-form .form-submit {
+    text-align: right;
+}
+
+.rtl .comment-form-author,
+.rtl .comment-form-email,
+.rtl .comment-form-url {
+    float: right;
+}
 
 /*--------------------------------------------------------------
 # BuddyPress
@@ -355,14 +425,35 @@ select#pa_size {
     }
 }
 
+/* Online dot: buddypress.css pins it to the top-right of the avatar; mirror to top-left. */
+.member-status {
+    right: auto;
+    left: -4px;
+}
+
+.round-avatars .member-status {
+    right: auto;
+    left: 2px;
+}
+
+.grid .member-status {
+    right: auto;
+    left: 18px;
+}
+
+.round-avatars #buddypress #item-header-cover-image #item-header-avatar .member-status {
+    right: auto;
+    left: 15px;
+}
+
+body:not(.round-avatars) .grid .member-status {
+    right: auto;
+    left: -2px;
+}
+
 #buddypress.buddypress-wrap form#whats-new-form #whats-new-submit {
     margin-left: 0;
     margin-right: auto;
-}
-
-.activity-update-form #whats-new-content {
-    margin-right: 65px;
-    margin-left: 0;
 }
 
 .activity-update-form.modal-popup #whats-new-content {
@@ -459,10 +550,29 @@ body.bp-nouveau.media #buddypress div#item-header div#item-header-content ul li 
     text-align: right;
 }
 
+/* The @handle is Latin: let it resolve its own direction so the @ stays in front of the name. */
+p.user-nicename {
+    unicode-bidi: plaintext;
+}
+
 .dashicons-arrow-right,
 .dashicons-arrow-left {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+/* Post and comment navigation: the angle icons point toward the previous / next edge, and
+   their gap sits between icon and title. */
+.nav-previous a::before {
+    margin-right: 0;
+    margin-left: 10px;
+    transform: scaleX(-1);
+}
+
+.nav-next a::after {
+    margin-left: 0;
+    margin-right: 10px;
+    transform: scaleX(-1);
 }
 
 .groups-header #buddypress #header-cover-image,
@@ -489,7 +599,9 @@ a.prev.page-numbers {
 }
 
 .nav-links a.prev.page-numbers,
-.nav-links a.next.page-numbers {
+.nav-links a.next.page-numbers,
+.woocommerce-pagination a.prev.page-numbers,
+.woocommerce-pagination a.next.page-numbers {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
 }
@@ -547,4 +659,40 @@ a.prev.page-numbers {
 /* Select arrows are painted with a physical background-position; mirror them to the start side. */
 :root {
     --bx-select-arrow-x: left;
+}
+
+/* Select2 (WooCommerce country, state and sorting selects): woocommerce.css pins the
+ * arrow to the right edge at the same specificity as Select2's own [dir="rtl"] rule
+ * and loads later, so in RTL the arrow sat on top of the first characters. */
+:root .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: auto;
+    left: 1px;
+}
+
+/* Product tab panel lists: woocommerce.css adds a physical 20px left indent. */
+.woocommerce div.product .woocommerce-tabs .panel ul,
+.woocommerce-page div.product .woocommerce-tabs .panel ol {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+/*--------------------------------------------------------------
+# bbPress
+--------------------------------------------------------------*/
+
+/* bbpress.css floats the forum search to the right, overriding bbPress's own RTL
+ * float: left; keep it at the end edge like the LTR layout. Below 768px bbpress.css
+ * unfloats it to full width, so the mirror stops there too. */
+@media only screen and (min-width: 768px) {
+    #bbpress-forums div.bbp-search-form {
+        float: left;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    #bbpress-forums li.bbp-header li.bbp-forum-info,
+    #bbpress-forums li.bbp-header li.bbp-topic-title {
+        text-align: right;
+    }
 }

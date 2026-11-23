@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 			'radio',
 			array(
 				'settings'        => 'blog_image_position',
-				'label'           => esc_html__( 'Image position', 'buddyx' ),
+				'label'           => esc_html__( 'Image Position', 'buddyx' ),
 				'section'         => 'site_blog_section',
 				'priority'        => 10,
 				'default'         => 'thumb-left',
@@ -76,13 +76,13 @@ defined( 'ABSPATH' ) || exit;
 			'radio',
 			array(
 				'settings'        => 'blog_masonry_view',
-				'label'           => esc_html__( 'View', 'buddyx' ),
+				'label'           => esc_html__( 'Card Arrangement', 'buddyx' ),
 				'section'         => 'site_blog_section',
 				'priority'        => 10,
 				'default'         => 'without-masonry',
 				'choices'         => array(
-					'without-masonry' => esc_html__( 'Without Masonry', 'buddyx' ),
-					'with-masonry'    => esc_html__( 'With Masonry', 'buddyx' ),
+					'without-masonry' => esc_html__( 'Even rows', 'buddyx' ),
+					'with-masonry'    => esc_html__( 'Staggered (masonry)', 'buddyx' ),
 				),
 				'active_callback' => array(
 					array(
@@ -98,7 +98,7 @@ defined( 'ABSPATH' ) || exit;
 			'select',
 			array(
 				'settings'        => 'post_per_row',
-				'label'           => esc_html__( 'Post Per Row', 'buddyx' ),
+				'label'           => esc_html__( 'Posts Per Row', 'buddyx' ),
 				'section'         => 'site_blog_section',
 				'default'         => 'buddyx-masonry-2',
 				'priority'        => 10,
@@ -128,7 +128,7 @@ defined( 'ABSPATH' ) || exit;
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),
-				'tooltip'  => esc_html__( 'Display tags on blog layouts.', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Shows each post\'s tags in the blog and archive post lists.', 'buddyx' ),
 			)
 		);
 
@@ -136,7 +136,7 @@ defined( 'ABSPATH' ) || exit;
 			'radio',
 			array(
 				'settings'        => 'blog_show_tags_style',
-				'label'           => esc_html__( 'Tags Style', 'buddyx' ),
+				'label'           => esc_html__( 'Tag Style', 'buddyx' ),
 				'section'         => 'site_blog_section',
 				'priority'        => 10,
 				'default'         => 'default',
@@ -167,7 +167,7 @@ defined( 'ABSPATH' ) || exit;
 					'on'  => esc_html__( 'Enable', 'buddyx' ),
 					'off' => esc_html__( 'Disable', 'buddyx' ),
 				),
-				'tooltip'  => esc_html__( 'Please remember that the results will be shown in the frontend.', 'buddyx' ),
+				'tooltip'  => esc_html__( 'Adds an Edit link to each post. Only logged-in users who can edit the post see it.', 'buddyx' ),
 			)
 		);
 
@@ -217,7 +217,7 @@ defined( 'ABSPATH' ) || exit;
 			array(
 				'settings'        => 'buddyx_section_title_over_overlay',
 				'label'           => esc_attr__( 'Image Overlay Color', 'buddyx' ),
-				'description'     => esc_attr__( 'Allow to add image overlay color on single post title layout one.', 'buddyx' ),
+				'description'     => esc_attr__( 'Tint laid over the featured image when the title sits on the image (the first title layout).', 'buddyx' ),
 				'section'         => 'site_blog_section',
 				'default'         => 'rgba(0, 0, 0, 0.1)',
 				'priority'        => 10,

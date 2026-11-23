@@ -99,15 +99,15 @@ option {
 }
 
 .editor-styles-wrapper {
-    background-color: #fff;
-    color: #505050;
+    background-color: var(--bx-color-bg);
+    color: var(--global-font-color);
     font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
     line-height: 1.8;
     word-wrap: break-word;
 }
 
 .editor-styles-wrapper>* {
-    color: #505050;
+    color: var(--global-font-color);
     font-family: Inter, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen-sans, ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
 }
 
@@ -117,7 +117,7 @@ option {
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-    color: #111;
+    color: var(--bx-color-h1);
     line-height: 1.3;
     margin: 0 0 20px;
 }
@@ -191,17 +191,6 @@ option {
 .editor-styles-wrapper .wp-block-heading {
     margin-top: 1.5em;
     margin-bottom: 0.75em;
-}
-
-.editor-styles-wrapper .wp-block-code {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    padding: 1.5em 2em;
-    background-color: var(--color-code-bg);
-    color: var(--color-code-text);
-    border: none;
-    border-radius: var(--global-border-radius);
 }
 
 .editor-styles-wrapper .wp-block-code code {

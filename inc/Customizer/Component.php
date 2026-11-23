@@ -7,6 +7,8 @@
 
 namespace BuddyX\Buddyx\Customizer;
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 use BuddyX\Buddyx\Component_Interface;
 use WP_Customize_Manager;
 

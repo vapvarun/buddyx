@@ -39,10 +39,14 @@ function buddyx_initSubmenuEscape() {
 			return;
 		}
 		const active = e.target;
+		// Focus inside the menu wins; otherwise the innermost item under the pointer.
 		let item =
-			active && active.closest
+			(active && active.closest
 				? active.closest('.nav--toggle-sub li')
-				: null;
+				: null) ||
+			Array.from(
+				document.querySelectorAll('.nav--toggle-sub li:hover')
+			).pop();
 		// The innermost item whose dropdown is showing: the focused parent, or the parent of a focused child link.
 		while (item) {
 			const sub = item.querySelector(':scope > ul');
@@ -60,7 +64,7 @@ function buddyx_initSubmenuEscape() {
 		if (toggle) {
 			toggle.setAttribute('aria-expanded', 'false');
 		}
-		if (!item.firstElementChild.contains(active)) {
+		if (item.contains(active) && !item.firstElementChild.contains(active)) {
 			item.firstElementChild.focus();
 		}
 	});
@@ -112,20 +116,85 @@ function buddyx_initMenuMore() {
 	// edges. Extra items can spill out on either side (right-aligned menus,
 	// right-to-left sites), which scrollWidth does not report (it also carries
 	// a constant 2px from item margins).
-	function overflowing() {
+	// Items hidden by CSS (display:none, e.g. a login link hidden per login
+	// state) have no box: measuring them reads 0,0 and fakes an overflow, so
+	// only rendered items are compared and only rendered items move into More.
+	function shown() {
+		return Array.prototype.filter.call(menu.children, function (item) {
+			return item.getClientRects().length > 0;
+		});
+	}
+
+	// The logo and title sit in front of the menu. Items may only use the room
+	// after them, and a long title can leave the menu box zero wide, so the
+	// menu's own edges are not enough to detect a spill over the branding.
+	const branding = document.querySelector('.site-branding');
+	const rtl =
+		'rtl' === window.getComputedStyle(document.documentElement).direction;
+
+	function room() {
 		const box = menu.getBoundingClientRect();
-		const first = menu.firstElementChild.getBoundingClientRect();
-		const last = menu.lastElementChild.getBoundingClientRect();
-		return (
-			Math.min(first.left, last.left) < box.left - 1 ||
-			Math.max(first.right, last.right) > box.right + 1
+		let left = box.left;
+		let right = box.right;
+		if (branding) {
+			const brand = branding.getBoundingClientRect();
+			if (rtl) {
+				right = Math.min(right, brand.left);
+			} else {
+				left = Math.max(left, brand.right);
+			}
+		}
+		return { left, right };
+	}
+
+	// How many pixels the shown items stick out of the room they have.
+	function overflowBy() {
+		const items = shown();
+		if (!items.length) {
+			return 0;
+		}
+		const box = room();
+		const first = items[0].getBoundingClientRect();
+		const last = items[items.length - 1].getBoundingClientRect();
+		return Math.max(
+			0,
+			box.left - Math.min(first.left, last.left),
+			Math.max(first.right, last.right) - box.right
 		);
+	}
+
+	function overflowing() {
+		return overflowBy() > 1;
 	}
 
 	function setOpen(open) {
 		more.classList.toggle('menu-item--toggled-on', open);
 		list.classList.toggle('toggle-show', open);
 		button.setAttribute('aria-expanded', open ? 'true' : 'false');
+	}
+
+	function moveToMore() {
+		while (list.firstChild) {
+			menu.insertBefore(list.firstChild, more.parentNode ? more : null);
+		}
+		if (more.parentNode) {
+			menu.removeChild(more);
+		}
+		if (!overflowing()) {
+			return;
+		}
+		menu.appendChild(more);
+		const items = shown().filter(function (item) {
+			return item !== more;
+		});
+		// Even the first item moves when the row is squeezed: a menu that does not fit must not spill over the logo.
+		for (let i = items.length - 1; i >= 0 && overflowing(); i--) {
+			list.insertBefore(items[i], list.firstChild);
+		}
+		// Nothing had to move (More itself tipped the measure): no empty More.
+		if (!list.firstChild) {
+			menu.removeChild(more);
+		}
 	}
 
 	function fit() {
@@ -137,15 +206,28 @@ function buddyx_initMenuMore() {
 		if (more.parentNode) {
 			menu.removeChild(more);
 		}
+		if (branding) {
+			branding.style.maxWidth = '';
+		}
 		// Only while the menu is laid out as the desktop row; the mobile panel
 		// (or a hidden desktop menu below the owner's breakpoint) lists every item.
-		if (menu.getClientRects().length && overflowing()) {
-			menu.appendChild(more);
-			const items = menu.querySelectorAll(
-				':scope > li:not(.bx-menu-more)'
-			);
-			for (let i = items.length - 1; i > 0 && overflowing(); i--) {
-				list.insertBefore(items[i], list.firstChild);
+		if (menu.getClientRects().length) {
+			moveToMore();
+			// Even More (or the header icons after it) does not fit beside a long title: let the title wrap so the menu and icons get their room.
+			const nav = menu.closest('nav');
+			for (let pass = 0; branding && pass < 3; pass++) {
+				const need =
+					overflowBy() +
+					(nav ? Math.max(0, nav.scrollWidth - nav.clientWidth) : 0);
+				if (need <= 1) {
+					break;
+				}
+				branding.style.maxWidth =
+					Math.max(
+						branding.getBoundingClientRect().width - need - 8,
+						120
+					) + 'px';
+				moveToMore();
 			}
 		}
 		// The current page can be moved into More; mark More as its ancestor so the row still shows where the visitor is.

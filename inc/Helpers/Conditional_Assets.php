@@ -178,6 +178,15 @@ if ( ! function_exists( 'buddyx_needs_bbpress_assets' ) ) {
 			return true;
 		}
 
+		// A BuddyPress group's "Forum" tab (and its topics) is not a bbPress
+		// query context, so is_bbpress() is false there and the topic list
+		// rendered with bbPress's white rows under dark-mode text. bbPress
+		// registers that tab with the fixed slug 'forum'.
+		if ( function_exists( 'bbp_is_group_forums_active' ) && bbp_is_group_forums_active()
+			&& function_exists( 'bp_is_group' ) && bp_is_group() && bp_is_current_action( 'forum' ) ) {
+			return true;
+		}
+
 		// BuddyBoss Platform bundles bbPress as its native forums UI and
 		// surfaces it inside the group "Forum" tab, which isn't covered by
 		// bbPress's own is_bbpress() query flags. Platform doesn't expose a

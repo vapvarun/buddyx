@@ -7,6 +7,10 @@
  * @package buddyx
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Gets the message to warn the user about the theme requirements not being met.
  *
